@@ -14,6 +14,6 @@ public interface BaseDAO<ObjectType> {
     public void create(ObjectType object);
     public void update(ObjectType object);
     public ObjectType read(long id);
-    public Collection<ObjectType> listAll();
+    public Collection<ObjectType> getAll();
     public void delete(ObjectType object);
 }
