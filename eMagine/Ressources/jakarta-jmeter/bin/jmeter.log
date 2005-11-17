@@ -1,0 +1,12 @@
+2005/11/17 17:08:28 INFO  - jmeter.util.JMeterUtils: Setting Locale to fr_FR 
+2005/11/17 17:08:29 INFO  - jmeter.JMeter: Version 2.1.1 
+2005/11/17 17:08:29 INFO  - jmeter.JMeter: java.version=1.3.1_01 
+2005/11/17 17:08:29 INFO  - jmeter.JMeter: Locale=français (France) 
+2005/11/17 17:08:29 INFO  - jmeter.JMeter: Copyright (c) 1998-2005 The Apache Software Foundation 
+2005/11/17 17:08:29 INFO  - jmeter.JMeter: Loaded icon properties from org/apache/jmeter/images/icon.properties 
+2005/11/17 17:09:13 INFO  - jmeter.protocol.http.sampler.AccessLogSamplerBeanInfo: Entered access log sampler bean info 
+2005/11/17 17:09:13 INFO  - jmeter.protocol.http.sampler.AccessLogSamplerBeanInfo: found parsers: [org.apache.jmeter.protocol.http.util.accesslog.OrderPreservingLogParser, org.apache.jmeter.protocol.http.util.accesslog.SharedTCLogParser, org.apache.jmeter.protocol.http.util.accesslog.TCLogParser] 
+2005/11/17 17:09:13 INFO  - jmeter.protocol.http.sampler.AccessLogSamplerBeanInfo: Got to end of access log samper bean info init 
+2005/11/17 17:09:15 WARN  - jmeter.gui.util.MenuFactory: Missing jar? Could not create org.apache.jmeter.visualizers.MailerVisualizer. java.lang.NoClassDefFoundError: javax/mail/MessagingException 
+2005/11/17 17:09:15 INFO  - jmeter.samplers.SampleResult: Note: Sample TimeStamps are END times 
+2005/11/17 17:09:15 INFO  - jmeter.samplers.SampleResult: sampleresult.default.encoding is set to ISO-8859-1 
