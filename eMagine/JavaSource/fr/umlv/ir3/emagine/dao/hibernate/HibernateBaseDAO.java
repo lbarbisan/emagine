@@ -41,7 +41,7 @@ public class HibernateBaseDAO<ObjectType> implements BaseDAO<ObjectType>{
     /* (non-Javadoc)
      * @see fr.umlv.ir3.emagine.dao.BaseDAO#listAll()
      */
-    public Collection<Collection> listAll() {
+    public Collection<ObjectType> listAll() {
         // TODO Auto-generated method stub
         return null;
     }
