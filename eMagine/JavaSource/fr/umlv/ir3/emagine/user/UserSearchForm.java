@@ -6,6 +6,11 @@ import org.apache.struts.action.ActionForm;
 
 public class UserSearchForm extends ActionForm implements UserSearchParam {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2405706291327109100L;
+
 	private Collection<Profile> profiles;
 
 	private String firstName;

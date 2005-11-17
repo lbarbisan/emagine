@@ -33,7 +33,7 @@ public class HibernateBaseDAO<ObjectType> implements BaseDAO<ObjectType>{
     /* (non-Javadoc)
      * @see fr.umlv.ir3.emagine.dao.BaseDAO#read(long)
      */
-    public ObjectType read(long id) {
+    public ObjectType retrieve(long id) {
         // TODO Auto-generated method stub
         return null;
     }

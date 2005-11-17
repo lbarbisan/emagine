@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<editmodel:SequenceDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="UserSearch" size="2793,750" metadata="uml2-1.0" initialized="true" scrolledX="1097" scrolledY="327" tag="10" key="323030353039323720654D6167696E65">
+<editmodel:SequenceDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="UserSearch" size="2793,750" metadata="uml2-1.0" initialized="true" scrolledX="468" tag="10" key="323030353039323720654D6167696E65">
   <children xsi:type="editmodel:ActorEditModel" location="-580,20" size="161,720" itemName="Administrateur">
     <children xsi:type="editmodel:ActivationEditModel" location="72,137" size="16,463" sequenceItemContainer="//@children.0" length="463">
       <sourceConnections xsi:type="editmodel:SequenceMessageEditModel" name="execute" source="//@children.0/@children.0" target="//@children.1/@children.0" targetEnd="//@children.0/@children.0/@sourceConnections.0/@children.1" sourceEnd="//@children.0/@children.0/@sourceConnections.0/@children.0" connectionRouterKind="Manual" associatedMethod="searchUsers(form,request)" associatedSequenceNumber="1">
@@ -133,7 +133,7 @@
   <children xsi:type="editmodel:InstanceEditModel" name="HttpServletRequest" location="1781,20" size="181,720" id="javax.servlet.http/HttpServletRequest" itemName="request">
     <children xsi:type="editmodel:ActivationEditModel" targetConnections="//@children.1/@children.0/@sourceConnections.3" location="82,500" size="16,40" sequenceItemContainer="//@children.5"/>
   </children>
-  <children xsi:type="editmodel:InstanceEditModel" name="ProfileDAO" location="1252,20" size="159,720" id="fr.umlv.ir3.emagine.dao/ProfileDAO" itemName="profileDAO">
+  <children xsi:type="editmodel:InstanceEditModel" name="ProfileDAO" location="1241,20" size="159,720" id="fr.umlv.ir3.emagine.dao/ProfileDAO" itemName="profileDAO">
     <children xsi:type="editmodel:ActivationEditModel" targetConnections="//@children.1/@children.0/@sourceConnections.5" location="71,260" size="16,40" sequenceItemContainer="//@children.6"/>
   </children>
   <children xsi:type="editmodel:InstanceEditModel" name="UserSearchForm" location="1421,20" size="159,720" id="fr.umlv.ir3.emagine.user/UserSearchForm" itemName="form">

@@ -4,6 +4,6 @@ import java.util.Collection;
 
 import fr.umlv.ir3.emagine.user.User;
 
-public interface UserDAO {
+public interface UserDAO extends BaseDAO<User> {
 	public Collection<User> getUsers(UserSearchParam userSearchParam);
 }

@@ -15,6 +15,7 @@ import fr.umlv.ir3.emagine.dao.DAOFactory;
 import fr.umlv.ir3.emagine.dao.DAOFactoryChooser;
 import fr.umlv.ir3.emagine.dao.ProfileDAO;
 import fr.umlv.ir3.emagine.dao.UserDAO;
+import fr.umlv.ir3.emagine.util.CollectionScroller;
 
 public class UserSearchAction extends DispatchAction {
 
@@ -34,6 +35,6 @@ public class UserSearchAction extends DispatchAction {
 		// Retrieve the searched users, and set them in the page 
 		UserDAO userDAO = currentDAOFactory.getUserDAO();
 		Collection<User> users = userDAO.getUsers(form);
-		request.setAttribute(Constants.USER_SEARCH_USERS, users);
+		request.setAttribute(Constants.USER_SEARCH_USERS, new CollectionScroller<User>(users));
 	}
 }
