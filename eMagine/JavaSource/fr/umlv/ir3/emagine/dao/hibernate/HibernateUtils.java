@@ -1,4 +1,4 @@
-package fr.umlv.ir3.emagine.util;
+package fr.umlv.ir3.emagine.dao.hibernate;
 
 
 import org.apache.commons.logging.Log;
