@@ -1,4 +1,4 @@
-package fr.umlv.ir3.emagine.persistance;
+package fr.umlv.ir3.emagine.util;
 
 
 import org.apache.commons.logging.Log;
@@ -11,9 +11,9 @@ import org.hibernate.cfg.AnnotationConfiguration;
 
 
 
-public class HibernateTools {
+public class HibernateUtils {
 
-    private static Log log = LogFactory.getLog(HibernateTools.class);
+    private static Log log = LogFactory.getLog(HibernateUtils.class);
 
     private static final SessionFactory sessionFactory;
     
