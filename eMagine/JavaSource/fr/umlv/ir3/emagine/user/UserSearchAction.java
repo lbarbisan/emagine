@@ -25,6 +25,11 @@ public class UserSearchAction extends DispatchAction {
 		return mapping.findForward("pageDestination"); // TODO : pageDestination
 	}
 	
+	/**
+	 * The administrator wants to search all the users matching his or her request.
+	 * @param form the ActionForm containing the request parameters
+	 * @param request the request
+	 */
 	public void searchUsers(UserSearchForm form, HttpServletRequest request) {
 		DAOFactory currentDAOFactory = DAOFactoryChooser.getCurrentDAOFactory();
 
