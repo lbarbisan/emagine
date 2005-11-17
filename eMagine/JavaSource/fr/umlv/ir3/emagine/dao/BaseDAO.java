@@ -3,7 +3,6 @@
  */
 package fr.umlv.ir3.emagine.dao;
 
-import java.util.Collection;
 
 /**
  * @author Administrateur
