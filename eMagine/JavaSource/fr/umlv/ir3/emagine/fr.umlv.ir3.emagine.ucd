@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" size="855,637" id="fr.umlv.ir3.emagine" metadata="uml2-1.0" initialized="true" scrolledX="411" scrolledY="61" tag="200" key="323030353034313120654D6167696E65">
+  <children xsi:type="editmodel:ClassEditModel" name="Constants" location="50,50" size="192,57" id="fr.umlv.ir3.emagine/Constants" runTimeClassModel="uSER_SEARCH_USERS">
+    <children xsi:type="editmodel:CompartmentEditModel" size="169,18">
+      <children xsi:type="editmodel:AttributeEditModel" name="uSER_SEARCH_USERS" id="fr.umlv.ir3.emagine/Constants#uSER_SEARCH_USERS"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:PackageEditModel" name="fr.umlv.ir3.emagine.user" location="48,140" size="764,500" id="fr.umlv.ir3.emagine.user">
+    <children xsi:type="editmodel:ClassEditModel" name="User" location="44,238" size="71,29" id="fr.umlv.ir3.emagine.user/User">
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" showAttributeProperty="true"/>
+    </children>
+    <children xsi:type="editmodel:ClassEditModel" name="UserSearchAction" location="588,50" size="156,85" id="fr.umlv.ir3.emagine.user/UserSearchAction">
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <children xsi:type="editmodel:CompartmentEditModel" size="94,36">
+        <children xsi:type="editmodel:MethodEditModel" name="execute" id="fr.umlv.ir3.emagine.user/UserSearchAction#execute"/>
+        <children xsi:type="editmodel:MethodEditModel" name="searchUsers" id="fr.umlv.ir3.emagine.user/UserSearchAction#searchUsers"/>
+      </children>
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" showAttributeProperty="true"/>
+    </children>
+    <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.1/@children.4/@sourceConnections.0" name="Profile" location="50,50" size="86,103" id="fr.umlv.ir3.emagine.user/Profile">
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <children xsi:type="editmodel:CompartmentEditModel" size="63,54">
+        <children xsi:type="editmodel:MethodEditModel" name="equals" id="fr.umlv.ir3.emagine.user/Profile#equals(Ljava.lang.Object;)"/>
+        <children xsi:type="editmodel:MethodEditModel" name="getId" id="fr.umlv.ir3.emagine.user/Profile#getId()"/>
+        <children xsi:type="editmodel:MethodEditModel" name="setId" id="fr.umlv.ir3.emagine.user/Profile#setId(J)"/>
+      </children>
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" showAttributeProperty="true"/>
+    </children>
+    <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.1/@children.4/@sourceConnections.1" name="UserSearchParam" location="204,50" size="334,43" stereotype="interface" id="fr.umlv.ir3.emagine.dao/UserSearchParam">
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" showAttributeProperty="true"/>
+    </children>
+    <children xsi:type="editmodel:ClassEditModel" name="UserSearchForm" location="258,191" size="149,229" id="fr.umlv.ir3.emagine.user/UserSearchForm">
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <children xsi:type="editmodel:CompartmentEditModel" size="94,180">
+        <children xsi:type="editmodel:MethodEditModel" name="getFirstName" id="fr.umlv.ir3.emagine.user/UserSearchForm#getFirstName()"/>
+        <children xsi:type="editmodel:MethodEditModel" name="getLastName" id="fr.umlv.ir3.emagine.user/UserSearchForm#getLastName()"/>
+        <children xsi:type="editmodel:MethodEditModel" name="getLogin" id="fr.umlv.ir3.emagine.user/UserSearchForm#getLogin()"/>
+        <children xsi:type="editmodel:MethodEditModel" name="getProfile" id="fr.umlv.ir3.emagine.user/UserSearchForm#getProfile()"/>
+        <children xsi:type="editmodel:MethodEditModel" name="getProfiles" id="fr.umlv.ir3.emagine.user/UserSearchForm#getProfiles()"/>
+        <children xsi:type="editmodel:MethodEditModel" name="setFirstName" id="fr.umlv.ir3.emagine.user/UserSearchForm#setFirstName(Ljava.lang.String;)"/>
+        <children xsi:type="editmodel:MethodEditModel" name="setLastName" id="fr.umlv.ir3.emagine.user/UserSearchForm#setLastName(Ljava.lang.String;)"/>
+        <children xsi:type="editmodel:MethodEditModel" name="setLogin" id="fr.umlv.ir3.emagine.user/UserSearchForm#setLogin(Ljava.lang.String;)"/>
+        <children xsi:type="editmodel:MethodEditModel" name="setProfile" id="fr.umlv.ir3.emagine.user/UserSearchForm#setProfile(Lfr.umlv.ir3.emagine.user.Profile;)"/>
+        <children xsi:type="editmodel:MethodEditModel" name="setProfiles" id="fr.umlv.ir3.emagine.user/UserSearchForm#setProfiles()"/>
+      </children>
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <sourceConnections xsi:type="editmodel:DependencyEditModel" autoLocated="true" id="fr.umlv.ir3.emagine.user/UserSearchForm->fr.umlv.ir3.emagine.user/Profile" source="//@children.1/@children.4" target="//@children.1/@children.2" targetEnd="//@children.1/@children.4/@sourceConnections.0/@children.2" label="//@children.1/@children.4/@sourceConnections.0/@children.0" sourceEnd="//@children.1/@children.4/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+        <children xsi:type="editmodel:WireLabelEditModel" name="«import»" size="42,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+        <children xsi:type="editmodel:AssociationEndEditModel" location="0,10" attachSource="true"/>
+        <children xsi:type="editmodel:AssociationEndEditModel" location="76,103"/>
+      </sourceConnections>
+      <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="fr.umlv.ir3.emagine.dao/UserSearchParam&lt;-fr.umlv.ir3.emagine.user/UserSearchForm" source="//@children.1/@children.4" target="//@children.1/@children.3" targetEnd="//@children.1/@children.4/@sourceConnections.1/@children.1" sourceEnd="//@children.1/@children.4/@sourceConnections.1/@children.0" connectionRouterKind="Manual">
+        <children xsi:type="editmodel:AssociationEndEditModel" location="74,0" attachSource="true"/>
+        <children xsi:type="editmodel:AssociationEndEditModel" location="128,43"/>
+      </sourceConnections>
+      <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" showAttributeProperty="true"/>
+    </children>
+    <packagePreferences xsi:type="editmodel:UMLClassDiagramPackagePreference" showStereotype="true"/>
+  </children>
+  <children xsi:type="editmodel:PackageEditModel" name="fr.umlv.ir3.emagine.util" location="48,660" size="424,270" id="fr.umlv.ir3.emagine.util">
+    <children xsi:type="editmodel:InterfaceEditModel" name="Scrollable" location="32,42" size="155,171" stereotype="interface" id="fr.umlv.ir3.emagine.util/Scrollable" runTimeClassModel="getNbResultsByPage(),getTotalPages(),setIndex(I),getIndex(),getCurrentCollection(),setNbResultsByPage()">
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <children xsi:type="editmodel:CompartmentEditModel" size="132,108">
+        <children xsi:type="editmodel:MethodEditModel" name="getCurrentCollection" id="fr.umlv.ir3.emagine.util/Scrollable#getCurrentCollection()"/>
+        <children xsi:type="editmodel:MethodEditModel" name="getIndex" id="fr.umlv.ir3.emagine.util/Scrollable#getIndex()"/>
+        <children xsi:type="editmodel:MethodEditModel" name="getNbResultsByPage" id="fr.umlv.ir3.emagine.util/Scrollable#getNbResultsByPage()"/>
+        <children xsi:type="editmodel:MethodEditModel" name="getTotalPages" id="fr.umlv.ir3.emagine.util/Scrollable#getTotalPages()"/>
+        <children xsi:type="editmodel:MethodEditModel" name="setIndex" id="fr.umlv.ir3.emagine.util/Scrollable#setIndex(I)"/>
+        <children xsi:type="editmodel:MethodEditModel" name="setNbResultsByPage" id="fr.umlv.ir3.emagine.util/Scrollable#setNbResultsByPage()"/>
+      </children>
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" showAttributeProperty="true"/>
+    </children>
+    <children xsi:type="editmodel:ClassEditModel" name="AjaxScrollAction" location="221,57" size="149,29" id="fr.umlv.ir3.emagine.util/AjaxScrollAction" runTimeClassModel="">
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" showAttributeProperty="true"/>
+    </children>
+    <packagePreferences xsi:type="editmodel:UMLClassDiagramPackagePreference" showStereotype="true"/>
+  </children>
+  <children xsi:type="editmodel:PackageEditModel" name="fr.umlv.ir3.emagine.dao" location="840,29" size="917,1177" id="fr.umlv.ir3.emagine.dao">
+    <children xsi:type="editmodel:ClassEditModel" name="DAOFactoryChooser" location="675,64" size="175,103" id="fr.umlv.ir3.emagine.dao/DAOFactoryChooser">
+      <children xsi:type="editmodel:CompartmentEditModel" size="152,18">
+        <children xsi:type="editmodel:AttributeEditModel" name="dataSourceType" id="fr.umlv.ir3.emagine.dao/DAOFactoryChooser#dataSourceType"/>
+      </children>
+      <children xsi:type="editmodel:CompartmentEditModel" size="142,36">
+        <children xsi:type="editmodel:MethodEditModel" name="getCurrentDAOFactory" id="fr.umlv.ir3.emagine.dao/DAOFactoryChooser#getCurrentDAOFactory()"/>
+        <children xsi:type="editmodel:MethodEditModel" name="setCurrentDAOFactory" id="fr.umlv.ir3.emagine.dao/DAOFactoryChooser#setCurrentDAOFactory"/>
+      </children>
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" showAttributeProperty="true"/>
+    </children>
+    <children xsi:type="editmodel:ClassEditModel" name="HibernateProfileDAO" location="470,1057" size="420,29" id="fr.umlv.ir3.emagine.dao.hibernate/HibernateProfileDAO">
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="fr.umlv.ir3.emagine.dao.hibernate/HibernateBaseDAO&lt;-fr.umlv.ir3.emagine.dao.hibernate/HibernateProfileDAO" source="//@children.3/@children.1" target="//@children.3/@children.7/@sourceConnections.0" targetEnd="//@children.3/@children.1/@sourceConnections.0/@children.1" sourceEnd="//@children.3/@children.1/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+        <children xsi:type="editmodel:AssociationEndEditModel" location="208,0" anchorKind="FixedAtEdge" attachSource="true"/>
+        <children xsi:type="editmodel:AssociationEndEditModel"/>
+      </sourceConnections>
+      <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="fr.umlv.ir3.emagine.dao/ProfileDAO&lt;-fr.umlv.ir3.emagine.dao.hibernate/HibernateProfileDAO" source="//@children.3/@children.1" target="//@children.3/@children.2" targetEnd="//@children.3/@children.1/@sourceConnections.1/@children.1" sourceEnd="//@children.3/@children.1/@sourceConnections.1/@children.0" connectionRouterKind="Manual">
+        <children xsi:type="editmodel:AssociationEndEditModel" location="259,0" attachSource="true"/>
+        <children xsi:type="editmodel:AssociationEndEditModel" location="144,43"/>
+      </sourceConnections>
+      <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" showAttributeProperty="true"/>
+    </children>
+    <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.3/@children.1/@sourceConnections.1" name="ProfileDAO" location="585,746" size="289,43" stereotype="interface" id="fr.umlv.ir3.emagine.dao/ProfileDAO">
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="fr.umlv.ir3.emagine.dao/BaseDAO&lt;-fr.umlv.ir3.emagine.dao/ProfileDAO" source="//@children.3/@children.2" target="//@children.3/@children.4/@sourceConnections.0" targetEnd="//@children.3/@children.2/@sourceConnections.0/@children.1" sourceEnd="//@children.3/@children.2/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+        <children xsi:type="editmodel:AssociationEndEditModel" location="144,0" anchorKind="FixedAtEdge" attachSource="true"/>
+        <children xsi:type="editmodel:AssociationEndEditModel"/>
+      </sourceConnections>
+      <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" showAttributeProperty="true"/>
+    </children>
+    <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.3/@children.4/@sourceConnections.0 //@children.3/@children.5/@sourceConnections.0" name="BaseDAO" location="408,526" size="102,135" stereotype="interface" id="fr.umlv.ir3.emagine.dao/BaseDAO">
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <children xsi:type="editmodel:CompartmentEditModel" size="68,72">
+        <children xsi:type="editmodel:MethodEditModel" name="create" location="19,59" id="fr.umlv.ir3.emagine.dao/BaseDAO#create"/>
+        <children xsi:type="editmodel:MethodEditModel" name="delete" location="-3,65" id="fr.umlv.ir3.emagine.dao/BaseDAO#delete"/>
+        <children xsi:type="editmodel:MethodEditModel" name="retrieve" id="fr.umlv.ir3.emagine.dao/BaseDAO#retrieve(J)"/>
+        <children xsi:type="editmodel:MethodEditModel" name="update" id="fr.umlv.ir3.emagine.dao/BaseDAO#update"/>
+      </children>
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" showAttributeProperty="true"/>
+    </children>
+    <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.3/@children.7/@sourceConnections.1" name="UserDAO" location="32,741" size="275,81" stereotype="interface" id="fr.umlv.ir3.emagine.dao/UserDAO">
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <children xsi:type="editmodel:CompartmentEditModel" size="75,18">
+        <children xsi:type="editmodel:MethodEditModel" name="getUsers" id="fr.umlv.ir3.emagine.dao/UserDAO#getUsers(Lfr.umlv.ir3.emagine.dao.UserSearchParam;)"/>
+      </children>
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.3/@children.2/@sourceConnections.0" autoLocated="true" id="fr.umlv.ir3.emagine.dao/BaseDAO&lt;-fr.umlv.ir3.emagine.dao/UserDAO" source="//@children.3/@children.4" target="//@children.3/@children.3" targetEnd="//@children.3/@children.4/@sourceConnections.0/@children.1" sourceEnd="//@children.3/@children.4/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+        <children xsi:type="editmodel:AssociationEndEditModel" location="137,0" anchorKind="FixedAtEdge" attachSource="true"/>
+        <children xsi:type="editmodel:AssociationEndEditModel" location="51,135" anchorKind="FixedAtEdge"/>
+      </sourceConnections>
+      <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" showAttributeProperty="true"/>
+    </children>
+    <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.3/@children.7/@sourceConnections.0" name="HibernateBaseDAO" location="254,837" size="409,139" id="fr.umlv.ir3.emagine.dao.hibernate/HibernateBaseDAO" runTimeClassModel="update,create,listAll(),delete,retrieve(J)">
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <children xsi:type="editmodel:CompartmentEditModel" size="68,90">
+        <children xsi:type="editmodel:MethodEditModel" name="create" id="fr.umlv.ir3.emagine.dao.hibernate/HibernateBaseDAO#create"/>
+        <children xsi:type="editmodel:MethodEditModel" name="delete" id="fr.umlv.ir3.emagine.dao.hibernate/HibernateBaseDAO#delete"/>
+        <children xsi:type="editmodel:MethodEditModel" name="listAll" location="27,89" id="fr.umlv.ir3.emagine.dao.hibernate/HibernateBaseDAO#listAll()"/>
+        <children xsi:type="editmodel:MethodEditModel" name="retrieve" id="fr.umlv.ir3.emagine.dao.hibernate/HibernateBaseDAO#retrieve(J)"/>
+        <children xsi:type="editmodel:MethodEditModel" name="update" id="fr.umlv.ir3.emagine.dao.hibernate/HibernateBaseDAO#update"/>
+      </children>
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="fr.umlv.ir3.emagine.dao/BaseDAO&lt;-fr.umlv.ir3.emagine.dao.hibernate/HibernateBaseDAO" source="//@children.3/@children.5" target="//@children.3/@children.3" targetEnd="//@children.3/@children.5/@sourceConnections.0/@children.1" sourceEnd="//@children.3/@children.5/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+        <children xsi:type="editmodel:AssociationEndEditModel" location="204,0" attachSource="true"/>
+        <children xsi:type="editmodel:AssociationEndEditModel" location="50,135"/>
+      </sourceConnections>
+      <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" showAttributeProperty="true"/>
+    </children>
+    <children xsi:type="editmodel:PackageEditModel" name="fr.umlv.ir3.emagine.dao.hibernate" location="36,41" size="550,451" id="fr.umlv.ir3.emagine.dao.hibernate">
+      <children xsi:type="editmodel:ClassEditModel" name="HibernateUtils" location="382,60" size="148,139" id="fr.umlv.ir3.emagine.dao.hibernate/HibernateUtils">
+        <children xsi:type="editmodel:CompartmentEditModel"/>
+        <children xsi:type="editmodel:CompartmentEditModel" size="125,90">
+          <children xsi:type="editmodel:MethodEditModel" name="beginTransaction" id="fr.umlv.ir3.emagine.dao.hibernate/HibernateUtils#beginTransaction()"/>
+          <children xsi:type="editmodel:MethodEditModel" name="closeSession" id="fr.umlv.ir3.emagine.dao.hibernate/HibernateUtils#closeSession()"/>
+          <children xsi:type="editmodel:MethodEditModel" name="commitTransaction" id="fr.umlv.ir3.emagine.dao.hibernate/HibernateUtils#commitTransaction()"/>
+          <children xsi:type="editmodel:MethodEditModel" name="getSession" id="fr.umlv.ir3.emagine.dao.hibernate/HibernateUtils#getSession()"/>
+          <children xsi:type="editmodel:MethodEditModel" name="rollbackTransaction" id="fr.umlv.ir3.emagine.dao.hibernate/HibernateUtils#rollbackTransaction()"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel"/>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" showAttributeProperty="true"/>
+      </children>
+      <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.3/@children.6/@children.2/@sourceConnections.0" name="DAOFactory" location="38,60" size="294,153" stereotype="interface" id="fr.umlv.ir3.emagine.dao/DAOFactory">
+        <children xsi:type="editmodel:CompartmentEditModel"/>
+        <children xsi:type="editmodel:CompartmentEditModel" size="126,90">
+          <children xsi:type="editmodel:MethodEditModel" name="beginTransaction" id="fr.umlv.ir3.emagine.dao/DAOFactory#beginTransaction()"/>
+          <children xsi:type="editmodel:MethodEditModel" name="commitTransaction" id="fr.umlv.ir3.emagine.dao/DAOFactory#commitTransaction()"/>
+          <children xsi:type="editmodel:MethodEditModel" name="getProfileDAO" id="fr.umlv.ir3.emagine.dao/DAOFactory#getProfileDAO()"/>
+          <children xsi:type="editmodel:MethodEditModel" name="getUserDAO" id="fr.umlv.ir3.emagine.dao/DAOFactory#getUserDAO()"/>
+          <children xsi:type="editmodel:MethodEditModel" name="rollBackTransaction" id="fr.umlv.ir3.emagine.dao/DAOFactory#rollBackTransaction()"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel"/>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" showAttributeProperty="true"/>
+      </children>
+      <children xsi:type="editmodel:ClassEditModel" name="HibernateDAOFactory" location="95,263" size="180,139" id="fr.umlv.ir3.emagine.dao.hibernate/HibernateDAOFactory">
+        <children xsi:type="editmodel:CompartmentEditModel"/>
+        <children xsi:type="editmodel:CompartmentEditModel" size="126,90">
+          <children xsi:type="editmodel:MethodEditModel" name="beginTransaction" id="fr.umlv.ir3.emagine.dao.hibernate/HibernateDAOFactory#beginTransaction()"/>
+          <children xsi:type="editmodel:MethodEditModel" name="commitTransaction" id="fr.umlv.ir3.emagine.dao.hibernate/HibernateDAOFactory#commitTransaction()"/>
+          <children xsi:type="editmodel:MethodEditModel" name="getProfileDAO" id="fr.umlv.ir3.emagine.dao.hibernate/HibernateDAOFactory#getProfileDAO()"/>
+          <children xsi:type="editmodel:MethodEditModel" name="getUserDAO" id="fr.umlv.ir3.emagine.dao.hibernate/HibernateDAOFactory#getUserDAO()"/>
+          <children xsi:type="editmodel:MethodEditModel" name="rollBackTransaction" id="fr.umlv.ir3.emagine.dao.hibernate/HibernateDAOFactory#rollBackTransaction()"/>
+        </children>
+        <children xsi:type="editmodel:CompartmentEditModel"/>
+        <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="fr.umlv.ir3.emagine.dao/DAOFactory&lt;-fr.umlv.ir3.emagine.dao.hibernate/HibernateDAOFactory" source="//@children.3/@children.6/@children.2" target="//@children.3/@children.6/@children.1" targetEnd="//@children.3/@children.6/@children.2/@sourceConnections.0/@children.1" sourceEnd="//@children.3/@children.6/@children.2/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+          <children xsi:type="editmodel:AssociationEndEditModel" location="90,0" attachSource="true"/>
+          <children xsi:type="editmodel:AssociationEndEditModel" location="147,153"/>
+        </sourceConnections>
+        <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" showAttributeProperty="true"/>
+      </children>
+      <packagePreferences xsi:type="editmodel:UMLClassDiagramPackagePreference" showStereotype="true"/>
+    </children>
+    <children xsi:type="editmodel:ClassEditModel" name="HibernateUserDAO" location="40,1052" size="406,67" id="fr.umlv.ir3.emagine.dao.hibernate/HibernateUserDAO">
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <children xsi:type="editmodel:CompartmentEditModel" size="75,18">
+        <children xsi:type="editmodel:MethodEditModel" name="getUsers" id="fr.umlv.ir3.emagine.dao.hibernate/HibernateUserDAO#getUsers(Lfr.umlv.ir3.emagine.dao.UserSearchParam;)"/>
+      </children>
+      <children xsi:type="editmodel:CompartmentEditModel"/>
+      <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.3/@children.1/@sourceConnections.0" autoLocated="true" id="fr.umlv.ir3.emagine.dao.hibernate/HibernateBaseDAO&lt;-fr.umlv.ir3.emagine.dao.hibernate/HibernateUserDAO" source="//@children.3/@children.7" target="//@children.3/@children.5" targetEnd="//@children.3/@children.7/@sourceConnections.0/@children.1" sourceEnd="//@children.3/@children.7/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+        <children xsi:type="editmodel:AssociationEndEditModel" location="201,0" anchorKind="FixedAtEdge" attachSource="true"/>
+        <children xsi:type="editmodel:AssociationEndEditModel" location="204,139" anchorKind="FixedAtEdge"/>
+      </sourceConnections>
+      <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="fr.umlv.ir3.emagine.dao/UserDAO&lt;-fr.umlv.ir3.emagine.dao.hibernate/HibernateUserDAO" source="//@children.3/@children.7" target="//@children.3/@children.4" targetEnd="//@children.3/@children.7/@sourceConnections.1/@children.1" sourceEnd="//@children.3/@children.7/@sourceConnections.1/@children.0" connectionRouterKind="Manual">
+        <children xsi:type="editmodel:AssociationEndEditModel" location="133,0" attachSource="true"/>
+        <children xsi:type="editmodel:AssociationEndEditModel" location="141,81"/>
+      </sourceConnections>
+      <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" showAttributeProperty="true"/>
+    </children>
+    <packagePreferences xsi:type="editmodel:UMLClassDiagramPackagePreference" showStereotype="true"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" properties="wireOptions=7" autoName="false"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="10,10" gridOrigin="0,0" rulerUnit="pixel">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" showInterfaceStereotype="true" showAttributeProperty="true"/>
+</editmodel:ClassDiagramEditModel>
