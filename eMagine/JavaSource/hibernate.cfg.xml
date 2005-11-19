@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+    	<!--  Configuration de la base de données, à mettre dans un environement managé -->
+        <property name="hibernate.cglib.use_reflection_optimizer">true</property>
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.password">eMagine</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/eMagine</property>
+        <property name="hibernate.connection.username">eMagine</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <property name="hibernate.connection.autocommit">false</property>
+        
+        <!--  
+        <property name="hibernate.connection.showsql">true</property>
+       	<property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
+        -->
+        
+ 		<mapping package="fr.umlv.ir3.emagine.user"/> 
+		<mapping class="fr.umlv.ir3.emagine.user.User"/>
+		<mapping class="fr.umlv.ir3.emagine.user.Profile"/>
+
+		<!--
+		<class-cache class="core.Entite" usage="read-write"/>
+		<class-cache class="core.Entreprise" usage="read-write"/>
+		-->		
+        
+    </session-factory>
+</hibernate-configuration>
