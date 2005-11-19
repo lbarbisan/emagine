@@ -1,6 +1,5 @@
 package fr.umlv.ir3.emagine.user;
 
-import fr.umlv.ir3.emagine.dao.UserSearchParam;
 import java.util.Collection;
 import org.apache.struts.action.ActionForm;
 
