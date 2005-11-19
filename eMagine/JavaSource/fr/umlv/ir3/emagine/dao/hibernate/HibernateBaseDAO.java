@@ -3,8 +3,6 @@
  */
 package fr.umlv.ir3.emagine.dao.hibernate;
 
-import java.util.Collection;
-
 import fr.umlv.ir3.emagine.dao.BaseDAO;
 
 
@@ -12,13 +10,13 @@ import fr.umlv.ir3.emagine.dao.BaseDAO;
  * @author Administrateur
  *
  */
-public class HibernateBaseDAO<ObjectType> implements BaseDAO<ObjectType>{
+public abstract class HibernateBaseDAO<ObjectType> implements BaseDAO<ObjectType>{
 
     /* (non-Javadoc)
      * @see fr.umlv.ir3.emagine.dao.BaseDAO#create(ObjectType)
      */
     public void create(ObjectType object) {
-        // TODO Auto-generated method stub
+    	  HibernateUtils.getSession().save(object);
         
     }
 
@@ -26,32 +24,19 @@ public class HibernateBaseDAO<ObjectType> implements BaseDAO<ObjectType>{
      * @see fr.umlv.ir3.emagine.dao.BaseDAO#update(ObjectType)
      */
     public void update(ObjectType object) {
-        // TODO Auto-generated method stub
-        
+    	  HibernateUtils.getSession().saveOrUpdate(object);
     }
 
     /* (non-Javadoc)
      * @see fr.umlv.ir3.emagine.dao.BaseDAO#read(long)
      */
-    public ObjectType retrieve(long id) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    /* (non-Javadoc)
-     * @see fr.umlv.ir3.emagine.dao.BaseDAO#listAll()
-     */
-    public Collection<ObjectType> listAll() {
-        // TODO Auto-generated method stub
-        return null;
-    }
+    public abstract ObjectType retrieve(long id);
 
     /* (non-Javadoc)
      * @see fr.umlv.ir3.emagine.dao.BaseDAO#delete(ObjectType)
      */
     public void delete(ObjectType object) {
-        // TODO Auto-generated method stub
-        
+  	  HibernateUtils.getSession().delete(object);        
     }
 
  

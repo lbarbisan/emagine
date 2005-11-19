@@ -8,4 +8,6 @@ public interface DAOFactory {
     public void commitTransaction();
     public void rollBackTransaction();
     
+    public void openSession();
+    public void closeSession();
 }
