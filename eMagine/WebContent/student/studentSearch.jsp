@@ -22,6 +22,12 @@
 		</li>
 		<li>
 			<label for="year">Année </label><input type="text" id="year" />
+			<option value="all" selected="selected">Toutes</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
 		</li>
 		<li>
 			<input type="button" value="Rechercher" />
@@ -60,9 +66,11 @@
 	</ul>
 	<h2>&nbsp;</h2>
 	<ul>
-		<li><a href="#"><img src="images/icones/supprimer.png" alt="Supprimer un apprenti"/></a> </li>
+		<li><a href="#"><img src="images/icones/passage.png" alt="Faire passer un apprenti"/></a> </li>
+		<li><a href="#"><img src="images/icones/virer.png" alt="Exclure un apprenti"/></a> </li>
 		<li><a href="#"><img src="images/icones/creer_mailing_list.png" alt="Cr&eacute;er une maling list"/></a> </li>
 		<li><a href="#"><img src="images/icones/mailing.png" alt="Effecter un mailing"/></a> </li>
 		<li><a href="#"><img src="images/icones/publipostage.png" alt="Effecter un publipostage"/></a> </li>
+		<li><a href="#"><img src="images/icones/extraire.png" alt="Extraire un apprenti"/></a> </li>
 	</ul>
 </div>
