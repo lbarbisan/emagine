@@ -53,14 +53,16 @@
 			<legend>Tutelle </legend>
 			<ul>
 				<li>
-					<label for="">Tuteur ing&eacute;nieur </label>
-	            	<input type="text" id="" size="20" /> 
+					<label for="engineTutor">Tuteur ing&eacute;nieur </label>
+					<select name="engineTutor">
+						<!--données de la mettre en base selon l'entreprise concernée -->
+					</select>				
 				</li>
 			</ul>
 			<ul>
 				<li>
-					<label for="">Tuteur enseignant </label>
-	            	<input type="text" id="" size="20" /> 
+					<label for="teacherTutor">Tuteur enseignant </label>
+	            	<input type="text" id="teacherTutor" size="20" /> 
 				</li>
 				<li>
 					<input type="button" name="teacherButton" value="Affecter"/>
