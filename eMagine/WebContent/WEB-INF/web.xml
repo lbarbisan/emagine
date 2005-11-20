@@ -3,21 +3,36 @@
 <web-app id="WebApp_ID">
 	<display-name>tile</display-name>
 
-  <!-- Action Servlet Configuration -->
-  <servlet>
-    <servlet-name>action</servlet-name>
-    <servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
-    <load-on-startup>2</load-on-startup>
-    </servlet>
+	<!-- Action Servlet Configuration -->
+	<servlet>
+		<servlet-name>action</servlet-name>
+		<servlet-class>
+			org.apache.struts.action.ActionServlet
+		</servlet-class>
+		<init-param>
+			<param-name>config</param-name>
+			<param-value>/WEB-INF/struts-config.xml</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
 
-  <!-- le fichier charger avec l'application web -->
-  <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
-  </welcome-file-list>
+	<servlet-mapping>
+		<servlet-name>action</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
 
-  <!-- Le descripteur de balise Tiles -->
-  <taglib>
-    <taglib-uri>/WEB-INF/tld/struts-tiles.tld</taglib-uri>
-    <taglib-location>/WEB-INF/tld/struts-tiles.tld</taglib-location>
-  </taglib>
+	<!-- le fichier charger avec l'application web -->
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+	<!-- Le descripteur de balise Tiles -->
+	<taglib>
+		<taglib-uri>/tags/tld/struts-tiles.tld</taglib-uri>
+		<taglib-location>/WEB-INF/tld/struts-tiles.tld</taglib-location>
+	</taglib>
+	<taglib>
+		<taglib-uri>/tags/struts-html</taglib-uri>
+		<taglib-location>/WEB-INF/tld/struts-html.tld</taglib-location>
+	</taglib>
 </web-app>
