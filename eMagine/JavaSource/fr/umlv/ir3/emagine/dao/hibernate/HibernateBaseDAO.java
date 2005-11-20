@@ -4,6 +4,7 @@
 package fr.umlv.ir3.emagine.dao.hibernate;
 
 import fr.umlv.ir3.emagine.dao.BaseDAO;
+import fr.umlv.ir3.emagine.util.hibernate.HibernateUtils;
 
 
 /**

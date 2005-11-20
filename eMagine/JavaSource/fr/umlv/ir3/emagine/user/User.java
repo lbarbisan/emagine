@@ -3,7 +3,7 @@ package fr.umlv.ir3.emagine.user;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import fr.umlv.ir3.emagine.util.hibernate.BaseEntity;
+import fr.umlv.ir3.emagine.util.core.BaseEntity;
 
 @Entity
 @Table(name = "UserTbl")

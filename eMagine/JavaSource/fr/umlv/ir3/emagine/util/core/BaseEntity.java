@@ -1,4 +1,4 @@
-package fr.umlv.ir3.emagine.util.hibernate;
+package fr.umlv.ir3.emagine.util.core;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratorType;

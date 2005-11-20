@@ -14,7 +14,11 @@ public class DAOFactoryChooser {
     
     public static void setCurrentDAOFactory(DataSourceType dataSourceType)
     {
-        switch(dataSourceType)
+        if(dataSourceType==null)
+        {
+        	dataSourceType = DataSourceType.DEFAULT;
+        }
+    	switch(dataSourceType)
         {
             case HIBERNATE :
                 currentDAOFactory = new HibernateDAOFactory();

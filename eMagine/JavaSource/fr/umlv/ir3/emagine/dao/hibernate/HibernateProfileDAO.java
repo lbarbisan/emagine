@@ -4,6 +4,7 @@ import java.util.Collection;
 
 import fr.umlv.ir3.emagine.dao.ProfileDAO;
 import fr.umlv.ir3.emagine.user.Profile;
+import fr.umlv.ir3.emagine.util.hibernate.HibernateUtils;
 
 public class HibernateProfileDAO extends HibernateBaseDAO<Profile> implements ProfileDAO {
 

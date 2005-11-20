@@ -3,6 +3,7 @@ package fr.umlv.ir3.emagine.dao.hibernate;
 import fr.umlv.ir3.emagine.dao.DAOFactory;
 import fr.umlv.ir3.emagine.dao.ProfileDAO;
 import fr.umlv.ir3.emagine.dao.UserDAO;
+import fr.umlv.ir3.emagine.util.hibernate.HibernateUtils;
 
 public class HibernateDAOFactory implements DAOFactory {
 

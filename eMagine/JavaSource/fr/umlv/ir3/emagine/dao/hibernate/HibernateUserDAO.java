@@ -8,6 +8,7 @@ import java.util.Collection;
 import fr.umlv.ir3.emagine.dao.UserDAO;
 import fr.umlv.ir3.emagine.user.User;
 import fr.umlv.ir3.emagine.user.UserSearchParam;
+import fr.umlv.ir3.emagine.util.hibernate.HibernateUtils;
 
 
 /**
