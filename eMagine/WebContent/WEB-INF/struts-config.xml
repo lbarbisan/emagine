@@ -11,15 +11,22 @@
 
 <struts-config>
 
-  <!-- ========== Action Mapping Definitions =============================== -->
-  <action-mappings>
+  <!-- ========== Form Mapping Definitions =============================== -->
+  	<form-beans>
+		<form-bean name="userCreateForm"
+			type="fr.umlv.ir3.emagine.user.UserCreateForm" />
+	</form-beans>
 
+	<!-- ========== Action Mapping Definitions =============================== -->
     <!-- The standard administrative actions available with Tiles -->
     <!-- These would be either omitted or protected by security constraints -->
     <!-- in a real application deployment -->
 
-  </action-mappings>
-
+	<action-mappings>
+		<action path="/userCreate" type="fr.umlv.ir3.emagine.user.UserCreateAction"
+			 name="userCreateForm" scope="request">
+		</action>
+	</action-mappings>
   
   <!-- ========== Request Processor Declaration =================== -->
   <!-- The Tiles framework use a special request processor. YOU DON'T -->

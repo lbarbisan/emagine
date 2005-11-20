@@ -15,13 +15,13 @@
 
 <!-- Un formulaire de recherche -->
 <div id="recherche">
-<html:form action="createUser.do" method="GET">
+<html:form action="userCreate.do" method="GET">
 	<ul>
 		<li>
-			<label for="nom">Nom </label><html:text name="firstNameBean" property="firstName" />
+			<label for="nom">Nom </label><html:text name="userCreateForm" property="firstName" />
 		</li>
 		<li>
-			<label for="prenom">Pr&eacute;nom </label><html:text name="lastNameBean" property="lastName" />
+			<label for="prenom">Pr&eacute;nom </label><html:text name="userCreateForm" property="lastName" />
 		</li>
 		<li>
 			<html:submit value="Créer" />

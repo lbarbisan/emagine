@@ -15,7 +15,7 @@ import org.apache.struts.action.ActionMapping;
  * @author Administrateur
  *
  */
-public class CreateUserAction extends Action {
+public class UserCreateAction extends Action {
 
 	@Override
 	public ActionForward execute(ActionMapping arg0, ActionForm arg1, HttpServletRequest arg2, HttpServletResponse arg3) throws Exception {
