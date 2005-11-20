@@ -1,0 +1,24 @@
+<project name="eMagine" basedir=".">
+	<taskdef 
+		name="hibernatetool" 
+		classname="org.hibernate.tool.ant.HibernateToolTask">
+		<classpath>
+			<fileset dir="WebContent/WEB-INF/lib">
+				<include name="**/*.jar"/>
+			</fileset>
+		</classpath>
+		
+	</taskdef>		
+		
+	<target name="SchemaExport"
+			description="Export le schema et créer la base de donneés">
+
+		<hibernatetool destdir="classes" classpath="classes" >
+			<annotationconfiguration configurationfile="JavaSource/hibernate.cfg.xml"/>
+			<hbm2ddl export="true" console="false" drop="false" create="true"
+				outputfilename="hibernate.ddl" delimiter=";"/>
+		</hibernatetool>
+	</target>
+	
+</project>
+
