@@ -1,17 +1,21 @@
-<div class="contenu">
+<div class="content">
 <h2>Recherche d'apprenti</h2>
 <br/>
 <!-- Un formulaire de recherche -->
 <div id="search">
 	<ul>
 		<li>
-			<label for="name">Nom </label><input type="text" id="name" />
+			<label for="name">Nom </label>
+			<input type="text" id="name" size="20" /> 
 		</li>
 		<li>
-			<label for="firstName">Pr&eacute;nom </label><input type="text" id="firstName" />
+			<label for="firstName">Pr&eacute;nom </label>
+			<input type="text" id="firstName" size="20" /> 
 		</li>
+	</ul>
+	<ul>
 		<li>
-			<label for="die">Promotion </label>
+			<label for="die">Fili&egrave;re </label>
 			<select name="die">
 				<!-- à mettre en base -->
 				<option value="all" selected="selected">Toutes</option>
@@ -21,16 +25,19 @@
 			</select>
 		</li>
 		<li>
-			<label for="year">Année </label><input type="text" id="year" />
-			<option value="all" selected="selected">Toutes</option>
-			<option value="1">1</option>
-			<option value="2">2</option>
-			<option value="3">3</option>
-			<option value="4">4</option>
-			<option value="5">5</option>
-		</li>
+			<label for="year">Ann&eacute;e</label>
+			<select name="year">
+				<!-- à mettre en base -->
+				<option value="all" selected="selected">Toutes</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+			</select>
+		</li>	
 		<li>
-			<input type="button" value="Rechercher" />
+			<input type="button" value="Rechercher"/>
 		</li>
 	</ul>
 </div>
@@ -43,19 +50,22 @@
 		<th>&nbsp;</th>
 		<th>Nom</th>
 		<th>Pr&eacute;nom</th>
-		<th>Promotion</th>
+		<th>Fili&egrave;re</th>
+		<th>Ann&eacute;e</th>
 	</tr>
 	<tr>
-		<td><input type="checkbox" /></th>
+		<td><input type="checkbox" value="ON" /></td>
 		<td><a href="#">Barbisan</a></td>
 		<td>Laurent</td>
-		<td>IR3</td>
+		<td>IR</td>
+		<td>3</td>
 	</tr>
 	<tr>
-		<td><input type="checkbox" /></th>
+		<td><input type="checkbox" value="ON" /></td>
 		<td><a href="#">Ogier</a></td>
 		<td>Anthony</td>
-		<td>IR3</td>
+		<td>IR</td>
+		<td>3</td>
 	</tr>
 </table>
 <!-- Les actions propres a la selection -->

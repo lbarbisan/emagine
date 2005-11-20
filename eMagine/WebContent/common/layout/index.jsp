@@ -1,16 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<title>eMagine</title>
-		<link rel="stylesheet" type="text/css" href="eMagine.css" media="screen"/>
-		
-	</head>
-
-<body>
-<a name="top"/>
+    <head>
+        <title>eMagine</title>
+        <link rel="stylesheet" type="text/css" href="eMagine.css" media="screen"/>
+    </head>
+    <body>
+	
+	 <a name="top"/>
         <!-- Zone supérieure -->
         <div id="bloc_menu1">
             <ul id="menu">
@@ -31,9 +29,9 @@
         </div>
         <!-- Zone principale -->
         <div id="global">
-            <div id="bloc_gauche">
+            <div id="left_bloc">
                 <!-- Sous menu -->
-                <div class="gauche">
+                <div class="left">
                     <h2>Un sous menu</h2>
                     <ul>
                         <li> <a href="#">Action 1</a> </li>
@@ -45,7 +43,7 @@
                 </div>
                 
                 <!-- Demandes de modfication -->
-                <div class="gauche">
+                <div class="left">
                     <h2>Demandes de modifications</h2>
                     <ul>
                         <li> <a href="#">Modif 1</a> </li>
@@ -57,17 +55,19 @@
                 </div>
             </div>
             <!-- Zone principale -->
-            <div class="contenu">
+            <div class="content">
                 <h2>Recherche d'apprenti</h2>
 				<br/>
 				<!-- Un formulaire de recherche -->
-				<div id="recherche">
+				<div id="search">
 					<ul>
 						<li>
-							<label for="nom">Nom </label><input type="text" id="nom" />
+							<label for="nom">Nom </label>
+                            <input type="text" id="nom" size="20" /> 
 						</li>
                     	<li>
-							<label for="prenom">Pr&eacute;nom </label><input type="text" id="prenom" />
+							<label for="prenom">Pr&eacute;nom </label>
+                            <input type="text" id="prenom" size="20" /> 
 						</li>
 						<li>
 							<label for="promotion">Promotion </label>
@@ -83,7 +83,7 @@
                 	</ul>
 				</div>
 				<br/>
-				<h2>R&eacute;sultats </h2> 
+				<h2>R&eacute;sultats </h2>
 				<br/>
 				<!-- Un tableau de résultats -->
 				<table width="60%" cellpadding="0" cellspacing="0">
@@ -94,13 +94,13 @@
     					<th>Promotion</th>
   					</tr>
   					<tr>
-						<td><input type="checkbox" /></th>
+						<td><input type="checkbox" value="ON" /></th>
     					<td><a href="#">Nom1</a></td>
     					<td>Pr&eacute;nom1</td>
     					<td>IR3</td>
   					</tr>
 					<tr>
-						<td><input type="checkbox" /></th>
+						<td><input type="checkbox" value="ON" /></th>
     					<td><a href="#">Nom2</a></td>
     					<td>Pr&eacute;nom2</td>
     					<td>IR3</td>
@@ -124,9 +124,8 @@
             </div>
         </div>
         <!-- Pied de page -->
-        <div id="pied">
+        <div id="footer">
             <p>&copy; 2005 eMagine Group | <a href="index.htm">Accueil</a> | <a href="#top">Haut</a></p>
         </div>
-
-</body>
+    </body>
 </html>
