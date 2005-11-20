@@ -20,5 +20,13 @@ public class Profile {
 	public void setId(long id) {
 		this.id = id;
 	}
+
+	public String getName() {
+		return Name;
+	}
+
+	public void setName(String name) {
+		Name = name;
+	}
 	
 }

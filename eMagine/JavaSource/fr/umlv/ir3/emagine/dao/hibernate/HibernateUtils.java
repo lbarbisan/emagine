@@ -21,12 +21,11 @@ public class HibernateUtils {
     private static final ThreadLocal<Transaction> threadTransaction = new ThreadLocal<Transaction>();
 
     static {
-        try {
-            // Create the SessionFactory
-            sessionFactory = new AnnotationConfiguration()
+        try {            
+        	sessionFactory = new AnnotationConfiguration()
             .configure()
-            .addFile("src/hibernate.cfg.xml").
-           
+            //FIXME : Trouver un moyen pour mettre le nom de fichier dans un fichier poroperties ou autre.
+            .addFile(HibernateUtils.class.getResource("hibernate.cfg.xml").getFile()).
             buildSessionFactory();
         } catch (Throwable ex) {
             log.error("Initial SessionFactory creation failed.", ex);

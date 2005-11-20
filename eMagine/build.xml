@@ -13,8 +13,8 @@
 	<target name="SchemaExport"
 			description="Export le schema et créer la base de donneés">
 
-		<hibernatetool destdir="classes" classpath="classes" >
-			<annotationconfiguration configurationfile="JavaSource/hibernate.cfg.xml"/>
+		<hibernatetool destdir=".deployables\eMagine\WEB-INF\classes" classpath=".deployables\eMagine\WEB-INF\classes" >
+			<annotationconfiguration configurationfile="JavaSource/fr/umlv/ir3/emagine/dao/hibernate/hibernate.cfg.xml"/>
 			<hbm2ddl export="true" console="false" drop="false" create="true"
 				outputfilename="hibernate.ddl" delimiter=";"/>
 		</hibernatetool>
