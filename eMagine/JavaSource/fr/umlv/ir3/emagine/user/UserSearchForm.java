@@ -3,7 +3,7 @@ package fr.umlv.ir3.emagine.user;
 import java.util.Collection;
 import org.apache.struts.action.ActionForm;
 
-public class UserSearchForm extends ActionForm implements UserSearchParam {
+public class UserSearchForm extends ActionForm implements IUserSearchForm {
 	
 	/**
 	 * 

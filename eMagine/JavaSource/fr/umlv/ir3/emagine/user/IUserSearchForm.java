@@ -1,7 +1,9 @@
 package fr.umlv.ir3.emagine.user;
 
+import java.util.Collection;
 
-public interface UserSearchParam {
+
+public interface IUserSearchForm {
 	public String getFirstName();
 	public void setFirstName(String firstName);
 	public String getLastName();
@@ -10,4 +12,6 @@ public interface UserSearchParam {
 	public void setLogin(String login);
 	public Profile getProfile();
 	public void setProfile(Profile profile);
+	public Collection<Profile> getProfiles();
+	public void setProfiles(Collection<Profile> profiles);
 }
