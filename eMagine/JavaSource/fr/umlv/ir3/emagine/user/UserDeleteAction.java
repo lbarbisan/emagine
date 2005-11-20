@@ -12,32 +12,28 @@ import org.apache.struts.action.ActionMapping;
 
 import fr.umlv.ir3.emagine.dao.DAOFactory;
 import fr.umlv.ir3.emagine.dao.DAOFactoryChooser;
-import fr.umlv.ir3.emagine.dao.ProfileDAO;
 import fr.umlv.ir3.emagine.dao.UserDAO;
 
-public class UserSearchAction extends Action {
+public class UserDeleteAction extends Action {
 
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
-		searchUsers((UserSearchForm)form, request);
+		deleteUsers(((UserSearchForm)form).getUserResults(), request);
 		return mapping.findForward("success"); // TODO : pageDestination
 	}
-
+	
 	/**
-	 * The administrator wants to search all the users matching his or her request.
-	 * @param params the search parameters
+	 * The administrator wants to delete all the selected users
+	 * @param form the ActionForm containing the request parameters
 	 * @param request the request
 	 */
-	public void searchUsers(UserSearchForm form, HttpServletRequest request) {
+	public void deleteUsers(Collection<User> users, HttpServletRequest request) {
 		DAOFactory currentDAOFactory = DAOFactoryChooser.getCurrentDAOFactory();
 
-		// Retrieve all profiles and set them in the form
-		ProfileDAO profileDAO = currentDAOFactory.getProfileDAO();
-		form.setProfiles(profileDAO.getProfiles());
-
-		// Retrieve the searched users, and set them in the page 
+		// Retrieve the searched users, and delete them from database
 		UserDAO userDAO = currentDAOFactory.getUserDAO();
-		Collection<User> users = userDAO.getUsers(form);
-		form.setUserResults(users);
+		currentDAOFactory.beginTransaction();
+		userDAO.deleteUsers(users);
+		currentDAOFactory.commitTransaction();
 	}
 }

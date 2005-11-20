@@ -7,7 +7,7 @@ import java.util.Collection;
 
 import fr.umlv.ir3.emagine.dao.UserDAO;
 import fr.umlv.ir3.emagine.user.User;
-import fr.umlv.ir3.emagine.user.IUserSearchForm;
+import fr.umlv.ir3.emagine.user.UserSearchParam;
 
 
 /**
@@ -21,8 +21,13 @@ public class HibernateUserDAO extends HibernateBaseDAO<User> implements UserDAO 
 	  	return (User) HibernateUtils.getSession().load(User.class, id);
 	}
 
-	public Collection<User> getUsers(IUserSearchForm userSearchParam) {
+	public Collection<User> getUsers(UserSearchParam userSearchParam) {
 		// TODO HibernateUserDAO.getUsers()
 		return null;
+	}
+
+	public void deleteUsers(Collection<User> users) {
+		// TODO HibernateUserDAO.deleteUsers()
+		
 	}
 }

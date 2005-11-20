@@ -3,7 +3,7 @@ package fr.umlv.ir3.emagine.user;
 import java.util.Collection;
 import org.apache.struts.action.ActionForm;
 
-public class UserSearchForm extends ActionForm implements IUserSearchForm {
+public class UserSearchForm extends ActionForm implements UserSearchParam {
 	
 	/**
 	 * 
@@ -11,6 +11,8 @@ public class UserSearchForm extends ActionForm implements IUserSearchForm {
 	private static final long serialVersionUID = -2405706291327109100L;
 
 	private Collection<Profile> profiles;
+	
+	private Collection<User> userResults;
 
 	private String firstName;
 
@@ -49,6 +51,12 @@ public class UserSearchForm extends ActionForm implements IUserSearchForm {
 	}
 	public void setProfiles(Collection<Profile> profiles) {
 		this.profiles = profiles;
+	}
+	public void setUserResults(Collection<User> users) {
+		userResults = users;
+	}
+	public Collection<User> getUserResults() {
+		return userResults;
 	}
 
 
