@@ -58,7 +58,7 @@
 
 	<!-- Teacher -->
 	<definition name="teacher" extends="mainLayout">
-		<put name="teacherMenu" value="/teacher/teacherMenu.jsp" />
+		<put name="subMenu" value="/teacher/teacherMenu.jsp" />
 	</definition>
 
 	<definition name="teacher.teacherSearch" extends="teacher">
@@ -67,6 +67,32 @@
 
 	<definition name="teacher.teacherCreate" extends="teacher">
 		<put name="body" value="/teacher/teacherCreate.jsp" />
+	</definition>
+	
+	<!-- Statistics -->
+	<definition name="statistics" extends="mainLayout">
+		<put name="subMenu" value="/statistics/statisticsMenu.jsp" />
+	</definition>
+
+	<definition name="statistics.statisticsSearch" extends="statistics">
+		<put name="body" value="/statistics/statisticsSearch.jsp" />
+	</definition>
+
+	<definition name="statistics.statisticsCreate" extends="statistics">
+		<put name="body" value="/statistics/statisticsCreate.jsp" />
+	</definition>
+	
+	<!-- Recruitment -->
+	<definition name="recruitment" extends="mainLayout">
+		<put name="subMenu" value="/recruitment/recruitmentMenu.jsp" />
+	</definition>
+
+	<definition name="recruitment.candidateSearch" extends="recruitment">
+		<put name="body" value="/recruitment/candidateSearch.jsp" />
+	</definition>
+
+	<definition name="recruitment.candidateCreate" extends="recruitment">
+		<put name="body" value="/recruitment/candidateCreate.jsp" />
 	</definition>
 
 </tiles-definitions>

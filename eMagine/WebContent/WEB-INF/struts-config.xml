@@ -23,9 +23,26 @@
 	<!-- in a real application deployment -->
 
 	<action-mappings>
+	   <!-- student --> 
 	   <action path="/studentVisuAdress" forward="student.studentVisuAdress" />
 	   <action path="/studentSearch" forward="student.studentSearch" />
-
+	   <action path="/studentVisuSituation" forward="student.studentVisuSituation" />
+	   <action path="/studentVisuStatus" forward="student.studentVisuStatus" />
+	   <action path="/studentTutorAdd" forward="student.studentTutorAdd" />
+	   <action path="/studentCompanyAdd" forward="student.studentCompanyAdd" />
+	   <!-- teacher -->
+	   <action path="/teacherSearch" forward="teacher.teacherSearch" />
+       <!-- company -->
+	   <action path="/companySearch" forward="company.companySearch" />
+	   <!-- recruitment -->
+	   <action path="/recruitmentSearch" forward="recruitment.recruitmentSearch" />
+	   <!-- mail -->
+	   <action path="/mailSearch" forward="mail.mailSearch" />
+	   <!-- statistic -->
+	   <action path="/statisticsSearch" forward="statistics.statisticsSearch" />
+       <!-- administration -->
+	   <action path="/userSearch" forward="administration.userSearch" />
+       
 		<action path="/userCreate"
 			type="fr.umlv.ir3.emagine.user.UserModifyAction"
 			name="userInformationForm" 
