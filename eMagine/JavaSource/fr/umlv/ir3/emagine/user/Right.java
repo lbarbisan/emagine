@@ -1,5 +1,6 @@
 package fr.umlv.ir3.emagine.user;
 
+import javax.persistence.AccessType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -11,10 +12,12 @@ import fr.umlv.ir3.emagine.util.core.BaseEntity;
  * @author eMagine
  *
  */
-@Entity()
+@Entity(access = AccessType.FIELD)
 @Table(name="tbl_right")
 public class Right extends BaseEntity {
 	String description;
+	
+	@Column(unique = true)
 	String name;
 	
 	/**
@@ -32,14 +35,13 @@ public class Right extends BaseEntity {
 	/**
 	 * @return Returns the name.
 	 */
-	@Column(unique = true)
+	
 	public String getName() {
 		return name;
 	}
 	/**
 	 * @param name The name to set.
 	 */
-	//FIXME : La nom du droit soit être unique
 	public void setName(String name) {
 		this.name = name;
 	}

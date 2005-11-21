@@ -1,5 +1,7 @@
 package fr.umlv.ir3.emagine.util.core;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratorType;
 import javax.persistence.Id;
@@ -16,8 +18,13 @@ import fr.umlv.ir3.emagine.user.Profile;
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
 @Table(name = "tbl_baseentity")
-public class BaseEntity {
+public class BaseEntity implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 15466724567987L;
+	
 	private Long id;
     private Long version;
 	

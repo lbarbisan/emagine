@@ -2,21 +2,31 @@ package fr.umlv.ir3.emagine.user;
 
 import java.util.List;
 
+import javax.persistence.AccessType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 import fr.umlv.ir3.emagine.util.core.BaseEntity;
 
-@Entity
+
 @Table(name = "tbl_profile")
+@Entity(access = AccessType.FIELD)
 public class Profile extends BaseEntity{
 	
-	String description;
-	String name;
+	private String description;
+	
+	@Column(unique = true)
+	private String name;
+	
+	@OneToMany
+	@OrderBy("name")
 	List<Right> rights;
 	
 	protected Profile(){}
+	
 	
 	public String getName() {
 		return name;
@@ -37,7 +47,6 @@ public class Profile extends BaseEntity{
 	/**
 	 * @return Returns the rights.
 	 */
-	@OneToMany
 	public List<Right> getRights() {
 		return rights;
 	}

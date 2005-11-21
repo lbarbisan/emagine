@@ -22,8 +22,17 @@
  		<mapping class="fr.umlv.ir3.emagine.user.User"/>
 		<mapping class="fr.umlv.ir3.emagine.user.Profile"/>
 		<mapping class="fr.umlv.ir3.emagine.user.Right"/>
+		
  		<mapping package="fr.umlv.ir3.emagine.util.hibernate"/> 
 		<mapping class="fr.umlv.ir3.emagine.util.core.BaseEntity"/>
+		
+		<mapping package="fr.umlv.ir3.emagine.student"/> 
+		<mapping class="fr.umlv.ir3.emagine.student.Student"/>
+		<mapping class="fr.umlv.ir3.emagine.student.EngineerTutor"/>
+		<mapping class="fr.umlv.ir3.emagine.student.TeacherTutor"/>
+		
+		<mapping package="fr.umlv.ir3.emagine.student.abscence"/> 
+		<mapping class="fr.umlv.ir3.emagine.student.abscence.Abscence"/>		
 
 		<!--
 		<class-cache class="core.Entite" usage="read-write"/>

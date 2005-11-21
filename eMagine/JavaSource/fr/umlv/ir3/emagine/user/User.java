@@ -1,18 +1,23 @@
 package fr.umlv.ir3.emagine.user;
 
+import javax.persistence.AccessType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import fr.umlv.ir3.emagine.util.core.BaseEntity;
 
-@Entity
+@Entity(access = AccessType.FIELD)
 @Table(name = "tbl_user")
 public class User extends BaseEntity{
 	
+	@ManyToOne
 	Profile profile;
 	String password;
+	@Column(unique = true)
 	String login;
+	@Column(unique = true)
 	String email;
 	String firstName;
 	String lastName;
@@ -48,10 +53,11 @@ public class User extends BaseEntity{
 		return login;
 	}
 
-	public void setLogin(String property1) {
-		this.login = property1;
+	public void setLogin(String login) {
+		this.login = login;
 	}
 
+	
 	public String getPassword() {
 		return password;
 	}
