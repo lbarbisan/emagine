@@ -13,8 +13,8 @@
 
 	<!-- ========== Form Mapping Definitions =============================== -->
 	<form-beans>
-		<form-bean name="userInformationForm"
-			type="fr.umlv.ir3.emagine.user.UserInformationForm" />
+		<form-bean name="userCreateForm"
+			type="fr.umlv.ir3.emagine.user.UserCreateForm" />
 	</form-beans>
 
 	<!-- ========== Action Mapping Definitions =============================== -->
@@ -23,31 +23,12 @@
 	<!-- in a real application deployment -->
 
 	<action-mappings>
-		<action path="/userCreate"
-			type="fr.umlv.ir3.emagine.user.UserModifyAction"
-			name="userInformationForm" 
-			parameter="dispatchAction"
-			scope="session">
-			
-			<forward name="success"
-				path="/administration/userInformation.jsp" />
-		</action>
-		
-		<action path="/userModify"
-			type="fr.umlv.ir3.emagine.user.UserModifyAction"
-			name="userInformationForm"
-			parameter="dispatchAction"
-			scope="session">
-			
-			<forward name="success"
-				path="/administration/userInformation.jsp" />
-		</action>
+        <action path="/studentVisuAdress" forward="student.studentVisuAdress" />	
 
-		<action path="/userShowInformation"
-			type="fr.umlv.ir3.emagine.user.UserShowInformationAction"
-			name="userInformationForm" scope="session">
-			<forward name="success"
-				path="/administration/userInformation.jsp" />
+		<action path="/userCreate"
+			type="fr.umlv.ir3.emagine.user.UserCreateAction"
+			name="userCreateForm" scope="request">
+			<forward name="success" path="/administration/userCreate.jsp" />
 		</action>
 	</action-mappings>
 
