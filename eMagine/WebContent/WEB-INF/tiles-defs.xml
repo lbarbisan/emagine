@@ -55,6 +55,10 @@
 	<definition name="student.studentTutorAdd" extends="student">
 		<put name="body" value="/student/studentTutorAdd.jsp" />
 	</definition>
+	
+	<definition name="student.studentOnglet" extends="student">
+		<put name="body" value="/student/studentOnglet.jsp" />
+	</definition>
 
 	<!-- Teacher -->
 	<definition name="teacher" extends="mainLayout">
