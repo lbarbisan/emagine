@@ -14,17 +14,13 @@
 
 
 <!-- Un formulaire de recherche -->
-<div id="recherche">
-<html:form action="userCreate.do" method="GET">
+<div id="create">
+<html:form action="/userShowInformation" method="GET">
 	<ul>
 		<li>
-			<label for="nom">Nom </label><html:text name="userCreateForm" property="firstName" />
-		</li>
-		<li>
-			<label for="prenom">Pr&eacute;nom </label><html:text name="userCreateForm" property="lastName" />
-		</li>
-		<li>
-			<html:submit value="Créer" />
+			<label for="id">Nom </label><html:text name="userInformationForm" property="id" />
+		</li>		<li>
+			<html:submit value="Visualiser"/>
 		</li>
 	</ul>
 </html:form>

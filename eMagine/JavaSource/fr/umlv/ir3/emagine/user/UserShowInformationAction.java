@@ -14,34 +14,36 @@ import org.apache.struts.action.ActionMapping;
 import fr.umlv.ir3.emagine.dao.DAOFactory;
 import fr.umlv.ir3.emagine.dao.DAOFactoryChooser;
 import fr.umlv.ir3.emagine.dao.UserDAO;
-import fr.umlv.ir3.emagine.dao.DAOFactoryChooser.DataSourceType;
 
 /**
  * @author Administrateur
  *
  */
-public class UserCreateAction extends Action {
+public class UserShowInformationAction extends Action {
 
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		UserInformationForm userShowInformationForm  = (UserInformationForm) form;
 		
-		UserCreateForm userCreateForm  = (UserCreateForm) form;
+		User user = getUser(userShowInformationForm);
+		userShowInformationForm.setFirstName(user.getFirstName());
+		userShowInformationForm.setLastName(user.getLastName());
 		
-		//FIXME : Déplacer le DAOChooser à l'initialisation de l'application
-		DAOFactoryChooser.setCurrentDAOFactory(DataSourceType.HIBERNATE);
+		return  mapping.findForward("success"); //TODO PageDestination
+	}
+	
+	private User getUser(UserInformationForm userInformationForm)
+	{
 		DAOFactory daoFactory = DAOFactoryChooser.getCurrentDAOFactory();
 		
 		UserDAO userDAO = daoFactory.getUserDAO();
 		
-		
-		User user = new User(userCreateForm.getFirstName() , userCreateForm.getLastName());
-		
 		daoFactory.beginTransaction() ;
-		userDAO.create(user);
+	
+		User user =  userDAO.retrieve(userInformationForm.getId());
+		
 		daoFactory.commitTransaction();
 		
-
-		return  mapping.findForward("success");
+		return user;
 	}
-
 }

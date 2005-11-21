@@ -8,6 +8,8 @@ public class Profile {
 	private long id;
 	private String Name;
 	
+	protected Profile(){}
+	
 	@Override
 	public boolean equals(Object obj) {
 		return id == ((Profile)obj).getId();

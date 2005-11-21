@@ -9,7 +9,11 @@ public class DAOFactoryChooser {
     private static DAOFactory currentDAOFactory;
     
     public static DAOFactory getCurrentDAOFactory() {
-		return currentDAOFactory;
+		if(currentDAOFactory==null)
+		{
+			setCurrentDAOFactory(DataSourceType.DEFAULT);
+		}
+    	return currentDAOFactory;
 	}
     
     public static void setCurrentDAOFactory(DataSourceType dataSourceType)

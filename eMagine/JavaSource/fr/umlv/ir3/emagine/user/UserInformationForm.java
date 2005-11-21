@@ -2,7 +2,7 @@ package fr.umlv.ir3.emagine.user;
 
 import org.apache.struts.action.ActionForm;
 
-public class UserCreateForm extends ActionForm  {
+public class UserInformationForm extends ActionForm  {
 	/**
 	 * 
 	 */
@@ -10,7 +10,14 @@ public class UserCreateForm extends ActionForm  {
 	
 	private String firstName ;
 	private String lastName;
+	private Long id;
 	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public String getFirstName() {
 		return firstName;
 	}

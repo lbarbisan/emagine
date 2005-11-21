@@ -22,7 +22,7 @@
  		<mapping class="fr.umlv.ir3.emagine.user.User"/>
 		<mapping class="fr.umlv.ir3.emagine.user.Profile"/>
  		<mapping package="fr.umlv.ir3.emagine.util.hibernate"/> 
-		<mapping class="fr.umlv.ir3.emagine.util.hibernate.BaseEntity"/>
+		<mapping class="fr.umlv.ir3.emagine.util.core.BaseEntity"/>
 
 		<!--
 		<class-cache class="core.Entite" usage="read-write"/>
