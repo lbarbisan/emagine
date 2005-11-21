@@ -1,52 +1,72 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 
- <!DOCTYPE tiles-definitions PUBLIC
+<!DOCTYPE tiles-definitions PUBLIC
        "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
        "http://struts.apache.org/dtds/tiles-config_1_1.dtd">
 
 <!-- 
-  Definitions for Tiles
-  This file contains definitions common to all Struts modules.
-  In particular, it contains the main layout and the common menus.
-  There is also the main page as a portal.
+	Definitions for Tiles
+	This file contains definitions common to all Struts modules.
+	In particular, it contains the main layout and the common menus.
+	There is also the main page as a portal.
 -->
 
 <tiles-definitions>
 
-  <!-- =======================================================  -->
-  <!-- Master definition  									    -->
-  <!-- =======================================================  -->
+	<!-- =======================================================  -->
+	<!-- Master definition  									    -->
+	<!-- =======================================================  -->
 
-  <!-- Doc index page description  -->
-  <definition name="mainLayout" path="/layout/mainLayout.jsp">
-	  <put name="title" value="eMagine v1.0" />
-	  <put name="menu1" value="/common/menu.jsp" />
-	  <put name="modif" value="/common/modif.jsp" />
-	  <put name="footer" value="/common/footer.jsp" />
-  </definition>
+	<!-- Doc index page description  -->
+	<definition name="mainLayout"
+		path="/common/layout/mainLayout.jsp">
+		<put name="title" value="eMagine v1.0" />
+		<put name="mainMenu" value="/common/mainMenu.jsp" />
+		<put name="subMainMenu" value="/common/subMenu.jsp" />
+		<put name="modif" value="/common/modif.jsp" />
+		<put name="footer" value="/common/footer.jsp" />
+	</definition>
 
-  <definition name="apprenti" extends="mainLayout">
-	  <put name="menu2"   value="/apprenti/menu.jsp" />
-  </definition>
+	<!-- Student -->
+	<definition name="student" extends="mainLayout">
+		<put name="subMenu" value="/student/studentMenu.jsp" />
+	</definition>
 
-  <definition name="teacher" extends="mainLayout">
-	  <put name="menu2"   value="/teacher/menu.jsp" />
-  </definition>
+	<definition name="student.studentSearch" extends="student">
+		<put name="body" value="/student/studentSearch.jsp" />
+	</definition>
 
-  <definition name="apprenti.search" extends="apprenti">
-	  <put name="body"   value="/apprenti/search.jsp" />
-  </definition>
+	<definition name="student.studentVisuAdress" extends="student">
+		<put name="body" value="/student/studentVisuAdress.jsp" />
+	</definition>
 
-  <definition name="apprenti.create" extends="apprenti">
-	  <put name="body"   value="/apprenti/create.jsp" />
-  </definition>
+	<definition name="student.studentVisuSituation" extends="student">
+		<put name="body" value="/student/studentVisuSituation.jsp" />
+	</definition>
 
-  <definition name="teacher.search" extends="teacher">
-	  <put name="body"   value="/teacher/search.jsp" />
-  </definition>
+	<definition name="student.studentVisuStatus" extends="student">
+		<put name="body" value="/student/studentVisuStatus.jsp" />
+	</definition>
 
-  <definition name="teacher.create" extends="teacher">
-	  <put name="body"   value="/teacher/create.jsp" />
-  </definition>
+	<definition name="student.studentCompanyAdd" extends="student">
+		<put name="body" value="/student/studentCompanyAdd.jsp" />
+	</definition>
+
+	<definition name="student.studentTutorAdd" extends="student">
+		<put name="body" value="/student/studentTutorAdd.jsp" />
+	</definition>
+
+	<!-- Teacher -->
+	<definition name="teacher" extends="mainLayout">
+		<put name="teacherMenu" value="/teacher/teacherMenu.jsp" />
+	</definition>
+
+	<definition name="teacher.teacherSearch" extends="teacher">
+		<put name="body" value="/teacher/teacherSearch.jsp" />
+	</definition>
+
+	<definition name="teacher.teacherCreate" extends="teacher">
+		<put name="body" value="/teacher/teacherCreate.jsp" />
+	</definition>
 
 </tiles-definitions>
