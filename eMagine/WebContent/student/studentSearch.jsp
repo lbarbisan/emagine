@@ -43,15 +43,15 @@
 <br/>
 <h2>R&eacute;sultats </h2> 
 <br/>
-	<div class="statSearch">
+	<div id="statSearch">
 		<ul>
 			<li>
-				<label for="pageNb">Nombre de pages </label>
-				<input type="text" id="pageNb" size="5" /> 
+				<label for="result">R&eacute;sulats </label>
+				<input type="text" id="result" size="5" />
 			</li>
 			<li>
-				<label for="result">R&eacute;sulats </label>
-				<input type="text" id="result" size="5" /> 
+				<label for="pageNb">Nombre par page </label>
+				<input type="text" id="pageNb" size="5" /> 
 			</li>
 		</ul>
 	</div>
@@ -83,16 +83,16 @@
 <!-- Les actions propres a la selection -->
 <div id="actions">
 	<ul>
-		<li><a href="#">Tous</a> /  </li>
+		<li><a href="#">Tous</a> / </li>
 		<li><a href="#">Aucun</a> </li>
 	</ul>
 	<h2>&nbsp;</h2>
 	<ul>
-		<li><a href="#"><img src="images/icones/passage.png" alt="Faire passer un apprenti"/></a> </li>
-		<li><a href="#"><img src="images/icones/virer.png" alt="Exclure un apprenti"/></a> </li>
-		<li><a href="#"><img src="images/icones/creer_mailing_list.png" alt="Cr&eacute;er une maling list"/></a> </li>
-		<li><a href="#"><img src="images/icones/mailing.png" alt="Effecter un mailing"/></a> </li>
-		<li><a href="#"><img src="images/icones/publipostage.png" alt="Effecter un publipostage"/></a> </li>
-		<li><a href="#"><img src="images/icones/extraire.png" alt="Extraire un apprenti"/></a> </li>
+		<li><a href="#"><img src="/eMagine/common/images/icones/passage.png" alt="Faire passer un apprenti"/></a> </li>
+		<li><a href="#"><img src="/eMagine/common/images/icones/virer.png" alt="Exclure un apprenti"/></a> </li>
+		<li><a href="#"><img src="/eMagine/common/images/icones/creer_mailing_list.png" alt="Cr&eacute;er une maling list"/></a> </li>
+		<li><a href="#"><img src="/eMagine/common/images/icones/mailing.png" alt="Effecter un mailing"/></a> </li>
+		<li><a href="#"><img src="/eMagine/common/images/icones/publipostage.png" alt="Effecter un publipostage"/></a> </li>
+		<li><a href="#"><img src="/eMagine/common/images/icones/extraire.png" alt="Extraire un apprenti"/></a> </li>
 	</ul>
 </div>

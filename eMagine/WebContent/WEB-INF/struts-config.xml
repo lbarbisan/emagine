@@ -23,7 +23,8 @@
 	<!-- in a real application deployment -->
 
 	<action-mappings>
-	   <action path="/studentVisuAdress" forward="student.studentVisuAdress" />	
+	   <action path="/studentVisuAdress" forward="student.studentVisuAdress" />
+	   <action path="/studentSearch" forward="student.studentSearch" />
 
 		<action path="/userCreate"
 			type="fr.umlv.ir3.emagine.user.UserModifyAction"
