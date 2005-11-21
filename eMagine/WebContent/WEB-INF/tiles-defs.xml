@@ -60,6 +60,10 @@
 		<put name="body" value="/student/studentOnglet.jsp" />
 	</definition>
 
+	<definition name="student.studentVisuSchooling" extends="student">
+		<put name="body" value="/student/studentVisuSchooling.jsp" />
+	</definition>
+	
 	<!-- Teacher -->
 	<definition name="teacher" extends="mainLayout">
 		<put name="subMenu" value="/teacher/teacherMenu.jsp" />

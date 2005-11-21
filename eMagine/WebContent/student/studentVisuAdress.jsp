@@ -1,20 +1,18 @@
 <!-- Un formulaire de modification -->
 <div class="form">
 <br/>
-	<ul>
-		<li>
-			<label for="current" style="bold">Adresse courante </label>
-			<input type="radio" name="current" value="professional">Personnelle	
-			<input type="radio" name="current" value="professional">Professionnelle	
-			<input type="radio" name="current" value="academic" checked>Acad&eacute;mique
-		</li>
-	</ul>
+	<p>
+		<label for="current" style="bold">Adresse courante </label>
+		<input type="radio" name="current" value="personnal">Personnelle	
+		<input type="radio" name="current" value="professional">Professionnelle	
+		<input type="radio" name="current" value="academic" checked>Acad&eacute;mique
+	</p>
 	<br/>
 	<fieldset>
 		<legend>Adresse&nbsp;personnelle</legend>
-			<p><label for="persAdress">Adresse <font color="red">*</font> </label><input type="text" id="persAdress" size="20" /> </p>
-			<p><label for="persPostalCode">Code&nbsp;postal <font color="red">*</font> </label><input type="text" id="persPostalCode" size="20" /> </p>	
-			<p><label for="persCity">Ville <font color="red">*</font> </label><input type="text" id="persCity" size="20" /> </p>
+			<p><label for="persAdress">Adresse <font color="red">*</font> </label><input type="text" id="persAdress" size="20" /></p>
+			<p><label for="persPostalCode">Code&nbsp;postal <font color="red">*</font> </label><input type="text" id="persPostalCode" size="20" /></p>
+			<p><label for="persCity">Ville <font color="red">*</font> </label><input type="text" id="persCity" size="20" /></p>
 			<p><label for="persDepartment">D&eacute;partement <font color="red">*</font> </label><select name="persDepartment">
 					<!-- à mettre en base -->
 					<option value="" selected="selected">-- D&eacute;partement --</option>
@@ -22,10 +20,10 @@
 					<option value="77">77</option>
 					<option value="78">78</option>
 				</select> </p>
-			<p><label for="persPhone">T&eacute;l&eacute;phone&nbsp;fixe </label><input type="text" id="persPhone" size="20" />  </p>	
-			<p><label for="persMobile">T&eacute;l&eacute;phone&nbsp;portable </label><input type="text" id="persPhone" size="20" /> 
-			<p><label for="persFax">Fax </label><input type="text" id="persFax" size="20" />   	
-			<p><label for="persEmail">E-mail <font color="red">*</font> </label><input type="text" id="persEmail" size="20" />    	
+			<p><label for="persPhone">T&eacute;l&eacute;phone&nbsp;fixe </label><input type="text" id="persPhone" size="20" /></p>	
+			<p><label for="persMobile">T&eacute;l&eacute;phone&nbsp;portable </label><input type="text" id="persPhone" size="20" /></p>
+			<p><label for="persFax">Fax </label><input type="text" id="persFax" size="20" /></p>
+			<p><label for="persEmail">E-mail <font color="red">*</font> </label><input type="text" id="persEmail" size="20" /></p>	
 	</fieldset>
 	<br/>
 	<fieldset>

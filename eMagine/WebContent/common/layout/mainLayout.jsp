@@ -7,9 +7,9 @@
 		<title><tiles:getAsString name="title" /></title>
 	</head>
 	<body>
+		<a name="top" />
 		<tiles:insert attribute="mainMenu" />
 		<tiles:insert attribute="subMainMenu" />
-		<a name="top" />
 		<div id="global">
 			<div id="left_bloc">
 				<div class="left">

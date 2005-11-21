@@ -9,3 +9,6 @@
 <ul>
 	<li><html:link action="/studentVisuSituation">Situation</html:link></li>
 </ul>
+<ul>
+	<li><html:link action="/studentVisuSchooling">Scolarité</html:link></li>
+</ul>
