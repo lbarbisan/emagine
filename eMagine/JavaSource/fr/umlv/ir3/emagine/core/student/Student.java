@@ -1,4 +1,4 @@
-package fr.umlv.ir3.emagine.student;
+package fr.umlv.ir3.emagine.core.student;
 
 import java.util.List;
 
@@ -11,8 +11,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
-import fr.umlv.ir3.emagine.student.abscence.Abscence;
-import fr.umlv.ir3.emagine.util.core.BaseEntity;
+import fr.umlv.ir3.emagine.core.BaseEntity;
+import fr.umlv.ir3.emagine.core.student.abscence.Abscence;
 
 @Entity(access = AccessType.FIELD)
 @Table(name = "tbl_student")

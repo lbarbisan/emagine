@@ -6,8 +6,8 @@ package fr.umlv.ir3.emagine.dao.hibernate;
 import java.util.Collection;
 import java.util.List;
 
+import fr.umlv.ir3.emagine.core.user.User;
 import fr.umlv.ir3.emagine.dao.UserDAO;
-import fr.umlv.ir3.emagine.user.User;
 import fr.umlv.ir3.emagine.user.UserSearchParam;
 import fr.umlv.ir3.emagine.util.hibernate.HibernateUtils;
 

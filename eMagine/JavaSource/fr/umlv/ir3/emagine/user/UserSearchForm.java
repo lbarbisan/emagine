@@ -2,6 +2,8 @@ package fr.umlv.ir3.emagine.user;
 
 import java.util.Collection;
 
+import fr.umlv.ir3.emagine.core.user.profile.Profile;
+import fr.umlv.ir3.emagine.core.user.User;
 import fr.umlv.ir3.emagine.util.core.SelectSearchForm;
 
 public class UserSearchForm extends SelectSearchForm<User> implements UserSearchParam {

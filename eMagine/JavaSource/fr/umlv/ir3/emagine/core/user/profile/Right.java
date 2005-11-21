@@ -1,11 +1,11 @@
-package fr.umlv.ir3.emagine.user;
+package fr.umlv.ir3.emagine.core.user.profile;
 
 import javax.persistence.AccessType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import fr.umlv.ir3.emagine.util.core.BaseEntity;
+import fr.umlv.ir3.emagine.core.BaseEntity;
 
 /**
  * This class represent a right in the application, it's associated to a Profile
