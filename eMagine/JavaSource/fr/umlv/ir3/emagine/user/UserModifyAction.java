@@ -37,6 +37,9 @@ public class UserModifyAction extends DispatchAction {
 		userDAO.create(user);
 		daoFactory.commitTransaction();
 		
+		//Mise à jour dans la form de l'id
+		userInformationForm.setId(user.getId());
+		
 		return  mapping.findForward("success"); //TODO PageDestination
 	}
 	
