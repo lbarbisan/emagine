@@ -43,22 +43,18 @@
 </div>
 <br/>
 <h2>R&eacute;sultats </h2> 
-<br/>
-	<div id="statSearch">
-		<ul>
-			<li>
-				<label for="result">R&eacute;sulats </label>
-				<input type="text" id="result" size="5" />
-			</li>
-			<li>
-				<label for="pageNb">Nombre par page </label>
-				<input type="text" id="pageNb" size="5" /> 
-			</li>
-		</ul>
-	</div>
-<br/>
+
+
 <!-- Un tableau de resultats -->
-<table width="60%" cellpadding="0" cellspacing="0">
+<div align=center>
+<div id="statSearch">
+<p>
+<label for="result">R&eacute;sulats </label> <input type="text" id="result" size="5" />&nbsp;&nbsp;&nbsp;
+<label for="pageNb">Nombre par page </label><input type="text" id="pageNb" size="5" /> 
+</p>
+
+</div>
+<table cellpadding="0" cellspacing="0">
 	<tr>
 		<th>&nbsp;</th>
 		<th>Nom</th>
@@ -81,6 +77,7 @@
 		<td>3</td>
 	</tr>
 </table>
+</div>
 <!-- Les actions propres a la selection -->
 <div id="actions">
 	<ul>
