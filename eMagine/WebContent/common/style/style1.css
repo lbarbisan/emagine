@@ -157,6 +157,33 @@ ul#menu2 {
 }
 .content a:hover{text-decoration:underline;}
 
+.form{
+	font-weight:bold;
+	margin:5px;
+	display:inline;
+}
+.form label {
+	float: left;
+	width: 150px;
+  	text-align: right;
+  	margin-right:5px;
+}
+.form p{
+	margin:5px;
+}
+.form input {
+}
+.form  ul{
+	font-weight:normal;
+	list-style-type: none;
+	margin:5px;
+	padding:0;
+	border-style:none;
+}
+.form li {
+	display:inline;
+}
+
 #actions{}
 #actions ul{
 	list-style-type: none;

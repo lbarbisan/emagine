@@ -1,6 +1,7 @@
 <h2>Recherche d'apprenti</h2>
 <br/>
 <!-- Un formulaire de recherche -->
+
 <div id="search">
 	<ul>
 		<li>
