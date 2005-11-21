@@ -2,8 +2,34 @@
 
 
 <nodeSet  version="1.1">
-	<view uin="V574ng9eg9tc3eg-ka82ik">
+	<view uin="V574ng9egabs4t2-u50dn">
 		<property name="$defaultDiagram" value="true"/>
 		<property name="$metaclass" value="Package Diagram"/>
+		<reference referencedUin="jdt:e_class:src:fr.umlv.ir3.emagine.dao.hibernate.HibernateUserDAO">
+			<property name="bounds" value="1,175,151,105"/>
+			<property name="location_set_by_user" value="true"/>
+			<reference referencedUin="jdt:l_gnt:src:fr.umlv.ir3.emagine.dao.hibernate.HibernateUserDAO:HibernateBaseDAO&lt;User&gt;">
+				<property name="sourceAnchor" value="132,180"/>
+				<property name="targetAnchor" value="132,128"/>
+			</reference>
+		</reference>
+		<reference referencedUin="jdt:e_class:src:fr.umlv.ir3.emagine.dao.hibernate.HibernateProfileDAO">
+			<property name="bounds" value="175,175,167,92"/>
+			<property name="location_set_by_user" value="true"/>
+			<reference referencedUin="jdt:e_method:src:fr.umlv.ir3.emagine.dao.hibernate.HibernateProfileDAO.retrieve:retrieve~J">
+			</reference>
+			<reference referencedUin="jdt:l_gnt:src:fr.umlv.ir3.emagine.dao.hibernate.HibernateProfileDAO:HibernateBaseDAO&lt;Profile&gt;">
+				<property name="sourceAnchor" value="211,180"/>
+				<property name="targetAnchor" value="211,128"/>
+			</reference>
+		</reference>
+		<reference referencedUin="jdt:e_class:src:fr.umlv.ir3.emagine.dao.hibernate.HibernateBaseDAO">
+			<property name="bounds" value="103,5,134,118"/>
+			<property name="location_set_by_user" value="true"/>
+		</reference>
+		<reference referencedUin="jdt:e_class:src:fr.umlv.ir3.emagine.dao.hibernate.HibernateDAOFactory">
+			<property name="bounds" value="5,325,144,144"/>
+			<property name="location_set_by_user" value="true"/>
+		</reference>
 	</view>
 </nodeSet>

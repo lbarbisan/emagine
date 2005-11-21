@@ -1,0 +1,1739 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<nodeSet  version="1.1">
+	<node uin="-w2q8ptegabpi17bz0148">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="actor"/>
+		<property name="@stereotype" value="actor"/>
+		<link uin="ieje0regabpi533vi34h">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabpi5x-3dydq6:-w2q8ptegabpi2vrim6dq"/>
+			<property name="normalizedIndex" value="0.5"/>
+			<property name="operationDeclaringClass" value="fr.umlv.ir3.emagine.user.UserModifyAction"/>
+			<property name="operationSignature" value="userCreate(mapping:org.apache.struts.action.ActionMappingform:org.apache.struts.action.ActionFormrequest:javax.servlet.http.HttpServletRequestresponse:javax.servlet.http.HttpServletResponse):org.apache.struts.action.ActionForward"/>
+			<property name="operationName" value="userCreate"/>
+			<property name="$name" value="invoke userCreate"/>
+			<link uin="ieje0regabpia44kb2bs">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:link:::ieje0regabpi533vi34h:-w2q8ptegabpi17bz0148" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:fr.umlv.ir3.emagine.user.UserModifyAction.userCreate:userCreate~QActionMapping;~QActionForm;~QHttpServletRequest;~QHttpServletResponse;" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::-w2q8ptegabpi17bz0148" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabpi2vrim6dq" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabpi5d43zj2m">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabpi17bz0148" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabpi2vrim6dq" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="-w2q8ptegabpi2vrim6dq">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="&lt;initial&gt;"/>
+		<property name="incomingMessagesHistory" value="design:link:::ieje0regabpi533vi34h:-w2q8ptegabpi17bz0148"/>
+		<link uin="ieje0regabpi3p-agleeq">
+			<property name="$metaclass" value="Dependency Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabpi2vrim6dq" role="Client"></participant>
+			<participant referencedUin="jdt:e_class:src:fr.umlv.ir3.emagine.user.UserModifyAction" role="Supplier"></participant>
+		</link>
+		<node uin="-4aytaiegabpi5x-3dydq6">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation1"/>
+			<property name="messageUid" value="design:link:::ieje0regabpi533vi34h:-w2q8ptegabpi17bz0148"/>
+			<link uin="ieje0regabpjic-s0lrkf">
+				<property name="$metaclass" value="Return Link"/>
+				<property name="normalizedIndex" value="1.0"/>
+				<participant referencedUin="design:node:::-4aytaiegabpi5x-3dydq6:-w2q8ptegabpi2vrim6dq" role="Client"></participant>
+				<participant referencedUin="design:node:::-w2q8ptegabpi2vrim6dq" role="Supplier"></participant>
+			</link>
+		</node>
+		<link uin="ieje0regabpiao-ofes2s">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabpi533vi34h:-w2q8ptegabpi17bz0148"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabpiayxpil65:-w2q8ptegabpia4-7lng7i"/>
+			<property name="operationDeclaringClass" value="fr.umlv.ir3.emagine.dao.DAOFactoryChooser"/>
+			<property name="operationSignature" value="getCurrentDAOFactory:fr.umlv.ir3.emagine.dao.DAOFactory"/>
+			<property name="operationName" value="getCurrentDAOFactory"/>
+			<property name="@return" value="daoFactory"/>
+			<property name="$name" value="invoke getCurrentDAOFactory"/>
+			<property name="normalizedIndex" value="0.083333336"/>
+			<link uin="ieje0regabpibi89uw2d">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:link:::ieje0regabpiao-ofes2s:-w2q8ptegabpi2vrim6dq" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:fr.umlv.ir3.emagine.dao.DAOFactoryChooser.getCurrentDAOFactory:getCurrentDAOFactory" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::-w2q8ptegabpi2vrim6dq" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabpia4-7lng7i" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabpiao-hagxi8">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabpi2vrim6dq" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabpia4-7lng7i" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabpih2-3n7sh6">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabpi533vi34h:-w2q8ptegabpi17bz0148"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabpihc4k4228:-w2q8ptegabpigsb3xzgw"/>
+			<property name="operationDeclaringClass" value="fr.umlv.ir3.emagine.dao.DAOFactory"/>
+			<property name="operationSignature" value="getUserDAO:fr.umlv.ir3.emagine.dao.UserDAO"/>
+			<property name="operationName" value="getUserDAO"/>
+			<property name="@return" value="userDAO"/>
+			<property name="$name" value="invoke getUserDAO"/>
+			<property name="normalizedIndex" value="0.16666667"/>
+			<link uin="ieje0regabpihwwjrdmc">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:link:::ieje0regabpih2-3n7sh6:-w2q8ptegabpi2vrim6dq" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:fr.umlv.ir3.emagine.dao.DAOFactory.getUserDAO:getUserDAO" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::-w2q8ptegabpi2vrim6dq" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabpigsb3xzgw" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabpih2-c2wvgj">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabpi2vrim6dq" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabpigsb3xzgw" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabpiig-woib4p">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabpi533vi34h:-w2q8ptegabpi17bz0148"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabpij0-rozojk:-w2q8ptegabpii6-4egl4q"/>
+			<property name="operationDeclaringClass" value="fr.umlv.ir3.emagine.user.UserInformationForm"/>
+			<property name="operationSignature" value="getFirstName:java.lang.String"/>
+			<property name="operationName" value="getFirstName"/>
+			<property name="@return" value="user"/>
+			<property name="$name" value="invoke getFirstName"/>
+			<property name="normalizedIndex" value="0.25"/>
+			<link uin="ieje0regabpik4-aflnq1">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:link:::ieje0regabpiig-woib4p:-w2q8ptegabpi2vrim6dq" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:fr.umlv.ir3.emagine.user.UserInformationForm.getFirstName:getFirstName" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::-w2q8ptegabpi2vrim6dq" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabpii6-4egl4q" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabpiig-i8j1c0">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabpi2vrim6dq" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabpii6-4egl4q" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabpik4-1p8663">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabpi533vi34h:-w2q8ptegabpi17bz0148"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabpiko-a9yatn:-w2q8ptegabpii6-4egl4q"/>
+			<property name="operationDeclaringClass" value="fr.umlv.ir3.emagine.user.UserInformationForm"/>
+			<property name="operationSignature" value="getLastName:java.lang.String"/>
+			<property name="operationName" value="getLastName"/>
+			<property name="@return" value="user"/>
+			<property name="$name" value="invoke getLastName"/>
+			<property name="normalizedIndex" value="0.33333334"/>
+			<link uin="ieje0regabpil88ki0xf">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:link:::ieje0regabpik4-1p8663:-w2q8ptegabpi2vrim6dq" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:fr.umlv.ir3.emagine.user.UserInformationForm.getLastName:getLastName" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::-w2q8ptegabpi2vrim6dq" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabpii6-4egl4q" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabpilijsptm0">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabpi533vi34h:-w2q8ptegabpi17bz0148"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabpilsnktw2:-w2q8ptegabpil8-gitery"/>
+			<property name="operationDeclaringClass" value="fr.umlv.ir3.emagine.user.User"/>
+			<property name="operationSignature" value="User(firstName:java.lang.StringlastName:java.lang.String):void"/>
+			<property name="operationName" value="&lt;constructor&gt;"/>
+			<property name="creation" value="true"/>
+			<property name="arguments" value="userInformationForm.getFirstName(),userInformationForm.getLastName()"/>
+			<property name="$name" value="create User"/>
+			<property name="normalizedIndex" value="0.4166667"/>
+			<link uin="ieje0regabpimw-7menn9">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:link:::ieje0regabpilijsptm0:-w2q8ptegabpi2vrim6dq" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:fr.umlv.ir3.emagine.user.User.User:User~QString;~QString;" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::-w2q8ptegabpi2vrim6dq" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabpil8-gitery" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabpilizfyvev">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabpi2vrim6dq" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabpil8-gitery" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabpin6-nrgxl7">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabpi533vi34h:-w2q8ptegabpi17bz0148"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabping13ngtd:-w2q8ptegabpigsb3xzgw"/>
+			<property name="operationDeclaringClass" value="fr.umlv.ir3.emagine.dao.DAOFactory"/>
+			<property name="operationSignature" value="beginTransaction:void"/>
+			<property name="operationName" value="beginTransaction"/>
+			<property name="$name" value="invoke beginTransaction"/>
+			<property name="normalizedIndex" value="0.5"/>
+			<link uin="ieje0regabpio0xnzwgg">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:link:::ieje0regabpin6-nrgxl7:-w2q8ptegabpi2vrim6dq" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:fr.umlv.ir3.emagine.dao.DAOFactory.beginTransaction:beginTransaction" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::-w2q8ptegabpi2vrim6dq" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabpigsb3xzgw" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabpioa-tmouz">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabpi533vi34h:-w2q8ptegabpi17bz0148"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabpiok-ybuuxd:-w2q8ptegabpio0-4hed6d"/>
+			<property name="operationDeclaringClass" value="fr.umlv.ir3.emagine.dao.BaseDAO"/>
+			<property name="operationSignature" value="create(object:ObjectType):void"/>
+			<property name="operationName" value="create"/>
+			<property name="arguments" value="user"/>
+			<property name="$name" value="invoke create"/>
+			<property name="normalizedIndex" value="0.5833333"/>
+			<link uin="ieje0regabpjc8-72qodm">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:link:::ieje0regabpioa-tmouz:-w2q8ptegabpi2vrim6dq" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:fr.umlv.ir3.emagine.dao.BaseDAO.create:create~QObjectType;" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::-w2q8ptegabpi2vrim6dq" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabpio0-4hed6d" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabpioa4azvrl">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabpi2vrim6dq" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabpio0-4hed6d" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabpjci-3cq8as">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabpi533vi34h:-w2q8ptegabpi17bz0148"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabpjcstuynrb:-w2q8ptegabpigsb3xzgw"/>
+			<property name="operationDeclaringClass" value="fr.umlv.ir3.emagine.dao.DAOFactory"/>
+			<property name="operationSignature" value="commitTransaction:void"/>
+			<property name="operationName" value="commitTransaction"/>
+			<property name="$name" value="invoke commitTransaction"/>
+			<property name="normalizedIndex" value="0.6666666"/>
+			<link uin="ieje0regabpjdc-6jf7je">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:link:::ieje0regabpjci-3cq8as:-w2q8ptegabpi2vrim6dq" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:fr.umlv.ir3.emagine.dao.DAOFactory.commitTransaction:commitTransaction" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::-w2q8ptegabpi2vrim6dq" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabpigsb3xzgw" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabpjdcmbl6un">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabpi533vi34h:-w2q8ptegabpi17bz0148"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabpjdm-7x0s6i:-w2q8ptegabpil8-gitery"/>
+			<property name="operationDeclaringClass" value="fr.umlv.ir3.emagine.util.core.BaseEntity"/>
+			<property name="operationSignature" value="getId:java.lang.Long"/>
+			<property name="operationName" value="getId"/>
+			<property name="$name" value="invoke getId"/>
+			<property name="normalizedIndex" value="0.74999994"/>
+			<link uin="ieje0regabpjfa-79s5xx">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:link:::ieje0regabpjdcmbl6un:-w2q8ptegabpi2vrim6dq" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:fr.umlv.ir3.emagine.util.core.BaseEntity.getId:getId" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::-w2q8ptegabpi2vrim6dq" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabpil8-gitery" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabpjfk-8f7qnx">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabpi533vi34h:-w2q8ptegabpi17bz0148"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabpjfu-xu9gmn:-w2q8ptegabpii6-4egl4q"/>
+			<property name="operationDeclaringClass" value="fr.umlv.ir3.emagine.user.UserInformationForm"/>
+			<property name="operationSignature" value="setId(id:java.lang.Long):void"/>
+			<property name="operationName" value="setId"/>
+			<property name="arguments" value="user.getId()"/>
+			<property name="$name" value="invoke setId"/>
+			<property name="normalizedIndex" value="0.83333325"/>
+			<link uin="ieje0regabpjgel9rb8y">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:link:::ieje0regabpjfk-8f7qnx:-w2q8ptegabpi2vrim6dq" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:fr.umlv.ir3.emagine.user.UserInformationForm.setId:setId~QLong;" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::-w2q8ptegabpi2vrim6dq" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabpii6-4egl4q" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabpjgofwqm59">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabpi533vi34h:-w2q8ptegabpi17bz0148"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabpjh8-x3awva:-w2q8ptegabpjgemkjnu0"/>
+			<property name="normalizedIndex" value="0.91666657"/>
+			<property name="operationDeclaringClass" value="org.apache.struts.action.ActionMapping"/>
+			<property name="operationSignature" value="findForward(arg0:java.lang.String):org.apache.struts.action.ActionForward"/>
+			<property name="operationName" value="findForward"/>
+			<property name="arguments" value="&quot;success&quot;"/>
+			<property name="$name" value="invoke findForward"/>
+			<link uin="ieje0regabpji2-9xg2rm">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:link:::ieje0regabpjgofwqm59:-w2q8ptegabpi2vrim6dq" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:bin:org.apache.struts.action.ActionMapping.findForward:findForward~Ljava.lang.String;" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::-w2q8ptegabpi2vrim6dq" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabpjgemkjnu0" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabpjgo-jaqpd0">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabpi2vrim6dq" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabpjgemkjnu0" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="-w2q8ptegabpia4-7lng7i">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="&lt;static&gt;"/>
+		<property name="incomingMessagesHistory" value="design:link:::ieje0regabpiao-ofes2s:-w2q8ptegabpi2vrim6dq;design:link:::ieje0regabpibs-dtlur1:-w2q8ptegabpia4-7lng7i"/>
+		<link uin="ieje0regabpiae39j9c8">
+			<property name="$metaclass" value="Dependency Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabpia4-7lng7i" role="Client"></participant>
+			<participant referencedUin="jdt:e_class:src:fr.umlv.ir3.emagine.dao.DAOFactoryChooser" role="Supplier"></participant>
+		</link>
+		<node uin="-4aytaiegabpiayxpil65">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation1"/>
+			<property name="messageUid" value="design:link:::ieje0regabpiao-ofes2s:-w2q8ptegabpi2vrim6dq"/>
+		</node>
+		<node uin="-n34c7hegabpibixybsox">
+			<property name="$metaclass" value="Conditional Block"/>
+			<property name="$name" value="Conditional Block1"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabpiao-ofes2s:-w2q8ptegabpi2vrim6dq"/>
+			<property name="blockType" value="if"/>
+			<property name="normalizedIndex" value="0.5"/>
+			<property name="condition" value="currentDAOFactory==null"/>
+		</node>
+		<link uin="ieje0regabpibs-dtlur1">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:node:::-n34c7hegabpibixybsox:-w2q8ptegabpia4-7lng7i"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabpicm-yoa7xz:-w2q8ptegabpia4-7lng7i"/>
+			<property name="normalizedIndex" value="0.5"/>
+			<property name="operationDeclaringClass" value="fr.umlv.ir3.emagine.dao.DAOFactoryChooser"/>
+			<property name="operationSignature" value="setCurrentDAOFactory(dataSourceType:fr.umlv.ir3.emagine.dao.DAOFactoryChooser.DataSourceType):void"/>
+			<property name="operationName" value="setCurrentDAOFactory"/>
+			<property name="arguments" value="DataSourceType.DEFAULT"/>
+			<property name="$name" value="invoke setCurrentDAOFactory"/>
+			<link uin="ieje0regabpidg-nf3yxj">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:link:::ieje0regabpibs-dtlur1:-w2q8ptegabpia4-7lng7i" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:fr.umlv.ir3.emagine.dao.DAOFactoryChooser.setCurrentDAOFactory:setCurrentDAOFactory~QDataSourceType;" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::-w2q8ptegabpia4-7lng7i" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabpia4-7lng7i" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabpic265xykd">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabpia4-7lng7i" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabpia4-7lng7i" role="Supplier"></participant>
+		</link>
+		<node uin="-4aytaiegabpicm-yoa7xz">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation2"/>
+			<property name="messageUid" value="design:link:::ieje0regabpibs-dtlur1:-w2q8ptegabpia4-7lng7i"/>
+		</node>
+		<node uin="-n34c7hegabpidg4bl0ep">
+			<property name="$metaclass" value="Conditional Block"/>
+			<property name="$name" value="Conditional Block2"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabpibs-dtlur1:-w2q8ptegabpia4-7lng7i"/>
+			<property name="blockType" value="if"/>
+			<property name="condition" value="dataSourceType==null"/>
+			<property name="normalizedIndex" value="0.33333334"/>
+		</node>
+		<node uin="-1n313zegabpiea-zfrugv">
+			<property name="$metaclass" value="Switch Block"/>
+			<property name="$name" value="Switch Block1"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabpibs-dtlur1:-w2q8ptegabpia4-7lng7i"/>
+			<property name="normalizedIndex" value="0.6666667"/>
+			<property name="expression" value="dataSourceType"/>
+		</node>
+		<link uin="ieje0regabpieu-cqpzds">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:node:::-1n313zegabpiea-zfrugv:-w2q8ptegabpia4-7lng7i"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabpif4ekb9sk:-w2q8ptegabpiek22fvc"/>
+			<property name="creation" value="true"/>
+			<property name="$name" value="&lt;default constructor&gt;"/>
+			<property name="destruction" value="true"/>
+			<property name="normalizedIndex" value="0.33333334"/>
+			<participant referencedUin="design:node:::-w2q8ptegabpia4-7lng7i" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabpiek22fvc" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabpieu-vqo0mi">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabpia4-7lng7i" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabpiek22fvc" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabpify-4ep0m7">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:node:::-1n313zegabpiea-zfrugv:-w2q8ptegabpia4-7lng7i"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabpigi-esvzi7:-w2q8ptegabpifo-djkg7d"/>
+			<property name="normalizedIndex" value="0.6666667"/>
+			<property name="creation" value="true"/>
+			<property name="$name" value="&lt;default constructor&gt;"/>
+			<participant referencedUin="design:node:::-w2q8ptegabpia4-7lng7i" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabpifo-djkg7d" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabpify-cm2w5p">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabpia4-7lng7i" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabpifo-djkg7d" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="-w2q8ptegabpiek22fvc">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="currentDAOFactory"/>
+		<property name="incomingMessagesHistory" value="design:link:::ieje0regabpieu-cqpzds:-w2q8ptegabpia4-7lng7i"/>
+		<link uin="ieje0regabpieu-mahd4e">
+			<property name="$metaclass" value="Dependency Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabpiek22fvc" role="Client"></participant>
+			<participant referencedUin="jdt:e_class:src:fr.umlv.ir3.emagine.dao.hibernate.HibernateDAOFactory" role="Supplier"></participant>
+		</link>
+		<node uin="-4aytaiegabpif4ekb9sk">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation1"/>
+			<property name="messageUid" value="design:link:::ieje0regabpieu-cqpzds:-w2q8ptegabpia4-7lng7i"/>
+		</node>
+	</node>
+	<node uin="-w2q8ptegabpifo-djkg7d">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="currentDAOFactory"/>
+		<property name="incomingMessagesHistory" value="design:link:::ieje0regabpify-4ep0m7:-w2q8ptegabpia4-7lng7i"/>
+		<link uin="ieje0regabpifop7yf7l">
+			<property name="$metaclass" value="Dependency Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabpifo-djkg7d" role="Client"></participant>
+			<participant referencedUin="jdt:e_class:src:fr.umlv.ir3.emagine.dao.hibernate.HibernateDAOFactory" role="Supplier"></participant>
+		</link>
+		<node uin="-4aytaiegabpigi-esvzi7">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation1"/>
+			<property name="messageUid" value="design:link:::ieje0regabpify-4ep0m7:-w2q8ptegabpia4-7lng7i"/>
+		</node>
+	</node>
+	<node uin="-w2q8ptegabpigsb3xzgw">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="daoFactory"/>
+		<property name="incomingMessagesHistory" value="design:link:::ieje0regabpih2-3n7sh6:-w2q8ptegabpi2vrim6dq;design:link:::ieje0regabpin6-nrgxl7:-w2q8ptegabpi2vrim6dq;design:link:::ieje0regabpjci-3cq8as:-w2q8ptegabpi2vrim6dq"/>
+		<link uin="ieje0regabpih2dwgmi4">
+			<property name="$metaclass" value="Dependency Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabpigsb3xzgw" role="Client"></participant>
+			<participant referencedUin="jdt:e_class:src:fr.umlv.ir3.emagine.dao.DAOFactory" role="Supplier"></participant>
+		</link>
+		<node uin="-4aytaiegabpihc4k4228">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation1"/>
+			<property name="messageUid" value="design:link:::ieje0regabpih2-3n7sh6:-w2q8ptegabpi2vrim6dq"/>
+		</node>
+		<node uin="-4aytaiegabping13ngtd">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation2"/>
+			<property name="messageUid" value="design:link:::ieje0regabpin6-nrgxl7:-w2q8ptegabpi2vrim6dq"/>
+		</node>
+		<node uin="-4aytaiegabpjcstuynrb">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation3"/>
+			<property name="messageUid" value="design:link:::ieje0regabpjci-3cq8as:-w2q8ptegabpi2vrim6dq"/>
+		</node>
+	</node>
+	<node uin="-w2q8ptegabpii6-4egl4q">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="form"/>
+		<property name="incomingMessagesHistory" value="design:link:::ieje0regabpiig-woib4p:-w2q8ptegabpi2vrim6dq;design:link:::ieje0regabpik4-1p8663:-w2q8ptegabpi2vrim6dq;design:link:::ieje0regabpjfk-8f7qnx:-w2q8ptegabpi2vrim6dq"/>
+		<link uin="ieje0regabpii6-cx7tgw">
+			<property name="$metaclass" value="Dependency Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabpii6-4egl4q" role="Client"></participant>
+			<participant referencedUin="jdt:e_class:src:fr.umlv.ir3.emagine.user.UserInformationForm" role="Supplier"></participant>
+		</link>
+		<node uin="-4aytaiegabpij0-rozojk">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation1"/>
+			<property name="messageUid" value="design:link:::ieje0regabpiig-woib4p:-w2q8ptegabpi2vrim6dq"/>
+		</node>
+		<node uin="-4aytaiegabpiko-a9yatn">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation2"/>
+			<property name="messageUid" value="design:link:::ieje0regabpik4-1p8663:-w2q8ptegabpi2vrim6dq"/>
+		</node>
+		<node uin="-4aytaiegabpjfu-xu9gmn">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation3"/>
+			<property name="messageUid" value="design:link:::ieje0regabpjfk-8f7qnx:-w2q8ptegabpi2vrim6dq"/>
+		</node>
+	</node>
+	<node uin="-w2q8ptegabpil8-gitery">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="user"/>
+		<property name="incomingMessagesHistory" value="design:link:::ieje0regabpilijsptm0:-w2q8ptegabpi2vrim6dq;design:link:::ieje0regabpjdcmbl6un:-w2q8ptegabpi2vrim6dq"/>
+		<link uin="ieje0regabpilijg8q6k">
+			<property name="$metaclass" value="Dependency Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabpil8-gitery" role="Client"></participant>
+			<participant referencedUin="jdt:e_class:src:fr.umlv.ir3.emagine.user.User" role="Supplier"></participant>
+		</link>
+		<node uin="-4aytaiegabpilsnktw2">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation1"/>
+			<property name="messageUid" value="design:link:::ieje0regabpilijsptm0:-w2q8ptegabpi2vrim6dq"/>
+		</node>
+		<node uin="-4aytaiegabpjdm-7x0s6i">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation2"/>
+			<property name="messageUid" value="design:link:::ieje0regabpjdcmbl6un:-w2q8ptegabpi2vrim6dq"/>
+		</node>
+	</node>
+	<node uin="-w2q8ptegabpio0-4hed6d">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="userDAO"/>
+		<property name="incomingMessagesHistory" value="design:link:::ieje0regabpioa-tmouz:-w2q8ptegabpi2vrim6dq"/>
+		<link uin="ieje0regabpio0-wohoj6">
+			<property name="$metaclass" value="Dependency Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabpio0-4hed6d" role="Client"></participant>
+			<participant referencedUin="jdt:e_class:src:fr.umlv.ir3.emagine.dao.UserDAO" role="Supplier"></participant>
+		</link>
+		<node uin="-4aytaiegabpiok-ybuuxd">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation1"/>
+			<property name="messageUid" value="design:link:::ieje0regabpioa-tmouz:-w2q8ptegabpi2vrim6dq"/>
+		</node>
+	</node>
+	<node uin="-w2q8ptegabpjgemkjnu0">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="mapping"/>
+		<property name="incomingMessagesHistory" value="design:link:::ieje0regabpjgofwqm59:-w2q8ptegabpi2vrim6dq"/>
+		<link uin="ieje0regabpjgo-csqn40">
+			<property name="$metaclass" value="Dependency Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabpjgemkjnu0" role="Client"></participant>
+			<participant referencedUin="jdt:e_class:bin:org.apache.struts.action.ActionMapping" role="Supplier"></participant>
+		</link>
+		<node uin="-4aytaiegabpjh8-x3awva">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation1"/>
+			<property name="messageUid" value="design:link:::ieje0regabpjgofwqm59:-w2q8ptegabpi2vrim6dq"/>
+		</node>
+	</node>
+	<node uin="-w2q8ptegabq7o7-5dcidl">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="actor"/>
+		<property name="@stereotype" value="actor"/>
+		<link uin="ieje0regabq7oh5jau0u">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabq7oh8bedu5:-w2q8ptegabq7o7v80hiv"/>
+			<property name="normalizedIndex" value="0.5"/>
+			<property name="operationDeclaringClass" value="fr.umlv.ir3.emagine.user.UserModifyAction"/>
+			<property name="operationSignature" value="userModify(mapping:org.apache.struts.action.ActionMappingform:org.apache.struts.action.ActionFormrequest:javax.servlet.http.HttpServletRequestresponse:javax.servlet.http.HttpServletResponse):org.apache.struts.action.ActionForward"/>
+			<property name="operationName" value="userModify"/>
+			<property name="$name" value="invoke userModify"/>
+			<link uin="ieje0regabq7qf-w06sxy">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:link:::ieje0regabq7oh5jau0u:-w2q8ptegabq7o7-5dcidl" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:fr.umlv.ir3.emagine.user.UserModifyAction.userModify:userModify~QActionMapping;~QActionForm;~QHttpServletRequest;~QHttpServletResponse;" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::-w2q8ptegabq7o7-5dcidl" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabq7o7v80hiv" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabq7oh-yxwkuc">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabq7o7-5dcidl" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabq7o7v80hiv" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="-w2q8ptegabq7o7v80hiv">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="&lt;initial&gt;"/>
+		<property name="incomingMessagesHistory" value="design:link:::ieje0regabq7oh5jau0u:-w2q8ptegabq7o7-5dcidl"/>
+		<link uin="ieje0regabq7oh-npwznj">
+			<property name="$metaclass" value="Dependency Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabq7o7v80hiv" role="Client"></participant>
+			<participant referencedUin="jdt:e_class:src:fr.umlv.ir3.emagine.user.UserModifyAction" role="Supplier"></participant>
+		</link>
+		<node uin="-4aytaiegabq7oh8bedu5">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation1"/>
+			<property name="messageUid" value="design:link:::ieje0regabq7oh5jau0u:-w2q8ptegabq7o7-5dcidl"/>
+			<link uin="ieje0regabq860gq965j">
+				<property name="$metaclass" value="Return Link"/>
+				<property name="normalizedIndex" value="1.0"/>
+				<participant referencedUin="design:node:::-4aytaiegabq7oh8bedu5:-w2q8ptegabq7o7v80hiv" role="Client"></participant>
+				<participant referencedUin="design:node:::-w2q8ptegabq7o7v80hiv" role="Supplier"></participant>
+			</link>
+		</node>
+		<link uin="ieje0regabq7qp-wtpitv">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabq7oh5jau0u:-w2q8ptegabq7o7-5dcidl"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabq7qp-hl9mra:-w2q8ptegabq7qf-e2xjze"/>
+			<property name="operationDeclaringClass" value="fr.umlv.ir3.emagine.dao.DAOFactoryChooser"/>
+			<property name="operationSignature" value="getCurrentDAOFactory:fr.umlv.ir3.emagine.dao.DAOFactory"/>
+			<property name="operationName" value="getCurrentDAOFactory"/>
+			<property name="@return" value="daoFactory"/>
+			<property name="$name" value="invoke getCurrentDAOFactory"/>
+			<property name="normalizedIndex" value="0.07692308"/>
+			<link uin="ieje0regabq7qz-n4to5d">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:link:::ieje0regabq7qp-wtpitv:-w2q8ptegabq7o7v80hiv" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:fr.umlv.ir3.emagine.dao.DAOFactoryChooser.getCurrentDAOFactory:getCurrentDAOFactory" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::-w2q8ptegabq7o7v80hiv" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabq7qf-e2xjze" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabq7qputbyph">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabq7o7v80hiv" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabq7qf-e2xjze" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabq7t752vdk9">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabq7oh5jau0u:-w2q8ptegabq7o7-5dcidl"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabq7thv8uc8q:-w2q8ptegabq7sx-o9hz3h"/>
+			<property name="operationDeclaringClass" value="fr.umlv.ir3.emagine.dao.DAOFactory"/>
+			<property name="operationSignature" value="getUserDAO:fr.umlv.ir3.emagine.dao.UserDAO"/>
+			<property name="operationName" value="getUserDAO"/>
+			<property name="@return" value="userDAO"/>
+			<property name="$name" value="invoke getUserDAO"/>
+			<property name="normalizedIndex" value="0.15384616"/>
+			<link uin="ieje0regabq7tr-pnv9i4">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:link:::ieje0regabq7t752vdk9:-w2q8ptegabq7o7v80hiv" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:fr.umlv.ir3.emagine.dao.DAOFactory.getUserDAO:getUserDAO" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::-w2q8ptegabq7o7v80hiv" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabq7sx-o9hz3h" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabq7t7-j6vbba">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabq7o7v80hiv" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabq7sx-o9hz3h" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabq7u1-bwa61c">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabq7oh5jau0u:-w2q8ptegabq7o7-5dcidl"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabq7u1-f2suym:-w2q8ptegabq7sx-o9hz3h"/>
+			<property name="operationDeclaringClass" value="fr.umlv.ir3.emagine.dao.DAOFactory"/>
+			<property name="operationSignature" value="beginTransaction:void"/>
+			<property name="operationName" value="beginTransaction"/>
+			<property name="$name" value="invoke beginTransaction"/>
+			<property name="normalizedIndex" value="0.23076925"/>
+			<link uin="ieje0regabq7ul-7w88pl">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:link:::ieje0regabq7u1-bwa61c:-w2q8ptegabq7o7v80hiv" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:fr.umlv.ir3.emagine.dao.DAOFactory.beginTransaction:beginTransaction" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::-w2q8ptegabq7o7v80hiv" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabq7sx-o9hz3h" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabq7ulpgk00h">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabq7oh5jau0u:-w2q8ptegabq7o7-5dcidl"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabq7uv-amd93j:-w2q8ptegabq7ul-ubhn02"/>
+			<property name="operationDeclaringClass" value="fr.umlv.ir3.emagine.user.UserInformationForm"/>
+			<property name="operationSignature" value="getId:java.lang.Long"/>
+			<property name="operationName" value="getId"/>
+			<property name="@return" value="user"/>
+			<property name="$name" value="invoke getId"/>
+			<property name="normalizedIndex" value="0.30769232"/>
+			<link uin="ieje0regabq7vf85uene">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:link:::ieje0regabq7ulpgk00h:-w2q8ptegabq7o7v80hiv" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:fr.umlv.ir3.emagine.user.UserInformationForm.getId:getId" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::-w2q8ptegabq7o7v80hiv" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabq7ul-ubhn02" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabq7ulctr6lh">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabq7o7v80hiv" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabq7ul-ubhn02" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabq7vf-snp6vz">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabq7oh5jau0u:-w2q8ptegabq7o7-5dcidl"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabq7vpqk8u7q:-w2q8ptegabq7vf-lxkv6o"/>
+			<property name="operationDeclaringClass" value="fr.umlv.ir3.emagine.dao.BaseDAO"/>
+			<property name="operationSignature" value="retrieve(id:long):ObjectType"/>
+			<property name="operationName" value="retrieve"/>
+			<property name="arguments" value="userInformationForm.getId()"/>
+			<property name="@return" value="user"/>
+			<property name="$name" value="invoke retrieve"/>
+			<property name="normalizedIndex" value="0.3846154"/>
+			<link uin="ieje0regabq7xdpwi2r0">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:link:::ieje0regabq7vf-snp6vz:-w2q8ptegabq7o7v80hiv" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:fr.umlv.ir3.emagine.dao.BaseDAO.retrieve:retrieve~J" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::-w2q8ptegabq7o7v80hiv" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabq7vf-lxkv6o" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabq7vf-unu7pq">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabq7o7v80hiv" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabq7vf-lxkv6o" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabq7xd-xp8ft6">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabq7oh5jau0u:-w2q8ptegabq7o7-5dcidl"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabq7xnu0anow:-w2q8ptegabq7ul-ubhn02"/>
+			<property name="operationDeclaringClass" value="fr.umlv.ir3.emagine.user.UserInformationForm"/>
+			<property name="operationSignature" value="getFirstName:java.lang.String"/>
+			<property name="operationName" value="getFirstName"/>
+			<property name="$name" value="invoke getFirstName"/>
+			<property name="normalizedIndex" value="0.46153846"/>
+			<link uin="ieje0regabq7y7-krv4y">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:link:::ieje0regabq7xd-xp8ft6:-w2q8ptegabq7o7v80hiv" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:fr.umlv.ir3.emagine.user.UserInformationForm.getFirstName:getFirstName" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::-w2q8ptegabq7o7v80hiv" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabq7ul-ubhn02" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabq7yh-w10a2i">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabq7oh5jau0u:-w2q8ptegabq7o7-5dcidl"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabq7yr-eiobjy:-w2q8ptegabq7y764x7rz"/>
+			<property name="operationDeclaringClass" value="fr.umlv.ir3.emagine.user.User"/>
+			<property name="operationSignature" value="setFirstName(firstName:java.lang.String):void"/>
+			<property name="operationName" value="setFirstName"/>
+			<property name="arguments" value="userInformationForm.getFirstName()"/>
+			<property name="$name" value="invoke setFirstName"/>
+			<property name="normalizedIndex" value="0.53846157"/>
+			<link uin="ieje0regabq7zb7c0s85">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:link:::ieje0regabq7yh-w10a2i:-w2q8ptegabq7o7v80hiv" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:fr.umlv.ir3.emagine.user.User.setFirstName:setFirstName~QString;" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::-w2q8ptegabq7o7v80hiv" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabq7y764x7rz" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabq7yh-cca6au">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabq7o7v80hiv" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabq7y764x7rz" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabq7zb-8o9hjv">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabq7oh5jau0u:-w2q8ptegabq7o7-5dcidl"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabq806-knqzmx:-w2q8ptegabq7ul-ubhn02"/>
+			<property name="operationDeclaringClass" value="fr.umlv.ir3.emagine.user.UserInformationForm"/>
+			<property name="operationSignature" value="getLastName:java.lang.String"/>
+			<property name="operationName" value="getLastName"/>
+			<property name="$name" value="invoke getLastName"/>
+			<property name="normalizedIndex" value="0.61538464"/>
+			<link uin="ieje0regabq80qi21uyz">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:link:::ieje0regabq7zb-8o9hjv:-w2q8ptegabq7o7v80hiv" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:fr.umlv.ir3.emagine.user.UserInformationForm.getLastName:getLastName" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::-w2q8ptegabq7o7v80hiv" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabq7ul-ubhn02" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabq80q-ntap5l">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabq7oh5jau0u:-w2q8ptegabq7o7-5dcidl"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabq810-bgjgha:-w2q8ptegabq7y764x7rz"/>
+			<property name="operationDeclaringClass" value="fr.umlv.ir3.emagine.user.User"/>
+			<property name="operationSignature" value="setLastName(lastName:java.lang.String):void"/>
+			<property name="operationName" value="setLastName"/>
+			<property name="arguments" value="userInformationForm.getLastName()"/>
+			<property name="$name" value="invoke setLastName"/>
+			<property name="normalizedIndex" value="0.6923077"/>
+			<link uin="ieje0regabq81krh2zxd">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:link:::ieje0regabq80q-ntap5l:-w2q8ptegabq7o7v80hiv" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:fr.umlv.ir3.emagine.user.User.setLastName:setLastName~QString;" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::-w2q8ptegabq7o7v80hiv" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabq7y764x7rz" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabq81k-tdboqn">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabq7oh5jau0u:-w2q8ptegabq7o7-5dcidl"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabq824-n415h8:-w2q8ptegabq7vf-lxkv6o"/>
+			<property name="operationDeclaringClass" value="fr.umlv.ir3.emagine.dao.BaseDAO"/>
+			<property name="operationSignature" value="update(object:ObjectType):void"/>
+			<property name="operationName" value="update"/>
+			<property name="arguments" value="user"/>
+			<property name="$name" value="invoke update"/>
+			<property name="normalizedIndex" value="0.7692308"/>
+			<link uin="ieje0regabq83s-k86d79">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:link:::ieje0regabq81k-tdboqn:-w2q8ptegabq7o7v80hiv" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:fr.umlv.ir3.emagine.dao.BaseDAO.update:update~QObjectType;" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::-w2q8ptegabq7o7v80hiv" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabq7vf-lxkv6o" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabq83s-16e4x4">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabq7oh5jau0u:-w2q8ptegabq7o7-5dcidl"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabq842-hpibty:-w2q8ptegabq7sx-o9hz3h"/>
+			<property name="operationDeclaringClass" value="fr.umlv.ir3.emagine.dao.DAOFactory"/>
+			<property name="operationSignature" value="commitTransaction:void"/>
+			<property name="operationName" value="commitTransaction"/>
+			<property name="$name" value="invoke commitTransaction"/>
+			<property name="normalizedIndex" value="0.84615386"/>
+			<link uin="ieje0regabq84m-w7rsr">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:link:::ieje0regabq83s-16e4x4:-w2q8ptegabq7o7v80hiv" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:fr.umlv.ir3.emagine.dao.DAOFactory.commitTransaction:commitTransaction" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::-w2q8ptegabq7o7v80hiv" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabq7sx-o9hz3h" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabq856-n1rwrg">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabq7oh5jau0u:-w2q8ptegabq7o7-5dcidl"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabq85g-z272tu:-w2q8ptegabq84maaxdik"/>
+			<property name="normalizedIndex" value="0.9230769"/>
+			<property name="operationDeclaringClass" value="org.apache.struts.action.ActionMapping"/>
+			<property name="operationSignature" value="findForward(arg0:java.lang.String):org.apache.struts.action.ActionForward"/>
+			<property name="operationName" value="findForward"/>
+			<property name="arguments" value="&quot;success&quot;"/>
+			<property name="$name" value="invoke findForward"/>
+			<link uin="ieje0regabq860c0p8it">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:link:::ieje0regabq856-n1rwrg:-w2q8ptegabq7o7v80hiv" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:bin:org.apache.struts.action.ActionMapping.findForward:findForward~Ljava.lang.String;" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::-w2q8ptegabq7o7v80hiv" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabq84maaxdik" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabq8569o3ysr">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabq7o7v80hiv" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabq84maaxdik" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="-w2q8ptegabq7qf-e2xjze">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="&lt;static&gt;"/>
+		<property name="incomingMessagesHistory" value="design:link:::ieje0regabq7qp-wtpitv:-w2q8ptegabq7o7v80hiv;design:link:::ieje0regabq7qz-rqgzbf:-w2q8ptegabq7qf-e2xjze"/>
+		<link uin="ieje0regabq7qf1nw6pu">
+			<property name="$metaclass" value="Dependency Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabq7qf-e2xjze" role="Client"></participant>
+			<participant referencedUin="jdt:e_class:src:fr.umlv.ir3.emagine.dao.DAOFactoryChooser" role="Supplier"></participant>
+		</link>
+		<node uin="-4aytaiegabq7qp-hl9mra">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation1"/>
+			<property name="messageUid" value="design:link:::ieje0regabq7qp-wtpitv:-w2q8ptegabq7o7v80hiv"/>
+		</node>
+		<node uin="-n34c7hegabq7qz-ywwyzd">
+			<property name="$metaclass" value="Conditional Block"/>
+			<property name="$name" value="Conditional Block1"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabq7qp-wtpitv:-w2q8ptegabq7o7v80hiv"/>
+			<property name="blockType" value="if"/>
+			<property name="normalizedIndex" value="0.5"/>
+			<property name="condition" value="currentDAOFactory==null"/>
+		</node>
+		<link uin="ieje0regabq7qz-rqgzbf">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:node:::-n34c7hegabq7qz-ywwyzd:-w2q8ptegabq7qf-e2xjze"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabq7r9-z4d9rm:-w2q8ptegabq7qf-e2xjze"/>
+			<property name="normalizedIndex" value="0.5"/>
+			<property name="operationDeclaringClass" value="fr.umlv.ir3.emagine.dao.DAOFactoryChooser"/>
+			<property name="operationSignature" value="setCurrentDAOFactory(dataSourceType:fr.umlv.ir3.emagine.dao.DAOFactoryChooser.DataSourceType):void"/>
+			<property name="operationName" value="setCurrentDAOFactory"/>
+			<property name="arguments" value="DataSourceType.DEFAULT"/>
+			<property name="$name" value="invoke setCurrentDAOFactory"/>
+			<link uin="ieje0regabq7rj-njhglm">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:link:::ieje0regabq7qz-rqgzbf:-w2q8ptegabq7qf-e2xjze" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:fr.umlv.ir3.emagine.dao.DAOFactoryChooser.setCurrentDAOFactory:setCurrentDAOFactory~QDataSourceType;" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::-w2q8ptegabq7qf-e2xjze" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabq7qf-e2xjze" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabq7qz-6cpz64">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabq7qf-e2xjze" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabq7qf-e2xjze" role="Supplier"></participant>
+		</link>
+		<node uin="-4aytaiegabq7r9-z4d9rm">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation2"/>
+			<property name="messageUid" value="design:link:::ieje0regabq7qz-rqgzbf:-w2q8ptegabq7qf-e2xjze"/>
+		</node>
+		<node uin="-n34c7hegabq7rj-d0ln8j">
+			<property name="$metaclass" value="Conditional Block"/>
+			<property name="$name" value="Conditional Block2"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabq7qz-rqgzbf:-w2q8ptegabq7qf-e2xjze"/>
+			<property name="blockType" value="if"/>
+			<property name="condition" value="dataSourceType==null"/>
+			<property name="normalizedIndex" value="0.33333334"/>
+		</node>
+		<node uin="-1n313zegabq7rti4dbo0">
+			<property name="$metaclass" value="Switch Block"/>
+			<property name="$name" value="Switch Block1"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabq7qz-rqgzbf:-w2q8ptegabq7qf-e2xjze"/>
+			<property name="normalizedIndex" value="0.6666667"/>
+			<property name="expression" value="dataSourceType"/>
+		</node>
+		<link uin="ieje0regabq7rt-23tkfk">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:node:::-1n313zegabq7rti4dbo0:-w2q8ptegabq7qf-e2xjze"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabq7sdqqa8pm:-w2q8ptegabq7rt2nrc4y"/>
+			<property name="creation" value="true"/>
+			<property name="$name" value="&lt;default constructor&gt;"/>
+			<property name="destruction" value="true"/>
+			<property name="normalizedIndex" value="0.33333334"/>
+			<participant referencedUin="design:node:::-w2q8ptegabq7qf-e2xjze" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabq7rt2nrc4y" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabq7s3-ewzjqn">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabq7qf-e2xjze" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabq7rt2nrc4y" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabq7sng4td2q">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:node:::-1n313zegabq7rti4dbo0:-w2q8ptegabq7qf-e2xjze"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabq7sn-o59des:-w2q8ptegabq7sdsrv16c"/>
+			<property name="normalizedIndex" value="0.6666667"/>
+			<property name="creation" value="true"/>
+			<property name="$name" value="&lt;default constructor&gt;"/>
+			<participant referencedUin="design:node:::-w2q8ptegabq7qf-e2xjze" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabq7sdsrv16c" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabq7sn7fwh0m">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabq7qf-e2xjze" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabq7sdsrv16c" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="-w2q8ptegabq7rt2nrc4y">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="currentDAOFactory"/>
+		<property name="incomingMessagesHistory" value="design:link:::ieje0regabq7rt-23tkfk:-w2q8ptegabq7qf-e2xjze"/>
+		<link uin="ieje0regabq7rte1m5x9">
+			<property name="$metaclass" value="Dependency Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabq7rt2nrc4y" role="Client"></participant>
+			<participant referencedUin="jdt:e_class:src:fr.umlv.ir3.emagine.dao.hibernate.HibernateDAOFactory" role="Supplier"></participant>
+		</link>
+		<node uin="-4aytaiegabq7sdqqa8pm">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation1"/>
+			<property name="messageUid" value="design:link:::ieje0regabq7rt-23tkfk:-w2q8ptegabq7qf-e2xjze"/>
+		</node>
+	</node>
+	<node uin="-w2q8ptegabq7sdsrv16c">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="currentDAOFactory"/>
+		<property name="incomingMessagesHistory" value="design:link:::ieje0regabq7sng4td2q:-w2q8ptegabq7qf-e2xjze"/>
+		<link uin="ieje0regabq7sn-g3iyn8">
+			<property name="$metaclass" value="Dependency Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabq7sdsrv16c" role="Client"></participant>
+			<participant referencedUin="jdt:e_class:src:fr.umlv.ir3.emagine.dao.hibernate.HibernateDAOFactory" role="Supplier"></participant>
+		</link>
+		<node uin="-4aytaiegabq7sn-o59des">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation1"/>
+			<property name="messageUid" value="design:link:::ieje0regabq7sng4td2q:-w2q8ptegabq7qf-e2xjze"/>
+		</node>
+	</node>
+	<node uin="-w2q8ptegabq7sx-o9hz3h">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="daoFactory"/>
+		<property name="incomingMessagesHistory" value="design:link:::ieje0regabq7t752vdk9:-w2q8ptegabq7o7v80hiv;design:link:::ieje0regabq7u1-bwa61c:-w2q8ptegabq7o7v80hiv;design:link:::ieje0regabq83s-16e4x4:-w2q8ptegabq7o7v80hiv"/>
+		<link uin="ieje0regabq7t7-bimh6e">
+			<property name="$metaclass" value="Dependency Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabq7sx-o9hz3h" role="Client"></participant>
+			<participant referencedUin="jdt:e_class:src:fr.umlv.ir3.emagine.dao.DAOFactory" role="Supplier"></participant>
+		</link>
+		<node uin="-4aytaiegabq7thv8uc8q">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation1"/>
+			<property name="messageUid" value="design:link:::ieje0regabq7t752vdk9:-w2q8ptegabq7o7v80hiv"/>
+		</node>
+		<node uin="-4aytaiegabq7u1-f2suym">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation2"/>
+			<property name="messageUid" value="design:link:::ieje0regabq7u1-bwa61c:-w2q8ptegabq7o7v80hiv"/>
+		</node>
+		<node uin="-4aytaiegabq842-hpibty">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation3"/>
+			<property name="messageUid" value="design:link:::ieje0regabq83s-16e4x4:-w2q8ptegabq7o7v80hiv"/>
+		</node>
+	</node>
+	<node uin="-w2q8ptegabq7ul-ubhn02">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="form"/>
+		<property name="incomingMessagesHistory" value="design:link:::ieje0regabq7ulpgk00h:-w2q8ptegabq7o7v80hiv;design:link:::ieje0regabq7xd-xp8ft6:-w2q8ptegabq7o7v80hiv;design:link:::ieje0regabq7zb-8o9hjv:-w2q8ptegabq7o7v80hiv"/>
+		<link uin="ieje0regabq7ulyxn98j">
+			<property name="$metaclass" value="Dependency Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabq7ul-ubhn02" role="Client"></participant>
+			<participant referencedUin="jdt:e_class:src:fr.umlv.ir3.emagine.user.UserInformationForm" role="Supplier"></participant>
+		</link>
+		<node uin="-4aytaiegabq7uv-amd93j">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation1"/>
+			<property name="messageUid" value="design:link:::ieje0regabq7ulpgk00h:-w2q8ptegabq7o7v80hiv"/>
+		</node>
+		<node uin="-4aytaiegabq7xnu0anow">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation2"/>
+			<property name="messageUid" value="design:link:::ieje0regabq7xd-xp8ft6:-w2q8ptegabq7o7v80hiv"/>
+		</node>
+		<node uin="-4aytaiegabq806-knqzmx">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation3"/>
+			<property name="messageUid" value="design:link:::ieje0regabq7zb-8o9hjv:-w2q8ptegabq7o7v80hiv"/>
+		</node>
+	</node>
+	<node uin="-w2q8ptegabq7vf-lxkv6o">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="userDAO"/>
+		<property name="incomingMessagesHistory" value="design:link:::ieje0regabq7vf-snp6vz:-w2q8ptegabq7o7v80hiv;design:link:::ieje0regabq81k-tdboqn:-w2q8ptegabq7o7v80hiv"/>
+		<link uin="ieje0regabq7vf-1hxjfq">
+			<property name="$metaclass" value="Dependency Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabq7vf-lxkv6o" role="Client"></participant>
+			<participant referencedUin="jdt:e_class:src:fr.umlv.ir3.emagine.dao.UserDAO" role="Supplier"></participant>
+		</link>
+		<node uin="-4aytaiegabq7vpqk8u7q">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation1"/>
+			<property name="messageUid" value="design:link:::ieje0regabq7vf-snp6vz:-w2q8ptegabq7o7v80hiv"/>
+		</node>
+		<node uin="-4aytaiegabq824-n415h8">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation2"/>
+			<property name="messageUid" value="design:link:::ieje0regabq81k-tdboqn:-w2q8ptegabq7o7v80hiv"/>
+		</node>
+	</node>
+	<node uin="-w2q8ptegabq7y764x7rz">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="user"/>
+		<property name="incomingMessagesHistory" value="design:link:::ieje0regabq7yh-w10a2i:-w2q8ptegabq7o7v80hiv;design:link:::ieje0regabq80q-ntap5l:-w2q8ptegabq7o7v80hiv"/>
+		<link uin="ieje0regabq7y7p04eor">
+			<property name="$metaclass" value="Dependency Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabq7y764x7rz" role="Client"></participant>
+			<participant referencedUin="jdt:e_class:src:fr.umlv.ir3.emagine.user.User" role="Supplier"></participant>
+		</link>
+		<node uin="-4aytaiegabq7yr-eiobjy">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation1"/>
+			<property name="messageUid" value="design:link:::ieje0regabq7yh-w10a2i:-w2q8ptegabq7o7v80hiv"/>
+		</node>
+		<node uin="-4aytaiegabq810-bgjgha">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation2"/>
+			<property name="messageUid" value="design:link:::ieje0regabq80q-ntap5l:-w2q8ptegabq7o7v80hiv"/>
+		</node>
+	</node>
+	<node uin="-w2q8ptegabq84maaxdik">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="mapping"/>
+		<property name="incomingMessagesHistory" value="design:link:::ieje0regabq856-n1rwrg:-w2q8ptegabq7o7v80hiv"/>
+		<link uin="ieje0regabq84wh0h410">
+			<property name="$metaclass" value="Dependency Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabq84maaxdik" role="Client"></participant>
+			<participant referencedUin="jdt:e_class:bin:org.apache.struts.action.ActionMapping" role="Supplier"></participant>
+		</link>
+		<node uin="-4aytaiegabq85g-z272tu">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation1"/>
+			<property name="messageUid" value="design:link:::ieje0regabq856-n1rwrg:-w2q8ptegabq7o7v80hiv"/>
+		</node>
+	</node>
+	<node uin="-w2q8ptegabqmz9-oqf3eg">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="actor"/>
+		<property name="@stereotype" value="actor"/>
+		<link uin="ieje0regabqmzj7faah7">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabqmzj-h5bjmu:-w2q8ptegabqmz9-7lb83z"/>
+			<property name="normalizedIndex" value="0.5"/>
+			<property name="operationDeclaringClass" value="fr.umlv.ir3.emagine.user.UserSearchAction"/>
+			<property name="operationSignature" value="searchUsers(form:fr.umlv.ir3.emagine.user.UserSearchFormrequest:javax.servlet.http.HttpServletRequest):void"/>
+			<property name="operationName" value="searchUsers"/>
+			<property name="$name" value="invoke searchUsers"/>
+			<link uin="ieje0regabqn03k5fzw5">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:link:::ieje0regabqmzj7faah7:-w2q8ptegabqmz9-oqf3eg" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:fr.umlv.ir3.emagine.user.UserSearchAction.searchUsers:searchUsers~QUserSearchForm;~QHttpServletRequest;" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::-w2q8ptegabqmz9-oqf3eg" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabqmz9-7lb83z" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabqmzjva2ll6">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabqmz9-oqf3eg" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabqmz9-7lb83z" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="-w2q8ptegabqmz9-7lb83z">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="&lt;initial&gt;"/>
+		<property name="incomingMessagesHistory" value="design:link:::ieje0regabqmzj7faah7:-w2q8ptegabqmz9-oqf3eg"/>
+		<link uin="ieje0regabqmz99n401b">
+			<property name="$metaclass" value="Dependency Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabqmz9-7lb83z" role="Client"></participant>
+			<participant referencedUin="jdt:e_class:src:fr.umlv.ir3.emagine.user.UserSearchAction" role="Supplier"></participant>
+		</link>
+		<node uin="-4aytaiegabqmzj-h5bjmu">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation1"/>
+			<property name="messageUid" value="design:link:::ieje0regabqmzj7faah7:-w2q8ptegabqmz9-oqf3eg"/>
+			<link uin="ieje0regabqn8g681t8a">
+				<property name="$metaclass" value="Return Link"/>
+				<property name="normalizedIndex" value="1.0"/>
+				<participant referencedUin="design:node:::-4aytaiegabqmzj-h5bjmu:-w2q8ptegabqmz9-7lb83z" role="Client"></participant>
+				<participant referencedUin="design:node:::-w2q8ptegabqmz9-7lb83z" role="Supplier"></participant>
+			</link>
+		</node>
+		<link uin="ieje0regabqn0doqrv3y">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabqmzj7faah7:-w2q8ptegabqmz9-oqf3eg"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabqn0d-ozujlx:-w2q8ptegabqn03-ahedop"/>
+			<property name="operationDeclaringClass" value="fr.umlv.ir3.emagine.dao.DAOFactoryChooser"/>
+			<property name="operationSignature" value="getCurrentDAOFactory:fr.umlv.ir3.emagine.dao.DAOFactory"/>
+			<property name="operationName" value="getCurrentDAOFactory"/>
+			<property name="@return" value="currentDAOFactory"/>
+			<property name="$name" value="invoke getCurrentDAOFactory"/>
+			<property name="normalizedIndex" value="0.125"/>
+			<link uin="ieje0regabqn0o-rmq4v4">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:link:::ieje0regabqn0doqrv3y:-w2q8ptegabqmz9-7lb83z" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:fr.umlv.ir3.emagine.dao.DAOFactoryChooser.getCurrentDAOFactory:getCurrentDAOFactory" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::-w2q8ptegabqmz9-7lb83z" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabqn03-ahedop" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabqn0d-3yfhvh">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabqmz9-7lb83z" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabqn03-ahedop" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabqn2w-gx1vua">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabqmzj7faah7:-w2q8ptegabqmz9-oqf3eg"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabqn36-8iakmw:-w2q8ptegabqn2w-f0en5"/>
+			<property name="operationDeclaringClass" value="fr.umlv.ir3.emagine.dao.DAOFactory"/>
+			<property name="operationSignature" value="getProfileDAO:fr.umlv.ir3.emagine.dao.ProfileDAO"/>
+			<property name="operationName" value="getProfileDAO"/>
+			<property name="@return" value="profileDAO"/>
+			<property name="$name" value="invoke getProfileDAO"/>
+			<property name="normalizedIndex" value="0.25"/>
+			<link uin="ieje0regabqn3g-epei9p">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:link:::ieje0regabqn2w-gx1vua:-w2q8ptegabqmz9-7lb83z" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:fr.umlv.ir3.emagine.dao.DAOFactory.getProfileDAO:getProfileDAO" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::-w2q8ptegabqmz9-7lb83z" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabqn2w-f0en5" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabqn2wvfvf5">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabqmz9-7lb83z" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabqn2w-f0en5" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabqn3qs157vt">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabqmzj7faah7:-w2q8ptegabqmz9-oqf3eg"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabqn40-ezedqq:-w2q8ptegabqn3gsbqnqq"/>
+			<property name="operationDeclaringClass" value="fr.umlv.ir3.emagine.dao.ProfileDAO"/>
+			<property name="operationSignature" value="getProfiles:java.util.Collection"/>
+			<property name="operationName" value="getProfiles"/>
+			<property name="$name" value="invoke getProfiles"/>
+			<property name="normalizedIndex" value="0.375"/>
+			<link uin="ieje0regabqn4k-bk4k8m">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:link:::ieje0regabqn3qs157vt:-w2q8ptegabqmz9-7lb83z" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:fr.umlv.ir3.emagine.dao.ProfileDAO.getProfiles:getProfiles" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::-w2q8ptegabqmz9-7lb83z" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabqn3gsbqnqq" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabqn3q-h3t5un">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabqmz9-7lb83z" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabqn3gsbqnqq" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabqn4kvvsevf">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabqmzj7faah7:-w2q8ptegabqmz9-oqf3eg"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabqn4u-wmkk8d:-w2q8ptegabqn4k-9n2p7t"/>
+			<property name="operationDeclaringClass" value="fr.umlv.ir3.emagine.user.UserSearchForm"/>
+			<property name="operationSignature" value="setProfiles(profiles:java.util.Collection&lt;Profile&gt;):void"/>
+			<property name="operationName" value="setProfiles"/>
+			<property name="arguments" value="profileDAO.getProfiles()"/>
+			<property name="$name" value="invoke setProfiles"/>
+			<property name="normalizedIndex" value="0.5"/>
+			<link uin="ieje0regabqn5e-rkpum1">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:link:::ieje0regabqn4kvvsevf:-w2q8ptegabqmz9-7lb83z" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:fr.umlv.ir3.emagine.user.UserSearchForm.setProfiles:setProfiles~QCollection\&lt;QProfile;&gt;;" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::-w2q8ptegabqmz9-7lb83z" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabqn4k-9n2p7t" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabqn4u-12p467">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabqmz9-7lb83z" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabqn4k-9n2p7t" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabqn5ee3m30u">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabqmzj7faah7:-w2q8ptegabqmz9-oqf3eg"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabqn5o4rfu79:-w2q8ptegabqn2w-f0en5"/>
+			<property name="operationDeclaringClass" value="fr.umlv.ir3.emagine.dao.DAOFactory"/>
+			<property name="operationSignature" value="getUserDAO:fr.umlv.ir3.emagine.dao.UserDAO"/>
+			<property name="operationName" value="getUserDAO"/>
+			<property name="@return" value="userDAO"/>
+			<property name="$name" value="invoke getUserDAO"/>
+			<property name="normalizedIndex" value="0.625"/>
+			<link uin="ieje0regabqn68-fp15fm">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:link:::ieje0regabqn5ee3m30u:-w2q8ptegabqmz9-7lb83z" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:fr.umlv.ir3.emagine.dao.DAOFactory.getUserDAO:getUserDAO" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::-w2q8ptegabqmz9-7lb83z" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabqn2w-f0en5" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabqn6ijo5253">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabqmzj7faah7:-w2q8ptegabqmz9-oqf3eg"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabqn6s-i9rudt:-w2q8ptegabqn68-1b1d7x"/>
+			<property name="operationDeclaringClass" value="fr.umlv.ir3.emagine.dao.UserDAO"/>
+			<property name="operationSignature" value="getUsers(userSearchParam:fr.umlv.ir3.emagine.user.UserSearchParam):java.util.Collection"/>
+			<property name="operationName" value="getUsers"/>
+			<property name="arguments" value="form"/>
+			<property name="@return" value="users"/>
+			<property name="$name" value="invoke getUsers"/>
+			<property name="normalizedIndex" value="0.75"/>
+			<link uin="ieje0regabqn7c-37gook">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:link:::ieje0regabqn6ijo5253:-w2q8ptegabqmz9-7lb83z" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:fr.umlv.ir3.emagine.dao.UserDAO.getUsers:getUsers~QUserSearchParam;" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::-w2q8ptegabqmz9-7lb83z" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabqn68-1b1d7x" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabqn6iz4qvgr">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabqmz9-7lb83z" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabqn68-1b1d7x" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabqn7c-saoe7d">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabqmzj7faah7:-w2q8ptegabqmz9-oqf3eg"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabqn7m2tfy9i:-w2q8ptegabqn4k-9n2p7t"/>
+			<property name="normalizedIndex" value="0.875"/>
+			<property name="operationDeclaringClass" value="fr.umlv.ir3.emagine.user.UserSearchForm"/>
+			<property name="operationSignature" value="setUserResults(users:java.util.Collection&lt;User&gt;):void"/>
+			<property name="operationName" value="setUserResults"/>
+			<property name="arguments" value="users"/>
+			<property name="$name" value="invoke setUserResults"/>
+			<link uin="ieje0regabqn867theb1">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:link:::ieje0regabqn7c-saoe7d:-w2q8ptegabqmz9-7lb83z" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:fr.umlv.ir3.emagine.user.UserSearchForm.setUserResults:setUserResults~QCollection\&lt;QUser;&gt;;" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::-w2q8ptegabqmz9-7lb83z" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabqn4k-9n2p7t" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="-w2q8ptegabqn03-ahedop">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="&lt;static&gt;"/>
+		<property name="incomingMessagesHistory" value="design:link:::ieje0regabqn0doqrv3y:-w2q8ptegabqmz9-7lb83z;design:link:::ieje0regabqn0ysk6y29:-w2q8ptegabqn03-ahedop"/>
+		<link uin="ieje0regabqn0ddpp4bc">
+			<property name="$metaclass" value="Dependency Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabqn03-ahedop" role="Client"></participant>
+			<participant referencedUin="jdt:e_class:src:fr.umlv.ir3.emagine.dao.DAOFactoryChooser" role="Supplier"></participant>
+		</link>
+		<node uin="-4aytaiegabqn0d-ozujlx">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation1"/>
+			<property name="messageUid" value="design:link:::ieje0regabqn0doqrv3y:-w2q8ptegabqmz9-7lb83z"/>
+		</node>
+		<node uin="-n34c7hegabqn0oyn5pnk">
+			<property name="$metaclass" value="Conditional Block"/>
+			<property name="$name" value="Conditional Block1"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabqn0doqrv3y:-w2q8ptegabqmz9-7lb83z"/>
+			<property name="blockType" value="if"/>
+			<property name="normalizedIndex" value="0.5"/>
+			<property name="condition" value="currentDAOFactory==null"/>
+		</node>
+		<link uin="ieje0regabqn0ysk6y29">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:node:::-n34c7hegabqn0oyn5pnk:-w2q8ptegabqn03-ahedop"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabqn0y-nsxhs:-w2q8ptegabqn03-ahedop"/>
+			<property name="normalizedIndex" value="0.5"/>
+			<property name="operationDeclaringClass" value="fr.umlv.ir3.emagine.dao.DAOFactoryChooser"/>
+			<property name="operationSignature" value="setCurrentDAOFactory(dataSourceType:fr.umlv.ir3.emagine.dao.DAOFactoryChooser.DataSourceType):void"/>
+			<property name="operationName" value="setCurrentDAOFactory"/>
+			<property name="arguments" value="DataSourceType.DEFAULT"/>
+			<property name="$name" value="invoke setCurrentDAOFactory"/>
+			<link uin="ieje0regabqn18-o0lbbc">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:link:::ieje0regabqn0ysk6y29:-w2q8ptegabqn03-ahedop" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:fr.umlv.ir3.emagine.dao.DAOFactoryChooser.setCurrentDAOFactory:setCurrentDAOFactory~QDataSourceType;" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::-w2q8ptegabqn03-ahedop" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabqn03-ahedop" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabqn0y-3efytt">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabqn03-ahedop" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabqn03-ahedop" role="Supplier"></participant>
+		</link>
+		<node uin="-4aytaiegabqn0y-nsxhs">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation2"/>
+			<property name="messageUid" value="design:link:::ieje0regabqn0ysk6y29:-w2q8ptegabqn03-ahedop"/>
+		</node>
+		<node uin="-n34c7hegabqn186845g5">
+			<property name="$metaclass" value="Conditional Block"/>
+			<property name="$name" value="Conditional Block2"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabqn0ysk6y29:-w2q8ptegabqn03-ahedop"/>
+			<property name="blockType" value="if"/>
+			<property name="condition" value="dataSourceType==null"/>
+			<property name="normalizedIndex" value="0.33333334"/>
+		</node>
+		<node uin="-1n313zegabqn1iqc58kc">
+			<property name="$metaclass" value="Switch Block"/>
+			<property name="$name" value="Switch Block1"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabqn0ysk6y29:-w2q8ptegabqn03-ahedop"/>
+			<property name="normalizedIndex" value="0.6666667"/>
+			<property name="expression" value="dataSourceType"/>
+		</node>
+		<link uin="ieje0regabqn1sp5ckhl">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:node:::-1n313zegabqn1iqc58kc:-w2q8ptegabqn03-ahedop"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabqn1s3rhxnl:-w2q8ptegabqn1i-3y7z0b"/>
+			<property name="creation" value="true"/>
+			<property name="$name" value="&lt;default constructor&gt;"/>
+			<property name="destruction" value="true"/>
+			<property name="normalizedIndex" value="0.33333334"/>
+			<participant referencedUin="design:node:::-w2q8ptegabqn03-ahedop" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabqn1i-3y7z0b" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabqn1s-fe8x5z">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabqn03-ahedop" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabqn1i-3y7z0b" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabqn22ff53g9">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:node:::-1n313zegabqn1iqc58kc:-w2q8ptegabqn03-ahedop"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabqn2m-62cfzg:-w2q8ptegabqn226rg8g5"/>
+			<property name="normalizedIndex" value="0.6666667"/>
+			<property name="creation" value="true"/>
+			<property name="$name" value="&lt;default constructor&gt;"/>
+			<participant referencedUin="design:node:::-w2q8ptegabqn03-ahedop" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabqn226rg8g5" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabqn22y6gen5">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabqn03-ahedop" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabqn226rg8g5" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="-w2q8ptegabqn1i-3y7z0b">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="currentDAOFactory"/>
+		<property name="incomingMessagesHistory" value="design:link:::ieje0regabqn1sp5ckhl:-w2q8ptegabqn03-ahedop"/>
+		<link uin="ieje0regabqn1sazfe5y">
+			<property name="$metaclass" value="Dependency Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabqn1i-3y7z0b" role="Client"></participant>
+			<participant referencedUin="jdt:e_class:src:fr.umlv.ir3.emagine.dao.hibernate.HibernateDAOFactory" role="Supplier"></participant>
+		</link>
+		<node uin="-4aytaiegabqn1s3rhxnl">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation1"/>
+			<property name="messageUid" value="design:link:::ieje0regabqn1sp5ckhl:-w2q8ptegabqn03-ahedop"/>
+		</node>
+	</node>
+	<node uin="-w2q8ptegabqn226rg8g5">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="currentDAOFactory"/>
+		<property name="incomingMessagesHistory" value="design:link:::ieje0regabqn22ff53g9:-w2q8ptegabqn03-ahedop"/>
+		<link uin="ieje0regabqn22-238tv7">
+			<property name="$metaclass" value="Dependency Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabqn226rg8g5" role="Client"></participant>
+			<participant referencedUin="jdt:e_class:src:fr.umlv.ir3.emagine.dao.hibernate.HibernateDAOFactory" role="Supplier"></participant>
+		</link>
+		<node uin="-4aytaiegabqn2m-62cfzg">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation1"/>
+			<property name="messageUid" value="design:link:::ieje0regabqn22ff53g9:-w2q8ptegabqn03-ahedop"/>
+		</node>
+	</node>
+	<node uin="-w2q8ptegabqn2w-f0en5">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="currentDAOFactory"/>
+		<property name="incomingMessagesHistory" value="design:link:::ieje0regabqn2w-gx1vua:-w2q8ptegabqmz9-7lb83z;design:link:::ieje0regabqn5ee3m30u:-w2q8ptegabqmz9-7lb83z"/>
+		<link uin="ieje0regabqn2waw8ktg">
+			<property name="$metaclass" value="Dependency Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabqn2w-f0en5" role="Client"></participant>
+			<participant referencedUin="jdt:e_class:src:fr.umlv.ir3.emagine.dao.DAOFactory" role="Supplier"></participant>
+		</link>
+		<node uin="-4aytaiegabqn36-8iakmw">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation1"/>
+			<property name="messageUid" value="design:link:::ieje0regabqn2w-gx1vua:-w2q8ptegabqmz9-7lb83z"/>
+		</node>
+		<node uin="-4aytaiegabqn5o4rfu79">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation2"/>
+			<property name="messageUid" value="design:link:::ieje0regabqn5ee3m30u:-w2q8ptegabqmz9-7lb83z"/>
+		</node>
+	</node>
+	<node uin="-w2q8ptegabqn3gsbqnqq">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="profileDAO"/>
+		<property name="incomingMessagesHistory" value="design:link:::ieje0regabqn3qs157vt:-w2q8ptegabqmz9-7lb83z"/>
+		<link uin="ieje0regabqn3qxrm053">
+			<property name="$metaclass" value="Dependency Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabqn3gsbqnqq" role="Client"></participant>
+			<participant referencedUin="jdt:e_class:src:fr.umlv.ir3.emagine.dao.ProfileDAO" role="Supplier"></participant>
+		</link>
+		<node uin="-4aytaiegabqn40-ezedqq">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation1"/>
+			<property name="messageUid" value="design:link:::ieje0regabqn3qs157vt:-w2q8ptegabqmz9-7lb83z"/>
+		</node>
+	</node>
+	<node uin="-w2q8ptegabqn4k-9n2p7t">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="form"/>
+		<property name="incomingMessagesHistory" value="design:link:::ieje0regabqn4kvvsevf:-w2q8ptegabqmz9-7lb83z;design:link:::ieje0regabqn7c-saoe7d:-w2q8ptegabqmz9-7lb83z"/>
+		<link uin="ieje0regabqn4k61bk5q">
+			<property name="$metaclass" value="Dependency Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabqn4k-9n2p7t" role="Client"></participant>
+			<participant referencedUin="jdt:e_class:src:fr.umlv.ir3.emagine.user.UserSearchForm" role="Supplier"></participant>
+		</link>
+		<node uin="-4aytaiegabqn4u-wmkk8d">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation1"/>
+			<property name="messageUid" value="design:link:::ieje0regabqn4kvvsevf:-w2q8ptegabqmz9-7lb83z"/>
+		</node>
+		<node uin="-4aytaiegabqn7m2tfy9i">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation2"/>
+			<property name="messageUid" value="design:link:::ieje0regabqn7c-saoe7d:-w2q8ptegabqmz9-7lb83z"/>
+		</node>
+	</node>
+	<node uin="-w2q8ptegabqn68-1b1d7x">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="userDAO"/>
+		<property name="incomingMessagesHistory" value="design:link:::ieje0regabqn6ijo5253:-w2q8ptegabqmz9-7lb83z"/>
+		<link uin="ieje0regabqn6i-3xqrxt">
+			<property name="$metaclass" value="Dependency Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabqn68-1b1d7x" role="Client"></participant>
+			<participant referencedUin="jdt:e_class:src:fr.umlv.ir3.emagine.dao.UserDAO" role="Supplier"></participant>
+		</link>
+		<node uin="-4aytaiegabqn6s-i9rudt">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation1"/>
+			<property name="messageUid" value="design:link:::ieje0regabqn6ijo5253:-w2q8ptegabqmz9-7lb83z"/>
+		</node>
+	</node>
+	<node uin="-w2q8ptegabr6siyygnvm">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="actor"/>
+		<property name="@stereotype" value="actor"/>
+		<link uin="ieje0regabr6si-n20ysj">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabr6ss-s9jsgl:-w2q8ptegabr6si-wjxr9o"/>
+			<property name="normalizedIndex" value="0.5"/>
+			<property name="operationDeclaringClass" value="fr.umlv.ir3.emagine.user.UserDeleteAction"/>
+			<property name="operationSignature" value="deleteUsers(users:java.util.Collection&lt;User&gt;request:javax.servlet.http.HttpServletRequest):void"/>
+			<property name="operationName" value="deleteUsers"/>
+			<property name="$name" value="invoke deleteUsers"/>
+			<link uin="ieje0regabr6tc-mhdh2c">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:link:::ieje0regabr6si-n20ysj:-w2q8ptegabr6siyygnvm" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:fr.umlv.ir3.emagine.user.UserDeleteAction.deleteUsers:deleteUsers~QCollection\&lt;QUser;&gt;;~QHttpServletRequest;" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::-w2q8ptegabr6siyygnvm" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabr6si-wjxr9o" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabr6si7phhng">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabr6siyygnvm" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabr6si-wjxr9o" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="-w2q8ptegabr6si-wjxr9o">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="&lt;initial&gt;"/>
+		<property name="incomingMessagesHistory" value="design:link:::ieje0regabr6si-n20ysj:-w2q8ptegabr6siyygnvm"/>
+		<link uin="ieje0regabr6sibr84ew">
+			<property name="$metaclass" value="Dependency Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabr6si-wjxr9o" role="Client"></participant>
+			<participant referencedUin="jdt:e_class:src:fr.umlv.ir3.emagine.user.UserDeleteAction" role="Supplier"></participant>
+		</link>
+		<node uin="-4aytaiegabr6ss-s9jsgl">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation1"/>
+			<property name="messageUid" value="design:link:::ieje0regabr6si-n20ysj:-w2q8ptegabr6siyygnvm"/>
+			<link uin="ieje0regabr6z7-bfdnxq">
+				<property name="$metaclass" value="Return Link"/>
+				<property name="normalizedIndex" value="1.0"/>
+				<participant referencedUin="design:node:::-4aytaiegabr6ss-s9jsgl:-w2q8ptegabr6si-wjxr9o" role="Client"></participant>
+				<participant referencedUin="design:node:::-w2q8ptegabr6si-wjxr9o" role="Supplier"></participant>
+			</link>
+		</node>
+		<link uin="ieje0regabr6tc-xip15p">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabr6si-n20ysj:-w2q8ptegabr6siyygnvm"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabr6tmy6hzrb:-w2q8ptegabr6tc-r4fujs"/>
+			<property name="operationDeclaringClass" value="fr.umlv.ir3.emagine.dao.DAOFactoryChooser"/>
+			<property name="operationSignature" value="getCurrentDAOFactory:fr.umlv.ir3.emagine.dao.DAOFactory"/>
+			<property name="operationName" value="getCurrentDAOFactory"/>
+			<property name="@return" value="currentDAOFactory"/>
+			<property name="$name" value="invoke getCurrentDAOFactory"/>
+			<property name="normalizedIndex" value="0.16666667"/>
+			<link uin="ieje0regabr6tw-90agul">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:link:::ieje0regabr6tc-xip15p:-w2q8ptegabr6si-wjxr9o" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:fr.umlv.ir3.emagine.dao.DAOFactoryChooser.getCurrentDAOFactory:getCurrentDAOFactory" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::-w2q8ptegabr6si-wjxr9o" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabr6tc-r4fujs" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabr6tc-7wx7z0">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabr6si-wjxr9o" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabr6tc-r4fujs" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabr6wf-81hrrz">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabr6si-n20ysj:-w2q8ptegabr6siyygnvm"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabr6wp-31mpis:-w2q8ptegabr6wfsvt0hz"/>
+			<property name="operationDeclaringClass" value="fr.umlv.ir3.emagine.dao.DAOFactory"/>
+			<property name="operationSignature" value="getUserDAO:fr.umlv.ir3.emagine.dao.UserDAO"/>
+			<property name="operationName" value="getUserDAO"/>
+			<property name="@return" value="userDAO"/>
+			<property name="$name" value="invoke getUserDAO"/>
+			<property name="normalizedIndex" value="0.33333334"/>
+			<link uin="ieje0regabr6wz-5ntsbo">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:link:::ieje0regabr6wf-81hrrz:-w2q8ptegabr6si-wjxr9o" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:fr.umlv.ir3.emagine.dao.DAOFactory.getUserDAO:getUserDAO" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::-w2q8ptegabr6si-wjxr9o" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabr6wfsvt0hz" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabr6wfeqxo98">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabr6si-wjxr9o" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabr6wfsvt0hz" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabr6wz9u7nq0">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabr6si-n20ysj:-w2q8ptegabr6siyygnvm"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabr6x9-fim402:-w2q8ptegabr6wfsvt0hz"/>
+			<property name="operationDeclaringClass" value="fr.umlv.ir3.emagine.dao.DAOFactory"/>
+			<property name="operationSignature" value="beginTransaction:void"/>
+			<property name="operationName" value="beginTransaction"/>
+			<property name="$name" value="invoke beginTransaction"/>
+			<property name="normalizedIndex" value="0.5"/>
+			<link uin="ieje0regabr6xjy28bod">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:link:::ieje0regabr6wz9u7nq0:-w2q8ptegabr6si-wjxr9o" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:fr.umlv.ir3.emagine.dao.DAOFactory.beginTransaction:beginTransaction" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::-w2q8ptegabr6si-wjxr9o" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabr6wfsvt0hz" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabr6xt-cno3zp">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabr6si-n20ysj:-w2q8ptegabr6siyygnvm"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabr6xt8f7wcr:-w2q8ptegabr6xj-cg1od8"/>
+			<property name="operationDeclaringClass" value="fr.umlv.ir3.emagine.dao.UserDAO"/>
+			<property name="operationSignature" value="deleteUsers(users:java.util.Collection&lt;User&gt;):void"/>
+			<property name="operationName" value="deleteUsers"/>
+			<property name="arguments" value="users"/>
+			<property name="$name" value="invoke deleteUsers"/>
+			<property name="normalizedIndex" value="0.6666667"/>
+			<link uin="ieje0regabr6yn-hwf4ox">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:link:::ieje0regabr6xt-cno3zp:-w2q8ptegabr6si-wjxr9o" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:fr.umlv.ir3.emagine.dao.UserDAO.deleteUsers:deleteUsers~QCollection\&lt;QUser;&gt;;" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::-w2q8ptegabr6si-wjxr9o" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabr6xj-cg1od8" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabr6xt-9zghkn">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabr6si-wjxr9o" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabr6xj-cg1od8" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabr6yn6uz6n3">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabr6si-n20ysj:-w2q8ptegabr6siyygnvm"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabr6yx-417azf:-w2q8ptegabr6wfsvt0hz"/>
+			<property name="normalizedIndex" value="0.8333334"/>
+			<property name="operationDeclaringClass" value="fr.umlv.ir3.emagine.dao.DAOFactory"/>
+			<property name="operationSignature" value="commitTransaction:void"/>
+			<property name="operationName" value="commitTransaction"/>
+			<property name="$name" value="invoke commitTransaction"/>
+			<link uin="ieje0regabr6z7-93a3g3">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:link:::ieje0regabr6yn6uz6n3:-w2q8ptegabr6si-wjxr9o" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:fr.umlv.ir3.emagine.dao.DAOFactory.commitTransaction:commitTransaction" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::-w2q8ptegabr6si-wjxr9o" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabr6wfsvt0hz" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="-w2q8ptegabr6tc-r4fujs">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="&lt;static&gt;"/>
+		<property name="incomingMessagesHistory" value="design:link:::ieje0regabr6tc-xip15p:-w2q8ptegabr6si-wjxr9o;design:link:::ieje0regabr6u6-gr9wsb:-w2q8ptegabr6tc-r4fujs"/>
+		<link uin="ieje0regabr6tc-v8ya41">
+			<property name="$metaclass" value="Dependency Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabr6tc-r4fujs" role="Client"></participant>
+			<participant referencedUin="jdt:e_class:src:fr.umlv.ir3.emagine.dao.DAOFactoryChooser" role="Supplier"></participant>
+		</link>
+		<node uin="-4aytaiegabr6tmy6hzrb">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation1"/>
+			<property name="messageUid" value="design:link:::ieje0regabr6tc-xip15p:-w2q8ptegabr6si-wjxr9o"/>
+		</node>
+		<node uin="-n34c7hegabr6twpie6wu">
+			<property name="$metaclass" value="Conditional Block"/>
+			<property name="$name" value="Conditional Block1"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabr6tc-xip15p:-w2q8ptegabr6si-wjxr9o"/>
+			<property name="blockType" value="if"/>
+			<property name="normalizedIndex" value="0.5"/>
+			<property name="condition" value="currentDAOFactory==null"/>
+		</node>
+		<link uin="ieje0regabr6u6-gr9wsb">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:node:::-n34c7hegabr6twpie6wu:-w2q8ptegabr6tc-r4fujs"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabr6u6jxt167:-w2q8ptegabr6tc-r4fujs"/>
+			<property name="normalizedIndex" value="0.5"/>
+			<property name="operationDeclaringClass" value="fr.umlv.ir3.emagine.dao.DAOFactoryChooser"/>
+			<property name="operationSignature" value="setCurrentDAOFactory(dataSourceType:fr.umlv.ir3.emagine.dao.DAOFactoryChooser.DataSourceType):void"/>
+			<property name="operationName" value="setCurrentDAOFactory"/>
+			<property name="arguments" value="DataSourceType.DEFAULT"/>
+			<property name="$name" value="invoke setCurrentDAOFactory"/>
+			<link uin="ieje0regabr6v0wmybdx">
+				<property name="$metaclass" value="Dependency Link"/>
+				<participant referencedUin="design:link:::ieje0regabr6u6-gr9wsb:-w2q8ptegabr6tc-r4fujs" role="Client"></participant>
+				<participant referencedUin="jdt:e_method:src:fr.umlv.ir3.emagine.dao.DAOFactoryChooser.setCurrentDAOFactory:setCurrentDAOFactory~QDataSourceType;" role="Supplier"></participant>
+			</link>
+			<participant referencedUin="design:node:::-w2q8ptegabr6tc-r4fujs" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabr6tc-r4fujs" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabr6u6-9bgjxw">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabr6tc-r4fujs" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabr6tc-r4fujs" role="Supplier"></participant>
+		</link>
+		<node uin="-4aytaiegabr6u6jxt167">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation2"/>
+			<property name="messageUid" value="design:link:::ieje0regabr6u6-gr9wsb:-w2q8ptegabr6tc-r4fujs"/>
+		</node>
+		<node uin="-n34c7hegabr6v0-qa1nja">
+			<property name="$metaclass" value="Conditional Block"/>
+			<property name="$name" value="Conditional Block2"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabr6u6-gr9wsb:-w2q8ptegabr6tc-r4fujs"/>
+			<property name="blockType" value="if"/>
+			<property name="condition" value="dataSourceType==null"/>
+			<property name="normalizedIndex" value="0.33333334"/>
+		</node>
+		<node uin="-1n313zegabr6vagcwm20">
+			<property name="$metaclass" value="Switch Block"/>
+			<property name="$name" value="Switch Block1"/>
+			<property name="predecessorUid" value="design:link:::ieje0regabr6u6-gr9wsb:-w2q8ptegabr6tc-r4fujs"/>
+			<property name="normalizedIndex" value="0.6666667"/>
+			<property name="expression" value="dataSourceType"/>
+		</node>
+		<link uin="ieje0regabr6vl-sxzpox">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:node:::-1n313zegabr6vagcwm20:-w2q8ptegabr6tc-r4fujs"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabr6vl-fzo889:-w2q8ptegabr6va-s42lwh"/>
+			<property name="creation" value="true"/>
+			<property name="$name" value="&lt;default constructor&gt;"/>
+			<property name="destruction" value="true"/>
+			<property name="normalizedIndex" value="0.33333334"/>
+			<participant referencedUin="design:node:::-w2q8ptegabr6tc-r4fujs" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabr6va-s42lwh" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabr6vllzaj9n">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabr6tc-r4fujs" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabr6va-s42lwh" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabr6vvhq5ctp">
+			<property name="$metaclass" value="Message Link"/>
+			<property name="predecessorUid" value="design:node:::-1n313zegabr6vagcwm20:-w2q8ptegabr6tc-r4fujs"/>
+			<property name="activationUid" value="design:node:::-4aytaiegabr6w5-7ajrln:-w2q8ptegabr6vvvbfj07"/>
+			<property name="normalizedIndex" value="0.6666667"/>
+			<property name="creation" value="true"/>
+			<property name="$name" value="&lt;default constructor&gt;"/>
+			<participant referencedUin="design:node:::-w2q8ptegabr6tc-r4fujs" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabr6vvvbfj07" role="Supplier"></participant>
+		</link>
+		<link uin="ieje0regabr6vv-2vqja0">
+			<property name="$metaclass" value="Messages Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabr6tc-r4fujs" role="Client"></participant>
+			<participant referencedUin="design:node:::-w2q8ptegabr6vvvbfj07" role="Supplier"></participant>
+		</link>
+	</node>
+	<node uin="-w2q8ptegabr6va-s42lwh">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="currentDAOFactory"/>
+		<property name="incomingMessagesHistory" value="design:link:::ieje0regabr6vl-sxzpox:-w2q8ptegabr6tc-r4fujs"/>
+		<link uin="ieje0regabr6vlvj3wuc">
+			<property name="$metaclass" value="Dependency Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabr6va-s42lwh" role="Client"></participant>
+			<participant referencedUin="jdt:e_class:src:fr.umlv.ir3.emagine.dao.hibernate.HibernateDAOFactory" role="Supplier"></participant>
+		</link>
+		<node uin="-4aytaiegabr6vl-fzo889">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation1"/>
+			<property name="messageUid" value="design:link:::ieje0regabr6vl-sxzpox:-w2q8ptegabr6tc-r4fujs"/>
+		</node>
+	</node>
+	<node uin="-w2q8ptegabr6vvvbfj07">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="currentDAOFactory"/>
+		<property name="incomingMessagesHistory" value="design:link:::ieje0regabr6vvhq5ctp:-w2q8ptegabr6tc-r4fujs"/>
+		<link uin="ieje0regabr6vv-gnvala">
+			<property name="$metaclass" value="Dependency Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabr6vvvbfj07" role="Client"></participant>
+			<participant referencedUin="jdt:e_class:src:fr.umlv.ir3.emagine.dao.hibernate.HibernateDAOFactory" role="Supplier"></participant>
+		</link>
+		<node uin="-4aytaiegabr6w5-7ajrln">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation1"/>
+			<property name="messageUid" value="design:link:::ieje0regabr6vvhq5ctp:-w2q8ptegabr6tc-r4fujs"/>
+		</node>
+	</node>
+	<node uin="-w2q8ptegabr6wfsvt0hz">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="currentDAOFactory"/>
+		<property name="incomingMessagesHistory" value="design:link:::ieje0regabr6wf-81hrrz:-w2q8ptegabr6si-wjxr9o;design:link:::ieje0regabr6wz9u7nq0:-w2q8ptegabr6si-wjxr9o;design:link:::ieje0regabr6yn6uz6n3:-w2q8ptegabr6si-wjxr9o"/>
+		<link uin="ieje0regabr6wf-tunmci">
+			<property name="$metaclass" value="Dependency Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabr6wfsvt0hz" role="Client"></participant>
+			<participant referencedUin="jdt:e_class:src:fr.umlv.ir3.emagine.dao.DAOFactory" role="Supplier"></participant>
+		</link>
+		<node uin="-4aytaiegabr6wp-31mpis">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation1"/>
+			<property name="messageUid" value="design:link:::ieje0regabr6wf-81hrrz:-w2q8ptegabr6si-wjxr9o"/>
+		</node>
+		<node uin="-4aytaiegabr6x9-fim402">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation2"/>
+			<property name="messageUid" value="design:link:::ieje0regabr6wz9u7nq0:-w2q8ptegabr6si-wjxr9o"/>
+		</node>
+		<node uin="-4aytaiegabr6yx-417azf">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation3"/>
+			<property name="messageUid" value="design:link:::ieje0regabr6yn6uz6n3:-w2q8ptegabr6si-wjxr9o"/>
+		</node>
+	</node>
+	<node uin="-w2q8ptegabr6xj-cg1od8">
+		<property name="$metaclass" value="Object"/>
+		<property name="$name" value="userDAO"/>
+		<property name="incomingMessagesHistory" value="design:link:::ieje0regabr6xt-cno3zp:-w2q8ptegabr6si-wjxr9o"/>
+		<link uin="ieje0regabr6xj-k3tic6">
+			<property name="$metaclass" value="Dependency Link"/>
+			<participant referencedUin="design:node:::-w2q8ptegabr6xj-cg1od8" role="Client"></participant>
+			<participant referencedUin="jdt:e_class:src:fr.umlv.ir3.emagine.dao.UserDAO" role="Supplier"></participant>
+		</link>
+		<node uin="-4aytaiegabr6xt8f7wcr">
+			<property name="$metaclass" value="Activation"/>
+			<property name="$name" value="Activation1"/>
+			<property name="messageUid" value="design:link:::ieje0regabr6xt-cno3zp:-w2q8ptegabr6si-wjxr9o"/>
+		</node>
+	</node>
+</nodeSet>

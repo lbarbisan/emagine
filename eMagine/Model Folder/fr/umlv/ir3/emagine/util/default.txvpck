@@ -2,8 +2,35 @@
 
 
 <nodeSet  version="1.1">
-	<view uin="V574ng9eg9ravt0-11mhzm">
+	<view uin="V574ng9egabs4f5-97slpo">
 		<property name="$defaultDiagram" value="true"/>
 		<property name="$metaclass" value="Package Diagram"/>
+		<reference referencedUin="design:view:::V574ng9egabs4q0k8xr3i">
+			<property name="bounds" value="334,5,80,70"/>
+			<property name="location_set_by_user" value="true"/>
+		</reference>
+		<reference referencedUin="jdt:e_class:src:fr.umlv.ir3.emagine.util.Scrollable">
+			<property name="bounds" value="5,5,209,160"/>
+			<property name="location_set_by_user" value="true"/>
+			<reference referencedUin="label:$name:jdt:e_class:src:fr.umlv.ir3.emagine.util.Scrollable">
+				<property name="bounds" value="114,180,0,0"/>
+			</reference>
+		</reference>
+		<reference referencedUin="design:view:::V574ng9egabs4mn-4gz9n7">
+			<property name="bounds" value="234,5,80,70"/>
+			<property name="location_set_by_user" value="true"/>
+		</reference>
+		<reference referencedUin="jdt:e_class:src:fr.umlv.ir3.emagine.util.CollectionScroller">
+			<property name="bounds" value="5,235,209,358"/>
+			<property name="location_set_by_user" value="true"/>
+			<reference referencedUin="jdt:l_impl:src:fr.umlv.ir3.emagine.util.CollectionScroller:Scrollable&lt;ObjectType&gt;">
+				<property name="sourceAnchor" value="114,240"/>
+				<property name="targetAnchor" value="114,170"/>
+			</reference>
+		</reference>
+		<reference referencedUin="jdt:e_class:src:fr.umlv.ir3.emagine.util.AjaxScrollAction">
+			<property name="bounds" value="234,125,105,80"/>
+			<property name="location_set_by_user" value="true"/>
+		</reference>
 	</view>
 </nodeSet>
