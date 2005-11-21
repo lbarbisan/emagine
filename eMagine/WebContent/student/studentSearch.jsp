@@ -1,4 +1,3 @@
-<div class="content">
 <h2>Recherche d'apprenti</h2>
 <br/>
 <!-- Un formulaire de recherche -->
