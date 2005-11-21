@@ -21,6 +21,7 @@
  		<mapping package="fr.umlv.ir3.emagine.user"/> 
  		<mapping class="fr.umlv.ir3.emagine.user.User"/>
 		<mapping class="fr.umlv.ir3.emagine.user.Profile"/>
+		<mapping class="fr.umlv.ir3.emagine.user.Right"/>
  		<mapping package="fr.umlv.ir3.emagine.util.hibernate"/> 
 		<mapping class="fr.umlv.ir3.emagine.util.core.BaseEntity"/>
 

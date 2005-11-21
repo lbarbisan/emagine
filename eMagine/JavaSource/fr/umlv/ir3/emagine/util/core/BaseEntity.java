@@ -5,6 +5,7 @@ import javax.persistence.GeneratorType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.Table;
 import javax.persistence.Version;
 
 import fr.umlv.ir3.emagine.user.Profile;
@@ -14,6 +15,7 @@ import fr.umlv.ir3.emagine.user.Profile;
  */
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
+@Table(name = "tbl_baseentity")
 public class BaseEntity {
 
 	private Long id;

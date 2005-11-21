@@ -1,17 +1,18 @@
 package fr.umlv.ir3.emagine.user;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import fr.umlv.ir3.emagine.util.core.BaseEntity;
 
 @Entity
-@Table(name = "UserTbl")
+@Table(name = "tbl_user")
 public class User extends BaseEntity{
 	
-				Profile profile;
-			String password;
-		String login;
+	Profile profile;
+	String password;
+	String login;
 	String email;
 	String firstName;
 	String lastName;
@@ -39,8 +40,8 @@ public class User extends BaseEntity{
 		return email;
 	}
 
-	public void setEmail(String property1) {
-		this.email = property1;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getLogin() {
@@ -59,6 +60,7 @@ public class User extends BaseEntity{
 		this.password = property1;
 	}
 
+	@ManyToOne
 	public Profile getProfile() {
 		return profile;
 	}
