@@ -58,6 +58,18 @@ public class UserSearchForm extends ActionForm implements UserSearchParam {
 	public Collection<User> getUserResults() {
 		return userResults;
 	}
+	public void setFilterbyField(String field, String value) {
+		// TODO UserSearchForm.setFilterbyField()
+		
+	}
+	public void removeFilterbyField(String field) {
+		// TODO UserSearchForm.removeFilterbyField()
+		
+	}
+	public void clearFilterbyField() {
+		// TODO UserSearchForm.clearFilterbyField()
+		
+	}
 
 
 }

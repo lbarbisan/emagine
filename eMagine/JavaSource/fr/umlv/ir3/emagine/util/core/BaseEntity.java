@@ -7,6 +7,8 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Version;
 
+import fr.umlv.ir3.emagine.user.Profile;
+
 /**
  * @author  Administrateur
  */
@@ -51,6 +53,12 @@ public class BaseEntity {
      */
     public Long getVersion() {
         return this.version;
-    }    
+    }
+    
+    @Override
+	public boolean equals(Object obj) {
+		return id == ((Profile)obj).getId();
+	}
+	
 	
 }

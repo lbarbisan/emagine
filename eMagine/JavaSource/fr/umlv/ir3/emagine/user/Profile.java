@@ -1,34 +1,31 @@
 package fr.umlv.ir3.emagine.user;
 
 import javax.persistence.Entity;
-import javax.persistence.Id;
+
+import fr.umlv.ir3.emagine.util.core.BaseEntity;
 
 @Entity
-public class Profile {
-	private long id;
-	private String Name;
+public class Profile extends BaseEntity{
+	
+	String description;
+	String name;
 	
 	protected Profile(){}
 	
-	@Override
-	public boolean equals(Object obj) {
-		return id == ((Profile)obj).getId();
-	}
-	
-	@Id
-	public long getId() {
-		return id;
-	}
-	public void setId(long id) {
-		this.id = id;
-	}
-
 	public String getName() {
-		return Name;
+		return name;
 	}
 
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	
 }
