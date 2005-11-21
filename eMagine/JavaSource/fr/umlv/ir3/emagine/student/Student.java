@@ -18,6 +18,11 @@ import fr.umlv.ir3.emagine.util.core.BaseEntity;
 @Table(name = "tbl_student")
 public class Student extends BaseEntity {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3998703814616710370L;
+
 	@OneToMany(cascade = CascadeType.ALL)
 	@OrderBy("date")
 	List<Abscence> abscences;

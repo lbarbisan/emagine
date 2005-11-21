@@ -11,6 +11,10 @@ import fr.umlv.ir3.emagine.util.core.BaseEntity;
 @Table(name = "tbl_teachertutor")
 public class TeacherTutor extends BaseEntity {
 		
+		/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6468325376386661021L;
 		@ManyToOne
 		private Student student;
 

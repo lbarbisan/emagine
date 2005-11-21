@@ -12,6 +12,11 @@ import fr.umlv.ir3.emagine.util.core.BaseEntity;
 
 public class EngineerTutor extends BaseEntity {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3857030644896914550L;
+	
 	@ManyToOne
 	private Student student;
 

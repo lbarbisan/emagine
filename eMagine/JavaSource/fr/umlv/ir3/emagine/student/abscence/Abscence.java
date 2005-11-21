@@ -21,6 +21,11 @@ import fr.umlv.ir3.emagine.util.core.BaseEntity;
 @Table(name = "tbl_abscence")
 public class Abscence extends BaseEntity {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8312730192742642372L;
+
 	Date date;
 	
 	@ManyToOne

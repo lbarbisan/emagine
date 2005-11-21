@@ -15,6 +15,11 @@ import fr.umlv.ir3.emagine.util.core.BaseEntity;
 @Entity(access = AccessType.FIELD)
 @Table(name="tbl_right")
 public class Right extends BaseEntity {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -9217586569535677028L;
+
 	String description;
 	
 	@Column(unique = true)

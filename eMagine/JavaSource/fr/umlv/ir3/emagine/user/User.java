@@ -12,6 +12,10 @@ import fr.umlv.ir3.emagine.util.core.BaseEntity;
 @Table(name = "tbl_user")
 public class User extends BaseEntity{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3947274315317297604L;
 	@ManyToOne
 	Profile profile;
 	String password;
