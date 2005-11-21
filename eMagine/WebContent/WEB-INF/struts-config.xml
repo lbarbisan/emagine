@@ -32,6 +32,10 @@
 	   <action path="/studentCompanyAdd" forward="student.studentCompanyAdd" />
 	   <action path="/studentOnglet" forward="student.studentOnglet" />
 	   <action path="/studentVisuSchooling" forward="student.studentVisuSchooling" />
+	   <action path="/studentVisuEvent" forward="student.studentVisuEvent" />
+	   <action path="/studentVisuAbsence" forward="student.studentVisuAbsence" />
+	   <action path="/studentAbsenceModif" forward="student.studentAbsenceModif" />
+	   <action path="/studentAbsenceAdd" forward="student.studentAbsenceAdd" />
 	   <!-- teacher -->
 	   <action path="/teacherSearch" forward="teacher.teacherSearch" />
        <!-- company -->

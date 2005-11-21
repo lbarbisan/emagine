@@ -64,6 +64,22 @@
 		<put name="body" value="/student/studentVisuSchooling.jsp" />
 	</definition>
 	
+	<definition name="student.studentVisuAbsence" extends="student">
+		<put name="body" value="/student/studentVisuAbsence.jsp" />
+	</definition>
+	
+	<definition name="student.studentAbsenceAdd" extends="student">
+		<put name="body" value="/student/studentAbsenceAdd.jsp" />
+	</definition>
+	
+	<definition name="student.studentAbsenceModif" extends="student">
+		<put name="body" value="/student/studentAbsenceModif.jsp" />
+	</definition>
+	
+	<definition name="student.studentVisuEvent" extends="student">
+		<put name="body" value="/student/studentVisuEvent.jsp" />
+	</definition>
+	
 	<!-- Teacher -->
 	<definition name="teacher" extends="mainLayout">
 		<put name="subMenu" value="/teacher/teacherMenu.jsp" />

@@ -10,5 +10,11 @@
 	<li><html:link action="/studentVisuSituation">Situation</html:link></li>
 </ul>
 <ul>
-	<li><html:link action="/studentVisuSchooling">Scolarité</html:link></li>
+	<li><html:link action="/studentVisuSchooling">Scolarit&eacute;</html:link></li>
+</ul>
+<ul>
+	<li><html:link action="/studentVisuEvent">Ev&eacute;nement</html:link></li>
+</ul>
+<ul>
+	<li><html:link action="/studentVisuAbsence">Absence</html:link></li>
 </ul>
