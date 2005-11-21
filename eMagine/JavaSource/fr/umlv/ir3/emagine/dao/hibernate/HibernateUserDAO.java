@@ -4,6 +4,7 @@
 package fr.umlv.ir3.emagine.dao.hibernate;
 
 import java.util.Collection;
+import java.util.List;
 
 import fr.umlv.ir3.emagine.dao.UserDAO;
 import fr.umlv.ir3.emagine.user.User;
@@ -22,7 +23,7 @@ public class HibernateUserDAO extends HibernateBaseDAO<User> implements UserDAO 
 	  	return (User) HibernateUtils.getSession().load(User.class, id);
 	}
 
-	public Collection<User> getUsers(UserSearchParam userSearchParam) {
+	public List<User> getUsers(UserSearchParam userSearchParam) {
 		// TODO HibernateUserDAO.getUsers()
 		return null;
 	}

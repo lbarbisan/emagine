@@ -1,11 +1,10 @@
 package fr.umlv.ir3.emagine.user;
 
-import java.util.Collection;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
@@ -14,8 +13,9 @@ import fr.umlv.ir3.emagine.dao.DAOFactory;
 import fr.umlv.ir3.emagine.dao.DAOFactoryChooser;
 import fr.umlv.ir3.emagine.dao.ProfileDAO;
 import fr.umlv.ir3.emagine.dao.UserDAO;
+import fr.umlv.ir3.emagine.util.core.SearchAction;
 
-public class UserSearchAction extends Action {
+public class UserSearchAction extends SearchAction {
 
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -37,7 +37,7 @@ public class UserSearchAction extends Action {
 
 		// Retrieve the searched users, and set them in the page 
 		UserDAO userDAO = currentDAOFactory.getUserDAO();
-		Collection<User> users = userDAO.getUsers(form);
-		form.setUserResults(users);
+		List<User> users = userDAO.getUsers(form);
+		form.setResults(users);
 	}
 }

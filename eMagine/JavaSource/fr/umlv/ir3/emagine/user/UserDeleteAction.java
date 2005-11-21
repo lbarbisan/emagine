@@ -18,7 +18,7 @@ public class UserDeleteAction extends Action {
 
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
-		deleteUsers(((UserSearchForm)form).getUserResults(), request);
+		deleteUsers(((UserSearchForm)form).getResults(), request);
 		return mapping.findForward("success"); // TODO : pageDestination
 	}
 	
