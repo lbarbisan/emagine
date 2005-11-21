@@ -15,11 +15,12 @@ import fr.umlv.ir3.emagine.dao.DAOFactory;
 import fr.umlv.ir3.emagine.dao.DAOFactoryChooser;
 import fr.umlv.ir3.emagine.dao.UserDAO;
 
+
 /**
  * @author Administrateur
  *
  */
-public class UserManageAction extends DispatchAction {
+public class UserModifyAction extends DispatchAction {
 
 	
 	public ActionForward userCreate(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception  
