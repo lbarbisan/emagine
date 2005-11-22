@@ -1,7 +1,6 @@
+<%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <h2>Recherche d'apprenti</h2>
 <br/>
-<!-- Un formulaire de recherche -->
-
 <div class="search">
 <p>
 <label for="name">Nom </label> <input type="text" id="name" size="20" /> 
@@ -39,36 +38,35 @@
 
 <!-- Un tableau de resultats -->
 <div align=center>
-<div id="statSearch">
-<p>
-<label for="result">R&eacute;sulats </label> <input type="text" id="result" size="5" />&nbsp;&nbsp;&nbsp;
-<label for="pageNb">Nombre par page </label><input type="text" id="pageNb" size="5" /> 
-</p>
-
-</div>
-<table cellpadding="0" cellspacing="0">
-	<tr>
-		<th>&nbsp;</th>
-		<th>Nom</th>
-		<th>Pr&eacute;nom</th>
-		<th>Fili&egrave;re</th>
-		<th>Ann&eacute;e</th>
-	</tr>
-	<tr>
-		<td><input type="checkbox" value="ON" /></td>
-		<td><a href="#">Barbisan</a></td>
-		<td>Laurent</td>
-		<td>IR</td>
-		<td>3</td>
-	</tr>
-	<tr>
-		<td><input type="checkbox" value="ON" /></td>
-		<td><a href="#">Ogier</a></td>
-		<td>Anthony</td>
-		<td>IR</td>
-		<td>3</td>
-	</tr>
-</table>
+	<div id="statSearch">
+	<p>
+	<label for="result">R&eacute;sulats </label> <input type="text" id="result" size="5" />&nbsp;&nbsp;&nbsp;
+	<label for="pageNb">Nombre par page </label><input type="text" id="pageNb" size="5" /> 
+	</p>
+	</div>
+	<table cellpadding="0" cellspacing="0">
+		<tr>
+			<th>&nbsp;</th>
+			<th>Nom</th>
+			<th>Pr&eacute;nom</th>
+			<th>Fili&egrave;re</th>
+			<th>Ann&eacute;e</th>
+		</tr>
+		<tr>
+			<td><input type="checkbox" value="ON" /></td>
+			<td><html:link action="/studentOnglet">Barbisan</html:link></td>
+			<td>Laurent</td>
+			<td>IR</td>
+			<td>3</td>
+		</tr>
+		<tr>
+			<td><input type="checkbox" value="ON" /></td>
+			<td><html:link action="/studentOnglet">Ogier</html:link></td>
+			<td>Anthony</td>
+			<td>IR</td>
+			<td>3</td>
+		</tr>
+	</table>
 </div>
 <!-- Les actions propres a la selection -->
 <div id="actions">
@@ -78,11 +76,11 @@
 	</ul>
 	<h2>&nbsp;</h2>
 	<ul>
-		<li><a href="#"><img src="/eMagine/common/images/icones/passage.png" alt="Faire passer un apprenti"/></a> </li>
-		<li><a href="#"><img src="/eMagine/common/images/icones/virer.png" alt="Exclure un apprenti"/></a> </li>
-		<li><a href="#"><img src="/eMagine/common/images/icones/creer_mailing_list.png" alt="Cr&eacute;er une maling list"/></a> </li>
-		<li><a href="#"><img src="/eMagine/common/images/icones/mailing.png" alt="Effecter un mailing"/></a> </li>
-		<li><a href="#"><img src="/eMagine/common/images/icones/publipostage.png" alt="Effecter un publipostage"/></a> </li>
-		<li><a href="#"><img src="/eMagine/common/images/icones/extraire.png" alt="Extraire un apprenti"/></a> </li>
+		<li><a href="#"><img src="/eMagine/common/images/icones/passage.png" alt="Faire passer un apprenti"/></a></li>
+		<li><a href="#"><img src="/eMagine/common/images/icones/virer.png" alt="Exclure un apprenti"/></a></li>
+		<li><a href="#"><img src="/eMagine/common/images/icones/creer_mailing_list.png" alt="Cr&eacute;er une maling list"/></a></li>
+		<li><a href="#"><img src="/eMagine/common/images/icones/mailing.png" alt="Effecter un mailing"/></a></li>
+		<li><a href="#"><img src="/eMagine/common/images/icones/publipostage.png" alt="Effecter un publipostage"/></a></li>
+		<li><a href="#"><img src="/eMagine/common/images/icones/extraire.png" alt="Extraire un apprenti"/></a></li>
 	</ul>
 </div>
