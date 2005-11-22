@@ -163,11 +163,10 @@ ul#menu2 {
 .form{
 	font-weight:bold;
 	margin:5px;
-	display:inline;
 }
 .form label {
 	float: left;
-	width: 160px;
+	width: 150px;
   	text-align: right;
   	margin-right:5px;
   	font-weight:bold;
@@ -176,8 +175,14 @@ ul#menu2 {
 	margin:5px;
 	font-weight:normal;
 }
-.form input,select {
+.form input {
 	font-weight:normal;
+	text-align: left;
+	float:none;
+}
+.form select {
+	font-weight:normal;
+	text-align: left;
 	float:none;
 }
 .form  ul{
