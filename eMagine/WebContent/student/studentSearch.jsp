@@ -1,40 +1,41 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <h2>Recherche d'apprenti</h2>
 <br/>
+<div align="center">
 <div class="search">
-<p>
-<label for="name">Nom </label> <input type="text" id="name" size="20" /> 
-<label for="firstName">Pr&eacute;nom </label> <input type="text" id="firstName" size="20" /> 
-</p>
+<fieldset>
+<div class="search_b1">
+<p><label for="name">Nom </label> <input type="text" id="name" size="20" /> </p>
+<p><label for="firstName">Pr&eacute;nom </label> <input type="text" id="firstName" size="20" /> </p>
+</div>
 
+<div class="search_b2">
 <p>
 <label for="die">Fili&egrave;re </label>
-			<select name="die">
-				<option value="all" selected="selected">Toutes</option>
-				<option value="ir">IR</option>
-				<option value="mfpi">MFPI</option>
-				<option value="gmu">GMU</option>
-			</select>	
-<label for="year">Ann&eacute;e</label>
-			<select name="year">
-				<option value="all" selected="selected">Toutes</option>
-				<option value="1">1</option>
-				<option value="2">2</option>
-				<option value="3">3</option>
-				<option value="4">4</option>
-				<option value="5">5</option>
-			</select>
+	<select name="die">
+		<option value="all" selected="selected">Toutes</option>
+		<option value="ir">IR</option>
+		<option value="mfpi">MFPI</option>
+		<option value="gmu">GMU</option>
+	</select>
 </p>
-	<br/>
-	<br/>
-<p>
-<input type="button" value="Rechercher"/>			
-</p>			
-</div> 
+<p><label for="year">Ann&eacute;e</label>
+	<select name="year">
+		<option value="all" selected="selected">Toutes</option>
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+	</select>
+</p>
+</div>
+</fieldset>
+</div>
 <br/>
-	<br/>
+<input type="button" value="Rechercher"/>
+</div>
 <h2>R&eacute;sultats </h2> 
-
 
 <!-- Un tableau de resultats -->
 <div align=center>
