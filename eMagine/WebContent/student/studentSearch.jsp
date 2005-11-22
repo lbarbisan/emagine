@@ -2,32 +2,22 @@
 <br/>
 <!-- Un formulaire de recherche -->
 
-<div id="search">
-	<ul>
-		<li>
-			<label for="name">Nom </label>
-			<input type="text" id="name" size="20" /> 
-		</li>
-		<li>
-			<label for="firstName">Pr&eacute;nom </label>
-			<input type="text" id="firstName" size="20" /> 
-		</li>
-	</ul>
-	<ul>
-		<li>
-			<label for="die">Fili&egrave;re </label>
+<div class="search">
+<p>
+<label for="name">Nom </label> <input type="text" id="name" size="20" /> 
+<label for="firstName">Pr&eacute;nom </label> <input type="text" id="firstName" size="20" /> 
+</p>
+
+<p>
+<label for="die">Fili&egrave;re </label>
 			<select name="die">
-				<!-- à mettre en base -->
 				<option value="all" selected="selected">Toutes</option>
 				<option value="ir">IR</option>
 				<option value="mfpi">MFPI</option>
 				<option value="gmu">GMU</option>
-			</select>
-		</li>
-		<li>
-			<label for="year">Ann&eacute;e</label>
+			</select>	
+<label for="year">Ann&eacute;e</label>
 			<select name="year">
-				<!-- à mettre en base -->
 				<option value="all" selected="selected">Toutes</option>
 				<option value="1">1</option>
 				<option value="2">2</option>
@@ -35,13 +25,15 @@
 				<option value="4">4</option>
 				<option value="5">5</option>
 			</select>
-		</li>	
-		<li>
-			<input type="button" value="Rechercher"/>
-		</li>
-	</ul>
-</div>
+</p>
+	<br/>
+	<br/>
+<p>
+<input type="button" value="Rechercher"/>			
+</p>			
+</div> 
 <br/>
+	<br/>
 <h2>R&eacute;sultats </h2> 
 
 

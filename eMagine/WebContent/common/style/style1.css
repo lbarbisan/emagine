@@ -167,7 +167,7 @@ ul#menu2 {
 }
 .form label {
 	float: left;
-	width: 150px;
+	width: 100px;
   	text-align: right;
   	margin-right:5px;
   	font-weight:bold;
@@ -218,17 +218,26 @@ ul#menu2 {
 	border-style:none;
 }
 
-#search{}
-#search ul{
+.search{
 	font-weight:bold;
-	list-style-type: none;
 	margin:5px;
-	padding:0;
-	border-style:none;
 }
-#search li {
-	display:inline;
+.search label {
+	float: left;
+	width: 50px;
+  	text-align: right;
+  	margin-right:5px;
+  	margin-left:5px;
+  	font-weight:bold;
 }
+.search p{
+	margin:5px;
+}
+.search input,select{
+	float: left;
+	margin-left:5px;
+}
+
 /* ----- Zone inférieure ----- */
 #footer {
 	text-align:center;
@@ -240,7 +249,7 @@ ul#menu2 {
 #statSearch{
 	color:black;
 	font-size:12px;
-	font-weight:bold;
+	font-weight:normal;
 	text-align:right;
 	padding-bottom:5px;
 	width:90%;
