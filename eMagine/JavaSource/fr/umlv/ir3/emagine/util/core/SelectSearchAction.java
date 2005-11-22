@@ -17,6 +17,7 @@ import fr.umlv.ir3.emagine.core.BaseEntity;
 
 
 public abstract class SelectSearchAction extends SearchAction {
+	@SuppressWarnings("unchecked")
 	@Override
 	public ActionForward moveTo(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		SelectSearchForm<BaseEntity> selectSearchForm = (SelectSearchForm<BaseEntity>)form;
