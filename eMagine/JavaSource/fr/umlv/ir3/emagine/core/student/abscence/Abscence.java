@@ -7,18 +7,18 @@ import java.util.Date;
 
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import fr.umlv.ir3.emagine.core.BaseEntity;
-import fr.umlv.ir3.emagine.core.student.Student;
 
 /**
  * @author Administrateur
  *
  */
 @Entity(access = AccessType.FIELD)
-@Table(name = "tbl_abscence")
+@Table(name = "tbl_abscence",
+		uniqueConstraints = @UniqueConstraint(columnNames={"date", "student"}))
 public class Abscence extends BaseEntity {
 	
 	/**
@@ -26,24 +26,7 @@ public class Abscence extends BaseEntity {
 	 */
 	private static final long serialVersionUID = -8312730192742642372L;
 
-	Date date;
-	
-	@ManyToOne
-	private Student student;
-
-	/**
-	 * @return Returns the student.
-	 */
-	public Student getStudent() {
-		return student;
-	}
-
-	/**
-	 * @param student The student to set.
-	 */
-	public void setStudent(Student student) {
-		this.student = student;
-	}
+	private Date date;
 
 	/**
 	 * @return Returns the date.

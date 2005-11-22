@@ -18,21 +18,24 @@
        	<property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
         -->
         
- 		<mapping package="fr.umlv.ir3.emagine.user"/> 
- 		<mapping class="fr.umlv.ir3.emagine.user.User"/>
-		<mapping class="fr.umlv.ir3.emagine.user.Profile"/>
-		<mapping class="fr.umlv.ir3.emagine.user.Right"/>
+ 		<mapping package="fr.umlv.ir3.emagine.core."/> 
+		<mapping class="fr.umlv.ir3.emagine.core.BaseEntity"/>
 		
- 		<mapping package="fr.umlv.ir3.emagine.util.hibernate"/> 
-		<mapping class="fr.umlv.ir3.emagine.util.core.BaseEntity"/>
+ 		<mapping package="fr.umlv.ir3.emagine.core.user"/> 
+ 		<mapping class="fr.umlv.ir3.emagine.core.user.User"/>
+
+ 		<mapping package="fr.umlv.ir3.emagine.core.user.profile"/> 
+		<mapping class="fr.umlv.ir3.emagine.core.user.profile.Profile"/>
+		<mapping class="fr.umlv.ir3.emagine.core.user.profile.Right"/>
+
+	 	<mapping package="fr.umlv.ir3.emagine.core.student"/> 
+		<mapping class="fr.umlv.ir3.emagine.core.student.Student"/>
+	<!--  	<mapping class="fr.umlv.ir3.emagine.core.student.EngineerTutor"/> -->
+		<mapping class="fr.umlv.ir3.emagine.core.student.TeacherTutor"/>
 		
-		<mapping package="fr.umlv.ir3.emagine.student"/> 
-		<mapping class="fr.umlv.ir3.emagine.student.Student"/>
-		<mapping class="fr.umlv.ir3.emagine.student.EngineerTutor"/>
-		<mapping class="fr.umlv.ir3.emagine.student.TeacherTutor"/>
-		
-		<mapping package="fr.umlv.ir3.emagine.student.abscence"/> 
-		<mapping class="fr.umlv.ir3.emagine.student.abscence.Abscence"/>		
+<!-- 		<mapping package="fr.umlv.ir3.emagine.core.student.abscence"/> 
+		<mapping class="fr.umlv.ir3.emagine.core.student.abscence.Abscence"/>		
+		 -->
 
 		<!--
 		<class-cache class="core.Entite" usage="read-write"/>

@@ -3,6 +3,7 @@ package fr.umlv.ir3.emagine.core.user.profile;
 import java.util.List;
 
 import javax.persistence.AccessType;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -26,7 +27,10 @@ public class Profile extends BaseEntity{
 	@Column(unique = true)
 	private String name;
 	
-	@OneToMany
+	@OneToMany(cascade = {
+			CascadeType.PERSIST, 
+			CascadeType.MERGE, 
+			CascadeType.REFRESH})
 	@OrderBy("name")
 	List<Right> rights;
 	

@@ -1,6 +1,7 @@
 package fr.umlv.ir3.emagine.core.user;
 
 import javax.persistence.AccessType;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -17,13 +18,19 @@ public class User extends BaseEntity{
 	 * 
 	 */
 	private static final long serialVersionUID = 3947274315317297604L;
-	@ManyToOne
+	@ManyToOne(cascade = {
+			CascadeType.PERSIST, 
+			CascadeType.MERGE, 
+			CascadeType.REFRESH})
 	Profile profile;
+	
 	String password;
+	
 	@Column(unique = true)
 	String login;
 	@Column(unique = true)
 	String email;
+	
 	String firstName;
 	String lastName;
 	

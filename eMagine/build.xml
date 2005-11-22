@@ -8,9 +8,23 @@
 			</fileset>
 		</classpath>
 		
-	</taskdef>		
+	</taskdef>
+	
+	<taskdef 
+			name="middlegen" 
+			classname="middlegen.MiddlegenTask">
+			<classpath>
+						<fileset dir="WebContent/WEB-INF/lib">
+							<include name="**/*.jar"/>
+						</fileset>
+						<fileset dir="ressources/middleware/lib/">
+							<include name="**/*.jar"/>
+					</fileset>
+			</classpath>
+	</taskdef>
+			
 		
-	<target name="SchemaExport"
+	<target name="CreateSchema"
 			description="Export le schema et créer la base de donneés">
 
 		<hibernatetool destdir=".deployables\eMagine\WEB-INF\classes" classpath=".deployables\eMagine\WEB-INF\classes" >
@@ -18,6 +32,16 @@
 			<hbm2ddl export="true" console="false" drop="false" create="true"
 				outputfilename="hibernate.ddl" delimiter=";"/>
 		</hibernatetool>
+	</target>
+	
+	<target name="ViewSchema" depends="CreateSchema">
+		<middlegen appname = "eMagine" gui="true"
+				databaseurl="jdbc:postgresql://localhost:5432/eMagine"
+				driver="org.postgresql.Driver"
+				username="eMagine"
+				password="eMagine"
+				schema="public">
+		</middlegen>
 	</target>
 	
 </project>
