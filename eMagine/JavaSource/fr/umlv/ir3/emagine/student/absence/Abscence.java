@@ -1,7 +1,7 @@
 /**
  *  
  */
-package fr.umlv.ir3.emagine.core.student.abscence;
+package fr.umlv.ir3.emagine.student.absence;
 
 import java.util.Date;
 
@@ -10,7 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
-import fr.umlv.ir3.emagine.core.BaseEntity;
+import fr.umlv.ir3.emagine.util.BaseEntity;
 
 /**
  * @author Administrateur

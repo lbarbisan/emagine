@@ -1,4 +1,4 @@
-package fr.umlv.ir3.emagine.core;
+package fr.umlv.ir3.emagine.util;
 
 import java.io.Serializable;
 
@@ -10,7 +10,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
-import fr.umlv.ir3.emagine.core.user.profile.Profile;
+import fr.umlv.ir3.emagine.user.profile.Profile;
 
 /**
  * @author  Administrateur

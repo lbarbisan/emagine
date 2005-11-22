@@ -1,4 +1,4 @@
-package fr.umlv.ir3.emagine.core.student;
+package fr.umlv.ir3.emagine.student;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
-import fr.umlv.ir3.emagine.core.BaseEntity;
+import fr.umlv.ir3.emagine.util.BaseEntity;
 
 
 @Entity(access = AccessType.FIELD)

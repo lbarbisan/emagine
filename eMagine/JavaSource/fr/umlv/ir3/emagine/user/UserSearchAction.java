@@ -9,12 +9,9 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import fr.umlv.ir3.emagine.core.user.User;
-import fr.umlv.ir3.emagine.dao.DAOFactory;
-import fr.umlv.ir3.emagine.dao.DAOFactoryChooser;
-import fr.umlv.ir3.emagine.dao.ProfileDAO;
-import fr.umlv.ir3.emagine.dao.UserDAO;
-import fr.umlv.ir3.emagine.util.core.SearchAction;
+import fr.umlv.ir3.emagine.user.profile.ProfileDAO;
+import fr.umlv.ir3.emagine.util.DAOManager;
+import fr.umlv.ir3.emagine.util.SearchAction;
 
 public class UserSearchAction extends SearchAction {
 
@@ -30,14 +27,12 @@ public class UserSearchAction extends SearchAction {
 	 * @param request the request
 	 */
 	public void searchUsers(UserSearchForm form, HttpServletRequest request) {
-		DAOFactory currentDAOFactory = DAOFactoryChooser.getCurrentDAOFactory();
-
 		// Retrieve all profiles and set them in the form
-		ProfileDAO profileDAO = currentDAOFactory.getProfileDAO();
+		ProfileDAO profileDAO = DAOManager.getProfileDAO();
 		form.setProfiles(profileDAO.getProfiles());
 
 		// Retrieve the searched users, and set them in the page 
-		UserDAO userDAO = currentDAOFactory.getUserDAO();
+		UserDAO userDAO = DAOManager.getUserDAO();
 		List<User> users = userDAO.getUsers(form);
 		form.setResults(users);
 	}

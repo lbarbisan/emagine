@@ -11,10 +11,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import fr.umlv.ir3.emagine.core.user.User;
-import fr.umlv.ir3.emagine.dao.DAOFactory;
-import fr.umlv.ir3.emagine.dao.DAOFactoryChooser;
-import fr.umlv.ir3.emagine.dao.UserDAO;
+import fr.umlv.ir3.emagine.util.DAOManager;
 
 /**
  * @author Administrateur
@@ -35,15 +32,13 @@ public class UserShowInformationAction extends Action {
 	
 	private User getUser(UserInformationForm userInformationForm)
 	{
-		DAOFactory daoFactory = DAOFactoryChooser.getCurrentDAOFactory();
+		UserDAO userDAO = DAOManager.getUserDAO();
 		
-		UserDAO userDAO = daoFactory.getUserDAO();
-		
-		daoFactory.beginTransaction() ;
+		DAOManager.beginTransaction() ;
 	
 		User user =  userDAO.retrieve(userInformationForm.getId());
 		
-		daoFactory.commitTransaction();
+		DAOManager.commitTransaction();
 		
 		return user;
 	}

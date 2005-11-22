@@ -1,4 +1,4 @@
-package fr.umlv.ir3.emagine.util.core;
+package fr.umlv.ir3.emagine.util;
 
 import java.util.List;
 

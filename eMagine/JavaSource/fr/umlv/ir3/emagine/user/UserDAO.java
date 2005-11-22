@@ -1,23 +1,12 @@
-/**
- * 
- */
-package fr.umlv.ir3.emagine.dao.hibernate;
+package fr.umlv.ir3.emagine.user;
 
 import java.util.Collection;
 import java.util.List;
 
-import fr.umlv.ir3.emagine.core.user.User;
-import fr.umlv.ir3.emagine.dao.UserDAO;
-import fr.umlv.ir3.emagine.user.UserSearchParam;
-import fr.umlv.ir3.emagine.util.hibernate.HibernateUtils;
+import fr.umlv.ir3.emagine.util.BaseDAO;
+import fr.umlv.ir3.emagine.util.HibernateUtils;
 
-
-/**
- * @author Administrateur
- *
- */
-public class HibernateUserDAO extends HibernateBaseDAO<User> implements UserDAO {
-	
+public class UserDAO extends BaseDAO<User> {
 	@Override
 	public User retrieve(long id) {
 	  	return (User) HibernateUtils.getSession().load(User.class, id);

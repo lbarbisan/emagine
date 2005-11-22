@@ -1,10 +1,10 @@
-package fr.umlv.ir3.emagine.core.student;
+package fr.umlv.ir3.emagine.student;
 
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import fr.umlv.ir3.emagine.core.BaseEntity;
+import fr.umlv.ir3.emagine.util.BaseEntity;
 
 @Entity(access = AccessType.FIELD)
 @Table(name = "tbl_student")

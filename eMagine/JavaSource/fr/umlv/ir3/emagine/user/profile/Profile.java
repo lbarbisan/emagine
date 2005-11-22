@@ -1,4 +1,4 @@
-package fr.umlv.ir3.emagine.core.user.profile;
+package fr.umlv.ir3.emagine.user.profile;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
-import fr.umlv.ir3.emagine.core.BaseEntity;
+import fr.umlv.ir3.emagine.util.BaseEntity;
 
 
 @Table(name = "tbl_profile")

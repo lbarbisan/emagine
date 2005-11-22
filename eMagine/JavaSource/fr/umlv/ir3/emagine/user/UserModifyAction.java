@@ -11,10 +11,7 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.actions.DispatchAction;
 
-import fr.umlv.ir3.emagine.core.user.User;
-import fr.umlv.ir3.emagine.dao.DAOFactory;
-import fr.umlv.ir3.emagine.dao.DAOFactoryChooser;
-import fr.umlv.ir3.emagine.dao.UserDAO;
+import fr.umlv.ir3.emagine.util.DAOManager;
 
 
 /**
@@ -26,17 +23,15 @@ public class UserModifyAction extends DispatchAction {
 	
 	public ActionForward userCreate(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception  
 	{
-		DAOFactory daoFactory = DAOFactoryChooser.getCurrentDAOFactory();
-	
 		UserInformationForm userInformationForm  = (UserInformationForm) form;
 		
-		UserDAO userDAO = daoFactory.getUserDAO();
+		UserDAO userDAO = DAOManager.getUserDAO();
 		
 		User user = new User(userInformationForm.getFirstName() , userInformationForm.getLastName());
 		
-		daoFactory.beginTransaction() ;
+		DAOManager.beginTransaction() ;
 		userDAO.create(user);
-		daoFactory.commitTransaction();
+		DAOManager.commitTransaction();
 		
 		//Mise à jour dans la form de l'id
 		userInformationForm.setId(user.getId());
@@ -46,13 +41,11 @@ public class UserModifyAction extends DispatchAction {
 	
 	public ActionForward userModify(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception 
 	{
-		DAOFactory daoFactory = DAOFactoryChooser.getCurrentDAOFactory();
-		
 		UserInformationForm userInformationForm  = (UserInformationForm) form;
 		
-		UserDAO userDAO = daoFactory.getUserDAO();
+		UserDAO userDAO = DAOManager.getUserDAO();
 		
-		daoFactory.beginTransaction() ;
+		DAOManager.beginTransaction() ;
 	
 		User user =  userDAO.retrieve(userInformationForm.getId());
 		
@@ -60,7 +53,7 @@ public class UserModifyAction extends DispatchAction {
 		user.setLastName(userInformationForm.getLastName());
 		
 		userDAO.update(user);
-		daoFactory.commitTransaction();	
+		DAOManager.commitTransaction();	
 		
 		return  mapping.findForward("success"); //TODO PageDestination
 	}

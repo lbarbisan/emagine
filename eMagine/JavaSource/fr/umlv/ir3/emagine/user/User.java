@@ -1,4 +1,4 @@
-package fr.umlv.ir3.emagine.core.user;
+package fr.umlv.ir3.emagine.user;
 
 import javax.persistence.AccessType;
 import javax.persistence.CascadeType;
@@ -7,8 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import fr.umlv.ir3.emagine.core.BaseEntity;
-import fr.umlv.ir3.emagine.core.user.profile.Profile;
+import fr.umlv.ir3.emagine.user.profile.Profile;
+import fr.umlv.ir3.emagine.util.BaseEntity;
 
 @Entity(access = AccessType.FIELD)
 @Table(name = "tbl_user")

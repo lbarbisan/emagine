@@ -1,4 +1,4 @@
-package fr.umlv.ir3.emagine.util.core;
+package fr.umlv.ir3.emagine.util;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -12,7 +12,6 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import fr.umlv.ir3.emagine.core.BaseEntity;
 
 
 

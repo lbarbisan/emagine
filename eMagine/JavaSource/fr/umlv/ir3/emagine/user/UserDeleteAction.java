@@ -10,10 +10,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
-import fr.umlv.ir3.emagine.core.user.User;
-import fr.umlv.ir3.emagine.dao.DAOFactory;
-import fr.umlv.ir3.emagine.dao.DAOFactoryChooser;
-import fr.umlv.ir3.emagine.dao.UserDAO;
+import fr.umlv.ir3.emagine.util.DAOManager;
 
 public class UserDeleteAction extends Action {
 
@@ -29,12 +26,10 @@ public class UserDeleteAction extends Action {
 	 * @param request the request
 	 */
 	public void deleteUsers(Collection<User> users, HttpServletRequest request) {
-		DAOFactory currentDAOFactory = DAOFactoryChooser.getCurrentDAOFactory();
-
 		// Retrieve the searched users, and delete them from database
-		UserDAO userDAO = currentDAOFactory.getUserDAO();
-		currentDAOFactory.beginTransaction();
+		UserDAO userDAO = DAOManager.getUserDAO();
+		DAOManager.beginTransaction();
 		userDAO.deleteUsers(users);
-		currentDAOFactory.commitTransaction();
+		DAOManager.commitTransaction();
 	}
 }

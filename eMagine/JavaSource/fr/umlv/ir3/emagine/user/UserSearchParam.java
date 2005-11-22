@@ -1,6 +1,6 @@
 package fr.umlv.ir3.emagine.user;
 
-import fr.umlv.ir3.emagine.core.user.profile.Profile;
+import fr.umlv.ir3.emagine.user.profile.Profile;
 
 
 

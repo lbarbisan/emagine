@@ -1,24 +1,17 @@
 /**
  * 
  */
-package fr.umlv.ir3.emagine.dao.hibernate;
-
-import fr.umlv.ir3.emagine.dao.BaseDAO;
-import fr.umlv.ir3.emagine.util.hibernate.HibernateUtils;
+package fr.umlv.ir3.emagine.util;
 
 
-/**
- * @author Administrateur
- *
- */
-public abstract class HibernateBaseDAO<ObjectType> implements BaseDAO<ObjectType>{
 
-    /* (non-Javadoc)
+//CRUD Design pattern
+public abstract class BaseDAO<ObjectType> {
+	 /* (non-Javadoc)
      * @see fr.umlv.ir3.emagine.dao.BaseDAO#create(ObjectType)
      */
     public void create(ObjectType object) {
     	  HibernateUtils.getSession().save(object);
-        
     }
 
     /* (non-Javadoc)
@@ -39,7 +32,6 @@ public abstract class HibernateBaseDAO<ObjectType> implements BaseDAO<ObjectType
     public void delete(ObjectType object) {
   	  HibernateUtils.getSession().delete(object);        
     }
-
- 
+    
 
 }
