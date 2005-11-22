@@ -1,4 +1,5 @@
-<h2>Recherche d'apprenti</h2>
+<%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
+<h2>Recherche de candidat</h2>
 <br/>
 <div id="search">
 	<ul>

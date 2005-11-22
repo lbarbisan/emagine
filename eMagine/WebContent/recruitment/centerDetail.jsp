@@ -17,11 +17,13 @@
 			<th>Places&nbsp;disponibles</th>
 		</tr>
 		<tr>
+			<td><input type="checkbox" value="ON" /></td>
 			<td><html:link action="/roomModif">A10</html:link></td>
 			<td>16</td>
 			<td>57</td>
 		</tr>
 		<tr>
+			<td><input type="checkbox" value="ON" /></td>
 			<td><html:link action="/roomModif">A12</html:link></td>
 			<td>40</td>
 			<td>12</td>

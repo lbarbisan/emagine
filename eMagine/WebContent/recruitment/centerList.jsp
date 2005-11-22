@@ -19,7 +19,7 @@
 		</tr>
 		<tr>
 			<td><html:link action="/centerDetail">Paris</html:link></td>
-			<td>112, rue de la toulousaine</td>
+			<td>13, rue de la parisienne</td>
 			<td>0145654538</td>
 			<td>10</td>
 			<td>800</td>

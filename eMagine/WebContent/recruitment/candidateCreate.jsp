@@ -1,3 +1,5 @@
+<h2>Cr&eacute;ation&nbsp;de&nbsp;candidat</h2>
+<br/>
 <div class="form">
 	<fieldset>
 		<legend>Etat&nbsp;civil</legend>

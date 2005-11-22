@@ -163,5 +163,8 @@
 	<definition name="recruitment.roomModif" extends="recruitment">
 		<put name="body" value="/recruitment/roomModif.jsp" />
 	</definition>
-
+	
+	<definition name="recruitment.bringingTogether" extends="recruitment">
+		<put name="body" value="/recruitment/bringingTogether.jsp" />
+	</definition>
 </tiles-definitions>

@@ -57,8 +57,7 @@
 			<td>IR</td>
 		</tr>
 	</table>
-</div>
-	
+</div>	
 <!-- Les actions propres a la selection -->
 <div id="actions">
 	<ul>

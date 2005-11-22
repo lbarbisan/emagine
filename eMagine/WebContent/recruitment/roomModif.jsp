@@ -1,11 +1,10 @@
-<h2>Visualiser&nbsp;le&nbsp;détail&nbsp;d'une&nbsp;absence</h2>
+<h2>Visualiser&nbsp;le&nbsp;détail&nbsp;d'une&nbsp;salle</h2>
 <br/>
 <div class="form">
-	<p><label for="initDate">Date&nbsp;d&eacute;but <font color="red">*</font> </label><input type="text" id="initDate" size="20" /></p>
-	<p><label for="endDate">Date&nbsp;fin <font color="red">*</font> </label><input type="text" id="endDate" size="20" /></p>
-	<p><label for="nbdays">Nombre&nbsp;de&nbsp;jours </label><input type="text" id="nbdays" size="20" /></p>
-	<p><label for="justification">Justification <font color="red">*</font> </label><input type="text" id="justification" size="20" /></p>
-	<p><label for="comment">Commentaire </label><textarea id="comment"></textarea></p>
+	<p><label for="name">Nom&nbsp;<font color="red">*</font>&nbsp;</label><input type="text" id="name" size="20" /></p>
+	<p><label for="center">Centre&nbsp;</label><input type="text" id="center" size="20" /></p>
+	<p><label for="nbPlace">Nb.&nbsp;places&nbsp;</label><input type="text" id="nbPlace" size="20" /></p>
+	<p><label for="nbAvailable">Nb.&nbsp;disponibles&nbsp;</label><input type="text" id="nbAvailable" size="20" /></p>
 </div>
 <div id="actions">
 	<ul>
