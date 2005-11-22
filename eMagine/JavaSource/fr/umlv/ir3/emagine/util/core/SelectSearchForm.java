@@ -8,40 +8,29 @@ import org.apache.struts.action.ActionMapping;
 
 public abstract class SelectSearchForm<BaseType> extends SearchForm<BaseType> {
 
-	protected Set<String> idSelected;
+	protected Set<String> selectedIds;
 
-	protected String box[];
-
-	protected String checkbox[];
+	protected String currentSelectedIds[];
 
 	
 	@Override
 	public void reset(ActionMapping mapping, HttpServletRequest request) {
-		// TODO SelectSearchForm.reset()
+		currentSelectedIds = new String[0];
 	}
 
-
-	public Set<String> getIdSelected() {
-		return idSelected;
+	public String[] getCurrentSelectedIds() {
+		return currentSelectedIds;
 	}
 
-	public void setIdSelected(Set<String> idSelected) {
-		this.idSelected = idSelected;
+	public void setCurrentSelectedIds(String[] currentSelectedIds) {
+		this.currentSelectedIds = currentSelectedIds;
 	}
 
-	public String[] getBox() {
-		return box;
+	public Set<String> getSelectedIds() {
+		return selectedIds;
 	}
 
-	public void setBox(String[] box) {
-		this.box = box;
-	}
-
-	public String[] getCheckbox() {
-		return checkbox;
-	}
-
-	public void setCheckbox(String[] checkbox) {
-		this.checkbox = checkbox;
+	public void setSelectedIds(Set<String> selectedId) {
+		this.selectedIds = selectedId;
 	}
 }
