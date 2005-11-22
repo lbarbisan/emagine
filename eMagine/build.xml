@@ -36,7 +36,7 @@
 	
 	<target name="ViewSchema" depends="CreateSchema">
 		<middlegen appname = "eMagine" gui="true"
-				databaseurl="jdbc:postgresql://localhost:5432/eMagine"
+				databaseurl="jdbc:postgresql://server.srv-net.com:54321/eMagine"
 				driver="org.postgresql.Driver"
 				username="eMagine"
 				password="eMagine"
