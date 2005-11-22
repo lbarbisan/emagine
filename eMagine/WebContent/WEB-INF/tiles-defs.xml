@@ -16,9 +16,14 @@
 	<!-- =======================================================  -->
 	<!-- Master definition  									    -->
 	<!-- =======================================================  -->
-
+	
 	<!-- Doc index page description  -->
-	<definition name="mainLayout"
+	<!--<definition name="authentification"
+		path="/authentification/authentification.jsp">
+		<put name="title" value="eMagine v1.0" />
+	</definition>-->
+	
+	<definition name="mainLayout" 
 		path="/common/layout/mainLayout.jsp">
 		<put name="title" value="eMagine v1.0" />
 		<put name="mainMenu" value="/common/mainMenu.jsp" />
@@ -93,6 +98,22 @@
 		<put name="body" value="/teacher/teacherCreate.jsp" />
 	</definition>
 	
+	<definition name="teacher.teacherEvent" extends="teacher">
+		<put name="body" value="/student/studentEvent.jsp" />
+	</definition>
+	
+	<definition name="teacher.teacherOnglet" extends="teacher">
+		<put name="body" value="/teacher/teacherOnglet.jsp" />
+	</definition>
+
+	<definition name="teacher.teacherVisuInfo" extends="teacher">
+		<put name="body" value="/teacher/teacherVisuInfo.jsp" />
+	</definition>
+
+	<definition name="teacher.teacherStudentAdd" extends="teacher">
+		<put name="body" value="/teacher/teacherStudentAdd.jsp" />
+	</definition>
+
 	<!-- Statistics -->
 	<definition name="statistics" extends="mainLayout">
 		<put name="subMenu" value="/statistics/statisticsMenu.jsp" />
@@ -117,6 +138,30 @@
 
 	<definition name="recruitment.candidateCreate" extends="recruitment">
 		<put name="body" value="/recruitment/candidateCreate.jsp" />
+	</definition>
+	
+	<definition name="recruitment.candidateOnglet" extends="recruitment">
+		<put name="body" value="/recruitment/candidateOnglet.jsp" />
+	</definition>
+
+	<definition name="recruitment.candidateVisuInfo" extends="recruitment">
+		<put name="body" value="/recruitment/candidateVisuInfo.jsp" />
+	</definition>
+	
+	<definition name="recruitment.centerDetail" extends="recruitment">
+		<put name="body" value="/recruitment/centerDetail.jsp" />
+	</definition>
+	
+	<definition name="recruitment.centerList" extends="recruitment">
+		<put name="body" value="/recruitment/centerList.jsp" />
+	</definition>
+
+	<definition name="recruitment.roomAdd" extends="recruitment">
+		<put name="body" value="/recruitment/roomAdd.jsp" />
+	</definition>
+	
+	<definition name="recruitment.roomModif" extends="recruitment">
+		<put name="body" value="/recruitment/roomModif.jsp" />
 	</definition>
 
 </tiles-definitions>

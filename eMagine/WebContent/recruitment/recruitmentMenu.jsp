@@ -1,7 +1,8 @@
+<%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <h2>Recrutement</h2>
 <ul>
-	<li><a href="#">Rechercher&nbsp;un&nbsp;candidat</a></li>
-	<li><a href="#">Créer&nbsp;un&nbsp;candidat</a></li>
-	<li><a href="#">Rapprocher&nbsp;candidats&nbsp;et&nbsp;entreprises</a></li>
-	<li><a href="#">Visualiser&nbsp;les&nbsp;centres&nbsp;d&quote;&nbsp;examen</a></li>
+	<li><html:link action="/candidateSearch">Rechercher&nbsp;un&nbsp;candidat</html:link></li>
+	<li><html:link action="/candidateCreate">Créer&nbsp;un&nbsp;candidat</html:link></li>
+	<li><a href="#">Rapprocher&nbsp;candidats/entreprises</a></li>
+	<li><html:link action="/centerList">Visualiser&nbsp;les&nbsp;centres&nbsp;examen</html:link></li>
 </ul>

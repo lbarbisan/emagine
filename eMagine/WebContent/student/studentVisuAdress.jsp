@@ -21,7 +21,7 @@
 					<option value="78">78</option>
 				</select> </p>
 			<p><label for="persPhone">T&eacute;l&eacute;phone&nbsp;fixe </label><input type="text" id="persPhone" size="20" /></p>	
-			<p><label for="persMobile">T&eacute;l&eacute;phone&nbsp;portable </label><input type="text" id="persPhone" size="20" /></p>
+			<p><label for="persMobile">T&eacute;l&eacute;phone&nbsp;portable </label><input type="text" id="persMobile" size="20" /></p>
 			<p><label for="persFax">Fax </label><input type="text" id="persFax" size="20" /></p>
 			<p><label for="persEmail">E-mail <font color="red">*</font> </label><input type="text" id="persEmail" size="20" /></p>	
 	</fieldset>

@@ -23,6 +23,7 @@
 	<!-- in a real application deployment -->
 
 	<action-mappings>
+	   <action path="/mainLayout" forward="common.layout.mainLayout" />
 	   <!-- student --> 
 	   <action path="/studentVisuAdress" forward="student.studentVisuAdress" />
 	   <action path="/studentSearch" forward="student.studentSearch" />
@@ -38,10 +39,21 @@
 	   <action path="/studentAbsenceAdd" forward="student.studentAbsenceAdd" />
 	   <!-- teacher -->
 	   <action path="/teacherSearch" forward="teacher.teacherSearch" />
+	   <action path="/teacherCreate" forward="teacher.teacherCreate" />
+	   <action path="/teacherVisuInfo" forward="teacher.teacherVisuInfo" />
+	   <action path="/teacherOnglet" forward="teacher.teacherOnglet" />
+       <action path="/teacherStudentAdd" forward="teacher.teacherStudentAdd" />
        <!-- company -->
 	   <action path="/companySearch" forward="company.companySearch" />
 	   <!-- recruitment -->
-	   <action path="/recruitmentSearch" forward="recruitment.recruitmentSearch" />
+	   <action path="/candidateSearch" forward="recruitment.candidateSearch" />
+	   <action path="/candidateCreate" forward="recruitment.candidateCreate" />
+	   <action path="/candidateOnglet" forward="recruitment.candidateOnglet" />
+	   <action path="/candidateVisuInfo" forward="recruitment.candidateVisuInfo" />
+	   <action path="/centerDetail" forward="recruitment.centerDetail" />
+	   <action path="/centerList" forward="recruitment.centerList" />
+	   <action path="/roomModif" forward="recruitment.roomModif" />
+	   <action path="/roomAdd" forward="recruitment.roomAdd" />
 	   <!-- mail -->
 	   <action path="/mailSearch" forward="mail.mailSearch" />
 	   <!-- statistic -->
