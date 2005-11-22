@@ -118,13 +118,21 @@
 	<definition name="statistics" extends="mainLayout">
 		<put name="subMenu" value="/statistics/statisticsMenu.jsp" />
 	</definition>
-
-	<definition name="statistics.statisticsSearch" extends="statistics">
-		<put name="body" value="/statistics/statisticsSearch.jsp" />
+	
+	<definition name="recruitment.bringingTogether" extends="recruitment">
+		<put name="body" value="/recruitment/bringingTogether.jsp" />
+	</definition>
+	
+	<definition name="statistics.statisticsVisu" extends="statistics">
+		<put name="body" value="/statistics/statisticsVisu.jsp" />
 	</definition>
 
 	<definition name="statistics.statisticsCreate" extends="statistics">
 		<put name="body" value="/statistics/statisticsCreate.jsp" />
+	</definition>
+	
+	<definition name="statistics.statisticsModif" extends="statistics">
+		<put name="body" value="/statistics/statisticsModif.jsp" />
 	</definition>
 	
 	<!-- Recruitment -->

@@ -1,5 +1,6 @@
+<%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <h2>Statistiques</h2>
 <ul>
-	<li><a href="#">Créer&nbsp;une&nbsp;statistique</a></li>
-	<li><a href="#">Visualiser&nbsp;des&nbsp;statistiques</a></li>
+	<li><html:link action="/statisticsVisu">Visualiser&nbsp;des&nbsp;statistiques</html:link></li>
+	<li><html:link action="/statisticsCreate">Créer&nbsp;une&nbsp;statistique</html:link></li>
 </ul>

@@ -5,7 +5,7 @@
 		<li><html:link action="/companySearch">Entreprise</html:link> | </li>
 		<li><html:link action="/teacherSearch">Enseignant</html:link> | </li>
 		<li><html:link action="/candidateSearch">Recrutement</html:link> | </li>
-		<li><html:link action="/statisticsSearch">Statistiques</html:link> | </li>
+		<li><html:link action="/statisticsVisu">Statistiques</html:link> | </li>
 		<li><html:link action="/mailSearch">Courriers</html:link></li>
 	</ul>
  </div>

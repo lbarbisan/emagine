@@ -58,7 +58,9 @@
 	   <!-- mail -->
 	   <action path="/mailSearch" forward="mail.mailSearch" />
 	   <!-- statistic -->
-	   <action path="/statisticsSearch" forward="statistics.statisticsSearch" />
+	   <action path="/statisticsCreate" forward="statistics.statisticsCreate" />
+	   <action path="/statisticsVisu" forward="statistics.statisticsVisu" />
+	   <action path="/statisticsModif" forward="statistics.statisticsModif" />
        <!-- administration -->
 	   <action path="/userSearch" forward="administration.userSearch" />
        
