@@ -37,7 +37,7 @@
 	<h2>&nbsp;</h2>
 	<ul>
 		<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" alt="Supprimer une salle"/></a></li>
-		<li><html:link action="roomAdd"><img src="/eMagine/common/images/icones/ajouter.png" alt="Ajouter une salle"/><html:link></li>
+		<li><html:link action="roomAdd"><img src="/eMagine/common/images/icones/ajouter.png" alt="Ajouter une salle"/></html:link></li>
 	</ul>
 </div>
 
