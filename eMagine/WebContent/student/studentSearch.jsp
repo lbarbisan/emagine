@@ -48,7 +48,7 @@
 	<form name="results" >
 	<table cellpadding="0" cellspacing="0">
 		<tr>
-			<th>&nbsp;</th>
+			<th>&nbsp;</th></div>
 			<th>Nom</th>
 			<th>Pr&eacute;nom</th>
 			<th>Fili&egrave;re</th>
@@ -72,9 +72,10 @@
 </div>
 <!-- Les actions propres a la selection -->
 <div id="actions">
+<a name="all_none" />
 	<ul>
-		<li><a href="#" onclick="checkAll('results','all_none');">Tous</a> / </li>
-		<li><a href="#" onclick="checkNothing('results','all_none');">Aucun</a> </li>
+		<li><a href="#all_none" onclick="checkAll('results','all_none');">Tous</a> / </li>
+		<li><a href="#all_none" onclick="checkNothing('results','all_none');">Aucun</a> </li>
 	</ul>
 	<h2>&nbsp;</h2>
 	<ul>
