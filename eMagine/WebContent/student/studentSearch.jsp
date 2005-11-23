@@ -84,7 +84,7 @@
 				<li><a href="#"><img src="/eMagine/common/images/icones/creer_mailing_list.png" alt="Cr&eacute;er une maling list"/></a></li>
 				<li><a href="#"><img src="/eMagine/common/images/icones/mailing.png" alt="Effecter un mailing"/></a></li>
 				<li><a href="#"><img src="/eMagine/common/images/icones/publipostage.png" alt="Effecter un publipostage"/></a></li>
-				<li><a href="#"><img src="/eMagine/common/images/icones/extraire.png" alt="Extraire un apprenti"/></a></li>
+				<li><html:link action="/studentExtract"><img src="/eMagine/common/images/icones/extraire.png" alt="Extraire un apprenti"/></html:link></li>
 			</ul>
-			</form>
+		</form>
 </div>

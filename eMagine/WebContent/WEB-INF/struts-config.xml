@@ -40,7 +40,8 @@
 		<action path="/studentVisuAbsence" forward="student.studentVisuAbsence" />
 		<action path="/studentAbsenceModif" forward="student.studentAbsenceModif" />
 		<action path="/studentAbsenceAdd" forward="student.studentAbsenceAdd" />
-
+		<action path="/studentExtract" forward="student.studentExtract" />
+	
 		<!-- teacher -->
 		<action path="/teacherSearch" forward="teacher.teacherSearch" />
 		<action path="/teacherCreate" forward="teacher.teacherCreate" />

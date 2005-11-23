@@ -75,6 +75,9 @@
 	<definition name="student.studentEventDetail" extends="student">
 		<put name="body" value="/student/studentEventDetail.jsp" />
 	</definition>
+	<definition name="student.studentExtract" extends="student">
+		<put name="body" value="/student/studentExtract.jsp" />
+	</definition>
 
 	<!-- Teacher -->
 	<definition name="teacher" extends="mainLayout">
