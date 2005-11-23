@@ -181,7 +181,7 @@
 
 	<!-- Company -->
 	<definition name="company" extends="mainLayout">
-		<put name="subMenu" value="/mail/companyMenu.jsp" />
+		<put name="subMenu" value="/company/companyMenu.jsp" />
 	</definition>
 	<definition name="company.actorCreate" extends="company">
 		<put name="body" value="/company/actorCreate.jsp" />
