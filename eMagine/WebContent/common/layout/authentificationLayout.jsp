@@ -1,10 +1,11 @@
 <%@ taglib uri="/WEB-INF/tld/struts-tiles.tld" prefix="tiles"%>
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
+<%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 
 <html>
 	<head>
 		<link rel=stylesheet href="/eMagine/common/style/style1.css" type="text/css">
-		<title><tiles:getAsString name="title" /></title>
+		<title><bean:message key="app.title" /></title>
 	</head>
 	<body>
 	<div align="center">

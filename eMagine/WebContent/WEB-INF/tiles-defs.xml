@@ -20,12 +20,10 @@
 	<!-- Doc index page description  -->
 	<definition name="authentification"
 		path="/common/layout/authentificationLayout.jsp">
-		<put name="title" value="eMagine v1.0" />
 	</definition>
 
 	<definition name="mainLayout"
 		path="/common/layout/mainLayout.jsp">
-		<put name="title" value="eMagine v1.0" />
 		<put name="mainMenu" value="/common/mainMenu.jsp" />
 		<put name="subMainMenu" value="/common/subMenu.jsp" />
 		<put name="modif" value="/common/modif.jsp" />
