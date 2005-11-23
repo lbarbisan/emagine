@@ -9,7 +9,7 @@ body{
 }
 /* Page d'authentification */
 .login{
-	width: 500px;
+	width: 370px;
 	text-align: left;
 	color:black;
 	border-width:1px;
@@ -35,6 +35,15 @@ body{
 	border-bottom-color:#DEEBF1;
 }
 .login h2:first-letter{color:red;}
+.login p{
+	margin:5px;
+}
+.login hr{
+	border-width:0px;
+	border-bottom-width:1px;
+	border-bottom-style:solid;
+	border-bottom-color:#DEEBF1;
+}
 .login a{
 	text-decoration: none;
 }
