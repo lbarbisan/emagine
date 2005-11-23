@@ -27,97 +27,69 @@
 		<action path="/authentification" forward="authentification" />
 
 		<!-- student -->
-		<action path="/studentVisuAdress"
-			forward="student.studentVisuAdress" />
+		<action path="/studentVisuAdress" forward="student.studentVisuAdress" />
 		<action path="/studentSearch" forward="student.studentSearch" />
-		<action path="/studentVisuSituation"
-			forward="student.studentVisuSituation" />
-		<action path="/studentVisuStatus"
-			forward="student.studentVisuStatus" />
-		<action path="/studentTutorAdd"
-			forward="student.studentTutorAdd" />
-		<action path="/studentCompanyAdd"
-			forward="student.studentCompanyAdd" />
+		<action path="/studentVisuSituation" forward="student.studentVisuSituation" />
+		<action path="/studentVisuStatus" forward="student.studentVisuStatus" />
+		<action path="/studentTutorAdd" forward="student.studentTutorAdd" />
+		<action path="/studentCompanyAdd" forward="student.studentCompanyAdd" />
 		<action path="/studentOnglet" forward="student.studentOnglet" />
-		<action path="/studentVisuSchooling"
-			forward="student.studentVisuSchooling" />
-		<action path="/studentVisuEvent"
-			forward="student.studentVisuEvent" />
-		<action path="/studentVisuAbsence"
-			forward="student.studentVisuAbsence" />
-		<action path="/studentAbsenceModif"
-			forward="student.studentAbsenceModif" />
-		<action path="/studentAbsenceAdd"
-			forward="student.studentAbsenceAdd" />
+		<action path="/studentVisuSchooling" forward="student.studentVisuSchooling" />
+		<action path="/studentVisuEvent" forward="student.studentVisuEvent" />
+		<action path="/studentVisuAbsence" forward="student.studentVisuAbsence" />
+		<action path="/studentAbsenceModif" forward="student.studentAbsenceModif" />
+		<action path="/studentAbsenceAdd" forward="student.studentAbsenceAdd" />
 
 		<!-- teacher -->
 		<action path="/teacherSearch" forward="teacher.teacherSearch" />
 		<action path="/teacherCreate" forward="teacher.teacherCreate" />
-		<action path="/teacherVisuInfo"
-			forward="teacher.teacherVisuInfo" />
+		<action path="/teacherVisuInfo" forward="teacher.teacherVisuInfo" />
 		<action path="/teacherOnglet" forward="teacher.teacherOnglet" />
-		<action path="/teacherStudentAdd"
-			forward="teacher.teacherStudentAdd" />
+		<action path="/teacherStudentAdd" forward="teacher.teacherStudentAdd" />
 
 		<!-- company -->
 		<action path="/companySearch" forward="company.companySearch" />
-		<action path="/actorStudentAdd"
-			forward="company.actorStudentAdd" />
-		<action path="/companyCreate"
-			forward="company.companyCreate" />
+		<action path="/actorStudentAdd" forward="company.actorStudentAdd" />
+		<action path="/companyCreate" forward="company.companyCreate" />
 		<action path="/actorVisuInfo" forward="company.actorVisuInfo" />
-		<action path="/companyVisuActor"
-			forward="company.companyVisuActor" />
-		<action path="/companyVisuEvent"
-			forward="company.companyVisuEvent" />
-		<action path="/companyVisuInfo"
-			forward="company.companyVisuInfo" />
-		<action path="/companyVisuPost"
-			forward="company.companyVisuPost" />
+		<action path="/companyVisuActor" forward="company.companyVisuActor" />
+		<action path="/companyVisuEvent" forward="company.companyVisuEvent" />
+		<action path="/companyVisuInfo" forward="company.companyVisuInfo" />
+		<action path="/companyVisuPost" forward="company.companyVisuPost" />
 		<action path="/companyOnglet" forward="company.companyOnglet" />
 		<action path="/postCreate" forward="company.postCreate" />
 		<action path="/postVisu" forward="company.postVisu" />
 		<action path="/actorCreate" forward="company.actorCreate" />
 
 		<!-- recruitment -->
-		<action path="/candidateSearch"
-			forward="recruitment.candidateSearch" />
-		<action path="/candidateCreate"
-			forward="recruitment.candidateCreate" />
-		<action path="/candidateOnglet"
-			forward="recruitment.candidateOnglet" />
-		<action path="/candidateVisuInfo"
-			forward="recruitment.candidateVisuInfo" />
+		<action path="/candidateSearch" forward="recruitment.candidateSearch" />
+		<action path="/candidateCreate" forward="recruitment.candidateCreate" />
+		<action path="/candidateOnglet" forward="recruitment.candidateOnglet" />
+		<action path="/candidateVisuInfo" forward="recruitment.candidateVisuInfo" />
 		<action path="/centerDetail" forward="recruitment.centerDetail" />
 		<action path="/centerList" forward="recruitment.centerList" />
 		<action path="/roomModif" forward="recruitment.roomModif" />
 		<action path="/roomAdd" forward="recruitment.roomAdd" />
-		<action path="/bringingTogether"
-			forward="recruitment.bringingTogether" />
+		<action path="/bringingTogether" forward="recruitment.bringingTogether" />
 
 		<!-- mail -->
 		<action path="/emailDo" forward="mail.emailDo" />
 		<action path="/mailDo" forward="mail.mailDo" />
-		<action path="/mailingListCreate"
-			forward="mail.mailingListCreate" />
-		<action path="/mailTypeUdpate" forward="mail.mailTypeUpdate" />
-		<action path="/mailingListUpdate"
-			forward="mail.mailingListUpdate" />
+		<action path="/mailingListCreate" forward="mail.mailingListCreate" />
+		<action path="/mailTypeUpdate" forward="mail.mailTypeUpdate" />
+		<action path="/mailingListUpdate" forward="mail.mailingListUpdate" />
 		<action path="/mailTypeVisu" forward="mail.mailTypeVisu" />
 		<action path="/mailTypeCreate" forward="mail.mailTypeCreate" />
 		<action path="/mailingListVisu" forward="mail.mailingListVisu" />
 
 		<!-- statistic -->
-		<action path="/statisticsCreate"
-			forward="statistics.statisticsCreate" />
-		<action path="/statisticsVisu"
-			forward="statistics.statisticsVisu" />
-		<action path="/statisticsModif"
-			forward="statistics.statisticsModif" />
+		<action path="/statisticsCreate" forward="statistics.statisticsCreate" />
+		<action path="/statisticsVisu" forward="statistics.statisticsVisu" />
+		<action path="/statisticsModif" forward="statistics.statisticsModif" />
 
 		<!-- administration -->
 		<action path="/userSearch" forward="administration.userSearch" />
-		<action path="/userCreate"
+		<action path="/userCreate" 
 			type="fr.umlv.ir3.emagine.user.UserModifyAction"
 			name="userInformationForm" parameter="dispatchAction"
 			scope="session">

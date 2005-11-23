@@ -36,51 +36,39 @@
 	<definition name="student" extends="mainLayout">
 		<put name="subMenu" value="/student/studentMenu.jsp" />
 	</definition>
-
 	<definition name="student.studentSearch" extends="student">
 		<put name="body" value="/student/studentSearch.jsp" />
 	</definition>
-
 	<definition name="student.studentVisuAdress" extends="student">
 		<put name="body" value="/student/studentVisuAdress.jsp" />
 	</definition>
-
 	<definition name="student.studentVisuSituation" extends="student">
 		<put name="body" value="/student/studentVisuSituation.jsp" />
 	</definition>
-
 	<definition name="student.studentVisuStatus" extends="student">
 		<put name="body" value="/student/studentVisuStatus.jsp" />
 	</definition>
-
 	<definition name="student.studentCompanyAdd" extends="student">
 		<put name="body" value="/student/studentCompanyAdd.jsp" />
 	</definition>
-
 	<definition name="student.studentTutorAdd" extends="student">
 		<put name="body" value="/student/studentTutorAdd.jsp" />
 	</definition>
-
 	<definition name="student.studentOnglet" extends="student">
 		<put name="body" value="/student/studentOnglet.jsp" />
 	</definition>
-
 	<definition name="student.studentVisuSchooling" extends="student">
 		<put name="body" value="/student/studentVisuSchooling.jsp" />
 	</definition>
-
 	<definition name="student.studentVisuAbsence" extends="student">
 		<put name="body" value="/student/studentVisuAbsence.jsp" />
 	</definition>
-
 	<definition name="student.studentAbsenceAdd" extends="student">
 		<put name="body" value="/student/studentAbsenceAdd.jsp" />
 	</definition>
-
 	<definition name="student.studentAbsenceModif" extends="student">
 		<put name="body" value="/student/studentAbsenceModif.jsp" />
 	</definition>
-
 	<definition name="student.studentVisuEvent" extends="student">
 		<put name="body" value="/student/studentVisuEvent.jsp" />
 	</definition>
@@ -89,96 +77,78 @@
 	<definition name="teacher" extends="mainLayout">
 		<put name="subMenu" value="/teacher/teacherMenu.jsp" />
 	</definition>
-
 	<definition name="teacher.teacherSearch" extends="teacher">
 		<put name="body" value="/teacher/teacherSearch.jsp" />
 	</definition>
-
 	<definition name="teacher.teacherCreate" extends="teacher">
 		<put name="body" value="/teacher/teacherCreate.jsp" />
 	</definition>
-
-	<definition name="teacher.teacherEvent" extends="teacher">
+	<!-- <definition name="teacher.teacherEvent" extends="teacher">
 		<put name="body" value="/student/studentEvent.jsp" />
-	</definition>
-
+	</definition>  -->
 	<definition name="teacher.teacherOnglet" extends="teacher">
 		<put name="body" value="/teacher/teacherOnglet.jsp" />
 	</definition>
-
 	<definition name="teacher.teacherVisuInfo" extends="teacher">
 		<put name="body" value="/teacher/teacherVisuInfo.jsp" />
 	</definition>
-
 	<definition name="teacher.teacherStudentAdd" extends="teacher">
 		<put name="body" value="/teacher/teacherStudentAdd.jsp" />
 	</definition>
-
+	
 	<!-- Statistics -->
 	<definition name="statistics" extends="mainLayout">
 		<put name="subMenu" value="/statistics/statisticsMenu.jsp" />
 	</definition>
-
 	<definition name="statistics.statisticsVisu" extends="statistics">
 		<put name="body" value="/statistics/statisticsVisu.jsp" />
 	</definition>
-
 	<definition name="statistics.statisticsCreate"
 		extends="statistics">
 		<put name="body" value="/statistics/statisticsCreate.jsp" />
 	</definition>
-
 	<definition name="statistics.statisticsModif"
 		extends="statistics">
 		<put name="body" value="/statistics/statisticsModif.jsp" />
 	</definition>
-
+	
 	<!-- Recruitment -->
 	<definition name="recruitment" extends="mainLayout">
 		<put name="subMenu" value="/recruitment/recruitmentMenu.jsp" />
 	</definition>
-
 	<definition name="recruitment.candidateSearch"
 		extends="recruitment">
 		<put name="body" value="/recruitment/candidateSearch.jsp" />
 	</definition>
-
 	<definition name="recruitment.candidateCreate"
 		extends="recruitment">
 		<put name="body" value="/recruitment/candidateCreate.jsp" />
 	</definition>
-
 	<definition name="recruitment.candidateOnglet"
 		extends="recruitment">
 		<put name="body" value="/recruitment/candidateOnglet.jsp" />
 	</definition>
-
 	<definition name="recruitment.candidateVisuInfo"
 		extends="recruitment">
 		<put name="body" value="/recruitment/candidateVisuInfo.jsp" />
 	</definition>
-
 	<definition name="recruitment.centerDetail" extends="recruitment">
 		<put name="body" value="/recruitment/centerDetail.jsp" />
 	</definition>
-
 	<definition name="recruitment.centerList" extends="recruitment">
 		<put name="body" value="/recruitment/centerList.jsp" />
 	</definition>
-
 	<definition name="recruitment.roomAdd" extends="recruitment">
 		<put name="body" value="/recruitment/roomAdd.jsp" />
 	</definition>
-
 	<definition name="recruitment.roomModif" extends="recruitment">
 		<put name="body" value="/recruitment/roomModif.jsp" />
 	</definition>
-
 	<definition name="recruitment.bringingTogether"
 		extends="recruitment">
 		<put name="body" value="/recruitment/bringingTogether.jsp" />
 	</definition>
-
+	
 	<!-- Company -->
 	<definition name="company" extends="mainLayout">
 		<put name="subMenu" value="/company/companyMenu.jsp" />
