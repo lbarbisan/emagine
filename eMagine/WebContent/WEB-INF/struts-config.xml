@@ -36,6 +36,7 @@
 		<action path="/studentOnglet" forward="student.studentOnglet" />
 		<action path="/studentVisuSchooling" forward="student.studentVisuSchooling" />
 		<action path="/studentVisuEvent" forward="student.studentVisuEvent" />
+		<action path="/studentEventDetail" forward="student.studentEventDetail" />
 		<action path="/studentVisuAbsence" forward="student.studentVisuAbsence" />
 		<action path="/studentAbsenceModif" forward="student.studentAbsenceModif" />
 		<action path="/studentAbsenceAdd" forward="student.studentAbsenceAdd" />
@@ -46,6 +47,8 @@
 		<action path="/teacherVisuInfo" forward="teacher.teacherVisuInfo" />
 		<action path="/teacherOnglet" forward="teacher.teacherOnglet" />
 		<action path="/teacherStudentAdd" forward="teacher.teacherStudentAdd" />
+		<action path="/teacherVisuEvent" forward="teacher.teacherVisuEvent" />
+		<action path="/teacherEventDetail" forward="teacher.teacherEventDetail" />
 
 		<!-- company -->
 		<action path="/companySearch" forward="company.companySearch" />
@@ -60,7 +63,11 @@
 		<action path="/postCreate" forward="company.postCreate" />
 		<action path="/postVisu" forward="company.postVisu" />
 		<action path="/actorCreate" forward="company.actorCreate" />
-
+		<action path="/companyVisuEvent" forward="company.companyVisuEvent" />
+		<action path="/companyEventDetail" forward="company.companyEventDetail" />
+		<action path="/actorVisuEvent" forward="company.actorVisuEvent" />
+		<action path="/actorEventDetail" forward="company.actorEventDetail" />
+		
 		<!-- recruitment -->
 		<action path="/candidateSearch" forward="recruitment.candidateSearch" />
 		<action path="/candidateCreate" forward="recruitment.candidateCreate" />
@@ -71,7 +78,9 @@
 		<action path="/roomModif" forward="recruitment.roomModif" />
 		<action path="/roomAdd" forward="recruitment.roomAdd" />
 		<action path="/bringingTogether" forward="recruitment.bringingTogether" />
-
+		<action path="/candidateVisuEvent" forward="recruitment.candidateVisuEvent" />
+		<action path="/candidateEventDetail" forward="recruitment.candidateEventDetail" />
+		
 		<!-- mail -->
 		<action path="/emailDo" forward="mail.emailDo" />
 		<action path="/mailDo" forward="mail.mailDo" />
