@@ -1,4 +1,4 @@
-package fr.umlv.ir3.emagine.student;
+package fr.umlv.ir3.emagine.entreprise.actor;
 
 import java.util.List;
 
@@ -9,17 +9,20 @@ import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
+import fr.umlv.ir3.emagine.student.Student;
 import fr.umlv.ir3.emagine.util.BaseEntity;
 
-@Entity(access = AccessType.FIELD)
-@Table(name = "tbl_teachertutor")
-public class TeacherTutor extends BaseEntity {
 
+@Entity(access = AccessType.FIELD)
+@Table(name = "tbl_engineertutor")
+
+public class EngineerTutor extends EntrepriseActor {
+	
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -6468325376386661021L;
-
+	private static final long serialVersionUID = 3857030644896914550L;
+	
 	@OneToMany(cascade = {
 			CascadeType.PERSIST, 
 			CascadeType.MERGE, 

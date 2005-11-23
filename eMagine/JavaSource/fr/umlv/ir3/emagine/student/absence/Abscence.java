@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import fr.umlv.ir3.emagine.student.Student;
 import fr.umlv.ir3.emagine.util.BaseEntity;
 
 /**
@@ -21,25 +22,13 @@ import fr.umlv.ir3.emagine.util.BaseEntity;
 		uniqueConstraints = @UniqueConstraint(columnNames={"date", "student"}))
 public class Abscence extends BaseEntity {
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -8312730192742642372L;
-
-	private Date date;
-
-	/**
-	 * @return Returns the date.
-	 */
-	public Date getDate() {
-		return date;
-	}
-
-	/**
-	 * @param date The date to set.
-	 */
-	public void setDate(Date date) {
-		this.date = date;
-	}
+	private Date startDate;
+	private Date endDate;
+	//FIXME :Jour ouvré, calculé dans la base ? ou dans java
+	private int nbrOpenDay;
+	private boolean justification;
+	private String justificationComment;
+	
+	private Student sutent;
 	
 }
