@@ -7,7 +7,37 @@ body{
 	background-color: #DEEBF1;
 	height:100%;
 }
-
+/* Page d'authentification */
+.login{
+	width: 500px;
+	text-align: left;
+	color:black;
+	border-width:1px;
+	border-style:solid;
+	border-color:#809AD0;
+	padding:10px;
+	-moz-border-radius:10px;
+	background-color:white;
+	font-weight: bold;
+}
+.login label{
+	width: 100px;
+	float: left;
+	color:black;
+	text-align: right;
+	padding-right: 5px;
+}
+.login h2{
+	font-size:14px;
+	margin:5px;
+	border-bottom-width:1px;
+	border-bottom-style:solid;
+	border-bottom-color:#DEEBF1;
+}
+.login h2:first-letter{color:red;}
+.login a{
+	text-decoration: none;
+}
 /* ----- Zone supérieure ----- */
 /* --- Menu principal --- */
 #bloc_menu1{
