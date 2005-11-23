@@ -2,24 +2,30 @@ package fr.umlv.ir3.emagine.student.candidate;
 
 import java.util.List;
 
+import javax.persistence.AccessType;
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+
 import fr.umlv.ir3.emagine.student.Contact;
-import fr.umlv.ir3.emagine.student.CursusEnum;
 import fr.umlv.ir3.emagine.student.LevelEntryEnum;
 import fr.umlv.ir3.emagine.student.Profession;
 import fr.umlv.ir3.emagine.student.candidate.examcenter.FormationCenter;
 import fr.umlv.ir3.emagine.util.Person;
 
+@Entity(access = AccessType.FIELD)
+@Inheritance(strategy=InheritanceType.JOINED)
 public class Candidate extends Person {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2131901427590143640L;
 
 	private Contact contactOriginIG2K;
 	
-	//TODO : Le type semble-t-il bon, doit-il être en doublons avec Student ?
 	private LevelEntryEnum entryLevel;
 	
-	private LevelEntryEnum studingLevel;
-	//FIXME : Filière
-	private DieEnum askDie;
-	//TODO : Le type semble-t-il bon, doit-il être en doublons avec Student ?
 	private Profession professionMother;
 	private Profession professionFather;
 	

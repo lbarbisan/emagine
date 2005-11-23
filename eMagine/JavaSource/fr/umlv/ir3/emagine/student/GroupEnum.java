@@ -1,5 +1,5 @@
 package fr.umlv.ir3.emagine.student;
 
-public class SectionEnum {
+public class GroupEnum {
 
 }

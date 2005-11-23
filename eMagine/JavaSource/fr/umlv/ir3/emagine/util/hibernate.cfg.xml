@@ -8,7 +8,7 @@
         <property name="hibernate.cglib.use_reflection_optimizer">true</property>
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
         <property name="hibernate.connection.password">eMagine</property>
-        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/eMagine</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://server.srv-net.com:54321/eMagine</property>
         <property name="hibernate.connection.username">eMagine</property>
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
         <property name="hibernate.connection.autocommit">false</property>
@@ -18,29 +18,33 @@
        	<property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
         -->
         
- 		<mapping package="fr.umlv.ir3.emagine.core."/> 
-		<mapping class="fr.umlv.ir3.emagine.core.BaseEntity"/>
+ 		<mapping package="fr.umlv.ir3.emagine.util"/> 
+		<mapping class="fr.umlv.ir3.emagine.util.BaseEntity"/>
+		<mapping class="fr.umlv.ir3.emagine.util.Person"/>
+		<mapping class="fr.umlv.ir3.emagine.util.Address"/>
 		
- 		<mapping package="fr.umlv.ir3.emagine.core.user"/> 
- 		<mapping class="fr.umlv.ir3.emagine.core.user.User"/>
-
- 		<mapping package="fr.umlv.ir3.emagine.core.user.profile"/> 
-		<mapping class="fr.umlv.ir3.emagine.core.user.profile.Profile"/>
-		<mapping class="fr.umlv.ir3.emagine.core.user.profile.Right"/>
-
-	 	<mapping package="fr.umlv.ir3.emagine.core.student"/> 
-		<mapping class="fr.umlv.ir3.emagine.core.student.Student"/>
-	<!--  	<mapping class="fr.umlv.ir3.emagine.core.student.EngineerTutor"/> -->
-		<mapping class="fr.umlv.ir3.emagine.core.student.TeacherTutor"/>
+		<mapping package="fr.umlv.ir3.emagine.event"/> 
+		<mapping class="fr.umlv.ir3.emagine.event.Event"/>
 		
-<!-- 		<mapping package="fr.umlv.ir3.emagine.core.student.abscence"/> 
+		<mapping package="fr.umlv.ir3.emagine.teachertutor"/> 
+		<mapping class="fr.umlv.ir3.emagine.teachertutor.TeacherTutor"/>		
+		
+<!--  	<mapping package="fr.umlv.ir3.emagine.user"/> 
+ 		<mapping class="fr.umlv.ir3.emagine.user.User"/>
+
+ 		<mapping package="fr.umlv.ir3.emagine.user.profile"/> 
+		<mapping class="fr.umlv.ir3.emagine.user.profile.Profile"/>
+		<mapping class="fr.umlv.ir3.emagine.user.profile.Right"/>
+
+	 	<mapping package="fr.umlv.ir3.emagine.student"/> 
+		<mapping class="fr.umlv.ir3.emagine.student.Student"/>
+	  	<mapping class="fr.umlv.ir3.emagine.core.student.EngineerTutor"/> 
+	 	<mapping package="fr.umlv.ir3.emagine.teachertutor"/> 
+		<mapping class="fr.umlv.ir3.emagine.teachertutor.TeacherTutor"/>
+		
+		<mapping package="fr.umlv.ir3.emagine.core.student.abscence"/> 
 		<mapping class="fr.umlv.ir3.emagine.core.student.abscence.Abscence"/>		
 		 -->
-
-		<!--
-		<class-cache class="core.Entite" usage="read-write"/>
-		<class-cache class="core.Entreprise" usage="read-write"/>
-		-->		
         
     </session-factory>
 </hibernate-configuration>

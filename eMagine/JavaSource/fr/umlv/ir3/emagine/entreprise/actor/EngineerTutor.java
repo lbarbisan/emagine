@@ -10,7 +10,6 @@ import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 import fr.umlv.ir3.emagine.student.Student;
-import fr.umlv.ir3.emagine.util.BaseEntity;
 
 
 @Entity(access = AccessType.FIELD)

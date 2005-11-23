@@ -24,7 +24,7 @@ public class Abscence extends BaseEntity {
 	
 	private Date startDate;
 	private Date endDate;
-	//FIXME :Jour ouvré, calculé dans la base ? ou dans java
+	//FIXME : Solve - Calculé en java
 	private int nbrOpenDay;
 	private boolean justification;
 	private String justificationComment;

@@ -1,5 +1,6 @@
 package fr.umlv.ir3.emagine.student;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.AccessType;
@@ -11,6 +12,7 @@ import fr.umlv.ir3.emagine.entreprise.actor.EngineerTutor;
 import fr.umlv.ir3.emagine.student.absence.Abscence;
 import fr.umlv.ir3.emagine.student.candidate.Candidate;
 import fr.umlv.ir3.emagine.teachertutor.TeacherTutor;
+import fr.umlv.ir3.emagine.util.Address;
 
 @Entity(access = AccessType.FIELD)
 @Table(name = "tbl_student")
@@ -21,7 +23,9 @@ public class Student extends Candidate {
 		PERSONNAL,
 		ACADEMIC,
 	}
-	//FIXME: DAte de début date de fin ?
+	//FIXME: Solve - créer une table intermédiaire
+	private Date startDate;
+	
 	private Address addressProfessional;
 	private Address addressAcademic;
 	private DefaultAddressEnum defaultAdress;
@@ -29,8 +33,6 @@ public class Student extends Candidate {
 	private LanguageEnum firstLanguage;
 	private LanguageEnum secondLanguage;
 
-	
-	//TODO : A voir si on fait une liste de note, pour les note du colcours, ou une liste d'entier et si c'est un enum
 	private List<Mark> examsMark;
 	private List<Diploma> diplomas;
 	private List<Schooling> schooling;
@@ -40,15 +42,14 @@ public class Student extends Candidate {
 	private Entreprise entreprise;
 	
 	//FIXME : DIfférence avec candidat ?
-	private CursusEnum cursus;
+	//private DieEnum die;
 	
-	private String classe;
-	//TODO : Le type semble-t-il bon
-	private SectionEnum section;
+	//TODO : Mettre un nombre ?
+	private YearEnum year;
+	
+	//TODO : Mettre des nombre ?
 	private List<Abscence> absences;
 	
-	//FIXME : Gestion de l'exclusion, etc...
-	private Integer year;
 
 	
 	

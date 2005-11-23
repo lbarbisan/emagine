@@ -8,9 +8,13 @@ public class Modification<ObjectType extends BaseEntity> extends BaseEntity{
 	
 	private ModificationStateEnum modificationSate;
 	
+	private String comment;
+	
 	private User source;
-	//FIXME : A discuter
+	
+	//FIXME : mapping entre les droits et les objets, 
 	private User destination;
+	
 	
 	private ObjectType oldValue;
 	private ObjectType currentValue;

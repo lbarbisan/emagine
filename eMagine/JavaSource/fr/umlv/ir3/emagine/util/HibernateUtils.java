@@ -1,6 +1,8 @@
 package fr.umlv.ir3.emagine.util;
 
 
+import java.util.Iterator;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.HibernateException;
@@ -8,6 +10,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.AnnotationConfiguration;
+import org.hibernate.metadata.ClassMetadata;
+
+import fr.umlv.ir3.emagine.student.Student;
 
 
 
@@ -40,6 +45,7 @@ public class HibernateUtils {
             s = sessionFactory.openSession();
             threadSession.set(s);
         }
+        
         return s;
     }
 

@@ -1,10 +1,16 @@
 /**
  *  
  */
-package fr.umlv.ir3.emagine.events;
+package fr.umlv.ir3.emagine.event;
 
 import java.util.Date;
 import java.util.List;
+
+import javax.persistence.AccessType;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import javax.persistence.OrderBy;
 
 import fr.umlv.ir3.emagine.util.BaseEntity;
 
@@ -12,6 +18,7 @@ import fr.umlv.ir3.emagine.util.BaseEntity;
  * @author Laurent
  *
  */
+@Entity(access = AccessType.FIELD)
 public class Event extends BaseEntity{
 
 	/**
@@ -25,6 +32,9 @@ public class Event extends BaseEntity{
 	private Date endDate;
 	private String Title;
 	private String Comment;
-	private EventTypeEnum type;
+	//FIXME : ENum
+	//private EventTypeEnum type;
+	@ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+	@OrderBy("id")
 	private List<BaseEntity> sources;
 }

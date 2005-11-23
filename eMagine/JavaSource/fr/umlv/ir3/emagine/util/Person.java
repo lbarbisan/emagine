@@ -3,17 +3,23 @@
  */
 package fr.umlv.ir3.emagine.util;
 
-import sun.util.calendar.BaseCalendar.Date;
-import fr.umlv.ir3.emagine.student.Address;
-import fr.umlv.ir3.emagine.student.CountryEnum;
-import fr.umlv.ir3.emagine.student.DepartmentEnum;
-import fr.umlv.ir3.emagine.student.NationalityEnum;
-import fr.umlv.ir3.emagine.student.SexEnum;
+
+import java.util.Date;
+
+import javax.persistence.AccessType;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  * @author Laurent
  *
  */
+@Entity(access = AccessType.FIELD)
+@Inheritance(strategy=InheritanceType.JOINED)
 public class Person extends BaseEntity {
 
 	/**
@@ -23,12 +29,16 @@ public class Person extends BaseEntity {
 	
 	private String lastName;
 	private String firstName;
-	private SexEnum sex;
+	//FIXME : Enum
+	/*private SexEnum sex;*/
 	private Date birthdayDate;
 	private String birthdayCity;
-	private CountryEnum birthdayCountry;
+	/*private CountryEnum birthdayCountry;
 	private DepartmentEnum birthdayDepartment;
-	private NationalityEnum nationality;
+	private NationalityEnum nationality;*/
+	
+	@ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @JoinColumn(name="address_fk")
 	private Address addressPersonnal;
 	private String email;
 	private String phone;
