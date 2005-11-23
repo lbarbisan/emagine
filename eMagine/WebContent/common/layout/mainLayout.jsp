@@ -2,8 +2,9 @@
 <html>
 	<head>
 		<link rel=stylesheet
-			href="<%=request.getContextPath()%>/common/style/style1.css"
+			href="/eMagine/common/style/style1.css"
 			type="text/css">
+		<script type="text/javascript" src="/eMagine/common/js/checkboxTools.js"></script>
 		<title><tiles:getAsString name="title" /></title>
 	</head>
 	<body>
