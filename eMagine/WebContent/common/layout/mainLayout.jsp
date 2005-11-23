@@ -1,9 +1,11 @@
 <%@ taglib uri="/WEB-INF/tld/struts-tiles.tld" prefix="tiles"%>
+<%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
+
 <html>
 	<head>
-		<link rel=stylesheet href="/eMagine/common/style/style1.css" type="text/css">
-		<script type="text/javascript" src="/eMagine/common/js/checkboxTools.js"/>
-		<title><tiles:getAsString name="title"/></title>
+		<link rel=stylesheet href="/eMagine/common/style/style1.css" type="text/css" />
+		<script type="text/javascript" src="/eMagine/common/js/checkboxTools.js" />
+		<title><bean:message key="app.title" /></title>
 
 		<script language="javascript">
 		<!--
