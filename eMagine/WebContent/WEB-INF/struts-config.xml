@@ -136,8 +136,7 @@
 	<!-- Uncomment the following if your webserver complains about a missing resources. -->
 	<!-- This resource is not needed by Tiles or this example. It is just a trick to make -->
 	<!-- Struts happy with some web server. -->
-	<!-- <message-resources parameter="org.apache.struts.webapp.tiles.dev1-1.ApplicationResources" null="false" /> -->
-
+	<message-resources parameter="fr.umlv.ir3.emagine.ressource.ressources_fr" null="false" />
 
 	<!-- ========== TilesPlugin settings ===================================== -->
 	<!-- You should declare this plugin if you want to use Tiles with an XML definition file. -->
