@@ -4,7 +4,7 @@
 
 <html>
 	<head>
-		<link rel=stylesheet href="/eMagine/common/style/style1.css" type="text/css">
+		<link rel="stylesheet" href="/eMagine/common/style/style1.css" type="text/css">
 		<title><bean:message key="app.title" /></title>
 	</head>
 	<body>

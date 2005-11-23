@@ -3,10 +3,10 @@
 
 <html>
 	<head>
-		<link rel=stylesheet href="/eMagine/common/style/style1.css" type="text/css" />
-		<script type="text/javascript" src="/eMagine/common/js/checkboxTools.js" />
+		<link rel="stylesheet" href="/eMagine/common/style/style1.css" type="text/css">
 		<title><bean:message key="app.title" /></title>
 
+		<script type="text/javascript" src="/eMagine/common/js/checkboxTools.js" />
 		<script language="javascript">
 		<!--
 			function deconnection() {
