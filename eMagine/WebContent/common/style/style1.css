@@ -12,7 +12,7 @@ body{
 /* --- Menu principal --- */
 #bloc_menu1{
 	margin:0;
-	width: 100%;
+	width: 400px;
 	height:100px;
 	background:url('/eMagine/common/images/menu.gif') no-repeat center 50%;
 	
@@ -160,7 +160,9 @@ ul#menu2 {
 	text-decoration:none;
 }
 .content a:hover{text-decoration:underline;}
-
+.content img{
+	border-style:none;
+}
 .form{
 	font-weight:bold;
 	margin:5px;
@@ -224,7 +226,6 @@ ul#menu2 {
 #actions img{
 	border-style:none;
 }
-
 .search{
 	margin:1px;
 	width: 630px;
