@@ -45,6 +45,7 @@
 	<label for="pageNb">Nombre par page </label><input type="text" id="pageNb" size="5" /> 
 	</p>
 	</div>
+	<form name="results" >
 	<table cellpadding="0" cellspacing="0">
 		<tr>
 			<th>&nbsp;</th>
@@ -54,14 +55,14 @@
 			<th>Ann&eacute;e</th>
 		</tr>
 		<tr>
-			<td><input type="checkbox" value="ON" /></td>
+			<td><input type="checkbox" value="ON" name="all_none" /></td>
 			<td><html:link action="/studentOnglet">Barbisan</html:link></td>
 			<td>Laurent</td>
 			<td>IR</td>
 			<td>3</td>
 		</tr>
 		<tr>
-			<td><input type="checkbox" value="ON" /></td>
+			<td><input type="checkbox" value="ON" name="all_none" /></td>
 			<td><html:link action="/studentOnglet">Ogier</html:link></td>
 			<td>Anthony</td>
 			<td>IR</td>
@@ -72,8 +73,8 @@
 <!-- Les actions propres a la selection -->
 <div id="actions">
 	<ul>
-		<li><a href="#">Tous</a> / </li>
-		<li><a href="#">Aucun</a> </li>
+		<li><a href="#" onclick="checkAll('results','all_none');">Tous</a> / </li>
+		<li><a href="#" onclick="checkNothing('results','all_none');">Aucun</a> </li>
 	</ul>
 	<h2>&nbsp;</h2>
 	<ul>
@@ -84,4 +85,5 @@
 		<li><a href="#"><img src="/eMagine/common/images/icones/publipostage.png" alt="Effecter un publipostage"/></a></li>
 		<li><a href="#"><img src="/eMagine/common/images/icones/extraire.png" alt="Extraire un apprenti"/></a></li>
 	</ul>
+	</form>
 </div>
