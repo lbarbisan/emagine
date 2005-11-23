@@ -1,5 +1,6 @@
+<%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <h2>Entreprise</h2>
 <ul>
-	<li><a href="#">Rechercher&nbsp;une&nbsp;entreprise</a></li>
-	<li><a href="#">Créer&nbsp;une&nbsp;entreprise</a></li>
+	<li><html:link action="/companySearch">Rechercher&nbsp;une&nbsp;entreprise</html:link></li>
+	<li><html:link action="/companyCreate">Créer&nbsp;une&nbsp;entreprise</html:link></li>
 </ul>

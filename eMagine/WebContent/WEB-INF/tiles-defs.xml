@@ -119,10 +119,6 @@
 		<put name="subMenu" value="/statistics/statisticsMenu.jsp" />
 	</definition>
 	
-	<definition name="recruitment.bringingTogether" extends="recruitment">
-		<put name="body" value="/recruitment/bringingTogether.jsp" />
-	</definition>
-	
 	<definition name="statistics.statisticsVisu" extends="statistics">
 		<put name="body" value="/statistics/statisticsVisu.jsp" />
 	</definition>
@@ -175,4 +171,43 @@
 	<definition name="recruitment.bringingTogether" extends="recruitment">
 		<put name="body" value="/recruitment/bringingTogether.jsp" />
 	</definition>
+	
+	<!-- Company -->
+	<definition name="company" extends="mainLayout">
+		<put name="subMenu" value="/student/companyMenu.jsp" />
+	</definition>
+	<definition name="company.actorCreate" extends="company">
+		<put name="body" value="/company/actorCreate.jsp" />
+	</definition>
+	<definition name="company.actorStudentAdd" extends="company">
+		<put name="body" value="/company/actorStudentAdd.jsp" />
+	</definition>	
+	<definition name="company.actorVisuInfo" extends="company">
+		<put name="body" value="/company/actorVisuInfo.jsp" />
+	</definition>
+	<definition name="company.companyCreate" extends="company">
+		<put name="body" value="/company/companyCreate.jsp" />
+	</definition>
+	<definition name="company.companyOnglet" extends="company">
+		<put name="body" value="/company/companyOnglet.jsp" />
+	</definition>
+	<definition name="company.companySearch" extends="company">
+		<put name="body" value="/company/companySearch.jsp" />
+	</definition>
+	<definition name="company.companyVisuActor" extends="company">
+		<put name="body" value="/company/companyVisuActor.jsp" />
+	</definition>
+	<definition name="company.companyVisuInfo" extends="company">
+		<put name="body" value="/company/companyVisuInfo.jsp" />
+	</definition>
+	<definition name="company.companyVisuPost" extends="company">
+		<put name="body" value="/company/companyVisuPost.jsp" />
+	</definition>
+	<definition name="company.postCreate" extends="company">
+		<put name="body" value="/company/postCreate.jsp" />
+	</definition>
+	<definition name="company.postVisu" extends="company">
+		<put name="body" value="/company/posteVisu.jsp" />
+	</definition>
+	
 </tiles-definitions>
