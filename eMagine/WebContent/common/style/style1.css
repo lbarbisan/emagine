@@ -10,6 +10,7 @@ body{
 /* Page d'authentification */
 .login{
 	width: 370px;
+	height: 160px;
 	text-align: left;
 	color:black;
 	border-width:1px;
@@ -19,6 +20,7 @@ body{
 	-moz-border-radius:10px;
 	background-color:white;
 	font-weight: bold;
+	vertical-align: middle;
 }
 .login label{
 	width: 100px;
