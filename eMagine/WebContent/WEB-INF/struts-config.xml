@@ -63,6 +63,8 @@
 		<action path="/companySearch" forward="company.companySearch" />
 		<action path="/actorStudentAdd"
 			forward="company.actorStudentAdd" />
+		<action path="/companyCreate"
+			forward="company.companyCreate" />
 		<action path="/actorVisuInfo" forward="company.actorVisuInfo" />
 		<action path="/companyVisuActor"
 			forward="company.companyVisuActor" />
