@@ -174,7 +174,7 @@
 	
 	<!-- Company -->
 	<definition name="company" extends="mainLayout">
-		<put name="subMenu" value="/student/companyMenu.jsp" />
+		<put name="subMenu" value="/mail/companyMenu.jsp" />
 	</definition>
 	<definition name="company.actorCreate" extends="company">
 		<put name="body" value="/company/actorCreate.jsp" />
@@ -208,6 +208,35 @@
 	</definition>
 	<definition name="company.postVisu" extends="company">
 		<put name="body" value="/company/posteVisu.jsp" />
+	</definition>
+	
+	<!-- mail -->
+	<definition name="mail" extends="mainLayout">
+		<put name="subMenu" value="/mail/mailMenu.jsp" />
+	</definition>
+	<definition name="mail.emailDo" extends="mail">
+		<put name="body" value="/mail/emailDo.jsp" />
+	</definition>
+	<definition name="mail.mailDo" extends="mail">
+		<put name="body" value="/mail/mailDo.jsp" />
+	</definition>
+	<definition name="mail.mailingListCreate" extends="mail">
+		<put name="body" value="/mail/mailingListCreate.jsp" />
+	</definition>
+	<definition name="mail.mailingListUpdate" extends="mail">
+		<put name="body" value="/mail/mailingListUpdate.jsp" />
+	</definition>
+	<definition name="mail.mailTypeUpdate" extends="mail">
+		<put name="body" value="/mail/mailTypeUpdate.jsp" />
+	</definition>
+	<definition name="mail.mailTypeCreate" extends="mail">
+		<put name="body" value="/mail/mailTypeCreate.jsp" />
+	</definition>
+	<definition name="mail.mailTypeVisu" extends="mail">
+		<put name="body" value="/mail/mailTypeVisu.jsp" />
+	</definition>
+	<definition name="mail.mailingListVisu" extends="mail">
+		<put name="body" value="/mail/mailingListVisu.jsp" />
 	</definition>
 	
 </tiles-definitions>

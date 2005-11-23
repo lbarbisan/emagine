@@ -6,6 +6,6 @@
 		<li><html:link action="/teacherSearch">Enseignant</html:link>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;</li>
 		<li><html:link action="/candidateSearch">Recrutement</html:link>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;</li>
 		<li><html:link action="/statisticsVisu">Statistiques</html:link>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;</li>
-		<li><html:link action="/mailSearch">Courriers</html:link></li>
+		<li><html:link action="/mailingListVisu">Courriers</html:link></li>
 	</ul>
  </div>

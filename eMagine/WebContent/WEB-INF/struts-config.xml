@@ -66,15 +66,21 @@
 	   <action path="/roomAdd" forward="recruitment.roomAdd" />
 	   <action path="/bringingTogether" forward="recruitment.bringingTogether" />
 	   <!-- mail -->
-	   <action path="/mailSearch" forward="mail.mailSearch" />
+	   <action path="/emailDo" forward="mail.emailDo" />
+	   <action path="/mailDo" forward="mail.mailDo" />
+	   <action path="/mailingListCreate" forward="mail.mailingListCreate" />
+	   <action path="/mailTypeUdpate" forward="mail.mailTypeUpdate" />
+	   <action path="/mailingListUpdate" forward="mail.mailingListUpdate" />
+	   <action path="/mailTypeVisu" forward="mail.mailTypeVisu" />
+	   <action path="/mailTypeCreate" forward="mail.mailTypeCreate" />
+	   <action path="/mailingListVisu" forward="mail.mailingListVisu" />
 	   <!-- statistic -->
 	   <action path="/statisticsCreate" forward="statistics.statisticsCreate" />
 	   <action path="/statisticsVisu" forward="statistics.statisticsVisu" />
 	   <action path="/statisticsModif" forward="statistics.statisticsModif" />
        <!-- administration -->
-	   <action path="/userSearch" forward="administration.userSearch" />
-       
-		<action path="/userCreate"
+	   <action path="/userSearch" forward="administration.userSearch" />       
+	   <action path="/userCreate"
 			type="fr.umlv.ir3.emagine.user.UserModifyAction"
 			name="userInformationForm" 
 			parameter="dispatchAction"
