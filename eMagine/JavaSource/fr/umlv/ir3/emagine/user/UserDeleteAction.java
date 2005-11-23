@@ -27,7 +27,7 @@ public class UserDeleteAction extends Action {
 	 */
 	public void deleteUsers(Collection<User> users, HttpServletRequest request) {
 		// Retrieve the searched users, and delete them from database
-		UserDAO userDAO = DAOManager.getUserDAO();
+		UserDAO userDAO = DAOManager.getInstance().getUserDAO();
 		DAOManager.beginTransaction();
 		userDAO.deleteUsers(users);
 		DAOManager.commitTransaction();

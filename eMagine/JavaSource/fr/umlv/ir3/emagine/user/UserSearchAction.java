@@ -27,12 +27,14 @@ public class UserSearchAction extends SearchAction {
 	 * @param request the request
 	 */
 	public void searchUsers(UserSearchForm form, HttpServletRequest request) {
+		DAOManager manager = DAOManager.getInstance();
+		
 		// Retrieve all profiles and set them in the form
-		ProfileDAO profileDAO = DAOManager.getProfileDAO();
+		ProfileDAO profileDAO = manager.getProfileDAO();
 		form.setProfiles(profileDAO.getProfiles());
 
 		// Retrieve the searched users, and set them in the page 
-		UserDAO userDAO = DAOManager.getUserDAO();
+		UserDAO userDAO = manager.getUserDAO();
 		List<User> users = userDAO.getUsers(form);
 		form.setResults(users);
 	}

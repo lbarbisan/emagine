@@ -3,8 +3,6 @@
  */
 package fr.umlv.ir3.emagine.util;
 
-
-
 //CRUD Design pattern
 public abstract class BaseDAO<ObjectType> {
 	 /* (non-Javadoc)

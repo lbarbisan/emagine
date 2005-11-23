@@ -13,11 +13,6 @@ import org.apache.struts.actions.DispatchAction;
 
 import fr.umlv.ir3.emagine.util.DAOManager;
 
-
-/**
- * @author Administrateur
- *
- */
 public class UserModifyAction extends DispatchAction {
 
 	
@@ -25,11 +20,11 @@ public class UserModifyAction extends DispatchAction {
 	{
 		UserInformationForm userInformationForm  = (UserInformationForm) form;
 		
-		UserDAO userDAO = DAOManager.getUserDAO();
+		UserDAO userDAO = DAOManager.getInstance().getUserDAO();
 		
 		User user = new User(userInformationForm.getFirstName() , userInformationForm.getLastName());
 		
-		DAOManager.beginTransaction() ;
+		DAOManager.beginTransaction();
 		userDAO.create(user);
 		DAOManager.commitTransaction();
 		
@@ -43,7 +38,7 @@ public class UserModifyAction extends DispatchAction {
 	{
 		UserInformationForm userInformationForm  = (UserInformationForm) form;
 		
-		UserDAO userDAO = DAOManager.getUserDAO();
+		UserDAO userDAO = DAOManager.getInstance().getUserDAO();
 		
 		DAOManager.beginTransaction() ;
 	

@@ -32,13 +32,9 @@ public class UserShowInformationAction extends Action {
 	
 	private User getUser(UserInformationForm userInformationForm)
 	{
-		UserDAO userDAO = DAOManager.getUserDAO();
+		UserDAO userDAO = DAOManager.getInstance().getUserDAO();
 		
-		DAOManager.beginTransaction() ;
-	
 		User user =  userDAO.retrieve(userInformationForm.getId());
-		
-		DAOManager.commitTransaction();
 		
 		return user;
 	}

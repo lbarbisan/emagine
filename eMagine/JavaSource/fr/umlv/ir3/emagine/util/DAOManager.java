@@ -4,14 +4,22 @@ import fr.umlv.ir3.emagine.user.UserDAO;
 import fr.umlv.ir3.emagine.user.profile.ProfileDAO;
 
 public class DAOManager {
-	private static UserDAO userDAO = new UserDAO();
-	private static ProfileDAO profileDAO = new ProfileDAO();
+	private static DAOManager instance;
+	private UserDAO userDAO = new UserDAO();
+	private ProfileDAO profileDAO = new ProfileDAO();
 	
-	public static ProfileDAO getProfileDAO() {
+	public ProfileDAO getProfileDAO() {
 		return profileDAO;
 	}
-	public static UserDAO getUserDAO() {
+	public UserDAO getUserDAO() {
 		return userDAO;
+	}
+	
+	public static DAOManager getInstance() {
+		if (instance == null) {
+			instance = new DAOManager();
+		}
+		return instance;
 	}
 	
     /**
@@ -36,13 +44,11 @@ public class DAOManager {
         
     }
 
-	public static void openSession() {
-		// TODO HibernateDAOFactory.openSession()
-		
-	}
-
+    /**
+     * Close the session, flush the hibernate cache, commit the last uncommited objects
+     *
+     */
 	public static void closeSession() {
-		// TODO HibernateDAOFactory.closeSession()
-		
+		HibernateUtils.closeSession();
 	}
 }
