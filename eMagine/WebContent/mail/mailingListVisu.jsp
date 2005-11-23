@@ -11,13 +11,13 @@
 		</tr>
 		<tr>
 			<td><input type="checkbox" value="ON" /></td>	
-			<td><html:link action="/mailTypeUpdate">App3</html:link></td>
+			<td><html:link action="/mailingListUpdate">App3</html:link></td>
 			<td>Apprenti 3ème année</td>
 			<td><html:link action="/emailDo"><img src="/eMagine/common/images/icones/mailing.png" alt="Effecter un mailing"/></html:link><html:link action="/mailDo"><img src="/eMagine/common/images/icones/publipostage.png" alt="Effecter un publipostage"/></html:link></td>
 		</tr>
 		<tr>
 			<td><input type="checkbox" value="ON" /></td>	
-			<td><html:link action="/mailTypeUpdate">EnseignantTuteurs</html:link></td>
+			<td><html:link action="/mailingListUpdate">EnseignantTuteurs</html:link></td>
 			<td>Ensemble des enseignants étant tuteurs</td>
 			<td><html:link action="/emailDo"><img src="/eMagine/common/images/icones/mailing.png" alt="Effecter un mailing"/></html:link><html:link action="/mailDo"><img src="/eMagine/common/images/icones/publipostage.png" alt="Effecter un publipostage"/></html:link></td>
 		</tr>
