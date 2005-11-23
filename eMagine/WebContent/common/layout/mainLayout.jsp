@@ -3,8 +3,17 @@
 	<head>
 		<link rel=stylesheet href="/eMagine/common/style/style1.css" type="text/css">
 		<script type="text/javascript" src="/eMagine/common/js/checkboxTools.js"/>
-		<script type="text/javascript" src="/eMagine/common/js/function.js"/>
 		<title><tiles:getAsString name="title"/></title>
+
+		<script language="javascript">
+		<!--
+			function deconnection() {
+				if(confirm("Souhaitez-vous r?ellement vous d?connecter ?"))
+					window.open("/eMagine/index.jsp","_self");
+			}
+		-->
+		</script>
+
 	</head>
 	<body>
 		<a name="top" />
