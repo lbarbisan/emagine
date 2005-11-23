@@ -7,8 +7,10 @@
 		<title><tiles:getAsString name="title" /></title>
 	</head>
 	<body>
-		<p><label for="login">Login </label><input type="text" id="login" size="20" /></p>
-		<p><label for="pwd">Mot&nbsp;de&nbsp;passe </label><input type="text" id="pwd" size="20" /></p>
-		<p><html:link action="/studentSearch"><input type="submit" value="ok"/></a></p>
+		<html:form action="/studentSearch">
+			<p><label for="login">Login </label><input type="text" id="login" size="20" /></p>
+			<p><label for="pwd">Mot&nbsp;de&nbsp;passe </label><input type="text" id="pwd" size="20" /></p>
+			<p><input type="submit" value="ok"/></p>
+		</html:form>
 	</body>
 </html>
