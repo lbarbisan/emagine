@@ -7,10 +7,8 @@
 		<title><tiles:getAsString name="title" /></title>
 	</head>
 	<body>
-		<html:form action="/studentSearch">
 			<p><label for="login">Login </label><input type="text" id="login" size="20" /></p>
 			<p><label for="pwd">Mot&nbsp;de&nbsp;passe </label><input type="text" id="pwd" size="20" /></p>
-			<p><input type="submit" value="ok"/></p>
-		</html:form>
+			<p><html:link action="/studentSearch"><input type="button" value="Envoyer"></html:link></p>
 	</body>
 </html>

@@ -1,11 +1,10 @@
 <%@ taglib uri="/WEB-INF/tld/struts-tiles.tld" prefix="tiles"%>
 <html>
 	<head>
-		<link rel=stylesheet
-			href="/eMagine/common/style/style1.css"
-			type="text/css">
-		<script type="text/javascript" src="/eMagine/common/js/checkboxTools.js"></script>
-		<title><tiles:getAsString name="title" /></title>
+		<link rel=stylesheet href="/eMagine/common/style/style1.css" type="text/css">
+		<script type="text/javascript" src="/eMagine/common/js/checkboxTools.js"/>
+		<script type="text/javascript" src="/eMagine/common/js/function.js"/>
+		<title><tiles:getAsString name="title"/></title>
 	</head>
 	<body>
 		<a name="top" />
