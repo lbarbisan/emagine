@@ -19,7 +19,7 @@
 
 	<!-- Doc index page description  -->
 	<definition name="authentification"
-		path="/authentification/authentification.jsp">
+		path="/common/layout/authentificationLayout.jsp">
 		<put name="title" value="eMagine v1.0" />
 	</definition>
 
