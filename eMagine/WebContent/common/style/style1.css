@@ -277,6 +277,10 @@ ul#menu2 {
 .search{
 	margin:1px;
 	width: 630px;
+	font-weight:bold;
+}
+.search p{
+	font-weight:bold;
 }
 .search fieldset {
 	color:#809AD0;

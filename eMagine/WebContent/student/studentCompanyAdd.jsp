@@ -2,19 +2,12 @@
 <h2>Affecter une entreprise</h2>
 <br/>
 <!-- Un formulaire d'affectation -->
-<div id="search">
-	<ul>
-		<li>
-			<label for="name">Nom </label>
-			<input type="text" id="name" size="20" /> 
-		</li>
-		<li>
-			<input type="button" value="Rechercher"/>
-		</li>
-	</ul>
+<div class="search">
+	<p><label for="name">Nom </label><input type="text" id="name" size="20" /> 
+	<input type="button" value="Rechercher"/></p>
 </div>
-<br/>
 <h2>Entreprises </h2> 
+<div align="center">
 <div id="statSearch">
 	<ul>
 		<li>
@@ -29,20 +22,21 @@
 </div>
 <br/>
 <!-- Un tableau de resultats -->
-<table width="50%" cellpadding="0" cellspacing="0">
+<table cellpadding="0" cellspacing="0">
 	<tr>
 		<th>&nbsp;</th>
 		<th>Nom</th>
 	</tr>
 	<tr>
-		<td width="5"><input type="checkbox" value="ON" /></td>
-		<td><a href="#">Siemens</a></td>
+		<td width="5"><input type="radio" name="radio" /></td>
+		<td><a href="/eMagine/companyOnglet.do">Siemens</a></td>
 	</tr>
 	<tr>
-		<td><input type="checkbox" value="ON" /></td>
-		<td><a href="#">Thomson</a></td>
+		<td><input type="radio" name="radio"  /></td>
+		<td><a href="/eMagine/companyOnglet.do">Thomson</a></td>
 	</tr>
 </table>
+</div>
 <br/>
 <div id="actions">
 	<ul>

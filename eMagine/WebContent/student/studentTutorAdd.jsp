@@ -1,24 +1,15 @@
 <h2>Affecter un tuteur enseignant</h2>
 <br/>
 <!-- Un formulaire d'affectation -->
-<div id="search">
-	<ul>
-		<li>
-			<label for="name">Nom </label>
-			<input type="text" id="name" size="20" /> 
-		</li>
-		<li>
-			<label for="firstName">Pr&eacute;nom </label>
-			<input type="text" id="firstName" size="20" /> 
-		</li>
-		<li>
-			<input type="button" value="Rechercher"/>
-		</li>
-	</ul>
+<div class="search">
+	<p>
+		<label for="name">Nom </label><input type="text" id="name" size="20" />
+		<label for="firstName">Pr&eacute;nom </label><input type="text" id="firstName" size="20" /> 
+		<input type="button" value="Rechercher"/> 
+	</p>
 </div>
-<br/>
 <h2>Tuteurs enseignants </h2> 
-<br/>
+<div align="center">
 <div id="statSearch">
 	<ul>
 		<li>
@@ -40,16 +31,17 @@
 		<th>Pr&eacute;nom</th>
 	</tr>
 	<tr>
-		<td><input type="checkbox" value="ON" /></td>
-		<td><a href="#">Forax</a></td>
+		<td><input type="radio" name="radio"  /></td>
+		<td><a href="/eMagine/teacherOnglet.do">Forax</a></td>
 		<td>R&eacute;mi</td>
 	</tr>
 	<tr>
-		<td><input type="checkbox" value="ON" /></td>
-		<td><a href="#">Revuz</a></td>
+		<td><input type="radio" name="radio"  /></td>
+		<td><a href="/eMagine/teacherOnglet.do">Revuz</a></td>
 		<td>Dominique</td>
 	</tr>
 </table>
+</div>
 <br/>
 <div id="actions">
 	<ul>

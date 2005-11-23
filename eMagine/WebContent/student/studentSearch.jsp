@@ -34,7 +34,7 @@
 		</div>
 		<br/>
 		<input type="button" value="Rechercher"/>
-		</div>
+</div>
 		<h2>R&eacute;sultats </h2> 
 		
 		<!-- Un tableau de resultats -->
