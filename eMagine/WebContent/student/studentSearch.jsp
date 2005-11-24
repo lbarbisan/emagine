@@ -35,14 +35,14 @@
 		<br/>
 		<input type="button" value="Rechercher"/>
 </div>
-		<h2>R&eacute;sultats </h2> 
+		<h3>R&eacute;sultats </h3> 
 		
 		<!-- Un tableau de resultats -->
 		<div align=center>
 			<div id="statSearch">
 			<p>
-			<label for="result">R&eacute;sulats </label> <input type="text" id="result" size="5" />&nbsp;&nbsp;&nbsp;
-			<label for="pageNb">Nombre par page </label><input type="text" id="pageNb" size="5" /> 
+			<label for="result">R&eacute;sultats </label> <input type="text" id="result" size="5" />&nbsp;&nbsp;&nbsp;
+			<label for="pageNb">Nb. par page </label><input type="text" id="pageNb" size="5" /> 
 			</p>
 			</div>
 			<form name="results">
@@ -72,19 +72,18 @@
 		</div>
 		<!-- Les actions propres a la selection -->
 		<div id="actions">
-		<a name="all_none" />
 			<ul>
-				<li><a href="#all_none" onclick="checkAll('results','all_none');">Tous</a> / </li>
-				<li><a href="#all_none" onclick="checkNothing('results','all_none');">Aucun</a> </li>
+				<li><a href="javascript:checkAll('results','all_none');">Tous</a>&nbsp;&nbsp;/</li>
+				<li><a href="javascript:checkNothing('results','all_none');">Aucun</a> </li>
 			</ul>
 			<h2>&nbsp;</h2>
 			<ul>
-				<li><a href="#"><img src="/eMagine/common/images/icones/passage.png" alt="Faire passer un apprenti"/></a></li>
-				<li><a href="#"><img src="/eMagine/common/images/icones/virer.png" alt="Exclure un apprenti"/></a></li>
-				<li><a href="#"><img src="/eMagine/common/images/icones/creer_mailing_list.png" alt="Cr&eacute;er une maling list"/></a></li>
-				<li><a href="#"><img src="/eMagine/common/images/icones/mailing.png" alt="Effecter un mailing"/></a></li>
-				<li><a href="#"><img src="/eMagine/common/images/icones/publipostage.png" alt="Effecter un publipostage"/></a></li>
-				<li><html:link action="/studentExtract"><img src="/eMagine/common/images/icones/extraire.png" alt="Extraire un apprenti"/></html:link></li>
+				<li><a href="#"><img src="/eMagine/common/images/icones/passage.png" title="Faire passer un apprenti"/></a></li>
+				<li><a href="#"><img src="/eMagine/common/images/icones/virer.png" title="Exclure un apprenti"/></a></li>
+				<li><a href="#"><img src="/eMagine/common/images/icones/creer_mailing_list.png" title="Cr&eacute;er une maling list"/></a></li>
+				<li><a href="#"><img src="/eMagine/common/images/icones/mailing.png" title="Effecter un mailing"/></a></li>
+				<li><a href="#"><img src="/eMagine/common/images/icones/publipostage.png" title="Effecter un publipostage"/></a></li>
+				<li><html:link action="/studentExtract"><img src="/eMagine/common/images/icones/extraire.png" title="Extraire un apprenti"/></html:link></li>
 			</ul>
 		</form>
 </div>

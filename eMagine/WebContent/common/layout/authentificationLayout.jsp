@@ -14,7 +14,7 @@
 				<img src="/eMagine/common/images/logo.gif"/>
 				<h2>Authentification</h2>
 				<br/>
-				<p><label for="login">Login </label><input type="text" id="login" size="20" /></p>
+				<p><label for="login">Identifiant </label><input type="text" id="login" size="20" /></p>
 				<p><label for="pwd">Mot&nbsp;de&nbsp;passe </label><input type="text" id="pwd" size="20" /></p>
 				<br/>
 				<hr/>

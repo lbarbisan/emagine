@@ -11,7 +11,7 @@
 		
 		<div class="search_b2">
 		<p>
-		<label for="die">Fili&egrave;re&nbsp;demand&eacute;</label>
+		<label for="die">Fili&egrave;re&nbsp;demand&eacute;e&nbsp;</label>
 			<select name="die">
 				<!-- à mettre en base -->
 				<option value="all" selected="selected">Toutes</option>

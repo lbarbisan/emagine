@@ -10,6 +10,7 @@
 	</p>
 </div>
 <div id="actions">
+<h2>&nbsp;</h2>
 	<ul>
 		<li><a href="#"><input type="button" value="G&eacute;n&eacute;rer"/></a></li>
 	</ul>
