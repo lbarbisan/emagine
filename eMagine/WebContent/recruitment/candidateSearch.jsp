@@ -1,20 +1,17 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <h2>Recherche de candidat</h2>
 <br/>
-<div id="search">
-	<ul>
-		<li>
-			<label for="name">Nom </label>
-			<input type="text" id="name" size="20" /> 
-		</li>
-		<li>
-			<label for="firstName">Pr&eacute;nom </label>
-			<input type="text" id="firstName" size="20" /> 
-		</li>
-	</ul>
-	<ul>
-		<li>
-			<label for="die">Fili&egrave;re&nbsp;demand&eacute;</label>
+<div align="center">
+	<div class="search">
+		<fieldset>
+		<div class="search_b1">
+			<p><label for="name">Nom </label><input type="text" id="name" size="20" />  </p>
+			<p><label for="firstName">Pr&eacute;nom </label> <input type="text" id="firstName" size="20" /> </p>
+		</div>
+		
+		<div class="search_b2">
+		<p>
+		<label for="die">Fili&egrave;re&nbsp;demand&eacute;</label>
 			<select name="die">
 				<!-- à mettre en base -->
 				<option value="all" selected="selected">Toutes</option>
@@ -22,32 +19,32 @@
 				<option value="mfpi">MFPI</option>
 				<option value="gmu">GMU</option>
 			</select>
-		</li>
-		<li>
-			<label for="center">Centre&nbsp;examen&nbsp;</label>
+		</p>
+		<p><label for="center">Centre&nbsp;examen&nbsp;</label>
 			<select name="center">
 				<!-- à mettre en base -->
-				<option value="all" selected="selected">Toutes</option>
+				<option value="all" selected="selected">Tous</option>
 				<option value="Paris">Paris</option>
 				<option value="Toulouse">Toulouse</option>
 				<option value="Bordeaux">Bordeaux</option>
 			</select>
-		</li>	
-		<li>
-			<input type="button" value="Rechercher"/>
-		</li>
-	</ul>
+		</p>
+		</div>
+		</fieldset>
+		</div>
+		<br/>
+		<input type="button" value="Rechercher"/>
 </div>
-<br/>
 <h2>R&eacute;sultats </h2>
 <div align=center>
 	<div id="statSearch">
 	<p>
-	<label for="result">R&eacute;sulats </label> <input type="text" id="result" size="5" />&nbsp;&nbsp;&nbsp;
+	<label for="result">R&eacute;sultats </label> <input type="text" id="result" size="5" />&nbsp;&nbsp;&nbsp;
 	<label for="pageNb">Nombre par page </label><input type="text" id="pageNb" size="5" /> 
 	</p>
 	
 	</div>
+	<form name="results">
 	<table cellpadding="0" cellspacing="0">
 		<tr>
 			<th>&nbsp;</th>
@@ -60,7 +57,7 @@
 			<th>Admissible</th>
 		</tr>
 		<tr>
-			<td><input type="checkbox" value="ON" /></td>
+			<td><input type="checkbox" value="ON"  name="all_none"/></td>
 			<td><html:link action="/candidateOnglet">Cadic</html:link></td>
 			<td>Yann</td>
 			<td>GM</td>
@@ -70,7 +67,7 @@
 			<td><input type="checkbox" value="ON" checked/></td>
 		</tr>
 		<tr>
-			<td><input type="checkbox" value="ON" /></td>
+			<td><input type="checkbox" value="ON"  name="all_none"/></td>
 			<td><html:link action="/candidateOnglet">Dumoleyn</html:link></td>
 			<td>Delphine</td>
 			<td>EI</td>
@@ -80,14 +77,16 @@
 			<td><input type="checkbox" value="ON" checked/></td>
 		</tr>
 </table>
+</form>
 </div>
 <!-- Les actions propres a la selection -->
 <div id="actions">
-	<ul>
-		<li><a href="#">Tous</a> / </li>
-		<li><a href="#">Aucun</a> </li>
-	</ul>
-	<h2>&nbsp;</h2>
+		<a name="all_none" />
+			<ul>
+				<li><a href="#all_none" onclick="checkAll('results','all_none');">Tous</a> / </li>
+				<li><a href="#all_none" onclick="checkNothing('results','all_none');">Aucun</a> </li>
+			</ul>
+			<h2>&nbsp;</h2>
 	<ul>
 		<li><a href="#"><img src="/eMagine/common/images/icones/passage.png" alt="passer le candidat en apprenti"/></a></li>
 		<li><a href="#"><img src="/eMagine/common/images/icones/virer.png" alt="Supprimer le candidat"/></a></li>

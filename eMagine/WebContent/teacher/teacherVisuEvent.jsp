@@ -2,7 +2,7 @@
 <br/>
 <h2>Recherche d'&eacute;v&eacute;nement</h2>
 <div align="center">
-	<div id="search">
+	<div class="search">
 		<fieldset>
 			<div class="search_b1">
 				<p>
@@ -26,9 +26,10 @@
 					</select>
 				</p>
 			</div>
-			<input type="button" value="Rechercher"/>
 		</fieldset>
-	</div>
+		</div>
+		<br/>
+		<input type="button" value="Rechercher"/>
 </div>	
 <br/>
 <h2>Ev&eacute;nements</h2> 
@@ -50,18 +51,19 @@
 			<th>Commentaire</th>
 		</tr>
 		<tr>
-			<td><input type="checkbox" value="ON" /></td>
+			<td><input type="checkbox" value="ON"  name="all_none"/></td>
 			<td><html:link action="/teacherEventDetail">12.10.2005</html:link></td>
 			<td>envoi mail</td>
 			<td>pour les jpo</td>
 		</tr>
 		<tr>
-			<td><input type="checkbox" value="ON" /></td>
+			<td><input type="checkbox" value="ON"  name="all_none"/></td>
 			<td><html:link action="/teacherEventDetail">13.10.2005</html:link></td>
 			<td>tutelle</td>
 			<td>changement&nbsp;de&nbsp;tuteur&nbsp;enseignant</td>
 		</tr>
 	</table>
+	</div>
 	<!-- Les actions propres a la selection -->
 	<div id="actions">
 		<a name="all_none" />
@@ -69,12 +71,10 @@
 			<li><a href="#all_none" onclick="checkAll('results','all_none');">Tous</a> / </li>
 			<li><a href="#all_none" onclick="checkNothing('results','all_none');">Aucun</a> </li>
 		</ul>		
-		<ul>
-			<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" alt="supprimer un événement"/></a></li>
-		</ul>
 		<h2>&nbsp;</h2>
 		<ul>
+		<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" alt="supprimer un événement"/></a></li>
 			<li><a href="#"><img src="/eMagine/common/images/icones/extraire.png" alt="Extraire un événement"/></a></li>
 		</ul>
 	</form>
-</div>
+

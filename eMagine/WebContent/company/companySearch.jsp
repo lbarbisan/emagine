@@ -29,6 +29,7 @@
 		<label for="pageNb">Nombre par page&nbsp;</label><input type="text" id="pageNb" size="5" /> 
 		</p>
 	</div>
+	<form name="results">
 	<table cellpadding="0" cellspacing="0">
 		<tr>
 			<th>&nbsp;</th>
@@ -36,25 +37,26 @@
 			<th>D&eacute;partement</th>
 		</tr>
 		<tr>
-			<td><input type="checkbox" value="ON" /></td>
+			<td><input type="checkbox" value="ON" name="all_none"/></td>
 			<td><html:link action="/companyOnglet">Keops</html:link></td>
 			<td>77</td>
 		</tr>
 		<tr>
-			<td><input type="checkbox" value="ON" /></td>
+			<td><input type="checkbox" value="ON" name="all_none"/></td>
 			<td><html:link action="/companyOnglet">Nestle</html:link></td>
 			<td>93</td>
 		</tr>
 	</table>
+	</form>
 </div>
 <!-- Les actions propres a la selection -->
 <div id="actions">
-	<ul>
-		<li><a href="#">Tous</a> / </li>
-		<li><a href="#">Aucun</a> </li>
-	</ul>
-	<h2>&nbsp;</h2>
-	<ul>
+<a name="all_none" />
+			<ul>
+				<li><a href="#all_none" onclick="checkAll('results','all_none');">Tous</a> / </li>
+				<li><a href="#all_none" onclick="checkNothing('results','all_none');">Aucun</a> </li>
+			</ul>
+			<h2>&nbsp;</h2>
 		<li><a href="#"><img src="/eMagine/common/images/icones/ajouter.png" alt="Ajouter un apprenti"/></a></li>
 		<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" alt="Supprimer un apprenti"/></a></li>
 		<li><a href="#"><img src="/eMagine/common/images/icones/creer_mailing_list.png" alt="Cr&eacute;er une maling list"/></a></li>

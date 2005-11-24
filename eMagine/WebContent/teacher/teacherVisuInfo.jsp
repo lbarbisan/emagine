@@ -42,7 +42,7 @@
 		<tr>
 			<td><input type="checkbox" value="ON" /></td>
 			<td><html:link action="/studentOnglet">Mancel</html:link></td>
-			<td>Matthieu</td>
+			<td>Mathieu</td>
 			<td>IR3</td>
 			<td>2</td>
 			<td>20.09.2003</td>
@@ -51,6 +51,7 @@
 	</table>
 </div>
 <br/>
+<h2>&nbsp;</h2>
 <div id="actions">
 	<ul>
 		<li><html:link action="/teacherStudentAdd"><img src="/eMagine/common/images/icones/ajouter.png" alt="Ajouter un pupille"/></html:link></li>

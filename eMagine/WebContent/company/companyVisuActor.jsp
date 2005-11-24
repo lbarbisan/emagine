@@ -1,5 +1,8 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
+<h2>Acteurs en entreprise</h2>
+<br/>
 <div align=center>
+	<form name="results">
 	<table cellpadding="0" cellspacing="0">
 		<tr>
 			<th>&nbsp;</th>
@@ -10,7 +13,7 @@
 			<th>e-mail</th>
 		</tr>
 		<tr>
-			<td><input type="checkbox" value="ON" /></td>
+			<td><input type="checkbox" value="ON" name="all_none"/></td>
 			<td><html:link action="/actorVisu">Bariton</html:link></td>
 			<td>José</td>
 			<td>PDG</td>
@@ -18,7 +21,7 @@
 			<td>pdg@siemens.fr</td>
 		</tr>
 		<tr>
-			<td><input type="checkbox" value="ON" /></td>
+			<td><input type="checkbox" value="ON" name="all_none"/></td>
 			<td><html:link action="/actorVisu">Manille</html:link></td>
 			<td>Patricia</td>
 			<td>DRH</td>
@@ -28,11 +31,12 @@
 	</table>
 </div>
 <div id="actions">
-	<ul>
-		<li><a href="#">Tous</a> / </li>
-		<li><a href="#">Aucun</a> </li>
-	</ul>
-	<h2>&nbsp;</h2>
+<a name="all_none" />
+			<ul>
+				<li><a href="#all_none" onclick="checkAll('results','all_none');">Tous</a> / </li>
+				<li><a href="#all_none" onclick="checkNothing('results','all_none');">Aucun</a> </li>
+			</ul>
+			<h2>&nbsp;</h2>
 	<ul>
 		<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" alt="Supprimer un acteur"/></a></li>
 		<li><a href="#"><img src="/eMagine/common/images/icones/creer_mailing_list.png" alt="Cr&eacute;er une maling list"/></a></li>
