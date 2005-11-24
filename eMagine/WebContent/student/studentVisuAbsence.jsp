@@ -85,7 +85,7 @@
 	<h2>&nbsp;</h2>
 	<ul>
 		<a href="#"><img src="/eMagine/common/images/icones/supprimer.png" alt="Supprimer une(des) absence(s)"/></a></li>
-		<li><a href="#"><img src="/eMagine/common/images/icones/extraire.png" alt="Extraire des absences"/></a></li>
+		<li><html:link action="/studentAbsenceExtract"><img src="/eMagine/common/images/icones/extraire.png" alt="Extraire des absences"/></html:link></li>
 		<li><html:link action="/studentAbsenceAdd"><img src="/eMagine/common/images/icones/ajouter.png" alt="Ajouter une absence"/></html:link></li>
 	</ul>
 	<h2>&nbsp;</h2>

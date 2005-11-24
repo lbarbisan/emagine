@@ -79,6 +79,15 @@
 	<definition name="student.studentAskUpdateAdress" extends="student">
 		<put name="body" value="/student/studentAskUpdateAdress.jsp" />
 	</definition>
+	<definition name="student.studentExtract" extends="student">
+		<put name="body" value="/student/studentExtract.jsp" />
+	</definition>
+	<definition name="student.studentAbsenceExtract" extends="student">
+		<put name="body" value="/student/studentAbsenceExtract.jsp" />
+	</definition>
+	<definition name="student.studentEventExtract" extends="student">
+		<put name="body" value="/student/studentEventExtract.jsp" />
+	</definition>
 
 	<!-- Teacher -->
 	<definition name="teacher" extends="mainLayout">
@@ -104,6 +113,12 @@
 	</definition>
 	<definition name="teacher.teacherEventDetail" extends="teacher">
 		<put name="body" value="/teacher/teacherEventDetail.jsp" />
+	</definition>
+	<definition name="teacher.teacherExtract" extends="teacher">
+		<put name="body" value="/teacher/teacherExtract.jsp" />
+	</definition>
+	<definition name="teacher.teacherEventExtract" extends="teacher">
+		<put name="body" value="/teacher/teacherEventExtract.jsp" />
 	</definition>
 	
 	<!-- Statistics -->
@@ -163,6 +178,15 @@
 	<definition name="recruitment.candidateEventDetail" extends="recruitment">
 		<put name="body" value="/recruitment/candidateEventDetail.jsp" />
 	</definition>
+	<definition name="recruitment.candidateEventExtract" extends="recruitment">
+		<put name="body" value="/recruitment/candidateEventExtract.jsp" />
+	</definition>
+	<definition name="recruitment.candidateExtract" extends="recruitment">
+		<put name="body" value="/recruitment/candidateExtract.jsp" />
+	</definition>
+	<definition name="recruitment.bringingTogetherExtract" extends="recruitment">
+		<put name="body" value="/recruitment/bringingTogetherExtract.jsp" />
+	</definition>
 	
 	<!-- Company -->
 	<definition name="company" extends="mainLayout">
@@ -213,6 +237,19 @@
 	<definition name="company.actorEventDetail" extends="company">
 		<put name="body" value="/company/actorEventDetail.jsp" />
 	</definition>
+	<definition name="company.actorEventExtract" extends="company">
+		<put name="body" value="/company/actorEventExtract.jsp" />
+	</definition>
+	<definition name="company.actorExtract" extends="company">
+		<put name="body" value="/company/actorExtract.jsp" />
+	</definition>
+	<definition name="company.companyEventExtract" extends="company">
+		<put name="body" value="/company/companyEventExtract.jsp" />
+	</definition>
+	<definition name="company.companyExtract" extends="company">
+		<put name="body" value="/company/companyExtract.jsp" />
+	</definition>
+	
 	<!-- mail -->
 	<definition name="mail" extends="mainLayout">
 		<put name="subMenu" value="/mail/mailMenu.jsp" />

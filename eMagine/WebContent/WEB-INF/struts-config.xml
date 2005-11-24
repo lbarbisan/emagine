@@ -41,6 +41,8 @@
 		<action path="/studentAbsenceModif" forward="student.studentAbsenceModif" />
 		<action path="/studentAbsenceAdd" forward="student.studentAbsenceAdd" />
 		<action path="/studentExtract" forward="student.studentExtract" />
+		<action path="/studentAbsenceExtract" forward="student.studentAbsenceExtract" />
+		<action path="/studentEventExtract" forward="student.studentEventExtract" />
 		<action path="/studentAskUpdateAdress" forward="student.studentAskUpdateAdress" />
 	
 		<!-- teacher -->
@@ -51,6 +53,8 @@
 		<action path="/teacherStudentAdd" forward="teacher.teacherStudentAdd" />
 		<action path="/teacherVisuEvent" forward="teacher.teacherVisuEvent" />
 		<action path="/teacherEventDetail" forward="teacher.teacherEventDetail" />
+		<action path="/teacherExtract" forward="teacher.teacherExtract" />
+		<action path="/teacherEventExtract" forward="teacher.teacherEventExtract" />
 
 		<!-- company -->
 		<action path="/companySearch" forward="company.companySearch" />
@@ -69,6 +73,10 @@
 		<action path="/companyEventDetail" forward="company.companyEventDetail" />
 		<action path="/actorVisuEvent" forward="company.actorVisuEvent" />
 		<action path="/actorEventDetail" forward="company.actorEventDetail" />
+		<action path="/actorExtract" forward="company.actorExtract" />
+		<action path="/companyExtract" forward="company.companyExtract" />
+		<action path="/companyExtract" forward="company.companyEventExtract" />
+		<action path="/actorExtract" forward="company.actorEventExtract" />
 		
 		<!-- recruitment -->
 		<action path="/candidateSearch" forward="recruitment.candidateSearch" />
@@ -82,6 +90,9 @@
 		<action path="/bringingTogether" forward="recruitment.bringingTogether" />
 		<action path="/candidateVisuEvent" forward="recruitment.candidateVisuEvent" />
 		<action path="/candidateEventDetail" forward="recruitment.candidateEventDetail" />
+		<action path="/candidateExtract" forward="recruitment.candidateExtract" />
+		<action path="/candidateEventExtract" forward="recruitment.candidateEventExtract" />
+		<action path="/bringingTogetherExtract" forward="recruitment.bringingTogetherExtract" />
 		
 		<!-- mail -->
 		<action path="/emailDo" forward="mail.emailDo" />
