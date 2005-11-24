@@ -6,18 +6,21 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import fr.umlv.ir3.emagine.student.candidate.DieEnum;
 import fr.umlv.ir3.emagine.util.BaseEntity;
 
 @Entity(access = AccessType.FIELD)
 public class Job extends BaseEntity {
-	private String name;
+
+	private static final long serialVersionUID = 7997162235010277048L;
+
+	@ManyToOne(cascade= {CascadeType.PERSIST,CascadeType.MERGE})
+	@JoinColumn(name = "jobs_id")
+	private Entreprise entreprise;
 	
-	//FIXME : filière... ?
-	//private DieEnum cursus;
+	private DieEnum cursus;
+	private String name;
 	private String title;
 	private Integer nbPlace;
-	@ManyToOne(cascade= {CascadeType.PERSIST,CascadeType.MERGE})
-	@JoinColumn(name = "jobs_fk")
-	private Entreprise entreprise;
 	
 }

@@ -51,6 +51,7 @@ public class Student extends Candidate {
 	//private DieEnum die;
 	
 	private Integer year;
-	private List<Abscence> absences;
+	/*@ManyToOne
+	private List<Abscence> absences;*/
 
 }

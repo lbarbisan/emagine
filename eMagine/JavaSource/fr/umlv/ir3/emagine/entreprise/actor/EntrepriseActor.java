@@ -12,12 +12,10 @@ import fr.umlv.ir3.emagine.util.Person;
 @Inheritance(strategy=InheritanceType.JOINED)
 public class EntrepriseActor extends Person {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 6962218814666233077L;
-	private String Function;
-	
+
 	@Embedded
 	private Address addressProfessional;
+	
+	private String Function;
 }

@@ -21,7 +21,7 @@ import fr.umlv.ir3.emagine.event.Event;
  * @persistence : Terminé
  */
 @Entity(access = AccessType.FIELD)
-@Inheritance(strategy=InheritanceType.JOINED)
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE )
 public class BaseEntity implements Serializable {
 
 	/**

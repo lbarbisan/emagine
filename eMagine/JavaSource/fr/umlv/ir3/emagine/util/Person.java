@@ -23,9 +23,6 @@ import javax.persistence.ManyToOne;
 @Inheritance(strategy=InheritanceType.JOINED)
 public class Person extends BaseEntity {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 4072133161366106454L;
 	
 	private String lastName;

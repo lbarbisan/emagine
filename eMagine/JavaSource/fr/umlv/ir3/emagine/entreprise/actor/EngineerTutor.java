@@ -23,7 +23,7 @@ public class EngineerTutor extends EntrepriseActor {
 	 * 
 	 */
 	private static final long serialVersionUID = 3857030644896914550L;
-	
+	//FIXME : Bidirectionnal
 	@OneToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE},
 			mappedBy = "engineerTutor")
 	private List<Student> student;
