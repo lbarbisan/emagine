@@ -33,9 +33,10 @@ public class Candidate extends Person {
 	private Contact contactOriginIG2K;
 
 	//FIXME : Hibernate - EnumentryLevel
-	/*private LevelEntryEnum entryLevel;
+	private LevelEntryEnum entryLevel;
+	
 	private ProfessionEnum professionMother;
-	private ProfessionEnum professionFather; */
+	private ProfessionEnum professionFather; 
 	
 	private boolean otherFormation;
 	private boolean accepted;

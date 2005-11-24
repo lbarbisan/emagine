@@ -32,8 +32,7 @@ public class Event extends BaseEntity{
 	private Date endDate;
 	private String Title;
 	private String Comment;
-	//FIXME : Hibernate - ENum
-	//private EventTypeEnum type;
+	private EventTypeEnum type;
 	
 	@ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
 	@OrderBy("id")

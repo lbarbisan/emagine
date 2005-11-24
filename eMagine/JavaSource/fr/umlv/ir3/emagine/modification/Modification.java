@@ -10,7 +10,6 @@ import fr.umlv.ir3.emagine.util.BaseEntity;
 @Entity(access = AccessType.FIELD)
 public class Modification<ObjectType extends BaseEntity> extends BaseEntity{
 	
-	//FIXME : Hibernate - Enum
 	private ModificationStateEnum modificationSate;
 	
 	private String comment;

@@ -7,19 +7,18 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import fr.umlv.ir3.emagine.entreprise.Entreprise;
 import fr.umlv.ir3.emagine.entreprise.actor.EngineerTutor;
+import fr.umlv.ir3.emagine.student.absence.Abscence;
+import fr.umlv.ir3.emagine.teachertutor.TeacherTutor;
 import fr.umlv.ir3.emagine.student.candidate.Candidate;
 import fr.umlv.ir3.emagine.util.Address;
+
+import java.util.List;
 
 @Entity(access = AccessType.FIELD)
 public class Student extends Candidate {
 
-	/*private enum DefaultAddressEnum {
-		PROFESSINAL,
-		PERSONNAL,
-		ACADEMIC,
-	}*/
-	
 	/**
 	 * 
 	 */
@@ -29,36 +28,29 @@ public class Student extends Candidate {
 	private Address addressProfessional;
 	@Embedded
 	private Address addressAcademic;
-	
-	/*private DefaultAddressEnum defaultAdress;
-	
+	private DefaultAddressEnum defaultAdress;
 	private LanguageEnum firstLanguage;
 	private LanguageEnum secondLanguage;
 
+	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	private List<Mark> examsMark;
+	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	private List<Diploma> diplomas;
+	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	private List<Schooling> schooling;
 	
-	private TeacherTutor teachingTutor; */
+	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+	@JoinColumn(name="teachingtutor_fk")
+	private TeacherTutor teachingTutor; 
 	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinColumn(name="engineertutor_fk")
 	private EngineerTutor engineerTutor;
-	//private Entreprise entreprise;
+	private Entreprise entreprise;
 	
 	//FIXME : DIfférence avec candidat ?
 	//private DieEnum die;
 	
-	//TODO : Mettre un nombre ?
-	//private YearEnum year;
-	
-	//TODO : Mettre des nombre ?
-	//private List<Abscence> absences;
-	
-
-	
-	
-	
-	
-	
+	private Integer year;
+	private List<Abscence> absences;
 
 }
