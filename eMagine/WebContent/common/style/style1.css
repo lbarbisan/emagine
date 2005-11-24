@@ -9,8 +9,14 @@ body{
 }
 /* Page d'authentification */
 .login{
-	width: 370px;
-	height: 160px;
+	/* Centrage de la div */
+	position: absolute;
+    left: 50%;
+    top: 50%;
+	width: 380px;
+	height: 140px;
+	margin-left: -190px; /* Décalage de la moitié de la div */
+    margin-top: -80px;
 	text-align: left;
 	color:black;
 	border-width:1px;
@@ -35,6 +41,8 @@ body{
 	border-bottom-width:1px;
 	border-bottom-style:solid;
 	border-bottom-color:#DEEBF1;
+	background-color: #DEEBF1;
+	-moz-border-radius:5px;
 }
 .login h2:first-letter{color:red;}
 .login p{
@@ -48,6 +56,14 @@ body{
 }
 .login a{
 	text-decoration: none;
+}
+
+.login img{
+	float: left;
+	padding-top: -80px;
+	margin-right: +10px;
+	margin-left: 0px;
+	margin-top: -8px;
 }
 /* ----- Zone supérieure ----- */
 /* --- Menu principal --- */

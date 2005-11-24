@@ -8,10 +8,10 @@
 		<title><bean:message key="app.title" /></title>
 	</head>
 	<body>
-	<div align="center">
-	<img src="/eMagine/common/images/auth.png"/>
-	<br/>
+	<!--  <img src="/eMagine/common/images/auth.png"/><br/><br/>-->
+
 			<div class="login">
+				<img src="/eMagine/common/images/logo.gif"/>
 				<h2>Authentification</h2>
 				<br/>
 				<p><label for="login">Login </label><input type="text" id="login" size="20" /></p>
@@ -19,7 +19,6 @@
 				<br/>
 				<hr/>
 				<div align=center><html:link action="/studentSearch"><input type="button" value="Envoyer"></html:link></div>
-				</div>
 			</div>
 	</body>
 </html>
