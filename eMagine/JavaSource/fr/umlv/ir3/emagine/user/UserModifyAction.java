@@ -22,7 +22,7 @@ public class UserModifyAction extends DispatchAction {
 		
 		UserDAO userDAO = DAOManager.getInstance().getUserDAO();
 		
-		User user = new User(userInformationForm.getFirstName() , userInformationForm.getLastName());
+		User user = new User(); //userInformationForm.getFirstName() , userInformationForm.getLastName());
 		
 		DAOManager.beginTransaction();
 		userDAO.create(user);
@@ -44,8 +44,8 @@ public class UserModifyAction extends DispatchAction {
 	
 		User user =  userDAO.retrieve(userInformationForm.getId());
 		
-		user.setFirstName(userInformationForm.getFirstName());
-		user.setLastName(userInformationForm.getLastName());
+		//user.setFirstName(userInformationForm.getFirstName());
+		//user.setLastName(userInformationForm.getLastName());
 		
 		userDAO.update(user);
 		DAOManager.commitTransaction();	

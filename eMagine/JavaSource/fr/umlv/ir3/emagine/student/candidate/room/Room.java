@@ -37,7 +37,7 @@ public class Room extends BaseEntity {
 	private List<Candidate> candidates;
 	
 	@ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
-	@JoinColumn(name="formationCenter_fk")
+	@JoinColumn(name="formationCenter_id")
 	private FormationCenter formationCenter;
 	
 }

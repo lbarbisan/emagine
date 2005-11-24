@@ -28,7 +28,7 @@ public class HibernateUtils {
     static {
         try {            
         	sessionFactory = new AnnotationConfiguration()
-            //FIXME : Trouver un moyen pour mettre le nom de fichier dans un fichier poroperties ou autre.
+            //TODO : Hibernate - Trouver un moyen pour mettre le nom de fichier dans un fichier poroperties ou autre.
         	.configure(HibernateUtils.class.getResource("hibernate.cfg.xml"))
             .buildSessionFactory();
         } catch (Throwable ex) {

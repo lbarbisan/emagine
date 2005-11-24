@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 import fr.umlv.ir3.emagine.extraction.mailings.Attachment;

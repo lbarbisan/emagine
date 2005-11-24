@@ -11,6 +11,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import fr.umlv.ir3.emagine.entreprise.actor.EntrepriseActor;
+import fr.umlv.ir3.emagine.student.Student;
 import fr.umlv.ir3.emagine.util.Address;
 import fr.umlv.ir3.emagine.util.BaseEntity;
 /**
@@ -32,6 +33,9 @@ public class Entreprise extends BaseEntity{
 	@OneToMany(cascade= {CascadeType.PERSIST,CascadeType.MERGE},
 			mappedBy = "entreprise")
 	private List<EntrepriseActor> entrepriseActor;
+	@OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},
+			mappedBy = "entreprise")
+	private List<Student> students;
 	@Embedded
 	private Address address;
 	

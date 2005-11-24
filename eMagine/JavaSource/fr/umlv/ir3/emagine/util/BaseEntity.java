@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.AccessType;
 import javax.persistence.CascadeType;
+import javax.persistence.EmbeddableSuperclass;
 import javax.persistence.Entity;
 import javax.persistence.GeneratorType;
 import javax.persistence.Id;
@@ -23,6 +24,7 @@ import fr.umlv.ir3.emagine.event.Event;
  * @persistence : Terminé
  */
 @Entity(access = AccessType.FIELD)
+//@EmbeddableSuperclass
 @Inheritance(strategy=InheritanceType.JOINED )
 //@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS )
 public class BaseEntity implements Serializable {

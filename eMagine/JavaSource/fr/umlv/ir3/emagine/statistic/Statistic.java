@@ -10,7 +10,7 @@ import fr.umlv.ir3.emagine.util.BaseEntity;
 @Entity(access = AccessType.FIELD)
 public class Statistic extends BaseEntity{
 	
-	//FIXME Trouver une meilleur solution
+	//FIXME : Hibernate - Trouver une meilleur solution pour la gestion des statistiques
 	private String name;
 	private String query;
 	

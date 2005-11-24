@@ -24,8 +24,8 @@ public class UserShowInformationAction extends Action {
 		UserInformationForm userShowInformationForm  = (UserInformationForm) form;
 		
 		User user = getUser(userShowInformationForm);
-		userShowInformationForm.setFirstName(user.getFirstName());
-		userShowInformationForm.setLastName(user.getLastName());
+		//userShowInformationForm.setFirstName(user.getFirstName());
+		//userShowInformationForm.setLastName(user.getLastName());
 		
 		return  mapping.findForward("success"); //TODO PageDestination
 	}
