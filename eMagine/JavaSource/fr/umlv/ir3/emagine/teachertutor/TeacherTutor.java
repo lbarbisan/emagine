@@ -28,7 +28,6 @@ public class TeacherTutor extends Person {
 	 * 
 	 */
 	private static final long serialVersionUID = -6468325376386661021L;
-	//FIXME: Hibernate : List des étudiant bidirectionnal 
 	@OneToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE},
 			mappedBy  = "teacherTutor")
 	private List<Student> student;
