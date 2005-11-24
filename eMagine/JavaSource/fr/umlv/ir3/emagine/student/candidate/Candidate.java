@@ -7,7 +7,6 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 
 import fr.umlv.ir3.emagine.student.Contact;
 import fr.umlv.ir3.emagine.student.candidate.examcenter.FormationCenter;
@@ -33,10 +32,10 @@ public class Candidate extends Person {
 	private Contact contactOriginIG2K;
 
 	//FIXME : Hibernate - EnumentryLevel
-	private LevelEntryEnum entryLevel;
+	/*private LevelEntryEnum entryLevel;
 	
 	private ProfessionEnum professionMother;
-	private ProfessionEnum professionFather; 
+	private ProfessionEnum professionFather;*/ 
 	
 	private boolean otherFormation;
 	private boolean accepted;

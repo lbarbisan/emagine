@@ -28,16 +28,16 @@ public class Student extends Candidate {
 	private Address addressProfessional;
 	@Embedded
 	private Address addressAcademic;
-	private DefaultAddressEnum defaultAdress;
+	/*private DefaultAddressEnum defaultAdress;
 	private LanguageEnum firstLanguage;
-	private LanguageEnum secondLanguage;
+	private LanguageEnum secondLanguage;*/
 
-	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-	private List<Mark> examsMark;
-	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-	private List<Diploma> diplomas;
-	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-	private List<Schooling> schooling;
+	/*@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+	private List<Mark> examsMark;*/
+	/*@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+	private List<Diploma> diplomas;*/
+	/*@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+	private List<Schooling> schooling;*/
 	
 	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinColumn(name="teachingtutor_fk")
