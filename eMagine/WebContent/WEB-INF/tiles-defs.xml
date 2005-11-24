@@ -64,8 +64,8 @@
 	<definition name="student.studentAbsenceAdd" extends="student">
 		<put name="body" value="/student/studentAbsenceAdd.jsp" />
 	</definition>
-	<definition name="student.studentAbsenceModif" extends="student">
-		<put name="body" value="/student/studentAbsenceModif.jsp" />
+	<definition name="student.studentAbsenceDetail" extends="student">
+		<put name="body" value="/student/studentAbsenceDetail.jsp" />
 	</definition>
 	<definition name="student.studentVisuEvent" extends="student">
 		<put name="body" value="/student/studentVisuEvent.jsp" />

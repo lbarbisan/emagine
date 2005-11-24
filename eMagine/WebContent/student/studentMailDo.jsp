@@ -1,4 +1,4 @@
-<h2>Effectuer&nbsp;un&nbsp;publipostage</h2>
+<h2>Effectuer&nbsp;un&nbsp;publipostage&nbsp;d'apprentis</h2>
 <br/>
 <div class="form">
 	<p>
@@ -10,7 +10,7 @@
 	</p>
 </div>
 <div id="actions">
-<h2>&nbsp;</h2>
+	<h2>&nbsp;</h2>
 	<ul>
 		<li><a href="#"><input type="button" value="Générer"/></a></li>
 	</ul>
