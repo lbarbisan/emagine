@@ -1,20 +1,18 @@
 /**
- *  
+ *@Persistence 50 %  
  */
 package fr.umlv.ir3.emagine.util;
 
-import java.util.List;
-
 import javax.persistence.AccessType;
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.Embeddable;
 
 
 /**
  * @author Laurent
+ * 
+ * @Persitence Reste les enum
  */
-@Entity(access = AccessType.FIELD)
+@Embeddable(access = AccessType.FIELD)
 public class Address extends BaseEntity {
 
 	/**
@@ -22,5 +20,9 @@ public class Address extends BaseEntity {
 	 */
 	private static final long serialVersionUID = 7027284397861275888L;
 	private String street;
-	private String country;
+	private String postalCode;
+	private String city;
+	//FIXME : Hiernate - Enum
+	/*private DepartmentEnum department;
+	private CountryEnum country;*/
 }

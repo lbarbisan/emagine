@@ -8,6 +8,7 @@ import java.util.Date;
 
 import javax.persistence.AccessType;
 import javax.persistence.CascadeType;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -16,7 +17,7 @@ import javax.persistence.ManyToOne;
 
 /**
  * @author Laurent
- *
+ *@Persitence 50 Reste enum
  */
 @Entity(access = AccessType.FIELD)
 @Inheritance(strategy=InheritanceType.JOINED)
@@ -29,7 +30,7 @@ public class Person extends BaseEntity {
 	
 	private String lastName;
 	private String firstName;
-	//FIXME : Enum
+	//FIXME : Hibernate - Enum
 	/*private SexEnum sex;*/
 	private Date birthdayDate;
 	private String birthdayCity;
@@ -37,8 +38,9 @@ public class Person extends BaseEntity {
 	private DepartmentEnum birthdayDepartment;
 	private NationalityEnum nationality;*/
 	
-	@ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
-    @JoinColumn(name="address_fk")
+	//@ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    //@JoinColumn(name="address_fk")
+    @Embedded
 	private Address addressPersonnal;
 	private String email;
 	private String phone;

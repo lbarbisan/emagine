@@ -11,17 +11,14 @@ import fr.umlv.ir3.emagine.user.profile.Profile;
 import fr.umlv.ir3.emagine.util.BaseEntity;
 
 @Entity(access = AccessType.FIELD)
-@Table(name = "tbl_user")
+@Table(name = "applicationuser")
 public class User extends BaseEntity{
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 3947274315317297604L;
-	@ManyToOne(cascade = {
-			CascadeType.PERSIST, 
-			CascadeType.MERGE, 
-			CascadeType.REFRESH})
+	@ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
 	Profile profile;
 	
 	String password;

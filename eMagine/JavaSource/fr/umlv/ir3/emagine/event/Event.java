@@ -16,7 +16,7 @@ import fr.umlv.ir3.emagine.util.BaseEntity;
 
 /**
  * @author Laurent
- *
+ * @Persitence Enum
  */
 @Entity(access = AccessType.FIELD)
 public class Event extends BaseEntity{
@@ -32,8 +32,9 @@ public class Event extends BaseEntity{
 	private Date endDate;
 	private String Title;
 	private String Comment;
-	//FIXME : ENum
+	//FIXME : Hibernate - ENum
 	//private EventTypeEnum type;
+	
 	@ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
 	@OrderBy("id")
 	private List<BaseEntity> sources;

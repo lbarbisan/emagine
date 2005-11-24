@@ -12,8 +12,6 @@ import javax.persistence.Table;
 
 import fr.umlv.ir3.emagine.util.BaseEntity;
 
-
-@Table(name = "tbl_profile")
 @Entity(access = AccessType.FIELD)
 public class Profile extends BaseEntity{
 	
@@ -27,10 +25,7 @@ public class Profile extends BaseEntity{
 	@Column(unique = true)
 	private String name;
 	
-	@OneToMany(cascade = {
-			CascadeType.PERSIST, 
-			CascadeType.MERGE, 
-			CascadeType.REFRESH})
+	@OneToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
 	@OrderBy("name")
 	List<Right> rights;
 	

@@ -18,7 +18,7 @@ import fr.umlv.ir3.emagine.event.Event;
 
 /**
  * @author  Administrateur
- * @persistence : 50%
+ * @persistence : Terminé
  */
 @Entity(access = AccessType.FIELD)
 @Inheritance(strategy=InheritanceType.JOINED)

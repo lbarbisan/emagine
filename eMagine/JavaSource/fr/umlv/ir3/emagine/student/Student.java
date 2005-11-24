@@ -1,34 +1,36 @@
 package fr.umlv.ir3.emagine.student;
 
-import java.util.Date;
-import java.util.List;
-
 import javax.persistence.AccessType;
+import javax.persistence.CascadeType;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
-import fr.umlv.ir3.emagine.entreprise.Entreprise;
 import fr.umlv.ir3.emagine.entreprise.actor.EngineerTutor;
-import fr.umlv.ir3.emagine.student.absence.Abscence;
 import fr.umlv.ir3.emagine.student.candidate.Candidate;
-import fr.umlv.ir3.emagine.teachertutor.TeacherTutor;
 import fr.umlv.ir3.emagine.util.Address;
 
 @Entity(access = AccessType.FIELD)
-@Table(name = "tbl_student")
 public class Student extends Candidate {
 
-	private enum DefaultAddressEnum {
+	/*private enum DefaultAddressEnum {
 		PROFESSINAL,
 		PERSONNAL,
 		ACADEMIC,
-	}
-	//FIXME: Solve - créer une table intermédiaire
-	private Date startDate;
+	}*/
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3998703814616710370L;
+	
+	@Embedded
 	private Address addressProfessional;
+	@Embedded
 	private Address addressAcademic;
-	private DefaultAddressEnum defaultAdress;
+	
+	/*private DefaultAddressEnum defaultAdress;
 	
 	private LanguageEnum firstLanguage;
 	private LanguageEnum secondLanguage;
@@ -37,18 +39,20 @@ public class Student extends Candidate {
 	private List<Diploma> diplomas;
 	private List<Schooling> schooling;
 	
-	private TeacherTutor teachingTutor;
+	private TeacherTutor teachingTutor; */
+	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+	@JoinColumn(name="engineertutor_fk")
 	private EngineerTutor engineerTutor;
-	private Entreprise entreprise;
+	//private Entreprise entreprise;
 	
 	//FIXME : DIfférence avec candidat ?
 	//private DieEnum die;
 	
 	//TODO : Mettre un nombre ?
-	private YearEnum year;
+	//private YearEnum year;
 	
 	//TODO : Mettre des nombre ?
-	private List<Abscence> absences;
+	//private List<Abscence> absences;
 	
 
 	
@@ -56,45 +60,5 @@ public class Student extends Candidate {
 	
 	
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 3998703814616710370L;
 
-/*	@OneToMany(cascade = {
-			CascadeType.PERSIST, 
-			CascadeType.MERGE, 
-			CascadeType.REFRESH})
-	@OrderBy("date")
-	List<Abscence> abscences;*/
-	
-/*	@OneToOne(cascade = {
-			CascadeType.PERSIST, 
-			CascadeType.MERGE, 
-			CascadeType.REFRESH})
-	@JoinColumn(name="teachertutor_fk")
-	@Column(unique = true)*/
-	private TeacherTutor teacherTutor;
-
-	/**
-	 * @return Returns the teacherTutor.
-	 */
-	public TeacherTutor getTeacherTutor() {
-		return teacherTutor;
-	}
-
-	/**
-	 * @param teacherTutor The teacherTutor to set.
-	 */
-	public void setTeacherTutor(TeacherTutor teacherTutor) {
-		this.teacherTutor = teacherTutor;
-	}
-	
-/*	@OneToOne(cascade = {
-			CascadeType.PERSIST, 
-			CascadeType.MERGE, 
-			CascadeType.REFRESH})
-	@JoinColumn(name="engineertutor_fk")
-	@Column(unique = true)
-	private EngineerTutor engineerTutor;*/
 }

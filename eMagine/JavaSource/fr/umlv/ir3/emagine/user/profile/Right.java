@@ -13,7 +13,7 @@ import fr.umlv.ir3.emagine.util.BaseEntity;
  *
  */
 @Entity(access = AccessType.FIELD)
-@Table(name="tbl_right")
+@Table(name="rightapplication")
 public class Right extends BaseEntity {
 	/**
 	 * 

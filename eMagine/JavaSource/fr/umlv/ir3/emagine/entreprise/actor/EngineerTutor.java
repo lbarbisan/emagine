@@ -11,10 +11,12 @@ import javax.persistence.Table;
 
 import fr.umlv.ir3.emagine.student.Student;
 
-
+/**
+ * 
+ * @author Administrateur
+ *@persitence Terminé
+ */
 @Entity(access = AccessType.FIELD)
-@Table(name = "tbl_engineertutor")
-
 public class EngineerTutor extends EntrepriseActor {
 	
 	/**
@@ -22,24 +24,8 @@ public class EngineerTutor extends EntrepriseActor {
 	 */
 	private static final long serialVersionUID = 3857030644896914550L;
 	
-	@OneToMany(cascade = {
-			CascadeType.PERSIST, 
-			CascadeType.MERGE, 
-			CascadeType.REFRESH})
-	@OrderBy("name")
+	@OneToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE},
+			mappedBy = "engineerTutor")
 	private List<Student> student;
 
-	/**
-	 * @return Returns the student.
-	 */
-	public List<Student> getStudent() {
-		return student;
-	}
-
-	/**
-	 * @param student The student to set.
-	 */
-	public void setStudent(List<Student> student) {
-		this.student = student;
-	}
 }
