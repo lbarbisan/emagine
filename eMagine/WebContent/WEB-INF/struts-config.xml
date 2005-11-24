@@ -41,6 +41,7 @@
 		<action path="/studentAbsenceModif" forward="student.studentAbsenceModif" />
 		<action path="/studentAbsenceAdd" forward="student.studentAbsenceAdd" />
 		<action path="/studentExtract" forward="student.studentExtract" />
+		<action path="/studentAskUpdateAdress" forward="student.studentAskUpdateAdress" />
 	
 		<!-- teacher -->
 		<action path="/teacherSearch" forward="teacher.teacherSearch" />
