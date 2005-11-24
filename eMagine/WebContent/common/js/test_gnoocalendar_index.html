@@ -1,0 +1,363 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1' />
+		<title>GnooCalendar 1.4</title>
+<style type='text/css'>
+<!--
+body
+{
+	font-family: 	Arial,Helvetica,sans-serif;
+	font-weight: 	normal;
+	font-size: 	12px;
+	color:		#000000;
+}
+.title
+{
+	font-family: 	Arial,Helvetica,sans-serif;
+	font-weight: 	bold;
+	font-size: 		14px;
+	text-indent:	20px;
+	color:			#000000;
+}
+a
+{
+	font-family: 	Arial,Helvetica,sans-serif;
+	font-weight: 	bold;
+	font-size: 		13px;
+	color:			orange;
+	text-decoration: none;
+}
+a:hover
+{
+	text-decoration: underline;
+}
+.code
+{
+	font-family: 		courier new;
+	font-weight: 		bold;
+	font-size: 			12px;
+	color:				#330000;
+	background-color:	#eeeeee;
+}
+.head
+{
+	font-family: 	Arial,Helvetica,sans-serif;
+	font-weight: 	bold;
+	font-size: 	14px;
+	color:		#ff2222;
+	padding: 0px;
+}
+//-->
+</style>
+<!-- FICHIER DE STYLE DU CALENDRIER //-->
+<link rel='stylesheet' href='gnoocalendar.css' />
+<!-- FICHIER DE SCRIPT DU CALENDRIER //-->
+<script type="text/javascript" src="gnoocalendar.js"></script>
+<script type="text/javascript">
+<!--
+/******************************/
+self.defaultStatus = "GnooCalendar 1.4";
+/******************************/
+/* 
+* instanciation de l'objet
+*/
+var CL = new GnooCalendar("CL", 20, 10 );
+var CL2 = new GnooCalendar("CL2", 20, 10 );
+/******************************/
+function init()
+{
+	CL.init("calend", document.forms["testform"].elements["testestformield1"]);
+	CL.isDragable(true);
+
+	CL2.init("calend2", document.forms["testform"].elements["testestformield2"]);
+	CL2.isDragable(true);
+	CL2.setTitle("Second calendrier");
+}
+/******************************/
+//-->
+</script>
+	</head>
+<body onload="init();">
+<a name="top"></a>
+<form name='testform' method='get' action='' style='margin:0px;'>
+#####################################################
+<br />#<br />#
+<span class='title'>
+		GnooCalendar 1.4
+</span>
+<br />#
+<br />
+#####################################################
+<br />
+<a href="#version">> Versions</a>
+<br />
+<a href="#env">> Environnements test&eacute;s</a>
+<br />
+<a href="#download">> T&eacute;l&eacute;chargement</a>
+<br />
+<a href="#func">> Fonctionnalit&eacute;s</a>
+<br />
+<a href="#imp">> Impl&eacute;mentation</a>
+<br />
+<a href="#exe">> Exemple</a>
+<br />
+<br />
+#####################################################
+<a name="version"></a>
+<div class='head'>
+	Versions :
+</div>
+<br />
+<b>v1.5</b>	15/10/2005 :<br />
++ correction bug sur les listes avec Safari<br />
+<br />
+<b>v1.4</b>	09/01/2005 :<br />
++ correction bug scrollbar des listes avec Mozilla Firefox1.0<br />
+<br />
+<b>v1.3</b>	25/11/2004 :<br />
++ fermeture automatique à la sélection d'une date <br />
++ correction bug lié au positionnement lors du masquage<br />
+<br />
+<b>v1.2</b>	03/10/2004 :<br />
++ bouton de fermeture <br />
++ passage de l'année en paramètre<br />
++ passage du mois en paramètre<br />
+<br />
+<b>v1.1</b>	19/09/2004 :<br />
++ drag&drop<br />
+<br />
+<b>v1</b> 	27/04/2004<br />
+<br />
+<a href="#top">> Haut de page</a>
+<br />
+#####################################################
+<a name="env"></a>
+<div class='head'>
+	Environnements testés  : 
+</div>
+<br />
+<table border='1' width='300'>
+	<tr align='center'>
+		<td>&nbsp;</td>
+		<td>IE4</td>
+		<td>IE5+</td>
+		<td>NS4.x</td>
+		<td>NS7.x</td>
+		<td>Mozilla</td>
+		<td>Opera7.x</td>
+	</tr>
+	<tr align='center'>
+		<td>fonctionne&nbsp;:</td>
+		<td>non</td>
+		<td>oui</td>
+		<td>oui</td>
+		<td>oui</td>
+		<td>oui</td>
+		<td>oui</td>
+	</tr>
+	<tr align='center'>
+		<td>interface&nbsp;:</td>
+		<td>non</td>
+		<td>clean</td>
+		<td>beurk</td>
+		<td>clean</td>
+		<td>clean</td>
+		<td>clean</td>
+	</tr>
+</table>
+<br />
+<b>BUG-REPORT :</b>
+<br /> 
+Opera7.03 : changement de champs cible impossible si le formulaire contenant <br />
+le champs cible est après le div d'affichage du calendrier dans le code du document<br /> 
+Pour signaler un bug ou demander des infos : <a href='mailto:gleroy@zegnoo.net'>> gleroy@zegnoo.net</a>
+<br /><br />
+<a href="#top">> Haut de page</a>
+<br />
+#####################################################
+<a name="download"></a>
+<div class='head'>
+	T&eacute;l&eacute;chargement :
+</div>
+<br />
+<a href="gnoocalendar.js" target="_blank">> Le fichier du script : gnoocalendar.js</a>
+<br />
+<a href="gnoocalendar.css" target="_blank">> Le fichier de style : gnoocalendar.css</a>
+<br /><br />
+<a href="#top">> Haut de page</a>
+<br />
+#####################################################
+<a name="func"></a>
+<div class='head'>
+	Fonctionnalit&eacute;s :
+</div>
+<br />
+- insertion de plusieurs calendriers possibles<br />
+- interface customisable via le fichier css<br />
+- changement dynamique de champs cible<br />
+- changement dynamique de liste de jours f&egrave;ri&eacute;s <br />
+- changement dynamique du mois affich&eacute; <br />
+- changement dynamique de l'ann&eacute;e affiché <br />
+- calendrier dragable sur la page <br />
+<br />
+Inclusion des deux fichiers necessaires : <br />
+<span class='code'>
+	&lt;link rel='stylesheet' href='gnoocalendar.css' /&gt;
+	<br />
+	&lt;script type="text/javascript" src="gnoocalendar.js"&gt;&lt;/script&gt;
+</span>
+<br />
+<br />
+<a href="#top">> Haut de page</a>
+<br />
+#####################################################
+<a name="imp"></a>
+<div class='head'>
+	Impl&eacute;mentation : 
+</div>
+<br />
+<b>Instanciation :</b>
+<br />
+<span class='code'>
+	var CL = new GnooCalendar("CL", 20, 10 );
+<br />
+</span>
+param&ecirc;tres :<br />
+1 : nom de l'instance<br />
+2 : nombre d'ann&eacute;es avant la date courante &agrave; afficher<br />
+3 : nombre d'ann&eacute;es apr&egrave; la date courante &agrave; afficher
+<br /><br />
+
+<b>Initialisation :</b>
+<br />
+<span class='code'>
+	CL.init("calend", document.forms["testform"].elements["testestformield1"]);
+</span>
+<br />
+param&ecirc;tres :<br />
+1 : id du calque (div) d'affichage<br />
+2 : objet dont la propri&eacute;t&eacute; value va recevoir le String contenant la date selectionn&eacute;e (typiquement un champs texte)
+<br /><br />
+
+<b>Activer l'option Drag&Drop :</b>
+<br />
+<span class='code'>
+		CL.isDragable(true/false);
+</span>
+<br /><br />
+
+<b>changement de champs cible :</b>
+<br />
+<span class='code'>
+	CL.setTarget(document.forms["testform"].elements["testestformield2"]);
+</span>
+<br />
+param&ecirc;tre :<br />
+1 : objet dont la propri&eacute;t&eacute; value va recevoir le String contenant la date selectionn&eacute;e 
+<br /><br />
+
+<b>Affichage :</b>
+<br />
+<span class='code'>
+	CL.show();
+</span>
+<br /><br />
+Masquage :<br />
+<span class='code'>
+	CL.hide();
+</span>
+<br /><br />
+changement du mois affich&eacute; :<br />
+<span class='code'>
+		CL.getMonth(11); // novembre
+</span>
+<br /><br />
+changement de l'ann&eacute; affich&eacute;e :<br />
+<span class='code'>
+		CL.getYear(2003);
+</span>
+<br /><br />
+Affichage des jours feriés :<br />
+<span class='code'>
+	CL.setFree(true/false);
+</span>
+<br /><br />
+changement de la liste des jours feriés :<br />
+<span class='code'>
+	CL.setFreeDay(new Array("03/02", "31/07", "19/11"));
+</span>
+<br /><br />
+changement de le titre du calendrier :<br />
+<span class='code'>
+	CL.setTitle("nouveau titre");
+</span>
+<br />
+<br />
+<a href="#top">> Haut de page</a>
+<br />
+#####################################################
+<a name="exe"></a>
+<div class='head'>
+	Exemple :
+</div>
+<br />
+<table border='0'>
+	<tr>
+		<td>date selectionnée : </td>
+		<td><input type='text' name='testestformield1' onblur='alert(this.value);' value='' /></td>
+		<td><input type='button' name='a' onclick='CL.setTarget(this.form.elements["testestformield1"]);' value='cibler ce champs' /></td>
+	</tr>
+	<tr>
+		<td>autre date</td>
+		<td><input type='text' name='testestformield2' value='' /></td>
+		<td><input type='button' name='a' onclick='CL.setTarget(this.form.elements["testestformield2"]);' value='cibler ce champs' /></td>
+
+	</tr>
+	<tr>
+		<td><input type='button' name='show1' onclick='CL.show();' value='Afficher le calendrier' /></td>
+		<td><input type='button' name='hide1' onclick='CL.hide();' value='Masquer le calendrier' /></td>
+		<td></td>
+</tr>
+	<tr>
+		<td><input type='button' name='show2' onclick='CL2.show();' value='Afficher le second calendrier' /></td>
+		<td><input type='button' name='hide2' onclick='CL2.hide();' value='Masquer le second calendrier' /></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td><input type='button' name='fe' onclick='CL.setFree(true);' value='avec jours feri&eacute;s' /></td>
+		<td><input type='button' name='fn' onclick='CL.setFree(false);' value='sans jours feri&eacute;s' /></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td><input type='button' name='ye1' onclick='CL.getYear(2001);' value="afficher l'année 2001" /></td>
+		<td><input type='button' name='mo1' onclick='CL.getMonth(10);' value='afficher le mois de novembre' /></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td><input type='button' name='fe' onclick='CL.setFreeDay(new Array("03/02", "31/07", "19/11"));' value='changer la liste des jours feri&eacute;s' /></td>
+		<td>ex : 03/02 31/07 19/11</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td><input type='button' name='fn' onclick='CL.setTitle("D&eacute;parts");' value='changer le titre pour : D&eacute;parts' /></td>
+		<td><input type='button' name='fn' onclick='CL.setTitle("Arriv&eacute;es");' value='changer le titre pour : Arriv&eacute;es' /></td>
+		<td></td>
+	</tr>
+</table>
+<a href="#top">> Haut de page</a>
+<br />
+<textarea name='debug' cols='40' rows='40' style='display: none;'></textarea>
+<select onblur='alert(1);'>
+		<option>A</option>
+</select>
+</form>
+<br />
+<div id="calend" style="position: absolute; top: 1500px; left: 100px; width: 190px; height: 190px; z-index: 99; border: solid 0px #000000;visibility: hidden;">
+	&nbsp;
+</div>
+<div id="calend2" style="position: absolute; top: 1500px; left: 250px; width: 190px; height: 190px; z-index: 99; border: solid 0px #000000;visibility: hidden;">
+	&nbsp;
+</div>
+</body>
+</html>
