@@ -44,7 +44,8 @@
 		<action path="/studentAbsenceExtract" forward="student.studentAbsenceExtract" />
 		<action path="/studentEventExtract" forward="student.studentEventExtract" />
 		<action path="/studentAskUpdateAdress" forward="student.studentAskUpdateAdress" />
-	
+		<action path="/studentMailingListCreate" forward="student.studentMailingListCreate" />		
+		
 		<!-- teacher -->
 		<action path="/teacherSearch" forward="teacher.teacherSearch" />
 		<action path="/teacherCreate" forward="teacher.teacherCreate" />
@@ -55,7 +56,8 @@
 		<action path="/teacherEventDetail" forward="teacher.teacherEventDetail" />
 		<action path="/teacherExtract" forward="teacher.teacherExtract" />
 		<action path="/teacherEventExtract" forward="teacher.teacherEventExtract" />
-
+		<action path="/teacherMailingListCreate" forward="teacher.teacherMailingListCreate" />		
+		
 		<!-- company -->
 		<action path="/companySearch" forward="company.companySearch" />
 		<action path="/actorStudentAdd" forward="company.actorStudentAdd" />
@@ -77,6 +79,7 @@
 		<action path="/companyExtract" forward="company.companyExtract" />
 		<action path="/companyEventExtract" forward="company.companyEventExtract" />
 		<action path="/actorExtract" forward="company.actorEventExtract" />
+		<action path="/actorMailingListCreate" forward="company.actorMailingListCreate" />		
 		
 		<!-- recruitment -->
 		<action path="/candidateSearch" forward="recruitment.candidateSearch" />
@@ -93,11 +96,11 @@
 		<action path="/candidateExtract" forward="recruitment.candidateExtract" />
 		<action path="/candidateEventExtract" forward="recruitment.candidateEventExtract" />
 		<action path="/bringingTogetherExtract" forward="recruitment.bringingTogetherExtract" />
+		<action path="/candidateMailingListCreate" forward="recruitment.candidateMailingListCreate" />		
 		
 		<!-- mail -->
 		<action path="/emailDo" forward="mail.emailDo" />
 		<action path="/mailDo" forward="mail.mailDo" />
-		<action path="/mailingListCreate" forward="mail.mailingListCreate" />
 		<action path="/mailTypeUpdate" forward="mail.mailTypeUpdate" />
 		<action path="/mailingListUpdate" forward="mail.mailingListUpdate" />
 		<action path="/mailTypeVisu" forward="mail.mailTypeVisu" />

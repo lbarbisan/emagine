@@ -44,7 +44,11 @@
 			</ul>
 	<h2>&nbsp;</h2>
 	<ul>
-		<li><html:link action="/teacherExtract"><img src="/eMagine/common/images/icones/extraire.png" alt="Extraire les enseignants"/></html:link></li>
+		<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" title="Supprimer enseignant(s)"/></a></li>
+		<li><html:link action="/teacherMailingListCreate"><img src="/eMagine/common/images/icones/creer_mailing_list.png" title="Cr&eacute;er une maling-list"/></html:link></li>
+		<li><a href="#"><img src="/eMagine/common/images/icones/mailing.png" title="Effectuer un mailing"/></a></li>
+		<li><a href="#"><img src="/eMagine/common/images/icones/publipostage.png" title="Effectuer un publipostage"/></a></li>
+		<li><html:link action="/teacherExtract"><img src="/eMagine/common/images/icones/extraire.png" title="Extraire les enseignants"/></html:link></li>
 	</ul>
 	</form>
 </div>

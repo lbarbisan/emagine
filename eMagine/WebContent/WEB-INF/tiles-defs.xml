@@ -88,6 +88,9 @@
 	<definition name="student.studentEventExtract" extends="student">
 		<put name="body" value="/student/studentEventExtract.jsp" />
 	</definition>
+	<definition name="student.studentMailingListCreate" extends="student">
+		<put name="body" value="/student/studentMailingListCreate.jsp" />
+	</definition>
 
 	<!-- Teacher -->
 	<definition name="teacher" extends="mainLayout">
@@ -119,6 +122,9 @@
 	</definition>
 	<definition name="teacher.teacherEventExtract" extends="teacher">
 		<put name="body" value="/teacher/teacherEventExtract.jsp" />
+	</definition>
+	<definition name="teacher.teacherMailingListCreate" extends="teacher">
+		<put name="body" value="/teacher/teacherMailingListCreate.jsp" />
 	</definition>
 	
 	<!-- Statistics -->
@@ -187,6 +193,9 @@
 	<definition name="recruitment.bringingTogetherExtract" extends="recruitment">
 		<put name="body" value="/recruitment/bringingTogetherExtract.jsp" />
 	</definition>
+	<definition name="recruitment.candidateMailingListCreate" extends="recruitment">
+		<put name="body" value="/recruitment/candidateMailingListCreate.jsp" />
+	</definition>
 	
 	<!-- Company -->
 	<definition name="company" extends="mainLayout">
@@ -249,7 +258,10 @@
 	<definition name="company.companyExtract" extends="company">
 		<put name="body" value="/company/companyExtract.jsp" />
 	</definition>
-	
+	<definition name="company.actorMailingListCreate" extends="company">
+		<put name="body" value="/company/actorMailingListCreate.jsp" />
+	</definition>
+		
 	<!-- mail -->
 	<definition name="mail" extends="mainLayout">
 		<put name="subMenu" value="/mail/mailMenu.jsp" />
@@ -259,9 +271,6 @@
 	</definition>
 	<definition name="mail.mailDo" extends="mail">
 		<put name="body" value="/mail/mailDo.jsp" />
-	</definition>
-	<definition name="mail.mailingListCreate" extends="mail">
-		<put name="body" value="/mail/mailingListCreate.jsp" />
 	</definition>
 	<definition name="mail.mailingListUpdate" extends="mail">
 		<put name="body" value="/mail/mailingListUpdate.jsp" />
