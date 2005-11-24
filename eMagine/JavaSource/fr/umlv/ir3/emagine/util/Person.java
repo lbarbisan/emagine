@@ -20,7 +20,6 @@ import javax.persistence.ManyToOne;
  *@Persitence 50 Reste enum
  */
 @Entity(access = AccessType.FIELD)
-@Inheritance(strategy=InheritanceType.JOINED)
 public class Person extends BaseEntity {
 
 	private static final long serialVersionUID = 4072133161366106454L;

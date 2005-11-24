@@ -21,14 +21,10 @@ import fr.umlv.ir3.emagine.util.Person;
 @Entity(access = AccessType.FIELD)
 public class MailingList<ObjectType extends Person> extends BaseEntity{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 7296169511769454784L;
 	
 	private String Title;
 	private String Comment;
-	//TODO : Hibernate - on le mets dans les deux sens ?
 	@OneToMany(cascade= {CascadeType.PERSIST,CascadeType.MERGE},
 			targetEntity = Person.class)
 	private List<ObjectType> persons;

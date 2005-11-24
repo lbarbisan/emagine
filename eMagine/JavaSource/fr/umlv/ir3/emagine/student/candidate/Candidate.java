@@ -19,7 +19,7 @@ import fr.umlv.ir3.emagine.util.Person;
  * @persistence Reste le Enum et créer une table d'assocication cf.Todo
  */
 @Entity(access = AccessType.FIELD)
-@Inheritance(strategy=InheritanceType.JOINED)
+//@Inheritance(strategy=InheritanceType.JOINED)
 public class Candidate extends Person {
 
 	/**

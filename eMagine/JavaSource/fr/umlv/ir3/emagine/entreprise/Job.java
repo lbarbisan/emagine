@@ -15,7 +15,7 @@ public class Job extends BaseEntity {
 	private static final long serialVersionUID = 7997162235010277048L;
 
 	@ManyToOne(cascade= {CascadeType.PERSIST,CascadeType.MERGE})
-	@JoinColumn(name = "jobs_id")
+	@JoinColumn(name = "entreprise_id")
 	private Entreprise entreprise;
 	
 	private DieEnum cursus;

@@ -40,10 +40,10 @@ public class Student extends Candidate {
 	private List<Schooling> schooling;*/
 	
 	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-	@JoinColumn(name="teachingtutor_fk")
+	@JoinColumn(name="teachingtutor_id")
 	private TeacherTutor teachingTutor; 
 	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-	@JoinColumn(name="engineertutor_fk")
+	@JoinColumn(name="engineertutor_id")
 	private EngineerTutor engineerTutor;
 	private Entreprise entreprise;
 	

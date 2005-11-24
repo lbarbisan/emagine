@@ -13,7 +13,7 @@ import javax.persistence.Embeddable;
  * @Persitence Reste les enum
  */
 @Embeddable(access = AccessType.FIELD)
-public class Address extends BaseEntity {
+public class Address {
 
 	/**
 	 * 
