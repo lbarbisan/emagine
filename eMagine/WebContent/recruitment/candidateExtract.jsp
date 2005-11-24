@@ -4,9 +4,7 @@
 	<p><label for="type">Type&nbsp;</label><input type="radio" name="type" value="csv" checked>csv<input type="radio" name="type" value="xls">xls</p>
 	<br/>
 	<fieldset>
-		<legend>Etat&nbsp;civil</legend>
-			<h5>Identification</h5>
-			<h2>&nbsp;</h2>
+		<legend>Identification</legend>
 				<p><label for="name">Nom&nbsp;</label>
 				<input type="checkbox" value="ON" name="name" /></p>
 				<p><label for="firstName">Pr&eacute;nom&nbsp;</label>

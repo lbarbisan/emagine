@@ -75,7 +75,7 @@
 		<action path="/actorEventDetail" forward="company.actorEventDetail" />
 		<action path="/actorExtract" forward="company.actorExtract" />
 		<action path="/companyExtract" forward="company.companyExtract" />
-		<action path="/companyExtract" forward="company.companyEventExtract" />
+		<action path="/companyEventExtract" forward="company.companyEventExtract" />
 		<action path="/actorExtract" forward="company.actorEventExtract" />
 		
 		<!-- recruitment -->
@@ -111,7 +111,12 @@
 
 		<!-- administration -->
 		<action path="/userSearch" forward="administration.userSearch" />
-		<action path="/userCreate" 
+		<action path="/userCreate" forward="administration.userCreate" />
+		<action path="/profilCreate" forward="administration.profilCreate" />
+		<action path="/profilList" forward="administration.profilList" />
+		<action path="/profilDetail" forward="administration.profilDetail" />
+		<action path="/userDetail" forward="administration.userDetail" />
+		<!-- <action path="/userCreate" 
 			type="fr.umlv.ir3.emagine.user.UserModifyAction"
 			name="userInformationForm" parameter="dispatchAction"
 			scope="session">
@@ -133,7 +138,7 @@
 			name="userInformationForm" scope="session">
 			<forward name="success"
 				path="/administration/userInformation.jsp" />
-		</action>
+		</action> -->
 	</action-mappings>
 
 	<!-- ========== Request Processor Declaration =================== -->

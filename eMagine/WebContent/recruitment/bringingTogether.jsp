@@ -38,6 +38,6 @@
 	</ul>
 	<h2>&nbsp;</h2>
 	<ul>
-		<li><a href="#"><img src="/eMagine/common/images/icones/extraire.png" alt="Extraire les entreprises"/></a></li>
+		<li><html:link action="/companyExtract"><img src="/eMagine/common/images/icones/extraire.png" alt="Extraire les entreprises"/></html:link></li>
 	</ul>
 </div>

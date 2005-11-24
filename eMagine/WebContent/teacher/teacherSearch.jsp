@@ -44,7 +44,7 @@
 			</ul>
 	<h2>&nbsp;</h2>
 	<ul>
-		<li><a href="#"><img src="/eMagine/common/images/icones/ajouter.png" alt="Ajouter un pupille"/></a> </li>
+		<li><html:link action="/teacherExtract"><img src="/eMagine/common/images/icones/extraire.png" alt="Extraire les enseignants"/></html:link></li>
 	</ul>
 	</form>
 </div>

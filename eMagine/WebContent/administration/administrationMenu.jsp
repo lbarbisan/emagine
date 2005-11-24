@@ -1,7 +1,8 @@
-<h2>Entreprise</h2>
+<%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
+<h2>Administration</h2>
 <ul>
-	<li><a href="#">Rechercher&nbsp;des&nbsp;utilisateurs</a></li>
-	<li><a href="#">Créer&nbsp;un&nbsp;utilisateur</a></li>
-	<li><a href="#">Lister&nbsp;les&nbsp;profils</a></li>
-	<li><a href="#">Créer&nbsp;un&nbsp;profil</a></li>
+	<li><html:link action="/userSearch">Rechercher&nbsp;des&nbsp;utilisateurs</html:link></li>
+	<li><html:link action="/userCreate">Créer&nbsp;un&nbsp;utilisateur</html:link></li>
+	<li><html:link action="/profilList">Lister&nbsp;les&nbsp;profils</html:link></li>
+	<li><html:link action="/profilCreate">Créer&nbsp;un&nbsp;profil</html:link></li>
 </ul>

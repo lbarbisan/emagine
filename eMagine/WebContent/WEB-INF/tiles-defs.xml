@@ -278,5 +278,28 @@
 	<definition name="mail.mailingListVisu" extends="mail">
 		<put name="body" value="/mail/mailingListVisu.jsp" />
 	</definition>
-
+	
+	<!-- Company -->
+	<definition name="administration" extends="mainLayout">
+		<put name="subMenu" value="/administration/administrationMenu.jsp" />
+	</definition>
+	<definition name="administration.userCreate" extends="administration">
+		<put name="body" value="/administration/userCreate.jsp" />
+	</definition>
+	<definition name="administration.profilCreate" extends="administration">
+		<put name="body" value="/administration/profilCreate.jsp" />
+	</definition>
+	<definition name="administration.profilList" extends="administration">
+		<put name="body" value="/administration/profilList.jsp" />
+	</definition>
+	<definition name="administration.profilDetail" extends="administration">
+		<put name="body" value="/administration/profilDetail.jsp" />
+	</definition>
+	<definition name="administration.userDetail" extends="administration">
+		<put name="body" value="/administration/userDetail.jsp" />
+	</definition>
+	<definition name="administration.userSearch" extends="administration">
+		<put name="body" value="/administration/userSearch.jsp" />
+	</definition>
+	
 </tiles-definitions>
