@@ -37,7 +37,7 @@
 <div align=center>
 	<div id="statSearch">
 		<p><label for="result">R&eacute;sultats&nbsp;</label><input type="text" id="result" size="5"/>&nbsp;&nbsp;&nbsp;
-		<label for="pageNb">Nb. par page </label><input type="text" id="pageNb" size="5" /></p>
+		<label for="pageNb">Nb.&nbsp;par&nbsp;page&nbsp;</label><input type="text" id="pageNb" size="5" /></p>
 	</div>
 	<form name="results">
 		<table cellpadding="0" cellspacing="0">
@@ -75,8 +75,8 @@
 			<li><a href="#"><img src="/eMagine/common/images/icones/passage.png" title="Faire passer un apprenti"/></a></li>
 			<li><a href="#"><img src="/eMagine/common/images/icones/virer.png" title="Exclure un apprenti"/></a></li>
 			<li><html:link action="/studentMailingListCreate"><img src="/eMagine/common/images/icones/creer_mailing_list.png" title="Créer une maling list"/></html:link></li>
-			<li><a href="#"><img src="/eMagine/common/images/icones/mailing.png" title="Effecter un mailing"/></a></li>
-			<li><a href="#"><img src="/eMagine/common/images/icones/publipostage.png" title="Effecter un publipostage"/></a></li>
+			<li><html:link action="/studentEmailDo"><img src="/eMagine/common/images/icones/mailing.png" title="Effectuer un mailing"/></html:link></li>
+			<li><html:link action="/studentMailDo"><img src="/eMagine/common/images/icones/publipostage.png" title="Effectuer un publipostage"/></html:link></li>
 			<li><html:link action="/studentExtract"><img src="/eMagine/common/images/icones/extraire.png" title="Extraire un apprenti"/></html:link></li>
 		</ul>
 	</form>

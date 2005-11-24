@@ -40,9 +40,10 @@
 	<ul>
 		<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" alt="Supprimer un acteur"/></a></li>
 		<li><html:link action="/actorMailingListCreate"><img src="/eMagine/common/images/icones/creer_mailing_list.png" alt="Cr&eacute;er une maling list"/></html:link></li>
-		<li><a href="#"><img src="/eMagine/common/images/icones/mailing.png" alt="Effecter un mailing"/></a></li>
-		<li><a href="#"><img src="/eMagine/common/images/icones/publipostage.png" alt="Effecter un publipostage"/></a></li>
+		<li><html:link action="/actorEmailDo"><img src="/eMagine/common/images/icones/mailing.png" title="Effectuer un mailing"/></html:link></li>
+		<li><html:link action="/actorMailDo"><img src="/eMagine/common/images/icones/publipostage.png" title="Effectuer un publipostage"/></html:link></li>
 		<li><html:link action="/companyExtract"><img src="/eMagine/common/images/icones/extraire.png" alt="Extraire une liste d'acteurs"/></html:link></li>
 		<li><a href="#"><img src="/eMagine/common/images/icones/ajouter.png" alt="Ajouter un acteur"/></a></li>
 	</ul>
+	</form>
 </div>

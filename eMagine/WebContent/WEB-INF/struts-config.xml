@@ -45,6 +45,8 @@
 		<action path="/studentEventExtract" forward="student.studentEventExtract" />
 		<action path="/studentAskUpdateAdress" forward="student.studentAskUpdateAdress" />
 		<action path="/studentMailingListCreate" forward="student.studentMailingListCreate" />		
+		<action path="/studentEmailDo" forward="student.studentEmailDo" />		
+		<action path="/studentMailDo" forward="student.studentMailDo" />		
 		
 		<!-- teacher -->
 		<action path="/teacherSearch" forward="teacher.teacherSearch" />
@@ -57,6 +59,8 @@
 		<action path="/teacherExtract" forward="teacher.teacherExtract" />
 		<action path="/teacherEventExtract" forward="teacher.teacherEventExtract" />
 		<action path="/teacherMailingListCreate" forward="teacher.teacherMailingListCreate" />		
+		<action path="/teacherEmailDo" forward="teacher.teacherEmailDo" />		
+		<action path="/teacherMailDo" forward="teacher.teacherMailDo" />		
 		
 		<!-- company -->
 		<action path="/companySearch" forward="company.companySearch" />
@@ -80,6 +84,8 @@
 		<action path="/companyEventExtract" forward="company.companyEventExtract" />
 		<action path="/actorExtract" forward="company.actorEventExtract" />
 		<action path="/actorMailingListCreate" forward="company.actorMailingListCreate" />		
+		<action path="/actorEmailDo" forward="company.actorEmailDo" />		
+		<action path="/actorMailDo" forward="company.actorMailDo" />		
 		
 		<!-- recruitment -->
 		<action path="/candidateSearch" forward="recruitment.candidateSearch" />
@@ -97,6 +103,8 @@
 		<action path="/candidateEventExtract" forward="recruitment.candidateEventExtract" />
 		<action path="/bringingTogetherExtract" forward="recruitment.bringingTogetherExtract" />
 		<action path="/candidateMailingListCreate" forward="recruitment.candidateMailingListCreate" />		
+		<action path="/candidateEmailDo" forward="recruitment.candidateEmailDo" />		
+		<action path="/candidateMailDo" forward="recruitment.candidateMailDo" />		
 		
 		<!-- mail -->
 		<action path="/emailDo" forward="mail.emailDo" />

@@ -47,7 +47,6 @@
 			<td>93</td>
 		</tr>
 	</table>
-	</form>
 </div>
 <!-- Les actions propres a la selection -->
 <div id="actions">
@@ -56,12 +55,9 @@
 				<li><a href="#all_none" onclick="checkAll('results','all_none');">Tous</a> / </li>
 				<li><a href="#all_none" onclick="checkNothing('results','all_none');">Aucun</a> </li>
 			</ul>
-			<h2>&nbsp;</h2>
-		<li><a href="#"><img src="/eMagine/common/images/icones/ajouter.png" alt="Ajouter un apprenti"/></a></li>
-		<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" alt="Supprimer un apprenti"/></a></li>
-		<li><a href="#"><img src="/eMagine/common/images/icones/creer_mailing_list.png" alt="Cr&eacute;er une maling list"/></a></li>
-		<li><a href="#"><img src="/eMagine/common/images/icones/mailing.png" alt="Effecter un mailing"/></a></li>
-		<li><a href="#"><img src="/eMagine/common/images/icones/publipostage.png" alt="Effecter un publipostage"/></a></li>
+		<h2>&nbsp;</h2>
+		<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" alt="Supprimer une entreprise"/></a></li>
 		<li><html:link action="/companyExtract"><img src="/eMagine/common/images/icones/extraire.png" alt="Extraire une entreprise"/></html:link></li>
 	</ul>
+	</form>
 </div>

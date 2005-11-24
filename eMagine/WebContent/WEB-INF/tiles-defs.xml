@@ -91,6 +91,12 @@
 	<definition name="student.studentMailingListCreate" extends="student">
 		<put name="body" value="/student/studentMailingListCreate.jsp" />
 	</definition>
+	<definition name="student.studentEmailDo" extends="student">
+		<put name="body" value="/student/studentEmailDo.jsp" />
+	</definition>
+	<definition name="student.studentMailDo" extends="student">
+		<put name="body" value="/student/studentMailDo.jsp" />
+	</definition>
 
 	<!-- Teacher -->
 	<definition name="teacher" extends="mainLayout">
@@ -125,6 +131,12 @@
 	</definition>
 	<definition name="teacher.teacherMailingListCreate" extends="teacher">
 		<put name="body" value="/teacher/teacherMailingListCreate.jsp" />
+	</definition>
+	<definition name="teacher.teacherEmailDo" extends="teacher">
+		<put name="body" value="/teacher/teacherEmailDo.jsp" />
+	</definition>
+	<definition name="teacher.teacherMailDo" extends="teacher">
+		<put name="body" value="/teacher/teacherMailDo.jsp" />
 	</definition>
 	
 	<!-- Statistics -->
@@ -196,6 +208,13 @@
 	<definition name="recruitment.candidateMailingListCreate" extends="recruitment">
 		<put name="body" value="/recruitment/candidateMailingListCreate.jsp" />
 	</definition>
+	<definition name="recruitment.candidateEmailDo" extends="recruitment">
+		<put name="body" value="/recruitment/candidateEmailDo.jsp" />
+	</definition>
+	<definition name="recruitment.candidateMailDo" extends="recruitment">
+		<put name="body" value="/recruitment/candidateMailDo.jsp" />
+	</definition>
+
 	
 	<!-- Company -->
 	<definition name="company" extends="mainLayout">
@@ -261,6 +280,13 @@
 	<definition name="company.actorMailingListCreate" extends="company">
 		<put name="body" value="/company/actorMailingListCreate.jsp" />
 	</definition>
+	<definition name="company.actorEmailDo" extends="company">
+		<put name="body" value="/company/actorEmailDo.jsp" />
+	</definition>
+	<definition name="company.actorMailDo" extends="company">
+		<put name="body" value="/company/actorMailDo.jsp" />
+	</definition>
+
 		
 	<!-- mail -->
 	<definition name="mail" extends="mainLayout">
