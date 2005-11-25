@@ -1,5 +1,4 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
-<br/>
 <h2>Cr&eacute;er&nbsp;un&nbsp;poste</h2>
 <div class="form">
 	<p>
@@ -16,6 +15,6 @@
 <div id="actions">
 	<h2>&nbsp;</h2>
 	<ul>
-		<li><a href="#"><input type="submit" value="Créer" alt="Créer le poste"/></a></li>
+		<li><a href="#"><input type="submit" value="Créer"/></a></li>
 	</ul>
 </div>

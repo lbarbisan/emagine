@@ -1,4 +1,4 @@
-<h2>Cr&eacute;ation&nbsp;de&nbsp;candidat</h2>
+<h2>Cr&eacute;er&nbsp;un&nbsp;candidat</h2>
 <br/>
 <div class="form">
 	<fieldset>
@@ -103,3 +103,4 @@
 		<li><a href="#"><img src="/eMagine/common/images/icones/ajouter.png" alt="Créer"/></a> </li>
 	</ul>
 </div>
+<div align="right"><font color="red" size="1">Les&nbsp;champs&nbsp;marqu&eacute;s&nbsp;d'une&nbsp;*&nbsp;sont&nbsp;obligatoires</font></div>

@@ -7,9 +7,10 @@
 	<p><label for="nbAvailable">Nb.&nbsp;disponibles&nbsp;</label><input type="text" id="nbAvailable" size="20" /></p>
 </div>
 <div id="actions">
+	<h2>&nbsp;</h2>
 	<ul>
 		<li><a href="#"><input type="button" value="Modifier"/></a></li>
 		<li><a href="#"><input type="button" value="Supprimer"/></a></li>
 	</ul>
 </div>
-<br/>
+<div align="right"><font color="red" size="1">Les&nbsp;champs&nbsp;marqu&eacute;s&nbsp;d'une&nbsp;*&nbsp;sont&nbsp;obligatoires</font></div>

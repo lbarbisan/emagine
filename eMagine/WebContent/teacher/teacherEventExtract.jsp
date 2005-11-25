@@ -1,4 +1,4 @@
-<h2>Effectuer&nbsp;une&nbsp;extraction</h2>
+<h2>Effectuer&nbsp;une&nbsp;extraction&nbsp;d'&eacute;v&eacute;nement</h2>
 <br/>
 <div class="form">
 	<p><label for="type">Type&nbsp;</label><input type="radio" name="type" value="csv" checked>csv<input type="radio" name="type" value="xls">xls</p>
@@ -12,7 +12,8 @@
 		<input type="checkbox" value="ON" name="descritpion" /></p>
 	</fieldset>
 </div>
-<div id="actions" align="center">
+<div id="actions">
+	<h2>&nbsp;</h2>
 	<ul>
 		<li><a href="#"><input type="button" value="Sauvegarder"/></a></li>
 		<li><a href="#"><input type="button" value="Générer"/></a></li>

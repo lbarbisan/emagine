@@ -1,5 +1,5 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
-<h2>Liste&nbsp;des&nbsp;centres&nbsp;d'examens</h2>
+<h2>Visualiser&nbsp;les&nbsp;centres&nbsp;d'examens</h2>
 <br/>
 <div align=center>
 	<table cellpadding="0" cellspacing="0">

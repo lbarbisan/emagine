@@ -1,9 +1,9 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <br/>
-<h2>Cr&eacute;er&nbsp;un&nbsp;poste</h2>
+<h2>Visualiser&nbsp;un&nbsp;poste</h2>
 <div class="form">
 	<p>
-		<label for="die">Fili&egrave;re </label>
+		<label for="die">Fili&egrave;re&nbsp;</label>
 		<select name="die">
 			<!-- à mettre en base -->
 			<option value="all" selected="selected">Toutes</option>

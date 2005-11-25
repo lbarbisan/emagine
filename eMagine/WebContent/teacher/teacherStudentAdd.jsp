@@ -1,4 +1,5 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
+<form name="results">
 <h2>Rechercher&nbsp;un&nbsp;pupille</h2>
 	<br/>
 	<div align="center">
@@ -58,14 +59,14 @@
 			<th>Ann&eacute;e</th>
 		</tr>
 		<tr>
-			<td><input type="checkbox" value="ON" /></td>
+			<td><input type="checkbox" name="all_none" value="ON" /></td>
 			<td><html:link action="/studentOnglet">Barbisan</html:link></td>
 			<td>Laurent</td>
 			<td>IR</td>
 			<td>3</td>
 		</tr>
 		<tr>
-			<td><input type="checkbox" value="ON" /></td>
+			<td><input type="checkbox" name="all_none" value="ON" /></td>
 			<td><html:link action="/studentOnglet">Ogier</html:link></td>
 			<td>Anthony</td>
 			<td>IR</td>
@@ -77,7 +78,7 @@
 	<div id="actions">
 		<ul>
 			<li><a href="javascript:checkAll('results','all_none');">Tous</a>&nbsp;&nbsp;/</li>
-			<li><a href="javascript:checkNothing('results','all_none');">Aucun</a> </li>
+			<li><a href="javascript:checkNothing('results','all_none');">Aucun</a></li>
 		</ul>
 		<h2>&nbsp;</h2>	
 		<ul>

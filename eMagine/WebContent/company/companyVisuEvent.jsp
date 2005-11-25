@@ -69,7 +69,7 @@
 		<h2>&nbsp;</h2>
 		<ul>
 			<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" alt="supprimer un événement"/></a></li>
-			<li><html:link action="/studentEventExtract"><img src="/eMagine/common/images/icones/extraire.png" alt="Extraire un événement"/></html:link></li>
+			<li><html:link action="/companyEventExtract"><img src="/eMagine/common/images/icones/extraire.png" alt="Extraire un événement"/></html:link></li>
 		</ul>
 	</div>
 </form>

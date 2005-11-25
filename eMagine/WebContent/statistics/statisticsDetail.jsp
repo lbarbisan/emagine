@@ -1,6 +1,6 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
+<h2>Visualiser&nbsp;le&nbsp;d&eacute;tail&nbsp;d'une&nbsp;statistique</h2>
 <br/>
-<h2>Modifier&nbsp;une&nbsp;statistique</h2>
 <div class="form">
 	<p><label for="name">Nom&nbsp;<font color="red">*</font>&nbsp;</label>
 		<input type="text" id="name" size="20" /> 
@@ -20,6 +20,7 @@
 <div id="actions">
 	<h2>&nbsp;</h2>
 	<ul>
-		<li><a href="#"><input type="submit" value="Modifier" alt="Modifier la statistique"/></a></li>
+		<li><a href="#"><input type="submit" value="Modifier" title="Modifier la statistique"/></a></li>
 	</ul>
 </div>
+<div align="right"><font color="red" size="1">Les&nbsp;champs&nbsp;marqu&eacute;s&nbsp;d'une&nbsp;*&nbsp;sont&nbsp;obligatoires</font></div>

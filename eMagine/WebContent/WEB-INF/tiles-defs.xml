@@ -150,9 +150,9 @@
 		extends="statistics">
 		<put name="body" value="/statistics/statisticsCreate.jsp" />
 	</definition>
-	<definition name="statistics.statisticsModif"
+	<definition name="statistics.statisticsDetail"
 		extends="statistics">
-		<put name="body" value="/statistics/statisticsModif.jsp" />
+		<put name="body" value="/statistics/statisticsDetail.jsp" />
 	</definition>
 	
 	<!-- Recruitment -->
@@ -184,8 +184,8 @@
 	<definition name="recruitment.roomAdd" extends="recruitment">
 		<put name="body" value="/recruitment/roomAdd.jsp" />
 	</definition>
-	<definition name="recruitment.roomModif" extends="recruitment">
-		<put name="body" value="/recruitment/roomModif.jsp" />
+	<definition name="recruitment.roomDetail" extends="recruitment">
+		<put name="body" value="/recruitment/roomDetail.jsp" />
 	</definition>
 	<definition name="recruitment.bringingTogether" extends="recruitment">
 		<put name="body" value="/recruitment/bringingTogether.jsp" />
@@ -250,8 +250,8 @@
 	<definition name="company.postCreate" extends="company">
 		<put name="body" value="/company/postCreate.jsp" />
 	</definition>
-	<definition name="company.postVisu" extends="company">
-		<put name="body" value="/company/posteVisu.jsp" />
+	<definition name="company.postDetail" extends="company">
+		<put name="body" value="/company/postDetail.jsp" />
 	</definition>
 	<definition name="company.companyVisuEvent" extends="company">
 		<put name="body" value="/company/companyVisuEvent.jsp" />
@@ -301,8 +301,8 @@
 	<definition name="mail.mailDo" extends="mail">
 		<put name="body" value="/mail/mailDo.jsp" />
 	</definition>
-	<definition name="mail.mailingListUpdate" extends="mail">
-		<put name="body" value="/mail/mailingListUpdate.jsp" />
+	<definition name="mail.mailingListDetail" extends="mail">
+		<put name="body" value="/mail/mailingListDetail.jsp" />
 	</definition>
 	<definition name="mail.mailTypeUpdate" extends="mail">
 		<put name="body" value="/mail/mailTypeUpdate.jsp" />

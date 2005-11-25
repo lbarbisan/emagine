@@ -1,4 +1,5 @@
 <!-- Un formulaire de modification -->
+<h2>Cr&eacute;er&nbsp;une&nbsp;entreprise</h2>
 <div class="form">
 	<br/>
 	<fieldset>

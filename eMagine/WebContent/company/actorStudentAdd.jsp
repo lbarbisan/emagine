@@ -11,7 +11,7 @@
 					</p>
 					<p>
 						<label for="firstName">Pr&eacute;nom </label>
-						<input type="text" id="firstName" size="20" /> 
+						<input type="text" id="firstName" size="20" />
 					</p>
 				</div>
 				<div class="search_b2">

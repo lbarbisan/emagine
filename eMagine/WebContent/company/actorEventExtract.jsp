@@ -1,4 +1,4 @@
-<h2>Effectuer&nbsp;une&nbsp;extraction</h2>
+<h2>Effectuer&nbsp;une&nbsp;extraction&nbsp;d'acteurs</h2>
 <br/>
 <div class="form">
 	<p><label for="type">Type&nbsp;</label><input type="radio" name="type" value="csv" checked>csv<input type="radio" name="type" value="xls">xls</p>

@@ -73,7 +73,7 @@
 		<action path="/companyVisuPost" forward="company.companyVisuPost" />
 		<action path="/companyOnglet" forward="company.companyOnglet" />
 		<action path="/postCreate" forward="company.postCreate" />
-		<action path="/postVisu" forward="company.postVisu" />
+		<action path="/postDetail" forward="company.postDetail" />
 		<action path="/actorCreate" forward="company.actorCreate" />
 		<action path="/companyVisuEvent" forward="company.companyVisuEvent" />
 		<action path="/companyEventDetail" forward="company.companyEventDetail" />
@@ -95,7 +95,7 @@
 		<action path="/candidateVisuInfo" forward="recruitment.candidateVisuInfo" />
 		<action path="/centerDetail" forward="recruitment.centerDetail" />
 		<action path="/centerList" forward="recruitment.centerList" />
-		<action path="/roomModif" forward="recruitment.roomModif" />
+		<action path="/roomDetail" forward="recruitment.roomDetail" />
 		<action path="/roomAdd" forward="recruitment.roomAdd" />
 		<action path="/bringingTogether" forward="recruitment.bringingTogether" />
 		<action path="/candidateVisuEvent" forward="recruitment.candidateVisuEvent" />
@@ -110,8 +110,8 @@
 		<!-- mail -->
 		<action path="/emailDo" forward="mail.emailDo" />
 		<action path="/mailDo" forward="mail.mailDo" />
-		<action path="/mailTypeUpdate" forward="mail.mailTypeUpdate" />
-		<action path="/mailingListUpdate" forward="mail.mailingListUpdate" />
+		<action path="/mailTypeDetail" forward="mail.mailTypeDetail" />
+		<action path="/mailingListDetail" forward="mail.mailingListDetail" />
 		<action path="/mailTypeVisu" forward="mail.mailTypeVisu" />
 		<action path="/mailTypeCreate" forward="mail.mailTypeCreate" />
 		<action path="/mailingListVisu" forward="mail.mailingListVisu" />
@@ -119,7 +119,7 @@
 		<!-- statistic -->
 		<action path="/statisticsCreate" forward="statistics.statisticsCreate" />
 		<action path="/statisticsVisu" forward="statistics.statisticsVisu" />
-		<action path="/statisticsModif" forward="statistics.statisticsModif" />
+		<action path="/statisticsDetail" forward="statistics.statisticsDetail" />
 
 		<!-- administration -->
 		<action path="/userSearch" forward="administration.userSearch" />

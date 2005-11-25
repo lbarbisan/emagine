@@ -1,5 +1,4 @@
 <h2>Visualiser&nbsp;une&nbsp;demande&nbsp;de&nbsp;modification</h2>
-<br/>
 <form name="results">
 	<div class="form">
 		<br/>
@@ -62,6 +61,14 @@
 			<p><label for="acaEmail">E-mail&nbsp;<font color="red">*</font>&nbsp;</label><input type="text" id="acaEmail" size="20" /></p>
 		</fieldset>
 		<br/>
+	</div>
+		<div id="actions">
+		<h2>&nbsp;</h2>
+		<ul>
+			<li><a href="#"><input type="submit" value="Accepter"></a></li>
+			<li><a href="#"><input type="submit" value="Accepter partiellement"></a></li>
+			<li><a href="#"><input type="submit" value="Refuser"></a></li>
+		</ul>
 	</div>
 </form>
 <div align="right"><font color="red" size="1">Les&nbsp;champs&nbsp;marqu&eacute;s&nbsp;d'une&nbsp;*&nbsp;sont&nbsp;obligatoires</font></div>

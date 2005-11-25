@@ -1,3 +1,4 @@
+<h2>Cr&eacute;er&nbsp;un&nbsp;enseignant</h2>
 <div class="form">
 	<br/>
 	<p><label for="name">Nom&nbsp;<font color="red">*</font> </label><input type="text" id="name" size="20" /></p>
@@ -18,9 +19,11 @@
 	<p><label for="email">E-mail&nbsp;<font color="red">*</font> </label><input type="text" id="email" size="20" /></p>
 	<br/>
 	<div id="actions">
+	<h2>&nbsp;</h2>
 	<ul>
-		<li><a href="#"><input type="button" value="Créer"/></a></li>
+		<li><a href="#"><img src="/eMagine/common/images/icones/ajouter.png" alt="Ajouter l'enseignant"/></a></li>
 	</ul>
 </div>
+<div align="right"><font color="red" size="1">Les&nbsp;champs&nbsp;marqu&eacute;s&nbsp;d'une&nbsp;*&nbsp;sont&nbsp;obligatoires</font></div>
 
 	

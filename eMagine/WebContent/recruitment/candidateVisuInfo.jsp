@@ -96,3 +96,4 @@
 	</fieldset>
 	<br/>
 </div>
+<div align="right"><font color="red" size="1">Les&nbsp;champs&nbsp;marqu&eacute;s&nbsp;d'une&nbsp;*&nbsp;sont&nbsp;obligatoires</font></div>
