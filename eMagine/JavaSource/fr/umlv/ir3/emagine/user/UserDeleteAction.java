@@ -13,6 +13,7 @@ import org.apache.struts.action.ActionMessages;
 import fr.umlv.ir3.emagine.util.BaseAction;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
+import fr.umlv.ir3.emagine.util.EntityManager;
 
 public class UserDeleteAction extends BaseAction {
 
@@ -23,7 +24,6 @@ public class UserDeleteAction extends BaseAction {
 	 */
 	public ActionForward deleteUsers(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionMessages errors = new ActionMessages();
-		UserDAO userDAO = DAOManager.getInstance().getUserDAO();
 		
 		// Retrieve the collection of users to delete
 		UserSearchForm userSearchForm = (UserSearchForm) form;
@@ -32,13 +32,10 @@ public class UserDeleteAction extends BaseAction {
 		// Delete the users
 		DAOManager.beginTransaction();
 		try {
-			userDAO.deleteUsers(users);
-			DAOManager.commitTransaction();
+			EntityManager.getInstance().getUserManager().deleteUsers(users, false);	// TODO : gérer le switch de forçage de suppression
 		} catch (EMagineException exception) {
 			// save the error
 			addEMagineExceptionError(errors, exception);
-			// and rollback the transaction
-			DAOManager.rollBackTransaction();
 		}
 
         // Report back any errors, and exit if any

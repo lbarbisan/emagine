@@ -12,12 +12,6 @@ public class UserDAO extends BaseDAO<User> {
 	public User retrieve(long id) {
 	  	return (User) HibernateUtils.getSession().load(User.class, id);
 	}
-	
-	@Override
-	public void create(User object) throws EMagineException {
-		// TODO UserDAO.create() : Mail
-		super.create(object);
-	}
 
 	public List<User> getUsers(UserSearchParam userSearchParam) throws EMagineException {
 		// TODO HibernateUserDAO.getUsers()

@@ -27,6 +27,8 @@ public class UserSearchAction extends SearchAction {
 		UserSearchForm userSearchForm = (UserSearchForm)form;
 		DAOManager manager = DAOManager.getInstance();
 
+		// FIXME : pour les searchs et getAll, voir comment les mettre dans le UserManager (les mettre ?)
+		
 		// Retrieve all profiles and set them in the form
 		ProfileDAO profileDAO = manager.getProfileDAO();
 		try {
