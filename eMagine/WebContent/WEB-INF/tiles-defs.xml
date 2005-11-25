@@ -286,6 +286,9 @@
 	<definition name="company.actorMailDo" extends="company">
 		<put name="body" value="/company/actorMailDo.jsp" />
 	</definition>
+	<definition name="company.actorOnglet" extends="company">
+		<put name="body" value="/company/actorOnglet.jsp" />
+	</definition>
 
 		
 	<!-- mail -->

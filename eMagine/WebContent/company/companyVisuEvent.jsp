@@ -1,6 +1,7 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
+<form name="results">
+<h2>Rechercher&nbsp;un&nbsp;&eacute;v&eacute;nement</h2>
 <br/>
-<h2>Recherche d'&eacute;v&eacute;nement</h2>
 <div align="center">
 	<div class="search">
 		<fieldset>
@@ -27,22 +28,18 @@
 				</p>
 			</div>
 		</fieldset>
-			</div>
-		<br/>
-		<input type="button" value="Rechercher"/>
+	</div>
+	<br/>
+	<input type="button" value="Rechercher"/>
 </div>	
 <br/>
-<h2>Ev&eacute;nements</h2> 
+<h3>R&eacute;sultats</h3>
 <div align=center>
 	<div id="statSearch">
-		<p>
-			<label for="result">R&eacute;sulats </label> <input type="text" id="result" size="5" />&nbsp;&nbsp;&nbsp;
-			<label for="pageNb">Nombre par page </label><input type="text" id="pageNb" size="5" /> 
-		</p>
+		<p><label for="result">R&eacute;sultats&nbsp;</label><input type="text" id="result" size="5"/>&nbsp;&nbsp;&nbsp;
+		<label for="pageNb">Nb.&nbsp;par&nbsp;page&nbsp;</label><input type="text" id="pageNb" size="5" /></p>
 	</div>
-	<form name="results"><br/>
-	<!-- Un tableau de resultats -->
-	<table cellpadding="0" cellspacing="0">
+		<table cellpadding="0" cellspacing="0">
 		<tr>
 			<th>&nbsp;</th>
 			<th>Date</th>
@@ -51,29 +48,28 @@
 		</tr>
 		<tr>
 			<td><input type="checkbox" value="ON"  name="all_none"/></td>
-			<td><html:link action="/companyEventDetail">12.10.2005</html:link></td>
+			<td><html:link action="/studentEventDetail">12.10.2005</html:link></td>
 			<td>envoi mail</td>
 			<td>pour les jpo</td>
 		</tr>
 		<tr>
 			<td><input type="checkbox" value="ON"  name="all_none"/></td>
-			<td><html:link action="/companyEventDetail">13.10.2005</html:link></td>
+			<td><html:link action="/studentEventDetail">13.10.2005</html:link></td>
 			<td>tutelle</td>
 			<td>changement&nbsp;de&nbsp;tuteur&nbsp;enseignant</td>
 		</tr>
 	</table>
 	</div>
-	<!-- Les actions propres a la selection -->
+	<br/>
 	<div id="actions">
-		<a name="all_none" />
 		<ul>
-			<li><a href="#all_none" onclick="checkAll('results','all_none');">Tous</a> / </li>
-			<li><a href="#all_none" onclick="checkNothing('results','all_none');">Aucun</a> </li>
-		</ul>		
+			<li><a href="javascript:checkAll('results','all_none');">Tous</a>&nbsp;&nbsp;/</li>
+			<li><a href="javascript:checkNothing('results','all_none');">Aucun</a> </li>
+		</ul>
 		<h2>&nbsp;</h2>
 		<ul>
 			<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" alt="supprimer un événement"/></a></li>
-			<li><html:link action="/companyExtract"><img src="/eMagine/common/images/icones/extraire.png" alt="Extraire un événement"/></html:link></li>
+			<li><html:link action="/studentEventExtract"><img src="/eMagine/common/images/icones/extraire.png" alt="Extraire un événement"/></html:link></li>
 		</ul>
-	</form>
-
+	</div>
+</form>

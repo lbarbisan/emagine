@@ -82,10 +82,11 @@
 		<action path="/actorExtract" forward="company.actorExtract" />
 		<action path="/companyExtract" forward="company.companyExtract" />
 		<action path="/companyEventExtract" forward="company.companyEventExtract" />
-		<action path="/actorExtract" forward="company.actorEventExtract" />
+		<action path="/actorEventExtract" forward="company.actorEventExtract" />
 		<action path="/actorMailingListCreate" forward="company.actorMailingListCreate" />		
 		<action path="/actorEmailDo" forward="company.actorEmailDo" />		
 		<action path="/actorMailDo" forward="company.actorMailDo" />		
+		<action path="/actorOnglet" forward="company.actorOnglet" />		
 		
 		<!-- recruitment -->
 		<action path="/candidateSearch" forward="recruitment.candidateSearch" />

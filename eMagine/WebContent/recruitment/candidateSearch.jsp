@@ -7,8 +7,7 @@
 		<div class="search_b1">
 			<p><label for="name">Nom </label><input type="text" id="name" size="20" />  </p>
 			<p><label for="firstName">Pr&eacute;nom </label> <input type="text" id="firstName" size="20" /> </p>
-		</div>
-		
+		</div>		
 		<div class="search_b2">
 		<p>
 		<label for="die">Fili&egrave;re&nbsp;demand&eacute;e&nbsp;</label>
@@ -35,7 +34,7 @@
 		<br/>
 		<input type="button" value="Rechercher"/>
 </div>
-<h2>R&eacute;sultats </h2>
+<h3>R&eacute;sultats </h3>
 <div align=center>
 	<div id="statSearch">
 	<p>
@@ -79,13 +78,12 @@
 </table>
 </div>
 <!-- Les actions propres a la selection -->
-<div id="actions">
-		<a name="all_none" />
-			<ul>
-				<li><a href="#all_none" onclick="checkAll('results','all_none');">Tous</a> / </li>
-				<li><a href="#all_none" onclick="checkNothing('results','all_none');">Aucun</a> </li>
-			</ul>
-			<h2>&nbsp;</h2>
+	<div id="actions">
+		<ul>
+			<li><a href="javascript:checkAll('results','all_none');">Tous</a>&nbsp;&nbsp;/</li>
+			<li><a href="javascript:checkNothing('results','all_none');">Aucun</a> </li>
+		</ul>
+		<h2>&nbsp;</h2>
 	<ul>
 		<li><a href="#"><img src="/eMagine/common/images/icones/passage.png" alt="passer le candidat en apprenti"/></a></li>
 		<li><a href="#"><img src="/eMagine/common/images/icones/virer.png" alt="Supprimer le candidat"/></a></li>
