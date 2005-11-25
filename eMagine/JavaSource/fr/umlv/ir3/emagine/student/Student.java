@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.AccessType;
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -37,9 +40,21 @@ public class Student extends Candidate {
 	@JoinColumn(name="entreprise_id")
 	private Entreprise entreprise;
 
-	@Embedded
+	@Embedded()
+	@AttributeOverrides( {
+        @AttributeOverride(name="department", column = @Column(name="professionaldepartment")),
+        @AttributeOverride(name="country", column = @Column(name="professionalcountry")),
+        @AttributeOverride(name="street", column = @Column(name="professionalstreet")),
+        @AttributeOverride(name="postalCode", column = @Column(name="professionalpostalCode")),
+        @AttributeOverride(name="city", column = @Column(name="professionalcity"))})
 	private Address addressProfessional;
-	@Embedded
+	@AttributeOverrides( {
+        @AttributeOverride(name="department", column = @Column(name="academicdepartment")),
+        @AttributeOverride(name="country", column = @Column(name="academiccountry")),
+        @AttributeOverride(name="street", column = @Column(name="academicstreet")),
+        @AttributeOverride(name="postalCode", column = @Column(name="academicpostalCode")),
+        @AttributeOverride(name="city", column = @Column(name="academiccity"))})
+	@Embedded()
 	private Address addressAcademic;
 	
 	private ArrayList<Integer> examsMark;
@@ -50,5 +65,9 @@ public class Student extends Candidate {
 	private LanguageEnum secondLanguage;
 	private Integer year;
 	
+	public void test()
+	{
+		
+	}
 
 }

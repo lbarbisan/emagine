@@ -1,18 +1,20 @@
 package fr.umlv.ir3.emagine.util;
 
 
-import java.util.Iterator;
+import java.util.Map;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.hibernate.EntityMode;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.AnnotationConfiguration;
-import org.hibernate.metadata.ClassMetadata;
+import org.hibernate.persister.entity.JoinedSubclassEntityPersister;
 
-import fr.umlv.ir3.emagine.student.Student;
+import fr.umlv.ir3.emagine.modification.FieldModification;
+import fr.umlv.ir3.emagine.user.User;
 
 
 
@@ -107,5 +109,35 @@ public class HibernateUtils {
         {
             closeSession();
         }
+    }
+    
+    public static Map<String, FieldModification> getPropertySnapShot(BaseEntity entity)
+    {
+    	//HashMap<String, FieldModification>  propertyOldValue = new HashMap<String, FieldModification>();
+		//ClassMetadata classMetadata = sessionFactory.getClassMetadata(User.class);
+		Map classesMetadata = sessionFactory.getAllClassMetadata();
+		
+		for(Object obj : classesMetadata.keySet())
+		{
+			JoinedSubclassEntityPersister persiter = (JoinedSubclassEntityPersister)classesMetadata.get(obj);
+			Object[] object = persiter.getPropertyValues(entity, EntityMode.POJO);
+			for(Object obj2 : object)
+			{
+				System.out.println(obj2);
+			}
+
+			System.out.println(obj);
+		}
+		//Map map = null;	
+		//classMetadata.getPropertyValuesToInsert(entity,map, (SessionImplementor) threadSession.get());
+	/*	System.out.println(classMetadata);
+		Object[] object = classMetadata.getPropertyValues(entity, null);
+		for(Object obj : object)
+		{
+			System.out.println(obj);
+		}*/
+
+		
+		return null;
     }
 }

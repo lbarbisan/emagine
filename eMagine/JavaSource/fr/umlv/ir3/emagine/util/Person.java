@@ -7,7 +7,10 @@ package fr.umlv.ir3.emagine.util;
 import java.util.Date;
 
 import javax.persistence.AccessType;
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
 import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -35,6 +38,12 @@ public class Person extends BaseEntity {
 	private static final long serialVersionUID = 4072133161366106454L;
 		
     @Embedded
+    @AttributeOverrides( {
+        @AttributeOverride(name="department", column = @Column(name="personnaldepartment")),
+        @AttributeOverride(name="country", column = @Column(name="personnalcountry")),
+        @AttributeOverride(name="street", column = @Column(name="personnalstreet")),
+        @AttributeOverride(name="postalCode", column = @Column(name="personnalpostalCode")),
+        @AttributeOverride(name="city", column = @Column(name="personnalcity"))})
 	private Address addressPersonnal;
 
 	@Basic(temporalType = TemporalType.TIMESTAMP)

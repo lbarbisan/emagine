@@ -26,6 +26,5 @@ public class UserDAO extends BaseDAO<User> {
 
 	public void deleteUsers(Collection<User> users) throws EMagineException {
 		// TODO HibernateUserDAO.deleteUsers()
-		
 	}
 }

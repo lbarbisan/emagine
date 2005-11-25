@@ -20,10 +20,10 @@ public class Right extends BaseEntity {
 	 */
 	private static final long serialVersionUID = -9217586569535677028L;
 
-	String description;
+	private String description;
 	
 	@Column(unique = true)
-	String name;
+	private String name;
 	
 	/**
 	 * @return Returns the description.

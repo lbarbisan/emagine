@@ -20,14 +20,15 @@ public class Profile extends BaseEntity{
 	 */
 	private static final long serialVersionUID = -3504019715473060113L;
 
-	private String description;
+
 	
 	@Column(unique = true)
 	private String name;
 	
 	@OneToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
 	@OrderBy("name")
-	List<Right> rights;
+	private List<Right> rights;
+	private String description;
 	
 	protected Profile(){}
 	

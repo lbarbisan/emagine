@@ -1,6 +1,7 @@
 package fr.umlv.ir3.emagine.util;
 
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.persistence.AccessType;
@@ -15,7 +16,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.Version;
 
+import org.hibernate.impl.SessionFactoryImpl;
+import org.hibernate.metadata.ClassMetadata;
+
 import fr.umlv.ir3.emagine.event.Event;
+import fr.umlv.ir3.emagine.modification.FieldModification;
 import fr.umlv.ir3.emagine.modification.Modification;
 
 /**
@@ -45,18 +50,17 @@ public class BaseEntity implements Serializable {
     @OneToMany(cascade = CascadeType.ALL ,
     		mappedBy = "baseEntity")
     private List<Modification> modifications;
-    /*@OneToOne(mappedBy = "previousEntity")
-    private BaseEntity nextEntity;
-    @OneToOne
-    @JoinColumn(name = "nextEntity_id")
-    private BaseEntity previousEntity;*/
-	
+    
+    private HashMap<String, FieldModification> propertyOldValue;
+
     /**
      * This constructor is necessary for Hibernate
      *
      */
 	protected BaseEntity()
-	{}
+	{
+		
+	}
 
 	/**
 	 * @return the id of entity

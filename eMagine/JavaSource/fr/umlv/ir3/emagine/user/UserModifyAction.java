@@ -25,11 +25,11 @@ public class UserModifyAction extends BaseAction {
 		// Retrieve the User's properties values
 		UserModifyForm userModifyForm = (UserModifyForm) form;
 		User user = new User();
-		user.email = userModifyForm.getEmail();
-		user.firstName = userModifyForm.getFirstName();
-		user.lastName = userModifyForm.getLastName();
-		user.login = userModifyForm.getLogin();
-		user.password = userModifyForm.getPassword();	// The password check have been done in the form .validate(...) method
+		user.setEmail(userModifyForm.getEmail());
+		user.setFirstName(userModifyForm.getFirstName());
+		user.setLastName(userModifyForm.getLastName());
+		user.setLogin(userModifyForm.getLogin());
+		user.setPassword(userModifyForm.getPassword());	// The password check have been done in the form .validate(...) method
 
 		// Create the new User
 		UserDAO userDAO = DAOManager.getInstance().getUserDAO();
@@ -61,11 +61,11 @@ public class UserModifyAction extends BaseAction {
 		// Retrieve the User's properties values
 		UserModifyForm userModifyForm = (UserModifyForm) form;
 		User user = userDAO.retrieve(userModifyForm.getId());
-		user.email = userModifyForm.getEmail();
-		user.firstName = userModifyForm.getFirstName();
-		user.lastName = userModifyForm.getLastName();
-		user.login = userModifyForm.getLogin();
-		user.password = userModifyForm.getPassword();	// The password check have been done in the form .validate(...) method
+		user.setEmail(userModifyForm.getEmail());
+		user.setFirstName(userModifyForm.getFirstName());
+		user.setLastName(userModifyForm.getLastName());
+		user.setLogin(userModifyForm.getLogin());
+		user.setPassword(userModifyForm.getPassword());		// The password check have been done in the form .validate(...) method
 
 		// Update the User
 		DAOManager.beginTransaction();
