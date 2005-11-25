@@ -3,20 +3,31 @@
  */
 package fr.umlv.ir3.emagine.util;
 
+import org.hibernate.HibernateException;
+
+
 //CRUD Design pattern
 public abstract class BaseDAO<ObjectType> {
 	 /* (non-Javadoc)
      * @see fr.umlv.ir3.emagine.dao.BaseDAO#create(ObjectType)
      */
-    public void create(ObjectType object) {
-    	  HibernateUtils.getSession().save(object);
+    public void create(ObjectType object) throws EMagineException {
+    	try {
+    		HibernateUtils.getSession().save(object);
+    	} catch (HibernateException exception) {
+    		throw new EMagineException("exception.hibernate.create", exception);
+    	}
     }
 
     /* (non-Javadoc)
      * @see fr.umlv.ir3.emagine.dao.BaseDAO#update(ObjectType)
      */
-    public void update(ObjectType object) {
-    	  HibernateUtils.getSession().saveOrUpdate(object);
+    public void update(ObjectType object) throws EMagineException {
+    	try {
+    		HibernateUtils.getSession().saveOrUpdate(object);
+    	} catch (HibernateException exception) {
+    		throw new EMagineException("exception.hibernate.update", exception);
+    	}
     }
 
     /* (non-Javadoc)
@@ -27,8 +38,12 @@ public abstract class BaseDAO<ObjectType> {
     /* (non-Javadoc)
      * @see fr.umlv.ir3.emagine.dao.BaseDAO#delete(ObjectType)
      */
-    public void delete(ObjectType object) {
-  	  HibernateUtils.getSession().delete(object);        
+    public void delete(ObjectType object) throws EMagineException {
+    	try {
+	    	HibernateUtils.getSession().delete(object);
+		} catch (HibernateException exception) {
+			throw new EMagineException("exception.hibernate.delete", exception);
+		}
     }
     
 
