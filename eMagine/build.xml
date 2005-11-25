@@ -30,12 +30,54 @@
 
 	<target name="ViewSchema" depends="CreateSchema">
 		<middlegen appname="eMagine" gui="true" databaseurl="jdbc:postgresql://server.srv-net.com:54321/eMagine" driver="org.postgresql.Driver" username="eMagine" password="eMagine" schema="public">
+			<!--
+			<table name="abscence_pkey" />
+			<table name="applicationuser_pkey" />
+			<table name="attachment_pkey" />
+			<table name="baseentity_baseentity_attachments_id_key" />
+			<table name="baseentity_baseentity_persons_id_key" />
+			<table name="baseentity_baseentity_rights_id_key" />
+			<table name="baseentity_motherentreprise_id_key" />
+			<table name="baseentity_newvalue_id_key" />
+			<table name="baseentity_nextentity_id_key" />
+			<table name="baseentity_pkey" />
+			<table name="baseentity_value_id_key" />
+			<table name="candidate_pkey" />
+			<table name="contact_pkey" />
+			<table name="engineertutor_pkey" />
+			<table name="entreprise_motherentreprise_id_key" />
+			<table name="entreprise_pkey" />
+			<table name="entrepriseactor_pkey" />
+			<table name="event_pkey" />
+			<table name="fieldmodification_pkey" />
+			<table name="formationcenter_pkey" />
+			<table name="job_pkey" />
+			<table name="mailinglist_person_persons_id_key" />
+			<table name="mailinglist_pkey" />
+			<table name="mailingtype_attachment_attachments_id_key" />
+			<table name="mailingtype_pkey" />
+			<table name="massmailing_attachment_attachments_id_key" />
+			<table name="massmailing_pkey" />
+			<table name="model_pkey" />
+			<table name="modification_newvalue_id_key" />
+			<table name="modification_pkey" />
+			<table name="modification_value_id_key" />
+			<table name="person_pkey" />
+			<table name="profile_name_key" />
+			<table name="profile_pkey" />
+			<table name="profile_rightapplication_rights_id_key" />
+			<table name="rightapplication_name_key" />
+			<table name="rightapplication_pkey" />
+			<table name="room_pkey" />
+			<table name="statistic_pkey" />
+			<table name="student_pkey" />
+			<table name="teachertutor_pkey" />
 			<table name="hibernate_sequence" />
+			-->
 			<table name="abscence" />
 			<table name="applicationuser" />
 			<table name="attachment" />
-			<!--
-			<table name="baseentity" />
+			<!--<table name="baseentity" />
 			<table name="baseentity_baseentity" />
 			-->
 			<table name="candidate" />
@@ -45,6 +87,7 @@
 			<table name="entrepriseactor" />
 			<table name="event" />
 			<table name="event_baseentity" />
+			<table name="fieldmodification" />
 			<table name="formationcenter" />
 			<table name="job" />
 			<table name="mailinglist" />
@@ -63,6 +106,7 @@
 			<table name="statistic" />
 			<table name="student" />
 			<table name="teachertutor" />
+
 		</middlegen>
 	</target>
 

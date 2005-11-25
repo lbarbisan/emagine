@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.AccessType;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -28,7 +29,9 @@ public class User extends BaseEntity{
 			mappedBy = "userSource")
 	private List<Modification> modificationsRequest;
 	
+	@Column(unique = true)
 	String login;	
+	@Column(unique = true)
 	String email;
 	String firstName;
 	String lastName;

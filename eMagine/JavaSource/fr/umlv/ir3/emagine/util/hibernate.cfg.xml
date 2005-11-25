@@ -64,6 +64,7 @@
 		
 		<mapping package="fr.umlv.ir3.emagine.modification"/>
 		<mapping class="fr.umlv.ir3.emagine.modification.Modification"/>
+		<mapping class="fr.umlv.ir3.emagine.modification.FieldModification"/>
 		
 		<mapping package="fr.umlv.ir3.emagine.user"/>
 		<mapping class="fr.umlv.ir3.emagine.user.User"/>

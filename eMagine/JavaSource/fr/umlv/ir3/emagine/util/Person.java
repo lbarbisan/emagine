@@ -10,7 +10,9 @@ import javax.persistence.AccessType;
 import javax.persistence.Basic;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 import javax.persistence.TemporalType;
+import javax.persistence.UniqueConstraint;
 
 import fr.umlv.ir3.emagine.student.CountryEnum;
 import fr.umlv.ir3.emagine.student.DepartmentEnum;
@@ -23,6 +25,11 @@ import fr.umlv.ir3.emagine.student.SexEnum;
  *@Persitence 50 Reste enum
  */
 @Entity(access = AccessType.FIELD)
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = {
+		"lastname",
+		"firstname",
+		"email"
+		}))
 public class Person extends BaseEntity {
 
 	private static final long serialVersionUID = 4072133161366106454L;
