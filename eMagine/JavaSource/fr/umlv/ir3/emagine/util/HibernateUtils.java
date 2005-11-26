@@ -30,7 +30,7 @@ public class HibernateUtils {
         try {            
         	sessionFactory = new AnnotationConfiguration()
             //TODO : Hibernate - Trouver un moyen pour mettre le nom de fichier dans un fichier poroperties ou autre.
-        	.configure(HibernateUtils.class.getResource("hibernate.cfg.xml"))
+        	.configure("fr/umlv/ir3/emagine/ressource/hibernate.cfg.xml")
             .buildSessionFactory();
         } catch (Throwable ex) {
             log.error("Initial SessionFactory creation failed.", ex);
@@ -122,10 +122,11 @@ public class HibernateUtils {
 			try
 			{
 				System.err.println("Class : " + obj);
-				Object[] object = persiter.getPropertyValues(entity, EntityMode.POJO);
-				for(Object obj2 : object)
+				String[] strings = persiter.getPropertyNames();
+				for(String string : strings)
 				{
-					System.err.println("Valeur : " + classesMetadata.get( obj2 ));
+					Object object = persiter.getPropertyValue(entity, string, EntityMode.POJO);
+					System.err.println("Valeur : " + classesMetadata.get( object ));
 				}
 			}
 			catch(HibernateException e)
