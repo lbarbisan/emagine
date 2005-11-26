@@ -39,5 +39,37 @@ public class Room extends BaseEntity {
 	@ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
 	@JoinColumn(name="formationCenter_id")
 	private FormationCenter formationCenter;
+
+	public List<Candidate> getCandidates() {
+		return candidates;
+	}
+
+	public void setCandidates(List<Candidate> candidates) {
+		this.candidates = candidates;
+	}
+
+	public Integer getCapacity() {
+		return capacity;
+	}
+
+	public void setCapacity(Integer capacity) {
+		this.capacity = capacity;
+	}
+
+	public FormationCenter getFormationCenter() {
+		return formationCenter;
+	}
+
+	public void setFormationCenter(FormationCenter formationCenter) {
+		this.formationCenter = formationCenter;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 	
 }

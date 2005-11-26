@@ -5,8 +5,6 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 import fr.umlv.ir3.emagine.student.candidate.DieEnum;
 import fr.umlv.ir3.emagine.util.BaseEntity;
@@ -24,5 +22,36 @@ public class Job extends BaseEntity {
 	private String name;
 	private String title;
 	private Integer nbPlace;
+	
+	public DieEnum getCursus() {
+		return cursus;
+	}
+	public void setCursus(DieEnum cursus) {
+		this.cursus = cursus;
+	}
+	public Entreprise getEntreprise() {
+		return entreprise;
+	}
+	public void setEntreprise(Entreprise entreprise) {
+		this.entreprise = entreprise;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public Integer getNbPlace() {
+		return nbPlace;
+	}
+	public void setNbPlace(Integer nbPlace) {
+		this.nbPlace = nbPlace;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
 	
 }

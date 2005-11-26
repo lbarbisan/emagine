@@ -8,7 +8,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
-import javax.persistence.Table;
 
 import fr.umlv.ir3.emagine.util.BaseEntity;
 
@@ -19,12 +18,9 @@ public class Profile extends BaseEntity{
 	 * 
 	 */
 	private static final long serialVersionUID = -3504019715473060113L;
-
-
 	
 	@Column(unique = true)
-	private String name;
-	
+	private String name;	
 	@OneToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
 	@OrderBy("name")
 	private List<Right> rights;

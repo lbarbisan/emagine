@@ -9,13 +9,17 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapKey;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 import fr.umlv.ir3.emagine.user.User;
 import fr.umlv.ir3.emagine.util.BaseEntity;
 
 @Entity(access = AccessType.FIELD)
 public class Modification<ObjectType extends BaseEntity> extends BaseEntity{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -985619438827774992L;
 	
 	@ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
 	@JoinColumn(name = "sourceuser_id")
@@ -32,7 +36,7 @@ public class Modification<ObjectType extends BaseEntity> extends BaseEntity{
 	private ObjectType baseEntity;
 	@OneToMany(mappedBy = "modification")
 	@MapKey(name = "propertyName")
-	private Map<String, FieldModification> modifications;
+	private Map<String, FieldModification> fieldsModifications;
 	private ModificationStateEnum modificationSate;
 	private String comment;
 	
@@ -77,5 +81,21 @@ public class Modification<ObjectType extends BaseEntity> extends BaseEntity{
 	 */
 	public User getUserSource() {
 		return userSource;
+	}
+	public ObjectType getBaseEntity() {
+		return baseEntity;
+	}
+	public void setBaseEntity(ObjectType baseEntity) {
+		this.baseEntity = baseEntity;
+	}
+	public void setUserSource(User userSource) {
+		this.userSource = userSource;
+	}
+	public Map<String, FieldModification> getFieldsModifications() {
+		return fieldsModifications;
+	}
+	public void setFieldsModifications(
+			Map<String, FieldModification> fieldsModifications) {
+		this.fieldsModifications = fieldsModifications;
 	}
 }

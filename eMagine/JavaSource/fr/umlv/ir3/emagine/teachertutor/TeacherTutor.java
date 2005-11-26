@@ -6,15 +6,10 @@ import javax.persistence.AccessType;
 import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OrderBy;
-import javax.persistence.Table;
 
 import fr.umlv.ir3.emagine.student.Student;
 import fr.umlv.ir3.emagine.util.Address;
-import fr.umlv.ir3.emagine.util.BaseEntity;
 import fr.umlv.ir3.emagine.util.Person;
 /**
  * 
@@ -34,4 +29,20 @@ public class TeacherTutor extends Person {
 	
 	@Embedded
 	private Address addressProfessional;
+
+	public Address getAddressProfessional() {
+		return addressProfessional;
+	}
+
+	public void setAddressProfessional(Address addressProfessional) {
+		this.addressProfessional = addressProfessional;
+	}
+
+	public List<Student> getStudent() {
+		return student;
+	}
+
+	public void setStudent(List<Student> student) {
+		this.student = student;
+	}
 }

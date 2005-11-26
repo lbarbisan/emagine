@@ -16,9 +16,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.Version;
 
-import org.hibernate.impl.SessionFactoryImpl;
-import org.hibernate.metadata.ClassMetadata;
-
 import fr.umlv.ir3.emagine.event.Event;
 import fr.umlv.ir3.emagine.modification.FieldModification;
 import fr.umlv.ir3.emagine.modification.Modification;
@@ -72,6 +69,43 @@ public class BaseEntity implements Serializable {
     @Override
 	public boolean equals(Object obj) {
 		return id == ((BaseEntity)obj).getId();
+	}
+
+	public List<Event> getEvents() {
+		return events;
+	}
+
+	public void setEvents(List<Event> events) {
+		this.events = events;
+	}
+
+	public List<Modification> getModifications() {
+		return modifications;
+	}
+
+	public void setModifications(List<Modification> modifications) {
+		this.modifications = modifications;
+	}
+
+	public HashMap<String, FieldModification> getPropertyOldValue() {
+		return propertyOldValue;
+	}
+
+	public void setPropertyOldValue(
+			HashMap<String, FieldModification> propertyOldValue) {
+		this.propertyOldValue = propertyOldValue;
+	}
+
+	public Long getVersion() {
+		return version;
+	}
+
+	public void setVersion(Long version) {
+		this.version = version;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 	
 	

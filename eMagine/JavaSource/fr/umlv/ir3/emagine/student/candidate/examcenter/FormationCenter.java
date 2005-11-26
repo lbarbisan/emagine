@@ -23,6 +23,11 @@ import fr.umlv.ir3.emagine.util.BaseEntity;
 @Entity(access = AccessType.FIELD)
 public class FormationCenter extends BaseEntity {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4966355951897961036L;
+	
 	private String name;
 	@Embedded
 	private Address address;
@@ -34,5 +39,35 @@ public class FormationCenter extends BaseEntity {
 	@OneToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE},
 			mappedBy = "formationCenter")
 	private List<Candidate> candidate;
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+	public List<Candidate> getCandidate() {
+		return candidate;
+	}
+	public void setCandidate(List<Candidate> candidate) {
+		this.candidate = candidate;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	public List<Room> getRooms() {
+		return rooms;
+	}
+	public void setRooms(List<Room> rooms) {
+		this.rooms = rooms;
+	}
 
 }

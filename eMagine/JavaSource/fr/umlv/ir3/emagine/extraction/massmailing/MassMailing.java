@@ -3,13 +3,10 @@
  */
 package fr.umlv.ir3.emagine.extraction.massmailing;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
-import javax.persistence.Lob;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import fr.umlv.ir3.emagine.extraction.mailings.Attachment;
@@ -28,5 +25,30 @@ public class MassMailing extends BaseEntity {
 	private String Title;
 	private String Comment;
 	private Model modelPath;
+	
+	public List<Attachment> getAttachments() {
+		return attachments;
+	}
+	public void setAttachments(List<Attachment> attachments) {
+		this.attachments = attachments;
+	}
+	public String getComment() {
+		return Comment;
+	}
+	public void setComment(String comment) {
+		Comment = comment;
+	}
+	public Model getModelPath() {
+		return modelPath;
+	}
+	public void setModelPath(Model modelPath) {
+		this.modelPath = modelPath;
+	}
+	public String getTitle() {
+		return Title;
+	}
+	public void setTitle(String title) {
+		Title = title;
+	}
 
 }

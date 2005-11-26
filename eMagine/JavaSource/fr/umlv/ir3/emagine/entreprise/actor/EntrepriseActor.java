@@ -4,8 +4,6 @@ import javax.persistence.AccessType;
 import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
@@ -22,4 +20,22 @@ public class EntrepriseActor extends Person {
 	@Embedded
 	private Address addressProfessional;
 	private String Function;
+	public Address getAddressProfessional() {
+		return addressProfessional;
+	}
+	public void setAddressProfessional(Address addressProfessional) {
+		this.addressProfessional = addressProfessional;
+	}
+	public Entreprise getEntreprise() {
+		return entreprise;
+	}
+	public void setEntreprise(Entreprise entreprise) {
+		this.entreprise = entreprise;
+	}
+	public String getFunction() {
+		return Function;
+	}
+	public void setFunction(String function) {
+		Function = function;
+	}
 }

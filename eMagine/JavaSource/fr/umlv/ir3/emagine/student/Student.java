@@ -65,9 +65,108 @@ public class Student extends Candidate {
 	private LanguageEnum secondLanguage;
 	private Integer year;
 	
-	public void test()
-	{
-		
+	public List<Abscence> getAbsences() {
+		return absences;
+	}
+
+	public void setAbsences(List<Abscence> absences) {
+		this.absences = absences;
+	}
+
+	public Address getAddressAcademic() {
+		return addressAcademic;
+	}
+
+	public void setAddressAcademic(Address addressAcademic) {
+		this.addressAcademic = addressAcademic;
+	}
+
+	public Address getAddressProfessional() {
+		return addressProfessional;
+	}
+
+	public void setAddressProfessional(Address addressProfessional) {
+		this.addressProfessional = addressProfessional;
+	}
+
+	public DefaultAddressEnum getDefaultAdress() {
+		return defaultAdress;
+	}
+
+	public void setDefaultAdress(DefaultAddressEnum defaultAdress) {
+		this.defaultAdress = defaultAdress;
+	}
+
+	public ArrayList<String> getDiplomas() {
+		return diplomas;
+	}
+
+	public void setDiplomas(ArrayList<String> diplomas) {
+		this.diplomas = diplomas;
+	}
+
+	public EngineerTutor getEngineerTutor() {
+		return engineerTutor;
+	}
+
+	public void setEngineerTutor(EngineerTutor engineerTutor) {
+		this.engineerTutor = engineerTutor;
+	}
+
+	public Entreprise getEntreprise() {
+		return entreprise;
+	}
+
+	public void setEntreprise(Entreprise entreprise) {
+		this.entreprise = entreprise;
+	}
+
+	public ArrayList<Integer> getExamsMark() {
+		return examsMark;
+	}
+
+	public void setExamsMark(ArrayList<Integer> examsMark) {
+		this.examsMark = examsMark;
+	}
+
+	public LanguageEnum getFirstLanguage() {
+		return firstLanguage;
+	}
+
+	public void setFirstLanguage(LanguageEnum firstLanguage) {
+		this.firstLanguage = firstLanguage;
+	}
+
+	public ArrayList<String> getSchooling() {
+		return schooling;
+	}
+
+	public void setSchooling(ArrayList<String> schooling) {
+		this.schooling = schooling;
+	}
+
+	public LanguageEnum getSecondLanguage() {
+		return secondLanguage;
+	}
+
+	public void setSecondLanguage(LanguageEnum secondLanguage) {
+		this.secondLanguage = secondLanguage;
+	}
+
+	public TeacherTutor getTeacherTutor() {
+		return teacherTutor;
+	}
+
+	public void setTeacherTutor(TeacherTutor teacherTutor) {
+		this.teacherTutor = teacherTutor;
+	}
+
+	public Integer getYear() {
+		return year;
+	}
+
+	public void setYear(Integer year) {
+		this.year = year;
 	}
 
 }

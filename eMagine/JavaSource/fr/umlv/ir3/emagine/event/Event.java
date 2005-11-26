@@ -33,7 +33,44 @@ public class Event extends BaseEntity{
 	@Basic(temporalType = TemporalType.TIMESTAMP)
 	private Date endDate;
 	private String Title;
-	private String Comment;
+	private String comment;
 	private EventTypeEnum type;
+	
+	public Date getEndDate() {
+		return endDate;
+	}
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
+	}
+	public List<BaseEntity> getSources() {
+		return sources;
+	}
+	public void setSources(List<BaseEntity> sources) {
+		this.sources = sources;
+	}
+	public Date getStartDate() {
+		return startDate;
+	}
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+	public String getTitle() {
+		return Title;
+	}
+	public void setTitle(String title) {
+		Title = title;
+	}
+	public EventTypeEnum getType() {
+		return type;
+	}
+	public void setType(EventTypeEnum type) {
+		this.type = type;
+	}
+	public String getComment() {
+		return comment;
+	}
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
 	
 }

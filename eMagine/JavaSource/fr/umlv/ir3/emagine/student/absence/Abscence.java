@@ -24,6 +24,11 @@ import fr.umlv.ir3.emagine.util.BaseEntity;
 @Entity(access = AccessType.FIELD)
 public class Abscence extends BaseEntity {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2760061716558049781L;
+	
 	@ManyToOne(cascade= {CascadeType.PERSIST,CascadeType.MERGE})
 	@JoinColumn(name = "student_id")
 	private Student student;
@@ -35,4 +40,41 @@ public class Abscence extends BaseEntity {
 	private int nbrOpenDay;
 	private boolean justification;
 	private String justificationComment;
+	
+	public Date getEndDate() {
+		return endDate;
+	}
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
+	}
+	public boolean isJustification() {
+		return justification;
+	}
+	public void setJustification(boolean justification) {
+		this.justification = justification;
+	}
+	public String getJustificationComment() {
+		return justificationComment;
+	}
+	public void setJustificationComment(String justificationComment) {
+		this.justificationComment = justificationComment;
+	}
+	public int getNbrOpenDay() {
+		return nbrOpenDay;
+	}
+	public void setNbrOpenDay(int nbrOpenDay) {
+		this.nbrOpenDay = nbrOpenDay;
+	}
+	public Date getStartDate() {
+		return startDate;
+	}
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+	public Student getStudent() {
+		return student;
+	}
+	public void setStudent(Student student) {
+		this.student = student;
+	}
 }

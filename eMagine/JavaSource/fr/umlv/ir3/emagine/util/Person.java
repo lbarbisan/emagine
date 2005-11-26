@@ -59,5 +59,84 @@ public class Person extends BaseEntity {
 	private String phone;
 	private String mobilePhone;
 	private String Fax;
+	
+	public Address getAddressPersonnal() {
+		return addressPersonnal;
+	}
+	public void setAddressPersonnal(Address addressPersonnal) {
+		this.addressPersonnal = addressPersonnal;
+	}
+	public String getBirthdayCity() {
+		return birthdayCity;
+	}
+	public void setBirthdayCity(String birthdayCity) {
+		this.birthdayCity = birthdayCity;
+	}
+	public CountryEnum getBirthdayCountry() {
+		return birthdayCountry;
+	}
+	public void setBirthdayCountry(CountryEnum birthdayCountry) {
+		this.birthdayCountry = birthdayCountry;
+	}
+	public Date getBirthdayDate() {
+		return birthdayDate;
+	}
+	public void setBirthdayDate(Date birthdayDate) {
+		this.birthdayDate = birthdayDate;
+	}
+	public DepartmentEnum getBirthdayDepartment() {
+		return birthdayDepartment;
+	}
+	public void setBirthdayDepartment(DepartmentEnum birthdayDepartment) {
+		this.birthdayDepartment = birthdayDepartment;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getFax() {
+		return Fax;
+	}
+	public void setFax(String fax) {
+		Fax = fax;
+	}
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	public String getMobilePhone() {
+		return mobilePhone;
+	}
+	public void setMobilePhone(String mobilePhone) {
+		this.mobilePhone = mobilePhone;
+	}
+	public NationalityEnum getNationality() {
+		return nationality;
+	}
+	public void setNationality(NationalityEnum nationality) {
+		this.nationality = nationality;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	public SexEnum getSex() {
+		return sex;
+	}
+	public void setSex(SexEnum sex) {
+		this.sex = sex;
+	}
 
 }

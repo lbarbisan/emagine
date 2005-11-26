@@ -48,5 +48,71 @@ public class Entreprise extends BaseEntity{
 	private String Fax;
 	private String email;
 	private String webSite;
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+	public Entreprise getChildEntreprise() {
+		return childEntreprise;
+	}
+	public void setChildEntreprise(Entreprise childEntreprise) {
+		this.childEntreprise = childEntreprise;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public List<EntrepriseActor> getEntrepriseActor() {
+		return entrepriseActor;
+	}
+	public void setEntrepriseActor(List<EntrepriseActor> entrepriseActor) {
+		this.entrepriseActor = entrepriseActor;
+	}
+	public String getFax() {
+		return Fax;
+	}
+	public void setFax(String fax) {
+		Fax = fax;
+	}
+	public List<Job> getJobs() {
+		return jobs;
+	}
+	public void setJobs(List<Job> jobs) {
+		this.jobs = jobs;
+	}
+	public Entreprise getMotherEntreprise() {
+		return motherEntreprise;
+	}
+	public void setMotherEntreprise(Entreprise motherEntreprise) {
+		this.motherEntreprise = motherEntreprise;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	public List<Student> getStudents() {
+		return students;
+	}
+	public void setStudents(List<Student> students) {
+		this.students = students;
+	}
+	public String getWebSite() {
+		return webSite;
+	}
+	public void setWebSite(String webSite) {
+		this.webSite = webSite;
+	}
 
 }

@@ -7,12 +7,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import fr.umlv.ir3.emagine.student.Contact;
+import fr.umlv.ir3.emagine.student.LevelEntryEnum;
 import fr.umlv.ir3.emagine.student.candidate.examcenter.FormationCenter;
 import fr.umlv.ir3.emagine.student.candidate.room.Room;
 import fr.umlv.ir3.emagine.util.Person;
-
-import fr.umlv.ir3.emagine.student.LevelEntryEnum;
-import fr.umlv.ir3.emagine.student.candidate.ProfessionEnum;
 
 /**
  * 
@@ -39,5 +37,54 @@ public class Candidate extends Person {
 	private LevelEntryEnum entryLevel;
 	private ProfessionEnum professionMother;
 	private ProfessionEnum professionFather;
+	
+	public boolean isAccepted() {
+		return accepted;
+	}
+	public void setAccepted(boolean accepted) {
+		this.accepted = accepted;
+	}
+	public Contact getContactOriginIG2K() {
+		return contactOriginIG2K;
+	}
+	public void setContactOriginIG2K(Contact contactOriginIG2K) {
+		this.contactOriginIG2K = contactOriginIG2K;
+	}
+	public LevelEntryEnum getEntryLevel() {
+		return entryLevel;
+	}
+	public void setEntryLevel(LevelEntryEnum entryLevel) {
+		this.entryLevel = entryLevel;
+	}
+	public FormationCenter getFormationCenter() {
+		return formationCenter;
+	}
+	public void setFormationCenter(FormationCenter formationCenter) {
+		this.formationCenter = formationCenter;
+	}
+	public boolean isOtherFormation() {
+		return otherFormation;
+	}
+	public void setOtherFormation(boolean otherFormation) {
+		this.otherFormation = otherFormation;
+	}
+	public ProfessionEnum getProfessionFather() {
+		return professionFather;
+	}
+	public void setProfessionFather(ProfessionEnum professionFather) {
+		this.professionFather = professionFather;
+	}
+	public ProfessionEnum getProfessionMother() {
+		return professionMother;
+	}
+	public void setProfessionMother(ProfessionEnum professionMother) {
+		this.professionMother = professionMother;
+	}
+	public Room getRoom() {
+		return room;
+	}
+	public void setRoom(Room room) {
+		this.room = room;
+	}
 
 }
