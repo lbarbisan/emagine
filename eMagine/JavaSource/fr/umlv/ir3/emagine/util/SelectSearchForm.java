@@ -11,7 +11,6 @@ public abstract class SelectSearchForm<BaseType> extends SearchForm<BaseType> {
 	protected Set<String> selectedIds;
 
 	protected String currentSelectedIds[];
-
 	
 	@Override
 	public void reset(ActionMapping mapping, HttpServletRequest request) {
@@ -33,4 +32,5 @@ public abstract class SelectSearchForm<BaseType> extends SearchForm<BaseType> {
 	public void setSelectedIds(Set<String> selectedId) {
 		this.selectedIds = selectedId;
 	}
+	
 }

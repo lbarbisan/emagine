@@ -3,6 +3,7 @@ package fr.umlv.ir3.emagine.user;
 import java.util.Collection;
 
 import fr.umlv.ir3.emagine.user.profile.Profile;
+import fr.umlv.ir3.emagine.util.IsAField;
 import fr.umlv.ir3.emagine.util.SelectSearchForm;
 
 public class UserSearchForm extends SelectSearchForm<User> implements UserSearchParam {
@@ -14,12 +15,16 @@ public class UserSearchForm extends SelectSearchForm<User> implements UserSearch
 
 	private Collection<Profile> profiles;
 	
+	@IsAField
 	private String firstName;
 
+	@IsAField
 	private String lastName;
 
+	@IsAField
 	private String login;
 
+	@IsAField
 	private Profile profile;
 	
 	private boolean deletionForced;
@@ -63,18 +68,4 @@ public class UserSearchForm extends SelectSearchForm<User> implements UserSearch
 	public void setProfiles(Collection<Profile> profiles) {
 		this.profiles = profiles;
 	}
-	public void setFilterbyField(String field, String value) {
-		// TODO UserSearchForm.setFilterbyField()
-		
-	}
-	public void removeFilterbyField(String field) {
-		// TODO UserSearchForm.removeFilterbyField()
-		
-	}
-	public void clearFilterbyField() {
-		// TODO UserSearchForm.clearFilterbyField()
-		
-	}
-
-
 }

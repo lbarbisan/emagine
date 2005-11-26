@@ -1,6 +1,8 @@
 package fr.umlv.ir3.emagine.util;
+
+import java.util.Collection;
+
 public interface SearchParam {
-		void setFilterbyField(String field, String value);
-		void removeFilterbyField(String field);
-		void clearFilterbyField();
+		Object getField(String field);
+		Collection<String> getFields();
 }
