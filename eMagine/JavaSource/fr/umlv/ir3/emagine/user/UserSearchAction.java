@@ -1,7 +1,5 @@
 package fr.umlv.ir3.emagine.user;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -10,9 +8,8 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessages;
 
-import fr.umlv.ir3.emagine.user.profile.ProfileDAO;
-import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
+import fr.umlv.ir3.emagine.util.EntityManager;
 import fr.umlv.ir3.emagine.util.SearchAction;
 
 public class UserSearchAction extends SearchAction {
@@ -25,23 +22,18 @@ public class UserSearchAction extends SearchAction {
 	public ActionForward searchUsers(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionMessages errors = new ActionMessages();
 		UserSearchForm userSearchForm = (UserSearchForm)form;
-		DAOManager manager = DAOManager.getInstance();
+		EntityManager manager = EntityManager.getInstance();
 
-		// FIXME : pour les searchs et getAll, voir comment les mettre dans le UserManager (les mettre ?)
-		
 		// Retrieve all profiles and set them in the form
-		ProfileDAO profileDAO = manager.getProfileDAO();
 		try {
-			userSearchForm.setProfiles(profileDAO.getProfiles());
+			userSearchForm.setProfiles(manager.getProfilManager().getProfiles());
 		} catch (EMagineException exception) {
 			addEMagineExceptionError(errors, exception);
 		}
 
 		// Retrieve the searched users, and set them in the page 
-		UserDAO userDAO = manager.getUserDAO();
 		try {
-			List<User> users = userDAO.getUsers(userSearchForm);
-			userSearchForm.setResults(users);
+			userSearchForm.setResults(manager.getUserManager().getUsers(userSearchForm));
 		} catch (EMagineException exception) {
 			addEMagineExceptionError(errors, exception);
 		}

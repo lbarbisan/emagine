@@ -28,11 +28,12 @@ public class UserDeleteAction extends BaseAction {
 		// Retrieve the collection of users to delete
 		UserSearchForm userSearchForm = (UserSearchForm) form;
 		List<User> users = userSearchForm.getResults();
+		boolean deletionForced = userSearchForm.isDeletionForced();
 
 		// Delete the users
 		DAOManager.beginTransaction();
 		try {
-			EntityManager.getInstance().getUserManager().deleteUsers(users, false);	// TODO : gérer le switch de forçage de suppression
+			EntityManager.getInstance().getUserManager().deleteUsers(users, deletionForced);	// TODO : gérer le switch de forçage de suppression
 		} catch (EMagineException exception) {
 			// save the error
 			addEMagineExceptionError(errors, exception);

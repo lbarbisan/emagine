@@ -14,12 +14,10 @@ public class UserManager {
 	 */
 	public void createUser(User user) throws EMagineException {
 		// Create the new User
-		UserDAO userDAO = DAOManager.getInstance().getUserDAO();
-
 		DAOManager.beginTransaction();
 		try {
 			// TODO : createUser : vérif login unique
-			userDAO.create(user);
+			getDAO().create(user);
 			// TODO : createUser : Mail
 			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {
@@ -34,13 +32,11 @@ public class UserManager {
 	 * @throws EMagineException if the login already exists for another id, or if there is an SQL exception
 	 */
 	public void updateUser(User user) throws EMagineException {
-		UserDAO userDAO = DAOManager.getInstance().getUserDAO();
-
 		DAOManager.beginTransaction();
 		try {
 			// TODO : modifyUser : vérif droits. si pas droits de modif, enregistrer patch + envoyer event
 			// TODO : modifyUser : vérif login unique
-			userDAO.update(user);
+			getDAO().update(user);
 			// TODO : modifyUser : Mail
 			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {
@@ -56,17 +52,24 @@ public class UserManager {
 	 * @throws EMagineException if one of those users doesn't exist in the database, or if one of them is connected and the force switch is false
 	 */
 	public void deleteUsers(List<User> users, boolean force) throws EMagineException {
-		UserDAO userDAO = DAOManager.getInstance().getUserDAO();
-
 		DAOManager.beginTransaction();
 		try {
-			// TODO : gérer les user connectés
-			userDAO.deleteUsers(users);
+			// TODO : gérer les user connectés, notamment, supprimer ceux qui sont pas connectés, et question sur les autres ? ...
+			getDAO().deleteUsers(users);
 			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {
 			DAOManager.rollBackTransaction();
 			throw exception;
 		}
+	}
+
+	public List<User> getUsers(UserSearchParam userSearchParam) throws EMagineException {
+		// TODO : getUsers javadoc
+		return getDAO().getUsers(userSearchParam);
+	}
+
+	private UserDAO getDAO() {
+		return DAOManager.getInstance().getUserDAO();
 	}
 
 }

@@ -9,20 +9,15 @@ import org.apache.struts.action.ActionMapping;
 import fr.umlv.ir3.emagine.user.profile.Profile;
 
 public class UserModifyForm extends ActionForm  {
+	
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -4666794015186865391L;
+	private static final long serialVersionUID = 6326596143394397304L;
 	
 	//FIXME: Manque le "titre" par rapport au CDCF
-	private Long id;
-	private String firstName ;
-	private String lastName;
-	private String email;
-	private String login;
-	private String password;
+	private User user = new User();
 	private String passwordRepeat;
-	private Profile profile;
 	
 	@Override
 	public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
@@ -30,41 +25,42 @@ public class UserModifyForm extends ActionForm  {
 		return super.validate(mapping, request);
 	}
 	
+	public User getUser() {
+		return user;
+	}
+	
 	public String getEmail() {
-		return email;
+		return user.getEmail();
 	}
 	public void setEmail(String email) {
-		this.email = email;
+		user.setEmail(email);
 	}
 	public String getFirstName() {
-		return firstName;
+		return user.getFirstName();
 	}
 	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+		user.setFirstName(firstName);
 	}
 	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
+		return user.getId();
 	}
 	public String getLastName() {
-		return lastName;
+		return user.getLastName();
 	}
 	public void setLastName(String lastName) {
-		this.lastName = lastName;
+		user.setLastName(lastName);
 	}
 	public String getLogin() {
-		return login;
+		return user.getLogin();
 	}
 	public void setLogin(String login) {
-		this.login = login;
+		user.setLogin(login);
 	}
 	public String getPassword() {
-		return password;
+		return user.getPassword();
 	}
 	public void setPassword(String password) {
-		this.password = password;
+		user.setPassword(password);
 	}
 	public String getPasswordRepeat() {
 		return passwordRepeat;
@@ -73,11 +69,9 @@ public class UserModifyForm extends ActionForm  {
 		this.passwordRepeat = passwordRepeat;
 	}
 	public Profile getProfile() {
-		return profile;
+		return user.getProfile();
 	}
 	public void setProfile(Profile profile) {
-		this.profile = profile;
-	}
-	
-	
+		user.setProfile(profile);
+	}	
 }

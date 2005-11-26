@@ -22,11 +22,22 @@ public class UserSearchForm extends SelectSearchForm<User> implements UserSearch
 
 	private Profile profile;
 	
+	private boolean deletionForced;
+	
+
+	
+	
 	public String getFirstName() {
 		return firstName;
 	}
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
+	}
+	public boolean isDeletionForced() {
+		return deletionForced;
+	}
+	public void setDeletionForced(boolean forceDeletion) {
+		this.deletionForced = forceDeletion;
 	}
 	public String getLastName() {
 		return lastName;
@@ -52,7 +63,6 @@ public class UserSearchForm extends SelectSearchForm<User> implements UserSearch
 	public void setProfiles(Collection<Profile> profiles) {
 		this.profiles = profiles;
 	}
-
 	public void setFilterbyField(String field, String value) {
 		// TODO UserSearchForm.setFilterbyField()
 		
