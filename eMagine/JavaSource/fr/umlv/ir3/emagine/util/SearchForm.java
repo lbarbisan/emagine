@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.apache.struts.action.ActionForm;
 
-public abstract class SearchForm<BaseType> extends ActionForm {
+public abstract class SearchForm<BaseType> extends ActionForm implements SearchParam {
 	protected int nbResultsByPage;
 	protected int indexPage;
 	protected List<BaseType> results;
