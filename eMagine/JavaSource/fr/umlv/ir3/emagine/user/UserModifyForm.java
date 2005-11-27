@@ -1,33 +1,19 @@
 package fr.umlv.ir3.emagine.user;
 
-import javax.servlet.http.HttpServletRequest;
-
-import org.apache.struts.action.ActionErrors;
-import org.apache.struts.action.ActionMapping;
-
 import fr.umlv.ir3.emagine.user.profile.Profile;
 import fr.umlv.ir3.emagine.util.base.BaseModifyForm;
 
-public class UserModifyForm extends BaseModifyForm  {
+public class UserModifyForm extends BaseModifyForm<User> {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 6326596143394397304L;
 	
 	//FIXME: Manque le "titre" par rapport au CDCF
-	private User entity = new User();
 	private String passwordRepeat;
 	
-	@Override
-	public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
-		// TODO UserModifyForm.validate()
-		return super.validate(mapping, request);
+	public UserModifyForm() {
+		entity = new User();
 	}
 	
-	public User getEntity() {
-		return entity;
-	}
 	public String getEmail() {
 		return entity.getEmail();
 	}
@@ -39,9 +25,6 @@ public class UserModifyForm extends BaseModifyForm  {
 	}
 	public void setFirstName(String firstName) {
 		entity.setFirstName(firstName);
-	}
-	public Long getId() {
-		return entity.getId();
 	}
 	public String getLastName() {
 		return entity.getLastName();

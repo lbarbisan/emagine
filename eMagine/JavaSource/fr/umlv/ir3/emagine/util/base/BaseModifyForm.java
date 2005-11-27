@@ -11,19 +11,19 @@ import org.apache.struts.action.ActionMapping;
 import fr.umlv.ir3.emagine.event.Event;
 import fr.umlv.ir3.emagine.modification.Modification;
 
-public class BaseModifyForm extends ActionForm {
+public class BaseModifyForm<EntityType extends BaseEntity> extends ActionForm {
 
 	private static final long serialVersionUID = 4056396430505536168L;
 	
-	private BaseEntity entity = new BaseEntity();
+	protected EntityType entity;
 	
 	@Override
 	public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
-		// TODO UserModifyForm.validate()
+		// TODO BaseModifyForm.validate()
 		return super.validate(mapping, request);
 	}
 	
-	public BaseEntity getEntity() {
+	public EntityType getEntity() {
 		return entity;
 	}
 	
