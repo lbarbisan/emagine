@@ -1,16 +1,16 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
-<h2>Cr&eacute;er&nbsp;un&nbsp;poste</h2>
+<%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
+<h2><bean:message key="post.create.title"/></h2>
 <div class="form">
 	<p>
-		<label for="die">Fili&egrave;re </label>
+		<label for="die"><bean:message key="form.die"/></label>
 		<select name="die">
-			<!-- à mettre en base -->
-			<option value="all" selected="selected">Toutes</option>
 			<option value="ir">IR</option>
 			<option value="mfpi">MFPI</option>
 			<option value="gmu">GMU</option>
 		</select>
 	</p>
+	<p><label for="nbAsked"><bean:message key="form.numberAsked"/><font color="red">*</font>&nbsp;</label><input type="text" id="firstName" size="20" /></p>
 </div>
 <div id="actions">
 	<h2>&nbsp;</h2>
@@ -18,3 +18,4 @@
 		<li><a href="#"><input type="submit" value="Créer"/></a></li>
 	</ul>
 </div>
+<div align="right"><font color="red" size="1"><bean:message key="form.msg.obligation.star"/></font></div>

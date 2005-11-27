@@ -1,32 +1,32 @@
-<h2>Effectuer&nbsp;une&nbsp;extraction&nbsp;de&nbsp;candidats</h2>
+<%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
+<h2><bean:message key="candidate.extract.title"/></h2>
 <br/>
 <div class="form">
-	<p><label for="type">Type&nbsp;</label><input type="radio" name="type" value="csv" checked>csv<input type="radio" name="type" value="xls">xls</p>
+	<p><label for="type"><bean:message key="form.type"/></label><input type="radio" name="type" value="csv" checked>csv<input type="radio" name="type" value="xls">xls</p>
 	<br/>
 	<fieldset>
-		<legend>Identification</legend>
-				<p><label for="name">Nom&nbsp;</label>
+		<legend><bean:message key="form.fieldset.identification"/></legend>
+				<p><label for="name"><bean:message key="form.name"/></label>
 				<input type="checkbox" value="ON" name="name" /></p>
-				<p><label for="firstName">Pr&eacute;nom&nbsp;</label>
+				<p><label for="firstName"><bean:message key="form.firstName"/></label>
 				<input type="checkbox" value="ON" name="firstName" /></p>
-				<p><label for="sex">Sexe&nbsp;</label>
+				<p><label for="sex"><bean:message key="form.sex"/></label>
 				<input type="checkbox" value="ON" name="sex" /></p>
 	</fieldset>
 	<fieldset>
-		<legend>Coordonn&eacute;es</legend>
-		<p><label for="adress">Personnelle&nbsp;</label>
+		<legend><bean:message key="form.fieldset.coord"/></legend>
+		<p><label for="adress"><bean:message key="form.personal"/></label>
 		<input type="checkbox" value="ON" name="adress" /></p>
-		<p><label for="phone">T&eacute;l&eacute;phone&nbsp;</label>
+		<p><label for="phone"><bean:message key="form.phone"/></label>
 		<input type="checkbox" value="ON" name="phone" /></p>
-		<p><label for="mobile">Portable&nbsp;</label>
+		<p><label for="mobile"><bean:message key="form.mobile"/></label>
 		<input type="checkbox" value="ON" name="mobile" /></p>
-		<p><label for="fax">Fax&nbsp;</label>
+		<p><label for="fax"><bean:message key="form.fax"/></label>
 		<input type="checkbox" value="ON" name="fax" /></p>
-		<p><label for="email">e-mail&nbsp;</label>
+		<p><label for="email"><bean:message key="form.email"/></label>
 		<input type="checkbox" value="ON" name="email" /></p>
 	</fieldset>
 </div>
-
 <div id="actions">
 	<h2>&nbsp;</h2>
 	<ul>

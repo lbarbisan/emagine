@@ -1,9 +1,10 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
-<h2>Visualiser&nbsp;des&nbsp;statistiques</h2>
+<%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
+<h2><bean:message key="statistics.list.title"/></h2>
 <br/>
 <div class="search">
 	<fieldset>
-	<p><label for="stat">Statistique&nbsp;</label>
+	<p><label for="stat"></label>
 		<select name="stat">
 			<!-- à mettre en base -->
 			<option value="1">sexe(histogramme)</option>

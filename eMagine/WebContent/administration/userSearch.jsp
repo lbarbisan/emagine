@@ -1,20 +1,20 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
+<%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
+<h2><bean:message key="user.search.title"/></h2>
 <form name="results">
-	<h2>Rechercher&nbsp;un&nbsp;utilisateur</h2>
 	<br/>
 	<div align="center">
 		<div class="search">
 			<fieldset>
 				<div class="search_b1">
-					<p><label for="name">Nom </label> <input type="text" id="name" size="20" /> </p>
-					<p><label for="firstName">Pr&eacute;nom </label> <input type="text" id="firstName" size="20" /> </p>
+					<p><label for="name"><bean:message key="criteria.search.name"/></label> <input type="text" id="name" size="20" /> </p>
+					<p><label for="firstName"><bean:message key="criteria.search.firstName"/></label> <input type="text" id="firstName" size="20" /> </p>
 				</div>
-				
 				<div class="search_b2">
-					<p><label for="identifiant">Identifiant&nbsp;</label> <input type="text" id="identifiant" size="20" /> </p>
-					<p><label for="profil">Profil&nbsp;</label>
+					<p><label for="identifiant"><bean:message key="criteria.search.identifiant"/></label> <input type="text" id="identifiant" size="20" /> </p>
+					<p><label for="profil"><bean:message key="criteria.search.profil"/></label>
 						<select name="profil">
-							<option value="all" selected="selected">Tous</option>
+							<option value="all" selected="selected"><bean:message key="criteria.search.identifiant"/></option>
 							<option value="1">ProfilApprenti</option>
 							<option value="2">ProfilEnseignant</option>
 						</select>
@@ -25,23 +25,19 @@
 		<br/>
 		<input type="button" value="Rechercher"/>
 	</div>
-	<h2>R&eacute;sultats </h2> 
-	
-	<!-- Un tableau de resultats -->
+	<h2><bean:message key="tilte.results"/></h2> 
 	<div align=center>
 		<div id="statSearch">
-			<p>
-			<label for="result">R&eacute;sulats </label> <input type="text" id="result" size="5" />&nbsp;&nbsp;&nbsp;
-			<label for="pageNb">Nombre par page </label><input type="text" id="pageNb" size="5" /> 
-			</p>
+			<p><label for="result"><bean:message key="statSearch.results"/></label><input type="text" id="result" size="5"/>&nbsp;&nbsp;&nbsp;
+			<label for="pageNb"><bean:message key="statSearch.numberByPage"/></label><input type="text" id="pageNb" size="5" /></p>
 		</div>
 		<table cellpadding="0" cellspacing="0">
 			<tr>
 				<th>&nbsp;</th>
-				<th>Nom</th>
-				<th>Pr&eacute;nom</th>
-				<th>Identifiant</th>
-				<th>Profil</th>
+				<th><bean:message key="table.header.name"/></th>
+				<th><bean:message key="table.header.firstName"/></th>
+				<th><bean:message key="table.header.identifiant"/></th>
+				<th><bean:message key="table.header.profil"/></th>
 			</tr>
 			<tr>
 				<td><input type="checkbox" value="ON" name="all_none" /></td>
@@ -61,8 +57,8 @@
 	</div>
 	<div id="actions">
 		<ul>
-			<li><a href="javascript:checkAll('results','all_none');">Tous</a>&nbsp;&nbsp;/</li>
-			<li><a href="javascript:checkNothing('results','all_none');">Aucun</a> </li>
+			<li><a href="javascript:checkAll('results','all_none');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
+			<li><a href="javascript:checkNothing('results','all_none');"><bean:message key="all_none.none"/></a></li>
 		</ul>
 		<h2>&nbsp;</h2>
 		<ul>

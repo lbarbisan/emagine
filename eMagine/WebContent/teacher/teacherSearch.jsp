@@ -1,36 +1,36 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
-<h2>Rechercher&nbsp;un&nbsp;enseignant</h2>
-<br/>
+<%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 <form name="results">
+	<h2><bean:message key="teacher.search.title"/></h2>
+	<br/>
 	<div align="center">
 		<div class="search">
 			<fieldset>
 				<div class="search_b1">
-					<p><label for="name">Nom </label><input type="text" id="name" size="20" /></p>
+					<p><label for="name"><bean:message key="criteria.search.name"/></label><input type="text" id="name" size="20" /></p>
 				</div>
 				<div class="search_b2">
-					<p><label for="firstName">Pr&eacute;nom </label><input type="text" id="firstName" size="20" /></p>
+					<p><label for="firstName"><bean:message key="criteria.search.firstName"/></label><input type="text" id="firstName" size="20" /></p>
 				</div>
 			</fieldset>
 		</div>
 		<br/>
 		<input type="button" value="Rechercher"/>
 	</div>
-	<h3>R&eacute;sultats</h3>
+	<h3><bean:message key="title.results"/></h3>
 	<div align=center>
 		<div id="statSearch">
 		<p>
-		<label for="result">R&eacute;sulats </label> <input type="text" id="result" size="5" />&nbsp;&nbsp;&nbsp;
-		<label for="pageNb">Nombre par page </label><input type="text" id="pageNb" size="5" /> 
+			<label for="result"><bean:message key="statSearch.results"/></label><input type="text" id="result" size="5"/>&nbsp;&nbsp;&nbsp;
+			<label for="pageNb"><bean:message key="statSearch.numberByPage"/></label><input type="text" id="pageNb" size="5" />
 		</p>
 		</div>
-		<form name="results">
 		<table cellpadding="0" cellspacing="0">
 			<tr>
 				<th>&nbsp;</th>
-				<th>Nom</th>
-				<th>Pr&eacute;nom</th>
-				<th>T&eacute;l&eacute;phone</th>
+				<th><bean:message key="table.header.name"/></th>
+				<th><bean:message key="table.header.firstName"/></th>
+				<th><bean:message key="table.header.phone"/></th>
 			</tr>
 			<tr>
 				<td><input type="checkbox" value="ON" name="all_none" /></td>
@@ -49,8 +49,8 @@
 	<!-- Les actions propres a la selection -->
 	<div id="actions">
 		<ul>
-			<li><a href="javascript:checkAll('results','all_none');">Tous</a>&nbsp;&nbsp;/</li>
-			<li><a href="javascript:checkNothing('results','all_none');">Aucun</a> </li>
+			<li><a href="javascript:checkAll('results','all_none');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
+			<li><a href="javascript:checkNothing('results','all_none');"><bean:message key="all_none.none"/></a> </li>
 		</ul>
 		<h2>&nbsp;</h2>
 		<ul>

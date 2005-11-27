@@ -1,23 +1,22 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
+<%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
+<h2><bean:message key="user.detail.title"/></h2>
 <div class="form">
 	<br/>
-	<fieldset>
-		<legend>Coordonn&eacute;es</legend>
-			<p><label for="name">Nom&nbsp;<font color="red">*</font> </label><input type="text" id="name" size="20" /></p>
-			<p><label for="firstName">Pr&eacute;nom&nbsp;<font color="red">*</font> </label><input type="text" id="firstName" size="20" /></p>
-			<p><label for="email">E-mail&nbsp;<font color="red">*</font> </label><input type="text" id="email" size="20" /></p>
-			<p><label for="identifiant">Identifiant&nbsp;<font color="red">*</font> </label><input type="text" id="identifiant" size="20" /></p>
-			<p><label for="password">Mot&nbsp;de&nbsp;passe&nbsp;</label><input type="text" id="password" size="20" /></p>	
-			<p><label for="confirmPassword">Confirmation&nbsp;du&nbsp;mot&nbsp;de&nbsp;passe&nbsp;</label><input type="text" id="confirmPassword" size="20" /></p>
-			<p>
-			<label for="profil">Profil&nbsp;</label>
-			<select name="profil">
-				<option value="1">ProfilApprenti</option>
-				<option value="2">ProfilEnseignant</option>
-			</select>
-		</p>
-	</fieldset>
-	<br/>
+	<p><label for="name"><bean:message key="form.name"/><font color="red">*</font> </label><input type="text" id="name" size="20" /></p>
+	<p><label for="firstName"><bean:message key="form.firstName"/><font color="red">*</font> </label><input type="text" id="firstName" size="20" /></p>
+	<p><label for="email"><bean:message key="form.email"/><font color="red">*</font> </label><input type="text" id="email" size="20" /></p>
+	<p><label for="identifiant"><bean:message key="form.identifiant"/><font color="red">*</font> </label><input type="text" id="identifiant" size="20" /></p>
+	<p><label for="password"><bean:message key="form.password"/></label><input type="text" id="password" size="20" /></p>	
+	<p><label for="confirmPassword"><bean:message key="form.confirmPassword"/></label><input type="text" id="confirmPassword" size="20" /></p>
+	<p>
+		<label for="profil"><bean:message key="form.profil"/></label>
+		<select name="profil">
+			<option value="1">ProfilApprenti</option>
+			<option value="2">ProfilEnseignant</option>
+		</select>
+	</p>
+<br/>
 </div>
 <div id="actions">
 	<h2>&nbsp;</h2>
@@ -26,4 +25,4 @@
 		<li><a href="#"><input type="submit" value="Supprimer" alt="Supprimer l'utilisateur"/></a></li>
 	</ul>
 </div>
-<div align="right"><font color="red" size="1">Les&nbsp;champs&nbsp;marqu&eacute;s&nbsp;d'une&nbsp;*&nbsp;sont&nbsp;obligatoires</font></div>	
+<div align="right"><font color="red" size="1"><bean:message key="form.msg.obligation.star"/></font></div>

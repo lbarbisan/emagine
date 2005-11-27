@@ -1,14 +1,15 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
-<h2>Visualiser&nbsp;les&nbsp;centres&nbsp;d'examens</h2>
+<%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
+<h2><bean:message key="center.list.title"/></h2>
 <br/>
 <div align=center>
 	<table cellpadding="0" cellspacing="0">
 		<tr>
-			<th>Nom</th>
-			<th>Adresse</th>
-			<th>Téléphone</th>
-			<th>Nombre&nbsp;de&nbsp;salles</th>
-			<th>Nombre&nbsp;de&nbsp;places&nbsp;disponibles</th>
+			<th><bean:message key="table.header.name"/></th>
+			<th><bean:message key="table.header.adress"/></th>
+			<th><bean:message key="table.header.phone"/></th>
+			<th><bean:message key="table.header.nbRoom"/></th>
+			<th><bean:message key="table.header.nbAvailable"/></th>
 		</tr>
 		<tr>
 			<td><html:link action="/centerDetail">Toulouse</html:link></td>

@@ -1,25 +1,26 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
-<h2>Rechercher&nbsp;une&nbsp;absence</h2>
+<%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
+<h2><bean:message key="student.absence.search.title"/></h2>
 <br/>
 <div align="center">
 	<div class="search">
 		<fieldset>
 			<div class="search_b1">
 				<p>
-					<label for="initDate">Date&nbsp;d&eacute;but&nbsp;</label>
+					<label for="initDate"><bean:message key="criteria.search.initDate"/></label>
 					<input type="text" id="initDate" size="20" /> 
 				</p>
 				<p>
-					<label for="endDate">Date&nbsp;fin&nbsp;</label>
+					<label for="endDate"><bean:message key="criteria.search.endDate"/></label>
 					<input type="text" id="endDate" size="20" /> 
 				</p>
 			</div>
 			<div class="search_b2">
 				<p>
-					<label for="justification">Justification&nbsp;</label>
+					<label for="justification"><bean:message key="criteria.search.justification"/></label>
 					<select name="justification">
 						<!-- à mettre en base -->
-						<option value="all" selected="selected">Toutes</option>
+						<option value="all" selected="selected"><bean:message key="select.all.feminine"/></option>
 						<option value="M">maladie</option>
 						<option value="E">entreprise</option>
 						<option value="NJ">non&nbsp;justifi&eacute;</option>
@@ -32,22 +33,22 @@
 	<input type="button" value="Rechercher"/>
 </div>
 <form name="results">
-	<h3>R&eacute;sultats</h3>
+	<h3><bean:message key="title.results"/></h3>
 	<div align=center>
 		<div id="statSearch">
-			<p><label for="result">R&eacute;sultats&nbsp;</label><input type="text" id="result" size="5"/>&nbsp;&nbsp;&nbsp;
-			<label for="pageNb">Nb.&nbsp;par&nbsp;page&nbsp;</label><input type="text" id="pageNb" size="5" /></p>
+			<p><label for="result"><bean:message key="statSearch.results"/></label><input type="text" id="result" size="5"/>&nbsp;&nbsp;&nbsp;
+			<label for="pageNb"><bean:message key="statSearch.numberByPage"/></label><input type="text" id="pageNb" size="5" /></p>
 		</div>
-		<p align="left"><label for="total">Nb.&nbsp;total&nbsp;</label>
+		<p align="left"><label for="total"><bean:message key="form.total"/></label>
 		<input type="text" id="total" size="20" /></p> 
 		<table cellpadding="0" cellspacing="0">
 			<tr>
 				<th>&nbsp;</th>
-				<th>Date&nbsp;début</th>
-				<th>Date&nbsp;fin</th>
-				<th>Nb.&nbsp;de&nbsp;jours</th>
-				<th>Justification</th>
-				<th>Commentaire</th>
+				<th><bean:message key="table.header.initDate"/></th>
+				<th><bean:message key="table.header.endDate"/></th>
+				<th><bean:message key="table.header.daysNumber"/></th>
+				<th><bean:message key="table.header.justification"/></th>
+				<th><bean:message key="table.header.comment"/></th>
 			</tr>
 			<tr>
 				<td><input type="checkbox" value="ON" name="all_none"/></td>

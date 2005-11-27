@@ -1,8 +1,9 @@
-<h2>Visualiser&nbsp;le&nbsp;d&eacute;tail&nbsp;d'une&nbsp;mailing-list</h2>
+<%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
+<h2><bean:message key="mailingList.detail.title"/></h2>
 <br/>
 	<div class="form">
-		<p><label for="name">Nom&nbsp;<font color="red">*</font> </label><input type="text" id="name" size="20" /></p>
-		<p><label for="description">Descritpion&nbsp;</label><textarea type="text" id="description" ></textarea></p>
+		<p><label for="name"><bean:message key="form.name"/><font color="red">*</font> </label><input type="text" id="name" size="20" /></p>
+		<p><label for="description"><bean:message key="form.description"/></label><textarea type="text" id="description" ></textarea></p>
 	</div>
 	<div id="actions">
 		<h2>&nbsp;</h2>
@@ -11,4 +12,3 @@
 		</ul>
 	</div>
 <br/>
-<div align="right"><font color="red" size="1">Les&nbsp;champs&nbsp;marqu&eacute;s&nbsp;d'une&nbsp;*&nbsp;sont&nbsp;obligatoires</font></div>

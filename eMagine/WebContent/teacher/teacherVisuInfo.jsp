@@ -1,36 +1,36 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
+<%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 <form name="results">
 	<div class="form">
 		<br/>
-		<p><label for="name">Nom&nbsp;<font color="red">*</font> </label><input type="text" id="name" size="20" /></p>
-		<p><label for="firstName">Pr&eacute;nom&nbsp;<font color="red">*</font> </label><input type="text" id="firstName" size="20" /></p>
-		<p><label for="adress">Adresse&nbsp;<font color="red">*</font> </label><input type="text" id="adress" size="20" /></p>
-		<p><label for="postalCode">Code&nbsp;postal&nbsp;<font color="red">*</font> </label><input type="text" id="postalCode" size="20" /></p>
-		<p><label for="city">Ville&nbsp;<font color="red">*</font> </label><input type="text" id="city" size="20" /></p>
-		<p><label for="department">D&eacute;partement&nbsp;<font color="red">*</font> </label><select name="department">
-				<!-- à mettre en base -->
-				<option value="" selected="selected">-- D&eacute;partement --</option>
+		<p><label for="name"><bean:message key="form.name"/><font color="red">*</font> </label><input type="text" id="name" size="20" /></p>
+		<p><label for="firstName"><bean:message key="form.firstName"/><font color="red">*</font> </label><input type="text" id="firstName" size="20" /></p>
+		<p><label for="adress"><bean:message key="form.adress"/><font color="red">*</font> </label><input type="text" id="adress" size="20" /></p>
+		<p><label for="postalCode"><bean:message key="form.postalCode"/><font color="red">*</font> </label><input type="text" id="postalCode" size="20" /></p>
+		<p><label for="city"><bean:message key="form.city"/><font color="red">*</font> </label><input type="text" id="city" size="20" /></p>
+		<p><label for="department"><bean:message key="form.department"/><font color="red">*</font></label>
+			<select name="department">
 				<option value="93">93</option>
 				<option value="77">77</option>
 				<option value="78">78</option>
 			</select> </p>
-		<p><label for="phone">T&eacute;l&eacute;phone&nbsp;fixe&nbsp;</label><input type="text" id="phone" size="20" /></p>	
-		<p><label for="mobile">T&eacute;l&eacute;phone&nbsp;portable&nbsp;</label><input type="text" id="mobile" size="20" /></p>
-		<p><label for="fax">Fax&nbsp;</label><input type="text" id="fax" size="20" /></p>
-		<p><label for="email">E-mail&nbsp;<font color="red">*</font> </label><input type="text" id="email" size="20" /></p>
+		<p><label for="phone"><bean:message key="form.phone"/></label><input type="text" id="phone" size="20" /></p>	
+		<p><label for="mobile"><bean:message key="form.mobile"/></label><input type="text" id="mobile" size="20" /></p>
+		<p><label for="fax"><bean:message key="form.fax"/></label><input type="text" id="fax" size="20" /></p>
+		<p><label for="email"><bean:message key="form.email"/><font color="red">*</font> </label><input type="text" id="email" size="20" /></p>
 	</div>
-	<h2>Pupilles</h2>
+	<h3><bean:message key="title.pupils"/></h3>
 	<br/>
 	<div align=center>
 		<table cellpadding="0" cellspacing="0">
 			<tr>
 				<th>&nbsp;</th>
-				<th>Nom</th>
-				<th>Pr&eacute;nom</th>
-				<th>Classe</th>
-				<th>Groupe</th>
-				<th>Date&nbsp;d&eacute;but</th>
-				<th>Date&nbsp;fin</th>
+				<th><bean:message key="table.header.name"/></th>
+				<th><bean:message key="table.header.firstName"/></th>
+				<th><bean:message key="table.header.class"/></th>
+				<th><bean:message key="table.header.group"/></th>
+				<th><bean:message key="table.header.initDate"/></th>
+				<th><bean:message key="table.header.endDate"/></th>
 			</tr>
 			<tr>
 				<td><input type="checkbox" name="all_none" value="ON" /></td>
@@ -55,8 +55,8 @@
 	<br/>
 	<div id="actions">
 		<ul>
-			<li><a href="javascript:checkAll('results','all_none');">Tous</a>&nbsp;&nbsp;/</li>
-			<li><a href="javascript:checkNothing('results','all_none');">Aucun</a> </li>
+			<li><a href="javascript:checkAll('results','all_none');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
+			<li><a href="javascript:checkNothing('results','all_none');"><bean:message key="all_none.none"/></a> </li><li><a href="javascript:checkAll('results','all_none');">Tous</a>&nbsp;&nbsp;/</li>
 		</ul>
 		<h2>&nbsp;</h2>	
 		<ul>
@@ -64,7 +64,4 @@
 		</ul>
 	</div>
 </form>
-<div align="right"><font color="red" size="1">Les&nbsp;champs&nbsp;marqu&eacute;s&nbsp;d'une&nbsp;*&nbsp;sont&nbsp;obligatoires</font></div>
-
-
-
+<div align="right"><font color="red" size="1"><bean:message key="form.msg.obligation.star"/></font></div>

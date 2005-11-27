@@ -1,14 +1,15 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
+<%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
+<h2><bean:message key="bringingTogether.title"/></h2>
 <form name="results">
-	<h2>Rapprocher&nbsp;candidats&nbsp;et&nbsp;entreprises</h2>
 	<br/>
 	<div align="center">
 		<div class="search">
 			<fieldset>
-				<p><label for="die">Fili&egrave;re</label>
+				<p><label for="die"><bean:message key="criteria.search.die"/></label>
 					<select name="die">
 						<!-- à mettre en base -->
-						<option value="all" selected="selected">Toutes</option>
+						<option value="all" selected="selected"><bean:message key="select.all.feminin"/></option>
 						<option value="ir">IR</option>
 						<option value="mfpi">MFPI</option>
 						<option value="gmu">GMU</option>
@@ -19,18 +20,16 @@
 		<input type="button" value="Rapprocher"/>
 	</div>
 	<br/>
-	<h3>R&eacute;sultats </h3>
+	<h3><bean:message key="title.results"/></h3>
 	<div align=center>
 		<div id="statSearch">
-		<p>
-		<label for="result">R&eacute;sultats </label> <input type="text" id="result" size="5" />&nbsp;&nbsp;&nbsp;
-		<label for="pageNb">Nombre par page </label><input type="text" id="pageNb" size="5" /> 
-		</p>
+			<p><label for="result"><bean:message key="statSearch.results"/></label><input type="text" id="result" size="5"/>&nbsp;&nbsp;&nbsp;
+			<label for="pageNb"><bean:message key="statSearch.numberByPage"/></label><input type="text" id="pageNb" size="5" /></p>
 		</div>
 		<table cellpadding="0" cellspacing="0">
 			<tr>
 				<th>&nbsp;</th>
-				<th>&nbsp;Nom&nbsp;</th>
+				<th><bean:message key="table.header.name"/></th>
 			</tr>
 			<tr>
 				<td><input type="checkbox" name="all_none" value="ON" /></td>
@@ -44,8 +43,8 @@
 	</div>
 	<div id="actions">
 		<ul>
-			<li><a href="javascript:checkAll('results','all_none');">Tous</a>&nbsp;&nbsp;/</li>
-			<li><a href="javascript:checkNothing('results','all_none');">Aucun</a> </li>
+			<li><a href="javascript:checkAll('results','all_none');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
+			<li><a href="javascript:checkNothing('results','all_none');"><bean:message key="all_none.none"/></a></li>
 		</ul>
 		<h2>&nbsp;</h2>	
 		<ul>

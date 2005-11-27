@@ -1,29 +1,30 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
+<%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
+<h2><bean:message key="candidate.search.title"/></h2>
 <form name="results">
-	<h2>Rechercher&nbsp;un&nbsp;candidat</h2>
 	<br/>
 	<div align="center">
 		<div class="search">
 			<fieldset>
 			<div class="search_b1">
-				<p><label for="name">Nom </label><input type="text" id="name" size="20" />  </p>
-				<p><label for="firstName">Pr&eacute;nom </label> <input type="text" id="firstName" size="20" /> </p>
+				<p><label for="name"><bean:message key="criteria.search.name"/></label><input type="text" id="name" size="20" />  </p>
+				<p><label for="firstName"><bean:message key="criteria.search.firstName"/></label> <input type="text" id="firstName" size="20" /> </p>
 			</div>		
 			<div class="search_b2">
 			<p>
-			<label for="die">Fili&egrave;re&nbsp;demand&eacute;e&nbsp;</label>
+			<label for="die"><bean:message key="criteria.search.dieAsked"/></label>
 				<select name="die">
 					<!-- à mettre en base -->
-					<option value="all" selected="selected">Toutes</option>
+					<option value="all" selected="selected"><bean:message key="select.all.feminin"/></option>
 					<option value="ir">IR</option>
 					<option value="mfpi">MFPI</option>
 					<option value="gmu">GMU</option>
 				</select>
 			</p>
-			<p><label for="center">Centre&nbsp;examen&nbsp;</label>
+			<p><label for="center"><bean:message key="criteria.search.center"/></label>
 				<select name="center">
 					<!-- à mettre en base -->
-					<option value="all" selected="selected">Tous</option>
+					<option value="all" selected="selected"><bean:message key="select.all.feminin"/></option>
 					<option value="Paris">Paris</option>
 					<option value="Toulouse">Toulouse</option>
 					<option value="Bordeaux">Bordeaux</option>
@@ -33,27 +34,24 @@
 			</fieldset>
 			</div>
 			<br/>
-			<input type="button" value="Rechercher"/>
+		<input type="button" value="Rechercher"/>
 	</div>
-	<h3>R&eacute;sultats </h3>
+	<h3><bean:message key="title.results"/></h3>
 	<div align=center>
 		<div id="statSearch">
-		<p>
-		<label for="result">R&eacute;sultats </label> <input type="text" id="result" size="5" />&nbsp;&nbsp;&nbsp;
-		<label for="pageNb">Nombre par page </label><input type="text" id="pageNb" size="5" /> 
-		</p>
-		
-	</div>	
+			<p><label for="result"><bean:message key="statSearch.results"/></label><input type="text" id="result" size="5"/>&nbsp;&nbsp;&nbsp;
+			<label for="pageNb"><bean:message key="statSearch.numberByPage"/></label><input type="text" id="pageNb" size="5" /></p>
+		</div>
 		<table cellpadding="0" cellspacing="0">
 			<tr>
 				<th>&nbsp;</th>
-				<th>Nom</th>
-				<th>Pr&eacute;nom</th>
-				<th>Fili&egrave;re</th>
-				<th>Centre</th>
-				<th>T&eacute;l&eacute;phone</th>
-				<th>E-mail</th>
-				<th>Admissible</th>
+				<th><bean:message key="table.header.name"/></th>
+				<th><bean:message key="table.header.firstName"/></th>
+				<th><bean:message key="table.header.die"/></th>
+				<th><bean:message key="table.header.center"/></th>
+				<th><bean:message key="table.header.phone"/></th>
+				<th><bean:message key="table.header.email"/></th>
+				<th><bean:message key="table.header.acceptable"/></th>
 			</tr>
 			<tr>
 				<td><input type="checkbox" value="ON"  name="all_none"/></td>
@@ -63,7 +61,7 @@
 				<td>Paris</td>
 				<td>014387544508</td>
 				<td>yann.cadic@leneuf.fr</td>
-				<td><input type="checkbox" value="ON" checked/></td>
+				<td>oui</td>
 			</tr>
 			<tr>
 				<td><input type="checkbox" value="ON"  name="all_none"/></td>
@@ -73,17 +71,16 @@
 				<td>Paris</td>
 				<td>011045632211</td>
 				<td>delphine.dumoleyn@wanadoo.fr</td>
-				<td><input type="checkbox" value="ON" checked/></td>
+				<td>oui</td>
 			</tr>
-	</table>
+		</table>
 	</div>
-	<!-- Les actions propres a la selection -->
-		<div id="actions">
-			<ul>
-				<li><a href="javascript:checkAll('results','all_none');">Tous</a>&nbsp;&nbsp;/</li>
-				<li><a href="javascript:checkNothing('results','all_none');">Aucun</a> </li>
-			</ul>
-			<h2>&nbsp;</h2>
+	<div id="actions">
+		<ul>
+			<li><a href="javascript:checkAll('results','all_none');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
+			<li><a href="javascript:checkNothing('results','all_none');"><bean:message key="all_none.none"/></a></li>
+		</ul>
+		<h2>&nbsp;</h2>
 		<ul>
 			<li><a href="#"><img src="/eMagine/common/images/icones/passage.png" alt="passer le candidat en apprenti"/></a></li>
 			<li><a href="#"><img src="/eMagine/common/images/icones/virer.png" alt="Supprimer le candidat"/></a></li>

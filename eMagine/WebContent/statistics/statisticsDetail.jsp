@@ -1,15 +1,16 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
-<h2>Visualiser&nbsp;le&nbsp;d&eacute;tail&nbsp;d'une&nbsp;statistique</h2>
+<%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
+<h2><bean:message key="statistics.detail.title"/></h2>
 <br/>
 <div class="form">
-	<p><label for="name">Nom&nbsp;<font color="red">*</font>&nbsp;</label>
+	<p><label for="name"><bean:message key="form.name"/><font color="red">*</font>&nbsp;</label>
 		<input type="text" id="name" size="20" /> 
 	</p>
-	<p><label for="request">Requête&nbsp;&nbsp;<font color="red">*</font>&nbsp;</label>
-		<input type="text" id="request" size="20" />
+	<p><label for="request"><bean:message key="form.request"/><font color="red">*</font>&nbsp;</label>
+		<textarea id="request"></textarea>
 		<input type="submit" value="?" name="help"/> 
 	</p>
-	<p><label for="diagram">Diagramme&nbsp;<font color="red">*</font>&nbsp;</label>
+	<p><label for="diagram"><bean:message key="form.diagram"/><font color="red">*</font>&nbsp;</label>
 		<select name="diagram">
 			<!-- à mettre en base -->
 			<option value="c">Camembert</option>
@@ -23,4 +24,4 @@
 		<li><a href="#"><input type="submit" value="Modifier" title="Modifier la statistique"/></a></li>
 	</ul>
 </div>
-<div align="right"><font color="red" size="1">Les&nbsp;champs&nbsp;marqu&eacute;s&nbsp;d'une&nbsp;*&nbsp;sont&nbsp;obligatoires</font></div>
+<div align="right"><font color="red" size="1"><bean:message key="form.msg.obligation.star"/></font></div>

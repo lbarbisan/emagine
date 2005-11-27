@@ -1,8 +1,9 @@
-<h2>Effectuer&nbsp;un&nbsp;mailing</h2>
+<%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
+<h2><bean:message key="email.do.title"/></h2>
 <br/>
 <div class="form">
 	<p>
-		<label for="mail">Courrier&nbsp;type</label>
+		<label for="mail"><bean:message key="form.mailType"/></label>
 		<select name="mail">
 			<option value="1">JPO</option>
 			<option value="2">Emploi du temps</option>
