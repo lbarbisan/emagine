@@ -1,6 +1,7 @@
 package fr.umlv.ir3.emagine.util;
 
 import fr.umlv.ir3.emagine.modification.ModificationDAO;
+import fr.umlv.ir3.emagine.teachertutor.TeacherTutorDAO;
 import fr.umlv.ir3.emagine.user.UserDAO;
 import fr.umlv.ir3.emagine.user.profile.ProfileDAO;
 
@@ -9,6 +10,7 @@ public class DAOManager {
 	private UserDAO userDAO = new UserDAO();
 	private ProfileDAO profileDAO = new ProfileDAO();
 	private ModificationDAO modificationDAO = new ModificationDAO();
+	private TeacherTutorDAO teacherTutorDAO = new TeacherTutorDAO();
 	
 		public ModificationDAO getModificationDAO() {
 		return modificationDAO;
@@ -18,6 +20,9 @@ public class DAOManager {
 	}
 	public UserDAO getUserDAO() {
 		return userDAO;
+	}
+	public TeacherTutorDAO getTeacherTutorDAO() {
+		return teacherTutorDAO;
 	}
 	
 	public static DAOManager getInstance() {
