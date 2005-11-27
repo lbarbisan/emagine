@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.apache.struts.action.ActionForm;
 
-public abstract class SearchForm<BaseType> extends ActionForm implements SearchParam {
+public abstract class SearchForm<BaseType> extends ActionForm implements SearchParam, Extractable {
 	protected int nbResultsByPage;
 	protected int indexPage;
 	protected List<BaseType> results;
@@ -57,20 +57,23 @@ public abstract class SearchForm<BaseType> extends ActionForm implements SearchP
 			fields = new LinkedList<String>();
 			for (Field field : getClass().getDeclaredFields()) {
 				// TODO: getFields en fonction des annotations
-				//System.out.println(field);
-				//System.out.println(field.getDeclaredAnnotations().length);
-				if (/*field.getName().startsWith("get") && */field.getAnnotation(IsAField.class) != null) {
+				if (/*field.getName().startsWith("get") && */field.isAnnotationPresent(IsAField.class)) {
 					//String methodName = method.getName();
 					//String fieldName = methodName.substring(3, 4).toLowerCase() + methodName.substring(4);
-					fields.add(field.getName());/*
-					System.out.println("=== "+fieldName+" ===");
-					for (Annotation annotation : method.getAnnotations()) {
-						System.out.println(annotation.toString());
-					}*/
+					fields.add(field.getName());
 				}
 			}
 		}
 		return fields;
+	}
+
+	public String getPropertyNameForColumn(String column) {
+		// TODO SearchForm.getPropertyNameForColumn()
+		return "TODO SearchForm.getPropertyNameForColumn()";
+	}
+
+	public Collection getRows() {
+		return getResults();
 	}
 	
 }

@@ -26,7 +26,7 @@ public class UserSearchAction extends SearchAction {
 
 		// Retrieve all profiles and set them in the form
 		try {
-			userSearchForm.setProfiles(manager.getProfilManager().getProfiles());
+			userSearchForm.setProfiles(manager.getProfileManager().getProfiles());
 		} catch (EMagineException exception) {
 			addEMagineExceptionError(errors, exception);
 		}
