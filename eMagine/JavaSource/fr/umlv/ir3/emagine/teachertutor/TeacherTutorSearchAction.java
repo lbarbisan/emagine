@@ -1,4 +1,4 @@
-package fr.umlv.ir3.emagine.user;
+package fr.umlv.ir3.emagine.teachertutor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,28 +12,21 @@ import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.EntityManager;
 import fr.umlv.ir3.emagine.util.search.SearchAction;
 
-public class UserSearchAction extends SearchAction {
+public class TeacherTutorSearchAction extends SearchAction {
 
 	/**
-	 * The administrator wants to search all the users matching his or her request.
+	 * The user wants to search all the teacher tutor matching his or her request.
 	 * @param params the search parameters
 	 * @param request the request
 	 */
-	public ActionForward searchUsers(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward searchTeacherTutor(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionMessages errors = new ActionMessages();
-		UserSearchForm userSearchForm = (UserSearchForm)form;
+		TeacherTutorSearchForm teacherTutorSearchForm = (TeacherTutorSearchForm)form;
 		EntityManager manager = EntityManager.getInstance();
 
-		// Retrieve all profiles and set them in the form
+		// Retrieve the searched teacher tutor, and set them in the page 
 		try {
-			userSearchForm.setProfiles(manager.getProfileManager().getProfiles());
-		} catch (EMagineException exception) {
-			addEMagineExceptionError(errors, exception);
-		}
-
-		// Retrieve the searched users, and set them in the page 
-		try {
-			userSearchForm.setResults(manager.getUserManager().getUsers(userSearchForm));
+			teacherTutorSearchForm.setResults(manager.getTeacherTutorManager().getTeachersTutor(teacherTutorSearchForm));
 		} catch (EMagineException exception) {
 			addEMagineExceptionError(errors, exception);
 		}

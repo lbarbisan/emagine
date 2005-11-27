@@ -1,7 +1,7 @@
 /**
  *  
  */
-package fr.umlv.ir3.emagine.util;
+package fr.umlv.ir3.emagine.util.person;
 
 
 import java.util.Date;
@@ -21,6 +21,8 @@ import fr.umlv.ir3.emagine.student.CountryEnum;
 import fr.umlv.ir3.emagine.student.DepartmentEnum;
 import fr.umlv.ir3.emagine.student.NationalityEnum;
 import fr.umlv.ir3.emagine.student.SexEnum;
+import fr.umlv.ir3.emagine.util.Address;
+import fr.umlv.ir3.emagine.util.base.BaseEntity;
 ;
 
 /**

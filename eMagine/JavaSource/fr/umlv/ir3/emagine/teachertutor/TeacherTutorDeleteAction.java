@@ -1,4 +1,4 @@
-package fr.umlv.ir3.emagine.user;
+package fr.umlv.ir3.emagine.teachertutor;
 
 import java.util.List;
 
@@ -15,25 +15,24 @@ import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.EntityManager;
 import fr.umlv.ir3.emagine.util.base.BaseAction;
 
-public class UserDeleteAction extends BaseAction {
+public class TeacherTutorDeleteAction extends BaseAction {
 
 	/**
-	 * The administrator wants to delete all the selected users
+	 * The administrator wants to delete all the selected teacher tutor
 	 * @param form the ActionForm containing the request parameters
 	 * @param request the request
 	 */
-	public ActionForward deleteUsers(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward deleteTeachersTutor(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionMessages errors = new ActionMessages();
 		
-		// Retrieve the collection of users to delete
-		UserSearchForm userSearchForm = (UserSearchForm) form;
-		List<User> users = userSearchForm.getResults();
-		boolean deletionForced = userSearchForm.isDeletionForced();
+		// Retrieve the collection of teacher tutor to delete
+		TeacherTutorSearchForm userSearchForm = (TeacherTutorSearchForm) form;
+		List<TeacherTutor> teachersTutor = userSearchForm.getResults();
 
-		// Delete the users
+		// Delete the teacher tutor
 		DAOManager.beginTransaction();
 		try {
-			EntityManager.getInstance().getUserManager().deleteUsers(users, deletionForced);	// TODO : gérer le switch de forçage de suppression
+			EntityManager.getInstance().getTeacherTutorManager().deleteTeacherTutor(teachersTutor);
 		} catch (EMagineException exception) {
 			// save the error
 			addEMagineExceptionError(errors, exception);

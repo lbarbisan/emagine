@@ -9,7 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 
-import fr.umlv.ir3.emagine.util.BaseEntity;
+import fr.umlv.ir3.emagine.util.base.BaseEntity;
 
 @Entity(access = AccessType.FIELD)
 public class Profile extends BaseEntity{

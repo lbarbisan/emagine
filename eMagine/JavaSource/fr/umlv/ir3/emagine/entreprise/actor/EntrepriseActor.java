@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 
 import fr.umlv.ir3.emagine.entreprise.Entreprise;
 import fr.umlv.ir3.emagine.util.Address;
-import fr.umlv.ir3.emagine.util.Person;
+import fr.umlv.ir3.emagine.util.person.Person;
 @Entity(access = AccessType.FIELD)
 public class EntrepriseActor extends Person {
 	

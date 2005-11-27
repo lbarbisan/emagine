@@ -1,9 +1,12 @@
 /**
  * 
  */
-package fr.umlv.ir3.emagine.util;
+package fr.umlv.ir3.emagine.util.base;
 
 import org.hibernate.HibernateException;
+
+import fr.umlv.ir3.emagine.util.EMagineException;
+import fr.umlv.ir3.emagine.util.HibernateUtils;
 
 
 /**

@@ -1,7 +1,7 @@
 /**
  *
  */
-package fr.umlv.ir3.emagine.user;
+package fr.umlv.ir3.emagine.teachertutor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,19 +15,19 @@ import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.EntityManager;
 import fr.umlv.ir3.emagine.util.base.BaseAction;
 
-public class UserModifyAction extends BaseAction {
+public class TeacherTutorModifyAction extends BaseAction {
 
 	public ActionForward createUser(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		ActionMessages errors = new ActionMessages();
 		
-		// Retrieve the User's properties values
-		UserModifyForm userModifyForm = (UserModifyForm) form;
-		User user = userModifyForm.getUser();	// The password have been checked in the form .validate(...) method
+		// Retrieve the teacher tutor's properties values
+		TeacherTutorModifyForm teacherTutorModifyForm = (TeacherTutorModifyForm) form;
+		TeacherTutor teacherTutor = teacherTutorModifyForm.getEntity();
 
 		try {
-			EntityManager.getInstance().getUserManager().createUser(user);
+			EntityManager.getInstance().getTeacherTutorManager().createTeacherTutor(teacherTutor);
 		} catch (EMagineException exception) {
 			// save the error
 			addEMagineExceptionError(errors, exception);
@@ -41,13 +41,13 @@ public class UserModifyAction extends BaseAction {
 	{
 		ActionMessages errors = new ActionMessages();
 
-		// Retrieve the User's properties values
-		UserModifyForm userModifyForm = (UserModifyForm) form;
-		User user = userModifyForm.getUser();	// The password check have been done in the form .validate(...) method
+		// Retrieve the teacher tutor's properties values
+		TeacherTutorModifyForm teacherTutorModifyForm = (TeacherTutorModifyForm) form;
+		TeacherTutor teacherTutor = teacherTutorModifyForm.getEntity();
 
 		// Update the User
 		try {
-			EntityManager.getInstance().getUserManager().updateUser(user);
+			EntityManager.getInstance().getTeacherTutorManager().updateTeacherTutor(teacherTutor);
 		} catch (EMagineException exception) {
 			// save the error
 			addEMagineExceptionError(errors, exception);

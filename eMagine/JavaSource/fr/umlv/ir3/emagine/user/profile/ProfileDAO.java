@@ -2,9 +2,9 @@ package fr.umlv.ir3.emagine.user.profile;
 
 import java.util.Collection;
 
-import fr.umlv.ir3.emagine.util.BaseDAO;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.HibernateUtils;
+import fr.umlv.ir3.emagine.util.base.BaseDAO;
 
 public class ProfileDAO extends BaseDAO<Profile> {
 	@Override

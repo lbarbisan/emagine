@@ -1,4 +1,4 @@
-package fr.umlv.ir3.emagine.util;
+package fr.umlv.ir3.emagine.util.search;
 
 import java.util.Set;
 

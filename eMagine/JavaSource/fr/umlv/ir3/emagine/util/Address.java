@@ -12,8 +12,6 @@ import fr.umlv.ir3.emagine.student.DepartmentEnum;
 
 /**
  * @author Laurent
- * 
- * @Persitence Reste les enum
  */
 @Embeddable(access = AccessType.FIELD)
 public class Address {

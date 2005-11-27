@@ -14,6 +14,7 @@ import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.metadata.ClassMetadata;
 
 import fr.umlv.ir3.emagine.modification.FieldModification;
+import fr.umlv.ir3.emagine.util.base.BaseEntity;
 
 
 
@@ -25,7 +26,7 @@ public class HibernateUtils {
     
     private static final ThreadLocal<Session> threadSession = new ThreadLocal<Session>();
     private static final ThreadLocal<Transaction> threadTransaction = new ThreadLocal<Transaction>();
-
+    
     static {
         try {            
         	sessionFactory = new AnnotationConfiguration()
@@ -40,14 +41,13 @@ public class HibernateUtils {
 
     
     public static Session getSession() throws HibernateException {
-        Session s = threadSession.get();
+        Session session = null;
         // Open a new Session, if this Thread has none yet
-        if (s == null) {
-            s = sessionFactory.openSession();
-            threadSession.set(s);
+        if (session == null) {
+        	session = sessionFactory.openSession();
+            threadSession.set(session);
         }
-        
-        return s;
+        return session;
     }
 
     public static void closeSession() throws HibernateException {

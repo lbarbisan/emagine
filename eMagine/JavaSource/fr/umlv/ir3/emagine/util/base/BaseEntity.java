@@ -1,4 +1,4 @@
-package fr.umlv.ir3.emagine.util;
+package fr.umlv.ir3.emagine.util.base;
 
 import java.io.Serializable;
 import java.util.List;
@@ -54,7 +54,7 @@ public class BaseEntity implements Serializable {
 	/**
 	 * @param id the id of entity, the id is unique accross all Entity in the database.
 	 */
-	public void setId(Long id) {
+	protected void setId(Long id) {
 		this.id = id;
 	}
 

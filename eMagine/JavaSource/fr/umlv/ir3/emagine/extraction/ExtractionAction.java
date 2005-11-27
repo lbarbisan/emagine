@@ -8,10 +8,10 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessages;
 
-import fr.umlv.ir3.emagine.util.BaseAction;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.EntityManager;
 import fr.umlv.ir3.emagine.util.Extractable;
+import fr.umlv.ir3.emagine.util.base.BaseAction;
 
 public class ExtractionAction extends BaseAction {
 	/**

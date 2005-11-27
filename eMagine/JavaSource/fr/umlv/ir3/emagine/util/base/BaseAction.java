@@ -1,4 +1,4 @@
-package fr.umlv.ir3.emagine.util;
+package fr.umlv.ir3.emagine.util.base;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -9,6 +9,9 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
 import org.apache.struts.actions.DispatchAction;
+
+import fr.umlv.ir3.emagine.util.Constants;
+import fr.umlv.ir3.emagine.util.EMagineException;
 
 public class BaseAction extends DispatchAction {
 

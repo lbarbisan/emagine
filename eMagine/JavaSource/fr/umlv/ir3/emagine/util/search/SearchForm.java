@@ -1,4 +1,4 @@
-package fr.umlv.ir3.emagine.util;
+package fr.umlv.ir3.emagine.util.search;
 
 import java.lang.reflect.Field;
 import java.util.Collection;
@@ -6,6 +6,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.apache.struts.action.ActionForm;
+
+import fr.umlv.ir3.emagine.util.Extractable;
+import fr.umlv.ir3.emagine.util.IsAField;
 
 public abstract class SearchForm<BaseType> extends ActionForm implements SearchParam, Extractable {
 	protected int nbResultsByPage;

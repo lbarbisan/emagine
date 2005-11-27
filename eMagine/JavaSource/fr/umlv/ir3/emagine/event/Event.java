@@ -14,7 +14,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.TemporalType;
 
-import fr.umlv.ir3.emagine.util.BaseEntity;
+import fr.umlv.ir3.emagine.util.base.BaseEntity;
 
 /**
  * @author Laurent

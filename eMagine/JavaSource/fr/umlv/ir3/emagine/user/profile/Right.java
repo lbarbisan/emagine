@@ -5,7 +5,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import fr.umlv.ir3.emagine.util.BaseEntity;
+import fr.umlv.ir3.emagine.util.base.BaseEntity;
 
 /**
  * This class represent a right in the application, it's associated to a Profile
@@ -19,7 +19,7 @@ public class Right extends BaseEntity {
 	 * 
 	 */
 	private static final long serialVersionUID = -9217586569535677028L;
-
+	
 	private String description;
 	
 	@Column(unique = true)

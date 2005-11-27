@@ -10,7 +10,7 @@ import fr.umlv.ir3.emagine.student.Contact;
 import fr.umlv.ir3.emagine.student.LevelEntryEnum;
 import fr.umlv.ir3.emagine.student.candidate.examcenter.FormationCenter;
 import fr.umlv.ir3.emagine.student.candidate.room.Room;
-import fr.umlv.ir3.emagine.util.Person;
+import fr.umlv.ir3.emagine.util.person.Person;
 
 /**
  * 

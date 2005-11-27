@@ -11,7 +11,7 @@ import javax.persistence.MapKey;
 import javax.persistence.OneToMany;
 
 import fr.umlv.ir3.emagine.user.User;
-import fr.umlv.ir3.emagine.util.BaseEntity;
+import fr.umlv.ir3.emagine.util.base.BaseEntity;
 
 @Entity(access = AccessType.FIELD)
 public class Modification<ObjectType extends BaseEntity> extends BaseEntity{

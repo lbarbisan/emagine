@@ -4,7 +4,7 @@ import java.util.Collection;
 
 import fr.umlv.ir3.emagine.user.profile.Profile;
 import fr.umlv.ir3.emagine.util.IsAField;
-import fr.umlv.ir3.emagine.util.SelectSearchForm;
+import fr.umlv.ir3.emagine.util.search.SelectSearchForm;
 
 public class UserSearchForm extends SelectSearchForm<User> implements UserSearchParam {
 	

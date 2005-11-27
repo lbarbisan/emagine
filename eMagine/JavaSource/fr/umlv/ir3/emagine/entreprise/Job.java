@@ -7,7 +7,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import fr.umlv.ir3.emagine.student.candidate.DieEnum;
-import fr.umlv.ir3.emagine.util.BaseEntity;
+import fr.umlv.ir3.emagine.util.base.BaseEntity;
 
 @Entity(access = AccessType.FIELD)
 public class Job extends BaseEntity {
