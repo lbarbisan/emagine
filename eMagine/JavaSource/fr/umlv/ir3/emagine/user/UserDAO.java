@@ -1,6 +1,5 @@
 package fr.umlv.ir3.emagine.user;
 
-import java.util.Collection;
 import java.util.List;
 
 import fr.umlv.ir3.emagine.util.EMagineException;
@@ -14,11 +13,7 @@ public class UserDAO extends BaseDAO<User> {
 	}
 
 	public List<User> getUsers(UserSearchParam userSearchParam) throws EMagineException {
-		// TODO HibernateUserDAO.getUsers()
+		// TODO UserDAO.getUsers()
 		return null;
-	}
-
-	public void deleteUsers(Collection<User> users) throws EMagineException {
-		// TODO HibernateUserDAO.deleteUsers()
 	}
 }

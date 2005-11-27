@@ -33,7 +33,7 @@ public class UserDeleteAction extends BaseAction {
 		// Delete the users
 		DAOManager.beginTransaction();
 		try {
-			EntityManager.getInstance().getUserManager().deleteUsers(users, deletionForced);	// TODO : gérer le switch de forçage de suppression
+			EntityManager.getInstance().getUserManager().delete(users, deletionForced);	// TODO : gérer le switch de forçage de suppression
 		} catch (EMagineException exception) {
 			// save the error
 			addEMagineExceptionError(errors, exception);

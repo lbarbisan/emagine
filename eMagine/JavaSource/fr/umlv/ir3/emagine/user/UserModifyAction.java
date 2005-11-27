@@ -27,7 +27,7 @@ public class UserModifyAction extends BaseAction {
 		User user = userModifyForm.getEntity();	// The password have been checked in the form .validate(...) method
 
 		try {
-			EntityManager.getInstance().getUserManager().createUser(user);
+			EntityManager.getInstance().getUserManager().create(user);
 		} catch (EMagineException exception) {
 			// save the error
 			addEMagineExceptionError(errors, exception);
@@ -47,7 +47,7 @@ public class UserModifyAction extends BaseAction {
 
 		// Update the User
 		try {
-			EntityManager.getInstance().getUserManager().updateUser(user);
+			EntityManager.getInstance().getUserManager().update(user);
 		} catch (EMagineException exception) {
 			// save the error
 			addEMagineExceptionError(errors, exception);
