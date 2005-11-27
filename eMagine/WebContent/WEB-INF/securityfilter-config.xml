@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE securityfilter-config PUBLIC
+    "-//SecurityFilter.org//DTD Security Filter Configuration 2.0//EN"
+    "http://www.securityfilter.org/dtd/securityfilter-config_2_0.dtd">
+
+<securityfilter-config>
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Administration</web-resource-name>
+			<url-pattern>/administration/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>*</role-name>
+		</auth-constraint>
+	</security-constraint>
+
+	<login-config>
+		<auth-method>FORM</auth-method>
+		<form-login-config>
+			<form-login-page>/index.jsp</form-login-page>
+			<form-error-page>/loginError.jsp</form-error-page>
+			<form-default-page>/studentSearch.do</form-default-page>
+		</form-login-config>
+	</login-config>
+	
+	<!-- start with a Catalina realm adapter to wrap the Catalina realm defined below -->
+	<realm
+		className="org.securityfilter.realm.catalina.CatalinaRealmAdapter" />
+
+	<!-- this is a Catalina realm that will be adapted to the securityfilter by the realm defined above -->
+	<realm className="org.apache.catalina.realm.JDBCRealm">
+		<realm-param name="driverName" value="org.postgresql.Driver" />
+		<realm-param name="connectionURL"
+			value="jdbc:postgresql://server.srv-net.com:54321/test" />
+		<realm-param name="connectionName" value="tomcat_realm" />
+		<realm-param name="connectionPassword"
+			value="@tomcat.password@" />
+		<realm-param name="userTable" value="users" />
+		<realm-param name="userNameCol" value="name" />
+		<realm-param name="userCredCol" value="user_pass" />
+		<realm-param name="userRoleTable" value="roles" />
+		<realm-param name="roleNameCol" value="name" />
+	</realm>
+</securityfilter-config>

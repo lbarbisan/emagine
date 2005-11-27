@@ -11,14 +11,16 @@
 	<!--  <img src="/eMagine/common/images/auth.png"/><br/><br/>-->
 
 			<div class="login">
-				<img src="/eMagine/common/images/logo.gif"/>
-				<h2>Authentification</h2>
-				<br/>
-				<p><label for="login">Identifiant </label><input type="text" id="login" size="20" /></p>
-				<p><label for="pwd">Mot&nbsp;de&nbsp;passe </label><input type="text" id="pwd" size="20" /></p>
-				<br/>
-				<hr/>
-				<div align=center><html:link action="/studentSearch"><input type="button" value="Envoyer"></html:link></div>
+				<form id="loginForm" method="get" action="j_security_check">
+					<img src="/eMagine/common/images/logo.gif"/>
+					<h2>Authentification</h2>
+					<br/>
+					<p><label for="login">Identifiant </label><input type="text" name="j_username" id="login" size="20" /></p>
+					<p><label for="pwd">Mot&nbsp;de&nbsp;passe </label><input type="password" name="j_password" id="pwd" size="20" /></p>
+					<br/>
+					<hr/>
+					<div align=center><input type="submit" value="Envoyer"></div>
+				</form>
 			</div>
 	</body>
 </html>
