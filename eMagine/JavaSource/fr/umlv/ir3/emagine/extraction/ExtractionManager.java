@@ -8,7 +8,8 @@ public class ExtractionManager {
 
 	public void extract(ExtractionParam extractionParam, OutputStream outputStream) throws EMagineException {
 		Extractor extractor = ExtractionTypeFactory.getExtractor(extractionParam.getExtractionType());
-		extractor.extract(extractionParam.getExtractable(), outputStream);
+		// TODO : gérer la sauvegarde de la configuration actuelle
+		extractor.extract(extractionParam, outputStream);
 	}
 
 

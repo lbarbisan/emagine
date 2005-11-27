@@ -20,47 +20,70 @@ public class ExtractionForm extends ActionForm implements ExtractionParam {
 	private String extractableName;
 	
 	private Extractable extractable;
-
 	/**
-	 * @see fr.umlv.ir3.emagine.extraction.ExtractionParam#getExtractable()
+	 * All the selected fields of the extractable
+	 */
+	private String[] selectedFields;
+	
+	
+	/**
+	 * @return Returns the extractable.
 	 */
 	public Extractable getExtractable() {
 		return extractable;
 	}
-
+	/**
+	 * @param extractable The extractable to set.
+	 */
 	public void setExtractable(Extractable extractable) {
 		this.extractable = extractable;
 	}
-
+	/**
+	 * @return Returns the extractableName.
+	 */
 	public String getExtractableName() {
 		return extractableName;
 	}
-
+	/**
+	 * @param extractableName The extractableName to set.
+	 */
 	public void setExtractableName(String extractableName) {
 		this.extractableName = extractableName;
 	}
-
 	/**
-	 * @see fr.umlv.ir3.emagine.extraction.ExtractionParam#getExtractionType()
+	 * @return Returns the extractionType.
 	 */
 	public ExtractionType getExtractionType() {
 		return extractionType;
 	}
-
+	/**
+	 * @param extractionType The extractionType to set.
+	 */
 	public void setExtractionType(ExtractionType extractionType) {
 		this.extractionType = extractionType;
 	}
-
 	/**
-	 * @see fr.umlv.ir3.emagine.extraction.ExtractionParam#isSaveConfig()
+	 * @return Returns the saveConfig.
 	 */
 	public boolean isSaveConfig() {
 		return saveConfig;
 	}
-
+	/**
+	 * @param saveConfig The saveConfig to set.
+	 */
 	public void setSaveConfig(boolean saveConfig) {
 		this.saveConfig = saveConfig;
 	}
-	
-	
+	/**
+	 * @return Returns the selectedFields.
+	 */
+	public String[] getSelectedFields() {
+		return selectedFields;
+	}
+	/**
+	 * @param selectedFields The selectedFields to set.
+	 */
+	public void setSelectedFields(String[] selectedFields) {
+		this.selectedFields = selectedFields;
+	}
 }

@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.math.BigDecimal;
-import java.util.Collection;
 import java.util.Date;
 
 import org.apache.poi.hssf.usermodel.HSSFRow;
@@ -16,12 +15,14 @@ import fr.umlv.ir3.emagine.util.Extractable;
 
 public class XLSExtractor implements Extractor {
 
-	public void extract(Extractable extractable, OutputStream outputStream) throws EMagineException {
+	public void extract(ExtractionParam extractionParam, OutputStream outputStream) throws EMagineException {
 		final HSSFWorkbook wb = new HSSFWorkbook();
 		HSSFSheet sheet = wb.createSheet("export");
 		HSSFRow row = sheet.createRow((short) 0);
 		
-		Collection<String> fields = extractable.getFields();
+		String[] fields = extractionParam.getSelectedFields();
+		Extractable extractable = extractionParam.getExtractable();
+		
 		short i = 0;
 		for (String field : fields) {
 			row.createCell(i++).setCellValue(
@@ -35,7 +36,7 @@ public class XLSExtractor implements Extractor {
 				row = sheet.createRow(i++);
 				short j = 0;
 				for (String field : fields) {
-					Object value = objectRow.getClass().getMethod("get"+field.substring(0, 1).toUpperCase()+field.substring(1)).invoke(objectRow);
+					Object value = objectRow.getClass().getMethod("get"+field.substring(0, 1).toUpperCase()+field.substring(1)).invoke(objectRow);	// TODO : réfléchir à la manière d'implémenter cela sans appel... à mettre dans l'interface ? Peut-être sous forme de getter prenant en paramètre un entier de colone...
 					// création de la case et export de sa valeur (suivant son type)
 					if (value != null) {
 						if (value instanceof Date) {

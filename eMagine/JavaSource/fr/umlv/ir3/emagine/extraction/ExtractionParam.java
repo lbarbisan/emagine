@@ -9,5 +9,7 @@ public interface ExtractionParam {
 	public abstract ExtractionType getExtractionType();
 
 	public abstract boolean isSaveConfig();
+	
+	public abstract String[] getSelectedFields();
 
 }
