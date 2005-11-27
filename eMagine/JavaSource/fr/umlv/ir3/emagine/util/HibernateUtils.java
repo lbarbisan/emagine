@@ -11,7 +11,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.AnnotationConfiguration;
-import org.hibernate.persister.entity.JoinedSubclassEntityPersister;
+import org.hibernate.metadata.ClassMetadata;
 
 import fr.umlv.ir3.emagine.modification.FieldModification;
 
@@ -118,7 +118,8 @@ public class HibernateUtils {
 		
 		for(Object obj : classesMetadata.keySet())
 		{
-			JoinedSubclassEntityPersister persiter = (JoinedSubclassEntityPersister)classesMetadata.get(obj);
+			//JoinedSubclassEntityPersister persiter = (JoinedSubclassEntityPersister)classesMetadata.get(obj);
+			ClassMetadata persiter = (ClassMetadata)classesMetadata.get(obj);
 			try
 			{
 				System.err.println("Class : " + obj);
@@ -132,7 +133,7 @@ public class HibernateUtils {
 			catch(HibernateException e)
 			{
 				System.err.println("Exception");
-				e.getCause().printStackTrace();
+				e.printStackTrace();
 			}
 		}
 		//Map map = null;	
