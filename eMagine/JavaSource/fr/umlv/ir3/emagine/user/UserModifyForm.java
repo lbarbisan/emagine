@@ -3,12 +3,12 @@ package fr.umlv.ir3.emagine.user;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionErrors;
-import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 
 import fr.umlv.ir3.emagine.user.profile.Profile;
+import fr.umlv.ir3.emagine.util.base.BaseModifyForm;
 
-public class UserModifyForm extends ActionForm  {
+public class UserModifyForm extends BaseModifyForm  {
 	
 	/**
 	 * 
@@ -16,7 +16,7 @@ public class UserModifyForm extends ActionForm  {
 	private static final long serialVersionUID = 6326596143394397304L;
 	
 	//FIXME: Manque le "titre" par rapport au CDCF
-	private User user = new User();
+	private User entity = new User();
 	private String passwordRepeat;
 	
 	@Override
@@ -25,42 +25,42 @@ public class UserModifyForm extends ActionForm  {
 		return super.validate(mapping, request);
 	}
 	
-	public User getUser() {
-		return user;
+	public User getEntity() {
+		return entity;
 	}
 	
 	public String getEmail() {
-		return user.getEmail();
+		return entity.getEmail();
 	}
 	public void setEmail(String email) {
-		user.setEmail(email);
+		entity.setEmail(email);
 	}
 	public String getFirstName() {
-		return user.getFirstName();
+		return entity.getFirstName();
 	}
 	public void setFirstName(String firstName) {
-		user.setFirstName(firstName);
+		entity.setFirstName(firstName);
 	}
 	public Long getId() {
-		return user.getId();
+		return entity.getId();
 	}
 	public String getLastName() {
-		return user.getLastName();
+		return entity.getLastName();
 	}
 	public void setLastName(String lastName) {
-		user.setLastName(lastName);
+		entity.setLastName(lastName);
 	}
 	public String getLogin() {
-		return user.getLogin();
+		return entity.getLogin();
 	}
 	public void setLogin(String login) {
-		user.setLogin(login);
+		entity.setLogin(login);
 	}
 	public String getPassword() {
-		return user.getPassword();
+		return entity.getPassword();
 	}
 	public void setPassword(String password) {
-		user.setPassword(password);
+		entity.setPassword(password);
 	}
 	public String getPasswordRepeat() {
 		return passwordRepeat;
@@ -69,9 +69,9 @@ public class UserModifyForm extends ActionForm  {
 		this.passwordRepeat = passwordRepeat;
 	}
 	public Profile getProfile() {
-		return user.getProfile();
+		return entity.getProfile();
 	}
 	public void setProfile(Profile profile) {
-		user.setProfile(profile);
+		entity.setProfile(profile);
 	}	
 }

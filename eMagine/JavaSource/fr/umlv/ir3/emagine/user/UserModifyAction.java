@@ -24,7 +24,7 @@ public class UserModifyAction extends BaseAction {
 		
 		// Retrieve the User's properties values
 		UserModifyForm userModifyForm = (UserModifyForm) form;
-		User user = userModifyForm.getUser();	// The password have been checked in the form .validate(...) method
+		User user = userModifyForm.getEntity();	// The password have been checked in the form .validate(...) method
 
 		try {
 			EntityManager.getInstance().getUserManager().createUser(user);
@@ -43,7 +43,7 @@ public class UserModifyAction extends BaseAction {
 
 		// Retrieve the User's properties values
 		UserModifyForm userModifyForm = (UserModifyForm) form;
-		User user = userModifyForm.getUser();	// The password check have been done in the form .validate(...) method
+		User user = userModifyForm.getEntity();	// The password check have been done in the form .validate(...) method
 
 		// Update the User
 		try {
