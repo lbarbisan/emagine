@@ -28,7 +28,6 @@ public class UserModifyForm extends BaseModifyForm  {
 	public User getEntity() {
 		return entity;
 	}
-	
 	public String getEmail() {
 		return entity.getEmail();
 	}

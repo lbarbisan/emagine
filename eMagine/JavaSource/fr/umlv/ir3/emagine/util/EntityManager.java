@@ -1,5 +1,6 @@
 package fr.umlv.ir3.emagine.util;
 
+import fr.umlv.ir3.emagine.entreprise.EntrepriseManager;
 import fr.umlv.ir3.emagine.extraction.ExtractionManager;
 import fr.umlv.ir3.emagine.teachertutor.TeacherTutorManager;
 import fr.umlv.ir3.emagine.user.UserManager;
@@ -7,10 +8,12 @@ import fr.umlv.ir3.emagine.user.profile.ProfileManager;
 
 public class EntityManager {
 	private static EntityManager instance;
+	
 	private UserManager userManager = new UserManager();
 	private ProfileManager profileManager = new ProfileManager();
 	private ExtractionManager extractionManager = new ExtractionManager();
 	private TeacherTutorManager teacherTutorManager = new TeacherTutorManager();
+	private EntrepriseManager entrepriseManager = new EntrepriseManager();
 
 	public static EntityManager getInstance() {
 		if (instance == null) {
@@ -33,5 +36,9 @@ public class EntityManager {
 	
 	public TeacherTutorManager getTeacherTutorManager() {
 		return teacherTutorManager;
+	}
+
+	public EntrepriseManager getEntrepriseManager() {
+		return entrepriseManager;
 	}
 }

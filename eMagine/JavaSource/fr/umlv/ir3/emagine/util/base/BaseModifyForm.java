@@ -24,29 +24,22 @@ public class BaseModifyForm extends ActionForm {
 	}
 	
 	public BaseEntity getEntity() {
-		
 		return entity;
 	}
 	
-	public List<Event> getEvents()
-	{
+	public List<Event> getEvents() {
 		return entity.getEvents();	
 	}
 	
-	public Long getId()
-	{
+	public Long getId() {
 		return entity.getId();	
 	}
 	
-	public List<Modification> getModifications()
-	{
+	public List<Modification> getModifications() {
 		return entity.getModifications();	
 	}
 	
-	public Long getVersion()
-	{
+	public Long getVersion() {
 		return entity.getVersion();	
 	}
-	
-	
 }
