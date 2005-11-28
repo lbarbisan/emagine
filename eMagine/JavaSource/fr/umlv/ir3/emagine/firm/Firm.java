@@ -48,6 +48,7 @@ public class Firm extends BaseEntity{
 	private String Fax;
 	private String email;
 	private String webSite;
+	
 	public Address getAddress() {
 		return address;
 	}
