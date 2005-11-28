@@ -1,8 +1,8 @@
 package fr.umlv.ir3.emagine.util;
 
-import fr.umlv.ir3.emagine.entreprise.EntrepriseDAO;
-import fr.umlv.ir3.emagine.entreprise.JobDAO;
-import fr.umlv.ir3.emagine.entreprise.actor.EntrepriseActorDAO;
+import fr.umlv.ir3.emagine.firm.actor.FirmActorDAO;
+import fr.umlv.ir3.emagine.firm.FirmDAO;
+import fr.umlv.ir3.emagine.firm.JobDAO;
 import fr.umlv.ir3.emagine.modification.ModificationDAO;
 import fr.umlv.ir3.emagine.student.StudentDAO;
 import fr.umlv.ir3.emagine.teachertutor.TeacherTutorDAO;
@@ -17,8 +17,8 @@ public class DAOManager {
 	private ModificationDAO modificationDAO = new ModificationDAO();
 	private TeacherTutorDAO teacherTutorDAO = new TeacherTutorDAO();
 	private StudentDAO studentDAO = new StudentDAO();
-	private EntrepriseDAO entrepriseDAO = new EntrepriseDAO();
-	private EntrepriseActorDAO entrepriseActorDAO = new EntrepriseActorDAO();
+	private FirmDAO firmDAO = new FirmDAO();
+	private FirmActorDAO firmActorDAO = new FirmActorDAO();
 	private JobDAO jobDAO = new JobDAO();
 	
 	public ModificationDAO getModificationDAO() {
@@ -36,11 +36,11 @@ public class DAOManager {
 	public StudentDAO getStudentDAO() {
 		return studentDAO;
 	}
-	public EntrepriseDAO getEntrepriseDAO() {
-		return entrepriseDAO;
+	public FirmDAO getFirmDAO() {
+		return firmDAO;
 	}
-	public EntrepriseActorDAO getEntrepriseActorDAO() {
-		return entrepriseActorDAO;
+	public FirmActorDAO getFirmActorDAO() {
+		return firmActorDAO;
 	}
 	public JobDAO getJobDAO() {
 		return jobDAO;

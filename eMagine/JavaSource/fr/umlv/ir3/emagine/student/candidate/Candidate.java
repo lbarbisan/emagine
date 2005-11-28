@@ -37,6 +37,7 @@ public class Candidate extends Person {
 	private LevelEntryEnum entryLevel;
 	private ProfessionEnum professionMother;
 	private ProfessionEnum professionFather;
+	private CourseOptionEnum courseOption;
 	
 	public boolean isAccepted() {
 		return accepted;
@@ -85,6 +86,12 @@ public class Candidate extends Person {
 	}
 	public void setRoom(Room room) {
 		this.room = room;
+	}
+	public CourseOptionEnum getCourseOption() {
+		return courseOption;
+	}
+	public void setCourseOption(CourseOptionEnum courseOption) {
+		this.courseOption = courseOption;
 	}
 
 }

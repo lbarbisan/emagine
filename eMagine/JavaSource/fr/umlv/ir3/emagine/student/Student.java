@@ -14,8 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import fr.umlv.ir3.emagine.entreprise.Entreprise;
-import fr.umlv.ir3.emagine.entreprise.actor.EngineerTutor;
+import fr.umlv.ir3.emagine.firm.actor.EngineerTutor;
+import fr.umlv.ir3.emagine.firm.Firm;
 import fr.umlv.ir3.emagine.student.absence.Abscence;
 import fr.umlv.ir3.emagine.student.candidate.Candidate;
 import fr.umlv.ir3.emagine.teachertutor.TeacherTutor;
@@ -37,8 +37,8 @@ public class Student extends Candidate {
 	@JoinColumn(name="engineertutor_id")
 	private EngineerTutor engineerTutor;
 	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-	@JoinColumn(name="entreprise_id")
-	private Entreprise entreprise;
+	@JoinColumn(name="firm_id")
+	private Firm firm;
 
 	@Embedded()
 	@AttributeOverrides( {
@@ -113,12 +113,12 @@ public class Student extends Candidate {
 		this.engineerTutor = engineerTutor;
 	}
 
-	public Entreprise getEntreprise() {
-		return entreprise;
+	public Firm getFirm() {
+		return firm;
 	}
 
-	public void setEntreprise(Entreprise entreprise) {
-		this.entreprise = entreprise;
+	public void setFirm(Firm firm) {
+		this.firm = firm;
 	}
 
 	public ArrayList<Integer> getExamsMark() {
