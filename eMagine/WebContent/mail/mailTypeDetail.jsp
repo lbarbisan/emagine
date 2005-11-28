@@ -4,7 +4,7 @@
 <br/>
 <div class="form">
 	<p><label for="name"><bean:message key="form.name"/><font color="red">*</font> </label><input type="text" id="name" size="20" /></p>
-	<p><label for="file"><bean:message key="form.file"/><font color="red">*</font> </label><input type="text" id="file" size="20" /><a href="#"><input type="button" value="Parcourir"/></a></p>
+	<p><label for="file"><bean:message key="form.file"/><font color="red">*</font> </label><input type="text" id="file" size="20" /><a href="#"><img src="/eMagine/common/images/icones/parcourir.png" title="<bean:message key="button.title.browse"/>"/></a></p>
 	<p><label for="description"><bean:message key="form.description"/></label><textarea type="text" id="description" ></textarea></p>
 	<p><label for="group"><bean:message key="form.section"/><font color="red">*</font>&nbsp;</label>
 		<select name="group">
@@ -28,7 +28,7 @@
 <div id="actions">
 	<h2>&nbsp;</h2>
 	<ul>
-		<li><a href="#"><input type="button" value="Modifier"/></a></li>
+		<li><a href="#"><img src="/eMagine/common/images/icones/modif.png" title="<bean:message key="button.title.update"/>"/></a></li>
 		<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" title="Supprimer le courrier type"/></a></li>
 	</ul>
 </div>
