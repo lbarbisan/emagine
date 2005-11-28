@@ -15,7 +15,7 @@
 <div id="actions">
 	<h2>&nbsp;</h2>
 	<ul>
-		<li><a href="#"><input type="submit" value="Créer"/></a></li>
+		<li><a href="#"><img src="/eMagine/common/images/icones/ok.png" title="Créer"/></a></li>
 	</ul>
 </div>
 <div align="right"><font color="red" size="1"><bean:message key="form.msg.obligation.star"/></font></div>

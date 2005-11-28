@@ -31,7 +31,7 @@
 		</fieldset>
 	</div>
 	<br/>
-	<input type="button" value="Rechercher"/>
+	<html:link action="#"><img src="/eMagine/common/images/icones/search.png" title="<bean:message key="student.search.title"/>"/></html:link>
 </div>	
 <br/>
 <h3><bean:message key="title.results"/></h3>
