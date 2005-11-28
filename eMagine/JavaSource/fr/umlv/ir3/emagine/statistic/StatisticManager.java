@@ -4,9 +4,9 @@ import java.util.List;
 
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.base.BaseManager;
+import fr.umlv.ir3.emagine.util.base.EditableManager;
 
-public class StatisticManager extends BaseManager<Statistic, StatisticDAO> {
+public class StatisticManager extends EditableManager<Statistic, StatisticDAO> {
 
 	public List<Statistic> getStatistics() throws EMagineException {
 		return getDAO().getStatistics();

@@ -12,11 +12,11 @@ import javax.persistence.Table;
 
 import fr.umlv.ir3.emagine.modification.Modification;
 import fr.umlv.ir3.emagine.user.profile.Profile;
-import fr.umlv.ir3.emagine.util.base.BaseEntity;
+import fr.umlv.ir3.emagine.util.base.EditableEntity;
 
 @Entity(access = AccessType.FIELD)
 @Table(name = "applicationuser")
-public class User extends BaseEntity{
+public class User extends EditableEntity{
 
 	private static final long serialVersionUID = 3947274315317297604L;
 

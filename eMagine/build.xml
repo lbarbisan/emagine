@@ -13,7 +13,7 @@
 			<fileset dir="WebContent/WEB-INF/lib">
 				<include name="**/*.jar" />
 			</fileset>
-			<fileset dir="ressources/middleware/lib/">
+			<fileset dir="ressources/middleware/lib">
 				<include name="**/*.jar" />
 			</fileset>
 		</classpath>
@@ -21,7 +21,6 @@
 
 
 	<target name="CreateSchema" description="Export le schema et créer la base de donneés">
-
 		<hibernatetool destdir=".deployables\eMagine\WEB-INF\classes" classpath=".deployables\eMagine\WEB-INF\classes">
 			<annotationconfiguration configurationfile="JavaSource/fr/umlv/ir3/emagine/ressource/hibernate.cfg.xml" />
 			<hbm2ddl export="true" console="true" drop="true" create="true" outputfilename="hibernate.ddl" delimiter=";" />
@@ -30,88 +29,78 @@
 
 	<target name="ViewSchema" depends="CreateSchema">
 		<middlegen appname="eMagine" gui="true" databaseurl="jdbc:postgresql://server.srv-net.com:54321/eMagine" driver="org.postgresql.Driver" username="eMagine" password="eMagine" schema="public">
+
 			<!--
-			<table name="abscence_pkey" />
-			<table name="applicationuser_email_key" />
-			<table name="applicationuser_login_key" />
-			<table name="applicationuser_pkey" />
-			<table name="attachment_pkey" />
-			<table name="baseentity_pkey" />
-			<table name="candidate_pkey" />
-			<table name="contact_pkey" />
-			<table name="engineertutor_pkey" />
-			<table name="event_pkey" />
-			<table name="fieldmodification_pkey" />
-			<table name="firm_motherfirm_id_key" />
-			<table name="firm_name_key" />
-			<table name="firm_pkey" />
-			<table name="firmactor_pkey" />
-			<table name="formationcenter_pkey" />
-			<table name="job_pkey" />
-			<table name="mailinglist_person_persons_id_key" />
-			<table name="mailinglist_pkey" />
-			<table name="mailingtype_attachment_attachments_id_key" />
-			<table name="mailingtype_pkey" />
-			<table name="massmailing_attachment_attachments_id_key" />
-			<table name="massmailing_pkey" />
-			<table name="model_pkey" />
-			<table name="modification_pkey" />
-			<table name="person_lastname_key" />
-			<table name="person_pkey" />
-			<table name="pg_ts_cfg_pkey" />
-			<table name="pg_ts_cfgmap_pkey" />
-			<table name="pg_ts_dict_pkey" />
-			<table name="pg_ts_parser_pkey" />
-			<table name="profile_name_key" />
-			<table name="profile_pkey" />
-			<table name="profile_rightapplication_rights_id_key" />
-			<table name="rightapplication_name_key" />
-			<table name="rightapplication_pkey" />
-			<table name="room_pkey" />
-			<table name="statistic_pkey" />
-			<table name="apprentice_pkey" />
-			<table name="teachertutor_pkey" />
-			<table name="hibernate_sequence" />
+			<name table="abscence_pkey" />
+			<name table="applicationuser_email_key" />
+			<name table="applicationuser_login_key" />
+			<name table="applicationuser_pkey" />
+			<name table="apprentice_pkey" />
+			<name table="attachment_pkey" />
+			<name table="baseentity_pkey" />
+			<name table="candidate_pkey" />
+			<name table="contact_pkey" />
+			<name table="engineertutor_pkey" />
+			<name table="event_pkey" />
+			<name table="fieldmodification_pkey" />
+			<name table="firm_motherfirm_id_key" />
+			<name table="firm_name_key" />
+			<name table="firm_pkey" />
+			<name table="firmactor_pkey" />
+			<name table="formationcenter_pkey" />
+			<name table="job_pkey" />
+			<name table="mailinglist_person_persons_id_key" />
+			<name table="mailinglist_pkey" />
+			<name table="mailingtype_attachment_attachments_id_key" />
+			<name table="mailingtype_pkey" />
+			<name table="massmailing_attachment_attachments_id_key" />
+			<name table="massmailing_pkey" />
+			<name table="model_pkey" />
+			<name table="modification_pkey" />
+			<name table="person_lastname_key" />
+			<name table="person_pkey" />
+			<name table="profile_name_key" />
+			<name table="profile_pkey" />
+			<name table="profile_rightapplication_rights_id_key" />
+			<name table="rightapplication_name_key" />
+			<name table="rightapplication_pkey" />
+			<name table="room_pkey" />
+			<name table="statistic_pkey" />
+			<name table="teachertutor_pkey" />
+			<name table="hibernate_sequence" />
 			-->
-			<table name="abscence" />
-			<table name="applicationuser" />
-			<table name="attachment" />
+			<name table="abscence" />
+			<name table="applicationuser" />
+			<name table="apprentice" />
+			<name table="attachment" />
 			<!--
-			<table name="baseentity" />
+			<name table="baseentity" />
 			-->
-			<table name="candidate" />
-			<table name="contact" />
-			<table name="engineertutor" />
-			<table name="event" />
-			<table name="event_baseentity" />
-			<table name="fieldmodification" />
-			<table name="firm" />
-			<table name="firmactor" />
-			<table name="formationcenter" />
-			<table name="job" />
-			<table name="mailinglist" />
-			<table name="mailinglist_person" />
-			<table name="mailingtype" />
-			<table name="mailingtype_attachment" />
-			<table name="massmailing" />
-			<table name="massmailing_attachment" />
-			<table name="model" />
-			<table name="modification" />
-			<table name="person" />
-			<!--
-			<table name="pg_ts_cfg" />
-			<table name="pg_ts_cfgmap" />
-			<table name="pg_ts_dict" />
-			<table name="pg_ts_parser" />
-			-->
-			<table name="profile" />
-			<table name="profile_rightapplication" />
-			<table name="rightapplication" />
-			<table name="room" />
-			<table name="statistic" />
-			<table name="apprentice" />
-			<table name="teachertutor" />
-			<table name="pg_logdir_ls" />
+			<name table="candidate" />
+			<name table="contact" />
+			<name table="engineertutor" />
+			<name table="event" />
+			<name table="event_baseentity" />
+			<name table="fieldmodification" />
+			<name table="firm" />
+			<name table="firmactor" />
+			<name table="formationcenter" />
+			<name table="job" />
+			<name table="mailinglist" />
+			<name table="mailinglist_person" />
+			<name table="mailingtype" />
+			<name table="mailingtype_attachment" />
+			<name table="massmailing" />
+			<name table="massmailing_attachment" />
+			<name table="model" />
+			<name table="modification" />
+			<name table="person" />
+			<name table="profile" />
+			<name table="profile_rightapplication" />
+			<name table="rightapplication" />
+			<name table="room" />
+			<name table="statistic" />
+			<name table="teachertutor" />
 		</middlegen>
 	</target>
 

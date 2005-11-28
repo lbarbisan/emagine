@@ -12,9 +12,10 @@ import javax.persistence.OneToMany;
 
 import fr.umlv.ir3.emagine.user.User;
 import fr.umlv.ir3.emagine.util.base.BaseEntity;
+import fr.umlv.ir3.emagine.util.base.EventEntity;
 
 @Entity(access = AccessType.FIELD)
-public class Modification<ObjectType extends BaseEntity> extends BaseEntity{
+public class Modification<ObjectType extends EventEntity> extends BaseEntity{
 	
 	private static final long serialVersionUID = -985619438827774992L;
 	

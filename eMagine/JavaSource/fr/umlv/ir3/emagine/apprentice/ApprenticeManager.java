@@ -4,9 +4,9 @@ import java.util.List;
 
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.base.BaseManager;
+import fr.umlv.ir3.emagine.util.base.EditableManager;
 
-public class ApprenticeManager extends BaseManager<Apprentice, ApprenticeDAO> {
+public class ApprenticeManager extends EditableManager<Apprentice, ApprenticeDAO> {
 
 	/**
 	 * Lists apprentices, using the given search parameters

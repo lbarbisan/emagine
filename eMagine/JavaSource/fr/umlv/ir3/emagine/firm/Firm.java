@@ -15,14 +15,14 @@ import javax.persistence.UniqueConstraint;
 import fr.umlv.ir3.emagine.apprentice.Apprentice;
 import fr.umlv.ir3.emagine.firm.actor.FirmActor;
 import fr.umlv.ir3.emagine.util.Address;
-import fr.umlv.ir3.emagine.util.base.BaseEntity;
+import fr.umlv.ir3.emagine.util.base.EditableEntity;
 /**
 * @persistence Terminé
 */
 @Entity(access = AccessType.FIELD)
 @Table(uniqueConstraints =@UniqueConstraint(columnNames={
 		"name"}))
-public class Firm extends BaseEntity{
+public class Firm extends EditableEntity{
 
 	private static final long serialVersionUID = 7717597898466060238L;
 	

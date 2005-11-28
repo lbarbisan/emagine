@@ -4,9 +4,9 @@ import java.util.List;
 
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.base.BaseManager;
+import fr.umlv.ir3.emagine.util.base.EditableManager;
 
-public class UserManager extends BaseManager<User, UserDAO> {
+public class UserManager extends EditableManager<User, UserDAO> {
 
 	/**
 	 * Create a new user with the given User
