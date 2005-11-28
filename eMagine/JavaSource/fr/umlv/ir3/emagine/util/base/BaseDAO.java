@@ -42,14 +42,15 @@ public abstract class BaseDAO<EntityType extends BaseEntity> {
      * @param object object that must update save in database
      * @throws EMagineException  throw this exception if the update failed or if an SQLException occures
      */
-    public void update(EntityType object) throws EMagineException {
+    @SuppressWarnings("unchecked")
+	public void update(EntityType newEntity) throws EMagineException {
     	try {
-    		HibernateUtils.getSession().saveOrUpdate(object);
+    		HibernateUtils.getSession().saveOrUpdate(newEntity);
     	} catch (HibernateException exception) {
     		throw new EMagineException("exception.hibernate.update", exception);
     	}
     }
-
+    
     /**
      * Retrieves the database data for the specified id
      * @param id id of the object to retrieve

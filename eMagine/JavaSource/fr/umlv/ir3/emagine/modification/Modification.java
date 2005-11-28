@@ -87,8 +87,15 @@ public class Modification<ObjectType extends BaseEntity> extends BaseEntity{
 	public Map<String, FieldModification> getFieldsModifications() {
 		return fieldsModifications;
 	}
-	public void setFieldsModifications(
-			Map<String, FieldModification> fieldsModifications) {
-		this.fieldsModifications = fieldsModifications;
+	
+	@SuppressWarnings("unchecked")
+	public void addFieldModification(FieldModification fieldModification)
+	{
+		this.fieldsModifications.put(fieldModification.getPropertyName(), fieldModification);
+		
+	}
+	public FieldModification getFieldModification(String propertyName)
+	{
+		return this.fieldsModifications.get(propertyName);
 	}
 }

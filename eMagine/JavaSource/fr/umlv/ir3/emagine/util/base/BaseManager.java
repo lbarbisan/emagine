@@ -4,6 +4,7 @@ import java.util.Collection;
 
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
+import fr.umlv.ir3.emagine.util.HibernateUtils;
 
 public abstract class BaseManager<EntityType extends BaseEntity, EntityDAO extends BaseDAO<EntityType>> {
 	/**
@@ -37,10 +38,16 @@ public abstract class BaseManager<EntityType extends BaseEntity, EntityDAO exten
      * @param entity object that must update save in database
      * @throws EMagineException  throw this exception if the update failed or if an SQLException occures
      */
-	public void update(EntityType entity) throws EMagineException {
+	@SuppressWarnings("unchecked")
+	public void update(EntityType newEntity) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
-			getDAO().update(entity);
+//			 Load the original object 
+    		EntityType oldEntity = (EntityType)HibernateUtils.getSession().load(newEntity.getClass(), newEntity.getId());
+    		// set the modification
+    		newEntity.addModification(oldEntity);
+    		//Save new Object
+			getDAO().update(newEntity);
 			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {
 			DAOManager.rollBackTransaction();
