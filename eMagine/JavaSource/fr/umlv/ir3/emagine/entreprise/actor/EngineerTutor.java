@@ -23,12 +23,13 @@ public class EngineerTutor extends EntrepriseActor {
 	private static final long serialVersionUID = 3857030644896914550L;
 	@OneToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE},
 			mappedBy = "engineerTutor")
-	private List<Student> student;
+			private List<Student> student;
+	
 	public List<Student> getStudent() {
 		return student;
 	}
 	public void setStudent(List<Student> student) {
 		this.student = student;
 	}
-
+	
 }
