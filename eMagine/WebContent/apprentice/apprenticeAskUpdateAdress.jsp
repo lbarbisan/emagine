@@ -12,7 +12,7 @@
 		<br/>
 		<fieldset>
 			<legend><bean:message key="form.fieldset.adress.personal"/></legend>
-				<p><label for="persAdress"><bean:message key="form.adress"/><font color="red">*</font>&nbsp;</label><input type="text" id="persAdress" size="20" /><font color="red">ca&nbsp;a&nbsp;changé&nbsp;</font><input type="submit" name="bPersAdress"/></p>
+				<p><label for="persAdress"><bean:message key="form.adress"/><font color="red">*</font>&nbsp;</label><input type="text" id="persAdress" size="20" /><font color="red">ca&nbsp;a&nbsp;changé&nbsp;</font><img src="/eMagine/common/images/icones/ok.png" title="Accepter"/></p>
 				<p><label for="persPostalCode"><bean:message key="form.postalCode"/><font color="red">*</font>&nbsp;</label><input type="text" id="persPostalCode" size="20" /></p>
 				<p><label for="persCity"><bean:message key="form.city"/><font color="red">*</font>&nbsp;</label><input type="text" id="persCity" size="20" /></p>
 				<p><label for="persDepartment"><bean:message key="form.department"/></label>
@@ -66,9 +66,10 @@
 		<div id="actions">
 		<h2>&nbsp;</h2>
 		<ul>
-			<li><a href="#"><input type="submit" value="Accepter"></a></li>
-			<li><a href="#"><input type="submit" value="Accepter partiellement"></a></li>
-			<li><a href="#"><input type="submit" value="Refuser"></a></li>
+			<li><a href="#"><img src="/eMagine/common/images/icones/ok.png" title="Accepter_tout"/></a></li>
+			<li><a href="#"><img src="/eMagine/common/images/icones/ok_partiel.png" title="Accepter_partiellement"/></a></li>
+			<li><a href="#"><img src="/eMagine/common/images/icones/refus.png" title="Refuser"/>
+</a></li>
 		</ul>
 	</div>
 </form>

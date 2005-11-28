@@ -4,7 +4,7 @@
 <form name="results">
 	<div class="search">
 		<p><label for="name"><bean:message key="criteria.search.name"/></label><input type="text" id="name" size="20" /> 
-		<input type="button" value="Rechercher"/></p>
+		<html:link action="#"><img src="/eMagine/common/images/icones/search.png" title="<bean:message key="apprentice.search.title"/>"/></html:link></p>
 	</div>
 	<h3><bean:message key="title.results"/></h3>
 	<div align=center>

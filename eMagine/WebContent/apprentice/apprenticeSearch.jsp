@@ -1,6 +1,6 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
-<h2><bean:message key="apprentice.search.title"/></h2>
+<h2><bean:message key="student.search.title"/></h2>
 <br/>
 <form name="results">
 	<div align="center">
@@ -33,7 +33,8 @@
 			</fieldset>
 		</div>
 		<br/>
-		<input type="button" value="Rechercher"/>
+		<html:link action="#"><img src="/eMagine/common/images/icones/search.png" title="<bean:message key="student.search.title"/>"/></html:link>
+		
 	</div>
 	<h3><bean:message key="title.results"/></h3>
 	<div align=center>
@@ -51,14 +52,14 @@
 			</tr>
 			<tr>
 				<td><input type="checkbox" value="ON" name="all_none" /></td>
-				<td><html:link action="/apprenticeOnglet">Barbisan</html:link></td>
+				<td><html:link action="/studentOnglet">Barbisan</html:link></td>
 				<td>Laurent</td>
 				<td>IR</td>
 				<td>3</td>
 			</tr>
 			<tr>
 				<td><input type="checkbox" value="ON" name="all_none" /></td>
-				<td><html:link action="/apprenticeOnglet">Ogier</html:link></td>
+				<td><html:link action="/studentOnglet">Ogier</html:link></td>
 				<td>Anthony</td>
 				<td>IR</td>
 				<td>3</td>
@@ -75,10 +76,10 @@
 		<ul>
 			<li><a href="#"><img src="/eMagine/common/images/icones/passage.png" title="Faire passer un apprenti"/></a></li>
 			<li><a href="#"><img src="/eMagine/common/images/icones/virer.png" title="Exclure un apprenti"/></a></li>
-			<li><html:link action="/apprenticeMailingListCreate"><img src="/eMagine/common/images/icones/creer_mailing_list.png" title="Créer une maling list"/></html:link></li>
-			<li><html:link action="/apprenticeEmailDo"><img src="/eMagine/common/images/icones/mailing.png" title="Effectuer un mailing"/></html:link></li>
-			<li><html:link action="/apprenticeMailDo"><img src="/eMagine/common/images/icones/publipostage.png" title="Effectuer un publipostage"/></html:link></li>
-			<li><html:link action="/apprenticeExtract"><img src="/eMagine/common/images/icones/extraire.png" title="Extraire un apprenti"/></html:link></li>
+			<li><html:link action="/studentMailingListCreate"><img src="/eMagine/common/images/icones/creer_mailing_list.png" title="Créer une maling list"/></html:link></li>
+			<li><html:link action="/studentEmailDo"><img src="/eMagine/common/images/icones/mailing.png" title="Effectuer un mailing"/></html:link></li>
+			<li><html:link action="/studentMailDo"><img src="/eMagine/common/images/icones/publipostage.png" title="Effectuer un publipostage"/></html:link></li>
+			<li><html:link action="/studentExtract"><img src="/eMagine/common/images/icones/extraire.png" title="Extraire un apprenti"/></html:link></li>
 		</ul>
 	</div>
 </form>
