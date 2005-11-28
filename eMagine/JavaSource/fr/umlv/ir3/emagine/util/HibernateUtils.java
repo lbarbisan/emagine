@@ -1,8 +1,6 @@
 package fr.umlv.ir3.emagine.util;
 
 
-import java.util.Map;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.EntityMode;
@@ -14,7 +12,6 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.metadata.ClassMetadata;
 
-import fr.umlv.ir3.emagine.modification.FieldModification;
 import fr.umlv.ir3.emagine.modification.ModificationInterceptor;
 import fr.umlv.ir3.emagine.util.base.BaseEntity;
 
