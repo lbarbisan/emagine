@@ -8,11 +8,11 @@ import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
-import fr.umlv.ir3.emagine.student.Student;
+import fr.umlv.ir3.emagine.apprentice.Apprentice;
 import fr.umlv.ir3.emagine.util.Address;
 import fr.umlv.ir3.emagine.util.person.Person;
 /**
- * This class represent a teacher tutor for a student
+ * This class represent a teacher tutor for a apprentice
  * @author eMagine
  */
 @Entity(access = AccessType.FIELD)
@@ -22,7 +22,7 @@ public class TeacherTutor extends Person {
 
 	@OneToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE},
 			mappedBy  = "teacherTutor")
-	private List<Student> student;
+	private List<Apprentice> apprentice;
 	
 	@Embedded
 	private Address addressProfessional;
@@ -45,13 +45,13 @@ public class TeacherTutor extends Person {
 	}
 
 	/**
-	 * @return the student's list of this teacher tutor, the list can be null
+	 * @return the apprentice's list of this teacher tutor, the list can be null
 	 */
-	public List<Student> getStudent() {
-		return student;
+	public List<Apprentice> getApprentice() {
+		return apprentice;
 	}
 
-	protected void setStudent(List<Student> student) {
-		this.student = student;
+	protected void setApprentice(List<Apprentice> apprentice) {
+		this.apprentice = apprentice;
 	}
 }

@@ -42,7 +42,7 @@
 			</tr>
 			<tr>
 				<td><input type="checkbox" value="ON" /></td>
-				<td><html:link action="/studentOnglet">Renaudin</html:link></td>
+				<td><html:link action="/apprenticeOnglet">Renaudin</html:link></td>
 				<td>Jean-Baptiste</td>
 				<td>IR3</td>
 				<td>2</td>
@@ -51,7 +51,7 @@
 			</tr>
 			<tr>
 				<td><input type="checkbox" value="ON" /></td>
-				<td><html:link action="/studentOnglet">Mancel</html:link></td>
+				<td><html:link action="/apprenticeOnglet">Mancel</html:link></td>
 				<td>Matthieu</td>
 				<td>IR3</td>
 				<td>2</td>
@@ -68,7 +68,7 @@
 		</ul>
 		<h2>&nbsp;</h2>
 		<ul>
-			<li><html:link action="/actorStudentAdd"><img src="/eMagine/common/images/icones/ajouter.png" title="Ajouter un pupille"/></html:link></li>
+			<li><html:link action="/actorApprenticeAdd"><img src="/eMagine/common/images/icones/ajouter.png" title="Ajouter un pupille"/></html:link></li>
 		</ul>
 	</div>
 </form>

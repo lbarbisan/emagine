@@ -12,8 +12,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import fr.umlv.ir3.emagine.apprentice.Apprentice;
 import fr.umlv.ir3.emagine.firm.actor.FirmActor;
-import fr.umlv.ir3.emagine.student.Student;
 import fr.umlv.ir3.emagine.util.Address;
 import fr.umlv.ir3.emagine.util.base.BaseEntity;
 /**
@@ -39,7 +39,7 @@ public class Firm extends BaseEntity{
 	private List<FirmActor> firmActor;
 	@OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},
 			mappedBy = "firm")
-	private List<Student> students;
+	private List<Apprentice> apprentices;
 	@Embedded
 	private Address address;
 	
@@ -102,11 +102,11 @@ public class Firm extends BaseEntity{
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public List<Student> getStudents() {
-		return students;
+	public List<Apprentice> getApprentices() {
+		return apprentices;
 	}
-	public void setStudents(List<Student> students) {
-		this.students = students;
+	public void setApprentices(List<Apprentice> apprentices) {
+		this.apprentices = apprentices;
 	}
 	public String getWebSite() {
 		return webSite;

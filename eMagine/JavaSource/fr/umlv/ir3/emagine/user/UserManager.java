@@ -60,7 +60,7 @@ public class UserManager extends BaseManager<User, UserDAO> {
 
 	/**
 	 * Lists users, using the given search parameters
-	 * @param studentSearchParam
+	 * @param apprenticeSearchParam
 	 * @return
 	 * @throws EMagineException if an SQLException occures
 	 */

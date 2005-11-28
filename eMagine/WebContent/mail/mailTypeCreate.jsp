@@ -8,7 +8,7 @@
 	<p><label for="group"><bean:message key="form.section"/><font color="red">*</font>&nbsp;</label>
 		<select name="group">
 			<!-- à mettre en base -->
-			<option value="1"><bean:message key="form.student"/></option>
+			<option value="1"><bean:message key="form.apprentice"/></option>
 			<option value="2"><bean:message key="form.company"/></option>
 			<option value="3"><bean:message key="form.teacher"/></option>
 			<option value="4"><bean:message key="form.recruitment"/></option>

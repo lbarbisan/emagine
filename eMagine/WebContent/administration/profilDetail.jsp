@@ -10,8 +10,8 @@
 		<input type="checkbox" value="ON" name="administration" /></p>
 		<p><label for="absence"><bean:message key="form.absence"/></label>
 		<input type="checkbox" value="ON" name="absence" /></p>
-		<p><label for="student"><bean:message key="form.student"/></label>
-		<input type="checkbox" value="ON" name="student" /></p>
+		<p><label for="apprentice"><bean:message key="form.apprentice"/></label>
+		<input type="checkbox" value="ON" name="apprentice" /></p>
 		<p><label for="teacher"><bean:message key="form.teacher"/></label>
 		<input type="checkbox" value="ON" name="teacher" /></p>
 		<p><label for="recruitment"><bean:message key="form.recruitment"/></label>

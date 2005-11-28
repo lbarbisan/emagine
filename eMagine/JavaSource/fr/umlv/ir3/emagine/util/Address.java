@@ -6,8 +6,8 @@ package fr.umlv.ir3.emagine.util;
 import javax.persistence.AccessType;
 import javax.persistence.Embeddable;
 
-import fr.umlv.ir3.emagine.student.CountryEnum;
-import fr.umlv.ir3.emagine.student.DepartmentEnum;
+import fr.umlv.ir3.emagine.apprentice.CountryEnum;
+import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
 
 
 /**

@@ -2,7 +2,7 @@ package fr.umlv.ir3.emagine.teachertutor;
 
 import java.util.List;
 
-import fr.umlv.ir3.emagine.student.Student;
+import fr.umlv.ir3.emagine.apprentice.Apprentice;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 
@@ -76,17 +76,17 @@ public class TeacherTutorManager {
 	}
 	
 	/**
-	 * Add a student to a tutor
-	 * @param student student to add
-	 * @param teacherTutor teacher to add student
-	 * @throws EMagineException if student already exist
+	 * Add a apprentice to a tutor
+	 * @param apprentice apprentice to add
+	 * @param teacherTutor teacher to add apprentice
+	 * @throws EMagineException if apprentice already exist
 	 */
-	public void addStudentToTeachersTutor(Student student , TeacherTutor teacherTutor) throws EMagineException
+	public void addApprenticeToTeachersTutor(Apprentice apprentice , TeacherTutor teacherTutor) throws EMagineException
 	{
 		//FIXME: Si l'étudiant existe déjà ?
 		//FIXME: Est-ce necessaire d'affecter à l'étudiant , puis d'affecter au tuteur?
-		student.setTeacherTutor(teacherTutor);
-		teacherTutor.getStudent().add(student);
+		apprentice.setTeacherTutor(teacherTutor);
+		teacherTutor.getApprentice().add(apprentice);
 	}
 
 	private TeacherTutorDAO getDAO() {

@@ -7,7 +7,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
-import fr.umlv.ir3.emagine.student.Student;
+import fr.umlv.ir3.emagine.apprentice.Apprentice;
 
 /**
  * 
@@ -23,13 +23,13 @@ public class EngineerTutor extends FirmActor {
 	private static final long serialVersionUID = 3857030644896914550L;
 	@OneToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE},
 			mappedBy = "engineerTutor")
-			private List<Student> student;
+			private List<Apprentice> apprentice;
 	
-	public List<Student> getStudent() {
-		return student;
+	public List<Apprentice> getApprentice() {
+		return apprentice;
 	}
-	public void setStudent(List<Student> student) {
-		this.student = student;
+	public void setApprentice(List<Apprentice> apprentice) {
+		this.apprentice = apprentice;
 	}
 	
 }

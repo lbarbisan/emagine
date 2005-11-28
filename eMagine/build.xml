@@ -69,7 +69,7 @@
 			<table name="rightapplication_pkey" />
 			<table name="room_pkey" />
 			<table name="statistic_pkey" />
-			<table name="student_pkey" />
+			<table name="apprentice_pkey" />
 			<table name="teachertutor_pkey" />
 			<table name="hibernate_sequence" />
 			-->
@@ -109,7 +109,7 @@
 			<table name="rightapplication" />
 			<table name="room" />
 			<table name="statistic" />
-			<table name="student" />
+			<table name="apprentice" />
 			<table name="teachertutor" />
 			<table name="pg_logdir_ls" />
 		</middlegen>

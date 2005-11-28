@@ -26,34 +26,34 @@
 
 		<action path="/authentification" forward="authentification" />
 
-		<!-- student -->
-		<action path="/studentVisuAdress" forward="student.studentVisuAdress" />
-		<action path="/studentSearch" forward="student.studentSearch" />
-		<action path="/studentVisuSituation" forward="student.studentVisuSituation" />
-		<action path="/studentVisuStatus" forward="student.studentVisuStatus" />
-		<action path="/studentTutorAdd" forward="student.studentTutorAdd" />
-		<action path="/studentCompanyAdd" forward="student.studentCompanyAdd" />
-		<action path="/studentOnglet" forward="student.studentOnglet" />
-		<action path="/studentVisuSchooling" forward="student.studentVisuSchooling" />
-		<action path="/studentVisuEvent" forward="student.studentVisuEvent" />
-		<action path="/studentEventDetail" forward="student.studentEventDetail" />
-		<action path="/studentVisuAbsence" forward="student.studentVisuAbsence" />
-		<action path="/studentAbsenceDetail" forward="student.studentAbsenceDetail" />
-		<action path="/studentAbsenceAdd" forward="student.studentAbsenceAdd" />
-		<action path="/studentExtract" forward="student.studentExtract" />
-		<action path="/studentAbsenceExtract" forward="student.studentAbsenceExtract" />
-		<action path="/studentEventExtract" forward="student.studentEventExtract" />
-		<action path="/studentAskUpdateAdress" forward="student.studentAskUpdateAdress" />
-		<action path="/studentMailingListCreate" forward="student.studentMailingListCreate" />		
-		<action path="/studentEmailDo" forward="student.studentEmailDo" />		
-		<action path="/studentMailDo" forward="student.studentMailDo" />		
+		<!-- apprentice -->
+		<action path="/apprenticeVisuAdress" forward="apprentice.apprenticeVisuAdress" />
+		<action path="/apprenticeSearch" forward="apprentice.apprenticeSearch" />
+		<action path="/apprenticeVisuSituation" forward="apprentice.apprenticeVisuSituation" />
+		<action path="/apprenticeVisuStatus" forward="apprentice.apprenticeVisuStatus" />
+		<action path="/apprenticeTutorAdd" forward="apprentice.apprenticeTutorAdd" />
+		<action path="/apprenticeCompanyAdd" forward="apprentice.apprenticeCompanyAdd" />
+		<action path="/apprenticeOnglet" forward="apprentice.apprenticeOnglet" />
+		<action path="/apprenticeVisuSchooling" forward="apprentice.apprenticeVisuSchooling" />
+		<action path="/apprenticeVisuEvent" forward="apprentice.apprenticeVisuEvent" />
+		<action path="/apprenticeEventDetail" forward="apprentice.apprenticeEventDetail" />
+		<action path="/apprenticeVisuAbsence" forward="apprentice.apprenticeVisuAbsence" />
+		<action path="/apprenticeAbsenceDetail" forward="apprentice.apprenticeAbsenceDetail" />
+		<action path="/apprenticeAbsenceAdd" forward="apprentice.apprenticeAbsenceAdd" />
+		<action path="/apprenticeExtract" forward="apprentice.apprenticeExtract" />
+		<action path="/apprenticeAbsenceExtract" forward="apprentice.apprenticeAbsenceExtract" />
+		<action path="/apprenticeEventExtract" forward="apprentice.apprenticeEventExtract" />
+		<action path="/apprenticeAskUpdateAdress" forward="apprentice.apprenticeAskUpdateAdress" />
+		<action path="/apprenticeMailingListCreate" forward="apprentice.apprenticeMailingListCreate" />		
+		<action path="/apprenticeEmailDo" forward="apprentice.apprenticeEmailDo" />		
+		<action path="/apprenticeMailDo" forward="apprentice.apprenticeMailDo" />		
 		
 		<!-- teacher -->
 		<action path="/teacherSearch" forward="teacher.teacherSearch" />
 		<action path="/teacherCreate" forward="teacher.teacherCreate" />
 		<action path="/teacherVisuInfo" forward="teacher.teacherVisuInfo" />
 		<action path="/teacherOnglet" forward="teacher.teacherOnglet" />
-		<action path="/teacherStudentAdd" forward="teacher.teacherStudentAdd" />
+		<action path="/teacherApprenticeAdd" forward="teacher.teacherApprenticeAdd" />
 		<action path="/teacherVisuEvent" forward="teacher.teacherVisuEvent" />
 		<action path="/teacherEventDetail" forward="teacher.teacherEventDetail" />
 		<action path="/teacherExtract" forward="teacher.teacherExtract" />
@@ -64,7 +64,7 @@
 		
 		<!-- company -->
 		<action path="/companySearch" forward="company.companySearch" />
-		<action path="/actorStudentAdd" forward="company.actorStudentAdd" />
+		<action path="/actorApprenticeAdd" forward="company.actorApprenticeAdd" />
 		<action path="/companyCreate" forward="company.companyCreate" />
 		<action path="/actorVisuInfo" forward="company.actorVisuInfo" />
 		<action path="/companyVisuActor" forward="company.companyVisuActor" />

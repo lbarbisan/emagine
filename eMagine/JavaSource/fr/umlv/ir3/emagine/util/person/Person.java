@@ -17,10 +17,10 @@ import javax.persistence.Table;
 import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
 
-import fr.umlv.ir3.emagine.student.CountryEnum;
-import fr.umlv.ir3.emagine.student.DepartmentEnum;
-import fr.umlv.ir3.emagine.student.NationalityEnum;
-import fr.umlv.ir3.emagine.student.SexEnum;
+import fr.umlv.ir3.emagine.apprentice.CountryEnum;
+import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
+import fr.umlv.ir3.emagine.apprentice.NationalityEnum;
+import fr.umlv.ir3.emagine.apprentice.SexEnum;
 import fr.umlv.ir3.emagine.util.Address;
 import fr.umlv.ir3.emagine.util.base.BaseEntity;
 ;

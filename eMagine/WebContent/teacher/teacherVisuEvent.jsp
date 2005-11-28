@@ -49,13 +49,13 @@
 		</tr>
 		<tr>
 			<td><input type="checkbox" value="ON"  name="all_none"/></td>
-			<td><html:link action="/studentEventDetail">12.10.2005</html:link></td>
+			<td><html:link action="/apprenticeEventDetail">12.10.2005</html:link></td>
 			<td>envoi mail</td>
 			<td>pour les jpo</td>
 		</tr>
 		<tr>
 			<td><input type="checkbox" value="ON"  name="all_none"/></td>
-			<td><html:link action="/studentEventDetail">13.10.2005</html:link></td>
+			<td><html:link action="/apprenticeEventDetail">13.10.2005</html:link></td>
 			<td>tutelle</td>
 			<td>changement&nbsp;de&nbsp;tuteur&nbsp;enseignant</td>
 		</tr>

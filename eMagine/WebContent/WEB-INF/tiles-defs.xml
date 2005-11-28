@@ -30,72 +30,72 @@
 		<put name="footer" value="/common/footer.jsp" />
 	</definition>
 
-	<!-- Student -->
-	<definition name="student" extends="mainLayout">
-		<put name="subMenu" value="/student/studentMenu.jsp" />
+	<!-- Apprentice -->
+	<definition name="apprentice" extends="mainLayout">
+		<put name="subMenu" value="/apprentice/apprenticeMenu.jsp" />
 	</definition>
-	<definition name="student.studentSearch" extends="student">
-		<put name="body" value="/student/studentSearch.jsp" />
+	<definition name="apprentice.apprenticeSearch" extends="apprentice">
+		<put name="body" value="/apprentice/apprenticeSearch.jsp" />
 	</definition>
-	<definition name="student.studentVisuAdress" extends="student">
-		<put name="body" value="/student/studentVisuAdress.jsp" />
+	<definition name="apprentice.apprenticeVisuAdress" extends="apprentice">
+		<put name="body" value="/apprentice/apprenticeVisuAdress.jsp" />
 	</definition>
-	<definition name="student.studentVisuSituation" extends="student">
-		<put name="body" value="/student/studentVisuSituation.jsp" />
+	<definition name="apprentice.apprenticeVisuSituation" extends="apprentice">
+		<put name="body" value="/apprentice/apprenticeVisuSituation.jsp" />
 	</definition>
-	<definition name="student.studentVisuStatus" extends="student">
-		<put name="body" value="/student/studentVisuStatus.jsp" />
+	<definition name="apprentice.apprenticeVisuStatus" extends="apprentice">
+		<put name="body" value="/apprentice/apprenticeVisuStatus.jsp" />
 	</definition>
-	<definition name="student.studentCompanyAdd" extends="student">
-		<put name="body" value="/student/studentCompanyAdd.jsp" />
+	<definition name="apprentice.apprenticeCompanyAdd" extends="apprentice">
+		<put name="body" value="/apprentice/apprenticeCompanyAdd.jsp" />
 	</definition>
-	<definition name="student.studentTutorAdd" extends="student">
-		<put name="body" value="/student/studentTutorAdd.jsp" />
+	<definition name="apprentice.apprenticeTutorAdd" extends="apprentice">
+		<put name="body" value="/apprentice/apprenticeTutorAdd.jsp" />
 	</definition>
-	<definition name="student.studentOnglet" extends="student">
-		<put name="body" value="/student/studentOnglet.jsp" />
+	<definition name="apprentice.apprenticeOnglet" extends="apprentice">
+		<put name="body" value="/apprentice/apprenticeOnglet.jsp" />
 	</definition>
-	<definition name="student.studentVisuSchooling" extends="student">
-		<put name="body" value="/student/studentVisuSchooling.jsp" />
+	<definition name="apprentice.apprenticeVisuSchooling" extends="apprentice">
+		<put name="body" value="/apprentice/apprenticeVisuSchooling.jsp" />
 	</definition>
-	<definition name="student.studentVisuAbsence" extends="student">
-		<put name="body" value="/student/studentVisuAbsence.jsp" />
+	<definition name="apprentice.apprenticeVisuAbsence" extends="apprentice">
+		<put name="body" value="/apprentice/apprenticeVisuAbsence.jsp" />
 	</definition>
-	<definition name="student.studentAbsenceAdd" extends="student">
-		<put name="body" value="/student/studentAbsenceAdd.jsp" />
+	<definition name="apprentice.apprenticeAbsenceAdd" extends="apprentice">
+		<put name="body" value="/apprentice/apprenticeAbsenceAdd.jsp" />
 	</definition>
-	<definition name="student.studentAbsenceDetail" extends="student">
-		<put name="body" value="/student/studentAbsenceDetail.jsp" />
+	<definition name="apprentice.apprenticeAbsenceDetail" extends="apprentice">
+		<put name="body" value="/apprentice/apprenticeAbsenceDetail.jsp" />
 	</definition>
-	<definition name="student.studentVisuEvent" extends="student">
-		<put name="body" value="/student/studentVisuEvent.jsp" />
+	<definition name="apprentice.apprenticeVisuEvent" extends="apprentice">
+		<put name="body" value="/apprentice/apprenticeVisuEvent.jsp" />
 	</definition>
-	<definition name="student.studentEventDetail" extends="student">
-		<put name="body" value="/student/studentEventDetail.jsp" />
+	<definition name="apprentice.apprenticeEventDetail" extends="apprentice">
+		<put name="body" value="/apprentice/apprenticeEventDetail.jsp" />
 	</definition>
-	<definition name="student.studentExtract" extends="student">
-		<put name="body" value="/student/studentExtract.jsp" />
+	<definition name="apprentice.apprenticeExtract" extends="apprentice">
+		<put name="body" value="/apprentice/apprenticeExtract.jsp" />
 	</definition>
-	<definition name="student.studentAskUpdateAdress" extends="student">
-		<put name="body" value="/student/studentAskUpdateAdress.jsp" />
+	<definition name="apprentice.apprenticeAskUpdateAdress" extends="apprentice">
+		<put name="body" value="/apprentice/apprenticeAskUpdateAdress.jsp" />
 	</definition>
-	<definition name="student.studentExtract" extends="student">
-		<put name="body" value="/student/studentExtract.jsp" />
+	<definition name="apprentice.apprenticeExtract" extends="apprentice">
+		<put name="body" value="/apprentice/apprenticeExtract.jsp" />
 	</definition>
-	<definition name="student.studentAbsenceExtract" extends="student">
-		<put name="body" value="/student/studentAbsenceExtract.jsp" />
+	<definition name="apprentice.apprenticeAbsenceExtract" extends="apprentice">
+		<put name="body" value="/apprentice/apprenticeAbsenceExtract.jsp" />
 	</definition>
-	<definition name="student.studentEventExtract" extends="student">
-		<put name="body" value="/student/studentEventExtract.jsp" />
+	<definition name="apprentice.apprenticeEventExtract" extends="apprentice">
+		<put name="body" value="/apprentice/apprenticeEventExtract.jsp" />
 	</definition>
-	<definition name="student.studentMailingListCreate" extends="student">
-		<put name="body" value="/student/studentMailingListCreate.jsp" />
+	<definition name="apprentice.apprenticeMailingListCreate" extends="apprentice">
+		<put name="body" value="/apprentice/apprenticeMailingListCreate.jsp" />
 	</definition>
-	<definition name="student.studentEmailDo" extends="student">
-		<put name="body" value="/student/studentEmailDo.jsp" />
+	<definition name="apprentice.apprenticeEmailDo" extends="apprentice">
+		<put name="body" value="/apprentice/apprenticeEmailDo.jsp" />
 	</definition>
-	<definition name="student.studentMailDo" extends="student">
-		<put name="body" value="/student/studentMailDo.jsp" />
+	<definition name="apprentice.apprenticeMailDo" extends="apprentice">
+		<put name="body" value="/apprentice/apprenticeMailDo.jsp" />
 	</definition>
 
 	<!-- Teacher -->
@@ -114,8 +114,8 @@
 	<definition name="teacher.teacherVisuInfo" extends="teacher">
 		<put name="body" value="/teacher/teacherVisuInfo.jsp" />
 	</definition>
-	<definition name="teacher.teacherStudentAdd" extends="teacher">
-		<put name="body" value="/teacher/teacherStudentAdd.jsp" />
+	<definition name="teacher.teacherApprenticeAdd" extends="teacher">
+		<put name="body" value="/teacher/teacherApprenticeAdd.jsp" />
 	</definition>
 		<definition name="teacher.teacherVisuEvent" extends="teacher">
 		<put name="body" value="/teacher/teacherVisuEvent.jsp" />
@@ -191,7 +191,7 @@
 		<put name="body" value="/recruitment/bringingTogether.jsp" />
 	</definition>
 	<definition name="recruitment.candidateVisuEvent" extends="recruitment">
-		<put name="body" value="/student/candidateVisuEvent.jsp" />
+		<put name="body" value="/apprentice/candidateVisuEvent.jsp" />
 	</definition>
 	<definition name="recruitment.candidateEventDetail" extends="recruitment">
 		<put name="body" value="/recruitment/candidateEventDetail.jsp" />
@@ -223,8 +223,8 @@
 	<definition name="company.actorCreate" extends="company">
 		<put name="body" value="/company/actorCreate.jsp" />
 	</definition>
-	<definition name="company.actorStudentAdd" extends="company">
-		<put name="body" value="/company/actorStudentAdd.jsp" />
+	<definition name="company.actorApprenticeAdd" extends="company">
+		<put name="body" value="/company/actorApprenticeAdd.jsp" />
 	</definition>
 	<definition name="company.actorVisuInfo" extends="company">
 		<put name="body" value="/company/actorVisuInfo.jsp" />
