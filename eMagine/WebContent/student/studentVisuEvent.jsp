@@ -1,8 +1,20 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
-<h2><bean:message key="event.search"/></h2>
 <form name="results">
-<br/>
+	<div class="tabs">
+		<ul>
+			<li><html:link action="/studentVisuAdress">Adresses</html:link></li>
+			<li><html:link action="/studentVisuStatus">Etat&nbsp;civil</html:link></li>
+			<li><html:link action="/studentVisuSituation">Situation</html:link></li>
+			<li><html:link action="/studentVisuSchooling">Scolarit&eacute;</html:link></li>
+			<span class="tab_clicked"><li>Ev&eacute;nement</li></span>
+			<li><html:link action="/studentVisuAbsence">Absence</html:link></li>
+		</ul>
+	</div>
+	<div class="tabs_div">
+	<h2><bean:message key="event.search"/></h2>
+	<br/>
+<!-- Un formulaire de modification -->
 <div align="center">
 	<div class="search">
 		<fieldset>
@@ -37,9 +49,11 @@
 <h3><bean:message key="title.results"/></h3>
 <div align=center>
 	<div id="statSearch">
-		<p><label for="result"><bean:message key="statSearch.results"/></label><input type="text" id="result" size="5"/>&nbsp;&nbsp;&nbsp;
-		<label for="pageNb"><bean:message key="statSearch.numberByPage"/></label><input type="text" id="pageNb" size="5" /></p>
-	</div>
+			<p><label for="result"><bean:message key="statSearch.results"/></label><input type="text" id="result" size="5"/>&nbsp;&nbsp;&nbsp;
+			<label for="pageNb"><bean:message key="statSearch.numberByPage"/></label><input type="text" id="pageNb" size="5" /></p>
+		</div>
+		<p align="left"><label for="total"><bean:message key="form.total"/></label>
+		<input type="text" id="total" size="20" /></p> 
 		<table cellpadding="0" cellspacing="0">
 		<tr>
 			<th>&nbsp;</th>
@@ -74,3 +88,4 @@
 		</ul>
 	</div>
 </form>
+</div>

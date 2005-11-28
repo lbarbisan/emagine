@@ -1,5 +1,18 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
+<form name="results">
+	<div class="tabs">
+		<ul>
+			<li><html:link action="/studentVisuAdress">Adresses</html:link></li>
+			<li><html:link action="/studentVisuStatus">Etat&nbsp;civil</html:link></li>
+			<li><html:link action="/studentVisuSituation">Situation</html:link></li>
+			<li><html:link action="/studentVisuSchooling">Scolarit&eacute;</html:link></li>
+			<li><html:link action="/studentVisuEvent">Ev&eacute;nement</html:link></li>
+			<span class="tab_clicked"><li>Absence</li></span>
+		</ul>
+	</div>
+	<div class="tabs_div">
+<!-- Un formulaire de modification -->
 <h2><bean:message key="student.absence.search.title"/></h2>
 <br/>
 <div align="center">
@@ -82,3 +95,4 @@
 		</ul>
 	</div>
 </form>
+</div>
