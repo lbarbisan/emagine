@@ -31,6 +31,7 @@
 		</fieldset>
 	</div>
 	<br/>
+	<html:link action="#"><img src="/eMagine/common/images/icones/search.png" title="<bean:message key="button.title.search"/>"/></html:link>
 	<html:link action="#"><img src="/eMagine/common/images/icones/search.png" title="<bean:message key="apprentice.search.title"/>"/></html:link>
 </div>	
 <br/>
