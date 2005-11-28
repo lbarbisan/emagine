@@ -1,5 +1,6 @@
 package fr.umlv.ir3.emagine.util;
 
+import fr.umlv.ir3.emagine.event.EventManager;
 import fr.umlv.ir3.emagine.extraction.ExtractionManager;
 import fr.umlv.ir3.emagine.firm.FirmManager;
 import fr.umlv.ir3.emagine.teachertutor.TeacherTutorManager;
@@ -14,7 +15,8 @@ public class ManagerManager {
 	private ExtractionManager extractionManager = new ExtractionManager();
 	private TeacherTutorManager teacherTutorManager = new TeacherTutorManager();
 	private FirmManager entrepriseManager = new FirmManager();
-
+	private EventManager eventManager = new EventManager();
+	
 	public static ManagerManager getInstance() {
 		if (instance == null) {
 			instance = new ManagerManager();
@@ -40,5 +42,9 @@ public class ManagerManager {
 
 	public FirmManager getEntrepriseManager() {
 		return entrepriseManager;
+	}
+
+	public EventManager getEventManager() {
+		return eventManager;
 	}
 }

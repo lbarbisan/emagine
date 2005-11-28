@@ -17,9 +17,12 @@ import javax.persistence.OrderBy;
 import javax.persistence.Version;
 
 import fr.umlv.ir3.emagine.event.Event;
+import fr.umlv.ir3.emagine.event.EventSearchParam;
 import fr.umlv.ir3.emagine.modification.FieldModification;
 import fr.umlv.ir3.emagine.modification.Modification;
+import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.HibernateUtils;
+import fr.umlv.ir3.emagine.util.ManagerManager;
 
 /**
  * 
@@ -55,18 +58,9 @@ public class BaseEntity implements Serializable {
 	public Long getId() {
 		return id;
 	}
-	/**
-	 * @param id the id of entity, the id is unique accross all Entity in the database.
-	 */
-	protected void setId(Long id) {
-		this.id = id;
-	}
 
-	public List<Event> getEvents() {
-		return events;
-	}
-	public void setEvents(List<Event> events) {
-		this.events = events;
+	public List<Event> getEvents(EventSearchParam eventSearchParam) throws EMagineException {
+		return ManagerManager.getInstance().getEventManager().getEvents(eventSearchParam);
 	}
 	
 	/**
@@ -90,12 +84,10 @@ public class BaseEntity implements Serializable {
 	 * @return the current modification, or null if no modification exist
 	 */
 	public Modification getCurrentModification() {
-		if(modifications.size()==0)
-		{
+		if(modifications.size()==0) {
 			return null;
 		}
-		else
-		{
+		else {
 			return modifications.get(modifications.size()-1);
 		}
 	}
@@ -130,11 +122,8 @@ public class BaseEntity implements Serializable {
 	@SuppressWarnings("unchecked")
 	public void addModification(BaseEntity baseEntity) {
 		Modification modification = new Modification();
-		
-		for (FieldModification field : baseEntity.getFields())
-		{
-			if(field.getPropertyValue().equals(this.getField(field.getPropertyName())))
-			{
+		for (FieldModification field : baseEntity.getFields()) {
+			if(field.getPropertyValue().equals(this.getField(field.getPropertyName()))) {
 				modification.addFieldModification(field);
 				this.modifications.add(modification);
 			}
@@ -152,8 +141,7 @@ public class BaseEntity implements Serializable {
 	 */
 	//FIXME:SUpprimer le warinig
 	@SuppressWarnings("unchecked")
-	public FieldModification getField(String name)
-	{
+	public FieldModification getField(String name) {
 		FieldModification field = new FieldModification();
 		
 		//TODO : BaseEntity.getFieldValue
@@ -167,12 +155,9 @@ public class BaseEntity implements Serializable {
 	 * @param name name of property
 	 * @return return the object associated to the name property
 	 */
-	public List<FieldModification> getFields()
-	{
+	public List<FieldModification> getFields() {
 		ArrayList<FieldModification> properties = new ArrayList<FieldModification>();
-		
-		for(String propertyName : HibernateUtils.getPropertyNames(this))
-		{
+		for(String propertyName : HibernateUtils.getPropertyNames(this)) {
 			properties.add(getField(propertyName));
 		}
 		return properties;
