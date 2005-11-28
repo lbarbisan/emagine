@@ -27,10 +27,6 @@ public abstract class BaseModifyForm<EntityType extends BaseEntity> extends Acti
 		return entity;
 	}
 	
-	public List<Event> getEvents() {
-		return entity.getEvents();	
-	}
-	
 	public Long getId() {
 		return entity.getId();	
 	}

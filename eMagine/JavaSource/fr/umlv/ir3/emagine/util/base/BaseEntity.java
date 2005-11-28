@@ -17,12 +17,9 @@ import javax.persistence.OrderBy;
 import javax.persistence.Version;
 
 import fr.umlv.ir3.emagine.event.Event;
-import fr.umlv.ir3.emagine.event.EventSearchParam;
 import fr.umlv.ir3.emagine.modification.FieldModification;
 import fr.umlv.ir3.emagine.modification.Modification;
-import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.HibernateUtils;
-import fr.umlv.ir3.emagine.util.ManagerManager;
 
 /**
  * 
@@ -57,10 +54,6 @@ public class BaseEntity implements Serializable {
 	 */
 	public Long getId() {
 		return id;
-	}
-
-	public List<Event> getEvents(EventSearchParam eventSearchParam) throws EMagineException {
-		return ManagerManager.getInstance().getEventManager().getEvents(eventSearchParam);
 	}
 	
 	/**
