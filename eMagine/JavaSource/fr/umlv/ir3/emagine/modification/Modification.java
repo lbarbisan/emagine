@@ -16,9 +16,6 @@ import fr.umlv.ir3.emagine.util.base.BaseEntity;
 @Entity(access = AccessType.FIELD)
 public class Modification<ObjectType extends BaseEntity> extends BaseEntity{
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -985619438827774992L;
 	
 	@ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
@@ -27,10 +24,6 @@ public class Modification<ObjectType extends BaseEntity> extends BaseEntity{
 	@ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
 	@JoinColumn(name = "destinationuser_id")
 	private User userDestination;
-	/*@OneToOne(targetEntity = BaseEntity.class)
-	private ObjectType Value;
-	@OneToOne(targetEntity = BaseEntity.class)
-	private ObjectType newValue;*/
 	@ManyToOne(cascade =CascadeType.ALL)
 	@JoinColumn(name = "baseentity_id")
 	private ObjectType baseEntity;

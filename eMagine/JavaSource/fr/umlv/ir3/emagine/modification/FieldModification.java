@@ -7,7 +7,7 @@ import javax.persistence.ManyToOne;
 import fr.umlv.ir3.emagine.util.base.BaseEntity;
 
 @Entity(access = AccessType.FIELD)
-public class FieldModification<ObjectType extends BaseEntity> extends BaseEntity {
+public class FieldModification<ObjectType> extends BaseEntity {
 	
 	/**
 	 * 
