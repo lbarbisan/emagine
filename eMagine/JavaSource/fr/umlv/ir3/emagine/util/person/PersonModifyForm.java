@@ -7,10 +7,10 @@ import org.apache.struts.action.ActionMapping;
 
 import fr.umlv.ir3.emagine.util.base.BaseModifyForm;
 
-public class PersonModifyForm extends BaseModifyForm {
+public abstract class PersonModifyForm<ObjectType extends Person> extends BaseModifyForm<Person> {
 	private static final long serialVersionUID = 2014238102681432978L;
 
-	private Person entity = new Person();
+	private ObjectType entity; // = new Person();
 	
 	@Override
 	public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
@@ -19,7 +19,7 @@ public class PersonModifyForm extends BaseModifyForm {
 	}
 	
 	@Override
-	public Person getEntity() {
+	public ObjectType getEntity() {
 		return entity;
 	}
 	

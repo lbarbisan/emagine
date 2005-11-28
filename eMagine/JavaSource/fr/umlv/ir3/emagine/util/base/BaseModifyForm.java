@@ -11,7 +11,7 @@ import org.apache.struts.action.ActionMapping;
 import fr.umlv.ir3.emagine.event.Event;
 import fr.umlv.ir3.emagine.modification.Modification;
 
-public class BaseModifyForm<EntityType extends BaseEntity> extends ActionForm {
+public abstract class BaseModifyForm<EntityType extends BaseEntity> extends ActionForm {
 
 	private static final long serialVersionUID = 4056396430505536168L;
 	
