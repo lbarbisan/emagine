@@ -9,7 +9,7 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessages;
 
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.EntityManager;
+import fr.umlv.ir3.emagine.util.ManagerManager;
 import fr.umlv.ir3.emagine.util.search.SearchAction;
 
 public class UserSearchAction extends SearchAction {
@@ -22,7 +22,7 @@ public class UserSearchAction extends SearchAction {
 	public ActionForward searchUsers(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionMessages errors = new ActionMessages();
 		UserSearchForm userSearchForm = (UserSearchForm)form;
-		EntityManager manager = EntityManager.getInstance();
+		ManagerManager manager = ManagerManager.getInstance();
 
 		// Retrieve all profiles and set them in the form
 		try {

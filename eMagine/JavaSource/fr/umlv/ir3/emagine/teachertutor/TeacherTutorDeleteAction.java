@@ -12,7 +12,7 @@ import org.apache.struts.action.ActionMessages;
 
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.EntityManager;
+import fr.umlv.ir3.emagine.util.ManagerManager;
 import fr.umlv.ir3.emagine.util.base.BaseAction;
 
 public class TeacherTutorDeleteAction extends BaseAction {
@@ -32,7 +32,7 @@ public class TeacherTutorDeleteAction extends BaseAction {
 		// Delete the teacher tutor
 		DAOManager.beginTransaction();
 		try {
-			EntityManager.getInstance().getTeacherTutorManager().deleteTeacherTutor(teachersTutor);
+			ManagerManager.getInstance().getTeacherTutorManager().deleteTeacherTutor(teachersTutor);
 		} catch (EMagineException exception) {
 			// save the error
 			addEMagineExceptionError(errors, exception);

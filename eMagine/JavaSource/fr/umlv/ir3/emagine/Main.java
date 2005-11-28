@@ -13,7 +13,7 @@ import fr.umlv.ir3.emagine.user.UserDAO;
 import fr.umlv.ir3.emagine.user.UserSearchForm;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.EntityManager;
+import fr.umlv.ir3.emagine.util.ManagerManager;
 
 public class Main {
 
@@ -60,7 +60,7 @@ public class Main {
 		extractionForm.setExtractable(userSearchForm);
 		
 
-		EntityManager.getInstance().getExtractionManager().extract(extractionForm, new FileOutputStream(new File("toto.xls")));
+		ManagerManager.getInstance().getExtractionManager().extract(extractionForm, new FileOutputStream(new File("toto.xls")));
 		
 
 		/*

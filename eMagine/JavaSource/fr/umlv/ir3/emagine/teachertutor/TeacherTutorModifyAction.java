@@ -12,7 +12,7 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessages;
 
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.EntityManager;
+import fr.umlv.ir3.emagine.util.ManagerManager;
 import fr.umlv.ir3.emagine.util.base.BaseAction;
 
 public class TeacherTutorModifyAction extends BaseAction {
@@ -27,7 +27,7 @@ public class TeacherTutorModifyAction extends BaseAction {
 		TeacherTutor teacherTutor = teacherTutorModifyForm.getEntity();
 
 		try {
-			EntityManager.getInstance().getTeacherTutorManager().createTeacherTutor(teacherTutor);
+			ManagerManager.getInstance().getTeacherTutorManager().createTeacherTutor(teacherTutor);
 		} catch (EMagineException exception) {
 			// save the error
 			addEMagineExceptionError(errors, exception);
@@ -47,7 +47,7 @@ public class TeacherTutorModifyAction extends BaseAction {
 
 		// Update the User
 		try {
-			EntityManager.getInstance().getTeacherTutorManager().updateTeacherTutor(teacherTutor);
+			ManagerManager.getInstance().getTeacherTutorManager().updateTeacherTutor(teacherTutor);
 		} catch (EMagineException exception) {
 			// save the error
 			addEMagineExceptionError(errors, exception);

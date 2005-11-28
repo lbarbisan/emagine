@@ -9,7 +9,7 @@ import fr.umlv.ir3.emagine.user.profile.ProfileDAO;
 
 public class DAOManager {
 	private static DAOManager instance;
-
+	
 	private UserDAO userDAO = new UserDAO();
 	private ProfileDAO profileDAO = new ProfileDAO();
 	private ModificationDAO modificationDAO = new ModificationDAO();
@@ -20,26 +20,21 @@ public class DAOManager {
 	public ModificationDAO getModificationDAO() {
 		return modificationDAO;
 	}
-
 	public ProfileDAO getProfileDAO() {
 		return profileDAO;
 	}
-	
 	public UserDAO getUserDAO() {
 		return userDAO;
 	}
-	
 	public TeacherTutorDAO getTeacherTutorDAO() {
 		return teacherTutorDAO;
 	}
 	public StudentDAO getStudentDAO() {
 		return studentDAO;
 	}
-	
 	public EntrepriseDAO getEntrepriseDAO() {
 		return entrepriseDAO;
 	}
-	
 
 	public static DAOManager getInstance() {
 		if (instance == null) {

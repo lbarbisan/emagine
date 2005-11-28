@@ -4,10 +4,9 @@ import java.util.List;
 
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.base.BaseDAO;
-import fr.umlv.ir3.emagine.util.base.BaseEntityManager;
+import fr.umlv.ir3.emagine.util.base.BaseManager;
 
-public class UserManager extends BaseEntityManager<User> {
+public class UserManager extends BaseManager<User, UserDAO> {
 
 	/**
 	 * Create a new user with the given User
@@ -69,13 +68,7 @@ public class UserManager extends BaseEntityManager<User> {
 		return getDAO().getUsers(userSearchParam);
 	}
 	
-	private UserDAO getDAO() {
+	protected UserDAO getDAO() {
 		return DAOManager.getInstance().getUserDAO();
 	}
-	
-	@Override
-	protected BaseDAO<User> getBaseDAO() {
-		return getDAO();
-	}
-
 }

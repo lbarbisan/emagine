@@ -12,7 +12,7 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessages;
 
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.EntityManager;
+import fr.umlv.ir3.emagine.util.ManagerManager;
 import fr.umlv.ir3.emagine.util.base.BaseAction;
 
 public class UserModifyAction extends BaseAction {
@@ -27,7 +27,7 @@ public class UserModifyAction extends BaseAction {
 		User user = userModifyForm.getEntity();	// The password have been checked in the form .validate(...) method
 
 		try {
-			EntityManager.getInstance().getUserManager().create(user);
+			ManagerManager.getInstance().getUserManager().create(user);
 		} catch (EMagineException exception) {
 			// save the error
 			addEMagineExceptionError(errors, exception);
@@ -47,7 +47,7 @@ public class UserModifyAction extends BaseAction {
 
 		// Update the User
 		try {
-			EntityManager.getInstance().getUserManager().update(user);
+			ManagerManager.getInstance().getUserManager().update(user);
 		} catch (EMagineException exception) {
 			// save the error
 			addEMagineExceptionError(errors, exception);

@@ -5,7 +5,7 @@ import java.util.Collection;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 
-public abstract class BaseEntityManager<EntityType extends BaseEntity> {
+public abstract class BaseManager<EntityType extends BaseEntity, EntityDAO extends BaseDAO<EntityType>> {
 	/**
 	 * Creates the database data for the specified object. Handles the creation with a transaction.
 	 * @param entity object that must be save in database
@@ -14,7 +14,7 @@ public abstract class BaseEntityManager<EntityType extends BaseEntity> {
 	public void create(EntityType entity) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
-			getBaseDAO().create(entity);
+			getDAO().create(entity);
 			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {
 			DAOManager.rollBackTransaction();
@@ -29,7 +29,7 @@ public abstract class BaseEntityManager<EntityType extends BaseEntity> {
      * @throws EMagineException throw this exception if an SQLException occures
      */
 	public EntityType retrieve(long id) throws EMagineException {
-		return getBaseDAO().retrieve(id);
+		return getDAO().retrieve(id);
 	}
 
     /**
@@ -40,7 +40,7 @@ public abstract class BaseEntityManager<EntityType extends BaseEntity> {
 	public void update(EntityType entity) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
-			getBaseDAO().update(entity);
+			getDAO().update(entity);
 			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {
 			DAOManager.rollBackTransaction();
@@ -56,7 +56,7 @@ public abstract class BaseEntityManager<EntityType extends BaseEntity> {
 	public void delete(EntityType entity) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
-			getBaseDAO().delete(entity);
+			getDAO().delete(entity);
 			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {
 			DAOManager.rollBackTransaction();
@@ -72,13 +72,13 @@ public abstract class BaseEntityManager<EntityType extends BaseEntity> {
 	public void delete(Collection<EntityType> entities) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
-			getBaseDAO().delete(entities);
+			getDAO().delete(entities);
 			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {
 			DAOManager.rollBackTransaction();
 			throw exception;
 		}
 	}
-	
-	protected abstract BaseDAO<EntityType> getBaseDAO();
+
+	protected abstract EntityDAO getDAO();
 }

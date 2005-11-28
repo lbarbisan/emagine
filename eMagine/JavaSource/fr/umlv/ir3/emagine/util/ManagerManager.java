@@ -6,8 +6,8 @@ import fr.umlv.ir3.emagine.teachertutor.TeacherTutorManager;
 import fr.umlv.ir3.emagine.user.UserManager;
 import fr.umlv.ir3.emagine.user.profile.ProfileManager;
 
-public class EntityManager {
-	private static EntityManager instance;
+public class ManagerManager {
+	private static ManagerManager instance;
 	
 	private UserManager userManager = new UserManager();
 	private ProfileManager profileManager = new ProfileManager();
@@ -15,9 +15,9 @@ public class EntityManager {
 	private TeacherTutorManager teacherTutorManager = new TeacherTutorManager();
 	private EntrepriseManager entrepriseManager = new EntrepriseManager();
 
-	public static EntityManager getInstance() {
+	public static ManagerManager getInstance() {
 		if (instance == null) {
-			instance = new EntityManager();
+			instance = new ManagerManager();
 		}
 		return instance;
 	}

@@ -9,7 +9,7 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessages;
 
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.EntityManager;
+import fr.umlv.ir3.emagine.util.ManagerManager;
 import fr.umlv.ir3.emagine.util.Extractable;
 import fr.umlv.ir3.emagine.util.base.BaseAction;
 
@@ -38,7 +38,7 @@ public class ExtractionAction extends BaseAction {
 
 		try {
 			response.setContentType(extractionForm.getExtractionType().mimeType());
-			EntityManager.getInstance().getExtractionManager().extract(extractionForm, response.getOutputStream());
+			ManagerManager.getInstance().getExtractionManager().extract(extractionForm, response.getOutputStream());
 		} catch (EMagineException exception) {
 			// save the error
 			addEMagineExceptionError(errors, exception);

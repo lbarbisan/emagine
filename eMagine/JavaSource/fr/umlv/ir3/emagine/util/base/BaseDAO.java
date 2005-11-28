@@ -20,16 +20,16 @@ import fr.umlv.ir3.emagine.util.HibernateUtils;
  * <br>Update an object from/to database
  * <br>Delete an Object from database
  * @author eMagine team
- * @param <ObjectType> the type of object to manipulate.
+ * @param <EntityType> the type of object to manipulate.
  */
-public abstract class BaseDAO<ObjectType> {
-	 
+public abstract class BaseDAO<EntityType extends BaseEntity> {
+
 	/**
 	 * Creates the database data for the specified object
 	 * @param object object that must be save in database
 	 * @throws EMagineException throw this exception if the creation failed or if an SQLException occures
 	 */
-    public void create(ObjectType object) throws EMagineException {
+    public void create(EntityType object) throws EMagineException {
     	try {
     		HibernateUtils.getSession().save(object);
     	} catch (HibernateException exception) {
@@ -42,7 +42,7 @@ public abstract class BaseDAO<ObjectType> {
      * @param object object that must update save in database
      * @throws EMagineException  throw this exception if the update failed or if an SQLException occures
      */
-    public void update(ObjectType object) throws EMagineException {
+    public void update(EntityType object) throws EMagineException {
     	try {
     		HibernateUtils.getSession().saveOrUpdate(object);
     	} catch (HibernateException exception) {
@@ -56,14 +56,14 @@ public abstract class BaseDAO<ObjectType> {
      * @return the object which is associated to id, null if not found
      * @throws EMagineException throw this exception if an SQLException occures
      */
-    public abstract ObjectType retrieve(long id) throws EMagineException;
+    public abstract EntityType retrieve(long id) throws EMagineException;
 
-    /**
+	/**
      * Deletes the database data associated the the specified object 
      * @param object object to delete
      * @throws EMagineException throw this excepion if the deletation failed or if an SQLException occures
      */
-    public void delete(ObjectType object) throws EMagineException {
+    public void delete(EntityType object) throws EMagineException {
     	try {
 	    	HibernateUtils.getSession().delete(object);
 		} catch (HibernateException exception) {
@@ -76,7 +76,7 @@ public abstract class BaseDAO<ObjectType> {
      * @param object object to delete
      * @throws EMagineException throw this excepion if the deletation failed or if an SQLException occures
      */
-    public void delete(Collection<ObjectType> objects) throws EMagineException {
+    public void delete(Collection<EntityType> objects) throws EMagineException {
     	try {
 	    	HibernateUtils.getSession().delete(objects);
 		} catch (HibernateException exception) {
