@@ -33,8 +33,8 @@
 					<label for="justification"><bean:message key="criteria.search.justification"/></label>
 					<select name="justification">
 						<!-- à mettre en base -->
-						<option value="all" selected="selected"><bean:message key="select.all.feminine"/></option>
-						<option value="M">maladie</option>
+						<option value="all" selected="selected"><bean:message key="select.all.feminin"/></option>
+						<option value="M">maladie</option>s
 						<option value="E">entreprise</option>
 						<option value="NJ">non&nbsp;justifi&eacute;</option>
 					</select>

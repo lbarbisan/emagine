@@ -21,8 +21,8 @@
 <div id="actions">
 	<h2>&nbsp;</h2>
 	<ul>
-		<li><a href="#"><input type="submit" value="Modifier" alt="Modifier l'utilisateur"/></a></li>
-		<li><a href="#"><input type="submit" value="Supprimer" alt="Supprimer l'utilisateur"/></a></li>
+		<li><a href="#"><input type="submit" value="Modifier" title="Modifier l'utilisateur"/></a></li>
+		<li><a href="#"><input type="submit" value="Supprimer" title="Supprimer l'utilisateur"/></a></li>
 	</ul>
 </div>
 <div align="right"><font color="red" size="1"><bean:message key="form.msg.obligation.star"/></font></div>

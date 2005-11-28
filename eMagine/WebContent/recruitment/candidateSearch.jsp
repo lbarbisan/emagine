@@ -82,12 +82,12 @@
 		</ul>
 		<h2>&nbsp;</h2>
 		<ul>
-			<li><a href="#"><img src="/eMagine/common/images/icones/passage.png" alt="passer le candidat en apprenti"/></a></li>
-			<li><a href="#"><img src="/eMagine/common/images/icones/virer.png" alt="Supprimer le candidat"/></a></li>
-			<li><html:link action="/candidateMailingListCreate"><img src="/eMagine/common/images/icones/creer_mailing_list.png" alt="Cr&eacute;er une maling list"/></html:link></li>
+			<li><a href="#"><img src="/eMagine/common/images/icones/passage.png" title="passer le candidat en apprenti"/></a></li>
+			<li><a href="#"><img src="/eMagine/common/images/icones/virer.png" title="Supprimer le candidat"/></a></li>
+			<li><html:link action="/candidateMailingListCreate"><img src="/eMagine/common/images/icones/creer_mailing_list.png" title="Cr&eacute;er une maling list"/></html:link></li>
 			<li><html:link action="/candidateEmailDo"><img src="/eMagine/common/images/icones/mailing.png" title="Effectuer un mailing"/></html:link></li>
 			<li><html:link action="/candidateMailDo"><img src="/eMagine/common/images/icones/publipostage.png" title="Effectuer un publipostage"/></html:link></li>
-			<li><html:link action="/candidateExtract"><img src="/eMagine/common/images/icones/extraire.png" alt="Extraire un candidat"/></html:link></li>
+			<li><html:link action="/candidateExtract"><img src="/eMagine/common/images/icones/extraire.png" title="Extraire un candidat"/></html:link></li>
 		</ul>
 	</div>
 </form>

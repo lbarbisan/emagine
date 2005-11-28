@@ -39,12 +39,12 @@
 		</ul>
 		<h2>&nbsp;</h2>	
 		<ul>
-			<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" alt="Supprimer un acteur"/></a></li>
-			<li><html:link action="/actorMailingListCreate"><img src="/eMagine/common/images/icones/creer_mailing_list.png" alt="Cr&eacute;er une maling list"/></html:link></li>
+			<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" title="Supprimer un acteur"/></a></li>
+			<li><html:link action="/actorMailingListCreate"><img src="/eMagine/common/images/icones/creer_mailing_list.png" title="Cr&eacute;er une maling list"/></html:link></li>
 			<li><html:link action="/actorEmailDo"><img src="/eMagine/common/images/icones/mailing.png" title="Effectuer un mailing"/></html:link></li>
 			<li><html:link action="/actorMailDo"><img src="/eMagine/common/images/icones/publipostage.png" title="Effectuer un publipostage"/></html:link></li>
-			<li><html:link action="/actorExtract"><img src="/eMagine/common/images/icones/extraire.png" alt="Extraire une liste d'acteurs"/></html:link></li>
-			<li><html:link action="/actorCreate"><img src="/eMagine/common/images/icones/ajouter.png" alt="Ajouter un acteur"/></html:link></li>
+			<li><html:link action="/actorExtract"><img src="/eMagine/common/images/icones/extraire.png" title="Extraire une liste d'acteurs"/></html:link></li>
+			<li><html:link action="/actorCreate"><img src="/eMagine/common/images/icones/ajouter.png" title="Ajouter un acteur"/></html:link></li>
 		</ul>
 	</div>
 </form>

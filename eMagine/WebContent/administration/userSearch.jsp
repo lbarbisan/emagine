@@ -62,7 +62,7 @@
 		</ul>
 		<h2>&nbsp;</h2>
 		<ul>
-			<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" alt="Supprimer un utilisateur"/></a></li>
+			<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" title="Supprimer un utilisateur"/></a></li>
 		</ul>
 	</div>
 </form>

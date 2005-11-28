@@ -48,7 +48,7 @@
 		</ul>
 		<h2>&nbsp;</h2>	
 		<ul>
-			<li><html:link action="/companyExtract"><img src="/eMagine/common/images/icones/extraire.png" alt="Extraire les entreprises"/></html:link></li>
+			<li><html:link action="/companyExtract"><img src="/eMagine/common/images/icones/extraire.png" title="Extraire les entreprises"/></html:link></li>
 		</ul>
 	</div>
 </form>

@@ -21,7 +21,7 @@
 <div id="actions">
 	<h2>&nbsp;</h2>
 	<ul>
-		<li><a href="#"><input type="submit" value="Créer" alt="Créer la statistique"/></a></li>
+		<li><a href="#"><input type="submit" value="Créer" title="Créer la statistique"/></a></li>
 	</ul>
 </div>
 <div align="right"><font color="red" size="1"><bean:message key="form.msg.obligation.star"/></font></div>

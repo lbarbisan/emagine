@@ -33,9 +33,9 @@
 		</ul>
 		<h2>&nbsp;</h2>
 		<ul>
-			<li><html:link action="/supprimer"><img src="/eMagine/common/images/icones/supprimer.png" alt="Supprimer courrier type"/></html:link></li>
-			<li><html:link action="/emailDo"><img src="/eMagine/common/images/icones/mailing.png" alt="Effecter un mailing"/></html:link></li>
-			<li><html:link action="/mailDo"><img src="/eMagine/common/images/icones/publipostage.png" alt="Effecter un publipostage"/></html:link></li>
+			<li><html:link action="/supprimer"><img src="/eMagine/common/images/icones/supprimer.png" title="Supprimer courrier type"/></html:link></li>
+			<li><html:link action="/emailDo"><img src="/eMagine/common/images/icones/mailing.png" title="Effecter un mailing"/></html:link></li>
+			<li><html:link action="/mailDo"><img src="/eMagine/common/images/icones/publipostage.png" title="Effecter un publipostage"/></html:link></li>
 		</ul>
 	</div>
 </form>

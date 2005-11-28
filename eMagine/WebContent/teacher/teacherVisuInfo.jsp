@@ -60,7 +60,7 @@
 		</ul>
 		<h2>&nbsp;</h2>	
 		<ul>
-			<li><html:link action="/teacherStudentAdd"><img src="/eMagine/common/images/icones/ajouter.png" alt="Ajouter un pupille"/></html:link></li>
+			<li><html:link action="/teacherStudentAdd"><img src="/eMagine/common/images/icones/ajouter.png" title="Ajouter un pupille"/></html:link></li>
 		</ul>
 	</div>
 </form>
