@@ -17,68 +17,68 @@
         <property name="hibernate.connection.showsql">true</property>
        	<property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
         -->
-        
- 		<mapping package="fr.umlv.ir3.emagine.util"/> 
-		<mapping class="fr.umlv.ir3.emagine.util.BaseEntity"/>
-		<mapping class="fr.umlv.ir3.emagine.util.Person"/>
-		<!-- 	<mapping class="fr.umlv.ir3.emagine.util.Address"/>  -->
+         
+ 		<mapping package="fr.umlv.ir3.emagine.BaseEntity"/> 
+		<mapping class="fr.umlv.ir3.emagine.util.base.BaseEntity"/>
+  			
+ 		<mapping package="fr.umlv.ir3.emagine.Person"/> 
+		<mapping class="fr.umlv.ir3.emagine.util.person.Person"/>
+		<mapping class="fr.umlv.ir3.emagine.util.Address"/>
 		
 		<mapping package="fr.umlv.ir3.emagine.event"/> 
 		<mapping class="fr.umlv.ir3.emagine.event.Event"/>
 		
 		<mapping package="fr.umlv.ir3.emagine.teachertutor"/> 
 		<mapping class="fr.umlv.ir3.emagine.teachertutor.TeacherTutor"/>		
-
+		
 		<mapping package="fr.umlv.ir3.emagine.student"/> 
 		<mapping class="fr.umlv.ir3.emagine.student.Student"/> 
 		<mapping class="fr.umlv.ir3.emagine.student.Contact"/>
 		<mapping package="fr.umlv.ir3.emagine.student.candidate"/> 
 		<mapping class="fr.umlv.ir3.emagine.student.candidate.Candidate"/>
-		
+ 				
 		<mapping package="fr.umlv.ir3.emagine.student.candidate.examcenter"/>
 		<mapping class="fr.umlv.ir3.emagine.student.candidate.examcenter.FormationCenter"/>
-		
+ 		
 		<mapping package="fr.umlv.ir3.emagine.student.candidate.room"/>
 		<mapping class="fr.umlv.ir3.emagine.student.candidate.room.Room"/>
-
-		<mapping package="fr.umlv.ir3.emagine.entreprise"/>
-		<mapping class="fr.umlv.ir3.emagine.entreprise.Entreprise"/>
-		<mapping class="fr.umlv.ir3.emagine.entreprise.Job"/>
-
-		<mapping package="fr.umlv.ir3.emagine.entreprise.actor"/>		
-		<mapping class="fr.umlv.ir3.emagine.entreprise.actor.EntrepriseActor"/>
-				
-		<mapping package="fr.umlv.ir3.emagine.entreprise.actor"/>
-		<mapping class="fr.umlv.ir3.emagine.entreprise.actor.EngineerTutor"/>
 		
+		<mapping package="fr.umlv.ir3.emagine.firm"/>
+		<mapping class="fr.umlv.ir3.emagine.firm.Firm"/>
+		<mapping class="fr.umlv.ir3.emagine.firm.Job"/>
+
+		<mapping package="fr.umlv.ir3.emagine.firm.actor"/>		
+		<mapping class="fr.umlv.ir3.emagine.firm.actor.FirmActor"/>
+		<mapping class="fr.umlv.ir3.emagine.firm.actor.EngineerTutor"/>
+ 	
 		<mapping package="fr.umlv.ir3.emagine.extraction.mailings"/>
 		<mapping class="fr.umlv.ir3.emagine.extraction.mailings.MailingList"/>
 		<mapping class="fr.umlv.ir3.emagine.extraction.mailings.Attachment"/>
 		
 		<mapping package="fr.umlv.ir3.emagine.extraction.mailstype"/>
 		<mapping class="fr.umlv.ir3.emagine.extraction.mailstype.MailingType"/>
-		
+ 		
 		<mapping package="fr.umlv.ir3.emagine.extraction.massmailing"/>
 		<mapping class="fr.umlv.ir3.emagine.extraction.massmailing.MassMailing"/>
 		<mapping class="fr.umlv.ir3.emagine.extraction.massmailing.Model"/>
-		
+ 		
 		<mapping package="fr.umlv.ir3.emagine.modification"/>
 		<mapping class="fr.umlv.ir3.emagine.modification.Modification"/>
 		<mapping class="fr.umlv.ir3.emagine.modification.FieldModification"/>
-		
+ 		
 		<mapping package="fr.umlv.ir3.emagine.user"/>
 		<mapping class="fr.umlv.ir3.emagine.user.User"/>
-		
+ 		
 		<mapping package="fr.umlv.ir3.emagine.profile"/>
 		<mapping class="fr.umlv.ir3.emagine.user.profile.Profile"/>
 		<mapping class="fr.umlv.ir3.emagine.user.profile.Right"/>
-
+		
 		<mapping package="fr.umlv.ir3.emagine.statistic"/>
 		<mapping class="fr.umlv.ir3.emagine.statistic.Statistic"/>		
-
+ 		
 		<mapping package="fr.umlv.ir3.emagine.student.absence"/>
 		<mapping class="fr.umlv.ir3.emagine.student.absence.Abscence"/>				
-
+ 		
 		<mapping package="fr.umlv.ir3.emagine.teachertutor"/>
 		<mapping class="fr.umlv.ir3.emagine.teachertutor.TeacherTutor"/>				
 		

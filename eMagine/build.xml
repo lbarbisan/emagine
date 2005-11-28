@@ -32,24 +32,20 @@
 		<middlegen appname="eMagine" gui="true" databaseurl="jdbc:postgresql://server.srv-net.com:54321/eMagine" driver="org.postgresql.Driver" username="eMagine" password="eMagine" schema="public">
 			<!--
 			<table name="abscence_pkey" />
+			<table name="applicationuser_email_key" />
+			<table name="applicationuser_login_key" />
 			<table name="applicationuser_pkey" />
 			<table name="attachment_pkey" />
-			<table name="baseentity_baseentity_attachments_id_key" />
-			<table name="baseentity_baseentity_persons_id_key" />
-			<table name="baseentity_baseentity_rights_id_key" />
-			<table name="baseentity_motherentreprise_id_key" />
-			<table name="baseentity_newvalue_id_key" />
-			<table name="baseentity_nextentity_id_key" />
 			<table name="baseentity_pkey" />
-			<table name="baseentity_value_id_key" />
 			<table name="candidate_pkey" />
 			<table name="contact_pkey" />
 			<table name="engineertutor_pkey" />
-			<table name="entreprise_motherentreprise_id_key" />
-			<table name="entreprise_pkey" />
-			<table name="entrepriseactor_pkey" />
 			<table name="event_pkey" />
 			<table name="fieldmodification_pkey" />
+			<table name="firm_motherfirm_id_key" />
+			<table name="firm_name_key" />
+			<table name="firm_pkey" />
+			<table name="firmactor_pkey" />
 			<table name="formationcenter_pkey" />
 			<table name="job_pkey" />
 			<table name="mailinglist_person_persons_id_key" />
@@ -59,10 +55,13 @@
 			<table name="massmailing_attachment_attachments_id_key" />
 			<table name="massmailing_pkey" />
 			<table name="model_pkey" />
-			<table name="modification_newvalue_id_key" />
 			<table name="modification_pkey" />
-			<table name="modification_value_id_key" />
+			<table name="person_lastname_key" />
 			<table name="person_pkey" />
+			<table name="pg_ts_cfg_pkey" />
+			<table name="pg_ts_cfgmap_pkey" />
+			<table name="pg_ts_dict_pkey" />
+			<table name="pg_ts_parser_pkey" />
 			<table name="profile_name_key" />
 			<table name="profile_pkey" />
 			<table name="profile_rightapplication_rights_id_key" />
@@ -77,17 +76,17 @@
 			<table name="abscence" />
 			<table name="applicationuser" />
 			<table name="attachment" />
-			<!--<table name="baseentity" />
-			<table name="baseentity_baseentity" />
+			<!--
+			<table name="baseentity" />
 			-->
 			<table name="candidate" />
 			<table name="contact" />
 			<table name="engineertutor" />
-			<table name="entreprise" />
-			<table name="entrepriseactor" />
 			<table name="event" />
 			<table name="event_baseentity" />
 			<table name="fieldmodification" />
+			<table name="firm" />
+			<table name="firmactor" />
 			<table name="formationcenter" />
 			<table name="job" />
 			<table name="mailinglist" />
@@ -99,6 +98,12 @@
 			<table name="model" />
 			<table name="modification" />
 			<table name="person" />
+			<!--
+			<table name="pg_ts_cfg" />
+			<table name="pg_ts_cfgmap" />
+			<table name="pg_ts_dict" />
+			<table name="pg_ts_parser" />
+			-->
 			<table name="profile" />
 			<table name="profile_rightapplication" />
 			<table name="rightapplication" />
@@ -106,7 +111,7 @@
 			<table name="statistic" />
 			<table name="student" />
 			<table name="teachertutor" />
-
+			<table name="pg_logdir_ls" />
 		</middlegen>
 	</target>
 

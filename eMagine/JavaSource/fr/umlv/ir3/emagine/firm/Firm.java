@@ -26,7 +26,7 @@ public class Firm extends BaseEntity{
 
 	private static final long serialVersionUID = 7717597898466060238L;
 	
-	@OneToOne(mappedBy = "motherfirm")
+	@OneToOne(mappedBy = "motherFirm")
 	private Firm childfirm;
 	@OneToOne
 	@JoinColumn(name="motherfirm_id")
