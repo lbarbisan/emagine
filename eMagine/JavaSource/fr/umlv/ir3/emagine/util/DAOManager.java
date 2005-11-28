@@ -1,9 +1,11 @@
 package fr.umlv.ir3.emagine.util;
 
-import fr.umlv.ir3.emagine.firm.actor.FirmActorDAO;
+import fr.umlv.ir3.emagine.event.EventDAO;
 import fr.umlv.ir3.emagine.firm.FirmDAO;
 import fr.umlv.ir3.emagine.firm.JobDAO;
+import fr.umlv.ir3.emagine.firm.actor.FirmActorDAO;
 import fr.umlv.ir3.emagine.modification.ModificationDAO;
+import fr.umlv.ir3.emagine.statistic.StatisticDAO;
 import fr.umlv.ir3.emagine.student.StudentDAO;
 import fr.umlv.ir3.emagine.teachertutor.TeacherTutorDAO;
 import fr.umlv.ir3.emagine.user.UserDAO;
@@ -20,6 +22,8 @@ public class DAOManager {
 	private FirmDAO firmDAO = new FirmDAO();
 	private FirmActorDAO firmActorDAO = new FirmActorDAO();
 	private JobDAO jobDAO = new JobDAO();
+	private EventDAO eventDAO = new EventDAO();
+	private StatisticDAO statisticDAO = new StatisticDAO();
 	
 	public ModificationDAO getModificationDAO() {
 		return modificationDAO;
@@ -44,6 +48,12 @@ public class DAOManager {
 	}
 	public JobDAO getJobDAO() {
 		return jobDAO;
+	}
+	public EventDAO getEventDAO() {
+		return eventDAO;
+	}
+	public StatisticDAO getStatisticDAO() {
+		return statisticDAO;
 	}
 
 	public static DAOManager getInstance() {
