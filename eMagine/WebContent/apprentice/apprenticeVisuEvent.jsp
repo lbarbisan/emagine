@@ -20,12 +20,12 @@
 					<div class="search_b1">
 						<p>
 							<label for="initDate"><bean:message key="criteria.search.initDate"/></label>
-							<input type="text" id="initDate" size="5" />
-							<img src="/eMagine/common/images/icones/calendar.png" title="<bean:message key="button.title.calendar"/>"/>
+							<input type="text" id="initDate" size="15" />
+							<a href="#"><img src="/eMagine/common/images/icones/calendar.png" title="<bean:message key="button.title.calendar"/>"/></a>
 						</p>
 						<p>
 							<label for="endDate"><bean:message key="criteria.search.endDate"/></label>
-							<input type="text" id="endDate" size="5" /> 
+							<input type="text" id="endDate" size="15" /> 
 							<a href="#"><img src="/eMagine/common/images/icones/calendar.png" title="<bean:message key="button.title.calendar"/>"/></a>
 						</p>
 					</div>
