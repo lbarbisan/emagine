@@ -56,7 +56,7 @@
 	<div id="actions">
 		<ul>
 			<li><a href="javascript:checkAll('results','all_none');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
-			<li><a href="javascript:checkNothing('results','all_none');"><bean:message key="all_none.none"/></a> </li><li><a href="javascript:checkAll('results','all_none');">Tous</a>&nbsp;&nbsp;/</li>
+			<li><a href="javascript:checkNothing('results','all_none');"><bean:message key="all_none.none"/></a> </li>
 		</ul>
 		<h2>&nbsp;</h2>	
 		<ul>
