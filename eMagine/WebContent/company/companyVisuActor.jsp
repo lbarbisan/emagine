@@ -39,7 +39,7 @@
 		</ul>
 		<h2>&nbsp;</h2>	
 		<ul>
-			<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" title="Supprimer un acteur"/></a></li>
+			<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" title="<bean:message key="button.title.remove"/>"/></a></li>
 			<li><html:link action="/actorMailingListCreate"><img src="/eMagine/common/images/icones/creer_mailing_list.png" title="<bean:message key="button.title.mailingListCreate"/>"/></html:link></li>
 			<li><html:link action="/actorEmailDo"><img src="/eMagine/common/images/icones/mailing.png" title="<bean:message key="button.title.email"/>"/></html:link></li>
 			<li><html:link action="/actorMailDo"><img src="/eMagine/common/images/icones/publipostage.png" title="<bean:message key="button.title.mailing"/>"/></html:link></li>
