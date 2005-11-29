@@ -15,14 +15,14 @@ import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
 import fr.umlv.ir3.emagine.apprentice.Apprentice;
-import fr.umlv.ir3.emagine.util.base.BaseEntity;
+import fr.umlv.ir3.emagine.util.base.EditableEntity;
 
 /**
  * @author Administrateur
  *
  */
 @Entity(access = AccessType.FIELD)
-public class Abscence extends BaseEntity {
+public class Absence extends EditableEntity {
 	
 	/**
 	 * 
@@ -37,7 +37,7 @@ public class Abscence extends BaseEntity {
 	@Basic(temporalType = TemporalType.TIMESTAMP)
 	private Date endDate;
 	@Transient
-	private int nbrOpenDay;
+	private int numberOfworkedDays;
 	private boolean justification;
 	private String justificationComment;
 	
@@ -59,11 +59,11 @@ public class Abscence extends BaseEntity {
 	public void setJustificationComment(String justificationComment) {
 		this.justificationComment = justificationComment;
 	}
-	public int getNbrOpenDay() {
-		return nbrOpenDay;
+	public int getNumberOfworkedDays() {
+		return numberOfworkedDays;
 	}
-	public void setNbrOpenDay(int nbrOpenDay) {
-		this.nbrOpenDay = nbrOpenDay;
+	public void setNumberOfworkedDays(int nbrOpenDay) {
+		this.numberOfworkedDays = nbrOpenDay;
 	}
 	public Date getStartDate() {
 		return startDate;

@@ -2,7 +2,6 @@ package fr.umlv.ir3.emagine.util.base;
 
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.HibernateUtils;
 
 public abstract class EditableManager<EntityType extends EditableEntity, EntityDAO extends BaseDAO<EntityType>> extends BaseManager<EntityType, BaseDAO<EntityType>>{
 
@@ -16,7 +15,7 @@ public abstract class EditableManager<EntityType extends EditableEntity, EntityD
 		DAOManager.beginTransaction();
 		try {
 //			 Load the original object 
-    		EntityType oldEntity = (EntityType)HibernateUtils.getSession().load(newEntity.getClass(), newEntity.getId());
+    		EntityType oldEntity = getDAO().retrieve(newEntity.getId());
     		// set the modification
     		newEntity.addModification(oldEntity);
     		//Save new Object

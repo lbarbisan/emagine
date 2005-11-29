@@ -33,7 +33,7 @@ public abstract class BaseDAO<EntityType extends BaseEntity> {
     	try {
     		HibernateUtils.getSession().save(object);
     	} catch (HibernateException exception) {
-    		throw new EMagineException("exception.hibernate.create", exception);
+    		throw new EMagineException("exception.baseDAO.create", exception);
     	}
     }
 
@@ -47,7 +47,7 @@ public abstract class BaseDAO<EntityType extends BaseEntity> {
     	try {
     		HibernateUtils.getSession().saveOrUpdate(newEntity);
     	} catch (HibernateException exception) {
-    		throw new EMagineException("exception.hibernate.update", exception);
+    		throw new EMagineException("exception.baseDAO.update", exception);
     	}
     }
     
@@ -68,7 +68,7 @@ public abstract class BaseDAO<EntityType extends BaseEntity> {
     	try {
 	    	HibernateUtils.getSession().delete(object);
 		} catch (HibernateException exception) {
-			throw new EMagineException("exception.hibernate.delete", exception);
+			throw new EMagineException("exception.baseDAO.delete", exception);
 		}
     }
     
@@ -81,7 +81,7 @@ public abstract class BaseDAO<EntityType extends BaseEntity> {
     	try {
 	    	HibernateUtils.getSession().delete(objects);
 		} catch (HibernateException exception) {
-			throw new EMagineException("exception.hibernate.delete", exception);
+			throw new EMagineException("exception.baseDAO.delete", exception);
 		}
     }
 }

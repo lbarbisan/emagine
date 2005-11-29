@@ -14,7 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import fr.umlv.ir3.emagine.apprentice.absence.Abscence;
+import fr.umlv.ir3.emagine.apprentice.absence.Absence;
 import fr.umlv.ir3.emagine.apprentice.candidate.Candidate;
 import fr.umlv.ir3.emagine.firm.actor.EngineerTutor;
 import fr.umlv.ir3.emagine.firm.Firm;
@@ -29,7 +29,7 @@ public class Apprentice extends Candidate {
 
 	@OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},
 			mappedBy = "apprentice")
-	private List<Abscence> absences;
+	private List<Absence> absences;
 	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinColumn(name="teachingtutor_id")
 	private TeacherTutor teacherTutor; 
@@ -64,12 +64,13 @@ public class Apprentice extends Candidate {
 	private LanguageEnum firstLanguage;
 	private LanguageEnum secondLanguage;
 	private Integer year;
+	private Boolean excluded;
 	
-	public List<Abscence> getAbsences() {
+	public List<Absence> getAbsences() {
 		return absences;
 	}
 
-	public void setAbsences(List<Abscence> absences) {
+	public void setAbsences(List<Absence> absences) {
 		this.absences = absences;
 	}
 
@@ -169,4 +170,11 @@ public class Apprentice extends Candidate {
 		this.year = year;
 	}
 
+	public Boolean getExcluded() {
+		return excluded;
+	}
+
+	public void setExcluded(Boolean excluded) {
+		this.excluded = excluded;
+	}
 }
