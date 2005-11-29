@@ -3,7 +3,7 @@ package fr.umlv.ir3.emagine.statistic;
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
 
-import fr.umlv.ir3.emagine.modification.EditableEntity;
+import fr.umlv.ir3.emagine.util.base.EditableEntity;
 
 @Entity(access = AccessType.FIELD)
 public class Statistic extends EditableEntity{

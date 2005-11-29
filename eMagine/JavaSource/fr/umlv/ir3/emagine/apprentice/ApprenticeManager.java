@@ -15,8 +15,8 @@ public class ApprenticeManager extends ModificationManager<Apprentice, Apprentic
 	 * @return
 	 * @throws EMagineException if an SQLException occures
 	 */
-	public List<Apprentice> getApprentices(ApprenticeSearchParam apprenticeSearchParam) throws EMagineException {
-		return getDAO().getApprentices(apprenticeSearchParam);
+	public List<Apprentice> find(ApprenticeSearchParam apprenticeSearchParam) throws EMagineException {
+		return getDAO().find(apprenticeSearchParam);
 	}
 
 	/**
@@ -27,7 +27,8 @@ public class ApprenticeManager extends ModificationManager<Apprentice, Apprentic
 	public void excludeApprentice(Apprentice apprentice) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
-			getDAO().excludeApprentice(apprentice);
+			apprentice.setExcluded(true);
+			getDAO().update(apprentice);
 			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {
 			DAOManager.rollBackTransaction();
@@ -43,7 +44,11 @@ public class ApprenticeManager extends ModificationManager<Apprentice, Apprentic
 	public void moveUpApprentice(Collection<Apprentice> apprentices) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
-			getDAO().moveUpApprentice(apprentices);
+			for (Apprentice apprentice : apprentices) {
+				// TODO : voir une meilleur implémentation que ce foreach
+				apprentice.setYear(apprentice.getYear() + 1);
+				getDAO().update(apprentice);
+			}
 			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {
 			DAOManager.rollBackTransaction();

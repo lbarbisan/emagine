@@ -10,9 +10,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import fr.umlv.ir3.emagine.modification.EditableEntity;
 import fr.umlv.ir3.emagine.modification.Modification;
 import fr.umlv.ir3.emagine.user.profile.Profile;
+import fr.umlv.ir3.emagine.util.base.EditableEntity;
 
 @Entity(access = AccessType.FIELD)
 @Table(name = "applicationuser")

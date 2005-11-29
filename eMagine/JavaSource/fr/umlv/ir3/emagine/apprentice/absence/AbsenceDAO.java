@@ -6,7 +6,7 @@ import fr.umlv.ir3.emagine.util.base.BaseDAO;
 
 public class AbsenceDAO extends BaseDAO<Absence> {
 	
-	public List<Absence> getAbsences(AbsenceSearchParam absenceSearchParam) {
+	public List<Absence> find(AbsenceSearchParam absenceSearchParam) {
 		// TODO AbsenceDAO.getAbsences()
 		return null;
 	}

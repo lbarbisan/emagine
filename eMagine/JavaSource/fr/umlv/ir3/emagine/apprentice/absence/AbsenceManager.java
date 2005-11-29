@@ -14,8 +14,8 @@ public class AbsenceManager extends ModificationManager<Absence, AbsenceDAO> {
 	 * @return
 	 * @throws EMagineException if an SQLException occures
 	 */
-	public List<Absence> getAbsences(AbsenceSearchParam absenceSearchParam) throws EMagineException {
-		return getDAO().getAbsences(absenceSearchParam);
+	public List<Absence> find(AbsenceSearchParam absenceSearchParam) throws EMagineException {
+		return getDAO().find(absenceSearchParam);
 	}
 	
 	@Override

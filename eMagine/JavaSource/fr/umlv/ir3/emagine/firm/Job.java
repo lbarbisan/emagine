@@ -7,7 +7,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import fr.umlv.ir3.emagine.apprentice.candidate.CourseOptionEnum;
-import fr.umlv.ir3.emagine.modification.EditableEntity;
+import fr.umlv.ir3.emagine.util.base.EditableEntity;
 
 @Entity(access = AccessType.FIELD)
 public class Job extends EditableEntity {

@@ -1,4 +1,4 @@
-package fr.umlv.ir3.emagine.modification;
+package fr.umlv.ir3.emagine.util.base;
 
 import java.io.Serializable;
 import java.util.List;
@@ -8,7 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
-import fr.umlv.ir3.emagine.util.base.EventEntity;
+import fr.umlv.ir3.emagine.modification.FieldModification;
+import fr.umlv.ir3.emagine.modification.Modification;
 
 /**
  * 

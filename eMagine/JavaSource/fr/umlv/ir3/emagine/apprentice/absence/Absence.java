@@ -15,7 +15,7 @@ import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
 import fr.umlv.ir3.emagine.apprentice.Apprentice;
-import fr.umlv.ir3.emagine.modification.EditableEntity;
+import fr.umlv.ir3.emagine.util.base.EditableEntity;
 
 /**
  * @author Administrateur
@@ -37,7 +37,7 @@ public class Absence extends EditableEntity {
 	@Basic(temporalType = TemporalType.TIMESTAMP)
 	private Date endDate;
 	@Transient
-	private int numberOfworkedDays;
+	private int numberOfWorkedDays;
 	private boolean justification;
 	private String justificationComment;
 	
@@ -59,11 +59,11 @@ public class Absence extends EditableEntity {
 	public void setJustificationComment(String justificationComment) {
 		this.justificationComment = justificationComment;
 	}
-	public int getNumberOfworkedDays() {
-		return numberOfworkedDays;
+	public int getNumberOfWorkedDays() {
+		return numberOfWorkedDays;
 	}
-	public void setNumberOfworkedDays(int nbrOpenDay) {
-		this.numberOfworkedDays = nbrOpenDay;
+	public void setNumberOfWorkedDays(int nbrOpenDay) {
+		this.numberOfWorkedDays = nbrOpenDay;
 	}
 	public Date getStartDate() {
 		return startDate;
