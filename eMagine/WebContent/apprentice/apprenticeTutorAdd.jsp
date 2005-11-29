@@ -14,7 +14,7 @@
 			</fieldset>
 		</div>
 		<br/>
-		<html:link action="#"><img src="/eMagine/common/images/icones/search.png" title="<bean:message key="button.title.search"/>"/></html:link>
+		<a href="#"><img src="/eMagine/common/images/icones/search.png" title="<bean:message key="button.title.search"/>"/></a>
 	</div>
 	<h3><bean:message key="title.results"/></h3>
 	<div align=center>
@@ -44,9 +44,8 @@
 	<div id="actions">
 		<h2>&nbsp;</h2>
 		<ul>
-			<li>
-				<input type="button" value="Affecter" title="Affecter le tuteur"/>
-			</li>
+			<li><a href ="#"><img src="/eMagine/common/images/icones/affecter.png" title="<bean:message key="button.title.affect"/>"/></a></li>				
+			<li><a href ="#"><img src="/eMagine/common/images/icones/annuler.png" title="<bean:message key="button.title.cancel"/>"/></a></li>				
 		</ul>
 	</div>
 	<br/>

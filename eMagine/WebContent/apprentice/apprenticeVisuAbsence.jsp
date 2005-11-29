@@ -3,12 +3,12 @@
 <form name="results">
 	<div class="tabs">
 		<ul>
-			<li><html:link action="/apprenticeVisuAdress">Adresses</html:link></li>
-			<li><html:link action="/apprenticeVisuStatus">Etat&nbsp;civil</html:link></li>
-			<li><html:link action="/apprenticeVisuSituation">Situation</html:link></li>
-			<li><html:link action="/apprenticeVisuSchooling">Scolarit&eacute;</html:link></li>
-			<li><html:link action="/apprenticeVisuEvent">Ev&eacute;nement</html:link></li>
-			<span class="tab_clicked"><li>Absence</li></span>
+			<li><html:link action="/apprenticeVisuAdress"><bean:message key="onglet.adress"/></html:link></li>
+			<li><html:link action="/apprenticeVisuStatus"><bean:message key="onglet.status"/></html:link></li>
+			<li><html:link action="/apprenticeVisuSituation"><bean:message key="onglet.situation"/></html:link></li>
+			<li><html:link action="/apprenticeVisuSchooling"><bean:message key="onglet.schooling"/></html:link></li>
+			<li><html:link action="/apprenticeVisuEvent"><bean:message key="onglet.event"/></html:link></li>
+			<span class="tab_clicked"><li><bean:message key="onglet.absence"/></li></span>
 		</ul>
 	</div>
 	<div class="tabs_div">
@@ -34,7 +34,7 @@
 					<select name="justification">
 						<!-- à mettre en base -->
 						<option value="all" selected="selected"><bean:message key="select.all.feminin"/></option>
-						<option value="M">maladie</option>s
+						<option value="M">maladie</option>
 						<option value="E">entreprise</option>
 						<option value="NJ">non&nbsp;justifi&eacute;</option>
 					</select>
@@ -89,9 +89,9 @@
 		</ul>
 		<h2>&nbsp;</h2>
 		<ul>
-			<a href="#"><img src="/eMagine/common/images/icones/supprimer.png" title="Supprimer une(des) absence(s)"/></a></li>
-			<li><html:link action="/apprenticeAbsenceExtract"><img src="/eMagine/common/images/icones/extraire.png" title="Extraire des absences"/></html:link></li>
-			<li><html:link action="/apprenticeAbsenceAdd"><img src="/eMagine/common/images/icones/ajouter.png" title="Ajouter une absence"/></html:link></li>
+			<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" title="<bean:message key="button.title.remove"/>"/></a></li>
+			<li><html:link action="/apprenticeAbsenceExtract"><img src="/eMagine/common/images/icones/extraire.png" title="<bean:message key="button.title.extract"/>"/></html:link></li>
+			<li><html:link action="/apprenticeAbsenceAdd"><img src="/eMagine/common/images/icones/ajouter.png" title="<bean:message key="button.title.add"/>"/></html:link></li>
 		</ul>
 	</div>
 </form>

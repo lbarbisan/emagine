@@ -23,7 +23,7 @@
 <div id="actions">
 <h2>&nbsp;</h2>
 	<ul>
-		<li><html:link action="/statisticsDetail"><img src="/eMagine/common/images/icones/visualiser.png" title="Visualiser le détail de la statistique"/></html:link></li>
-		<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" title="Supprimer une statistique"/></a></li>
+		<li><html:link action="/statisticsDetail"><img src="/eMagine/common/images/icones/visualiser.png" title="<bean:message key="button.title.visualize"/>"/></html:link></li>
+		<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" title="<bean:message key="button.title.remove"/>"/></a></li>
 	</ul>
 </div>

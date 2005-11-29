@@ -31,9 +31,8 @@
 	<div id="actions">
 		<h2>&nbsp;</h2>
 		<ul>
-			<li>
-				<input type="button" value="Affecter"/>
-			</li>
+			<li><a href="#"><img src="/eMagine/common/images/icones/affecter.png" title="<bean:message key="button.title.affect"/>"/></a></li>
+			<li><a href="#"><img src="/eMagine/common/images/icones/annuler.png" title="<bean:message key="button.title.cancel"/>"/></a></li>
 		</ul>
 	</div>
 	<br/> 

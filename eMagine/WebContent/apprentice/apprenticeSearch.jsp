@@ -74,12 +74,12 @@
 		</ul>
 		<h2>&nbsp;</h2>
 		<ul>
-			<li><a href="#"><img src="/eMagine/common/images/icones/passage.png" title="Faire passer un apprenti"/></a></li>
-			<li><a href="#"><img src="/eMagine/common/images/icones/virer.png" title="Exclure un apprenti"/></a></li>
-			<li><html:link action="/studentMailingListCreate"><img src="/eMagine/common/images/icones/creer_mailing_list.png" title="Créer une maling list"/></html:link></li>
-			<li><html:link action="/studentEmailDo"><img src="/eMagine/common/images/icones/mailing.png" title="Effectuer un mailing"/></html:link></li>
-			<li><html:link action="/studentMailDo"><img src="/eMagine/common/images/icones/publipostage.png" title="Effectuer un publipostage"/></html:link></li>
-			<li><html:link action="/studentExtract"><img src="/eMagine/common/images/icones/extraire.png" title="Extraire un apprenti"/></html:link></li>
+			<li><a href="#"><img src="/eMagine/common/images/icones/passage.png" title="<bean:message key="button.title.passage"/>"/></a></li>
+			<li><a href="#"><img src="/eMagine/common/images/icones/virer.png" title="<bean:message key="button.title.exclude"/>"/></a></li>
+			<li><html:link action="/studentMailingListCreate"><img src="/eMagine/common/images/icones/creer_mailing_list.png" title="<bean:message key="button.title.mailingListCreate"/>"/></html:link></li>
+			<li><html:link action="/studentEmailDo"><img src="/eMagine/common/images/icones/mailing.png" title="<bean:message key="button.title.email"/>"/></html:link></li>
+			<li><html:link action="/studentMailDo"><img src="/eMagine/common/images/icones/publipostage.png" title="<bean:message key="button.title.mailing"/>"/></html:link></li>
+			<li><html:link action="/studentExtract"><img src="/eMagine/common/images/icones/extraire.png" title="<bean:message key="button.title.extract"/>"/></html:link></li>
 		</ul>
 	</div>
 </form>

@@ -3,12 +3,12 @@
 <form name="results">
 	<div class="tabs">
 		<ul>
-			<li><html:link action="/apprenticeVisuAdress">Adresses</html:link></li>
-			<li><html:link action="/apprenticeVisuStatus">Etat&nbsp;civil</html:link></li>
-			<span class="tab_clicked"><li>Situation</li></span>
-			<li><html:link action="/apprenticeVisuSchooling">Scolarit&eacute;</html:link></li>
-			<li><html:link action="/apprenticeVisuEvent">Ev&eacute;nement</html:link></li>
-			<li><html:link action="/apprenticeVisuAbsence">Absence</html:link></li>
+			<li><html:link action="/apprenticeVisuAdress"><bean:message key="onglet.adress"/></html:link></li>
+			<li><html:link action="/apprenticeVisuStatus"><bean:message key="onglet.status"/></html:link></li>
+			<span class="tab_clicked"><li><html:link action="/apprenticeVisuSituation"><bean:message key="onglet.situation"/></html:link></li></span>
+			<li><html:link action="/apprenticeVisuSchooling"><bean:message key="onglet.schooling"/></html:link></li>
+			<li><html:link action="/apprenticeVisuEvent"><bean:message key="onglet.event"/></html:link></li>
+			<li><html:link action="/apprenticeVisuAbsence"><bean:message key="onglet.absence"/></html:link></li>
 		</ul>
 	</div>
 	<div class="tabs_div">
@@ -43,7 +43,7 @@
 	<fieldset>
 		<legend><bean:message key="form.fieldset.company"/></legend>
 		<p><label for="companyName"><bean:message key="form.name"/><font color="red">*</font>&nbsp;</label><input type="text" id="companyName" size="20" />
-			<html:link action="/apprenticeCompanyAdd"><input type="button" name="companyButton" value="Affecter"  title="Affecter une entreprise"/></html:link></p>
+			<html:link action="/apprenticeCompanyAdd"><img src="/eMagine/common/images/icones/affecter.png" title="<bean:message key="button.title.affect"/>"/></html:link></p>
 	</fieldset>
 	<br/>
 	<fieldset>
@@ -55,7 +55,7 @@
 				<option value="2">Mr&nbsp;tuteur&nbsp;2</option>
 			</select></p>
 		<p><label for="teacherTutor"><bean:message key="form.teacher.tutor"/><font color="red">*</font>&nbsp;</label><input type="text" id="teacherTutor" size="20" />
-		<html:link action="/apprenticeTutorAdd"><input type="button" name="teacherButton" value="Affecter" title="Affecter un tuteur enseignant"/></html:link></p>
+		<html:link action="/apprenticeTutorAdd"><img src="/eMagine/common/images/icones/affecter.png" title="<bean:message key="button.title.affect"/>"/></html:link></p>
 	</fieldset> 
 <br/>           
 </div>

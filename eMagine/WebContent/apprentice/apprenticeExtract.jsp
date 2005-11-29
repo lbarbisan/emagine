@@ -76,8 +76,9 @@
 <div id="actions">
 	<h2>&nbsp;</h2>
 	<ul>
-		<li><a href="#"><input type="button" value="Sauvegarder"/></a></li>
-		<li><a href="#"><input type="button" value="Générer"/></a></li>
+		<li><a href="#"><img src="/eMagine/common/images/icones/save.png" title="<bean:message key="button.title.save"/>"/></a></li>
+		<li><a href="#"><img src="/eMagine/common/images/icones/generate.png" title="<bean:message key="button.title.generate"/>"/></a></li>
+		<li><a href="#"><img src="/eMagine/common/images/icones/annuler.png" title="<bean:message key="button.title.cancel"/>"/></a></li>
 	</ul>
 </div>
 <br/>

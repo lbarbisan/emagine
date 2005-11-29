@@ -4,12 +4,12 @@
 <form name="results">
 	<div class="tabs">
 		<ul>
-			<li><html:link action="/apprenticeVisuAdress">Adresses</html:link></li>
-			<span class="tab_clicked"><li>Etat&nbsp;civil</li></span>
-			<li><html:link action="/apprenticeVisuSituation">Situation</html:link></li>
-			<li><html:link action="/apprenticeVisuSchooling">Scolarit&eacute;</html:link></li>
-			<li><html:link action="/apprenticeVisuEvent">Ev&eacute;nement</html:link></li>
-			<li><html:link action="/apprenticeVisuAbsence">Absence</html:link></li>
+			<li><html:link action="/apprenticeVisuAdress"><bean:message key="onglet.adress"/></html:link></li>
+			<span class="tab_clicked"><li><html:link action="/apprenticeVisuStatus"><bean:message key="onglet.status"/></html:link></li></span>
+			<li><html:link action="/apprenticeVisuSituation"><bean:message key="onglet.situation"/></html:link></li>
+			<li><html:link action="/apprenticeVisuSchooling"><bean:message key="onglet.schooling"/></html:link></li>
+			<li><html:link action="/apprenticeVisuEvent"><bean:message key="onglet.event"/></li>
+			<li><html:link action="/apprenticeVisuAbsence"><bean:message key="onglet.absence"/></html:link></li>
 		</ul>
 	</div>
 	<div class="tabs_div">

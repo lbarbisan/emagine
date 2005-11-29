@@ -23,6 +23,7 @@
 	<ul>
 		<li><a href="#"><img src="/eMagine/common/images/icones/modif.png" title="<bean:message key="button.title.update"/>"/></a></li>
 		<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" title="<bean:message key="button.title.remove"/>"/></a></li>
+		<li><a href="#"><img src="/eMagine/common/images/icones/annuler.png" title="<bean:message key="button.title.cancel"/>"/></a></li>
 	</ul>
 </div>
 <div align="right"><font color="red" size="1"><bean:message key="form.msg.obligation.star"/></font></div>

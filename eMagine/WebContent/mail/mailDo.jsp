@@ -13,8 +13,8 @@
 <div id="actions">
 <h2>&nbsp;</h2>
 	<ul>
-		<li><a href="#"><img src="/eMagine/common/images/icones/mailing.png" title="<bean:message key="button.title.email"/>"/>
-</a></li>
+		<li><a href="#"><img src="/eMagine/common/images/icones/ok.png" title="<bean:message key="button.title.ok"/>"/></a></li>
+		<li><a href="#"><img src="/eMagine/common/images/icones/cancel.png" title="<bean:message key="button.title.cancel"/>"/></a></li>
 	</ul>
 </div>
 <br/>

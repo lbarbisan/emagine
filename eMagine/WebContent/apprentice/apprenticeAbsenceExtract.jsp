@@ -21,8 +21,8 @@
 	<div id="actions" align="center">
 		<h2>&nbsp;</h2>
 		<ul>
-			<li><a href="#"><input type="button" value="Sauvegarder"/></a></li>
-			<li><a href="#"><input type="button" value="Générer"/></a></li>
+			<li><a href="#"><img src="/eMagine/common/images/icones/save.png" title="<bean:message key="button.title.save"/>"/></a></li>
+			<li><a href="#"><img src="/eMagine/common/images/icones/save.png" title="<bean:message key="button.title.generate"/>"/></a></li>
 		</ul>
 	</div>
 </form>

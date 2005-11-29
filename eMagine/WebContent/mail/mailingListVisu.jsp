@@ -33,7 +33,7 @@
 		</ul>
 		<h2>&nbsp;</h2>
 		<ul>
-			<li><html:link action="/supprimer"><img src="/eMagine/common/images/icones/supprimer.png" title="Supprimer mailing-list"/></html:link></li>
+			<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" title="<bean:message key="button.title.remove"/>"/></a></li>
 		</ul>
 	</div>
 </form>

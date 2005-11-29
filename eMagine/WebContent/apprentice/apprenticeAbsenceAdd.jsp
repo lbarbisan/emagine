@@ -18,7 +18,8 @@
 	<div id="actions">
 		<h2>&nbsp;</h2>
 		<ul>
-			<li><a href="#"><input type="button" value="Créer"/></a></li>
+			<li><a href="#"><img src="/eMagine/common/images/icones/ok.png" title="<bean:message key="button.title.ok"/>"/></a></li>
+			<li><a href="#"><img src="/eMagine/common/images/icones/annuler.png" title="<bean:message key="button.title.cancel"/>"/></a></li>
 		</ul>
 	</div>
 </form>
