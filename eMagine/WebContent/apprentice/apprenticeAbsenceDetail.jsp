@@ -18,7 +18,7 @@
 	<div id="actions">
 		<h2>&nbsp;</h2>
 		<ul>
-			<li><a href="#"><input type="button" value="Modifier"/></a></li>
+			<li><img src="/eMagine/common/images/icones/modif.png" title="<bean:message key="button.title.update"/>"/></a></li>
 			<li><img src="/eMagine/common/images/icones/supprimer.png" title="Supprimer l'absence"/></a></li>
 		</ul>
 	</div>
