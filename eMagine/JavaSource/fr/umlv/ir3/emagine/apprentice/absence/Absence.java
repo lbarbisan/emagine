@@ -15,7 +15,7 @@ import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
 import fr.umlv.ir3.emagine.apprentice.Apprentice;
-import fr.umlv.ir3.emagine.util.base.EditableEntity;
+import fr.umlv.ir3.emagine.modification.EditableEntity;
 
 /**
  * @author Administrateur

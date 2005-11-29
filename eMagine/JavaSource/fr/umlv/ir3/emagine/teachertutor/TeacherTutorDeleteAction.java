@@ -32,7 +32,7 @@ public class TeacherTutorDeleteAction extends BaseAction {
 		// Delete the teacher tutor
 		DAOManager.beginTransaction();
 		try {
-			ManagerManager.getInstance().getTeacherTutorManager().deleteTeacherTutor(teachersTutor);
+			ManagerManager.getInstance().getTeacherTutorManager().delete(teachersTutor);
 		} catch (EMagineException exception) {
 			// save the error
 			addEMagineExceptionError(errors, exception);

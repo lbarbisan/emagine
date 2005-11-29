@@ -54,7 +54,7 @@ public class BaseEntity implements Serializable {
 	 * @param name name of property
 	 * @return return the object associated to the name property
 	 */
-	//FIXME:SUpprimer le warinig
+	//FIXME:Supprimer le warinig
 	@SuppressWarnings("unchecked")
 	public FieldModification getField(String name) {
 		FieldModification field = new FieldModification();

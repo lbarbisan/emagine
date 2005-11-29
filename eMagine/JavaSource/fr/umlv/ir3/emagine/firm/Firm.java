@@ -14,8 +14,8 @@ import javax.persistence.UniqueConstraint;
 
 import fr.umlv.ir3.emagine.apprentice.Apprentice;
 import fr.umlv.ir3.emagine.firm.actor.FirmActor;
+import fr.umlv.ir3.emagine.modification.EditableEntity;
 import fr.umlv.ir3.emagine.util.Address;
-import fr.umlv.ir3.emagine.util.base.EditableEntity;
 /**
 * @persistence Terminé
 */

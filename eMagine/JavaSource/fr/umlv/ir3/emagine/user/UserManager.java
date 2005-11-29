@@ -2,11 +2,11 @@ package fr.umlv.ir3.emagine.user;
 
 import java.util.List;
 
+import fr.umlv.ir3.emagine.modification.ModificationManager;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.base.EditableManager;
 
-public class UserManager extends EditableManager<User, UserDAO> {
+public class UserManager extends ModificationManager<User, UserDAO> {
 
 	/**
 	 * Create a new user with the given User

@@ -5,9 +5,9 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMapping;
 
-import fr.umlv.ir3.emagine.util.base.BaseModifyForm;
+import fr.umlv.ir3.emagine.modification.ModificationForm;
 
-public abstract class PersonModifyForm<ObjectType extends Person> extends BaseModifyForm<Person> {
+public abstract class PersonModifyForm<ObjectType extends Person> extends ModificationForm<Person> {
 	private static final long serialVersionUID = 2014238102681432978L;
 
 	private ObjectType entity; // = new Person();

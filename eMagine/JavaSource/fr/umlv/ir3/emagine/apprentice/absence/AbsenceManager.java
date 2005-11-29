@@ -2,11 +2,11 @@ package fr.umlv.ir3.emagine.apprentice.absence;
 
 import java.util.List;
 
+import fr.umlv.ir3.emagine.modification.ModificationManager;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.base.EditableManager;
 
-public class AbsenceManager extends EditableManager<Absence, AbsenceDAO> {
+public class AbsenceManager extends ModificationManager<Absence, AbsenceDAO> {
 
 	/**
 	 * Lists absences, using the given search parameters

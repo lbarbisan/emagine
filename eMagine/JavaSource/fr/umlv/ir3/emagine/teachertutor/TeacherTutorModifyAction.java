@@ -17,7 +17,7 @@ import fr.umlv.ir3.emagine.util.base.BaseAction;
 
 public class TeacherTutorModifyAction extends BaseAction {
 
-	public ActionForward createUser(ActionMapping mapping, ActionForm form,
+	public ActionForward createTeacherTutor(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		ActionMessages errors = new ActionMessages();
@@ -27,7 +27,7 @@ public class TeacherTutorModifyAction extends BaseAction {
 		TeacherTutor teacherTutor = teacherTutorModifyForm.getEntity();
 
 		try {
-			ManagerManager.getInstance().getTeacherTutorManager().createTeacherTutor(teacherTutor);
+			ManagerManager.getInstance().getTeacherTutorManager().create(teacherTutor);
 		} catch (EMagineException exception) {
 			// save the error
 			addEMagineExceptionError(errors, exception);
@@ -37,7 +37,7 @@ public class TeacherTutorModifyAction extends BaseAction {
 		return successIfNoErrors(mapping, request, errors);
 	}
 
-	public ActionForward updateUser(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception 
+	public ActionForward updateTeacherTutor(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception 
 	{
 		ActionMessages errors = new ActionMessages();
 
@@ -47,7 +47,7 @@ public class TeacherTutorModifyAction extends BaseAction {
 
 		// Update the User
 		try {
-			ManagerManager.getInstance().getTeacherTutorManager().updateTeacherTutor(teacherTutor);
+			ManagerManager.getInstance().getTeacherTutorManager().update(teacherTutor);
 		} catch (EMagineException exception) {
 			// save the error
 			addEMagineExceptionError(errors, exception);
@@ -56,5 +56,7 @@ public class TeacherTutorModifyAction extends BaseAction {
         // Report back any errors, and exit if any
 		return successIfNoErrors(mapping, request, errors);
 	}
+	
+	
 
 }

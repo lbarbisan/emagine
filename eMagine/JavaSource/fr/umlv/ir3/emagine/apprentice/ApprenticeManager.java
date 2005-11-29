@@ -3,11 +3,11 @@ package fr.umlv.ir3.emagine.apprentice;
 import java.util.Collection;
 import java.util.List;
 
+import fr.umlv.ir3.emagine.modification.ModificationManager;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.base.EditableManager;
 
-public class ApprenticeManager extends EditableManager<Apprentice, ApprenticeDAO> {
+public class ApprenticeManager extends ModificationManager<Apprentice, ApprenticeDAO> {
 
 	/**
 	 * Lists apprentices, using the given search parameters
