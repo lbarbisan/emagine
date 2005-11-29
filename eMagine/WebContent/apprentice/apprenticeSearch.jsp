@@ -52,14 +52,14 @@
 			</tr>
 			<tr>
 				<td><input type="checkbox" value="ON" name="all_none" /></td>
-				<td><html:link action="/studentOnglet">Barbisan</html:link></td>
+				<td><html:link action="/apprenticeVisuAdress">Barbisan</html:link></td>
 				<td>Laurent</td>
 				<td>IR</td>
 				<td>3</td>
 			</tr>
 			<tr>
 				<td><input type="checkbox" value="ON" name="all_none" /></td>
-				<td><html:link action="/studentOnglet">Ogier</html:link></td>
+				<td><html:link action="/apprenticeVisuAdress">Ogier</html:link></td>
 				<td>Anthony</td>
 				<td>IR</td>
 				<td>3</td>
