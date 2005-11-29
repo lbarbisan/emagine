@@ -328,8 +328,9 @@
 		<put name="body" value="/administration/profilCreate.jsp" />
 	</definition>
 	<definition name="administration.profilList" extends="administration">
-		<put name="body" value="/administration/profilList.jsp" />
+		<put name="body" value="/administration/ProfilList.jsp" />
 	</definition>
+	
 	<definition name="administration.profilDetail" extends="administration">
 		<put name="body" value="/administration/profilDetail.jsp" />
 	</definition>

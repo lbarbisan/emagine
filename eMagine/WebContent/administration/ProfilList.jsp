@@ -1,5 +1,6 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
+
 <h2><bean:message key="profil.list.title"/></h2>
 <form name="results">
 <br/>
@@ -18,7 +19,6 @@
 				<td><html:link action="/profilDetail">ProfilEnseignant</html:link></td>
 			</tr>
 		</table>
-		<br/>
 </div>
 	<div id="actions">
 		<ul>
@@ -28,7 +28,7 @@
 		<h2>&nbsp;</h2>
 		<ul>
 			<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" title="<bean:message key="button.title.remove"/>"/></a></li>
-						<li><a href="#"><img src="/eMagine/common/images/icones/ajouter.png" title="<bean:message key="button.title.create"/>"/></a></li>
+			<li><a href="#"><img src="/eMagine/common/images/icones/ajouter.png" title="<bean:message key="button.title.add"/>"/></a></li>
 		</ul>	
 	</div>
 </form>
