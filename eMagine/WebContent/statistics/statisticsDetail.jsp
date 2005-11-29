@@ -8,7 +8,7 @@
 	</p>
 	<p><label for="request"><bean:message key="form.request"/><font color="red">*</font>&nbsp;</label>
 		<textarea id="request"></textarea>
-		<img src="/eMagine/common/images/icones/help.png" title="<bean:message key="button.title.help"/>"/></html:link>
+		<img src="/eMagine/common/images/icones/help.png" title="<bean:message key="button.title.help"/>"/>
 	</p>
 	<p><label for="diagram"><bean:message key="form.diagram"/><font color="red">*</font>&nbsp;</label>
 		<select name="diagram">

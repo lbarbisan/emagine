@@ -74,4 +74,10 @@
 		<taglib-uri>/tags/struts-html</taglib-uri>
 		<taglib-location>/WEB-INF/tld/struts-html.tld</taglib-location>
 	</taglib>
+	
+		<!-- Le descripteur de balise Layout -->
+	<taglib>
+		<taglib-uri>/tags/tld/struts-layout.tld</taglib-uri>
+		<taglib-location>/WEB-INF/tld/struts-layout.tld</taglib-location>
+	</taglib>
 </web-app>

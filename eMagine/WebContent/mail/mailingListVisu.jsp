@@ -15,13 +15,13 @@
 				<td><input type="checkbox" name="all_none" value="ON" /></td>	
 				<td><html:link action="/mailingListDetail">App3</html:link></td>
 				<td>Apprenti 3ème année</td>
-				<td><html:link action="/emailDo"><img src="/eMagine/common/images/icones/mailing.png" title="Effectuer un mailing"/></html:link><html:link action="/mailDo"><img src="/eMagine/common/images/icones/publipostage.png" title="Effecter un publipostage"/></html:link></td>
+				<td><html:link action="/emailDo"><img src="/eMagine/common/images/icones/mailing_small.png" title="Effectuer un mailing"/></html:link><html:link action="/mailDo"><img src="/eMagine/common/images/icones/publipostage_small.png" title="Effecter un publipostage"/></html:link></td>
 			</tr>
 			<tr>
 				<td><input type="checkbox" name="all_none" value="ON" /></td>	
 				<td><html:link action="/mailingListDetail">EnseignantTuteurs</html:link></td>
 				<td>Ensemble des enseignants étant tuteurs</td>
-				<td><html:link action="/emailDo"><img src="/eMagine/common/images/icones/mailing.png" title="Effectuer un mailing"/></html:link><html:link action="/mailDo"><img src="/eMagine/common/images/icones/publipostage.png" title="Effecter un publipostage"/></html:link></td>
+				<td><html:link action="/emailDo"><img src="/eMagine/common/images/icones/mailing_small.png" title="Effectuer un mailing"/></html:link><html:link action="/mailDo"><img src="/eMagine/common/images/icones/publipostage_small.png" title="Effecter un publipostage"/></html:link></td>
 			</tr>
 		</table>
 		<br/>
