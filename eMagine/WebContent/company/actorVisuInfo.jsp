@@ -40,7 +40,7 @@
 			</tr>
 			<tr>
 				<td><input type="checkbox" name="all_none" value="ON" /></td>
-				<td><html:link action="/apprenticeOnglet">Renaudin</html:link></td>
+				<td><html:link action="/apprenticeVisuAdress">Renaudin</html:link></td>
 				<td>Jean-Baptiste</td>
 				<td>IR3</td>
 				<td>2</td>
@@ -49,7 +49,7 @@
 			</tr>
 			<tr>
 				<td><input type="checkbox" name="all_none" value="ON" /></td>
-				<td><html:link action="/apprenticeOnglet">Mancel</html:link></td>
+				<td><html:link action="/apprenticeVisuAdress">Mancel</html:link></td>
 				<td>Matthieu</td>
 				<td>IR3</td>
 				<td>2</td>
