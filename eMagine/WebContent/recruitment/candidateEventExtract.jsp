@@ -1,3 +1,4 @@
+<%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 <h2><bean:message key="event.extract.title"/></h2>
 <br/>
@@ -18,6 +19,7 @@
 	<ul>
 		<li><a href="#"><img src="/eMagine/common/images/icones/save.png" title="<bean:message key="button.title.save"/>"/></a></li>
 		<li><a href="#"><img src="/eMagine/common/images/icones/generate.png" title="<bean:message key="button.title.generate"/>"/></a></li>
+		<li><html:link action="/candidateSearch"><img src="/eMagine/common/images/icones/annuler.png" title="<bean:message key="button.title.cancel"/>"/></html:link></li>		
 	</ul>
 </div>
 <br/>

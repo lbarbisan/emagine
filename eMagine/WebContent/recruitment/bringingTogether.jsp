@@ -17,7 +17,7 @@
 			</fieldset>
 		</div>
 		<br/>
-		<input type="button" value="Rapprocher"/>
+			<html:link action="/companyExtract"><img src="/eMagine/common/images/icones/rapprocher.png" title="<bean:message key="button.title.bringingTogether"/>"/></html:link>
 	</div>
 	<br/>
 	<h3><bean:message key="title.results"/></h3>
@@ -48,7 +48,7 @@
 		</ul>
 		<h2>&nbsp;</h2>	
 		<ul>
-			<li><html:link action="/companyExtract"><img src="/eMagine/common/images/icones/extraire.png" title="Extraire les entreprises"/></html:link></li>
+			<li><html:link action="/companyExtract"><img src="/eMagine/common/images/icones/extraire.png" title="<bean:message key="button.title.extract"/>"/></html:link></li>
 		</ul>
 	</div>
 </form>
