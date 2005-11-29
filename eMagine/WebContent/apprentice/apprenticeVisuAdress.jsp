@@ -3,7 +3,7 @@
 <form name="results">
 	<div class="tabs">
 		<ul>
-			<span class="tab_clicked"><li><html:link action="/apprenticeVisuAdress"><bean:message key="onglet.adress"/></html:link></li></span>
+			<span class="tab_clicked"><li><bean:message key="onglet.adress"/></li></span>
 			<li><html:link action="/apprenticeVisuStatus"><bean:message key="onglet.status"/></html:link></li>
 			<li><html:link action="/apprenticeVisuSituation"><bean:message key="onglet.situation"/></html:link></li>
 			<li><html:link action="/apprenticeVisuSchooling"><bean:message key="onglet.schooling"/></html:link></li>
