@@ -17,10 +17,8 @@ import fr.umlv.ir3.emagine.apprentice.Apprentice;
 @Entity(access = AccessType.FIELD)
 public class EngineerTutor extends FirmActor {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 3857030644896914550L;
+
 	@OneToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE},
 			mappedBy = "engineerTutor")
 			private List<Apprentice> apprentice;
@@ -28,6 +26,7 @@ public class EngineerTutor extends FirmActor {
 	public List<Apprentice> getApprentice() {
 		return apprentice;
 	}
+	
 	public void setApprentice(List<Apprentice> apprentice) {
 		this.apprentice = apprentice;
 	}

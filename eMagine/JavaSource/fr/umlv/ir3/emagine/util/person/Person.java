@@ -22,7 +22,7 @@ import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
 import fr.umlv.ir3.emagine.apprentice.NationalityEnum;
 import fr.umlv.ir3.emagine.apprentice.SexEnum;
 import fr.umlv.ir3.emagine.util.Address;
-import fr.umlv.ir3.emagine.util.base.EditableEntity;
+import fr.umlv.ir3.emagine.util.base.EventableEntity;
 ;
 
 /**
@@ -35,7 +35,7 @@ import fr.umlv.ir3.emagine.util.base.EditableEntity;
 		"firstname",
 		"email"
 		}))
-public class Person extends EditableEntity {
+public class Person extends EventableEntity {
 
 	private static final long serialVersionUID = 4072133161366106454L;
 		
