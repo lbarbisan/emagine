@@ -21,7 +21,7 @@ import fr.umlv.ir3.emagine.util.base.BaseEntity;
  * @Persitence Enum
  */
 @Entity(access = AccessType.FIELD)
-public class Event extends BaseEntity{
+public class Event extends BaseEntity {
 
 	private static final long serialVersionUID = -9082348519478717464L;
 
@@ -29,30 +29,23 @@ public class Event extends BaseEntity{
 	@OrderBy("id")
 	private List<BaseEntity> sources;
 	@Basic(temporalType = TemporalType.TIMESTAMP)
-	private Date startDate;
-	@Basic(temporalType = TemporalType.TIMESTAMP)
-	private Date endDate;
+	private Date date;
 	private String Title;
 	private String comment;
 	private EventTypeEnum type;
+
 	
-	public Date getEndDate() {
-		return endDate;
-	}
-	public void setEndDate(Date endDate) {
-		this.endDate = endDate;
-	}
 	public List<BaseEntity> getSources() {
 		return sources;
 	}
 	public void setSources(List<BaseEntity> sources) {
 		this.sources = sources;
 	}
-	public Date getStartDate() {
-		return startDate;
+	public Date getDate() {
+		return date;
 	}
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
+	public void setDate(Date date) {
+		this.date = date;
 	}
 	public String getTitle() {
 		return Title;
@@ -72,5 +65,4 @@ public class Event extends BaseEntity{
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
-	
 }

@@ -11,8 +11,6 @@ public abstract class BaseEditableManager<EntityType extends EditableEntity, Ent
      * @param entity object that must update save in database
      * @throws EMagineException  throw this exception if the update failed or if an SQLException occures
      */
-	//TODO : Supprimer la suppressio Warninng
-	@SuppressWarnings("unchecked")
 	@Override
 	public void update(EntityType newEntity) throws EMagineException {
 			DAOManager.beginTransaction();
@@ -23,10 +21,6 @@ public abstract class BaseEditableManager<EntityType extends EditableEntity, Ent
     		super.update(newEntity);
 	}
 	
-	/**
-	 * Accept All modification for specified Object
-	 * @param entity
-	 */
 	public void acceptAllModificationFor(EntityType entity) {
 		DAOManager.beginTransaction();
 		entity.acceptModification();
@@ -38,13 +32,7 @@ public abstract class BaseEditableManager<EntityType extends EditableEntity, Ent
 		}
 	}
 	
-	/**
-	 * Accept spécified Modification for cpécified Object and specified Field
-	 * @param entity
-	 * @param name
-	 */
-	public void acceptFieldModificationFor(EntityType entity, String name)
-	{
+	public void acceptFieldModificationFor(EntityType entity, String name) {
 		DAOManager.beginTransaction();
 		FieldModification field = entity.getCurrentModification().getFieldModification(name);
 		entity.acceptFieldModification(field);

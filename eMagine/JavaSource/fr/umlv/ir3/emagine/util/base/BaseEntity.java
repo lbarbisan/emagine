@@ -88,6 +88,7 @@ public class BaseEntity implements Serializable {
 	public boolean equals(Object obj) {
 		return id == ((BaseEntity)obj).getId();
 	}
+    
 	/**
 	 * @return Returns the name.
 	 */

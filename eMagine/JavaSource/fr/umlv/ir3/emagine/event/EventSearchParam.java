@@ -6,4 +6,5 @@ import fr.umlv.ir3.emagine.util.search.SearchParam;
 public interface EventSearchParam extends SearchParam {
 	public Date getDateMin();
 	public Date getDateMax();
+	public EventTypeEnum getType();
 }

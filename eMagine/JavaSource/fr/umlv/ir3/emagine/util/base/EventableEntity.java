@@ -19,24 +19,27 @@ import fr.umlv.ir3.emagine.event.Event;
  */
 @Entity(access = AccessType.FIELD)
 @Inheritance(strategy=InheritanceType.JOINED )
-public class EventEntity extends BaseEntity implements Serializable {
+public class EventableEntity extends EditableEntity implements Serializable {
 	
 	private static final long serialVersionUID = 15466724567987L;
 	
-    @ManyToMany(cascade={CascadeType.ALL},
-    		mappedBy="sources")
-    @OrderBy("startDate")
+    @ManyToMany(cascade={CascadeType.ALL},mappedBy="sources")
+    @OrderBy("date")
     private List<Event> events;
     
     /**
      * This constructor is necessary for Hibernate, it's used for lazy load
      */
-	protected EventEntity(){}
+	protected EventableEntity(){}
 
-	/**
-	 * @return Returns the events.
-	 */
+	
 	public List<Event> getEvents() {
 		return events;
 	}
+
+	public void setEvents(List<Event> events) {
+		this.events = events;
+	}
+
+
 }

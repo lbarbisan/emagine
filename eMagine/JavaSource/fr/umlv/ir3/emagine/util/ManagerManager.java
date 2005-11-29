@@ -14,7 +14,7 @@ public class ManagerManager {
 	private ProfileManager profileManager = new ProfileManager();
 	private ExtractionManager extractionManager = new ExtractionManager();
 	private TeacherTutorManager teacherTutorManager = new TeacherTutorManager();
-	private FirmManager entrepriseManager = new FirmManager();
+	private FirmManager firmManager = new FirmManager();
 	private EventManager eventManager = new EventManager();
 	
 	public static ManagerManager getInstance() {
@@ -40,8 +40,8 @@ public class ManagerManager {
 		return teacherTutorManager;
 	}
 
-	public FirmManager getEntrepriseManager() {
-		return entrepriseManager;
+	public FirmManager getFirmManager() {
+		return firmManager;
 	}
 
 	public EventManager getEventManager() {

@@ -8,7 +8,6 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 
-import fr.umlv.ir3.emagine.event.Event;
 import fr.umlv.ir3.emagine.util.base.EditableEntity;
 
 public abstract class ModificationForm<EntityType extends EditableEntity> extends ActionForm {
@@ -25,12 +24,6 @@ public abstract class ModificationForm<EntityType extends EditableEntity> extend
 	
 	public EntityType getEntity() {
 		return entity;
-	}
-
-	public List<Event> getEvents() {
-		//TODO: Mettre ça au propre
-			return entity.getEvents();
-			
 	}
 
 	public Long getId() {

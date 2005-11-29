@@ -9,7 +9,7 @@ import fr.umlv.ir3.emagine.util.base.BaseManager;
 
 public class EventManager extends BaseManager<Event, EventDAO> {
 
-	public List<Event> getEvents(BaseEntity entity, EventSearchParam eventSearchParam) throws EMagineException {
+	public List<Event> find(BaseEntity entity, EventSearchParam eventSearchParam) throws EMagineException {
 		return getDAO().getEvents(entity, eventSearchParam);
 	}
 

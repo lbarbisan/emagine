@@ -17,7 +17,7 @@ import fr.umlv.ir3.emagine.modification.Modification;
  */
 @Entity(access = AccessType.FIELD)
 @Inheritance(strategy=InheritanceType.JOINED )
-public class EditableEntity extends EventEntity implements Serializable {
+public class EditableEntity extends BaseEntity implements Serializable {
 	
 	private static final long serialVersionUID = 15466724567987L;
 	
@@ -48,8 +48,6 @@ public class EditableEntity extends EventEntity implements Serializable {
 	 * Add modification for this object
 	 * @param modification
 	 */
-	//TODO : Supprimer suppression warning
-	@SuppressWarnings("unused")
 	private void addModification(Modification modification) {
 		this.modifications.add(modification);
 	}
@@ -58,8 +56,6 @@ public class EditableEntity extends EventEntity implements Serializable {
 	 * Add modification comparing with the specified object
 	 * @param modification
 	 */
-	//TODO : Supprimer suppression warning
-	@SuppressWarnings("unchecked")
 	public void addModification(EditableEntity baseEntity) {
 		Modification modification = new Modification();
 		for (FieldModification field : baseEntity.getFields()) {

@@ -8,6 +8,8 @@ package fr.umlv.ir3.emagine.event;
  *
  */
 public enum EventTypeEnum {
-		INFO,
-		ERROR
+	ADD,
+	MODIFY,
+	DELETE,
+	SEND
 }

@@ -56,8 +56,7 @@ public class BaseDAO<EntityType extends BaseEntity> {
      * @return the object which is associated to id, null if not found
      * @throws EMagineException throw this exception if an SQLException occures
      */
-    public EntityType retrieve(Class<? extends EntityType> klass, long id) throws EMagineException
-    {
+    public EntityType retrieve(Class<? extends EntityType> klass, long id) throws EMagineException {
     	try {
     		return (EntityType) HibernateUtils.getSession().load(klass, id);
     	} catch (HibernateException exception) {
