@@ -1,5 +1,6 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
+
 <h2><bean:message key="statistics.list.title"/></h2>
 <br/>
 <div class="search">
