@@ -54,11 +54,11 @@
 		</ul>
 		<h2>&nbsp;</h2>
 		<ul>
-			<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" title="Supprimer enseignant(s)"/></a></li>
-			<li><html:link action="/teacherMailingListCreate"><img src="/eMagine/common/images/icones/creer_mailing_list.png" title="Cr&eacute;er une maling-list"/></html:link></li>
-			<li><html:link action="/teacherEmailDo"><img src="/eMagine/common/images/icones/mailing.png" title="Effectuer un mailing"/></html:link></li>
-			<li><html:link action="/teacherMailDo"><img src="/eMagine/common/images/icones/publipostage.png" title="Effectuer un publipostage"/></html:link></li>
-			<li><html:link action="/teacherExtract"><img src="/eMagine/common/images/icones/extraire.png" title="Extraire les enseignants"/></html:link></li>
+			<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" title="<bean:message key="button.title.remove"/>"/></a></li>
+			<li><html:link action="/teacherMailingListCreate"><img src="/eMagine/common/images/icones/creer_mailing_list.png" title="<bean:message key="button.title.mailingListCreate"/>"/></html:link></li>
+			<li><html:link action="/teacherEmailDo"><img src="/eMagine/common/images/icones/mailing.png" title="<bean:message key="button.title.email"/>"/></html:link></li>
+			<li><html:link action="/teacherMailDo"><img src="/eMagine/common/images/icones/publipostage.png" title="<bean:message key="button.title.mailing"/>"/></html:link></li>
+			<li><html:link action="/teacherExtract"><img src="/eMagine/common/images/icones/extraire.png" title="<bean:message key="button.title.extract"/>"/></html:link></li>
 		</ul>
 	</div>
 </form>

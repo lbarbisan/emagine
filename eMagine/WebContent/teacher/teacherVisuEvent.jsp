@@ -70,8 +70,8 @@
 		</ul>
 		<h2>&nbsp;</h2>
 		<ul>
-			<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" title="supprimer un événement"/></a></li>
-			<li><html:link action="/teacherEventExtract"><img src="/eMagine/common/images/icones/extraire.png" title="Extraire un événement"/></html:link></li>
+			<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" title="<bean:message key="button.title.remove"/>"/></a></li>
+			<li><html:link action="/teacherEventExtract"><img src="/eMagine/common/images/icones/extraire.png" title="<bean:message key="button.title.extract"/>"/></html:link></li>
 		</ul>
 	</div>
 </form>

@@ -83,7 +83,7 @@
 		</ul>
 		<h2>&nbsp;</h2>	
 		<ul>
-			<li><a href="#"><input type="submit" name="addApprentice" value="Affecter"></a></li>
+			<li><a href="#"><img src="/eMagine/common/images/icones/ok.png" title="<bean:message key="button.title.ok"/>"/></a></li>
 		</ul>
 	</div>
 </form>
