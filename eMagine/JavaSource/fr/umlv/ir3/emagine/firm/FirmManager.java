@@ -21,8 +21,43 @@ public class FirmManager extends BaseEventableManager<Firm, FirmDAO> {
 		// TODO FirmManager.update Initialiser le event
 		addEvent(firm, event);
 		
-		// TODO FirmManager.update()
 		super.update(firm);
+	}
+	
+	public void addJob(Firm firm, Job job) throws EMagineException {
+		DAOManager.beginTransaction();
+		try {
+			firm.getJobs().add(job);
+			getDAO().update(firm);
+			DAOManager.commitTransaction();
+		} catch (EMagineException exception) {
+			DAOManager.rollBackTransaction();
+			throw exception;
+		}
+	}
+
+	public void removeJob(Firm firm, Job job) throws EMagineException {
+		DAOManager.beginTransaction();
+		try {
+			firm.getEvents().remove(job);
+			getDAO().update(firm);
+			DAOManager.commitTransaction();
+		} catch (EMagineException exception) {
+			DAOManager.rollBackTransaction();
+			throw exception;
+		}
+	}
+
+	public void removeJob(Firm firm, List<Job> jobs) throws EMagineException {
+		DAOManager.beginTransaction();
+		try {
+			firm.getEvents().removeAll(jobs);
+			getDAO().update(firm);
+			DAOManager.commitTransaction();
+		} catch (EMagineException exception) {
+			DAOManager.rollBackTransaction();
+			throw exception;
+		}
 	}
 	
 	@Override
