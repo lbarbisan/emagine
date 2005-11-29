@@ -22,7 +22,7 @@
 			<br/>
 			<fieldset>
 				<legend><bean:message key="form.fieldset.birth"/></legend>
-				<p><label for="date"><bean:message key="form.date"/><font color="red">*</font> </label><input type="text" id="date" size="20" /></p>
+				<p><label for="date"><bean:message key="form.date"/><font color="red">*</font> </label><input type="text" id="date" size="20" /><a href="#"><img src="/eMagine/common/images/icones/calendar.png" title="<bean:message key="button.title.calendar"/>"/></a></p>
 				<p><label for="city"><bean:message key="form.city"/></label><input type="text" id="city" size="20" /></p>
 				<p><label for="department"><bean:message key="form.department"/></label><input type="text" id="department" size="20" /></p>
 				<p><label for="country"><bean:message key="form.country"/></label><input type="text" id="country" size="20" /></p>

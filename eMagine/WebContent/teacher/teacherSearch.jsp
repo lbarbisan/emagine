@@ -15,7 +15,7 @@
 			</fieldset>
 		</div>
 		<br/>
-		<html:link action="#"><img src="/eMagine/common/images/icones/search.png" title="<bean:message key="button.title.search"/>"/></html:link>
+		<div class="buttons"><input type="button" value="Rechercher"/></div>
 	</div>
 	<h3><bean:message key="title.results"/></h3>
 	<div align=center>

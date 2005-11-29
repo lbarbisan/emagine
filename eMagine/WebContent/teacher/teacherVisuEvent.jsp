@@ -9,11 +9,13 @@
 			<div class="search_b1">
 				<p>
 					<label for="initDate"><bean:message key="criteria.search.initDate"/></label>
-					<input type="text" id="initDate" size="20" /> 
+					<input type="text" id="initDate" size="15" /> 
+					<a href="#"><img src="/eMagine/common/images/icones/calendar.png" title="<bean:message key="button.title.calendar"/>"/></a>
 				</p>
 				<p>
 					<label for="endDate"><bean:message key="criteria.search.endDate"/></label>
-					<input type="text" id="endDate" size="20" /> 
+					<input type="text" id="endDate" size="15" /> 
+					<a href="#"><img src="/eMagine/common/images/icones/calendar.png" title="<bean:message key="button.title.calendar"/>"/></a>
 				</p>
 			</div>
 			<div class="search_b2">
@@ -31,8 +33,7 @@
 		</fieldset>
 	</div>
 	<br/>
-	<html:link action="#"><img src="/eMagine/common/images/icones/search.png" title="<bean:message key="button.title.search"/>"/></html:link>
-	<html:link action="#"><img src="/eMagine/common/images/icones/search.png" title="<bean:message key="apprentice.search.title"/>"/></html:link>
+	<div class="buttons"><input type="button" value="Rechercher"/></div>
 </div>	
 <br/>
 <h3><bean:message key="title.results"/></h3>
@@ -62,12 +63,8 @@
 		</tr>
 	</table>
 	</div>
-	<br/>
 	<div id="actions">
-		<ul>
-			<li><a href="javascript:checkAll('results','all_none');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
-			<li><a href="javascript:checkNothing('results','all_none');"><bean:message key="all_none.none"/></a> </li>
-		</ul>
+		
 		<h2>&nbsp;</h2>
 		<ul>
 			<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" title="<bean:message key="button.title.remove"/>"/></a></li>

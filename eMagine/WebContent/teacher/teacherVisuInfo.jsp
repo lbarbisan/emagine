@@ -24,7 +24,6 @@
 	<div align=center>
 		<table cellpadding="0" cellspacing="0">
 			<tr>
-				<th>&nbsp;</th>
 				<th><bean:message key="table.header.name"/></th>
 				<th><bean:message key="table.header.firstName"/></th>
 				<th><bean:message key="table.header.class"/></th>
@@ -33,7 +32,6 @@
 				<th><bean:message key="table.header.endDate"/></th>
 			</tr>
 			<tr>
-				<td><input type="checkbox" name="all_none" value="ON" /></td>
 				<td><html:link action="/apprenticeVisuAdress">Renaudin</html:link></td>
 				<td>Jean-Baptiste</td>
 				<td>IR3</td>
@@ -42,7 +40,6 @@
 				<td>&nbsp;</td>
 			</tr>
 			<tr>
-				<td><input type="checkbox" name="all_none" value="ON" /></td>
 				<td><html:link action="/apprenticeVisuAdress">Mancel</html:link></td>
 				<td>Mathieu</td>
 				<td>IR3</td>
@@ -52,12 +49,7 @@
 			</tr>
 		</table>
 	</div>
-	<br/>
 	<div id="actions">
-		<ul>
-			<li><a href="javascript:checkAll('results','all_none');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
-			<li><a href="javascript:checkNothing('results','all_none');"><bean:message key="all_none.none"/></a> </li>
-		</ul>
 		<h2>&nbsp;</h2>	
 		<ul>
 			<li><html:link action="/teacherApprenticeAdd"><img src="/eMagine/common/images/icones/ajouter.png" title="<bean:message key="button.title.add"/>"/></html:link></li>

@@ -19,7 +19,7 @@
 				<p><label for="die"><bean:message key="criteria.search.die"/></label>
 					<select name="die">
 						<!-- à mettre en base -->
-						<option value="all" selected="selected"><bean:message key="select.option.feminin"/></option>
+						<option value="all" selected="selected"><bean:message key="select.all.feminin"/></option>
 						<option value="ir">IR</option>
 						<option value="mfpi">MFPI</option>
 						<option value="gmu">GMU</option>
@@ -41,7 +41,7 @@
 		</fieldset>
 	</div>
 	<br/>
-	<html:link action="#"><img src="/eMagine/common/images/icones/search.png" title="<bean:message key="apprentice.search.title"/>"/></html:link>
+	<div class="buttons"><input type="button" value="Rechercher"/></div>
 </div>
 <h3><bean:message key="title.results"/></h3>
 	<div align="center">
@@ -55,19 +55,19 @@
 		<tr>
 			<th>&nbsp;</th>
 			<th><bean:message key="table.header.name"/></th>
-			<th><bean:message key="table.header.firtsName"/></th>
+			<th><bean:message key="table.header.firstName"/></th>
 			<th><bean:message key="table.header.die"/></th>
 			<th><bean:message key="table.header.year"/></th>
 		</tr>
 		<tr>
-			<td><input type="checkbox" name="all_none" value="ON" /></td>
+			<td><input type="radio" name="all_none" value="ON" /></td>
 			<td><html:link action="/apprenticeVisuAdress">Barbisan</html:link></td>
 			<td>Laurent</td>
 			<td>IR</td>
 			<td>3</td>
 		</tr>
 		<tr>
-			<td><input type="checkbox" name="all_none" value="ON" /></td>
+			<td><input type="radio" name="all_none" value="ON" /></td>
 			<td><html:link action="/apprenticeVisuAdress">Ogier</html:link></td>
 			<td>Anthony</td>
 			<td>IR</td>
@@ -75,12 +75,7 @@
 		</tr>
 	</table>
 </div>
-	<br/>
 	<div id="actions">
-		<ul>
-			<li><a href="javascript:checkAll('results','all_none');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
-			<li><a href="javascript:checkNothing('results','all_none');"><bean:message key="all_none.none"/></a> </li>
-		</ul>
 		<h2>&nbsp;</h2>	
 		<ul>
 			<li><a href="#"><img src="/eMagine/common/images/icones/ok.png" title="<bean:message key="button.title.ok"/>"/></a></li>
