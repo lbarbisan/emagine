@@ -25,7 +25,7 @@
 		<br/>
 		<html:link action="#"><img src="/eMagine/common/images/icones/search.png" title="<bean:message key="button.title.search"/>"/></html:link>
 	</div>
-	<h2><bean:message key="tilte.results"/></h2> 
+	<h2><bean:message key="title.results"/></h2> 
 	<div align=center>
 		<div id="statSearch">
 			<p><label for="result"><bean:message key="statSearch.results"/></label><input type="text" id="result" size="5"/>&nbsp;&nbsp;&nbsp;
