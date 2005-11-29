@@ -11,8 +11,9 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 import fr.umlv.ir3.emagine.util.base.BaseAction;
+import fr.umlv.ir3.emagine.util.base.BaseEditableManager;
 
-public abstract class ModificationAction<ManagerType extends ModificationManager> extends BaseAction {
+public abstract class ModificationAction<ManagerType extends BaseEditableManager> extends BaseAction {
 
 	public abstract ActionForward acceptFieldModification(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)

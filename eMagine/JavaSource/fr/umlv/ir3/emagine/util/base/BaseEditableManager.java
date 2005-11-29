@@ -1,12 +1,10 @@
-package fr.umlv.ir3.emagine.modification;
+package fr.umlv.ir3.emagine.util.base;
 
+import fr.umlv.ir3.emagine.modification.FieldModification;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.base.BaseDAO;
-import fr.umlv.ir3.emagine.util.base.BaseManager;
-import fr.umlv.ir3.emagine.util.base.EditableEntity;
 
-public abstract class ModificationManager<EntityType extends EditableEntity, EntityDAO extends BaseDAO<EntityType>> extends BaseManager<EntityType, BaseDAO<EntityType>>{
+public abstract class BaseEditableManager<EntityType extends EditableEntity, EntityDAO extends BaseDAO<EntityType>> extends BaseManager<EntityType, BaseDAO<EntityType>> {
 
     /**
      * Updates the database data for the specified object. Handles the update with a transaction.

@@ -1,10 +1,10 @@
 package fr.umlv.ir3.emagine.firm;
 
-import fr.umlv.ir3.emagine.modification.ModificationManager;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
+import fr.umlv.ir3.emagine.util.base.BaseEditableManager;
 
-public class JobManager extends ModificationManager<Job, JobDAO> {
+public class JobManager extends BaseEditableManager<Job, JobDAO> {
 
 	@Override
 	protected JobDAO getDAO() {

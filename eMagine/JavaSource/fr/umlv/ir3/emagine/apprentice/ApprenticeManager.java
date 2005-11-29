@@ -3,11 +3,12 @@ package fr.umlv.ir3.emagine.apprentice;
 import java.util.Collection;
 import java.util.List;
 
-import fr.umlv.ir3.emagine.modification.ModificationManager;
+import fr.umlv.ir3.emagine.apprentice.absence.Absence;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
+import fr.umlv.ir3.emagine.util.base.BaseEditableManager;
 
-public class ApprenticeManager extends ModificationManager<Apprentice, ApprenticeDAO> {
+public class ApprenticeManager extends BaseEditableManager<Apprentice, ApprenticeDAO> {
 
 	/**
 	 * Lists apprentices, using the given search parameters
@@ -49,6 +50,26 @@ public class ApprenticeManager extends ModificationManager<Apprentice, Apprentic
 				apprentice.setYear(apprentice.getYear() + 1);
 				getDAO().update(apprentice);
 			}
+			DAOManager.commitTransaction();
+		} catch (EMagineException exception) {
+			DAOManager.rollBackTransaction();
+			throw exception;
+		}
+	}
+
+	/**
+	 * Adds the given absence to the given apprentice
+	 * @param apprentice
+	 * @param absence
+	 * @throws EMagineException throws if an SQLException occures
+	 */
+	public void addAbsence(Apprentice apprentice, Absence absence) throws EMagineException {
+		DAOManager.beginTransaction();
+		try {
+			List<Absence> absences = apprentice.getAbsences();
+			absences.add(absence);
+			apprentice.setAbsences(absences);
+			getDAO().update(apprentice);
 			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {
 			DAOManager.rollBackTransaction();
