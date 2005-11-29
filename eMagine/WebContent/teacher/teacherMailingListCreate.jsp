@@ -1,5 +1,7 @@
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
-<h2><bean:message key="mailingList.create"/></h2>
+<%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
+
+<h2><bean:message key="mailingList.create"/><html:link action="/teacherSearch"><img src="/eMagine/common/images/icones/retour.png" title="<bean:message key="button.title.return"/>"/></html:link></h2>
 <br/>
 <form name="results">
 	<div class="form">
