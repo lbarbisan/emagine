@@ -27,7 +27,7 @@
 				</select> </p>
 			<p><label for="phone"><bean:message key="form.phone"/></label><input type="text" id="phone" size="20" /></p>	
 			<p><label for="fax"><bean:message key="form.mobile"/></label><input type="text" id="fax" size="20" /></p>
-			<p><label for="website"><bean:message key="form.email"/><font color="red">*</font> </label><input type="text" id="website" size="20" /></p>	
+			<p><label for="website"><bean:message key="form.website"/><font color="red">*</font> </label><input type="text" id="website" size="20" /></p>	
 	</fieldset>
 	<br/>
 </div>

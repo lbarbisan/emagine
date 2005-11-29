@@ -20,7 +20,7 @@
 			</fieldset>
 		</div>
 		<br/>
-		<html:link action="#"><img src="/eMagine/common/images/icones/search.png" title="<bean:message key="button.title.search"/>"/></html:link>
+		<div class="buttons"><a href="#"><input type="button" value="<bean:message key="button.title.search"/>"/></a></div>
 	</div>
 	<h3><bean:message key="title.results"/></h3>
 	<div align="center">
@@ -46,7 +46,6 @@
 			</tr>
 		</table>
 	</div>
-	<br/>
 	<div id="actions">
 		<ul>
 			<li><a href="javascript:checkAll('results','all_none');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>

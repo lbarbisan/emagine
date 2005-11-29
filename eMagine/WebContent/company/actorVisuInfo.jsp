@@ -58,16 +58,17 @@
 			</tr>
 		</table>
 	</div>
-	<br/>
-		<div id="actions">
+	<div id="actions">
 		<ul>
 			<li><a href="javascript:checkAll('results','all_none');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
 			<li><a href="javascript:checkNothing('results','all_none');"><bean:message key="all_none.none"/></a></li>
 		</ul>
 		<h2>&nbsp;</h2>	
 		<ul>
+			<li><a href="#"><img src="/eMagine/common/images/icones/modif.png" title="<bean:message key="button.title.update"/>"/></a></li>
+			<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" title="<bean:message key="button.title.remove"/>"/></a></li>
+			<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" title="<bean:message key="button.title.remove"/>"/></a></li>
 			<li><html:link action="/actorApprenticeAdd"><img src="/eMagine/common/images/icones/ajouter.png" title="<bean:message key="button.title.add"/>"/></html:link></li>
-			<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" title="Supprimer un pupille"/></a></li>
 		</ul>
 	</div>
 </form>

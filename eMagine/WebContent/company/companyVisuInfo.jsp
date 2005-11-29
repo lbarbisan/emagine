@@ -1,3 +1,4 @@
+<%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 <div class="form">
 	<br/>
@@ -10,6 +11,7 @@
 				<option value="1">bahla</option>
 				<option value="2">jvoipa</option>
 			</select>
+			<html:link action="/companyVisuInfo"><img src="/eMagine/common/images/icones/visualiser.png" title="<bean:message key="button.title.visualize"/>"/></html:link>
 		</p>
 	</fieldset>
 	<br/>
@@ -25,8 +27,8 @@
 				<option value="78">78</option>
 				</select> </p>
 			<p><label for="phone"><bean:message key="form.phone"/></label><input type="text" id="phone" size="20" /></p>	
-			<p><label for="fax"><bean:message key="form.mobile"/></label><input type="text" id="fax" size="20" /></p>
-			<p><label for="website"><bean:message key="form.email"/><font color="red">*</font> </label><input type="text" id="website" size="20" /></p>	
+			<p><label for="fax"><bean:message key="form.fax"/></label><input type="text" id="fax" size="20" /></p>
+			<p><label for="website"><bean:message key="form.website"/><font color="red">*</font> </label><input type="text" id="website" size="20" /></p>	
 	</fieldset>
 	<br/>
 </div>
