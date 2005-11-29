@@ -64,13 +64,13 @@
 	<br/>
 	<div id="actions">
 		<ul>
-			<li><a href="javascript:checkAll('results','all_none');">Tous</a>&nbsp;&nbsp;/</li>
-			<li><a href="javascript:checkNothing('results','all_none');">Aucun</a> </li>
+			<li><a href="javascript:checkAll('results','all_none');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
+			<li><a href="javascript:checkNothing('results','all_none');"><bean:message key="all_none.none"/></a></li>
 		</ul>
 		<h2>&nbsp;</h2>
 		<ul>
-			<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" title="supprimer un événement"/></a></li>
-			<li><html:link action="/companyEventExtract"><img src="/eMagine/common/images/icones/extraire.png" title="Extraire un événement"/></html:link></li>
+			<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" title="<bean:message key="button.title.remove"/>"/></a></li>
+			<li><html:link action="/companyEventExtract"><img src="/eMagine/common/images/icones/extraire.png" title="<bean:message key="button.title.extract"/>"/></html:link></li>
 		</ul>
 	</div>
 </form>

@@ -54,8 +54,8 @@
 		</ul>
 		<h2>&nbsp;</h2>
 		<ul>
-			<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" title="Supprimer une entreprise"/></a></li>
-			<li><html:link action="/companyExtract"><img src="/eMagine/common/images/icones/extraire.png" title="Extraire une entreprise"/></html:link></li>
+			<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" title="<bean:message key="button.title.remove"/>"/></a></li>
+			<li><html:link action="/companyExtract"><img src="/eMagine/common/images/icones/extraire.png" title="<bean:message key="button.title.extract"/>"/></html:link></li>
 		</ul>
 	</div>
 </form>

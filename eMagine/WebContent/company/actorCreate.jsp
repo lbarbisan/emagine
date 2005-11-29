@@ -68,7 +68,7 @@
 		</ul>
 		<h2>&nbsp;</h2>
 		<ul>
-			<li><html:link action="/actorApprenticeAdd"><img src="/eMagine/common/images/icones/ajouter.png" title="Ajouter un pupille"/></html:link></li>
+			<li><html:link action="/actorApprenticeAdd"><img src="/eMagine/common/images/icones/ajouter.png" title="<bean:message key="button.title.add"/>"/></html:link></li>
 		</ul>
 	</div>
 </form>
