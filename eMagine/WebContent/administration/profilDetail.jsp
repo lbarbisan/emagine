@@ -24,7 +24,7 @@
 	<h2>&nbsp;</h2>
 	<ul>
 		<li><a href="#"><img src="/eMagine/common/images/icones/modif.png" title="<bean:message key="button.title.update"/>"/></a></li>
-		<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" title="Supprimer le profil"/></a></li>
+		<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" title="<bean:message key="button.title.cancel"/>"/></a></li>
 	</ul>
 </div>
 <br/>

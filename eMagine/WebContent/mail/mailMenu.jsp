@@ -1,7 +1,8 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
-<h2>Courrier</h2>
+<%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
+<h2><bean:message key="form.mail"/></h2>
 <ul>
-	<li><html:link action="/mailingListVisu">Visualiser&nbsp;les&nbsp;mailings-lists</html:link></li>
-	<li><html:link action="/mailTypeVisu">Visualiser&nbsp;les&nbsp;courriers&nbsp;types</html:link></li>
-	<li><html:link action="/mailTypeCreate">Créer&nbsp;un&nbsp;courrier&nbsp;type</html:link></li>
+	<li><html:link action="/mailingListVisu"><bean:message key="mailingList.list.title"/></html:link></li>
+	<li><html:link action="/mailTypeVisu"><bean:message key="mailType.list.title"/></html:link></li>
+	<li><html:link action="/mailTypeCreate"><bean:message key="mailType.create.title"/></html:link></li>
 </ul>

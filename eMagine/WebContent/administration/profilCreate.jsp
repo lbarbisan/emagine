@@ -23,8 +23,8 @@
 <div id="actions">
 	<h2>&nbsp;</h2>
 	<ul>
-		<li><a href="#"><img src="/eMagine/common/images/icones/valider.png" title="Valider la création du profil"/></a></li>
-		<li><a href="#"><img src="/eMagine/common/images/icones/reinitialiser.png" title="Réinitialiser le formulaire"/></a></li>
+		<li><a href="#"><img src="/eMagine/common/images/icones/valider.png" title="<bean:message key="button.title.ok"/>"/></a></li>
+		<li><a href="#"><img src="/eMagine/common/images/icones/reinitialiser.png" title="<bean:message key="button.title.reinitialize"/>"/></a></li>
 	</ul>
 </div>
 <br/>
