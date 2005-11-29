@@ -22,4 +22,9 @@ public class AbsenceManager extends ModificationManager<Absence, AbsenceDAO> {
 	protected AbsenceDAO getDAO() {
 		return DAOManager.getInstance().getAbsenceDAO();
 	}
+
+	@Override
+	public Absence retrieve(long id) throws EMagineException {
+		return getDAO().retrieve(Absence.class, id);
+	}
 }

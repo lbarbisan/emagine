@@ -55,4 +55,9 @@ public class ApprenticeManager extends ModificationManager<Apprentice, Apprentic
 	protected ApprenticeDAO getDAO() {
 		return DAOManager.getInstance().getApprenticeDAO();
 	}
+
+	@Override
+	public Apprentice retrieve(long id) throws EMagineException {
+		return getDAO().retrieve(Apprentice.class, id);
+	}
 }

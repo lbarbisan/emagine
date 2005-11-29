@@ -71,4 +71,9 @@ public class UserManager extends ModificationManager<User, UserDAO> {
 	protected UserDAO getDAO() {
 		return DAOManager.getInstance().getUserDAO();
 	}
+
+	@Override
+	public User retrieve(long id) throws EMagineException {
+		return getDAO().retrieve(User.class, id);
+	}
 }

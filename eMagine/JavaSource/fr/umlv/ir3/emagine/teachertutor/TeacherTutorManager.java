@@ -76,4 +76,9 @@ public class TeacherTutorManager extends BaseManager<TeacherTutor, TeacherTutorD
 	protected TeacherTutorDAO getDAO() {
 			return DAOManager.getInstance().getTeacherTutorDAO();
 	}
+
+	@Override
+	public TeacherTutor retrieve(long id) throws EMagineException {
+		return getDAO().retrieve(TeacherTutor.class, id);
+	}
 }

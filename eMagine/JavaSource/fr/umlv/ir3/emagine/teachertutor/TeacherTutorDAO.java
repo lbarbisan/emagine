@@ -4,7 +4,6 @@ import java.util.Collection;
 import java.util.List;
 
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.HibernateUtils;
 import fr.umlv.ir3.emagine.util.base.BaseDAO;
 /**
  * The class is used to manage relation with database and core class TeacherTutor.
@@ -12,16 +11,6 @@ import fr.umlv.ir3.emagine.util.base.BaseDAO;
  */
 public class TeacherTutorDAO extends BaseDAO<TeacherTutor> {
 	
-	/**
-	 * Retrieve a teacher tutor from database
-	 * @param id id of teacher tutor
-	 * @return return 
-	 */
-	@Override
-	public TeacherTutor retrieve(long id) {
-	  	return (TeacherTutor) HibernateUtils.getSession().load(TeacherTutor.class, id);
-	}
-
 	public List<TeacherTutor> getTeachersTutor(TeacherTutorSearchParam teacherTutorSearchParam) throws EMagineException {
 		// TODO HibernateUserDAO.getTeachersTutor()
 		return null;

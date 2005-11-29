@@ -28,16 +28,14 @@ public abstract class BaseManager<EntityType extends BaseEntity, EntityDAO exten
      * @return the object which is associated to id, null if not found
      * @throws EMagineException throw this exception if an SQLException occures
      */
-	public EntityType retrieve(long id) throws EMagineException {
-		return getDAO().retrieve(id);
-	}
+	public abstract EntityType retrieve(long id) throws EMagineException;
+	
 
     /**
      * Updates the database data for the specified object. Handles the update with a transaction.
      * @param entity object that must update save in database
      * @throws EMagineException  throw this exception if the update failed or if an SQLException occures
      */
-	@SuppressWarnings("unchecked")
 	public void update(EntityType newEntity) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {

@@ -16,4 +16,9 @@ public class FirmManager extends ModificationManager<Firm, FirmDAO> {
 	protected FirmDAO getDAO() {
 		return DAOManager.getInstance().getFirmDAO();
 	}
+
+	@Override
+	public Firm retrieve(long id) throws EMagineException {
+		return getDAO().retrieve(Firm.class, id);
+	}
 }

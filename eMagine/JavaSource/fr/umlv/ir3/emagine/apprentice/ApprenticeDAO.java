@@ -11,11 +11,6 @@ import fr.umlv.ir3.emagine.util.base.BaseDAO;
 
 public class ApprenticeDAO extends BaseDAO<Apprentice> {
 
-	@Override
-	public Apprentice retrieve(long id) {
-	  	return (Apprentice) HibernateUtils.getSession().load(Apprentice.class, id);
-	}
-
 	public List<Apprentice> getApprentices(ApprenticeSearchParam apprenticeSearchParam) throws EMagineException {
 		// TODO ApprenticeDAO.getApprentices()
 		return null;

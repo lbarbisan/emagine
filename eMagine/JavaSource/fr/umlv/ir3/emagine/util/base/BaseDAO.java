@@ -22,7 +22,7 @@ import fr.umlv.ir3.emagine.util.HibernateUtils;
  * @author eMagine team
  * @param <EntityType> the type of object to manipulate.
  */
-public abstract class BaseDAO<EntityType extends BaseEntity> {
+public class BaseDAO<EntityType extends BaseEntity> {
 
 	/**
 	 * Creates the database data for the specified object
@@ -57,7 +57,14 @@ public abstract class BaseDAO<EntityType extends BaseEntity> {
      * @return the object which is associated to id, null if not found
      * @throws EMagineException throw this exception if an SQLException occures
      */
-    public abstract EntityType retrieve(long id) throws EMagineException;
+    public EntityType retrieve(Class<? extends EntityType> klass, long id) throws EMagineException
+    {
+    	try {
+    		return (EntityType) HibernateUtils.getSession().load(klass, id);
+    	} catch (HibernateException exception) {
+    		throw new EMagineException("exception.baseDAO.update", exception);
+    	}
+    }
 
 	/**
      * Deletes the database data associated the the specified object 

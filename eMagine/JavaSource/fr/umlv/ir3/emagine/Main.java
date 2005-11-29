@@ -41,7 +41,7 @@ public class Main {
 //		DAOManager.commitTransaction();
 		
 
-		User user = userDAO.retrieve(1L);
+		User user = userDAO.retrieve(User.class, 1L);
 //		user.setLastName("Barbisan");
 //		user.setLogin("lbarbisan");
 //		user.setPassword("dfsd");

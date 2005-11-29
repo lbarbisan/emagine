@@ -18,7 +18,7 @@ public abstract class ModificationManager<EntityType extends EditableEntity, Ent
 	public void update(EntityType newEntity) throws EMagineException {
 			DAOManager.beginTransaction();
 			//Load the original object 
-    		EntityType oldEntity = getDAO().retrieve(newEntity.getId());
+    		EntityType oldEntity = retrieve(newEntity.getId());
     		// set the modification
     		newEntity.addModification(oldEntity);
     		super.update(newEntity);

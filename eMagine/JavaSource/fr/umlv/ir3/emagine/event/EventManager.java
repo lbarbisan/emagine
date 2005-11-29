@@ -16,4 +16,9 @@ public class EventManager extends BaseManager<Event, EventDAO> {
 	protected EventDAO getDAO() {
 		return DAOManager.getInstance().getEventDAO();
 	}
+
+	@Override
+	public Event retrieve(long id) throws EMagineException {
+		return getDAO().retrieve(Event.class, id); 
+	}
 }

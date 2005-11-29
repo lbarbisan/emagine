@@ -15,4 +15,9 @@ public class StatisticManager extends ModificationManager<Statistic, StatisticDA
 	protected StatisticDAO getDAO() {
 		return DAOManager.getInstance().getStatisticDAO();
 	}
+
+	@Override
+	public Statistic retrieve(long id) throws EMagineException {
+		return getDAO().retrieve(Statistic.class, id);
+	}
 }
