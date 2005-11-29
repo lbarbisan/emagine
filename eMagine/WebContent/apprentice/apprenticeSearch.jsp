@@ -33,8 +33,7 @@
 			</fieldset>
 		</div>
 		<br/>
-		<html:link action="#"><img src="/eMagine/common/images/icones/search.png" title="<bean:message key="button.title.search"/>"/></html:link>
-		
+		<div class="buttons"><input type="button" value="<bean:message key="button.title.search"/>"/></div>
 	</div>
 	<h3><bean:message key="title.results"/></h3>
 	<div align=center>
@@ -76,10 +75,10 @@
 		<ul>
 			<li><a href="#"><img src="/eMagine/common/images/icones/passage.png" title="<bean:message key="button.title.passage"/>"/></a></li>
 			<li><a href="#"><img src="/eMagine/common/images/icones/virer.png" title="<bean:message key="button.title.exclude"/>"/></a></li>
-			<li><html:link action="/studentMailingListCreate"><img src="/eMagine/common/images/icones/creer_mailing_list.png" title="<bean:message key="button.title.mailingListCreate"/>"/></html:link></li>
-			<li><html:link action="/studentEmailDo"><img src="/eMagine/common/images/icones/mailing.png" title="<bean:message key="button.title.email"/>"/></html:link></li>
-			<li><html:link action="/studentMailDo"><img src="/eMagine/common/images/icones/publipostage.png" title="<bean:message key="button.title.mailing"/>"/></html:link></li>
-			<li><html:link action="/studentExtract"><img src="/eMagine/common/images/icones/extraire.png" title="<bean:message key="button.title.extract"/>"/></html:link></li>
+			<li><html:link action="/apprenticeMailingListCreate"><img src="/eMagine/common/images/icones/creer_mailing_list.png" title="<bean:message key="button.title.mailingListCreate"/>"/></html:link></li>
+			<li><html:link action="/apprenticeEmailDo"><img src="/eMagine/common/images/icones/mailing.png" title="<bean:message key="button.title.email"/>"/></html:link></li>
+			<li><html:link action="/apprenticeMailDo"><img src="/eMagine/common/images/icones/publipostage.png" title="<bean:message key="button.title.mailing"/>"/></html:link></li>
+			<li><html:link action="/apprenticeExtract"><img src="/eMagine/common/images/icones/extraire.png" title="<bean:message key="button.title.extract"/>"/></html:link></li>
 		</ul>
 	</div>
 </form>

@@ -69,7 +69,7 @@
 		<input type="checkbox" value="ON" name="marks" /></p>
 		<p><label for="diploma"><bean:message key="form.diploma"/></label>
 		<input type="checkbox" value="ON" name="diploma" /></p>
-		<p><label for="scolarityPast"><bean:message key="form.scolarityPast"/></label>
+		<p><label for="scolarityPast"><bean:message key="form.schoolingPast"/></label>
 		<input type="checkbox" value="ON" name="scolarityPast" /></p>
 	</fieldset>
 </div>
@@ -78,7 +78,6 @@
 	<ul>
 		<li><a href="#"><img src="/eMagine/common/images/icones/save.png" title="<bean:message key="button.title.save"/>"/></a></li>
 		<li><a href="#"><img src="/eMagine/common/images/icones/generate.png" title="<bean:message key="button.title.generate"/>"/></a></li>
-		<li><a href="#"><img src="/eMagine/common/images/icones/annuler.png" title="<bean:message key="button.title.cancel"/>"/></a></li>
 	</ul>
 </div>
 <br/>

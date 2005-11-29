@@ -527,3 +527,14 @@ ul#menu2 {
 #statSearch li {
 	display:inline;
 }
+
+.buttons{}
+.buttons input{
+	float:none;
+	border-color:#809AD0;
+	background-color: white;
+	border-width: 1px;
+	border-style:outset;
+	color: #809AD0;
+	font-weight: bold;
+}

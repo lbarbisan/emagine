@@ -48,7 +48,13 @@
 			</fieldset>
 			<br/>
 		</div>
-	</div>
-	<br/>
-</form>
+
 <div align="right"><font color="red" size="1"><bean:message key="form.msg.obligation.star"/></font></div>
+	</div>
+</form>
+<div id="actions">
+	<h2>&nbsp;</h2>
+	<ul>
+		<li><a href="#"><img src="/eMagine/common/images/icones/modif.png" title="<bean:message key="button.title.update"/>"/></a></li>
+	</ul>
+</div>

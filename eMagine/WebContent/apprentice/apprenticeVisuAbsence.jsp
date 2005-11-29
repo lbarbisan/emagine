@@ -23,11 +23,13 @@
 			<div class="search_b1">
 				<p>
 					<label for="initDate"><bean:message key="criteria.search.initDate"/></label>
-					<input type="text" id="initDate" size="20" /> 
+					<input type="text" id="initDate" size="15" /> 
+					<a href="#"><img src="/eMagine/common/images/icones/calendar.png" title="<bean:message key="button.title.calendar"/>"/></a>
 				</p>
 				<p>
 					<label for="endDate"><bean:message key="criteria.search.endDate"/></label>
-					<input type="text" id="endDate" size="20" /> 
+					<input type="text" id="endDate" size="15" />
+					<a href="#"><img src="/eMagine/common/images/icones/calendar.png" title="<bean:message key="button.title.calendar"/>"/></a> 
 				</p>
 			</div>
 			<div class="search_b2">
@@ -45,9 +47,8 @@
 		</fieldset>
 	</div>
 	<br/>
-	<html:link action="#"><img src="/eMagine/common/images/icones/search.png" title="<bean:message key="button.title.search"/>"/></html:link>
+	<div class="buttons"><input type="button" value="Rechercher"/></div>
 </div>
-<form name="results">
 	<h3><bean:message key="title.results"/></h3>
 	<div align=center>
 		<div id="statSearch">
@@ -83,7 +84,6 @@
 			</tr>
 		</table>
 	</div>
-	<br/>
 	<div id="actions">
 		<ul>
 			<li><a href="javascript:checkAll('results','all_none');">Tous</a>&nbsp;&nbsp;/</li>
@@ -97,4 +97,10 @@
 		</ul>
 	</div>
 </form>
+</div>
+<div id="actions">
+	<h2>&nbsp;</h2>
+	<ul>
+		<li><a href="#"><img src="/eMagine/common/images/icones/modif.png" title="<bean:message key="button.title.update"/>"/></a></li>
+	</ul>
 </div>

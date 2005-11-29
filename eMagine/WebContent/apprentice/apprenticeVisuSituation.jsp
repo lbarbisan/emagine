@@ -43,7 +43,7 @@
 	<fieldset>
 		<legend><bean:message key="form.fieldset.company"/></legend>
 		<p><label for="companyName"><bean:message key="form.name"/><font color="red">*</font>&nbsp;</label><input type="text" id="companyName" size="20" />
-			<html:link action="/apprenticeCompanyAdd"><img src="/eMagine/common/images/icones/affecter.png" title="<bean:message key="button.title.affect"/>"/></html:link></p>
+			<html:link action="/apprenticeCompanyAdd"><span class="buttons"><input type="button" value="<bean:message key="button.title.affect"/>" /></span></html:link></p>
 	</fieldset>
 	<br/>
 	<fieldset>
@@ -55,10 +55,15 @@
 				<option value="2">Mr&nbsp;tuteur&nbsp;2</option>
 			</select></p>
 		<p><label for="teacherTutor"><bean:message key="form.teacher.tutor"/><font color="red">*</font>&nbsp;</label><input type="text" id="teacherTutor" size="20" />
-		<html:link action="/apprenticeTutorAdd"><img src="/eMagine/common/images/icones/affecter.png" title="<bean:message key="button.title.affect"/>"/></html:link></p>
+		<html:link action="/apprenticeTutorAdd"><span class="buttons"><input type="button" value="<bean:message key="button.title.affect"/>" /></span></html:link></p>
 	</fieldset> 
 <br/>           
 </div>
 <div align="right"><font color="red" size="1"><bean:message key="form.msg.obligation.star"/></font></div>
-<br/>    
+</div>
+<div id="actions">
+	<h2>&nbsp;</h2>
+	<ul>
+		<li><a href="#"><img src="/eMagine/common/images/icones/modif.png" title="<bean:message key="button.title.update"/>"/></a></li>
+	</ul>
 </div>

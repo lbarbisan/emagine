@@ -44,7 +44,7 @@
 				</fieldset>
 			</div>
 			<br/>
-			<html:link action="#"><img src="/eMagine/common/images/icones/search.png" title="<bean:message key="button.title.search"/>"/></html:link>
+			<div class="buttons"><input type="button" value="Rechercher"/></div>
 		</div>	
 		<br/>
 		<h3><bean:message key="title.results"/></h3>
@@ -87,3 +87,10 @@
 		</div>
 	</div>
 </form>
+<div id="actions">
+	<h2>&nbsp;</h2>
+	<ul>
+		<li><a href="#"><img src="/eMagine/common/images/icones/modif.png" title="<bean:message key="button.title.update"/>"/></a></li>
+	</ul>
+</div>
+
