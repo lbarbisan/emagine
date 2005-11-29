@@ -20,11 +20,13 @@
 					<div class="search_b1">
 						<p>
 							<label for="initDate"><bean:message key="criteria.search.initDate"/></label>
-							<input type="text" id="initDate" size="20" /> 
+							<input type="text" id="initDate" size="20" />
+							<a href="#"><img src="/eMagine/common/images/icones/calendar.png" title="<bean:message key="button.title.calendar"/>"/></a>
 						</p>
 						<p>
 							<label for="endDate"><bean:message key="criteria.search.endDate"/></label>
 							<input type="text" id="endDate" size="20" /> 
+							<a href="#"><img src="/eMagine/common/images/icones/calendar.png" title="<bean:message key="button.title.calendar"/>"/></a>
 						</p>
 					</div>
 					<div class="search_b2">
@@ -48,11 +50,9 @@
 		<h3><bean:message key="title.results"/></h3>
 		<div align=center>
 			<div id="statSearch">
-					<p><label for="result"><bean:message key="statSearch.results"/></label><input type="text" id="result" size="5"/>&nbsp;&nbsp;&nbsp;
-					<label for="pageNb"><bean:message key="statSearch.numberByPage"/></label><input type="text" id="pageNb" size="5" /></p>
+				<p><label for="result"><bean:message key="statSearch.results"/></label><input type="text" id="result" size="5"/>&nbsp;&nbsp;&nbsp;
+				<label for="pageNb"><bean:message key="statSearch.numberByPage"/></label><input type="text" id="pageNb" size="5" /></p>
 			</div>
-			<p align="left"><label for="total"><bean:message key="form.total"/></label>
-			<input type="text" id="total" size="20" /></p> 
 			<table cellpadding="0" cellspacing="0">
 				<tr>
 					<th>&nbsp;</th>
@@ -74,7 +74,6 @@
 				</tr>
 			</table>
 		</div>
-		<br/>
 		<div id="actions">
 			<ul>
 				<li><a href="javascript:checkAll('results','all_none');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
