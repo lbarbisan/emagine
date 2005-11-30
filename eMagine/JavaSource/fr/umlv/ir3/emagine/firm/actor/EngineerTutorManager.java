@@ -10,18 +10,6 @@ import fr.umlv.ir3.emagine.util.base.BaseManager;
 public class EngineerTutorManager extends BaseManager<EngineerTutor, EngineerTutorDAO>{
 
 	@Override
-	public void delete(EngineerTutor entity) throws EMagineException {
-		// TODO EngineerTutorManager.delete()
-		super.delete(entity);
-	}
-
-	@Override
-	public void create(EngineerTutor engineerTutor) throws EMagineException {
-		// TODO : createEngineerTutor :  engineerTutorUnique
-		super.create(engineerTutor);
-	}
-
-	@Override
 	public void update(EngineerTutor engineerTutor)
 			throws EMagineException {
 		//TODO : updateEngineerTutor : vérif droits. si pas droits de modif, enregistrer patch + envoyer event
@@ -45,12 +33,13 @@ public class EngineerTutorManager extends BaseManager<EngineerTutor, EngineerTut
 
 	@Override
 	protected EngineerTutorDAO getDAO() {
-			DAOManager instance = DAOManager.getInstance();
-			return instance.getEngineerTutorDAO();
+		DAOManager instance = DAOManager.getInstance();
+		return instance.getEngineerTutorDAO();
 	}
 
 	@Override
 	public EngineerTutor retrieve(long id) throws EMagineException {
-		return getDAO().retrieve(EngineerTutor.class, id);
+		EngineerTutorDAO dao = getDAO();
+		return dao.retrieve(EngineerTutor.class, id);
 	}
 }
