@@ -1,21 +1,11 @@
 package fr.umlv.ir3.emagine;
 
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.List;
 
-import fr.umlv.ir3.emagine.extraction.ExtractionForm;
-import fr.umlv.ir3.emagine.extraction.ExtractionType;
-import fr.umlv.ir3.emagine.user.User;
-import fr.umlv.ir3.emagine.user.UserDAO;
 import fr.umlv.ir3.emagine.user.UserSearchForm;
-import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.ManagerManager;
 import fr.umlv.ir3.emagine.util.RequestParam;
 
 public class Main {

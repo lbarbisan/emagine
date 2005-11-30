@@ -2,7 +2,6 @@ package fr.umlv.ir3.emagine.extraction.mailstype;
 
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.ManagerManager;
-import fr.umlv.ir3.emagine.util.base.BaseDAO;
 import fr.umlv.ir3.emagine.util.base.BaseEditableManager;
 
 public class MailingTypeManager extends BaseEditableManager<MailingType, MailingTypeDAO> {
@@ -13,7 +12,7 @@ public class MailingTypeManager extends BaseEditableManager<MailingType, Mailing
 	}
 
 	@Override
-	protected BaseDAO<MailingType> getDAO() {
+	protected MailingTypeDAO getDAO() {
 		ManagerManager instance = ManagerManager.getInstance();
 		instance.getMailingTypeManager();
 		return null;

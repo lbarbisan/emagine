@@ -2,7 +2,6 @@ package fr.umlv.ir3.emagine.extraction.massmailing;
 
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.ManagerManager;
-import fr.umlv.ir3.emagine.util.base.BaseDAO;
 import fr.umlv.ir3.emagine.util.base.BaseEditableManager;
 
 public class MassMailingManager extends BaseEditableManager<MassMailing, MassMailingDAO> {
@@ -13,7 +12,7 @@ public class MassMailingManager extends BaseEditableManager<MassMailing, MassMai
 	}
 
 	@Override
-	protected BaseDAO<MassMailing> getDAO() {
+	protected MassMailingDAO getDAO() {
 		ManagerManager instance = ManagerManager.getInstance();
 		instance.getMailingTypeManager();
 		return null;
