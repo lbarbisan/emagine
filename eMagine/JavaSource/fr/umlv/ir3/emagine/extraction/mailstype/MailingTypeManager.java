@@ -17,14 +17,9 @@ public class MailingTypeManager extends BaseEditableManager<MailingType, Mailing
 		ManagerManager.getInstance().getMailingTypeManager();
 		return null;
 	}
-
-	//TODO : Use case « Créer une mailing-list »
-	//TODO : Use case « Modifier une mailing-list »
-	//TODO : Use case « Ajouter un membre à une mailing-list »
-	//TODO : Use case « Supprimer des mailing-list »
-	//TODO : Use case « Visualiser une mailing-list »
-	//TODO : Use case « Visualiser la liste des mailing-list »
-	//TODO : Use case « Générer mailing »
-
-
+	//CRUD
+	//TODO : Use case « Créer une mailingType »
+	//TODO : Use case « Supprimer une mailingType »
+	//TODO : Use case « Ajouter une mailingType »
+	//TODO : Use case « Update une mailingType »
 }

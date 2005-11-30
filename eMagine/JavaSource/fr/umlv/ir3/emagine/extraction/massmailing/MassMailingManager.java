@@ -17,14 +17,11 @@ public class MassMailingManager extends BaseEditableManager<MassMailing, MassMai
 		ManagerManager.getInstance().getMailingTypeManager();
 		return null;
 	}
-
-	//TODO : Use case « Créer une mailing-list »
-	//TODO : Use case « Modifier une mailing-list »
-	//TODO : Use case « Ajouter un membre à une mailing-list »
-	//TODO : Use case « Supprimer des mailing-list »
-	//TODO : Use case « Visualiser une mailing-list »
-	//TODO : Use case « Visualiser la liste des mailing-list »
-	//TODO : Use case « Générer mailing »
-
-
+	
+	//CRUD
+	//Use case « créer un publipostage »
+	//Use case « supprimer un publipostage »
+	//Use case « mettre à jour un publipostage »
+	//Use case « charger un publipostage »
+	
 }

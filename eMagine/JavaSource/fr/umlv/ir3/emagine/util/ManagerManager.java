@@ -4,7 +4,6 @@ import fr.umlv.ir3.emagine.event.EventManager;
 import fr.umlv.ir3.emagine.extraction.ExtractionManager;
 import fr.umlv.ir3.emagine.extraction.mailings.MailingListManager;
 import fr.umlv.ir3.emagine.extraction.mailstype.MailingTypeManager;
-import fr.umlv.ir3.emagine.extraction.massmailing.MassMailing;
 import fr.umlv.ir3.emagine.extraction.massmailing.MassMailingManager;
 import fr.umlv.ir3.emagine.firm.FirmManager;
 import fr.umlv.ir3.emagine.teachertutor.TeacherTutorManager;

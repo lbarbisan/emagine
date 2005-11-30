@@ -10,7 +10,6 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
 import fr.umlv.ir3.emagine.extraction.mailings.Attachment;
-import fr.umlv.ir3.emagine.util.base.BaseEntity;
 import fr.umlv.ir3.emagine.util.base.EditableEntity;
 
 /**
