@@ -1,22 +1,27 @@
 package fr.umlv.ir3.emagine.util;
 
-import java.util.Collection;
+import java.util.Iterator;
 
-public interface Extractable {
+public interface Extractable extends Iterable<Iterable<Object>> {
+
+	
 	/**
-	 * Returns all the fields which can be accessed for each rows.
+	 * Sets the columns show in extraction
+	 * @param selectedColumns list all collumn
+	 */
+	public void setSelectedColums(Iterable<String> selectedColumns);
+	
+	
+	/**
+	 * Gives all the column name of that extractable
 	 * @return
 	 */
-	public Collection<String> getFields();
+	public Iterator<String> getColumnsName();
+	
 	/**
-	 * Gives the propertyName for a specific column
-	 * @param column
+	 * Gives all the column name of that extractable
 	 * @return
 	 */
-	public String getPropertyNameForColumn(String column);
-	/**
-	 * Gives all the rows of that extractable
-	 * @return
-	 */
-	public Collection getRows();
+	public Iterator<String> getselectedColumnsName();
+	
 }
