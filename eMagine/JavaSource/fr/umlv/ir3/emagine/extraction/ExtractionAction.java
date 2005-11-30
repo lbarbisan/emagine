@@ -9,6 +9,7 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessages;
 
 import fr.umlv.ir3.emagine.util.EMagineException;
+import fr.umlv.ir3.emagine.util.HibernateUtils;
 import fr.umlv.ir3.emagine.util.ManagerManager;
 import fr.umlv.ir3.emagine.util.Extractable;
 import fr.umlv.ir3.emagine.util.base.BaseAction;
@@ -23,7 +24,6 @@ public class ExtractionAction extends BaseAction {
 		// Retrieve the extractable from the session and set it in the form
 		Extractable extractable = (Extractable)request.getSession().getAttribute(extractionForm.getExtractableName());
 		extractionForm.setExtractable(extractable);
-		
 		return findSuccess(mapping);
 	}
 	

@@ -1,6 +1,8 @@
 package fr.umlv.ir3.emagine.util;
 
 
+import java.sql.ResultSet;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.EntityMode;
@@ -118,5 +120,11 @@ public class HibernateUtils {
     {
     	ClassMetadata classMetadata = sessionFactory.getClassMetadata(entity.getClass());
     	return classMetadata.getPropertyNames();
+    }
+    
+    public void test()
+    {
+    	ResultSet set;
+    	//set.
     }
 }
