@@ -14,7 +14,8 @@ public class MailingTypeManager extends BaseEditableManager<MailingType, Mailing
 
 	@Override
 	protected BaseDAO<MailingType> getDAO() {
-		ManagerManager.getInstance().getMailingTypeManager();
+		ManagerManager instance = ManagerManager.getInstance();
+		instance.getMailingTypeManager();
 		return null;
 	}
 	//CRUD

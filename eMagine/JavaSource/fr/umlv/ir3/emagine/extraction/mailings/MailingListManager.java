@@ -18,7 +18,8 @@ public class MailingListManager extends BaseEditableManager<MailingList, Mailing
 
 	@Override
 	protected BaseDAO<MailingList> getDAO() {
-		ManagerManager.getInstance().getMailingListManager();
+		ManagerManager instance = ManagerManager.getInstance();
+		instance.getMailingListManager();
 		return null;
 	}
 

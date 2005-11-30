@@ -14,5 +14,6 @@ public class ExtractionManager {
 	
 	//TODO : Use case « Configurer l'extraction d'une liste »	
 	//TODO : Use case « Extraire une liste »
+	
 
 }

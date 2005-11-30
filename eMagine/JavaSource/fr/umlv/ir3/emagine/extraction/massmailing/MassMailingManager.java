@@ -14,7 +14,8 @@ public class MassMailingManager extends BaseEditableManager<MassMailing, MassMai
 
 	@Override
 	protected BaseDAO<MassMailing> getDAO() {
-		ManagerManager.getInstance().getMailingTypeManager();
+		ManagerManager instance = ManagerManager.getInstance();
+		instance.getMailingTypeManager();
 		return null;
 	}
 	

@@ -55,7 +55,9 @@ public class TeacherTutorManager extends BaseManager<TeacherTutor, TeacherTutorD
 	public List<TeacherTutor> find(
 			TeacherTutorSearchParam teacherTutorSearchParam)
 			throws EMagineException {
-		return getDAO().getTeachersTutor(teacherTutorSearchParam);
+		TeacherTutorDAO dao = getDAO();
+		List<TeacherTutor> teachersTutor = dao.getTeachersTutor(teacherTutorSearchParam);
+		return teachersTutor;
 	}
 	
 	/**
@@ -68,17 +70,20 @@ public class TeacherTutorManager extends BaseManager<TeacherTutor, TeacherTutorD
 		//FIXME: Si l'étudiant existe déjà ?
 		//FIXME: Est-ce necessaire d'affecter à l'étudiant , puis d'affecter au tuteur?
 		apprentice.setTeacherTutor(teacherTutor);
-		teacherTutor.getApprentice().add(apprentice);
+		List<Apprentice> newApprentice = teacherTutor.getApprentice();
+		newApprentice.add(apprentice);
 		update(teacherTutor);
 	}
 
 	@Override
 	protected TeacherTutorDAO getDAO() {
-			return DAOManager.getInstance().getTeacherTutorDAO();
+			DAOManager instance = DAOManager.getInstance();
+			return instance.getTeacherTutorDAO();
 	}
 
 	@Override
 	public TeacherTutor retrieve(long id) throws EMagineException {
-		return getDAO().retrieve(TeacherTutor.class, id);
+		TeacherTutorDAO dao = getDAO();
+		return dao.retrieve(TeacherTutor.class, id);
 	}
 }
