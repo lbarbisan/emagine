@@ -74,6 +74,25 @@ public class ApprenticeManager extends BaseEventableManager<Apprentice, Apprenti
 			throw exception;
 		}
 	}
+
+	/**
+	 * Removes the given absence from the given apprentice
+	 * @param apprentice
+	 * @param absence
+	 * @throws EMagineException throws if an SQLException occures
+	 */
+	public void removeAbsence(Apprentice apprentice, Absence absence) throws EMagineException {
+		DAOManager.beginTransaction();
+		try {
+			List<Absence> absences = apprentice.getAbsences();
+			absences.remove(absence);
+			getDAO().update(apprentice);
+			DAOManager.commitTransaction();
+		} catch (EMagineException exception) {
+			DAOManager.rollBackTransaction();
+			throw exception;
+		}
+	}
 	
 	@Override
 	protected ApprenticeDAO getDAO() {
