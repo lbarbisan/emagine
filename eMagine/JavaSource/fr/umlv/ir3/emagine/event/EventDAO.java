@@ -16,7 +16,6 @@ public class EventDAO extends BaseDAO<Event> {
 		String query = "";
 		Session session = HibernateUtils.getSession();
 		Query createQuery = session.createQuery(query);
-		List list = createQuery.list();
-		return list;
+		return createQuery.list();
 	}
 }
