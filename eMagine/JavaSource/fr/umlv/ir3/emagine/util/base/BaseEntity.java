@@ -29,12 +29,22 @@ public class BaseEntity implements Serializable {
 	private Long id;
     @Version
     private Long version;
-    private String name;
-
+    
+    
     /**
+	 * @param id
+	 * @param version
+	 * @param name constructor
+	 */
+	protected BaseEntity(Long id, Long version) {
+		this.id = id;
+		this.version = version;
+	}
+
+	/**
      * This constructor is necessary for Hibernate, it's used for lazy load
      */
-	protected BaseEntity(){}
+	protected BaseEntity() {}
 
 	/**
 	 * @return the version of this object. it's used for pesimist locking
@@ -89,18 +99,6 @@ public class BaseEntity implements Serializable {
 		return id == ((BaseEntity)obj).getId();
 	}
     
-	/**
-	 * @return Returns the name.
-	 */
-	public String getName() {
-		return name;
-	}
-	/**
-	 * @param name The name to set.
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
 	/**
 	 * @return Returns the id.
 	 */

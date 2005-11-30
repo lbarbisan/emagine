@@ -16,8 +16,8 @@ import javax.persistence.OneToMany;
 
 import fr.umlv.ir3.emagine.apprentice.absence.Absence;
 import fr.umlv.ir3.emagine.apprentice.candidate.Candidate;
-import fr.umlv.ir3.emagine.firm.actor.EngineerTutor;
 import fr.umlv.ir3.emagine.firm.Firm;
+import fr.umlv.ir3.emagine.firm.actor.EngineerTutor;
 import fr.umlv.ir3.emagine.teachertutor.TeacherTutor;
 import fr.umlv.ir3.emagine.util.Address;
 ;
@@ -66,6 +66,20 @@ public class Apprentice extends Candidate {
 	private Integer year;
 	private Boolean excluded;
 	
+	
+	
+	
+	
+	
+
+	public Apprentice(Candidate candidate) {
+		super(candidate.getModifications(), candidate.getEvents(), candidate.getAddressPersonnal(), candidate.getBirthdayDate(),
+				candidate.getBirthdayCity(), candidate.getBirthdayCountry(), candidate.getBirthdayDepartment(), candidate.getNationality(), candidate.getSex(),
+				candidate.getLastName(), candidate.getFirstName(), candidate.getEmail(), candidate.getPhone(), candidate.getMobilePhone(), candidate.getFax(), candidate.getContactOriginIG2K(),
+				candidate.getFormationCenter(), candidate.getRoom(), candidate.isOtherFormation(), candidate.isAccepted(), candidate.getEntryLevel(),
+				candidate.getProfessionMother(), candidate.getProfessionFather(), candidate.getCourseOption());
+	}
+
 	public List<Absence> getAbsences() {
 		return absences;
 	}

@@ -1,5 +1,8 @@
 package fr.umlv.ir3.emagine.apprentice.candidate;
 
+import java.util.Date;
+import java.util.List;
+
 import javax.persistence.AccessType;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -7,9 +10,16 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import fr.umlv.ir3.emagine.apprentice.Contact;
+import fr.umlv.ir3.emagine.apprentice.CountryEnum;
+import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
 import fr.umlv.ir3.emagine.apprentice.LevelEntryEnum;
+import fr.umlv.ir3.emagine.apprentice.NationalityEnum;
+import fr.umlv.ir3.emagine.apprentice.SexEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenter;
 import fr.umlv.ir3.emagine.apprentice.candidate.room.Room;
+import fr.umlv.ir3.emagine.event.Event;
+import fr.umlv.ir3.emagine.modification.Modification;
+import fr.umlv.ir3.emagine.util.Address;
 import fr.umlv.ir3.emagine.util.person.Person;
 
 /**
@@ -38,6 +48,55 @@ public class Candidate extends Person {
 	private ProfessionEnum professionMother;
 	private ProfessionEnum professionFather;
 	private CourseOptionEnum courseOption;
+	
+	
+	
+	
+	
+	/**
+	 * @param id
+	 * @param version
+	 * @param name
+	 * @param modifications
+	 * @param events
+	 * @param addressPersonnal
+	 * @param birthdayDate
+	 * @param birthdayCity
+	 * @param birthdayCountry
+	 * @param birthdayDepartment
+	 * @param nationality
+	 * @param sex
+	 * @param lastName
+	 * @param firstName
+	 * @param email
+	 * @param phone
+	 * @param mobilePhone
+	 * @param fax
+	 * @param contactOriginIG2K
+	 * @param formationCenter
+	 * @param room
+	 * @param otherFormation
+	 * @param accepted
+	 * @param entryLevel
+	 * @param professionMother
+	 * @param professionFather
+	 * @param courseOption constructor
+	 */
+	public Candidate(List<Modification> modifications, List<Event> events, Address addressPersonnal, Date birthdayDate, String birthdayCity, CountryEnum birthdayCountry, DepartmentEnum birthdayDepartment, NationalityEnum nationality, SexEnum sex, String lastName, String firstName, String email, String phone, String mobilePhone, String fax, Contact contactOriginIG2K, FormationCenter formationCenter, Room room, boolean otherFormation, boolean accepted, LevelEntryEnum entryLevel, ProfessionEnum professionMother, ProfessionEnum professionFather, CourseOptionEnum courseOption) {
+		super(null, null, modifications, events, addressPersonnal, birthdayDate,
+				birthdayCity, birthdayCountry, birthdayDepartment, nationality, sex,
+				lastName, firstName, email, phone, mobilePhone, fax);
+		this.contactOriginIG2K = contactOriginIG2K;
+		this.formationCenter = formationCenter;
+		this.room = room;
+		this.otherFormation = otherFormation;
+		this.accepted = accepted;
+		this.entryLevel = entryLevel;
+		this.professionMother = professionMother;
+		this.professionFather = professionFather;
+		this.courseOption = courseOption;
+	}
+	
 	
 	public boolean isAccepted() {
 		return accepted;

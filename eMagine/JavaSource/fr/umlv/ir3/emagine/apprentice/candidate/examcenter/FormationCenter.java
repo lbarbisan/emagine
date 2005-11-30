@@ -14,14 +14,14 @@ import javax.persistence.OneToMany;
 import fr.umlv.ir3.emagine.apprentice.candidate.Candidate;
 import fr.umlv.ir3.emagine.apprentice.candidate.room.Room;
 import fr.umlv.ir3.emagine.util.Address;
-import fr.umlv.ir3.emagine.util.base.BaseEntity;
+import fr.umlv.ir3.emagine.util.base.EditableEntity;
 
 /**
  * @author Laurent
  * @persitence Terminé - Vérifier les contrainte unique, et la clef primaire
  */
 @Entity(access = AccessType.FIELD)
-public class FormationCenter extends BaseEntity {
+public class FormationCenter extends EditableEntity {
 	
 	/**
 	 * 
@@ -39,6 +39,10 @@ public class FormationCenter extends BaseEntity {
 	@OneToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE},
 			mappedBy = "formationCenter")
 	private List<Candidate> candidate;
+	
+	
+	
+	
 	public Address getAddress() {
 		return address;
 	}

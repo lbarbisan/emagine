@@ -5,6 +5,7 @@ package fr.umlv.ir3.emagine.util.person;
 
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.AccessType;
 import javax.persistence.AttributeOverride;
@@ -21,6 +22,8 @@ import fr.umlv.ir3.emagine.apprentice.CountryEnum;
 import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
 import fr.umlv.ir3.emagine.apprentice.NationalityEnum;
 import fr.umlv.ir3.emagine.apprentice.SexEnum;
+import fr.umlv.ir3.emagine.event.Event;
+import fr.umlv.ir3.emagine.modification.Modification;
 import fr.umlv.ir3.emagine.util.Address;
 import fr.umlv.ir3.emagine.util.base.EventableEntity;
 ;
@@ -35,7 +38,7 @@ import fr.umlv.ir3.emagine.util.base.EventableEntity;
 		"firstname",
 		"email"
 		}))
-public class Person extends EventableEntity {
+public abstract class Person extends EventableEntity {
 
 	private static final long serialVersionUID = 4072133161366106454L;
 		
@@ -60,7 +63,29 @@ public class Person extends EventableEntity {
 	private String email;
 	private String phone;
 	private String mobilePhone;
-	private String Fax;
+	private String fax;
+	
+	
+	
+	protected Person(Long id, Long version, List<Modification> modifications, List<Event> events, Address addressPersonnal, Date birthdayDate, String birthdayCity, CountryEnum birthdayCountry, DepartmentEnum birthdayDepartment, NationalityEnum nationality, SexEnum sex, String lastName, String firstName, String email, String phone, String mobilePhone, String fax) {
+		super(id, version, modifications, events);
+		this.addressPersonnal = addressPersonnal;
+		this.birthdayDate = birthdayDate;
+		this.birthdayCity = birthdayCity;
+		this.birthdayCountry = birthdayCountry;
+		this.birthdayDepartment = birthdayDepartment;
+		this.nationality = nationality;
+		this.sex = sex;
+		this.lastName = lastName;
+		this.firstName = firstName;
+		this.email = email;
+		this.phone = phone;
+		this.mobilePhone = mobilePhone;
+		this.fax = fax;
+	}
+	
+	protected Person() {};
+	
 	
 	public Address getAddressPersonnal() {
 		return addressPersonnal;
@@ -99,10 +124,10 @@ public class Person extends EventableEntity {
 		this.email = email;
 	}
 	public String getFax() {
-		return Fax;
+		return fax;
 	}
 	public void setFax(String fax) {
-		Fax = fax;
+		this.fax = fax;
 	}
 	public String getFirstName() {
 		return firstName;

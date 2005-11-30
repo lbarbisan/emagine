@@ -18,7 +18,7 @@ import fr.umlv.ir3.emagine.util.person.Person;
  * @persistence Terminé
  */
 @Entity(access = AccessType.FIELD)
-public class Contact extends Person{
+public class Contact extends Person {
 
 	/**
 	 * 

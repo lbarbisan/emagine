@@ -17,13 +17,25 @@ import fr.umlv.ir3.emagine.modification.Modification;
  */
 @Entity(access = AccessType.FIELD)
 @Inheritance(strategy=InheritanceType.JOINED )
-public class EditableEntity extends BaseEntity implements Serializable {
+public abstract class EditableEntity extends BaseEntity implements Serializable {
 	
 	private static final long serialVersionUID = 15466724567987L;
 	
     private List<Modification> modifications;
     
+    
+    
     /**
+	 * @param id
+     * @param version
+     * @param modifications constructor
+	 */
+	protected EditableEntity(Long id, Long version, List<Modification> modifications) {
+		super(id, version);
+		this.modifications = modifications;
+	}
+
+	/**
      * This constructor is necessary for Hibernate, it's used for lazy load
      */
 	protected EditableEntity(){}
@@ -44,14 +56,6 @@ public class EditableEntity extends BaseEntity implements Serializable {
 		}
 	}
 	
-	/**
-	 * Add modification for this object
-	 * @param modification
-	 */
-	private void addModification(Modification modification) {
-		this.modifications.add(modification);
-	}
-
 	/**
 	 * Add modification comparing with the specified object
 	 * @param modification
