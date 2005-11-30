@@ -6,9 +6,9 @@ import java.util.List;
 import fr.umlv.ir3.emagine.apprentice.absence.Absence;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.base.BaseEditableManager;
+import fr.umlv.ir3.emagine.util.base.BaseEventableManager;
 
-public class ApprenticeManager extends BaseEditableManager<Apprentice, ApprenticeDAO> {
+public class ApprenticeManager extends BaseEventableManager<Apprentice, ApprenticeDAO> {
 
 	/**
 	 * Lists apprentices, using the given search parameters
@@ -66,9 +66,7 @@ public class ApprenticeManager extends BaseEditableManager<Apprentice, Apprentic
 	public void addAbsence(Apprentice apprentice, Absence absence) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
-			List<Absence> absences = apprentice.getAbsences();
-			absences.add(absence);
-			apprentice.setAbsences(absences);
+			apprentice.getAbsences().add(absence);
 			getDAO().update(apprentice);
 			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {

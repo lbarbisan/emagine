@@ -2,6 +2,7 @@ package fr.umlv.ir3.emagine.util;
 
 import fr.umlv.ir3.emagine.apprentice.ApprenticeDAO;
 import fr.umlv.ir3.emagine.apprentice.absence.AbsenceDAO;
+import fr.umlv.ir3.emagine.apprentice.candidate.CandidateDAO;
 import fr.umlv.ir3.emagine.event.EventDAO;
 import fr.umlv.ir3.emagine.firm.FirmDAO;
 import fr.umlv.ir3.emagine.firm.JobDAO;
@@ -26,6 +27,7 @@ public class DAOManager {
 	private EventDAO eventDAO = new EventDAO();
 	private StatisticDAO statisticDAO = new StatisticDAO();
 	private AbsenceDAO absenceDAO = new AbsenceDAO();
+	private CandidateDAO candidateDAO = new CandidateDAO();
 	
 	public ModificationDAO getModificationDAO() {
 		return modificationDAO;
@@ -60,7 +62,11 @@ public class DAOManager {
 	public AbsenceDAO getAbsenceDAO() {
 		return absenceDAO;
 	}
-
+	public CandidateDAO getCandidateDAO() {
+		return candidateDAO;
+	}
+	
+	
 	public static DAOManager getInstance() {
 		if (instance == null) {
 			instance = new DAOManager();

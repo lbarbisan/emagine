@@ -3,6 +3,8 @@ package fr.umlv.ir3.emagine;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +16,7 @@ import fr.umlv.ir3.emagine.user.UserSearchForm;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.ManagerManager;
+import fr.umlv.ir3.emagine.util.RequestParam;
 
 public class Main {
 
@@ -23,7 +26,8 @@ public class Main {
 	 * @throws FileNotFoundException 
 	 */
 	public static void main(String[] args) throws FileNotFoundException, EMagineException {
-		
+
+		/*
 		DAOManager.beginTransaction();
 		
 		UserDAO userDAO = DAOManager.getInstance().getUserDAO();
@@ -62,7 +66,8 @@ public class Main {
 
 		ManagerManager.getInstance().getExtractionManager().extract(extractionForm, new FileOutputStream(new File("toto.xls")));
 		
-
+		*/
+		
 		/*
 		UserSearchForm form = new UserSearchForm();
 		for (String field : form.getFields()) {
@@ -73,6 +78,26 @@ public class Main {
 			System.out.println(" > "+field+" // "+field.isAnnotationPresent(IsAField.class));
 		}
 		*/
+		
+		
+		UserSearchForm form = new UserSearchForm();
+		for (String field : form.getFields()) {
+			System.out.println(field);
+		}
+		
+		for (Class klass : form.getClass().getInterfaces()) {
+			for (Method method : klass.getDeclaredMethods()) {
+				Annotation[] annotations = method.getDeclaredAnnotations();
+				System.out.print(" > "+method+" // ");
+				for (Annotation annotation : annotations) {
+					System.out.print(annotation);
+					if (annotation instanceof RequestParam) {
+						System.out.print(" : "+((RequestParam)annotation).value());
+					}
+				}
+				System.out.println();
+			}
+		}
 
 	}
 

@@ -62,9 +62,6 @@ public class Absence extends EditableEntity {
 	public int getNumberOfWorkedDays() {
 		return numberOfWorkedDays;
 	}
-	public void setNumberOfWorkedDays(int nbrOpenDay) {
-		this.numberOfWorkedDays = nbrOpenDay;
-	}
 	public Date getStartDate() {
 		return startDate;
 	}
