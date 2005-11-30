@@ -1,7 +1,6 @@
 package fr.umlv.ir3.emagine.util.base;
 
 import java.util.Collection;
-import java.util.List;
 
 import fr.umlv.ir3.emagine.event.Event;
 import fr.umlv.ir3.emagine.util.DAOManager;
