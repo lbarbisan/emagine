@@ -14,6 +14,7 @@ public class JobManager extends BaseEditableManager<Job, JobDAO> {
 
 	@Override
 	public Job retrieve(long id) throws EMagineException {
-		return getDAO().retrieve(Job.class, id);
+		JobDAO dao = getDAO();
+		return dao.retrieve(Job.class, id);
 	}
 }

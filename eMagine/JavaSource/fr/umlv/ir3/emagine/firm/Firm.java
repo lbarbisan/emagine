@@ -67,7 +67,7 @@ public class Firm extends EventableEntity {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public List<FirmActor> getFirmActor() {
+	public List<FirmActor> getFirmActors() {
 		return firmActor;
 	}
 	public void setfirmActor(List<FirmActor> firmActor) {

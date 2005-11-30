@@ -3,6 +3,7 @@ package fr.umlv.ir3.emagine.firm;
 import java.util.List;
 
 import fr.umlv.ir3.emagine.event.Event;
+import fr.umlv.ir3.emagine.firm.actor.FirmActor;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.base.BaseEventableManager;
@@ -16,7 +17,6 @@ public class FirmManager extends BaseEventableManager<Firm, FirmDAO> {
 
 	@Override
 	public void update(Firm firm) throws EMagineException {
-
 		// Creates an event and associates it to this
 		Event event = new Event();
 		// TODO FirmManager.update Initialiser le event
@@ -42,8 +42,8 @@ public class FirmManager extends BaseEventableManager<Firm, FirmDAO> {
 	public void removeJob(Firm firm, Job job) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
-			List<Event> events = firm.getEvents();
-			events.remove(job);
+			List<Job> jobs = firm.getJobs();
+			jobs.remove(job);
 			FirmDAO dao = getDAO();
 			dao.update(firm);
 			DAOManager.commitTransaction();
@@ -53,11 +53,11 @@ public class FirmManager extends BaseEventableManager<Firm, FirmDAO> {
 		}
 	}
 
-	public void removeJob(Firm firm, List<Job> jobs) throws EMagineException {
+	public void removeJobs(Firm firm, List<Job> jobs) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
-			List<Event> events = firm.getEvents();
-			events.removeAll(jobs);
+			List<Job> jobList = firm.getJobs();
+			jobList.removeAll(jobs);
 			FirmDAO dao = getDAO();
 			dao.update(firm);
 			DAOManager.commitTransaction();
@@ -66,14 +66,58 @@ public class FirmManager extends BaseEventableManager<Firm, FirmDAO> {
 			throw exception;
 		}
 	}
+
+	public void addFirmActor(Firm firm, FirmActor actor) throws EMagineException {
+		DAOManager.beginTransaction();
+		try {
+			List<FirmActor> actors = firm.getFirmActors();
+			actors.add(actor);
+			FirmDAO dao = getDAO();
+			dao.update(firm);
+			DAOManager.commitTransaction();
+		} catch (EMagineException exception) {
+			DAOManager.rollBackTransaction();
+			throw exception;
+		}
+	}
+
+	public void removeFirmActor(Firm firm, FirmActor actor) throws EMagineException {
+		DAOManager.beginTransaction();
+		try {
+			List<FirmActor> actors = firm.getFirmActors();
+			actors.remove(actor);
+			FirmDAO dao = getDAO();
+			dao.update(firm);
+			DAOManager.commitTransaction();
+		} catch (EMagineException exception) {
+			DAOManager.rollBackTransaction();
+			throw exception;
+		}
+	}
+
+	public void removeFirmActors(Firm firm, List<FirmActor> actors) throws EMagineException {
+		DAOManager.beginTransaction();
+		try {
+			List<FirmActor> actorList = firm.getFirmActors();
+			actorList.removeAll(actors);
+			FirmDAO dao = getDAO();
+			dao.update(firm);
+			DAOManager.commitTransaction();
+		} catch (EMagineException exception) {
+			DAOManager.rollBackTransaction();
+			throw exception;
+		}
+	}	
 	
 	@Override
 	protected FirmDAO getDAO() {
-		return DAOManager.getInstance().getFirmDAO();
+		DAOManager instance = DAOManager.getInstance();
+		return instance.getFirmDAO();
 	}
 
 	@Override
 	public Firm retrieve(long id) throws EMagineException {
-		return getDAO().retrieve(Firm.class, id);
+		FirmDAO dao = getDAO();
+		return dao.retrieve(Firm.class, id);
 	}
 }
