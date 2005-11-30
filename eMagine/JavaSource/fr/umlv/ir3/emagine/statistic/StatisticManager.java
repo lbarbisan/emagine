@@ -8,16 +8,19 @@ import fr.umlv.ir3.emagine.util.base.BaseEditableManager;
 
 public class StatisticManager extends BaseEditableManager<Statistic, StatisticDAO> {
 
-	public List<Statistic> getStatistics() throws EMagineException {
-		return getDAO().getStatistics();
+	public List<Statistic> find() throws EMagineException {
+		StatisticDAO dao = getDAO();
+		return dao.find();
 	}
 	
 	protected StatisticDAO getDAO() {
-		return DAOManager.getInstance().getStatisticDAO();
+		DAOManager instance = DAOManager.getInstance();
+		return instance.getStatisticDAO();
 	}
 
 	@Override
 	public Statistic retrieve(long id) throws EMagineException {
-		return getDAO().retrieve(Statistic.class, id);
+		StatisticDAO dao = getDAO();
+		return dao.retrieve(Statistic.class, id);
 	}
 }

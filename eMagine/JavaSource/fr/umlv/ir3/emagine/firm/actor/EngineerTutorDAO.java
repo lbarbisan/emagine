@@ -11,12 +11,12 @@ import fr.umlv.ir3.emagine.util.base.BaseDAO;
  */
 public class EngineerTutorDAO extends BaseDAO<EngineerTutor> {
 	
-	public List<EngineerTutor> getTeachersTutor(EngineerTutorSearchParam teacherTutorSearchParam) throws EMagineException {
+	public List<EngineerTutor> find(EngineerTutorSearchParam teacherTutorSearchParam) throws EMagineException {
 		// TODO HibernateUserDAO.getTeachersTutor()
 		return null;
 	}
 
-	public void deleteTeachersTutor(Collection<EngineerTutor> teacherTutor) throws EMagineException {
+	public void delete(Collection<EngineerTutor> teacherTutor) throws EMagineException {
 		// TODO HibernateUserDAO.deleteTeachersTutor()
 	}
 }

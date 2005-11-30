@@ -1,5 +1,6 @@
 package fr.umlv.ir3.emagine.firm;
 
+import java.util.Collection;
 import java.util.List;
 
 import fr.umlv.ir3.emagine.event.Event;
@@ -28,7 +29,7 @@ public class FirmManager extends BaseEventableManager<Firm, FirmDAO> {
 	public void addJob(Firm firm, Job job) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
-			List<Job> jobs = firm.getJobs();
+			Collection<Job> jobs = firm.getJobs();
 			jobs.add(job);
 			FirmDAO dao = getDAO();
 			dao.update(firm);
@@ -42,7 +43,7 @@ public class FirmManager extends BaseEventableManager<Firm, FirmDAO> {
 	public void removeJob(Firm firm, Job job) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
-			List<Job> jobs = firm.getJobs();
+			Collection<Job> jobs = firm.getJobs();
 			jobs.remove(job);
 			FirmDAO dao = getDAO();
 			dao.update(firm);
@@ -53,11 +54,11 @@ public class FirmManager extends BaseEventableManager<Firm, FirmDAO> {
 		}
 	}
 
-	public void removeJobs(Firm firm, List<Job> jobs) throws EMagineException {
+	public void removeJobs(Firm firm, Collection<Job> jobs) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
-			List<Job> jobList = firm.getJobs();
-			jobList.removeAll(jobs);
+			Collection<Job> jobCollection = firm.getJobs();
+			jobCollection.removeAll(jobs);
 			FirmDAO dao = getDAO();
 			dao.update(firm);
 			DAOManager.commitTransaction();
@@ -70,7 +71,7 @@ public class FirmManager extends BaseEventableManager<Firm, FirmDAO> {
 	public void addFirmActor(Firm firm, FirmActor actor) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
-			List<FirmActor> actors = firm.getFirmActors();
+			Collection<FirmActor> actors = firm.getFirmActors();
 			actors.add(actor);
 			FirmDAO dao = getDAO();
 			dao.update(firm);
@@ -84,7 +85,7 @@ public class FirmManager extends BaseEventableManager<Firm, FirmDAO> {
 	public void removeFirmActor(Firm firm, FirmActor actor) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
-			List<FirmActor> actors = firm.getFirmActors();
+			Collection<FirmActor> actors = firm.getFirmActors();
 			actors.remove(actor);
 			FirmDAO dao = getDAO();
 			dao.update(firm);
@@ -95,11 +96,11 @@ public class FirmManager extends BaseEventableManager<Firm, FirmDAO> {
 		}
 	}
 
-	public void removeFirmActors(Firm firm, List<FirmActor> actors) throws EMagineException {
+	public void removeFirmActors(Firm firm, Collection<FirmActor> actors) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
-			List<FirmActor> actorList = firm.getFirmActors();
-			actorList.removeAll(actors);
+			Collection<FirmActor> actorCollection = firm.getFirmActors();
+			actorCollection.removeAll(actors);
 			FirmDAO dao = getDAO();
 			dao.update(firm);
 			DAOManager.commitTransaction();

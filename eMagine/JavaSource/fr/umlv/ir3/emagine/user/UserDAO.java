@@ -7,7 +7,7 @@ import fr.umlv.ir3.emagine.util.base.BaseDAO;
 
 public class UserDAO extends BaseDAO<User> {
 	
-	public List<User> getUsers(UserSearchParam userSearchParam) throws EMagineException {
+	public List<User> find(UserSearchParam userSearchParam) throws EMagineException {
 		// TODO UserDAO.getUsers()
 		return null;
 	}

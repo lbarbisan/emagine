@@ -1,5 +1,6 @@
 package fr.umlv.ir3.emagine.util.base;
 
+import java.util.Collection;
 import java.util.List;
 
 import fr.umlv.ir3.emagine.event.Event;
@@ -11,7 +12,7 @@ public abstract class BaseEventableManager <EntityType extends EventableEntity, 
 	public void addEvent(EntityType entityType, Event event) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
-			List<Event> events = entityType.getEvents();
+			Collection<Event> events = entityType.getEvents();
 			events.add(event);
 			BaseDAO<EntityType> dao = getDAO();
 			dao.update(entityType);
@@ -25,7 +26,7 @@ public abstract class BaseEventableManager <EntityType extends EventableEntity, 
 	public void removeEvent(EntityType entityType, Event event) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
-			List<Event> events = entityType.getEvents();
+			Collection<Event> events = entityType.getEvents();
 			events.remove(event);
 			BaseDAO<EntityType> dao = getDAO();
 			dao.update(entityType);
@@ -36,10 +37,10 @@ public abstract class BaseEventableManager <EntityType extends EventableEntity, 
 		}
 	}
 
-	public void removeEvent(EntityType entityType, List<Event> events) throws EMagineException {
+	public void removeEvent(EntityType entityType, Collection<Event> events) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
-			List<Event> events2 = entityType.getEvents();
+			Collection<Event> events2 = entityType.getEvents();
 			events2.removeAll(events);
 			BaseDAO<EntityType> dao = getDAO();
 			dao.update(entityType);

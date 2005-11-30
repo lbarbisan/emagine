@@ -56,7 +56,7 @@ public class TeacherTutorManager extends BaseManager<TeacherTutor, TeacherTutorD
 			TeacherTutorSearchParam teacherTutorSearchParam)
 			throws EMagineException {
 		TeacherTutorDAO dao = getDAO();
-		List<TeacherTutor> teachersTutor = dao.getTeachersTutor(teacherTutorSearchParam);
+		List<TeacherTutor> teachersTutor = dao.find(teacherTutorSearchParam);
 		return teachersTutor;
 	}
 	

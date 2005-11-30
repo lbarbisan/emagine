@@ -9,7 +9,7 @@ import fr.umlv.ir3.emagine.util.base.BaseEntity;
 
 public class EventDAO extends BaseDAO<Event> {
 
-	public List<Event> getEvents(BaseEntity entity, EventSearchParam eventSearchParam) throws EMagineException {
+	public List<Event> find(BaseEntity entity, EventSearchParam eventSearchParam) throws EMagineException {
 		String query = "";
 		return HibernateUtils.getSession().createQuery(query).list();
 	}

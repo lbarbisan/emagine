@@ -33,7 +33,7 @@ public class UserSearchAction extends SearchAction {
 
 		// Retrieve the searched users, and set them in the page 
 		try {
-			userSearchForm.setResults(manager.getUserManager().getUsers(userSearchForm));
+			userSearchForm.setResults(manager.getUserManager().find(userSearchForm));
 		} catch (EMagineException exception) {
 			addEMagineExceptionError(errors, exception);
 		}

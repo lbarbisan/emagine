@@ -1,5 +1,6 @@
 package fr.umlv.ir3.emagine.user;
 
+import java.util.Collection;
 import java.util.List;
 
 import fr.umlv.ir3.emagine.util.DAOManager;
@@ -53,7 +54,7 @@ public class UserManager extends BaseEditableManager<User, UserDAO> {
 	 * @param force Force the deletion, even if one user is connected
 	 * @throws EMagineException if one of those users doesn't exist in the database, or if one of them is connected and the force switch is false
 	 */
-	public void delete(List<User> users, boolean force) throws EMagineException {
+	public void delete(Collection<User> users, boolean force) throws EMagineException {
 		// TODO : gérer les user connectés, notamment, supprimer ceux qui sont pas connectés, et question sur les autres ? ...
 		super.delete(users);
 	}
@@ -64,8 +65,8 @@ public class UserManager extends BaseEditableManager<User, UserDAO> {
 	 * @return
 	 * @throws EMagineException if an SQLException occures
 	 */
-	public List<User> getUsers(UserSearchParam userSearchParam) throws EMagineException {
-		return getDAO().getUsers(userSearchParam);
+	public List<User> find(UserSearchParam userSearchParam) throws EMagineException {
+		return getDAO().find(userSearchParam);
 	}
 	
 	protected UserDAO getDAO() {

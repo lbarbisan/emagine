@@ -31,7 +31,7 @@ public class EngineerTutorManager extends BaseManager<EngineerTutor, EngineerTut
 
 	public List<EngineerTutor> find(EngineerTutorSearchParam engineerTutorSearchParam) throws EMagineException {
 		EngineerTutorDAO dao = getDAO();
-		return dao.getTeachersTutor(engineerTutorSearchParam);
+		return dao.find(engineerTutorSearchParam);
 	}
 	
 	public void addApprentice (Apprentice apprentice, EngineerTutor engineerTutor) throws EMagineException {
