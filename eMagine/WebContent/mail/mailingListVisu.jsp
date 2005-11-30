@@ -24,7 +24,6 @@
 				<td><html:link action="/emailDo"><img src="/eMagine/common/images/icones/mailing_small.png" title="<bean:message key="button.title.mailing"/>"/></html:link><html:link action="/mailDo"><img src="/eMagine/common/images/icones/publipostage_small.png" title="<bean:message key="button.title.email"/>"/></html:link></td>
 			</tr>
 		</table>
-		<br/>
 	</div>
 	<div id="actions">
 		<ul>

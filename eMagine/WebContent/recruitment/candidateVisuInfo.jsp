@@ -5,7 +5,7 @@
 		<p><label for="name"><bean:message key="form.name"/><font color="red">*</font> </label><input type="text" id="name" size="20" /></p>
 		<p><label for="firstName"><bean:message key="form.firstName"/><font color="red">*</font> </label><input type="text" id="firstName" size="20" /></p>
 		<p><label for="sex"><bean:message key="radio.sex"/></label><input type="radio" name="sex" value="male"><bean:message key="radio.sex.female"/><input type="radio" name="sex" value="female" checked><bean:message key="radio.sex.male"/></p>
-		<p><label for="date"><bean:message key="form.date"/><font color="red">*</font> </label><input type="text" id="date" size="20" /></p>
+		<p><label for="date"><bean:message key="form.date"/><font color="red">*</font> </label><input type="text" id="date" size="20" />&nbsp;<a href="#"><img src="/eMagine/common/images/icones/calendar.png" title="<bean:message key="button.title.calendar"/>"/></a></p>
 		<p><label for="city"><bean:message key="form.city"/></label><input type="text" id="city" size="20" /></p>
 		<p><label for="department"><bean:message key="form.department"/></label><input type="text" id="department" size="20" /></p>
 		<p><label for="country"><bean:message key="form.country"/></label><input type="text" id="country" size="20" /></p>
@@ -39,15 +39,11 @@
 				<option value="gmu">GMU</option>
 			</select>
 		</p>
-		<h2>&nbsp;</h2>
-		<p><label for="langage1"><bean:message key="form.language1"/></label><input type="text" id="langage1" size="20" /> </p>
-		<p><label for="langage2"><bean:message key="form.language2"/></label><input type="text" id="langage2" size="20" /> </p>
 		<p><label for="level"><bean:message key="form.level"/></label>
 			<input type="radio" name="level" checked/>bac 
 			<input type="radio" name="level" />+2
 			<input type="radio" name="level" />+3
 		</p>
-		<h2>&nbsp;</h2>
 		<p><label for="diploma"><bean:message key="form.lastDiploma"/></label>
 			<select name="diploma">
 				<!-- à mettre en base -->
@@ -65,7 +61,6 @@
 				<option value="GEII">Génie Electrique</option>
 			</select>
 		</p>
-		<h2>&nbsp;</h2>
 		<p><label for="center"><bean:message key="form.center"/></label>
 			<select name="center">
 				<!-- à mettre en base -->

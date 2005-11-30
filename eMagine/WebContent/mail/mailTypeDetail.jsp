@@ -32,4 +32,4 @@
 		<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" title="<bean:message key="button.title.remove"/>"/></a></li>
 	</ul>
 </div>
-<div align="right"><font color="red" size="1">Les&nbsp;champs&nbsp;marqu&eacute;s&nbsp;d'une&nbsp;*&nbsp;sont&nbsp;obligatoires</font></div>
+<div align="right"><font color="red" size="1"><bean:message key="form.msg.obligation.star"/></font></div>

@@ -1,6 +1,6 @@
-<%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
-<h2><bean:message key="mailingList.create"/></h2>
+<%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
+<h2><bean:message key="mailingList.create"/><html:link action="/candidateSearch"><img src="/eMagine/common/images/icones/retour.png" title="<bean:message key="button.title.return"/>"/></html:link></h2>
 <br/>
 <form name="results">
 	<div class="form">
@@ -10,8 +10,7 @@
 	<div id="actions">
 		<h2>&nbsp;</h2>
 		<ul>
-			<li><a href="#"><img src="/eMagine/common/images/icones/generate.png" title="<bean:message key="button.title.generate"/>"/></a></li>
-			<li><html:link action="/candidateSearch"><img src="/eMagine/common/images/icones/annuler.png" title="<bean:message key="button.title.cancel"/>"/></html:link></li>		
+			<li><a href="#"><img src="/eMagine/common/images/icones/ok.png" title="<bean:message key="button.title.mailingListCreate"/>"/></a></li>
 		</ul>
 	</div>
 </form>

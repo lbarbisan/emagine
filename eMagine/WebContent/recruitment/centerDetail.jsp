@@ -6,9 +6,15 @@
 	<div class="form">
 		<p><label for="name"><bean:message key="form.name"/><font color="red">*</font> </label><input type="text" id="name" size="20"/></p>
 		<p><label for="adress"><bean:message key="form.adress"/><font color="red">*</font> </label><input type="text" id="adress" size="20"/></p>
+		<p><label for="postalCode"><bean:message key="form.postalCode"/><font color="red">*</font> </label><input type="text" id="postalCode" size="20" /></p>
+			<p><label for="city"><bean:message key="form.city"/><font color="red">*</font> </label><input type="text" id="city" size="20" /></p>
+			<p><label for="department"><bean:message key="form.department"/><font color="red">*</font> </label><select name="department">
+					<!-- à mettre en base -->
+					<option value="93">93</option>
+					<option value="77">77</option>
+					<option value="78">78</option>
+				</select> </p>		
 		<p><label for="phone"><bean:message key="form.phone"/></label><input type="text" id="phone" size="20"/></p>	
-		<p><label for="nbRoom"><bean:message key="form.nbRoom"/></label><input type="text" id="nbRoom" size="20"/></p>
-		<p><label for="nbPlace"><bean:message key="form.nbPlace"/><font color="red">*</font>&nbsp;</label><input type="text" id="nbPlace" size="20"/></p>
 	</div>
 	<br/>
 	<div align=center>
@@ -16,7 +22,7 @@
 			<tr>
 				<th>&nbsp;</th>
 				<th><bean:message key="table.header.name"/></th>
-				<th><bean:message key="table.header.nbPlace"/></th>
+				<th><bean:message key="table.header.capacity"/></th>
 				<th><bean:message key="table.header.nbAvailable"/></th>
 			</tr>
 			<tr>
@@ -32,7 +38,6 @@
 				<td>12</td>
 			</tr>
 		</table>
-		<br/>
 	</div>
 	<div id="actions">
 		<ul>

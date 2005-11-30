@@ -10,7 +10,7 @@
 			<option value="gmu">GMU</option>
 		</select>
 	</p>
-	<p><label for="nbAsked"><bean:message key="form.numberAsked"/><font color="red">*</font>&nbsp;</label><input type="text" id="firstName" size="20" /></p>
+	<p><label for="nbPost"><bean:message key="form.nbPost"/><font color="red">*</font>&nbsp;</label><input type="text" id="nbPost" size="20" /></p>
 </div>
 <div id="actions">
 	<h2>&nbsp;</h2>
