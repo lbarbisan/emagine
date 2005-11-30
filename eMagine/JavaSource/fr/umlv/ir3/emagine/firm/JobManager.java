@@ -8,7 +8,8 @@ public class JobManager extends BaseEditableManager<Job, JobDAO> {
 
 	@Override
 	protected JobDAO getDAO() {
-		return DAOManager.getInstance().getJobDAO();
+		DAOManager instance = DAOManager.getInstance();
+		return instance.getJobDAO();
 	}
 
 	@Override

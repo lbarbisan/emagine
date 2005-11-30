@@ -6,6 +6,7 @@ package fr.umlv.ir3.emagine.util.base;
 import java.util.Collection;
 
 import org.hibernate.HibernateException;
+import org.hibernate.Session;
 
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.HibernateUtils;
@@ -31,7 +32,8 @@ public class BaseDAO<EntityType extends BaseEntity> {
 	 */
     public void create(EntityType object) throws EMagineException {
     	try {
-    		HibernateUtils.getSession().save(object);
+    		Session session = HibernateUtils.getSession();
+			session.save(object);
     	} catch (HibernateException exception) {
     		throw new EMagineException("exception.baseDAO.create", exception);
     	}
@@ -44,7 +46,8 @@ public class BaseDAO<EntityType extends BaseEntity> {
      */
 	public void update(EntityType newEntity) throws EMagineException {
     	try {
-    		HibernateUtils.getSession().update(newEntity);
+    		Session session = HibernateUtils.getSession();
+			session.update(newEntity);
     	} catch (HibernateException exception) {
     		throw new EMagineException("exception.baseDAO.update", exception);
     	}
@@ -58,7 +61,8 @@ public class BaseDAO<EntityType extends BaseEntity> {
      */
     public EntityType retrieve(Class<? extends EntityType> klass, long id) throws EMagineException {
     	try {
-    		return (EntityType) HibernateUtils.getSession().load(klass, id);
+    		Session session = HibernateUtils.getSession();
+			return (EntityType) session.load(klass, id);
     	} catch (HibernateException exception) {
     		throw new EMagineException("exception.baseDAO.update", exception);
     	}
@@ -71,7 +75,8 @@ public class BaseDAO<EntityType extends BaseEntity> {
      */
     public void delete(EntityType object) throws EMagineException {
     	try {
-	    	HibernateUtils.getSession().delete(object);
+	    	Session session = HibernateUtils.getSession();
+			session.delete(object);
 		} catch (HibernateException exception) {
 			throw new EMagineException("exception.baseDAO.delete", exception);
 		}
@@ -84,7 +89,8 @@ public class BaseDAO<EntityType extends BaseEntity> {
      */
     public void delete(Collection<EntityType> objects) throws EMagineException {
     	try {
-	    	HibernateUtils.getSession().delete(objects);
+	    	Session session = HibernateUtils.getSession();
+			session.delete(objects);
 		} catch (HibernateException exception) {
 			throw new EMagineException("exception.baseDAO.delete", exception);
 		}

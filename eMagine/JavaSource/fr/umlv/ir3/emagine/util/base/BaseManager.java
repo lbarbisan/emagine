@@ -14,7 +14,8 @@ public abstract class BaseManager<EntityType extends BaseEntity, EntityDAO exten
 	public void create(EntityType entity) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
-			getDAO().create(entity);
+			EntityDAO dao = getDAO();
+			dao.create(entity);
 			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {
 			DAOManager.rollBackTransaction();
@@ -39,7 +40,8 @@ public abstract class BaseManager<EntityType extends BaseEntity, EntityDAO exten
 	public void update(EntityType newEntity) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
-			getDAO().update(newEntity);
+			EntityDAO dao = getDAO();
+			dao.update(newEntity);
 			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {
 			DAOManager.rollBackTransaction();
@@ -55,7 +57,8 @@ public abstract class BaseManager<EntityType extends BaseEntity, EntityDAO exten
 	public void delete(EntityType entity) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
-			getDAO().delete(entity);
+			EntityDAO dao = getDAO();
+			dao.delete(entity);
 			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {
 			DAOManager.rollBackTransaction();
@@ -71,7 +74,8 @@ public abstract class BaseManager<EntityType extends BaseEntity, EntityDAO exten
 	public void delete(Collection<EntityType> entities) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
-			getDAO().delete(entities);
+			EntityDAO dao = getDAO();
+			dao.delete(entities);
 			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {
 			DAOManager.rollBackTransaction();

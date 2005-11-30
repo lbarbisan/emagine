@@ -11,8 +11,10 @@ public abstract class BaseEventableManager <EntityType extends EventableEntity, 
 	public void addEvent(EntityType entityType, Event event) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
-			entityType.getEvents().add(event);
-			getDAO().update(entityType);
+			List<Event> events = entityType.getEvents();
+			events.add(event);
+			BaseDAO<EntityType> dao = getDAO();
+			dao.update(entityType);
 			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {
 			DAOManager.rollBackTransaction();
@@ -23,8 +25,10 @@ public abstract class BaseEventableManager <EntityType extends EventableEntity, 
 	public void removeEvent(EntityType entityType, Event event) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
-			entityType.getEvents().remove(event);
-			getDAO().update(entityType);
+			List<Event> events = entityType.getEvents();
+			events.remove(event);
+			BaseDAO<EntityType> dao = getDAO();
+			dao.update(entityType);
 			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {
 			DAOManager.rollBackTransaction();
@@ -35,8 +39,10 @@ public abstract class BaseEventableManager <EntityType extends EventableEntity, 
 	public void removeEvent(EntityType entityType, List<Event> events) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
-			entityType.getEvents().removeAll(events);
-			getDAO().update(entityType);
+			List<Event> events2 = entityType.getEvents();
+			events2.removeAll(events);
+			BaseDAO<EntityType> dao = getDAO();
+			dao.update(entityType);
 			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {
 			DAOManager.rollBackTransaction();

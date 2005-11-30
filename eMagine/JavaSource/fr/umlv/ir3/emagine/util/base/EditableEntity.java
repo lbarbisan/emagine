@@ -59,7 +59,8 @@ public class EditableEntity extends BaseEntity implements Serializable {
 	public void addModification(EditableEntity baseEntity) {
 		Modification modification = new Modification();
 		for (FieldModification field : baseEntity.getFields()) {
-			if(field.getPropertyValue().equals(this.getField(field.getPropertyName()))) {
+			Object propertyValue = field.getPropertyValue();
+			if(propertyValue.equals(this.getField(field.getPropertyName()))) {
 				modification.addFieldModification(field);
 				this.modifications.add(modification);
 			}

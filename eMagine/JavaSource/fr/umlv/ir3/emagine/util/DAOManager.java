@@ -6,6 +6,7 @@ import fr.umlv.ir3.emagine.apprentice.candidate.CandidateDAO;
 import fr.umlv.ir3.emagine.event.EventDAO;
 import fr.umlv.ir3.emagine.firm.FirmDAO;
 import fr.umlv.ir3.emagine.firm.JobDAO;
+import fr.umlv.ir3.emagine.firm.actor.EngineerTutorDAO;
 import fr.umlv.ir3.emagine.firm.actor.FirmActorDAO;
 import fr.umlv.ir3.emagine.modification.ModificationDAO;
 import fr.umlv.ir3.emagine.statistic.StatisticDAO;
@@ -20,6 +21,7 @@ public class DAOManager {
 	private ProfileDAO profileDAO = new ProfileDAO();
 	private ModificationDAO modificationDAO = new ModificationDAO();
 	private TeacherTutorDAO teacherTutorDAO = new TeacherTutorDAO();
+	private EngineerTutorDAO engineerTutorDAO = new EngineerTutorDAO();
 	private ApprenticeDAO apprenticeDAO = new ApprenticeDAO();
 	private FirmDAO firmDAO = new FirmDAO();
 	private FirmActorDAO firmActorDAO = new FirmActorDAO();
@@ -40,6 +42,9 @@ public class DAOManager {
 	}
 	public TeacherTutorDAO getTeacherTutorDAO() {
 		return teacherTutorDAO;
+	}
+	public EngineerTutorDAO getEngineerTutorDAO() {
+		return engineerTutorDAO;
 	}
 	public ApprenticeDAO getApprenticeDAO() {
 		return apprenticeDAO;

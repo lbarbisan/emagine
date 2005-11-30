@@ -52,7 +52,7 @@ public class TeacherTutorManager extends BaseManager<TeacherTutor, TeacherTutorD
 	 * @return list of tutor corresponding to the criteria
 	 * @throws EMagineException if criteria are incorrect, or if query in database failed
 	 */
-	public List<TeacherTutor> getTeachersTutor(
+	public List<TeacherTutor> find(
 			TeacherTutorSearchParam teacherTutorSearchParam)
 			throws EMagineException {
 		return getDAO().getTeachersTutor(teacherTutorSearchParam);
@@ -64,12 +64,12 @@ public class TeacherTutorManager extends BaseManager<TeacherTutor, TeacherTutorD
 	 * @param teacherTutor teacher to add apprentice
 	 * @throws EMagineException if apprentice already exist
 	 */
-	public void addApprenticeToTeachersTutor(Apprentice apprentice , TeacherTutor teacherTutor) throws EMagineException
-	{
+	public void addApprentice(Apprentice apprentice , TeacherTutor teacherTutor) throws EMagineException {
 		//FIXME: Si l'étudiant existe déjà ?
 		//FIXME: Est-ce necessaire d'affecter à l'étudiant , puis d'affecter au tuteur?
 		apprentice.setTeacherTutor(teacherTutor);
 		teacherTutor.getApprentice().add(apprentice);
+		update(teacherTutor);
 	}
 
 	@Override

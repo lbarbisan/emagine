@@ -8,7 +8,8 @@ public class FirmActorManager extends BaseEventableManager<FirmActor, FirmActorD
 
 	@Override
 	protected FirmActorDAO getDAO() {
-		return DAOManager.getInstance().getFirmActorDAO();
+		DAOManager instance = DAOManager.getInstance();
+		return instance.getFirmActorDAO();
 	}
 
 	@Override

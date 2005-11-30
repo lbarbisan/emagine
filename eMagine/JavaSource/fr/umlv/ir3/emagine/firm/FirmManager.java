@@ -10,7 +10,8 @@ import fr.umlv.ir3.emagine.util.base.BaseEventableManager;
 public class FirmManager extends BaseEventableManager<Firm, FirmDAO> {
 
 	public List<Firm> find(FirmSearchParam entrepriseSearchParam) throws EMagineException {
-		return getDAO().find(entrepriseSearchParam);
+		FirmDAO dao = getDAO();
+		return dao.find(entrepriseSearchParam);
 	}
 
 	@Override
@@ -27,8 +28,10 @@ public class FirmManager extends BaseEventableManager<Firm, FirmDAO> {
 	public void addJob(Firm firm, Job job) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
-			firm.getJobs().add(job);
-			getDAO().update(firm);
+			List<Job> jobs = firm.getJobs();
+			jobs.add(job);
+			FirmDAO dao = getDAO();
+			dao.update(firm);
 			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {
 			DAOManager.rollBackTransaction();
@@ -39,8 +42,10 @@ public class FirmManager extends BaseEventableManager<Firm, FirmDAO> {
 	public void removeJob(Firm firm, Job job) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
-			firm.getEvents().remove(job);
-			getDAO().update(firm);
+			List<Event> events = firm.getEvents();
+			events.remove(job);
+			FirmDAO dao = getDAO();
+			dao.update(firm);
 			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {
 			DAOManager.rollBackTransaction();
@@ -51,8 +56,10 @@ public class FirmManager extends BaseEventableManager<Firm, FirmDAO> {
 	public void removeJob(Firm firm, List<Job> jobs) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
-			firm.getEvents().removeAll(jobs);
-			getDAO().update(firm);
+			List<Event> events = firm.getEvents();
+			events.removeAll(jobs);
+			FirmDAO dao = getDAO();
+			dao.update(firm);
 			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {
 			DAOManager.rollBackTransaction();
