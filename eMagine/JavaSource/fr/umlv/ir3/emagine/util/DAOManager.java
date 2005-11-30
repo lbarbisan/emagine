@@ -6,6 +6,7 @@ import fr.umlv.ir3.emagine.apprentice.candidate.CandidateDAO;
 import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenterDAO;
 import fr.umlv.ir3.emagine.apprentice.candidate.room.RoomDAO;
 import fr.umlv.ir3.emagine.event.EventDAO;
+import fr.umlv.ir3.emagine.extraction.ExtractionDAO;
 import fr.umlv.ir3.emagine.firm.FirmDAO;
 import fr.umlv.ir3.emagine.firm.JobDAO;
 import fr.umlv.ir3.emagine.firm.actor.EngineerTutorDAO;
@@ -32,8 +33,10 @@ public class DAOManager {
 	private StatisticDAO statisticDAO = new StatisticDAO();
 	private AbsenceDAO absenceDAO = new AbsenceDAO();
 	private CandidateDAO candidateDAO = new CandidateDAO();
+	private ExtractionDAO extractionDAO = new ExtractionDAO();
 	private FormationCenterDAO formationCenterDAO = new FormationCenterDAO();
 	private RoomDAO roomDAO = new RoomDAO();
+
 	
 	public ModificationDAO getModificationDAO() {
 		return modificationDAO;
@@ -74,16 +77,15 @@ public class DAOManager {
 	public CandidateDAO getCandidateDAO() {
 		return candidateDAO;
 	}
+	public ExtractionDAO getExtractionDAO() {
+		return extractionDAO;
+	}
 	public FormationCenterDAO getFormationCenterDAO() {
 		return formationCenterDAO;
 	}
 	public RoomDAO getRoomDAO() {
 		return roomDAO;
 	}
-	
-	
-	
-	
 	public static DAOManager getInstance() {
 		if (instance == null) {
 			instance = new DAOManager();
