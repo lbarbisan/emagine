@@ -8,9 +8,9 @@ import fr.umlv.ir3.emagine.util.base.BaseEditableManager;
 
 public class StatisticManager extends BaseEditableManager<Statistic, StatisticDAO> {
 
-	public List<Statistic> find() throws EMagineException {
+	public List<Statistic> findAll() throws EMagineException {
 		StatisticDAO dao = getDAO();
-		return dao.find();
+		return dao.findAll();
 	}
 	
 	protected StatisticDAO getDAO() {
