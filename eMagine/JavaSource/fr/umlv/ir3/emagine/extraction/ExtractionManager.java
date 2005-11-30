@@ -11,6 +11,8 @@ public class ExtractionManager {
 		// TODO : gérer la sauvegarde de la configuration actuelle
 		extractor.extract(extractionParam, outputStream);
 	}
-
+	
+	//TODO : Use case « Configurer l'extraction d'une liste »	
+	//TODO : Use case « Extraire une liste »
 
 }

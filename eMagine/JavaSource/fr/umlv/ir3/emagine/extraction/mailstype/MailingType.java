@@ -7,10 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
 import fr.umlv.ir3.emagine.extraction.mailings.Attachment;
-import fr.umlv.ir3.emagine.util.base.BaseEntity;
+import fr.umlv.ir3.emagine.util.base.EditableEntity;
 
 @Entity(access = AccessType.FIELD)
-public class MailingType extends BaseEntity {
+public class MailingType extends EditableEntity {
 
 	private static final long serialVersionUID = 5127008085508457457L;
 	@OneToMany

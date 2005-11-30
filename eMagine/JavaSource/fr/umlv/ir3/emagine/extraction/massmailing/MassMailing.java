@@ -11,13 +11,14 @@ import javax.persistence.OneToMany;
 
 import fr.umlv.ir3.emagine.extraction.mailings.Attachment;
 import fr.umlv.ir3.emagine.util.base.BaseEntity;
+import fr.umlv.ir3.emagine.util.base.EditableEntity;
 
 /**
  * @author Laurent
  *
  */
 @Entity(access = AccessType.FIELD)
-public class MassMailing extends BaseEntity {
+public class MassMailing extends EditableEntity {
 
 	private static final long serialVersionUID = -4215239764444751264L;
 	@OneToMany

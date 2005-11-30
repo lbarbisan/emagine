@@ -10,7 +10,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
-import fr.umlv.ir3.emagine.util.base.BaseEntity;
+import fr.umlv.ir3.emagine.util.base.EditableEntity;
 import fr.umlv.ir3.emagine.util.person.Person;
 
 /**
@@ -18,7 +18,7 @@ import fr.umlv.ir3.emagine.util.person.Person;
  * @Persistance Terminé
  */
 @Entity(access = AccessType.FIELD)
-public class MailingList<ObjectType extends Person> extends BaseEntity{
+public class MailingList<ObjectType extends Person> extends EditableEntity{
 
 	private static final long serialVersionUID = 7296169511769454784L;
 	

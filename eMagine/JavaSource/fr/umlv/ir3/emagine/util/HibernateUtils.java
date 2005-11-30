@@ -109,6 +109,7 @@ public class HibernateUtils {
     public static Object getPropertyValue(String  name, BaseEntity entity)
     {
     	ClassMetadata classMetadata = sessionFactory.getClassMetadata(entity.getClass());
+
     	return classMetadata.getPropertyValue(entity, name, EntityMode.POJO);
     }
     
