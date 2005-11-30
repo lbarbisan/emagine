@@ -60,7 +60,8 @@ public class HibernateUtils {
         {
             if(tx==null)
             {
-                tx = getSession().beginTransaction();
+                Session session = getSession();
+				tx = session.beginTransaction();
                 threadTransaction.set(tx);
             }
         }

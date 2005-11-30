@@ -40,7 +40,7 @@ public abstract class BaseManager<EntityType extends BaseEntity, EntityDAO exten
 	public void update(EntityType newEntity) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
-			EntityDAO dao = getDAO();
+			EntityDAO dao =  getDAO();
 			dao.update(newEntity);
 			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {
