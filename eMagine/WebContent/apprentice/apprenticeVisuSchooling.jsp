@@ -15,13 +15,17 @@
 <!-- Un formulaire de modification -->
 <div class="form">
 		<br/>
-		<p><label for="langage1"><bean:message key="form.language1"/></label><input type="text" id="langage1" size="20" /> </p>
-		<p><label for="langage2"><bean:message key="form.language2"/></label><input type="text" id="langage2" size="20" /> </p>
 		<p><label for="level"><bean:message key="form.level"/></label>
 			<input type="radio" name="level" checked/>bac 
 			<input type="radio" name="level" />+2
 			<input type="radio" name="level" />+3
 		</p>
+		<br/>
+		<fieldset>
+			<legend><bean:message key="form.fieldset.marksExam"/></legend>
+				<p><label for="language1"><bean:message key="form.language1"/></label><input type="text" id="language1" size="20" /> </p>
+				<p><label for="language2"><bean:message key="form.language2"/></label><input type="text" id="language2" size="20" /> </p>
+		</fieldset>
 		<br/>
 		<fieldset>
 			<legend><bean:message key="form.fieldset.marksExam"/></legend>
