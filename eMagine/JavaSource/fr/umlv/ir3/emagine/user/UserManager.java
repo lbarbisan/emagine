@@ -1,13 +1,16 @@
 package fr.umlv.ir3.emagine.user;
 
-import java.util.Collection;
 import java.util.List;
 
 import fr.umlv.ir3.emagine.extraction.ExtractionParam;
+import fr.umlv.ir3.emagine.user.login.SessionManager;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.Extractable;
+import fr.umlv.ir3.emagine.util.MailManager;
 import fr.umlv.ir3.emagine.util.base.BaseEditableManager;
+
+
 
 public class UserManager extends BaseEditableManager<User, UserDAO> {
 
@@ -17,17 +20,14 @@ public class UserManager extends BaseEditableManager<User, UserDAO> {
 	 * @throws EMagineException if the login already exists, or if there is an SQL exception
 	 */
 	public void create(User user) throws EMagineException {
-		// Create the new User
-		// TODO : createUser : vérif login unique
-		
 		DAOManager.beginTransaction();
 		try {
 			getDAO().create(user);
-			// TODO : createUser : Mail
+			MailManager.sendMail(user.getEmail(), "Titre création", "Corps création", null);	// FIXME : charger la phrase du titre du mail depuis les properties
 			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {
 			DAOManager.rollBackTransaction();
-			throw exception;
+			throw exception;	// FIXME : Mapper sur la bonne erreur : en cas de double login, mettre un titre correct
 		}
 	}
 
@@ -39,26 +39,37 @@ public class UserManager extends BaseEditableManager<User, UserDAO> {
 	public void update(User user) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
-			// TODO : modifyUser : vérif droits. si pas droits de modif, enregistrer patch + envoyer event
-			// TODO : modifyUser : vérif login unique
 			getDAO().update(user);
-			// TODO : modifyUser : Mail
+			MailManager.sendMail(user.getEmail(), "Titre modification", "Corps modification", null);	// FIXME : charger la phrase du titre du mail depuis les properties
+			DAOManager.commitTransaction();
+		} catch (EMagineException exception) {
+			DAOManager.rollBackTransaction();
+			throw exception;	// FIXME : Mapper sur la bonne erreur : en cas de double login, mettre un titre correct
+		}
+	}
+
+	/**
+	 * Delete a user. If the user is connected and the force switch is set to <code>true</code>, the user's session is killed, and then the user is deleted.
+	 * @param users The list of users to be deleted
+	 * @param force Force the deletion, even if the user is connected
+	 * @throws EMagineException if the user doesn't exist in the database, or if he or she is connected and the force switch is <code>false</code>
+	 */
+	public void delete(User user, boolean force) throws EMagineException {
+		DAOManager.beginTransaction();
+		try {
+			if (SessionManager.isUserConnected(user)) {
+				if (force) {
+					SessionManager.killUserSession(user);
+				} else {
+					throw new EMagineException("exception.userManager.delete.userConnected");
+				}
+			}
+			getDAO().delete(user);
 			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {
 			DAOManager.rollBackTransaction();
 			throw exception;
 		}
-	}
-
-	/**
-	 * Delete a list of users.
-	 * @param users The list of users to be deleted
-	 * @param force Force the deletion, even if one user is connected
-	 * @throws EMagineException if one of those users doesn't exist in the database, or if one of them is connected and the force switch is false
-	 */
-	public void delete(Collection<User> users, boolean force) throws EMagineException {
-		// TODO : gérer les user connectés, notamment, supprimer ceux qui sont pas connectés, et question sur les autres ? ...
-		super.delete(users);
 	}
 
 	/**
@@ -69,6 +80,15 @@ public class UserManager extends BaseEditableManager<User, UserDAO> {
 	 */
 	public List<User> find(UserSearchParam userSearchParam) throws EMagineException {
 		return getDAO().find(userSearchParam);
+	}
+	
+	/**
+	 * Lists all users.
+	 * @return
+	 */
+	public List<User> findAll()
+	{
+		return getDAO().findAll();
 	}
 	
 	protected UserDAO getDAO() {

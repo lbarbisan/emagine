@@ -6,7 +6,7 @@ import fr.umlv.ir3.emagine.extraction.mailings.Attachment;
 
 public class MailManager {
 
-	public static void  sendMail(String To,String object, Collection<Attachment> attachments) throws EMagineException
+	public static void  sendMail(String to, String object, String body, Collection<Attachment> attachments) throws EMagineException
 	{
 		
 	}

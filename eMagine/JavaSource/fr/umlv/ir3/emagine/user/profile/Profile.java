@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 
+import fr.umlv.ir3.emagine.user.User;
 import fr.umlv.ir3.emagine.util.base.BaseEntity;
 
 @Entity(access = AccessType.FIELD)
@@ -24,6 +25,9 @@ public class Profile extends BaseEntity{
 	@OneToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
 	@OrderBy("name")
 	private List<Right> rights;
+	@OneToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE},
+			mappedBy = "profile")
+	private List<User> users;
 	private String description;
 	
 	protected Profile(){}
@@ -58,6 +62,17 @@ public class Profile extends BaseEntity{
 	public void setRights(List<Right> rights) {
 		this.rights = rights;
 	}
+
+
+	public List<User> getUsers() {
+		return users;
+	}
+
+
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
+	
 	
 	
 }

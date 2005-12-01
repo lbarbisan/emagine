@@ -11,4 +11,13 @@ public class UserDAO extends BaseDAO<User> {
 		// TODO UserDAO.getUsers()
 		return null;
 	}
+	
+	/**
+	 * Lists all users.
+	 * @return
+	 */
+	public List<User> findAll() {
+		// TODO UserDAO.findAll()
+		return null;
+	}
 }

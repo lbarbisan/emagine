@@ -30,9 +30,15 @@ public class UserSearchForm extends SelectSearchForm<User> implements UserSearch
 	
 	private boolean deletionForced;
 	
-
+	private User selectedUser;
 	
 	
+	public User getSelectedUser() {
+		return selectedUser;
+	}
+	public void setSelectedUser(User selectedUser) {
+		this.selectedUser = selectedUser;
+	}
 	public String getFirstName() {
 		return firstName;
 	}

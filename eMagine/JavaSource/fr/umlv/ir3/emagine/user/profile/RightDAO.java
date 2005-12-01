@@ -5,10 +5,10 @@ import java.util.Collection;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.base.BaseDAO;
 
-public class ProfileDAO extends BaseDAO<Profile> {
+public class RightDAO extends BaseDAO<Right> {
 
-	public Collection<Profile> findAll() throws EMagineException {
-		// TODO HibernateProfileDAO.getProfiles()
+	public Collection<Right> findAll() throws EMagineException {
+		// TODO RightDAO.findAll()
 		return null;
 	}
 }

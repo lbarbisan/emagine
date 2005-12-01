@@ -10,6 +10,8 @@ public interface UserSearchParam extends SearchParam {
 	public String getFirstName();
 	@RequestParam("user.lastName")
 	public String getLastName();
+	@RequestParam("user.login")
 	public String getLogin();
+	@RequestParam("user.profile.id")
 	public Profile getProfile();
 }

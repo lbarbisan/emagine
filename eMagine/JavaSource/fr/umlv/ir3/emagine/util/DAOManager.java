@@ -16,6 +16,7 @@ import fr.umlv.ir3.emagine.statistic.StatisticDAO;
 import fr.umlv.ir3.emagine.teachertutor.TeacherTutorDAO;
 import fr.umlv.ir3.emagine.user.UserDAO;
 import fr.umlv.ir3.emagine.user.profile.ProfileDAO;
+import fr.umlv.ir3.emagine.user.profile.RightDAO;
 
 public class DAOManager {
 	private static DAOManager instance;
@@ -36,8 +37,12 @@ public class DAOManager {
 	private ExtractionDAO extractionDAO = new ExtractionDAO();
 	private FormationCenterDAO formationCenterDAO = new FormationCenterDAO();
 	private RoomDAO roomDAO = new RoomDAO();
-
+	private RightDAO rightDAO = new RightDAO();
 	
+	
+	public RightDAO getRightDAO() {
+		return rightDAO;
+	}
 	public ModificationDAO getModificationDAO() {
 		return modificationDAO;
 	}

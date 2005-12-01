@@ -38,8 +38,8 @@ public class MailingListManager extends BaseEditableManager<MailingList, Mailing
 	{
 		MailingListDAO mailingListDAO = getDAO();
 		DAOManager.beginTransaction();
-		mailingList.getPersons().add(person);
 		try {
+			mailingList.getPersons().add(person);
 			mailingListDAO.update(mailingList);
 			DAOManager.commitTransaction();
 		} catch (EMagineException e) {
@@ -52,8 +52,8 @@ public class MailingListManager extends BaseEditableManager<MailingList, Mailing
 	{
 		MailingListDAO mailingListDAO = getDAO();
 		DAOManager.beginTransaction();
-		mailingList.getPersons().add(persons);
 		try {
+			mailingList.getPersons().add(persons);
 			mailingListDAO.update(mailingList);
 			DAOManager.commitTransaction();
 		} catch (EMagineException e) {
@@ -66,8 +66,8 @@ public class MailingListManager extends BaseEditableManager<MailingList, Mailing
 	{
 		MailingListDAO mailingListDAO = getDAO();
 		DAOManager.beginTransaction();
-		mailingList.getPersons().remove(person);
 		try {
+			mailingList.getPersons().remove(person);
 			mailingListDAO.update(mailingList);
 			DAOManager.commitTransaction();
 		} catch (EMagineException e) {
@@ -80,8 +80,8 @@ public class MailingListManager extends BaseEditableManager<MailingList, Mailing
 	{
 		MailingListDAO mailingListDAO = getDAO();
 		DAOManager.beginTransaction();
-		mailingList.getPersons().remove(persons);
 		try {
+			mailingList.getPersons().remove(persons);
 			mailingListDAO.update(mailingList);
 			DAOManager.commitTransaction();
 		} catch (EMagineException e) {
@@ -98,7 +98,7 @@ public class MailingListManager extends BaseEditableManager<MailingList, Mailing
 
 	
 	//TODO : Use case « Générer mailing »
-	public void generateMailing(MailingList<? extends Person> mailingList, String object, Collection<Attachment> attachments)
+	public void generateMailing(MailingList<? extends Person> mailingList, String object, String body, Collection<Attachment> attachments)
 	{
 		String to = "";
 		for(Person user : mailingList.getPersons() )
@@ -106,7 +106,7 @@ public class MailingListManager extends BaseEditableManager<MailingList, Mailing
 			to = user.getEmail() + ";";
 		}
 		try {
-			MailManager.sendMail(to, object, attachments);
+			MailManager.sendMail(to, object, body, attachments);
 		} catch (EMagineException e) {
 			// TODO EMagineException.e Not Implemented
 			e.printStackTrace();
