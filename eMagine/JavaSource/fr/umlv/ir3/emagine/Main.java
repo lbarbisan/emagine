@@ -3,7 +3,9 @@ package fr.umlv.ir3.emagine;
 import java.io.FileNotFoundException;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
+import java.util.Iterator;
 
+import fr.umlv.ir3.emagine.apprentice.CountryEnum;
 import fr.umlv.ir3.emagine.user.UserSearchForm;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.RequestParam;
@@ -17,11 +19,15 @@ public class Main {
 	 */
 	public static void main(String[] args) throws FileNotFoundException, EMagineException {
 
+		for (Object string : CountryEnum.values()) {
+			System.out.println(string);
+		}
+		CountryEnum.valueOf("FR");
 		/*
 		DAOManager.beginTransaction();
 		
 		UserDAO userDAO = DAOManager.getInstance().getUserDAO();
-		
+		Countr
 //		User user = new User();
 //		user.setEmail("email@fr");
 //		user.setFirstName("Laurent");

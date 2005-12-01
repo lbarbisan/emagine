@@ -17,6 +17,16 @@ public class FirmManager extends BaseEventableManager<Firm, FirmDAO> {
 		FirmDAO dao = getDAO();
 		return dao.find(entrepriseSearchParam);
 	}
+	
+	/**
+	 * Lists the firms which want one or more Apprentice of the given courseOption. The list is ordered and tries to put the most asking firms on top.
+	 * @param rapprochementSearchParam
+	 * @return
+	 */
+	public List<Firm> find(RapprochementSearchParam rapprochementSearchParam) {
+		FirmDAO dao = getDAO();
+		return dao.find(rapprochementSearchParam);
+	}
 
 	@Override
 	public void update(Firm firm) throws EMagineException {

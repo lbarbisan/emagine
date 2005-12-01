@@ -60,7 +60,7 @@ public class Absence extends EditableEntity {
 		this.justificationComment = justificationComment;
 	}
 	public int getNumberOfWorkedDays() {
-		return numberOfWorkedDays;
+		return numberOfWorkedDays;	// TODO : calculer en live le nombre de jour travaillés
 	}
 	public Date getStartDate() {
 		return startDate;
