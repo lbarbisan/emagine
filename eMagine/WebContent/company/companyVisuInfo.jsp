@@ -11,7 +11,7 @@
 				<option value="1">bahla</option>
 				<option value="2">jvoipa</option>
 			</select>
-			<html:link action="/companyVisuInfo"><img src="/eMagine/common/images/icones/visualiser.png" title="<bean:message key="button.title.visualize"/>"/></html:link>
+			<html:link action="/companyVisuInfo"><img src="/eMagine/common/images/icones/visualiser_small.png" title="<bean:message key="button.title.visualize"/>"/></html:link>
 		</p>
 	</fieldset>
 	<br/>
