@@ -3,7 +3,6 @@ package fr.umlv.ir3.emagine.teachertutor;
 import java.util.List;
 
 import javax.persistence.AccessType;
-import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
