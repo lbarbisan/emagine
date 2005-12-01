@@ -2,7 +2,6 @@ package fr.umlv.ir3.emagine.extraction;
 
 import java.util.List;
 
-import fr.umlv.ir3.emagine.user.User;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.base.BaseManager;
@@ -19,6 +18,7 @@ public class ExtractionManager extends BaseManager<Extraction, ExtractionDAO> {
 		ExtractionDAO extractionDAO = getDAO(); 
 		try {
 			Extraction extraction = extractionDAO.find(extractionParam);
+			return extraction.getColumns();
 		} catch (EMagineException e) {
 			// TODO EMagineException.e Not Implemented
 			e.printStackTrace();

@@ -3,8 +3,10 @@ package fr.umlv.ir3.emagine.extraction.mailings;
 import java.util.Collection;
 import java.util.List;
 
+import fr.umlv.ir3.emagine.extraction.ExtractionParam;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
+import fr.umlv.ir3.emagine.util.Extractable;
 import fr.umlv.ir3.emagine.util.MailManager;
 import fr.umlv.ir3.emagine.util.ManagerManager;
 import fr.umlv.ir3.emagine.util.base.BaseEditableManager;
@@ -109,6 +111,12 @@ public class MailingListManager extends BaseEditableManager<MailingList, Mailing
 			// TODO EMagineException.e Not Implemented
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public Extractable extract(ExtractionParam extractionParam) {
+		// TODO MailingListManager.extract()
+		return null;
 	}
 
 

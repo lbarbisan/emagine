@@ -3,8 +3,10 @@ package fr.umlv.ir3.emagine.teachertutor;
 import java.util.List;
 
 import fr.umlv.ir3.emagine.apprentice.Apprentice;
+import fr.umlv.ir3.emagine.extraction.ExtractionParam;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
+import fr.umlv.ir3.emagine.util.Extractable;
 import fr.umlv.ir3.emagine.util.base.BaseManager;
 
 public class TeacherTutorManager extends BaseManager<TeacherTutor, TeacherTutorDAO>{
@@ -50,4 +52,13 @@ public class TeacherTutorManager extends BaseManager<TeacherTutor, TeacherTutorD
 		TeacherTutorDAO dao = getDAO();
 		return dao.retrieve(TeacherTutor.class, id);
 	}
+	
+	/**
+	 * Extracts the selected list, with selected columns (fields) into the selected file format
+	 */
+	public Extractable extract(ExtractionParam extractionParam) throws Exception {
+		Extractable extractable;
+		TeacherTutorDAO dao = getDAO();
+		return dao.extract(extractionParam);
+	}	
 }

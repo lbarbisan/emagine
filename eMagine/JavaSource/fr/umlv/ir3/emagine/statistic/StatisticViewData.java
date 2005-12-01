@@ -17,7 +17,11 @@ import fr.umlv.ir3.emagine.util.Extractable;
  */
 public class StatisticViewData implements DatasetProducer, Serializable {
 
-    private final Extractable datas;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -7528697318845329647L;
+	private final Extractable datas;
     
 
     public StatisticViewData(Extractable datas) {

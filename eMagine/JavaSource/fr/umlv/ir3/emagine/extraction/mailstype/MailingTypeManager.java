@@ -1,6 +1,8 @@
 package fr.umlv.ir3.emagine.extraction.mailstype;
 
+import fr.umlv.ir3.emagine.extraction.ExtractionParam;
 import fr.umlv.ir3.emagine.util.EMagineException;
+import fr.umlv.ir3.emagine.util.Extractable;
 import fr.umlv.ir3.emagine.util.ManagerManager;
 import fr.umlv.ir3.emagine.util.base.BaseEditableManager;
 
@@ -22,4 +24,10 @@ public class MailingTypeManager extends BaseEditableManager<MailingType, Mailing
 	//TODO : Use case « Supprimer une mailingType »
 	//TODO : Use case « Ajouter une mailingType »
 	//TODO : Use case « Update une mailingType »
+
+	@Override
+	public Extractable extract(ExtractionParam extractionParam) {
+		// TODO MailingTypeManager.extract()
+		return null;
+	}
 }

@@ -2,8 +2,10 @@ package fr.umlv.ir3.emagine.apprentice.absence;
 
 import java.util.List;
 
+import fr.umlv.ir3.emagine.extraction.ExtractionParam;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
+import fr.umlv.ir3.emagine.util.Extractable;
 import fr.umlv.ir3.emagine.util.base.BaseEditableManager;
 
 public class AbsenceManager extends BaseEditableManager<Absence, AbsenceDAO> {
@@ -26,5 +28,11 @@ public class AbsenceManager extends BaseEditableManager<Absence, AbsenceDAO> {
 	@Override
 	public Absence retrieve(long id) throws EMagineException {
 		return getDAO().retrieve(Absence.class, id);
+	}
+
+	@Override
+	public Extractable extract(ExtractionParam extractionParam) {
+		// TODO AbsenceManager.extract()
+		return null;
 	}
 }

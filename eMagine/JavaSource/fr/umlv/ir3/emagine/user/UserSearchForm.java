@@ -1,6 +1,7 @@
 package fr.umlv.ir3.emagine.user;
 
 import java.util.Collection;
+import java.util.Iterator;
 
 import fr.umlv.ir3.emagine.user.profile.Profile;
 import fr.umlv.ir3.emagine.util.IsAField;
@@ -67,5 +68,21 @@ public class UserSearchForm extends SelectSearchForm<User> implements UserSearch
 	}
 	public void setProfiles(Collection<Profile> profiles) {
 		this.profiles = profiles;
+	}
+	public void setSelectedColums(Iterable<String> selectedColumns) {
+		// TODO UserSearchForm.setSelectedColums()
+		
+	}
+	public Iterator<String> getColumnsName() {
+		// TODO UserSearchForm.getColumnsName()
+		return null;
+	}
+	public Iterator<String> getselectedColumnsName() {
+		// TODO UserSearchForm.getselectedColumnsName()
+		return null;
+	}
+	public Iterator<Iterable<Object>> iterator() {
+		// TODO UserSearchForm.iterator()
+		return null;
 	}
 }

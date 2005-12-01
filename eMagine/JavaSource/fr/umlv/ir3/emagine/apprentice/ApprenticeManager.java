@@ -4,8 +4,10 @@ import java.util.Collection;
 import java.util.List;
 
 import fr.umlv.ir3.emagine.apprentice.absence.Absence;
+import fr.umlv.ir3.emagine.extraction.ExtractionParam;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
+import fr.umlv.ir3.emagine.util.Extractable;
 import fr.umlv.ir3.emagine.util.base.BaseEventableManager;
 
 public class ApprenticeManager extends BaseEventableManager<Apprentice, ApprenticeDAO> {
@@ -102,5 +104,11 @@ public class ApprenticeManager extends BaseEventableManager<Apprentice, Apprenti
 	@Override
 	public Apprentice retrieve(long id) throws EMagineException {
 		return getDAO().retrieve(Apprentice.class, id);
+	}
+
+	@Override
+	public Extractable extract(ExtractionParam extractionParam) {
+		// TODO ApprenticeManager.extract()
+		return null;
 	}
 }

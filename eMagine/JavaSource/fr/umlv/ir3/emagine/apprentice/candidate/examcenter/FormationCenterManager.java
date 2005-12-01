@@ -4,8 +4,10 @@ import java.util.Collection;
 import java.util.List;
 
 import fr.umlv.ir3.emagine.apprentice.candidate.room.Room;
+import fr.umlv.ir3.emagine.extraction.ExtractionParam;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
+import fr.umlv.ir3.emagine.util.Extractable;
 import fr.umlv.ir3.emagine.util.base.BaseEditableManager;
 
 public class FormationCenterManager extends BaseEditableManager<FormationCenter, FormationCenterDAO> {
@@ -66,5 +68,11 @@ public class FormationCenterManager extends BaseEditableManager<FormationCenter,
 	@Override
 	public FormationCenter retrieve(long id) throws EMagineException {
 		return getDAO().retrieve(FormationCenter.class, id);
+	}
+
+	@Override
+	public Extractable extract(ExtractionParam extractionParam) {
+		// TODO FormationCenterManager.extract()
+		return null;
 	}
 }

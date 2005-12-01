@@ -5,8 +5,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 import fr.umlv.ir3.emagine.apprentice.Apprentice;
+import fr.umlv.ir3.emagine.extraction.ExtractionParam;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
+import fr.umlv.ir3.emagine.util.Extractable;
 import fr.umlv.ir3.emagine.util.base.BaseEventableManager;
 
 public class CandidateManager extends BaseEventableManager<Candidate, CandidateDAO> {
@@ -74,5 +76,11 @@ public class CandidateManager extends BaseEventableManager<Candidate, CandidateD
 	@Override
 	public Candidate retrieve(long id) throws EMagineException {
 		return getDAO().retrieve(Candidate.class, id);
+	}
+
+	@Override
+	public Extractable extract(ExtractionParam extractionParam) {
+		// TODO CandidateManager.extract()
+		return null;
 	}
 }

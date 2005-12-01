@@ -1,8 +1,10 @@
 package fr.umlv.ir3.emagine.util.base;
 
+import fr.umlv.ir3.emagine.extraction.ExtractionParam;
 import fr.umlv.ir3.emagine.modification.FieldModification;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
+import fr.umlv.ir3.emagine.util.Extractable;
 
 public abstract class BaseEditableManager<EntityType extends EditableEntity, EntityDAO extends BaseDAO<EntityType>> extends BaseManager<EntityType, BaseDAO<EntityType>> {
 
@@ -43,4 +45,12 @@ public abstract class BaseEditableManager<EntityType extends EditableEntity, Ent
 			e.printStackTrace();
 		}
 	}
+	
+	/**
+	 * 
+	 * @param extractionParam
+	 * @return
+	 */
+	//FIXME: Utilisé les générics
+	public abstract Extractable extract(ExtractionParam extractionParam);
 }
