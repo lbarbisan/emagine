@@ -10,7 +10,6 @@ import javax.persistence.GeneratorType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.Version;
 
 import fr.umlv.ir3.emagine.modification.FieldModification;
 import fr.umlv.ir3.emagine.util.HibernateUtils;
@@ -27,8 +26,6 @@ public class BaseEntity implements Serializable {
 	
 	@Id(generate = GeneratorType.AUTO )
 	private Long id;
-    @Version
-    private Long version;
     
     
     /**
@@ -36,28 +33,14 @@ public class BaseEntity implements Serializable {
 	 * @param version
 	 * @param name constructor
 	 */
-	protected BaseEntity(Long id, Long version) {
+	protected BaseEntity(Long id) {
 		this.id = id;
-		this.version = version;
 	}
 
 	/**
      * This constructor is necessary for Hibernate, it's used for lazy load
      */
 	protected BaseEntity() {}
-
-	/**
-	 * @return the version of this object. it's used for pesimist locking
-	 */
-	public Long getVersion() {
-		return version;
-	}
-	/**
-	 * @param version the version of this object. it's used for pesimist locking
-	 */
-	public void setVersion(Long version) {
-		this.version = version;
-	}
 
 	/**
 	 * return the value of specified property in this class 

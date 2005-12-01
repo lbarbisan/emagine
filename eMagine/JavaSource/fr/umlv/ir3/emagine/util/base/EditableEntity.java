@@ -7,6 +7,7 @@ import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.Version;
 
 import fr.umlv.ir3.emagine.modification.FieldModification;
 import fr.umlv.ir3.emagine.modification.Modification;
@@ -23,6 +24,9 @@ public abstract class EditableEntity extends BaseEntity implements Serializable 
 	
     private List<Modification> modifications;
     
+    @Version
+    private Long version;
+
     
     
     /**
@@ -31,14 +35,15 @@ public abstract class EditableEntity extends BaseEntity implements Serializable 
      * @param modifications constructor
 	 */
 	protected EditableEntity(Long id, Long version, List<Modification> modifications) {
-		super(id, version);
+		super(id);
 		this.modifications = modifications;
+		this.version = version;
 	}
 
 	/**
      * This constructor is necessary for Hibernate, it's used for lazy load
      */
-	protected EditableEntity(){}
+	protected EditableEntity() {}
 
 	public List<Modification> getModifications() {
 		return modifications;
@@ -77,5 +82,18 @@ public abstract class EditableEntity extends BaseEntity implements Serializable 
 	
 	public void acceptFieldModification(FieldModification modification) {
 		//TODO : BaseEntity.acceptModification
+	}
+	
+	/**
+	 * @return the version of this object. it's used for pesimist locking
+	 */
+	public Long getVersion() {
+		return version;
+	}
+	/**
+	 * @param version the version of this object. it's used for pesimist locking
+	 */
+	public void setVersion(Long version) {
+		this.version = version;
 	}
 }

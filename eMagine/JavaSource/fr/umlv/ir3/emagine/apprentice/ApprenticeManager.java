@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.List;
 
 import fr.umlv.ir3.emagine.apprentice.absence.Absence;
+import fr.umlv.ir3.emagine.event.Event;
 import fr.umlv.ir3.emagine.extraction.ExtractionParam;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
@@ -95,6 +96,46 @@ public class ApprenticeManager extends BaseEventableManager<Apprentice, Apprenti
 			throw exception;
 		}
 	}
+	
+	/**
+	 * Updates the given apprentice. If the teachingTutor, the engineerTutor, or the firm of him or her is modified, adds an event to remember the old one.
+	 * @param apprentice
+	 * @throws EMagineException throws if an SQLException occures
+	 */
+	public void update(Apprentice apprentice) throws EMagineException {
+		DAOManager.beginTransaction();
+		try {
+			Apprentice oldApprentice = retrieve(apprentice.getId());
+			// Comparison of the teacherTutors
+			if (!apprentice.getTeacherTutor().equals(oldApprentice.getTeacherTutor())) {
+				Event event = new Event();
+				// TODO : initialiser l'event
+				addEvent(apprentice, event);
+			}
+			
+			// Comparison of the engineerTutor
+			if (!apprentice.getEngineerTutor().equals(oldApprentice.getEngineerTutor())) {
+				Event event = new Event();
+				// TODO : initialiser l'event
+				addEvent(apprentice, event);
+			}
+			
+			// Comparison of the firm
+			if (!apprentice.getFirm().equals(oldApprentice.getFirm())) {
+				Event event = new Event();
+				// TODO : initialiser l'event
+				addEvent(apprentice, event);
+			}
+			
+			getDAO().update(apprentice);
+			DAOManager.commitTransaction();
+		} catch (EMagineException exception) {
+			DAOManager.rollBackTransaction();
+			throw exception;
+		}
+	}
+	
+	
 	
 	@Override
 	protected ApprenticeDAO getDAO() {
