@@ -15,14 +15,14 @@ public class XLSExtractor implements Extractor {
 		HSSFSheet sheet = wb.createSheet("export");
 		HSSFRow row = sheet.createRow((short) 0);
 		
-		String[] fields = extractionParam.getSelectedFields();
+//		String[] fields = extractionParam.getSelectedFields();
 //		Extractable extractable = extractionParam.getExtractable();
 		
-		short i = 0;
-		for (String field : fields) {
-			row.createCell(i++).setCellValue(
-					field);	// TODO : récupérer le nom de la colonne
-		}
+//		short i = 0;
+//		for (String field : fields) {
+//			row.createCell(i++).setCellValue(
+//					field);	// TODO : récupérer le nom de la colonne
+//		}
 		// Extraction of each row
 //		i = 1;
 //		try {

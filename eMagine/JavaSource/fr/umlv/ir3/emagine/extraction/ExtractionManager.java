@@ -30,14 +30,17 @@ public class ExtractionManager extends BaseManager<Extraction, ExtractionDAO> {
 	
 	public void setColumns(Extraction extraction, List<String> columns)  
 	{
-		
-		extraction.setColumns(columns);
+		DAOManager.beginTransaction();
 		try {
+			extraction.setColumns(columns);
 			getDAO().update(extraction);
+			DAOManager.commitTransaction();
 		} catch (EMagineException e) {
 			// TODO EMagineException.e Not Implemented
+			DAOManager.rollBackTransaction();
 			e.printStackTrace();
 		}
+
 		
 	}
 

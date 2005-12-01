@@ -2,6 +2,7 @@ package fr.umlv.ir3.emagine.extraction;
 
 import org.apache.struts.action.ActionForm;
 
+import fr.umlv.ir3.emagine.user.User;
 import fr.umlv.ir3.emagine.util.Extractable;
 
 public class ExtractionForm extends ActionForm implements ExtractionParam {
@@ -96,5 +97,15 @@ public class ExtractionForm extends ActionForm implements ExtractionParam {
 	 */
 	public void setSelectedFields(String[] selectedFields) {
 		this.selectedFields = selectedFields;
+	}
+
+	public User getUser() {
+		// TODO ExtractionForm.getUser()
+		return null;
+	}
+
+	public ViewEnum getView() {
+		// TODO ExtractionForm.getView()
+		return null;
 	}
 }
