@@ -3,7 +3,6 @@ package fr.umlv.ir3.emagine.teachertutor;
 import java.util.List;
 
 import fr.umlv.ir3.emagine.apprentice.Apprentice;
-import fr.umlv.ir3.emagine.extraction.ExtractionParam;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.Extractable;
@@ -34,13 +33,23 @@ public class TeacherTutorManager extends BaseManager<TeacherTutor, TeacherTutorD
 	public void addApprentice(Apprentice apprentice , TeacherTutor teacherTutor) throws EMagineException {
 
 		List<Apprentice> apprentices = teacherTutor.getApprentice();
-		if(apprentices.contains(apprentice)==false)
-		{
-			apprentices.add(apprentice);
-			update(teacherTutor);
-		}
+		apprentices.add(apprentice);
+		update(teacherTutor);
 	}
 
+	/*@Override
+	public void update(TeacherTutor teacherTutor) throws EMagineException {
+		DAOManager.beginTransaction();
+		try {
+			TeacherTutorDAO dao =  getDAO();
+			dao.update(teacherTutor);
+			DAOManager.commitTransaction();
+		} catch (EMagineException exception) {
+			DAOManager.rollBackTransaction();
+			throw exception;
+		}
+	}*/
+	
 	@Override
 	protected TeacherTutorDAO getDAO() {
 			DAOManager instance = DAOManager.getInstance();
@@ -56,9 +65,12 @@ public class TeacherTutorManager extends BaseManager<TeacherTutor, TeacherTutorD
 	/**
 	 * Extracts the selected list, with selected columns (fields) into the selected file format
 	 */
-	public Extractable extract(ExtractionParam extractionParam) throws Exception {
+	public Extractable extract(TeacherTutorSearchParam teacherTutorSearchParam, Iterable<String> selectedColumns) throws Exception {
 		Extractable extractable;
 		TeacherTutorDAO dao = getDAO();
-		return dao.extract(extractionParam);
+		
+		extractable = dao.extract(teacherTutorSearchParam, selectedColumns);
+		
+		return extractable;
 	}	
 }

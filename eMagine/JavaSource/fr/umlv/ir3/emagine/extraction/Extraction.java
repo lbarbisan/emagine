@@ -8,23 +8,24 @@ import javax.persistence.OneToOne;
 
 import fr.umlv.ir3.emagine.user.User;
 import fr.umlv.ir3.emagine.util.base.BaseEntity;
+
 @Entity(access = AccessType.FIELD)
 public class Extraction extends BaseEntity {
 
-	private static final long serialVersionUID = 523030478411979548L;
-
 	@OneToOne
 	private User user;
+
 	private List<String> columns;
+
 	private ViewEnum viewName;
-	 
-	
+
 	/**
 	 * @return Returns the user.
 	 */
 	public User getUser() {
 		return user;
 	}
+
 	/**
 	 * @param user The user to set.
 	 */
@@ -38,6 +39,7 @@ public class Extraction extends BaseEntity {
 	public ViewEnum getViewName() {
 		return viewName;
 	}
+
 	/**
 	 * @param viewName The viewName to set.
 	 */
@@ -51,8 +53,8 @@ public class Extraction extends BaseEntity {
 	public void setColumns(List<String> columns) {
 		this.columns = columns;
 	}
-	public List<String> getColumns()
-	{
+
+	public List<String> getColumns() {
 		return columns;
 	}
 }
