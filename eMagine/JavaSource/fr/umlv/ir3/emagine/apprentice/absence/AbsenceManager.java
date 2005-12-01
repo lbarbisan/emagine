@@ -1,7 +1,9 @@
 package fr.umlv.ir3.emagine.apprentice.absence;
 
+import java.util.Collection;
 import java.util.List;
 
+import fr.umlv.ir3.emagine.apprentice.Apprentice;
 import fr.umlv.ir3.emagine.extraction.ExtractionParam;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
@@ -18,6 +20,16 @@ public class AbsenceManager extends BaseEditableManager<Absence, AbsenceDAO> {
 	 */
 	public List<Absence> find(AbsenceSearchParam absenceSearchParam) throws EMagineException {
 		return getDAO().find(absenceSearchParam);
+	}
+	
+	/**
+	 * Lists absences for a list of Apprentice, between 2 dates
+	 * @param apprentices selected apprentices
+	 * @param absenceSearchParam
+	 * @throws EMagineException if an SQLException occures
+	 */
+	public List<Absence> find(Collection<Apprentice> apprentices, AbsenceSearchParam absenceSearchParam) throws EMagineException {
+		return getDAO().find(apprentices, absenceSearchParam);
 	}
 	
 	@Override
