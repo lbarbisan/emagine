@@ -5,9 +5,7 @@ import java.util.List;
 
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.Version;
+import javax.persistence.OneToMany;
 
 import fr.umlv.ir3.emagine.modification.FieldModification;
 import fr.umlv.ir3.emagine.modification.Modification;
@@ -21,7 +19,9 @@ public abstract class EditableEntity extends BaseEntity implements Serializable 
 	
 	private static final long serialVersionUID = 15466724567987L;
 	
-    private List<Modification> modifications;
+	//TODO: Hibernate - Bidirectionnelle
+    @OneToMany
+	private List<Modification> modifications;
     
 
     
