@@ -191,7 +191,7 @@
 		<put name="body" value="/recruitment/bringingTogether.jsp" />
 	</definition>
 	<definition name="recruitment.candidateVisuEvent" extends="recruitment">
-		<put name="body" value="/apprentice/candidateVisuEvent.jsp" />
+		<put name="body" value="/recruitment/candidateVisuEvent.jsp" />
 	</definition>
 	<definition name="recruitment.candidateEventDetail" extends="recruitment">
 		<put name="body" value="/recruitment/candidateEventDetail.jsp" />

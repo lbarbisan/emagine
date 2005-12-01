@@ -24,7 +24,6 @@
 				<td>Apprenti</td>
 			</tr>
 		</table>
-		<br/>
 	</div>
 	<div id="actions">
 		<ul>
@@ -34,8 +33,6 @@
 		<h2>&nbsp;</h2>
 		<ul>
 			<li><html:link action="/supprimer"><img src="/eMagine/common/images/icones/supprimer.png" title="<bean:message key="button.title.remove"/>"/></html:link></li>
-			<li><html:link action="/emailDo"><img src="/eMagine/common/images/icones/mailing.png" title="<bean:message key="button.title.email"/>"/></html:link></li>
-			<li><html:link action="/mailDo"><img src="/eMagine/common/images/icones/publipostage.png" title="<bean:message key="button.title.mailing"/>"/></html:link></li>
 		</ul>
 	</div>
 </form>

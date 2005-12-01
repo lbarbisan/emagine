@@ -4,10 +4,6 @@
 <br/>
 <form name="results">
 	<div align=center>
-		<div id="statSearch">
-			<p><label for="result"><bean:message key="statSearch.results"/></label><input type="text" id="result" size="5"/>&nbsp;&nbsp;&nbsp;
-			<label for="pageNb"><bean:message key="statSearch.numberByPage"/></label><input type="text" id="pageNb" size="5" /></p>
-		</div>
 		<table cellpadding="0" cellspacing="0">
 			<tr>
 				<th>&nbsp;</th>
@@ -15,12 +11,12 @@
 				<th><bean:message key="table.header.numberAsked"/></th>
 			</tr>
 			<tr>
-				<td><input type="checkbox" value="ON" /></td>
+				<td><input type="checkbox" name="all_none" value="ON" /></td>
 				<td><html:link action="/postDetail">IR</html:link></td>
 				<td>1</td>
 			</tr>
 			<tr>
-				<td><input type="checkbox" value="ON" /></td>
+				<td><input type="checkbox" name="all_none" value="ON" /></td>
 				<td><html:link action="/postDetail">MFPI</html:link></td>
 				<td>3</td>
 			</tr>
