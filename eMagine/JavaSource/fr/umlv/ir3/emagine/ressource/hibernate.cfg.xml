@@ -18,8 +18,10 @@
        	<property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
         -->
          
- 		<mapping package="fr.umlv.ir3.emagine.BaseEntity"/> 
+ 		<mapping package="fr.umlv.ir3.emagine.base"/> 
 		<mapping class="fr.umlv.ir3.emagine.util.base.BaseEntity"/>
+		<mapping class="fr.umlv.ir3.emagine.util.base.EditableEntity"/>
+		<mapping class="fr.umlv.ir3.emagine.util.base.EventableEntity"/>
   			
  		<mapping package="fr.umlv.ir3.emagine.Person"/> 
 		<mapping class="fr.umlv.ir3.emagine.util.person.Person"/>

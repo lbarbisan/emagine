@@ -10,6 +10,7 @@ import javax.persistence.GeneratorType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.Version;
 
 import fr.umlv.ir3.emagine.modification.FieldModification;
 import fr.umlv.ir3.emagine.util.HibernateUtils;
@@ -26,15 +27,17 @@ public class BaseEntity implements Serializable {
 	
 	@Id(generate = GeneratorType.AUTO )
 	private Long id;
-    
+    @Version
+    private Long version;
     
     /**
 	 * @param id
 	 * @param version
 	 * @param name constructor
 	 */
-	protected BaseEntity(Long id) {
+	protected BaseEntity(Long id, Long version) {
 		this.id = id;
+		this.version = version;
 	}
 
 	/**
@@ -87,5 +90,19 @@ public class BaseEntity implements Serializable {
 	 */
 	public Long getId() {
 		return id;
+	}
+
+	/**
+	 * @return Returns the version.
+	 */
+	public Long getVersion() {
+		return version;
+	}
+
+	/**
+	 * @param version The version to set.
+	 */
+	public void setVersion(Long version) {
+		this.version = version;
 	}
 }

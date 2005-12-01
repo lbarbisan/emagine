@@ -19,7 +19,6 @@ import fr.umlv.ir3.emagine.modification.Modification;
  * @author  Administrateur
  */
 @Entity(access = AccessType.FIELD)
-@Inheritance(strategy=InheritanceType.JOINED )
 public abstract class EventableEntity extends EditableEntity implements Serializable {
 	
 	private static final long serialVersionUID = 15466724567987L;

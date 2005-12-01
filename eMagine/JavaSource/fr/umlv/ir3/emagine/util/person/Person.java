@@ -38,7 +38,7 @@ import fr.umlv.ir3.emagine.util.base.EventableEntity;
 		"firstname",
 		"email"
 		}))
-public abstract class Person extends EventableEntity {
+public class Person extends EventableEntity {
 
 	private static final long serialVersionUID = 4072133161366106454L;
 		

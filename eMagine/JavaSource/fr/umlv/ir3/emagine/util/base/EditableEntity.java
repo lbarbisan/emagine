@@ -17,15 +17,12 @@ import fr.umlv.ir3.emagine.modification.Modification;
  * @author  Administrateur
  */
 @Entity(access = AccessType.FIELD)
-@Inheritance(strategy=InheritanceType.JOINED )
 public abstract class EditableEntity extends BaseEntity implements Serializable {
 	
 	private static final long serialVersionUID = 15466724567987L;
 	
     private List<Modification> modifications;
     
-    @Version
-    private Long version;
 
     
     
@@ -35,9 +32,8 @@ public abstract class EditableEntity extends BaseEntity implements Serializable 
      * @param modifications constructor
 	 */
 	protected EditableEntity(Long id, Long version, List<Modification> modifications) {
-		super(id);
+		super(id, version);
 		this.modifications = modifications;
-		this.version = version;
 	}
 
 	/**
@@ -82,18 +78,5 @@ public abstract class EditableEntity extends BaseEntity implements Serializable 
 	
 	public void acceptFieldModification(FieldModification modification) {
 		//TODO : BaseEntity.acceptModification
-	}
-	
-	/**
-	 * @return the version of this object. it's used for pesimist locking
-	 */
-	public Long getVersion() {
-		return version;
-	}
-	/**
-	 * @param version the version of this object. it's used for pesimist locking
-	 */
-	public void setVersion(Long version) {
-		this.version = version;
 	}
 }
