@@ -119,4 +119,44 @@ public class HibernateUtils {
     	ClassMetadata classMetadata = sessionFactory.getClassMetadata(entity.getClass());
     	return classMetadata.getPropertyNames();
     }
+    
+    //TODO : Supprimer cette si elle ne sert pas 
+    /* public static Map<String, FieldModification> getPropertySnapShot(BaseEntity entity)
+    {
+    	//HashMap<String, FieldModification>  propertyOldValue = new HashMap<String, FieldModification>();
+		//ClassMetadata classMetadata = sessionFactory.getClassMetadata(User.class);
+		Map classesMetadata = sessionFactory.getAllClassMetadata();
+		
+		for(Object obj : classesMetadata.keySet())
+		{
+			//JoinedSubclassEntityPersister persiter = (JoinedSubclassEntityPersister)classesMetadata.get(obj);
+			ClassMetadata persiter = (ClassMetadata)classesMetadata.get(obj);
+			try
+			{
+				System.err.println("Class : " + obj);
+				String[] strings = persiter.getPropertyNames();
+				for(String string : strings)
+				{
+					Object object = persiter.getPropertyValue(entity, string, EntityMode.POJO);
+					System.err.println("Valeur : " + classesMetadata.get( object ));
+				}
+			}
+			catch(HibernateException e)
+			{
+				System.err.println("Exception");
+				e.printStackTrace();
+			}
+		}
+		//Map map = null;	
+		//classMetadata.getPropertyValuesToInsert(entity,map, (SessionImplementor) threadSession.get());
+	/*	System.out.println(classMetadata);
+		Object[] object = classMetadata.getPropertyValues(entity, null);
+		for(Object obj : object)
+		{
+			System.out.println(obj);
+		}*/
+
+		
+	/*	return null;
+    }*/
 }
