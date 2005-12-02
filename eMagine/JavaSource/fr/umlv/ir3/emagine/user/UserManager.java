@@ -22,7 +22,8 @@ public class UserManager extends BaseEditableManager<User, UserDAO> {
 	public void create(User user) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
-			getDAO().create(user);
+			UserDAO dao = getDAO();
+			dao.create(user);
 			MailManager.sendMail(user.getEmail(), "Titre création", "Corps création", null);	// FIXME : charger la phrase du titre du mail depuis les properties
 			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {
@@ -39,7 +40,8 @@ public class UserManager extends BaseEditableManager<User, UserDAO> {
 	public void update(User user) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
-			getDAO().update(user);
+			UserDAO dao = getDAO();
+			dao.update(user);
 			MailManager.sendMail(user.getEmail(), "Titre modification", "Corps modification", null);	// FIXME : charger la phrase du titre du mail depuis les properties
 			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {
@@ -64,7 +66,8 @@ public class UserManager extends BaseEditableManager<User, UserDAO> {
 					throw new EMagineException("exception.userManager.delete.userConnected");
 				}
 			}
-			getDAO().delete(user);
+			UserDAO dao = getDAO();
+			dao.delete(user);
 			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {
 			DAOManager.rollBackTransaction();
@@ -79,7 +82,9 @@ public class UserManager extends BaseEditableManager<User, UserDAO> {
 	 * @throws EMagineException if an SQLException occures
 	 */
 	public List<User> find(UserSearchParam userSearchParam) throws EMagineException {
-		return getDAO().find(userSearchParam);
+		UserDAO dao = getDAO();
+		List<User> users = dao.find(userSearchParam);
+		return users;
 	}
 	
 	/**
@@ -88,7 +93,8 @@ public class UserManager extends BaseEditableManager<User, UserDAO> {
 	 */
 	public List<User> findAll()
 	{
-		return getDAO().findAll();
+		UserDAO dao = getDAO();
+		return dao.findAll();
 	}
 	
 	protected UserDAO getDAO() {

@@ -1,5 +1,6 @@
 package fr.umlv.ir3.emagine.util;
 
+import fr.umlv.ir3.emagine.apprentice.candidate.CandidateManager;
 import fr.umlv.ir3.emagine.event.EventManager;
 import fr.umlv.ir3.emagine.extraction.ExtractionManager;
 import fr.umlv.ir3.emagine.extraction.mailings.MailingListManager;
@@ -22,6 +23,7 @@ public class ManagerManager {
 	private MailingListManager mailingListManager = new MailingListManager();
 	private MailingTypeManager mailingTypeManager = new MailingTypeManager();
 	private MassMailingManager massMailingManager = new MassMailingManager();
+	private CandidateManager candidateManager = new CandidateManager();
 	
 	public static ManagerManager getInstance() {
 		if (instance == null) {
@@ -30,6 +32,12 @@ public class ManagerManager {
 		return instance;
 	}
 	
+	
+	
+	public CandidateManager getCandidateManager() {
+		return candidateManager;
+	}
+
 	public UserManager getUserManager() {
 		return userManager;
 	}

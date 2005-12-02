@@ -49,7 +49,7 @@ public class FormationCenter extends EditableEntity {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
-	public List<Candidate> getCandidate() {
+	public List<Candidate> getCandidates() {
 		return candidate;
 	}
 	public void setCandidate(List<Candidate> candidate) {

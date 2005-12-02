@@ -40,6 +40,11 @@ public class Room extends EditableEntity {
 	@JoinColumn(name="formationCenter_id")
 	private FormationCenter formationCenter;
 
+	
+	public Integer getNumberOfFreeSits() {
+		return capacity - candidates.size();
+	}
+	
 	public List<Candidate> getCandidates() {
 		return candidates;
 	}

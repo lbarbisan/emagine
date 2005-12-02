@@ -16,7 +16,8 @@ public class ProfileManager extends BaseManager<Profile, ProfileDAO> {
 	 * @throws EMagineException
 	 */
 	public Collection<Profile> findAll() throws EMagineException {
-		return getDAO().findAll();
+		ProfileDAO dao = getDAO();
+		return dao.findAll();
 	}
 	
 	/**
@@ -31,8 +32,9 @@ public class ProfileManager extends BaseManager<Profile, ProfileDAO> {
 			List<User> usersFrom = deletingProfile.getUsers();
 			List<User> usersTo = reallocatingProfile.getUsers();
 			usersTo.addAll(usersFrom);
-			getDAO().delete(deletingProfile);
-			getDAO().update(reallocatingProfile);
+			ProfileDAO dao = getDAO();
+			dao.delete(deletingProfile);
+			dao.update(reallocatingProfile);
 			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {
 			DAOManager.rollBackTransaction();

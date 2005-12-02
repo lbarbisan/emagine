@@ -6,6 +6,9 @@ import java.util.List;
 import fr.umlv.ir3.emagine.apprentice.absence.Absence;
 import fr.umlv.ir3.emagine.event.Event;
 import fr.umlv.ir3.emagine.extraction.ExtractionParam;
+import fr.umlv.ir3.emagine.firm.Firm;
+import fr.umlv.ir3.emagine.firm.actor.EngineerTutor;
+import fr.umlv.ir3.emagine.teachertutor.TeacherTutor;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.Extractable;
@@ -32,7 +35,8 @@ public class ApprenticeManager extends BaseEventableManager<Apprentice, Apprenti
 		DAOManager.beginTransaction();
 		try {
 			apprentice.setExcluded(true);
-			getDAO().update(apprentice);
+			ApprenticeDAO dao = getDAO();
+			dao.update(apprentice);
 			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {
 			DAOManager.rollBackTransaction();
@@ -48,10 +52,12 @@ public class ApprenticeManager extends BaseEventableManager<Apprentice, Apprenti
 	public void moveUpApprentice(Collection<Apprentice> apprentices) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
+			ApprenticeDAO dao = getDAO();
 			for (Apprentice apprentice : apprentices) {
 				// TODO : voir une meilleur implémentation que ce foreach
-				apprentice.setYear(apprentice.getYear() + 1);
-				getDAO().update(apprentice);
+				Integer year = apprentice.getYear();
+				apprentice.setYear(year + 1);
+				dao.update(apprentice);
 			}
 			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {
@@ -69,8 +75,10 @@ public class ApprenticeManager extends BaseEventableManager<Apprentice, Apprenti
 	public void addAbsence(Apprentice apprentice, Absence absence) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
-			apprentice.getAbsences().add(absence);
-			getDAO().update(apprentice);
+			List<Absence> absences = apprentice.getAbsences();
+			absences.add(absence);
+			ApprenticeDAO dao = getDAO();
+			dao.update(apprentice);
 			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {
 			DAOManager.rollBackTransaction();
@@ -107,27 +115,34 @@ public class ApprenticeManager extends BaseEventableManager<Apprentice, Apprenti
 		try {
 			Apprentice oldApprentice = retrieve(apprentice.getId());
 			// Comparison of the teacherTutors
-			if (!apprentice.getTeacherTutor().equals(oldApprentice.getTeacherTutor())) {
+			TeacherTutor teacherTutor = apprentice.getTeacherTutor();
+			TeacherTutor oldTeacherTutor = oldApprentice.getTeacherTutor();
+			if (!teacherTutor.equals(oldTeacherTutor)) {
 				Event event = new Event();
 				// TODO : initialiser l'event
 				addEvent(apprentice, event);
 			}
 			
 			// Comparison of the engineerTutor
-			if (!apprentice.getEngineerTutor().equals(oldApprentice.getEngineerTutor())) {
+			EngineerTutor engineerTutor = apprentice.getEngineerTutor();
+			EngineerTutor oldEngineerTutor = oldApprentice.getEngineerTutor();
+			if (!engineerTutor.equals(oldEngineerTutor)) {
 				Event event = new Event();
 				// TODO : initialiser l'event
 				addEvent(apprentice, event);
 			}
 			
 			// Comparison of the firm
-			if (!apprentice.getFirm().equals(oldApprentice.getFirm())) {
+			Firm firm = apprentice.getFirm();
+			Firm oldFirm = oldApprentice.getFirm();
+			if (!firm.equals(oldFirm)) {
 				Event event = new Event();
 				// TODO : initialiser l'event
 				addEvent(apprentice, event);
 			}
 			
-			getDAO().update(apprentice);
+			ApprenticeDAO dao = getDAO();
+			dao.update(apprentice);
 			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {
 			DAOManager.rollBackTransaction();

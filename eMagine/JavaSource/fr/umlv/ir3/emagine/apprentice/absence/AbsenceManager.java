@@ -29,7 +29,8 @@ public class AbsenceManager extends BaseEditableManager<Absence, AbsenceDAO> {
 	 * @throws EMagineException if an SQLException occures
 	 */
 	public List<Absence> find(Collection<Apprentice> apprentices, AbsenceSearchParam absenceSearchParam) throws EMagineException {
-		return getDAO().find(apprentices, absenceSearchParam);
+		AbsenceDAO dao = getDAO();
+		return dao.find(apprentices, absenceSearchParam);
 	}
 	
 	@Override
