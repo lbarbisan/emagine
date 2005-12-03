@@ -23,8 +23,6 @@ import fr.umlv.ir3.emagine.util.base.EventableEntity;
 @Table(uniqueConstraints =@UniqueConstraint(columnNames={
 		"name"}))
 public class Firm extends EventableEntity {
-
-	private static final long serialVersionUID = 7717597898466060238L;
 	
 	@OneToOne(mappedBy = "motherFirm")
 	private Firm childfirm;

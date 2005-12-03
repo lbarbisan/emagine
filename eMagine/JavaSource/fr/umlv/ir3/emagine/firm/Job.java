@@ -12,8 +12,6 @@ import fr.umlv.ir3.emagine.util.base.EditableEntity;
 @Entity(access = AccessType.FIELD)
 public class Job extends EditableEntity {
 
-	private static final long serialVersionUID = 7997162235010277048L;
-
 	@ManyToOne(cascade= {CascadeType.PERSIST,CascadeType.MERGE})
 	@JoinColumn(name = "firm_id")
 	private Firm firm;
