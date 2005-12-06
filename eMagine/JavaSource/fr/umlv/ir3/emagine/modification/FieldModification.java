@@ -2,6 +2,8 @@ package fr.umlv.ir3.emagine.modification;
 
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
+import javax.persistence.Lob;
+import javax.persistence.LobType;
 import javax.persistence.ManyToOne;
 
 import fr.umlv.ir3.emagine.util.base.BaseEntity;
@@ -17,6 +19,7 @@ public class FieldModification<ObjectType> extends BaseEntity {
 	@ManyToOne
 	private Modification modification;
 	private String propertyName;
+	@Lob(type = LobType.BLOB)
 	private ObjectType propertyValue;
 	
 	public Modification getModification() {
