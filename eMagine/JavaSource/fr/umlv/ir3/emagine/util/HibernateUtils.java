@@ -37,7 +37,7 @@ public class HibernateUtils {
 
     
     public static Session getSession() throws HibernateException {
-        Session session = null;
+        Session session = threadSession.get();
         // Open a new Session, if this Thread has none yet
         if (session == null) {
         	session = sessionFactory.openSession();
