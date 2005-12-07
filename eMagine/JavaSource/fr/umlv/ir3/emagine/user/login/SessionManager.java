@@ -3,43 +3,37 @@
  */
 package fr.umlv.ir3.emagine.user.login;
 
-import java.util.Enumeration;
 import java.util.concurrent.ConcurrentHashMap;
 
 import javax.servlet.http.HttpSession;
-import javax.servlet.http.HttpSessionEvent;
-import javax.servlet.http.HttpSessionListener;
 
 import fr.umlv.ir3.emagine.user.User;
+import fr.umlv.ir3.emagine.util.Constants;
+import fr.umlv.ir3.emagine.util.EMagineException;
+import fr.umlv.ir3.emagine.util.ManagerManager;
 
 /**
  * @author iorga
  *
  */
-public class SessionManager implements HttpSessionListener {
+public class SessionManager {
 	private static ConcurrentHashMap<String, HttpSession> loginSessions = new ConcurrentHashMap<String, HttpSession>();
+	private static ThreadLocal<User> currentUser;
 
 	/**
-	 * @see javax.servlet.http.HttpSessionListener#sessionCreated(javax.servlet.http.HttpSessionEvent)
+	 * Sets the user for the current thread
+	 * @param user
 	 */
-	public void sessionCreated(HttpSessionEvent sessionEvent) {
-		// TODO SessionManager.sessionCreated()
-		System.out.println("Session Created");
-		System.out.println("Source : "+sessionEvent.getSource().getClass().toString());
-		HttpSession session = sessionEvent.getSession();
-		Enumeration enumeration = session.getAttributeNames();
-		while (enumeration.hasMoreElements()) {
-			String name = (String)enumeration.nextElement();
-			System.out.println(name+" = "+session.getAttribute(name));
-		}
+	public static void setCurrentUser(User user) {
+		currentUser.set(user);
 	}
-
+	
 	/**
-	 * @see javax.servlet.http.HttpSessionListener#sessionDestroyed(javax.servlet.http.HttpSessionEvent)
+	 * Gets the user associated with the current thread
+	 * @return
 	 */
-	public void sessionDestroyed(HttpSessionEvent sessionEvent) {
-		// TODO SessionManager.sessionDestroyed()
-		System.out.println("Session destroyed");
+	public static User getCurrentUser() {
+		return currentUser.get();
 	}
 	
 	/**
@@ -63,12 +57,24 @@ public class SessionManager implements HttpSessionListener {
 	}
 	
 	/**
-	 * Adds the given login and session to the pull of accepted logins
+	 * Adds the given login and session to the pool of accepted logins.
+	 * Retreive the User with the specified login, and set it into the session.
 	 * @param login
 	 * @param httpSession
+	 * @throws EMagineException throws if the user cannot be retreived
 	 */
-	public static void login(String login, HttpSession httpSession) {
-		loginSessions.putIfAbsent(login, httpSession);
+	public static void login(String login, HttpSession session) throws EMagineException {
+		//FIXME : quand hibernate sera OK
+		//User user = ManagerManager.getInstance().getUserManager().find(login);
+		User user = new User();
+		user.setEmail("email@fr");
+		user.setFirstName("Laurent");
+		user.setLastName("Barbisan");
+		user.setLogin("lbarbisan");
+		user.setPassword("dfsd");
+		session.setAttribute(Constants.LOGGED_IN_USER_KEY, user);
+
+		loginSessions.putIfAbsent(login, session);
 	}
 
 }

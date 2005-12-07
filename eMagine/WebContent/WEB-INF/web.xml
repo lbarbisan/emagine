@@ -6,7 +6,8 @@
 	<filter>
 		<filter-name>Security Filter</filter-name>
 		<filter-class>
-			org.securityfilter.filter.SecurityFilter
+			fr.umlv.ir3.emagine.security.EmagineSecurityFilter
+			<!-- org.securityfilter.filter.SecurityFilter -->
 		</filter-class>
 		<init-param>
 			<param-name>config</param-name>
@@ -42,6 +43,25 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
+	<!-- Listener of created session -->
+	<!-- 
+	<listener>
+		<listener-class>
+			fr.umlv.ir3.emagine.user.login.SessionManager
+		</listener-class>
+	</listener>
+	<listener>
+		<listener-class>
+			fr.umlv.ir3.emagine.util.ServletContextAttributeListenerImpl
+		</listener-class>
+	</listener>
+	<listener>
+		<listener-class>
+			fr.umlv.ir3.emagine.util.ServletContextListenerImpl
+		</listener-class>
+	</listener>
+	 -->
+
 	<!-- Action Servlet Configuration -->
 	<servlet>
 		<servlet-name>action</servlet-name>
@@ -74,10 +94,12 @@
 		<taglib-uri>/tags/struts-html</taglib-uri>
 		<taglib-location>/WEB-INF/tld/struts-html.tld</taglib-location>
 	</taglib>
-	
-		<!-- Le descripteur de balise Layout -->
+
+	<!-- Le descripteur de balise Layout -->
 	<taglib>
 		<taglib-uri>/tags/tld/struts-layout.tld</taglib-uri>
-		<taglib-location>/WEB-INF/tld/struts-layout.tld</taglib-location>
+		<taglib-location>
+			/WEB-INF/tld/struts-layout.tld
+		</taglib-location>
 	</taglib>
 </web-app>

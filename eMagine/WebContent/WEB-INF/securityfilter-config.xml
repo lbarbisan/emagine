@@ -32,14 +32,14 @@
 	<realm className="org.apache.catalina.realm.JDBCRealm">
 		<realm-param name="driverName" value="org.postgresql.Driver" />
 		<realm-param name="connectionURL"
-			value="jdbc:postgresql://server.srv-net.com:54321/test" />
+			value="jdbc:postgresql://server.srv-net.com:54321/eMagine" />
 		<realm-param name="connectionName" value="tomcat_realm" />
 		<realm-param name="connectionPassword"
 			value="@tomcat.password@" />
-		<realm-param name="userTable" value="users" />
-		<realm-param name="userNameCol" value="name" />
-		<realm-param name="userCredCol" value="user_pass" />
-		<realm-param name="userRoleTable" value="roles" />
-		<realm-param name="roleNameCol" value="name" />
+		<realm-param name="userTable" value="applicationuser" />
+		<realm-param name="userNameCol" value="login" />
+		<realm-param name="userCredCol" value="password" />
+		<realm-param name="userRoleTable" value="userroleview" />
+		<realm-param name="roleNameCol" value="right_name" />
 	</realm>
 </securityfilter-config>

@@ -24,133 +24,193 @@
 
 	<action-mappings>
 
+		<action path="/administration/toto" type="fr.umlv.ir3.emagine.security.TestAction">
+			<forward name="success" path="/apprenticeSearch.do" />
+		</action>
+
 		<action path="/authentification" forward="authentification" />
 
 		<!-- apprentice -->
-		<action path="/apprenticeVisuAdress" forward="apprentice.apprenticeVisuAdress" />
-		<action path="/apprenticeSearch" forward="apprentice.apprenticeSearch" />
-		<action path="/apprenticeVisuSituation" forward="apprentice.apprenticeVisuSituation" />
-		<action path="/apprenticeVisuStatus" forward="apprentice.apprenticeVisuStatus" />
-		<action path="/apprenticeTutorAdd" forward="apprentice.apprenticeTutorAdd" />
-		<action path="/apprenticeCompanyAdd" forward="apprentice.apprenticeCompanyAdd" />
-		<action path="/apprenticeOnglet" forward="apprentice.apprenticeOnglet" />
-		<action path="/apprenticeVisuSchooling" forward="apprentice.apprenticeVisuSchooling" />
-		<action path="/apprenticeVisuEvent" forward="apprentice.apprenticeVisuEvent" />
-		<action path="/apprenticeEventDetail" forward="apprentice.apprenticeEventDetail" />
-		<action path="/apprenticeVisuAbsence" forward="apprentice.apprenticeVisuAbsence" />
-		<action path="/apprenticeAbsenceDetail" forward="apprentice.apprenticeAbsenceDetail" />
-		<action path="/apprenticeAbsenceAdd" forward="apprentice.apprenticeAbsenceAdd" />
-		<action path="/apprenticeExtract" forward="apprentice.apprenticeExtract" />
-		<action path="/apprenticeAbsenceExtract" forward="apprentice.apprenticeAbsenceExtract" />
-		<action path="/apprenticeEventExtract" forward="apprentice.apprenticeEventExtract" />
-		<action path="/apprenticeAskUpdateAdress" forward="apprentice.apprenticeAskUpdateAdress" />
-		<action path="/apprenticeMailingListCreate" forward="apprentice.apprenticeMailingListCreate" />		
-		<action path="/apprenticeEmailDo" forward="apprentice.apprenticeEmailDo" />		
-		<action path="/apprenticeMailDo" forward="apprentice.apprenticeMailDo" />		
-		
+		<action path="/apprenticeVisuAdress"
+			forward="apprentice.apprenticeVisuAdress" />
+		<action path="/apprenticeSearch"
+			forward="apprentice.apprenticeSearch" />
+		<action path="/apprenticeVisuSituation"
+			forward="apprentice.apprenticeVisuSituation" />
+		<action path="/apprenticeVisuStatus"
+			forward="apprentice.apprenticeVisuStatus" />
+		<action path="/apprenticeTutorAdd"
+			forward="apprentice.apprenticeTutorAdd" />
+		<action path="/apprenticeCompanyAdd"
+			forward="apprentice.apprenticeCompanyAdd" />
+		<action path="/apprenticeOnglet"
+			forward="apprentice.apprenticeOnglet" />
+		<action path="/apprenticeVisuSchooling"
+			forward="apprentice.apprenticeVisuSchooling" />
+		<action path="/apprenticeVisuEvent"
+			forward="apprentice.apprenticeVisuEvent" />
+		<action path="/apprenticeEventDetail"
+			forward="apprentice.apprenticeEventDetail" />
+		<action path="/apprenticeVisuAbsence"
+			forward="apprentice.apprenticeVisuAbsence" />
+		<action path="/apprenticeAbsenceDetail"
+			forward="apprentice.apprenticeAbsenceDetail" />
+		<action path="/apprenticeAbsenceAdd"
+			forward="apprentice.apprenticeAbsenceAdd" />
+		<action path="/apprenticeExtract"
+			forward="apprentice.apprenticeExtract" />
+		<action path="/apprenticeAbsenceExtract"
+			forward="apprentice.apprenticeAbsenceExtract" />
+		<action path="/apprenticeEventExtract"
+			forward="apprentice.apprenticeEventExtract" />
+		<action path="/apprenticeAskUpdateAdress"
+			forward="apprentice.apprenticeAskUpdateAdress" />
+		<action path="/apprenticeMailingListCreate"
+			forward="apprentice.apprenticeMailingListCreate" />
+		<action path="/apprenticeEmailDo"
+			forward="apprentice.apprenticeEmailDo" />
+		<action path="/apprenticeMailDo"
+			forward="apprentice.apprenticeMailDo" />
+
 		<!-- teacher -->
 		<action path="/teacherSearch" forward="teacher.teacherSearch" />
 		<action path="/teacherCreate" forward="teacher.teacherCreate" />
-		<action path="/teacherVisuInfo" forward="teacher.teacherVisuInfo" />
+		<action path="/teacherVisuInfo"
+			forward="teacher.teacherVisuInfo" />
 		<action path="/teacherOnglet" forward="teacher.teacherOnglet" />
-		<action path="/teacherApprenticeAdd" forward="teacher.teacherApprenticeAdd" />
-		<action path="/teacherVisuEvent" forward="teacher.teacherVisuEvent" />
-		<action path="/teacherEventDetail" forward="teacher.teacherEventDetail" />
+		<action path="/teacherApprenticeAdd"
+			forward="teacher.teacherApprenticeAdd" />
+		<action path="/teacherVisuEvent"
+			forward="teacher.teacherVisuEvent" />
+		<action path="/teacherEventDetail"
+			forward="teacher.teacherEventDetail" />
 		<action path="/teacherExtract" forward="teacher.teacherExtract" />
-		<action path="/teacherEventExtract" forward="teacher.teacherEventExtract" />
-		<action path="/teacherMailingListCreate" forward="teacher.teacherMailingListCreate" />		
-		<action path="/teacherEmailDo" forward="teacher.teacherEmailDo" />		
-		<action path="/teacherMailDo" forward="teacher.teacherMailDo" />		
-		
+		<action path="/teacherEventExtract"
+			forward="teacher.teacherEventExtract" />
+		<action path="/teacherMailingListCreate"
+			forward="teacher.teacherMailingListCreate" />
+		<action path="/teacherEmailDo" forward="teacher.teacherEmailDo" />
+		<action path="/teacherMailDo" forward="teacher.teacherMailDo" />
+
 		<!-- company -->
 		<action path="/companySearch" forward="company.companySearch" />
-		<action path="/actorApprenticeAdd" forward="company.actorApprenticeAdd" />
+		<action path="/actorApprenticeAdd"
+			forward="company.actorApprenticeAdd" />
 		<action path="/companyCreate" forward="company.companyCreate" />
 		<action path="/actorVisuInfo" forward="company.actorVisuInfo" />
-		<action path="/companyVisuActor" forward="company.companyVisuActor" />
-		<action path="/companyVisuEvent" forward="company.companyVisuEvent" />
-		<action path="/companyVisuInfo" forward="company.companyVisuInfo" />
-		<action path="/companyVisuPost" forward="company.companyVisuPost" />
+		<action path="/companyVisuActor"
+			forward="company.companyVisuActor" />
+		<action path="/companyVisuEvent"
+			forward="company.companyVisuEvent" />
+		<action path="/companyVisuInfo"
+			forward="company.companyVisuInfo" />
+		<action path="/companyVisuPost"
+			forward="company.companyVisuPost" />
 		<action path="/companyOnglet" forward="company.companyOnglet" />
 		<action path="/postCreate" forward="company.postCreate" />
 		<action path="/postDetail" forward="company.postDetail" />
 		<action path="/actorCreate" forward="company.actorCreate" />
-		<action path="/companyVisuEvent" forward="company.companyVisuEvent" />
-		<action path="/companyEventDetail" forward="company.companyEventDetail" />
+		<action path="/companyVisuEvent"
+			forward="company.companyVisuEvent" />
+		<action path="/companyEventDetail"
+			forward="company.companyEventDetail" />
 		<action path="/actorVisuEvent" forward="company.actorVisuEvent" />
-		<action path="/actorEventDetail" forward="company.actorEventDetail" />
+		<action path="/actorEventDetail"
+			forward="company.actorEventDetail" />
 		<action path="/actorExtract" forward="company.actorExtract" />
 		<action path="/companyExtract" forward="company.companyExtract" />
-		<action path="/companyEventExtract" forward="company.companyEventExtract" />
-		<action path="/actorEventExtract" forward="company.actorEventExtract" />
-		<action path="/actorMailingListCreate" forward="company.actorMailingListCreate" />		
-		<action path="/actorEmailDo" forward="company.actorEmailDo" />		
-		<action path="/actorMailDo" forward="company.actorMailDo" />		
-		<action path="/actorOnglet" forward="company.actorOnglet" />		
-		
+		<action path="/companyEventExtract"
+			forward="company.companyEventExtract" />
+		<action path="/actorEventExtract"
+			forward="company.actorEventExtract" />
+		<action path="/actorMailingListCreate"
+			forward="company.actorMailingListCreate" />
+		<action path="/actorEmailDo" forward="company.actorEmailDo" />
+		<action path="/actorMailDo" forward="company.actorMailDo" />
+		<action path="/actorOnglet" forward="company.actorOnglet" />
+
 		<!-- recruitment -->
-		<action path="/candidateSearch" forward="recruitment.candidateSearch" />
-		<action path="/candidateCreate" forward="recruitment.candidateCreate" />
-		<action path="/candidateOnglet" forward="recruitment.candidateOnglet" />
-		<action path="/candidateVisuInfo" forward="recruitment.candidateVisuInfo" />
+		<action path="/candidateSearch"
+			forward="recruitment.candidateSearch" />
+		<action path="/candidateCreate"
+			forward="recruitment.candidateCreate" />
+		<action path="/candidateOnglet"
+			forward="recruitment.candidateOnglet" />
+		<action path="/candidateVisuInfo"
+			forward="recruitment.candidateVisuInfo" />
 		<action path="/centerDetail" forward="recruitment.centerDetail" />
 		<action path="/centerList" forward="recruitment.centerList" />
 		<action path="/roomDetail" forward="recruitment.roomDetail" />
 		<action path="/roomAdd" forward="recruitment.roomAdd" />
-		<action path="/bringingTogether" forward="recruitment.bringingTogether" />
-		<action path="/candidateVisuEvent" forward="recruitment.candidateVisuEvent" />
-		<action path="/candidateEventDetail" forward="recruitment.candidateEventDetail" />
-		<action path="/candidateExtract" forward="recruitment.candidateExtract" />
-		<action path="/candidateEventExtract" forward="recruitment.candidateEventExtract" />
-		<action path="/bringingTogetherExtract" forward="recruitment.bringingTogetherExtract" />
-		<action path="/candidateMailingListCreate" forward="recruitment.candidateMailingListCreate" />		
-		<action path="/candidateEmailDo" forward="recruitment.candidateEmailDo" />		
-		<action path="/candidateMailDo" forward="recruitment.candidateMailDo" />		
-		
+		<action path="/bringingTogether"
+			forward="recruitment.bringingTogether" />
+		<action path="/candidateVisuEvent"
+			forward="recruitment.candidateVisuEvent" />
+		<action path="/candidateEventDetail"
+			forward="recruitment.candidateEventDetail" />
+		<action path="/candidateExtract"
+			forward="recruitment.candidateExtract" />
+		<action path="/candidateEventExtract"
+			forward="recruitment.candidateEventExtract" />
+		<action path="/bringingTogetherExtract"
+			forward="recruitment.bringingTogetherExtract" />
+		<action path="/candidateMailingListCreate"
+			forward="recruitment.candidateMailingListCreate" />
+		<action path="/candidateEmailDo"
+			forward="recruitment.candidateEmailDo" />
+		<action path="/candidateMailDo"
+			forward="recruitment.candidateMailDo" />
+
 		<!-- mail -->
 		<action path="/emailDo" forward="mail.emailDo" />
 		<action path="/mailDo" forward="mail.mailDo" />
 		<action path="/mailTypeDetail" forward="mail.mailTypeDetail" />
-		<action path="/mailingListDetail" forward="mail.mailingListDetail" />
+		<action path="/mailingListDetail"
+			forward="mail.mailingListDetail" />
 		<action path="/mailTypeVisu" forward="mail.mailTypeVisu" />
 		<action path="/mailTypeCreate" forward="mail.mailTypeCreate" />
 		<action path="/mailingListVisu" forward="mail.mailingListVisu" />
 
 		<!-- statistic -->
-		<action path="/statisticsCreate" forward="statistics.statisticsCreate" />
-		<action path="/statisticsVisu" forward="statistics.statisticsVisu" />
-		<action path="/statisticsDetail" forward="statistics.statisticsDetail" />
+		<action path="/statisticsCreate"
+			forward="statistics.statisticsCreate" />
+		<action path="/statisticsVisu"
+			forward="statistics.statisticsVisu" />
+		<action path="/statisticsDetail"
+			forward="statistics.statisticsDetail" />
 
 		<!-- administration -->
 		<action path="/userSearch" forward="administration.userSearch" />
 		<action path="/userCreate" forward="administration.userCreate" />
-		<action path="/profilCreate" forward="administration.profilCreate" />
+		<action path="/profilCreate"
+			forward="administration.profilCreate" />
 		<action path="/profilList" forward="administration.profilList" />
-		<action path="/profilDetail" forward="administration.profilDetail" />
+		<action path="/profilDetail"
+			forward="administration.profilDetail" />
 		<action path="/userDetail" forward="administration.userDetail" />
 		<!-- <action path="/userCreate" 
 			type="fr.umlv.ir3.emagine.user.UserModifyAction"
 			name="userInformationForm" parameter="dispatchAction"
 			scope="session">
 			<forward name="success"
-				path="/administration/userInformation.jsp" />
-		</action>
-
-		<action path="/userModify"
+			path="/administration/userInformation.jsp" />
+			</action>
+			
+			<action path="/userModify"
 			type="fr.umlv.ir3.emagine.user.UserModifyAction"
 			name="userInformationForm" parameter="dispatchAction"
 			scope="session">
-
+			
 			<forward name="success"
-				path="/administration/userInformation.jsp" />
-		</action>
-
-		<action path="/userShowInformation"
+			path="/administration/userInformation.jsp" />
+			</action>
+			
+			<action path="/userShowInformation"
 			type="fr.umlv.ir3.emagine.user.UserShowInformationAction"
 			name="userInformationForm" scope="session">
 			<forward name="success"
-				path="/administration/userInformation.jsp" />
-		</action> -->
+			path="/administration/userInformation.jsp" />
+			</action> -->
 	</action-mappings>
 
 	<!-- ========== Request Processor Declaration =================== -->
@@ -160,13 +220,15 @@
 	<!-- your request processor should extend the org.apache.struts.tiles.TilesRequestProcessor -->
 	<!-- and be declared here -->
 	<!--  <controller processorClass="your.RequestProcessor"  />  -->
-	<controller processorClass="fr.improve.struts.taglib.layout.workflow.LayoutRequestProcessor" />
+	<controller
+		processorClass="fr.improve.struts.taglib.layout.workflow.LayoutRequestProcessor" />
 
 	<!-- ========== Associated Messages Ressource settings =================== -->
 	<!-- Uncomment the following if your webserver complains about a missing resources. -->
 	<!-- This resource is not needed by Tiles or this example. It is just a trick to make -->
 	<!-- Struts happy with some web server. -->
-	<message-resources parameter="fr.umlv.ir3.emagine.ressource.ressources_fr" null="false" />
+	<message-resources
+		parameter="fr.umlv.ir3.emagine.ressource.ressources_fr" null="false" />
 
 	<!-- ========== TilesPlugin settings ===================================== -->
 	<!-- You should declare this plugin if you want to use Tiles with an XML definition file. -->

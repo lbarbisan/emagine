@@ -17,4 +17,9 @@ public class Constants {
      * The token representing "success" for this application.
      */
     public static final String SUCCESS = "success";
+    
+    /**
+     * The session key associated with the current user
+     */
+    public static final String LOGGED_IN_USER_KEY = "logged_in_user";
 }

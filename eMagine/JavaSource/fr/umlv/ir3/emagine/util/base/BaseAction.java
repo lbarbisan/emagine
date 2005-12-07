@@ -1,15 +1,19 @@
 package fr.umlv.ir3.emagine.util.base;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
 import org.apache.struts.actions.DispatchAction;
 
+import fr.umlv.ir3.emagine.user.User;
+import fr.umlv.ir3.emagine.user.login.SessionManager;
 import fr.umlv.ir3.emagine.util.Constants;
 import fr.umlv.ir3.emagine.util.EMagineException;
 
@@ -21,6 +25,30 @@ public class BaseAction extends DispatchAction {
 	 * The <code>Log</code> instance for this application.
 	 */
 	protected Log log = LogFactory.getLog(Constants.PACKAGE);
+	
+    /**
+     * Process the specified HTTP request, and create the corresponding HTTP
+     * response (or forward to another web component that will create it).
+     * Return an <code>ActionForward</code> instance describing where and how
+     * control should be forwarded, or <code>null</code> if the response has
+     * already been completed.
+     * It saves also the current user in the SessionManager
+     *
+     * @param mapping The ActionMapping used to select this instance
+     * @param form The optional ActionForm bean for this request (if any)
+     * @param request The HTTP request we are processing
+     * @param response The HTTP response we are creating
+     *
+     * @exception Exception if an exception occurs
+     */
+	@Override
+	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		User currentUser = (User)request.getSession().getAttribute(Constants.LOGGED_IN_USER_KEY);
+		if (currentUser != null) {
+			SessionManager.setCurrentUser(currentUser);
+		}
+		return super.execute(mapping, form, request, response);
+	}
 
 	// ------------------------------------------------------ Protected Methods
 

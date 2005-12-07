@@ -86,7 +86,17 @@ public class UserManager extends BaseEditableManager<User, UserDAO> {
 		List<User> users = dao.find(userSearchParam);
 		return users;
 	}
-	
+
+	/**
+	 * Returns the user who's login is specified 
+	 * @param apprenticeSearchParam
+	 * @return
+	 * @throws EMagineException if an SQLException occures
+	 */
+	public User find(String login) throws EMagineException {
+		return getDAO().find(login);
+	}
+
 	/**
 	 * Lists all users.
 	 * @return
