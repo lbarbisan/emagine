@@ -1,7 +1,15 @@
 <project name="eMagine" basedir="." default="junittest">
+
+	  <property name="source"    	value="./JavaSource"              					/>
+	  <property name="lib"       	value="./WebContent/WEB-INF/lib"  					/>
+	  <property name="classes"   	value="./.deployables\eMagine\WEB-INF\classes" 		/>
+	  <property name="junit"     	value="./TestSource"            					/>
+	  <property name="outTest"   	value="${junit}/result"								/>
+	  <property name="ressourceDir" value="${source}/fr/umlv/ir3/emagine/ressource"		/>
+	
 	<taskdef name="hibernatetool" classname="org.hibernate.tool.ant.HibernateToolTask">
 		<classpath>
-			<fileset dir="WebContent/WEB-INF/lib">
+			<fileset dir="${lib}">
 				<include name="**/*.jar" />
 			</fileset>
 		</classpath>
@@ -9,7 +17,7 @@
 
 	<taskdef name="middlegen" classname="middlegen.MiddlegenTask">
 		<classpath>
-			<fileset dir="WebContent/WEB-INF/lib">
+			<fileset dir="${lib}">
 				<include name="**/*.jar" />
 			</fileset>
 			<fileset dir="ressources/middleware/lib">
@@ -19,15 +27,14 @@
 	</taskdef>
 
 	<target name="CreateSchema" description="Export le schema et créer la base de donneés">
-		<hibernatetool destdir=".deployables\eMagine\WEB-INF\classes" classpath=".deployables\eMagine\WEB-INF\classes">
-			<annotationconfiguration configurationfile="JavaSource/fr/umlv/ir3/emagine/ressource/hibernate.cfg.xml" />
+		<hibernatetool destdir="${classes}" classpath="${classes}">
+			<annotationconfiguration configurationfile="${ressourceDir}/hibernate.cfg.xml" />
 			<hbm2ddl export="true" console="true" drop="true" create="true" outputfilename="hibernate.ddl" delimiter=";" />
 		</hibernatetool>
 	</target>
 
-	<target name="ViewSchema">
-		<!--depends="CreateSchema">-->
-		<middlegen appname="eMagine" gui="true" databaseurl="jdbc:postgresql://server.srv-net.com:54321/eMagine" driver="org.postgresql.Driver" username="eMagine" password="eMagine" schema="public" prefsdir="JavaSource/fr/umlv/ir3/emagine/ressource/">
+	<target name="ViewSchema"> <!--depends="CreateSchema">-->
+		<middlegen appname="eMagine" gui="true" databaseurl="jdbc:postgresql://server.srv-net.com:54321/eMagine" driver="org.postgresql.Driver" username="eMagine" password="eMagine" schema="public" prefsdir="${ressourceDir}">
 			<!--
 			<table name="absence_pkey" />
 			<table name="applicationuser_email_key" />
@@ -113,12 +120,6 @@
 	</target>
 
 	  <!-- =================================== JUNIT definitions =========================================== -->
-
-	  <property name="source"    value="./JavaSource"              				/>
-	  <property name="lib"       value="./WebContent/WEB-INF/lib"  				/>
-	  <property name="classes"   value="./.deployables\eMagine\WEB-INF\classes" />
-	  <property name="junit"     value="./TestSource"            				/>
-	  <property name="outTest"   value="${junit}/result"						/>
 
 	  <path id="classpath_default">
 	    <pathelement path="${classes}" />
