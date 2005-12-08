@@ -5,7 +5,6 @@
 				<include name="**/*.jar" />
 			</fileset>
 		</classpath>
-
 	</taskdef>
 
 	<taskdef name="middlegen" classname="middlegen.MiddlegenTask">
@@ -18,7 +17,6 @@
 			</fileset>
 		</classpath>
 	</taskdef>
-
 
 	<target name="CreateSchema" description="Export le schema et créer la base de donneés">
 		<hibernatetool destdir=".deployables\eMagine\WEB-INF\classes" classpath=".deployables\eMagine\WEB-INF\classes">
@@ -113,6 +111,54 @@
 			<table name="teachertutor" />
 		</middlegen>
 	</target>
+
+	  <!-- =================================== JUNIT definitions =========================================== -->
+
+	  <property name="source"    value="./src"              />
+	  <property name="lib"       value="./lib"              />
+	  <property name="classes"   value="./classes"     		/>
+
+	  <property name="junit"     value="./junit"            />
+	  <property name="outTest"   value="./junit/result"		/>
+
+	  <path id="classpath_default">
+	    <pathelement path="${classes}" />
+	    <pathelement path="${java.home}/../lib/tools.jar" />
+	    <fileset dir="${lib}">
+	       <include name="**/*.jar"/>
+	    </fileset>
+	  </path>
+
+	  <target name="compile">
+	 	<javac srcdir="${source}" destdir="${classes}" debug="on">
+	      <classpath refid="classpath_default" />
+	    </javac>
+	  </target>
+
+	  <target name="junitcompile" depends="compile">
+	 	<javac srcdir="${junit}" destdir="${classes}" debug="on">
+	      <classpath refid="classpath_default" />
+	    </javac>
+	  </target>
+
+	  <target name="junittest" depends="compile" description="Run JUnit tests and create HTML reports">
+	  	<junit haltonfailure="false" printsummary="off">
+			<classpath refid="classpath_default"/>
+		     	<batchtest todir="${outTest}">
+		        	<fileset dir="${junit}" includes="**/*Test.java"/>
+		       	</batchtest>
+		       	<formatter type="xml"/>
+		</junit>
+		<junitreport todir="${outTest}">
+			<fileset dir="${outTest}" includes="TEST-*.xml"/>
+		    	<report format="frames" todir="${outTest}"/>
+		</junitreport>
+		<delete>
+			<fileset file="${outTest}/*.xml"/>
+		</delete>
+	  </target>	
+
+	  <!-- ================================================================================================= -->
 
 </project>
 
