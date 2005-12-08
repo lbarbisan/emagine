@@ -7,7 +7,6 @@ import java.security.Principal;
 
 import org.securityfilter.realm.SecurityRealmInterface;
 
-import fr.umlv.ir3.emagine.user.login.SessionManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 
 public class SecurityProxy<Type> implements InvocationHandler {

@@ -12,8 +12,8 @@ import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
 import org.apache.struts.actions.DispatchAction;
 
+import fr.umlv.ir3.emagine.security.SessionManager;
 import fr.umlv.ir3.emagine.user.User;
-import fr.umlv.ir3.emagine.user.login.SessionManager;
 import fr.umlv.ir3.emagine.util.Constants;
 import fr.umlv.ir3.emagine.util.EMagineException;
 

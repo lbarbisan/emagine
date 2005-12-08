@@ -1,7 +1,7 @@
 /**
  *  
  */
-package fr.umlv.ir3.emagine.user.login;
+package fr.umlv.ir3.emagine.security;
 
 import java.security.Principal;
 import java.util.concurrent.ConcurrentHashMap;

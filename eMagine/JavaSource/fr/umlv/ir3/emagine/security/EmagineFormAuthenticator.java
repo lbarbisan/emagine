@@ -9,7 +9,6 @@ import org.securityfilter.authenticator.FormAuthenticator;
 import org.securityfilter.filter.SecurityFilter;
 import org.securityfilter.filter.SecurityRequestWrapper;
 
-import fr.umlv.ir3.emagine.user.login.SessionManager;
 
 public class EmagineFormAuthenticator extends FormAuthenticator {
 

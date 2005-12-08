@@ -3,7 +3,7 @@ package fr.umlv.ir3.emagine.user;
 import java.util.List;
 
 import fr.umlv.ir3.emagine.extraction.ExtractionParam;
-import fr.umlv.ir3.emagine.user.login.SessionManager;
+import fr.umlv.ir3.emagine.security.SessionManager;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.Extractable;
