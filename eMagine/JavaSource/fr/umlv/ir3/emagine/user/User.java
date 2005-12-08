@@ -21,7 +21,7 @@ public class User extends EditableEntity{
 
 	private static final long serialVersionUID = 3947274315317297604L;
 
-	@ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE, CascadeType.REFRESH})
+	@ManyToOne(cascade = {CascadeType.ALL})
 	@JoinColumn(name = "profile_id")
 	private Profile profile;
 	@OneToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE, CascadeType.REFRESH},

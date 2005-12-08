@@ -27,9 +27,9 @@ public class Apprentice extends Candidate {
 
 	private static final long serialVersionUID = 3998703814616710370L;
 
-	@OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},
+	@OneToMany(cascade = {CascadeType.ALL},
 			mappedBy = "apprentice")
-	private List<Absence> absences = new ArrayList<Absence>();
+	private List<Absence> absences;
 	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinColumn(name="teachingtutor_id")
 	private TeacherTutor teacherTutor; 
@@ -66,6 +66,8 @@ public class Apprentice extends Candidate {
 	private Integer year;
 	private Boolean excluded;
 	
+	public Apprentice(){super();}
+	
 	public Apprentice(Candidate candidate) {
 		super(candidate.getModifications(), candidate.getEvents(), candidate.getAddressPersonnal(), candidate.getBirthdayDate(),
 				candidate.getBirthdayCity(), candidate.getBirthdayCountry(), candidate.getBirthdayDepartment(), candidate.getNationality(), candidate.getSex(),
@@ -83,7 +85,12 @@ public class Apprentice extends Candidate {
 	 * @param absence abscence to add
 	 */
 	public void addAbsence(Absence absence) {
+		if(this.absences==null)
+		{
+			absences = new ArrayList<Absence>();
+		}
 		this.absences.add(absence);
+		
 	}
 
 	public Address getAddressAcademic() {

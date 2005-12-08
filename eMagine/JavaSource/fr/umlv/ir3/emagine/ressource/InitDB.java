@@ -1,4 +1,4 @@
-package fr.umlv.ir3.emagine;
+package fr.umlv.ir3.emagine.ressource;
 
 import java.io.FileNotFoundException;
 import java.util.Collection;
@@ -11,7 +11,7 @@ import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.search.SearchParamImpl;
 
-public class Main {
+public class InitDB {
 
 	/**
 	 * @param args
@@ -19,64 +19,7 @@ public class Main {
 	 * @throws FileNotFoundException 
 	 */
 	public static void main(String[] args) throws FileNotFoundException, EMagineException {
-
-
-		
 		InitializeUser();
-
-		/*UserDAO userDAO = DAOManager.getInstance().getUserDAO();
-		SearchParamImpl searchParam = new SearchParamImpl();
-		searchParam.setField("firstName", "Laurent");
-		searchParam.setField("lastName", "Barbisan");
-		
-		Collection<User> list = userDAO.find(searchParam);
-		
-		for (User user : list) {
-			System.out.println(user.getFirstName());
-		}
-		*/
-		/*List<User> users = new ArrayList<User>();
-		users.add(user);
-		UserSearchForm userSearchForm = new UserSearchForm();
-		userSearchForm.setResults(users);
-
-		ExtractionForm extractionForm = new ExtractionForm();
-		extractionForm.setExtractionType(ExtractionType.XLS);
-		extractionForm.setExtractable(userSearchForm);
-		
-
-		ManagerManager.getInstance().getExtractionManager().extract(extractionForm, new FileOutputStream(new File("toto.xls")));
-		UserSearchForm form = new UserSearchForm();
-		for (String field : form.getFields()) {
-			System.out.println(field);
-		}
-		
-		for (Field field : form.getClass().getDeclaredFields()) {
-			System.out.println(" > "+field+" // "+field.isAnnotationPresent(IsAField.class));
-		}
-		
-		
-		
-		UserSearchForm form = new UserSearchForm();
-		for (String field : form.getFields()) {
-			System.out.println(field);
-		}
-		
-		for (Class klass : form.getClass().getInterfaces()) {
-			for (Method method : klass.getDeclaredMethods()) {
-				Annotation[] annotations = method.getDeclaredAnnotations();
-				System.out.print(" > "+method+" // ");
-				for (Annotation annotation : annotations) {
-					System.out.print(annotation);
-					if (annotation instanceof RequestParam) {
-						System.out.print(" : "+((RequestParam)annotation).value());
-					}
-				}
-				System.out.println();
-			}
-		}
-		
-		*/
 	}
 	
 	public static void InitializeUser()

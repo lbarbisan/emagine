@@ -23,7 +23,7 @@ public class Profile extends BaseEntity{
 	
 	@Column(unique = true)
 	private String name;	
-	@OneToMany(cascade = {CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+	@OneToMany(cascade = {CascadeType.ALL})
 	@OrderBy("name")
 	private List<Right> rights = new ArrayList<Right>();
 	@OneToMany(cascade = {CascadeType.MERGE,CascadeType.PERSIST, CascadeType.REFRESH},

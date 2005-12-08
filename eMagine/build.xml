@@ -1,12 +1,21 @@
 <project name="eMagine" basedir="." default="junittest">
 
-	  <property name="source"    	value="./JavaSource"              					/>
-	  <property name="lib"       	value="./WebContent/WEB-INF/lib"  					/>
-	  <property name="classes"   	value="./.deployables\eMagine\WEB-INF\classes" 		/>
-	  <property name="junit"     	value="./TestSource"            					/>
-	  <property name="outTest"   	value="${junit}/result"								/>
-	  <property name="ressourceDir" value="${source}/fr/umlv/ir3/emagine/ressource"		/>
-	
+	<property name="source" value="./JavaSource" />
+	<property name="lib" value="./WebContent/WEB-INF/lib" />
+	<property name="classes" value="./.deployables\eMagine\WEB-INF\classes" />
+	<property name="junit" value="./TestSource" />
+	<property name="outTest" value="${junit}/result" />
+	<property name="ressourceDir" value="${source}/fr/umlv/ir3/emagine/ressource" />
+	<property name="db.driver" value="org.postgresql.Driver" />
+	<property name="db.url" value="jdbc:postgresql://server.srv-net.com:54321/eMagine" />
+	<property name="db.username" value="eMagine" />
+	<property name="db.password" value="eMagine" />
+	<property name="db.url.admin" value="jdbc:postgresql://server.srv-net.com:54321/template1" />
+	<property name="db.username.admin" value="postgres" />
+	<property name="db.password.admin" value="postgres" />
+
+
+	<!-- =================================== H I B E R N A T E =========================================== -->
 	<taskdef name="hibernatetool" classname="org.hibernate.tool.ant.HibernateToolTask">
 		<classpath>
 			<fileset dir="${lib}">
@@ -26,15 +35,15 @@
 		</classpath>
 	</taskdef>
 
-	<target name="CreateSchema" description="Export le schema et créer la base de donneés">
+	<target name="CreateSchemaDB" description="Export le schema et créer la base de donneés en fonction des classes java">
 		<hibernatetool destdir="${classes}" classpath="${classes}">
 			<annotationconfiguration configurationfile="${ressourceDir}/hibernate.cfg.xml" />
 			<hbm2ddl export="true" console="true" drop="true" create="true" outputfilename="hibernate.ddl" delimiter=";" />
 		</hibernatetool>
 	</target>
 
-	<target name="ViewSchema"> <!--depends="CreateSchema">-->
-		<middlegen appname="eMagine" gui="true" databaseurl="jdbc:postgresql://server.srv-net.com:54321/eMagine" driver="org.postgresql.Driver" username="eMagine" password="eMagine" schema="public" prefsdir="${ressourceDir}">
+	<target name="ViewSchemaDB" description="Affiche le schema de la base de données">
+		<middlegen appname="eMagine" gui="true" databaseurl="${db.url}" driver="${db.driver}" username="${db.username}" password="${db.password}" schema="public" prefsdir="${ressourceDir}">
 			<!--
 			<table name="absence_pkey" />
 			<table name="applicationuser_email_key" />
@@ -119,46 +128,91 @@
 		</middlegen>
 	</target>
 
-	  <!-- =================================== JUNIT definitions =========================================== -->
+	<!-- =================================== P O S T G R E S definitions =========================================== -->
+	<!-- Supprime la base de donnée, recréer les table en fonction des object Java -->
+	<!-- Créer les vues manquante, puis initialise les tables -->
+	<target name="InitDatabase" 
+		depends="DeleteDB,CreateSchemaDB,StaticInitDB,DynamicInitDB"
+		description="Rétablie la base de données en configuration usine">
+	</target>
 
-	  <path id="classpath_default">
-	    <pathelement path="${classes}" />
-	    <pathelement path="${lib}/tools.jar" />
-	    <fileset dir="${lib}">
-	       <include name="**/*.jar"/>
-	    </fileset>
-	  </path>
+	<target name="DynamicInitDB" description="Initialise les données dynamique de la base de données (Nom d'utilisateur etc...)">
+		<java classname="fr.umlv.ir3.emagine.ressource.InitDB">
+			<classpath>
+				<fileset dir="${lib}">
+					<include name="**/*.jar" />
+				</fileset>
+				<pathelement path="${classes}" />
+			</classpath>
+		</java>
+	</target>
 
-	  <target name="compile">
-	 	<javac srcdir="${source}" destdir="${classes}" debug="on">
-	      <classpath refid="classpath_default" />
-	    </javac>
-	  </target>
+	<!-- Supprime la base de données et la recréer -->
+	<target name="DeleteDB" description="Supprime et recréer la base de données">
 
-	  <target name="junitcompile" depends="compile">
-	 	<javac srcdir="${junit}" destdir="${classes}" debug="on">
-	      <classpath refid="classpath_default" />
-	    </javac>
-	  </target>
+		<sql driver="${db.driver}" url="${db.url.admin}" userid="${db.username.admin}" password="${db.password.admin}" autocommit="true">
+			<classpath>
+				<fileset dir="${lib}">
+					<include name="**/*.jar" />
+				</fileset>
+			</classpath>
+		DROP DATABASE "eMagine";
+		CREATE DATABASE "eMagine" WITH OWNER = "eMagine" ENCODING = 'UNICODE' TABLESPACE = pg_default;
+		</sql>
+	</target>
 
-	  <target name="junittest" depends="compile" description="Run JUnit tests and create HTML reports">
-	  	<junit haltonfailure="false" printsummary="off">
-			<classpath refid="classpath_default"/>
-		     	<batchtest todir="${outTest}">
-		        	<fileset dir="${junit}" includes="**/*Test.java"/>
-		       	</batchtest>
-		       	<formatter type="xml"/>
+	<!-- Créer les vue pour la base de données -->
+	<target name="StaticInitDB" description="Initialise les valeur statique de la base de données (cf.staticInitDB.sql)">
+		<sql driver="${db.driver}" url="${db.url}" userid="${db.username}" password="${db.password}">
+			<classpath>
+				<fileset dir="${lib}">
+					<include name="**/*.jar" />
+				</fileset>
+			</classpath>
+		<transaction  src="${ressourceDir}/staticInitDB.sql"/>
+	</sql>
+	</target>
+
+
+	<!-- =================================== JUNIT definitions =========================================== -->
+
+	<path id="classpath_default">
+		<pathelement path="${classes}" />
+		<pathelement path="${lib}/tools.jar" />
+		<fileset dir="${lib}">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+
+	<target name="compile">
+		<javac srcdir="${source}" destdir="${classes}" debug="on">
+			<classpath refid="classpath_default" />
+		</javac>
+	</target>
+
+	<target name="junitcompile" depends="compile">
+		<javac srcdir="${junit}" destdir="${classes}" debug="on">
+			<classpath refid="classpath_default" />
+		</javac>
+	</target>
+
+	<target name="junittest" depends="compile" description="Run JUnit tests and create HTML reports">
+		<junit haltonfailure="false" printsummary="off">
+			<classpath refid="classpath_default" />
+			<batchtest todir="${outTest}">
+				<fileset dir="${junit}" includes="**/*Test.java" />
+			</batchtest>
+			<formatter type="xml" />
 		</junit>
 		<junitreport todir="${outTest}">
-			<fileset dir="${outTest}" includes="TEST-*.xml"/>
-		    	<report format="frames" todir="${outTest}"/>
+			<fileset dir="${outTest}" includes="TEST-*.xml" />
+			<report format="frames" todir="${outTest}" />
 		</junitreport>
 		<delete>
-			<fileset file="${outTest}/*.xml"/>
+			<fileset file="${outTest}/*.xml" />
 		</delete>
-	  </target>	
+	</target>
 
-	  <!-- ================================================================================================= -->
-
+	<!-- ================================================================================================= -->
 </project>
 

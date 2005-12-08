@@ -29,7 +29,7 @@ public class Absence extends EditableEntity {
 	 */
 	private static final long serialVersionUID = -2760061716558049781L;
 	
-	@ManyToOne(cascade= {CascadeType.PERSIST,CascadeType.MERGE})
+	@ManyToOne(cascade= {CascadeType.ALL})
 	@JoinColumn(name = "apprentice_id")
 	private Apprentice apprentice;
 	@Basic(temporalType = TemporalType.TIMESTAMP) 
