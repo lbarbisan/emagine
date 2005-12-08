@@ -45,10 +45,4 @@ public class ProfileManager extends BaseManagerImpl<Profile, ProfileDAO> {
 	public ProfileDAO getDAO() {
 		return DAOManager.getInstance().getProfileDAO();
 	}
-	
-	@Override
-	public Profile retrieve(long id) throws EMagineException {
-		return getDAO().retrieve(Profile.class, id);
-	}
-
 }

@@ -21,13 +21,13 @@ public class User extends EditableEntity{
 
 	private static final long serialVersionUID = 3947274315317297604L;
 
-	@ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+	@ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE, CascadeType.REFRESH})
 	@JoinColumn(name = "profile_id")
 	private Profile profile;
-	@OneToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE},
+	@OneToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE, CascadeType.REFRESH},
 			mappedBy = "userDestination")
 	private List<Modification> modificationsInWait;
-	@OneToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE},
+	@OneToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE, CascadeType.REFRESH},
 			mappedBy = "userSource")
 	private List<Modification> modificationsRequest;
 	

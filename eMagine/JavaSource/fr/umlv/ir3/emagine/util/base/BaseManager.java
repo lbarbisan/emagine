@@ -1,10 +1,15 @@
 package fr.umlv.ir3.emagine.util.base;
 
 import java.util.Collection;
+import java.util.List;
+
+import org.hibernate.type.EntityType;
 
 import fr.umlv.ir3.emagine.util.EMagineException;
+import fr.umlv.ir3.emagine.util.search.SearchParam;
 
-public interface BaseManager<EntityType extends BaseEntity, EntityDAO extends BaseDAO<EntityType>> {
+public interface BaseManager
+	<EntityType extends BaseEntity, EntityDAO extends BaseDAO<EntityType>> {
 
 	/**
 	 * Creates the database data for the specified object. Handles the creation with a transaction.
@@ -20,6 +25,14 @@ public interface BaseManager<EntityType extends BaseEntity, EntityDAO extends Ba
 	 * @throws EMagineException throw this exception if an SQLException occures
 	 */
 	public EntityType retrieve(long id) throws EMagineException;
+	
+	/**
+	 * Retrieves the database data for the specified id
+	 * @param id id of the object to retrieve
+	 * @return the object which is associated to id, null if not found
+	 * @throws EMagineException throw this exception if an SQLException occures
+	 */
+	public List<EntityType> find(SearchParam searchParam) throws EMagineException;
 
 	/**
 	 * Updates the database data for the specified object. Handles the update with a transaction.

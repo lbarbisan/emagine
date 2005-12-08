@@ -3,13 +3,18 @@
  */
 package fr.umlv.ir3.emagine.util.base;
 
+import java.lang.reflect.ParameterizedType;
 import java.util.Collection;
+import java.util.List;
 
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.type.EntityType;
 
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.HibernateUtils;
+import fr.umlv.ir3.emagine.util.search.SearchParam;
 
 
 /**
@@ -59,9 +64,11 @@ public class BaseDAO<EntityType extends BaseEntity> {
      * @return the object which is associated to id, null if not found
      * @throws EMagineException throw this exception if an SQLException occures
      */
-    public EntityType retrieve(Class<? extends EntityType> klass, long id) throws EMagineException {
+    public EntityType retrieve(long id) throws EMagineException {
     	try {
     		Session session = HibernateUtils.getSession();
+    		ParameterizedType type = (ParameterizedType)this.getClass().getGenericSuperclass();
+    		Class klass = (Class)(type.getActualTypeArguments()[0]);
 			return (EntityType) session.load(klass, id);
     	} catch (HibernateException exception) {
     		throw new EMagineException("exception.baseDAO.update", exception);
@@ -94,5 +101,32 @@ public class BaseDAO<EntityType extends BaseEntity> {
 		} catch (HibernateException exception) {
 			throw new EMagineException("exception.baseDAO.delete", exception);
 		}
+    }
+    
+    public List<EntityType> find(SearchParam searchParam)
+    {
+    	
+    	boolean first = true;
+    	String queryString;
+    	
+    	//Retrouve le type du generic
+    	ParameterizedType type = (ParameterizedType)this.getClass().getGenericSuperclass();
+		Class klass = (Class)(type.getActualTypeArguments()[0]);
+		
+		queryString = "From " + klass.getName() + (searchParam.getFields().size()==0 ? "" : " where");
+        for (String field : searchParam.getFields())
+        {        	
+        	//TODO : Optimiser avec des StringBUffer
+        	queryString = queryString + (first==true ? "" : " and ") + " " + field + " = :" + field;
+        	if(first==true) {first= false;}
+		}
+        
+        Query query = HibernateUtils.getSession().createQuery(queryString);
+        for (String field : searchParam.getFields())
+        {        	
+        	Object value = searchParam.getField(field);
+        	query.setParameter(field, value);
+		}         
+        return query.list();
     }
 }

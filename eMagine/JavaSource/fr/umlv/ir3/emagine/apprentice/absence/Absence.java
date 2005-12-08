@@ -41,6 +41,19 @@ public class Absence extends EditableEntity {
 	private boolean justification;
 	private String justificationComment;
 	
+	protected Absence(){super();}
+	public Absence(boolean justification ,
+					String justificationComment,
+					Date startDate,
+					Date endDate)
+	{
+		super();
+		this.justification = justification;
+		this.justificationComment = justificationComment;
+		this.startDate = startDate;
+		this.endDate = endDate;
+	}
+	
 	public Date getEndDate() {
 		return endDate;
 	}

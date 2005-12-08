@@ -12,6 +12,8 @@ import fr.umlv.ir3.emagine.util.base.BaseEntity;
 @Entity(access = AccessType.FIELD)
 public class Extraction extends BaseEntity {
 
+	private static final long serialVersionUID = 3611334569420916057L;
+
 	@OneToOne
 	private User user;
 

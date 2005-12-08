@@ -18,10 +18,4 @@ public class EventManager extends BaseManagerImpl<Event, EventDAO> {
 		DAOManager instance = DAOManager.getInstance();
 		return instance.getEventDAO();
 	}
-
-	@Override
-	public Event retrieve(long id) throws EMagineException {
-		EventDAO dao = getDAO();
-		return dao.retrieve(Event.class, id); 
-	}
 }

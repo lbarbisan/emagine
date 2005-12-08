@@ -98,6 +98,12 @@ public class Candidate extends Person {
 	}
 	
 	
+	public Candidate() {
+		super();
+		// TODO Candidate() Not Implemented
+	}
+
+
 	public boolean isAccepted() {
 		return accepted;
 	}

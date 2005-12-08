@@ -29,7 +29,7 @@ public class Apprentice extends Candidate {
 
 	@OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},
 			mappedBy = "apprentice")
-	private List<Absence> absences;
+	private List<Absence> absences = new ArrayList<Absence>();
 	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinColumn(name="teachingtutor_id")
 	private TeacherTutor teacherTutor; 
@@ -66,26 +66,24 @@ public class Apprentice extends Candidate {
 	private Integer year;
 	private Boolean excluded;
 	
-	
-	
-	
-	
-	
-
 	public Apprentice(Candidate candidate) {
 		super(candidate.getModifications(), candidate.getEvents(), candidate.getAddressPersonnal(), candidate.getBirthdayDate(),
 				candidate.getBirthdayCity(), candidate.getBirthdayCountry(), candidate.getBirthdayDepartment(), candidate.getNationality(), candidate.getSex(),
 				candidate.getLastName(), candidate.getFirstName(), candidate.getEmail(), candidate.getPhone(), candidate.getMobilePhone(), candidate.getFax(), candidate.getContactOriginIG2K(),
 				candidate.getFormationCenter(), candidate.getRoom(), candidate.isOtherFormation(), candidate.isAccepted(), candidate.getEntryLevel(),
 				candidate.getProfessionMother(), candidate.getProfessionFather(), candidate.getCourseOption());
+		
 	}
 
 	public List<Absence> getAbsences() {
 		return absences;
 	}
-
-	public void setAbsences(List<Absence> absences) {
-		this.absences = absences;
+	/**
+	 * Add an absence to the apprentice
+	 * @param absence abscence to add
+	 */
+	public void addAbsence(Absence absence) {
+		this.absences.add(absence);
 	}
 
 	public Address getAddressAcademic() {

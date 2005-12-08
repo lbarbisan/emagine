@@ -17,16 +17,6 @@ import fr.umlv.ir3.emagine.util.base.BaseEventableManager;
 public class ApprenticeManager extends BaseEventableManager<Apprentice, ApprenticeDAO> {
 
 	/**
-	 * Lists apprentices, using the given search parameters
-	 * @param apprenticeSearchParam
-	 * @return
-	 * @throws EMagineException if an SQLException occures
-	 */
-	public List<Apprentice> find(ApprenticeSearchParam apprenticeSearchParam) throws EMagineException {
-		return getDAO().find(apprenticeSearchParam);
-	}
-
-	/**
 	 * Excludes the given apprentice
 	 * @param apprentice
 	 * @throws EMagineException throw if the apprentice doesn't exist or if an SQLException occures
@@ -155,11 +145,6 @@ public class ApprenticeManager extends BaseEventableManager<Apprentice, Apprenti
 	@Override
 	protected ApprenticeDAO getDAO() {
 		return DAOManager.getInstance().getApprenticeDAO();
-	}
-
-	@Override
-	public Apprentice retrieve(long id) throws EMagineException {
-		return getDAO().retrieve(Apprentice.class, id);
 	}
 
 	@Override

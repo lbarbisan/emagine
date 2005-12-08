@@ -84,6 +84,7 @@ public class HibernateUtils {
         }
         catch (Exception exception) {
             rollbackTransaction();
+            exception.printStackTrace();
             throw new IllegalThreadStateException();
         }
     }

@@ -12,7 +12,9 @@ import fr.umlv.ir3.emagine.util.base.BaseEditableManagerImpl;
 
 
 
-public class UserManagerImpl extends BaseEditableManagerImpl<User, UserDAO> implements UserManager {
+public class UserManagerImpl 
+	extends BaseEditableManagerImpl<User, UserDAO> 
+	implements UserManager {
 
 	/**
 	 * @see fr.umlv.ir3.emagine.user.UserManager#create(fr.umlv.ir3.emagine.user.User)
@@ -71,15 +73,6 @@ public class UserManagerImpl extends BaseEditableManagerImpl<User, UserDAO> impl
 	}
 
 	/**
-	 * @see fr.umlv.ir3.emagine.user.UserManager#find(fr.umlv.ir3.emagine.user.UserSearchParam)
-	 */
-	public List<User> find(UserSearchParam userSearchParam) throws EMagineException {
-		UserDAO dao = getDAO();
-		List<User> users = dao.find(userSearchParam);
-		return users;
-	}
-
-	/**
 	 * @see fr.umlv.ir3.emagine.user.UserManager#find(java.lang.String, java.lang.String)
 	 */
 	public User find(String login, String password) throws EMagineException {
@@ -104,7 +97,7 @@ public class UserManagerImpl extends BaseEditableManagerImpl<User, UserDAO> impl
 	 */
 	@Override
 	public User retrieve(long id) throws EMagineException {
-		return getDAO().retrieve(User.class, id);
+		return getDAO().retrieve(id);
 	}
 
 	/**
@@ -115,4 +108,5 @@ public class UserManagerImpl extends BaseEditableManagerImpl<User, UserDAO> impl
 		// TODO UserManagerImpl.extract()
 		return null;
 	}
+
 }

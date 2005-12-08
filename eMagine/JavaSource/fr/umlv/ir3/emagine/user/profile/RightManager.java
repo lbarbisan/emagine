@@ -15,10 +15,4 @@ public class RightManager extends BaseManagerImpl<Right, RightDAO> {
 	public RightDAO getDAO() {
 		return DAOManager.getInstance().getRightDAO();
 	}
-	
-	@Override
-	public Right retrieve(long id) throws EMagineException {
-		return getDAO().retrieve(Right.class, id);
-	}
-
 }

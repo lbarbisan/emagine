@@ -21,12 +21,6 @@ public class StatisticManager extends BaseEditableManagerImpl<Statistic, Statist
 	}
 
 	@Override
-	public Statistic retrieve(long id) throws EMagineException {
-		StatisticDAO dao = getDAO();
-		return dao.retrieve(Statistic.class, id);
-	}
-
-	@Override
 	public Extractable extract(ExtractionParam extractionParam) {
 		// TODO StatisticManager.extract()
 		return null;

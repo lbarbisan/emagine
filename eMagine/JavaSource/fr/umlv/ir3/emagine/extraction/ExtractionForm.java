@@ -1,11 +1,15 @@
 package fr.umlv.ir3.emagine.extraction;
 
+import java.util.Collection;
+
 import org.apache.struts.action.ActionForm;
 
 import fr.umlv.ir3.emagine.user.User;
 import fr.umlv.ir3.emagine.util.Extractable;
 
 public class ExtractionForm extends ActionForm implements ExtractionParam {
+
+	private static final long serialVersionUID = -3336470878301794439L;
 
 	/**
 	 * Used to know if the configuration must be saved
@@ -106,6 +110,16 @@ public class ExtractionForm extends ActionForm implements ExtractionParam {
 
 	public ViewEnum getView() {
 		// TODO ExtractionForm.getView()
+		return null;
+	}
+
+	public Object getField(String field) {
+		// TODO ExtractionForm.getField()
+		return null;
+	}
+
+	public Collection<String> getFields() {
+		// TODO ExtractionForm.getFields()
 		return null;
 	}
 }

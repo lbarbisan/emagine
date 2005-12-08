@@ -2,18 +2,14 @@ package fr.umlv.ir3.emagine.extraction;
 
 import java.io.OutputStream;
 
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-
 import fr.umlv.ir3.emagine.util.EMagineException;
 
 public class XLSExtractor implements Extractor {
 
 	public void extract(ExtractionParam extractionParam, OutputStream outputStream) throws EMagineException {
-		final HSSFWorkbook wb = new HSSFWorkbook();
-		HSSFSheet sheet = wb.createSheet("export");
-		HSSFRow row = sheet.createRow((short) 0);
+		//final HSSFWorkbook wb = new HSSFWorkbook();
+		//HSSFSheet sheet = wb.createSheet("export");
+		//HSSFRow row = sheet.createRow((short) 0);
 		
 //		String[] fields = extractionParam.getSelectedFields();
 //		Extractable extractable = extractionParam.getExtractable();

@@ -13,16 +13,6 @@ import fr.umlv.ir3.emagine.util.base.BaseEditableManagerImpl;
 public class AbsenceManager extends BaseEditableManagerImpl<Absence, AbsenceDAO> {
 
 	/**
-	 * Lists absences, using the given search parameters
-	 * @param absenceSearchParam
-	 * @return
-	 * @throws EMagineException if an SQLException occures
-	 */
-	public List<Absence> find(AbsenceSearchParam absenceSearchParam) throws EMagineException {
-		return getDAO().find(absenceSearchParam);
-	}
-	
-	/**
 	 * Lists absences for a list of Apprentice, between 2 dates
 	 * @param apprentices selected apprentices
 	 * @param absenceSearchParam
@@ -36,11 +26,6 @@ public class AbsenceManager extends BaseEditableManagerImpl<Absence, AbsenceDAO>
 	@Override
 	protected AbsenceDAO getDAO() {
 		return DAOManager.getInstance().getAbsenceDAO();
-	}
-
-	@Override
-	public Absence retrieve(long id) throws EMagineException {
-		return getDAO().retrieve(Absence.class, id);
 	}
 
 	@Override

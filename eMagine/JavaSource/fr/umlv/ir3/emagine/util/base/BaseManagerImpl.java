@@ -1,11 +1,23 @@
 package fr.umlv.ir3.emagine.util.base;
 
 import java.util.Collection;
+import java.util.List;
 
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
+import fr.umlv.ir3.emagine.util.search.SearchParam;
 
-public abstract class BaseManagerImpl<EntityType extends BaseEntity, EntityDAO extends BaseDAO<EntityType>> implements BaseManager<EntityType, EntityDAO> {
+public abstract class BaseManagerImpl
+	<EntityType extends BaseEntity, EntityDAO extends BaseDAO<EntityType>> 
+	implements BaseManager<EntityType, EntityDAO> {
+	/**
+	 * @see fr.umlv.ir3.emagine.util.base.BaseManager#find(fr.umlv.ir3.emagine.util.search.SearchParam)
+	 */
+	public List<EntityType> find(SearchParam searchParam) throws EMagineException {
+		EntityDAO dao = getDAO();
+		return dao.find(searchParam);
+	}
+
 	/**
 	 * @see fr.umlv.ir3.emagine.util.base.BaseManager#create(EntityType)
 	 */
@@ -24,7 +36,15 @@ public abstract class BaseManagerImpl<EntityType extends BaseEntity, EntityDAO e
     /**
 	 * @see fr.umlv.ir3.emagine.util.base.BaseManager#retrieve(long)
 	 */
-	public abstract EntityType retrieve(long id) throws EMagineException;
+	public EntityType retrieve(long id) throws EMagineException
+	{
+		try {
+			EntityDAO dao = getDAO();
+			return dao.retrieve(id);
+		} catch (EMagineException exception) {
+			throw exception;
+		}
+	}
 	
 
     /**

@@ -25,6 +25,9 @@ public class Right extends BaseEntity {
 	@Column(unique = true)
 	private String name;
 	
+	public Right(String name) {
+		this.name = name;
+	}
 	/**
 	 * @return Returns the description.
 	 */

@@ -6,7 +6,10 @@ import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.Extractable;
 
-public abstract class BaseEditableManagerImpl<EntityType extends EditableEntity, EntityDAO extends BaseDAO<EntityType>> extends BaseManagerImpl<EntityType, BaseDAO<EntityType>> implements BaseEditableManager<EntityType, EntityDAO> {
+public abstract class BaseEditableManagerImpl
+	<EntityType extends EditableEntity, EntityDAO extends BaseDAO<EntityType>> 
+	extends BaseManagerImpl<EntityType, EntityDAO> 
+	implements BaseEditableManager<EntityType, EntityDAO> {
 
     /**
 	 * @see fr.umlv.ir3.emagine.util.base.BaseEditableManager#update(EntityType)

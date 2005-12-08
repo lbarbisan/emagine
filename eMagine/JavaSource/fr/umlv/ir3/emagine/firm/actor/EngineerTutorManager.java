@@ -40,6 +40,6 @@ public class EngineerTutorManager extends BaseManagerImpl<EngineerTutor, Enginee
 	@Override
 	public EngineerTutor retrieve(long id) throws EMagineException {
 		EngineerTutorDAO dao = getDAO();
-		return dao.retrieve(EngineerTutor.class, id);
+		return dao.retrieve(id);
 	}
 }

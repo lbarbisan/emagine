@@ -27,8 +27,7 @@ public abstract class EventableEntity extends EditableEntity implements Serializ
 
     
     
-	protected EventableEntity(Long id, Long version, List<Modification> modifications, List<Event> events) {
-		super(id, version, modifications);
+	protected EventableEntity(List<Modification> modifications, List<Event> events) {
 		this.events = events;
 	}
 	

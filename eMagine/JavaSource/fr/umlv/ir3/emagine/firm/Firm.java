@@ -24,6 +24,8 @@ import fr.umlv.ir3.emagine.util.base.EventableEntity;
 		"name"}))
 public class Firm extends EventableEntity {
 	
+	private static final long serialVersionUID = -4439188773689857587L;
+	
 	@OneToOne(mappedBy = "motherFirm")
 	private Firm childfirm;
 	@OneToOne

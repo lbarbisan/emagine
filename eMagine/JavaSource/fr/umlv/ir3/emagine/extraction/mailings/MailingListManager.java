@@ -15,12 +15,6 @@ import fr.umlv.ir3.emagine.util.person.Person;
 public class MailingListManager extends BaseEditableManagerImpl<MailingList, MailingListDAO> {
 
 	@Override
-	public MailingList retrieve(long id) throws EMagineException {
-		// TODO MailingListManager.retrieve()
-		return null;
-	}
-
-	@Override
 	protected MailingListDAO getDAO() {
 		ManagerManager instance = ManagerManager.getInstance();
 		instance.getMailingListManager();

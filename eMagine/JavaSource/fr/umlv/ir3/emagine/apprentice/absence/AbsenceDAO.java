@@ -14,20 +14,6 @@ import fr.umlv.ir3.emagine.util.base.BaseDAO;
 public class AbsenceDAO extends BaseDAO<Absence> {
 	
 	/**
-	 * Lists absences, using the given search parameters
-	 * @param absenceSearchParam
-	 * @return
-	 * @throws EMagineException if an SQLException occures
-	 */
-	public List<Absence> find(AbsenceSearchParam absenceSearchParam) throws EMagineException {
-		// TODO AbsenceDAO.getAbsences()
-		String query = "";
-		Session session = HibernateUtils.getSession();
-		Query createQuery = session.createQuery(query);
-		return createQuery.list();
-	}
-
-	/**
 	 * Lists absences for a list of Apprentice, between 2 dates
 	 * @param apprentices selected apprentices
 	 * @param absenceSearchParam

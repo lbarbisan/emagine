@@ -1,5 +1,6 @@
 package fr.umlv.ir3.emagine.user.profile;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.AccessType;
@@ -22,10 +23,10 @@ public class Profile extends BaseEntity{
 	
 	@Column(unique = true)
 	private String name;	
-	@OneToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+	@OneToMany(cascade = {CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
 	@OrderBy("name")
-	private List<Right> rights;
-	@OneToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE},
+	private List<Right> rights = new ArrayList<Right>();
+	@OneToMany(cascade = {CascadeType.MERGE,CascadeType.PERSIST, CascadeType.REFRESH},
 			mappedBy = "profile")
 	private List<User> users;
 	private String description;
@@ -57,8 +58,8 @@ public class Profile extends BaseEntity{
 	/**
 	 * @param rights The rights to set.
 	 */
-	public void setRights(List<Right> rights) {
-		this.rights = rights;
+	public void addRights(Right right) {
+		this.rights.add(right);
 	}
 
 

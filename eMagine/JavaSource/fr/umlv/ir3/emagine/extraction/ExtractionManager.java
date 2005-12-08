@@ -15,15 +15,15 @@ public class ExtractionManager extends BaseManagerImpl<Extraction, ExtractionDAO
 	//TODO : Use case « Configurer l'extraction d'une liste »
 	public List<String> getSelectedColumns(ExtractionParam extractionParam)  
 	{
-		ExtractionDAO extractionDAO = getDAO(); 
-		try {
-			Extraction extraction = extractionDAO.find(extractionParam);
-			return extraction.getColumns();
-		} catch (EMagineException e) {
-			// TODO EMagineException.e Not Implemented
-			e.printStackTrace();
-		}
-		
+//		ExtractionDAO extractionDAO = getDAO(); 
+//		try {
+//			//Extraction extraction = extractionDAO.find(extractionParam);
+//			return null; // extraction.getColumns();
+//		} catch (EMagineException e) {
+//			// TODO EMagineException.e Not Implemented
+//			e.printStackTrace();
+//		}
+//		
 		return null; 
 	}
 

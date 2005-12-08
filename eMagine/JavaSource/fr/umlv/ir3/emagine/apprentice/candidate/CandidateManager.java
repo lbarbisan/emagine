@@ -2,7 +2,6 @@ package fr.umlv.ir3.emagine.apprentice.candidate;
 
 import java.util.Collection;
 import java.util.LinkedList;
-import java.util.List;
 
 import fr.umlv.ir3.emagine.apprentice.Apprentice;
 import fr.umlv.ir3.emagine.apprentice.ApprenticeDAO;
@@ -13,16 +12,6 @@ import fr.umlv.ir3.emagine.util.Extractable;
 import fr.umlv.ir3.emagine.util.base.BaseEventableManager;
 
 public class CandidateManager extends BaseEventableManager<Candidate, CandidateDAO> {
-
-	/**
-	 * Lists candidates, using the given search parameters
-	 * @param candidateSearchParam
-	 * @return
-	 * @throws EMagineException if an SQLException occures
-	 */
-	public List<Candidate> find(CandidateSearchParam candidateSearchParam) throws EMagineException {
-		return getDAO().find(candidateSearchParam);
-	}
 	
 	/**
 	 * Delete a list of candidates.
@@ -73,14 +62,8 @@ public class CandidateManager extends BaseEventableManager<Candidate, CandidateD
 		return apprentices;
 	}
 	
-	@Override
-	protected CandidateDAO getDAO() {
+	public @Override CandidateDAO getDAO() {
 		return DAOManager.getInstance().getCandidateDAO();
-	}
-
-	@Override
-	public Candidate retrieve(long id) throws EMagineException {
-		return getDAO().retrieve(Candidate.class, id);
 	}
 
 	@Override

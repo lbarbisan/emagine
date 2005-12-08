@@ -6,7 +6,8 @@ import fr.umlv.ir3.emagine.security.MustHaveRights;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.base.BaseEditableManager;
 
-public interface UserManager extends BaseEditableManager<User, UserDAO> {
+public interface UserManager
+	extends BaseEditableManager<User, UserDAO> {
 
 	/**
 	 * Creates a new user with the given User. Sends a mail to the new user.
@@ -33,15 +34,6 @@ public interface UserManager extends BaseEditableManager<User, UserDAO> {
 	 */
 	@MustHaveRights("user.delete")
 	public void delete(User user, boolean force) throws EMagineException;
-
-	/**
-	 * Lists users, using the given search parameters
-	 * @param apprenticeSearchParam
-	 * @return
-	 * @throws EMagineException if an SQLException occures
-	 */
-	public List<User> find(UserSearchParam userSearchParam)
-			throws EMagineException;
 
 	/**
 	 * Returns the user who's login and password is specified 

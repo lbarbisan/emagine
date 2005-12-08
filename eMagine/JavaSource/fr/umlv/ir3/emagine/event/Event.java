@@ -23,6 +23,7 @@ import fr.umlv.ir3.emagine.util.base.BaseEntity;
 @Entity(access = AccessType.FIELD)
 public class Event extends BaseEntity {
 
+	private static final long serialVersionUID = 4144109134646449620L;
 	@ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
 	@OrderBy("id")
 	private List<BaseEntity> sources;

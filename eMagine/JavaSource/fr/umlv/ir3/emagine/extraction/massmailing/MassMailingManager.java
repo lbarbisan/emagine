@@ -1,17 +1,11 @@
 package fr.umlv.ir3.emagine.extraction.massmailing;
 
 import fr.umlv.ir3.emagine.extraction.ExtractionParam;
-import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.Extractable;
 import fr.umlv.ir3.emagine.util.ManagerManager;
 import fr.umlv.ir3.emagine.util.base.BaseEditableManagerImpl;
 
 public class MassMailingManager extends BaseEditableManagerImpl<MassMailing, MassMailingDAO> {
-
-	@Override
-	public MassMailing retrieve(long id) throws EMagineException {
-		return getDAO().retrieve(MassMailing.class, id);
-	}
 
 	@Override
 	protected MassMailingDAO getDAO() {

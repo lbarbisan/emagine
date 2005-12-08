@@ -18,16 +18,6 @@ import fr.umlv.ir3.emagine.util.base.BaseEditableManagerImpl;
 public class FormationCenterManager extends BaseEditableManagerImpl<FormationCenter, FormationCenterDAO> {
 
 	/**
-	 * Lists formationCenters, using the given search parameters
-	 * @param formationCenterSearchParam
-	 * @return
-	 * @throws EMagineException if an SQLException occures
-	 */
-	public List<FormationCenter> find(FormationCenterSearchParam formationCenterSearchParam) throws EMagineException {
-		return getDAO().find(formationCenterSearchParam);
-	}
-	
-	/**
 	 * Adds the given room to the given formationCenter
 	 * @param formationCenter
 	 * @param room
@@ -141,11 +131,6 @@ public class FormationCenterManager extends BaseEditableManagerImpl<FormationCen
 	@Override
 	protected FormationCenterDAO getDAO() {
 		return DAOManager.getInstance().getFormationCenterDAO();
-	}
-
-	@Override
-	public FormationCenter retrieve(long id) throws EMagineException {
-		return getDAO().retrieve(FormationCenter.class, id);
 	}
 
 	@Override

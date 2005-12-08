@@ -20,6 +20,8 @@ import fr.umlv.ir3.emagine.util.person.Person;
 @Entity(access = AccessType.FIELD)
 public class TeacherTutor extends Person {
 
+	private static final long serialVersionUID = 3578189435879585726L;
+
 	@OneToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "teacherTutor")
 	@Column(unique = true)
 	private List<Apprentice> apprentice;

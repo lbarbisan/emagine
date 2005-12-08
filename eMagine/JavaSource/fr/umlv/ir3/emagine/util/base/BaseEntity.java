@@ -29,21 +29,11 @@ public class BaseEntity implements Serializable {
 	private Long id;
     @Version
     private Long version;
-    
-    /**
-	 * @param id
-	 * @param version
-	 * @param name constructor
-	 */
-	protected BaseEntity(Long id, Long version) {
-		this.id = id;
-		this.version = version;
-	}
 
 	/**
      * This constructor is necessary for Hibernate, it's used for lazy load
      */
-	protected BaseEntity() {}
+	protected BaseEntity() {super();}
 
 	/**
 	 * return the value of specified property in this class 

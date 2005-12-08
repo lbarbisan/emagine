@@ -13,11 +13,6 @@ import fr.umlv.ir3.emagine.util.base.BaseEventableManager;
 
 public class FirmManager extends BaseEventableManager<Firm, FirmDAO> {
 
-	public List<Firm> find(FirmSearchParam entrepriseSearchParam) throws EMagineException {
-		FirmDAO dao = getDAO();
-		return dao.find(entrepriseSearchParam);
-	}
-	
 	/**
 	 * Lists the firms which want one or more Apprentice of the given courseOption. The list is ordered and tries to put the most asking firms on top.
 	 * @param rapprochementSearchParam
@@ -131,7 +126,7 @@ public class FirmManager extends BaseEventableManager<Firm, FirmDAO> {
 	@Override
 	public Firm retrieve(long id) throws EMagineException {
 		FirmDAO dao = getDAO();
-		return dao.retrieve(Firm.class, id);
+		return dao.retrieve(id);
 	}
 
 	@Override

@@ -22,25 +22,12 @@ public abstract class EditableEntity extends BaseEntity implements Serializable 
 	//TODO: Hibernate - Bidirectionnelle
     @OneToMany
 	private List<Modification> modifications;
-    
 
-    
-    
-    /**
-	 * @param id
-     * @param version
-     * @param modifications constructor
-	 */
-	protected EditableEntity(Long id, Long version, List<Modification> modifications) {
-		super(id, version);
-		this.modifications = modifications;
-	}
+	protected EditableEntity() {super();}
 
 	/**
      * This constructor is necessary for Hibernate, it's used for lazy load
      */
-	protected EditableEntity() {}
-
 	public List<Modification> getModifications() {
 		return modifications;
 	}	

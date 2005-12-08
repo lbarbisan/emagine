@@ -11,20 +11,6 @@ import fr.umlv.ir3.emagine.util.base.BaseManagerImpl;
 public class TeacherTutorManager extends BaseManagerImpl<TeacherTutor, TeacherTutorDAO>{
 	
 	/**
-	 * Return a list of Tutors witch match with teacherTutorSearchParam criteria.
-	 * @param teacherTutorSearchParam Criteria
-	 * @return list of tutor corresponding to the criteria
-	 * @throws EMagineException if criteria are incorrect, or if query in database failed
-	 */
-	public List<TeacherTutor> find(
-			TeacherTutorSearchParam teacherTutorSearchParam)
-			throws EMagineException {
-		TeacherTutorDAO dao = getDAO();
-		List<TeacherTutor> teachersTutor = dao.find(teacherTutorSearchParam);
-		return teachersTutor;
-	}
-	
-	/**
 	 * Add a apprentice to a tutor
 	 * @param apprentice apprentice to add
 	 * @param teacherTutor teacher to add apprentice
@@ -54,12 +40,6 @@ public class TeacherTutorManager extends BaseManagerImpl<TeacherTutor, TeacherTu
 	protected TeacherTutorDAO getDAO() {
 			DAOManager instance = DAOManager.getInstance();
 			return instance.getTeacherTutorDAO();
-	}
-
-	@Override
-	public TeacherTutor retrieve(long id) throws EMagineException {
-		TeacherTutorDAO dao = getDAO();
-		return dao.retrieve(TeacherTutor.class, id);
 	}
 	
 	/**
