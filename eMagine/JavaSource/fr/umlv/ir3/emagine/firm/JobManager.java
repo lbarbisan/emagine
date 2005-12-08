@@ -4,9 +4,9 @@ import fr.umlv.ir3.emagine.extraction.ExtractionParam;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.Extractable;
-import fr.umlv.ir3.emagine.util.base.BaseEditableManager;
+import fr.umlv.ir3.emagine.util.base.BaseEditableManagerImpl;
 
-public class JobManager extends BaseEditableManager<Job, JobDAO> {
+public class JobManager extends BaseEditableManagerImpl<Job, JobDAO> {
 	
 	@Override
 	protected JobDAO getDAO() {

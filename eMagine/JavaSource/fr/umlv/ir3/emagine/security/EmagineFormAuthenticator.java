@@ -50,20 +50,10 @@ public class EmagineFormAuthenticator extends FormAuthenticator {
 
 		// process login form submittal
 		if (request.getMatchableURL().endsWith(loginSubmitPattern)) {
-			//FIXME : quand hibernate sera OK
-			//String username = request.getParameter(FORM_USERNAME);
-			//String password = request.getParameter(FORM_PASSWORD);
-			//Principal principal = realm.authenticate(username, password);
-			// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-			// Emagine patch
-			final String username = request.getParameter(FORM_USERNAME);
-			final String password = request.getParameter(FORM_PASSWORD);
-			Principal principal = new Principal() {
-				public String getName() {
-					return username;
-				}
-			};
-			// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+			String username = request.getParameter(FORM_USERNAME);
+			String password = request.getParameter(FORM_PASSWORD);
+			Principal principal = realm.authenticate(username, password);
+
 			if (principal != null) {
 				// login successful
 
@@ -92,7 +82,7 @@ public class EmagineFormAuthenticator extends FormAuthenticator {
 				request.setUserPrincipal(principal);
 				// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 				// Emagine patch
-				SessionManager.login(username, request.getSession());
+				SessionManager.login(principal, username, password, request.getSession());
 				// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 				String continueToURL = getContinueToURL(request);
 				// This is the url that the user was initially accessing before

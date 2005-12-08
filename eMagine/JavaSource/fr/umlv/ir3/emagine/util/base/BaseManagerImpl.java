@@ -5,11 +5,9 @@ import java.util.Collection;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 
-public abstract class BaseManager<EntityType extends BaseEntity, EntityDAO extends BaseDAO<EntityType>> {
+public abstract class BaseManagerImpl<EntityType extends BaseEntity, EntityDAO extends BaseDAO<EntityType>> implements BaseManager<EntityType, EntityDAO> {
 	/**
-	 * Creates the database data for the specified object. Handles the creation with a transaction.
-	 * @param entity object that must be save in database
-	 * @throws EMagineException throw this exception if the creation failed or if an SQLException occures
+	 * @see fr.umlv.ir3.emagine.util.base.BaseManager#create(EntityType)
 	 */
 	public void create(EntityType entity) throws EMagineException {
 		DAOManager.beginTransaction();
@@ -24,19 +22,14 @@ public abstract class BaseManager<EntityType extends BaseEntity, EntityDAO exten
 	}
 	
     /**
-     * Retrieves the database data for the specified id
-     * @param id id of the object to retrieve
-     * @return the object which is associated to id, null if not found
-     * @throws EMagineException throw this exception if an SQLException occures
-     */
+	 * @see fr.umlv.ir3.emagine.util.base.BaseManager#retrieve(long)
+	 */
 	public abstract EntityType retrieve(long id) throws EMagineException;
 	
 
     /**
-     * Updates the database data for the specified object. Handles the update with a transaction.
-     * @param entity object that must update save in database
-     * @throws EMagineException  throw this exception if the update failed or if an SQLException occures
-     */
+	 * @see fr.umlv.ir3.emagine.util.base.BaseManager#update(EntityType)
+	 */
 	public void update(EntityType newEntity) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
@@ -50,10 +43,8 @@ public abstract class BaseManager<EntityType extends BaseEntity, EntityDAO exten
 	}
 	
     /**
-     * Deletes the database data associated the the specified object. Handles the deletion with a transaction. 
-     * @param object object to delete
-     * @throws EMagineException throw this excepion if the deletation failed or if an SQLException occures
-     */
+	 * @see fr.umlv.ir3.emagine.util.base.BaseManager#delete(EntityType)
+	 */
 	public void delete(EntityType entity) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
@@ -67,10 +58,8 @@ public abstract class BaseManager<EntityType extends BaseEntity, EntityDAO exten
 	}
 	
     /**
-     * Deletes the database data associated the the specified objects. Handles the deletion with a transaction. 
-     * @param object object to delete
-     * @throws EMagineException throw this excepion if the deletation failed or if an SQLException occures
-     */
+	 * @see fr.umlv.ir3.emagine.util.base.BaseManager#delete(java.util.Collection)
+	 */
 	public void delete(Collection<EntityType> entities) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {

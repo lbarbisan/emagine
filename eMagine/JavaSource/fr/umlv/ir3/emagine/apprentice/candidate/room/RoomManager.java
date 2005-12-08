@@ -2,9 +2,9 @@ package fr.umlv.ir3.emagine.apprentice.candidate.room;
 
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.base.BaseManager;
+import fr.umlv.ir3.emagine.util.base.BaseManagerImpl;
 
-public class RoomManager extends BaseManager<Room, RoomDAO> {
+public class RoomManager extends BaseManagerImpl<Room, RoomDAO> {
 
 	@Override
 	protected RoomDAO getDAO() {

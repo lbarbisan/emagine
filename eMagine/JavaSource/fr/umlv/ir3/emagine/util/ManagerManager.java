@@ -7,14 +7,16 @@ import fr.umlv.ir3.emagine.extraction.mailings.MailingListManager;
 import fr.umlv.ir3.emagine.extraction.mailstype.MailingTypeManager;
 import fr.umlv.ir3.emagine.extraction.massmailing.MassMailingManager;
 import fr.umlv.ir3.emagine.firm.FirmManager;
+import fr.umlv.ir3.emagine.security.SecurityProxy;
 import fr.umlv.ir3.emagine.teachertutor.TeacherTutorManager;
 import fr.umlv.ir3.emagine.user.UserManager;
+import fr.umlv.ir3.emagine.user.UserManagerImpl;
 import fr.umlv.ir3.emagine.user.profile.ProfileManager;
 
 public class ManagerManager {
 	private static ManagerManager instance;
 	
-	private UserManager userManager = new UserManager();
+	private UserManager userManager = new SecurityProxy<UserManager>(new UserManagerImpl()).getProxy();
 	private ProfileManager profileManager = new ProfileManager();
 	private ExtractionManager extractionManager = new ExtractionManager();
 	private TeacherTutorManager teacherTutorManager = new TeacherTutorManager();

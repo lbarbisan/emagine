@@ -4,9 +4,9 @@ import java.util.Collection;
 
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.base.BaseManager;
+import fr.umlv.ir3.emagine.util.base.BaseManagerImpl;
 
-public class RightManager extends BaseManager<Right, RightDAO> {
+public class RightManager extends BaseManagerImpl<Right, RightDAO> {
 
 	public Collection<Right> findAll() throws EMagineException {
 		return getDAO().findAll();	// TODO : getRights javadoc (notamment pour les exceptions)

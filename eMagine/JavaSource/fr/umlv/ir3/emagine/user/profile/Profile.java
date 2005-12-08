@@ -30,8 +30,6 @@ public class Profile extends BaseEntity{
 	private List<User> users;
 	private String description;
 	
-	protected Profile(){}
-	
 	
 	public String getName() {
 		return name;

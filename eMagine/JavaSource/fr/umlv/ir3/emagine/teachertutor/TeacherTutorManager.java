@@ -6,9 +6,9 @@ import fr.umlv.ir3.emagine.apprentice.Apprentice;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.Extractable;
-import fr.umlv.ir3.emagine.util.base.BaseManager;
+import fr.umlv.ir3.emagine.util.base.BaseManagerImpl;
 
-public class TeacherTutorManager extends BaseManager<TeacherTutor, TeacherTutorDAO>{
+public class TeacherTutorManager extends BaseManagerImpl<TeacherTutor, TeacherTutorDAO>{
 	
 	/**
 	 * Return a list of Tutors witch match with teacherTutorSearchParam criteria.

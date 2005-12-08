@@ -13,9 +13,9 @@ import fr.umlv.ir3.emagine.extraction.ExtractionParam;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.Extractable;
-import fr.umlv.ir3.emagine.util.base.BaseEditableManager;
+import fr.umlv.ir3.emagine.util.base.BaseEditableManagerImpl;
 
-public class FormationCenterManager extends BaseEditableManager<FormationCenter, FormationCenterDAO> {
+public class FormationCenterManager extends BaseEditableManagerImpl<FormationCenter, FormationCenterDAO> {
 
 	/**
 	 * Lists formationCenters, using the given search parameters

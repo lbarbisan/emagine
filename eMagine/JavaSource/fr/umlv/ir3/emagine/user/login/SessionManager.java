@@ -3,6 +3,7 @@
  */
 package fr.umlv.ir3.emagine.user.login;
 
+import java.security.Principal;
 import java.util.concurrent.ConcurrentHashMap;
 
 import javax.servlet.http.HttpSession;
@@ -18,7 +19,8 @@ import fr.umlv.ir3.emagine.util.ManagerManager;
  */
 public class SessionManager {
 	private static ConcurrentHashMap<String, HttpSession> loginSessions = new ConcurrentHashMap<String, HttpSession>();
-	private static ThreadLocal<User> currentUser;
+	private static ConcurrentHashMap<String, Principal> loginPrincipal = new ConcurrentHashMap<String, Principal>();
+	private static ThreadLocal<User> currentUser = new ThreadLocal<User>();
 
 	/**
 	 * Sets the user for the current thread
@@ -51,30 +53,54 @@ public class SessionManager {
 	 */
 	public static void killUserSession(User user) {
 		HttpSession session = loginSessions.remove(user.getLogin());
-		if (session != null) {
+		if (session != null) {	// TODO : synchronized ?
 			session.invalidate();
+			loginPrincipal.remove(user.getLogin());
 		}
 	}
 	
 	/**
 	 * Adds the given login and session to the pool of accepted logins.
 	 * Retreive the User with the specified login, and set it into the session.
+	 * @param principal 
 	 * @param login
+	 * @param password
 	 * @param httpSession
 	 * @throws EMagineException throws if the user cannot be retreived
 	 */
-	public static void login(String login, HttpSession session) throws EMagineException {
+	public static void login(Principal principal, String login, String password, HttpSession session) throws EMagineException {
 		//FIXME : quand hibernate sera OK
-		//User user = ManagerManager.getInstance().getUserManager().find(login);
-		User user = new User();
-		user.setEmail("email@fr");
-		user.setFirstName("Laurent");
-		user.setLastName("Barbisan");
-		user.setLogin("lbarbisan");
-		user.setPassword("dfsd");
-		session.setAttribute(Constants.LOGGED_IN_USER_KEY, user);
+//		User user = new User();
+//		user.setEmail("email@fr");
+//		user.setFirstName("Laurent");
+//		user.setLastName("Barbisan");
+//		user.setLogin("lbarbisan");
+//		user.setPassword("dfsd");
 
-		loginSessions.putIfAbsent(login, session);
+		synchronized (login) {
+			User user = ManagerManager.getInstance().getUserManager().find(login, password);
+			if (user != null) {
+				HttpSession prevSession = loginSessions.put(login, session);
+				if (prevSession != null) {
+					prevSession.invalidate();
+				}
+				session.setAttribute(Constants.LOGGED_IN_USER_KEY, user);
+				loginPrincipal.put(login, principal);
+				setCurrentUser(user);
+			}
+		}
+	}
+	
+	/**
+	 * Gets the principal associated with the current thread, or <code>null</code> if no user is currently connected
+	 * @return
+	 */
+	public static Principal getCurrentPrincipal() {
+		User user = currentUser.get();
+		if (user != null) {
+			return loginPrincipal.get(user.getLogin());
+		}
+		return null;
 	}
 
 }

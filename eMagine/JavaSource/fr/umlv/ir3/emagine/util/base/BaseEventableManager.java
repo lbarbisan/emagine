@@ -6,7 +6,7 @@ import fr.umlv.ir3.emagine.event.Event;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 
-public abstract class BaseEventableManager <EntityType extends EventableEntity, EntityDAO extends BaseDAO<EntityType>> extends BaseEditableManager <EntityType, BaseDAO<EntityType>> {
+public abstract class BaseEventableManager <EntityType extends EventableEntity, EntityDAO extends BaseDAO<EntityType>> extends BaseEditableManagerImpl <EntityType, BaseDAO<EntityType>> {
 
 	public void addEvent(EntityType entityType, Event event) throws EMagineException {
 		DAOManager.beginTransaction();

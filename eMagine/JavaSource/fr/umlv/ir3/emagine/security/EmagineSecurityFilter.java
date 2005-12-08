@@ -15,8 +15,10 @@ import org.securityfilter.config.WebResourceCollection;
 import org.securityfilter.filter.SecurityFilter;
 import org.securityfilter.filter.URLPattern;
 import org.securityfilter.filter.URLPatternFactory;
+import org.securityfilter.realm.SecurityRealmInterface;
 
 public class EmagineSecurityFilter extends SecurityFilter {
+	private static EmagineSecurityFilter instance;
 
 	/**
 	 * Initialize the SecurityFilter.
@@ -76,7 +78,10 @@ public class EmagineSecurityFilter extends SecurityFilter {
 				}
 			}
 			Collections.sort(patternList);
-
+			// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+			// Emagine patch
+			instance = this;
+			// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 		} catch (java.io.IOException ioe) {
 			System.err.println("unable to parse input: " + ioe);
 		} catch (org.xml.sax.SAXException se) {
@@ -85,6 +90,17 @@ public class EmagineSecurityFilter extends SecurityFilter {
 			System.err.println("error: " + e);
 			e.printStackTrace();
 		}
+	}
+	
+	/**
+	 * Gets the emagine security filter's realm
+	 * @return
+	 */
+	static SecurityRealmInterface getRealm() {
+		if (instance != null) {
+			return instance.realm;
+		}
+		return null;
 	}
 
 }

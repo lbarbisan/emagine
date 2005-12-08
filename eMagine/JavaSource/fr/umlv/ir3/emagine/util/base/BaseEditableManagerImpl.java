@@ -6,13 +6,11 @@ import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.Extractable;
 
-public abstract class BaseEditableManager<EntityType extends EditableEntity, EntityDAO extends BaseDAO<EntityType>> extends BaseManager<EntityType, BaseDAO<EntityType>> {
+public abstract class BaseEditableManagerImpl<EntityType extends EditableEntity, EntityDAO extends BaseDAO<EntityType>> extends BaseManagerImpl<EntityType, BaseDAO<EntityType>> implements BaseEditableManager<EntityType, EntityDAO> {
 
     /**
-     * Updates the database data for the specified object. Handles the update with a transaction.
-     * @param entity object that must update save in database
-     * @throws EMagineException  throw this exception if the update failed or if an SQLException occures
-     */
+	 * @see fr.umlv.ir3.emagine.util.base.BaseEditableManager#update(EntityType)
+	 */
 	@Override
 	public void update(EntityType newEntity) throws EMagineException {
 			DAOManager.beginTransaction();
@@ -23,6 +21,9 @@ public abstract class BaseEditableManager<EntityType extends EditableEntity, Ent
     		super.update(newEntity);
 	}
 	
+	/**
+	 * @see fr.umlv.ir3.emagine.util.base.BaseEditableManager#acceptAllModificationFor(EntityType)
+	 */
 	public void acceptAllModificationFor(EntityType entity) {
 		DAOManager.beginTransaction();
 		entity.acceptModification();
@@ -34,6 +35,9 @@ public abstract class BaseEditableManager<EntityType extends EditableEntity, Ent
 		}
 	}
 	
+	/**
+	 * @see fr.umlv.ir3.emagine.util.base.BaseEditableManager#acceptFieldModificationFor(EntityType, java.lang.String)
+	 */
 	public void acceptFieldModificationFor(EntityType entity, String name) {
 		DAOManager.beginTransaction();
 		FieldModification field = entity.getCurrentModification().getFieldModification(name);
@@ -47,9 +51,7 @@ public abstract class BaseEditableManager<EntityType extends EditableEntity, Ent
 	}
 	
 	/**
-	 * 
-	 * @param extractionParam
-	 * @return
+	 * @see fr.umlv.ir3.emagine.util.base.BaseEditableManager#extract(fr.umlv.ir3.emagine.extraction.ExtractionParam)
 	 */
 	//FIXME: Utilisé les générics
 	public abstract Extractable extract(ExtractionParam extractionParam);

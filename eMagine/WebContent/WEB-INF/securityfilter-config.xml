@@ -33,9 +33,9 @@
 		<realm-param name="driverName" value="org.postgresql.Driver" />
 		<realm-param name="connectionURL"
 			value="jdbc:postgresql://server.srv-net.com:54321/eMagine" />
-		<realm-param name="connectionName" value="tomcat_realm" />
+		<realm-param name="connectionName" value="eMagine" />
 		<realm-param name="connectionPassword"
-			value="@tomcat.password@" />
+			value="eMagine" />
 		<realm-param name="userTable" value="applicationuser" />
 		<realm-param name="userNameCol" value="login" />
 		<realm-param name="userCredCol" value="password" />

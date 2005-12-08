@@ -35,16 +35,28 @@ public class UserDAO extends BaseDAO<User> {
 	}
 
 	/**
-	 * Returns the user who's login is specified
+	 * Returns the user who's login and password is specified
 	 * 
-	 * @param apprenticeSearchParam
-	 * @return
+	 * @param login
+	 *            the User's login
+	 * @param password
+	 *            the User's password
+	 * @return the User with the given login and password, or null if not found
 	 * @throws EMagineException
 	 *             if an SQLException occures
 	 */
-	public User find(String login) {
-		return (User) HibernateUtils.getSession().createQuery(
-				"from User where login = :loginParam").setParameter(
-				"loginParam", login, Hibernate.STRING).list().get(0);
+	@SuppressWarnings("unchecked")
+	public User find(String login, String password) {
+		List<User> foundUsers = (List<User>) HibernateUtils
+				.getSession()
+				.createQuery(
+						"from User where login = :loginParam and password = :passwordParam")
+				.setParameter("loginParam", login, Hibernate.STRING)
+				.setParameter("passwordParam", password, Hibernate.STRING)
+				.list();
+		if (foundUsers.size() <= 0) {
+			return null;
+		}
+		return foundUsers.get(0);
 	}
 }

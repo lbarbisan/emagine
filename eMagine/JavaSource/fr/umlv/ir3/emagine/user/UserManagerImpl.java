@@ -8,17 +8,16 @@ import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.Extractable;
 import fr.umlv.ir3.emagine.util.MailManager;
-import fr.umlv.ir3.emagine.util.base.BaseEditableManager;
+import fr.umlv.ir3.emagine.util.base.BaseEditableManagerImpl;
 
 
 
-public class UserManager extends BaseEditableManager<User, UserDAO> {
+public class UserManagerImpl extends BaseEditableManagerImpl<User, UserDAO> implements UserManager {
 
 	/**
-	 * Create a new user with the given User
-	 * @param user the user to create
-	 * @throws EMagineException if the login already exists, or if there is an SQL exception
+	 * @see fr.umlv.ir3.emagine.user.UserManager#create(fr.umlv.ir3.emagine.user.User)
 	 */
+	@Override
 	public void create(User user) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
@@ -33,10 +32,9 @@ public class UserManager extends BaseEditableManager<User, UserDAO> {
 	}
 
 	/**
-	 * Update the given User
-	 * @param user the user to update
-	 * @throws EMagineException if the login already exists for another id, or if there is an SQL exception
+	 * @see fr.umlv.ir3.emagine.user.UserManager#update(fr.umlv.ir3.emagine.user.User)
 	 */
+	@Override
 	public void update(User user) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
@@ -51,10 +49,7 @@ public class UserManager extends BaseEditableManager<User, UserDAO> {
 	}
 
 	/**
-	 * Delete a user. If the user is connected and the force switch is set to <code>true</code>, the user's session is killed, and then the user is deleted.
-	 * @param users The list of users to be deleted
-	 * @param force Force the deletion, even if the user is connected
-	 * @throws EMagineException if the user doesn't exist in the database, or if he or she is connected and the force switch is <code>false</code>
+	 * @see fr.umlv.ir3.emagine.user.UserManager#delete(fr.umlv.ir3.emagine.user.User, boolean)
 	 */
 	public void delete(User user, boolean force) throws EMagineException {
 		DAOManager.beginTransaction();
@@ -76,10 +71,7 @@ public class UserManager extends BaseEditableManager<User, UserDAO> {
 	}
 
 	/**
-	 * Lists users, using the given search parameters
-	 * @param apprenticeSearchParam
-	 * @return
-	 * @throws EMagineException if an SQLException occures
+	 * @see fr.umlv.ir3.emagine.user.UserManager#find(fr.umlv.ir3.emagine.user.UserSearchParam)
 	 */
 	public List<User> find(UserSearchParam userSearchParam) throws EMagineException {
 		UserDAO dao = getDAO();
@@ -88,18 +80,14 @@ public class UserManager extends BaseEditableManager<User, UserDAO> {
 	}
 
 	/**
-	 * Returns the user who's login is specified 
-	 * @param apprenticeSearchParam
-	 * @return
-	 * @throws EMagineException if an SQLException occures
+	 * @see fr.umlv.ir3.emagine.user.UserManager#find(java.lang.String, java.lang.String)
 	 */
-	public User find(String login) throws EMagineException {
-		return getDAO().find(login);
+	public User find(String login, String password) throws EMagineException {
+		return getDAO().find(login, password);
 	}
 
 	/**
-	 * Lists all users.
-	 * @return
+	 * @see fr.umlv.ir3.emagine.user.UserManager#findAll()
 	 */
 	public List<User> findAll()
 	{
@@ -111,14 +99,20 @@ public class UserManager extends BaseEditableManager<User, UserDAO> {
 		return DAOManager.getInstance().getUserDAO();
 	}
 
+	/**
+	 * @see fr.umlv.ir3.emagine.user.UserManager#retrieve(long)
+	 */
 	@Override
 	public User retrieve(long id) throws EMagineException {
 		return getDAO().retrieve(User.class, id);
 	}
 
+	/**
+	 * @see fr.umlv.ir3.emagine.user.UserManager#extract(fr.umlv.ir3.emagine.extraction.ExtractionParam)
+	 */
 	@Override
 	public Extractable extract(ExtractionParam extractionParam) {
-		// TODO UserManager.extract()
+		// TODO UserManagerImpl.extract()
 		return null;
 	}
 }

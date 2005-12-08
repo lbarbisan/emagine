@@ -5,9 +5,9 @@ import java.util.List;
 import fr.umlv.ir3.emagine.apprentice.Apprentice;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.base.BaseManager;
+import fr.umlv.ir3.emagine.util.base.BaseManagerImpl;
 
-public class EngineerTutorManager extends BaseManager<EngineerTutor, EngineerTutorDAO>{
+public class EngineerTutorManager extends BaseManagerImpl<EngineerTutor, EngineerTutorDAO>{
 
 	@Override
 	public void update(EngineerTutor engineerTutor)

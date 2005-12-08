@@ -6,9 +6,9 @@ import java.util.List;
 import fr.umlv.ir3.emagine.user.User;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.base.BaseManager;
+import fr.umlv.ir3.emagine.util.base.BaseManagerImpl;
 
-public class ProfileManager extends BaseManager<Profile, ProfileDAO> {
+public class ProfileManager extends BaseManagerImpl<Profile, ProfileDAO> {
 
 	/**
 	 * Lists all the profiles.

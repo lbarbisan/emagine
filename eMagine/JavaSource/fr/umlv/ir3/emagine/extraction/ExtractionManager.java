@@ -4,9 +4,9 @@ import java.util.List;
 
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.base.BaseManager;
+import fr.umlv.ir3.emagine.util.base.BaseManagerImpl;
 
-public class ExtractionManager extends BaseManager<Extraction, ExtractionDAO> {
+public class ExtractionManager extends BaseManagerImpl<Extraction, ExtractionDAO> {
 
 
 	/**

@@ -4,9 +4,9 @@ import fr.umlv.ir3.emagine.extraction.ExtractionParam;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.Extractable;
 import fr.umlv.ir3.emagine.util.ManagerManager;
-import fr.umlv.ir3.emagine.util.base.BaseEditableManager;
+import fr.umlv.ir3.emagine.util.base.BaseEditableManagerImpl;
 
-public class MassMailingManager extends BaseEditableManager<MassMailing, MassMailingDAO> {
+public class MassMailingManager extends BaseEditableManagerImpl<MassMailing, MassMailingDAO> {
 
 	@Override
 	public MassMailing retrieve(long id) throws EMagineException {
