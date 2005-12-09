@@ -32,11 +32,10 @@ public class InitDB {
 		
 		Profile profile = new Profile();
 		profile.setDescription("Droit des utilisateurs");
-		profile.setName("User");
-		profile.addRights(new Right("User.create"));
-		profile.addRights(new Right("User.update"));
-		profile.addRights(new Right("User.delete"));
-		profile.addRights(new Right("User.find"));
+		profile.setName("Administrateur");
+		profile.addRights(new Right("user.create"));
+		profile.addRights(new Right("user.update"));
+		profile.addRights(new Right("user.delete"));
 			
 		User user = new User();
 		user.setEmail("lbarbisan@gmail.com");
