@@ -80,14 +80,6 @@ public class Apprentice extends Candidate {
 	public List<Absence> getAbsences() {
 		return absences;
 	}
-	/**
-	 * Add an absence to the apprentice
-	 * @param absence abscence to add
-	 */
-	public void addAbsence(Absence absence) {
-		this.absences.add(absence);
-		
-	}
 
 	public Address getAddressAcademic() {
 		return addressAcademic;
