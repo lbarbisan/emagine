@@ -81,7 +81,7 @@ public class EmagineFormAuthenticator extends FormAuthenticator {
 				request.setUserPrincipal(principal);
 				// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 				// Emagine patch
-				SessionManager.login(principal, username, password, request.getSession());
+				SessionManager.getInstance().login(principal, username, password, request.getSession());
 				// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 				String continueToURL = getContinueToURL(request);
 				// This is the url that the user was initially accessing before

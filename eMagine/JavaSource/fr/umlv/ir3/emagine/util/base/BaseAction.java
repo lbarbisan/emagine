@@ -45,7 +45,7 @@ public class BaseAction extends DispatchAction {
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		User currentUser = (User)request.getSession().getAttribute(Constants.LOGGED_IN_USER_KEY);
 		if (currentUser != null) {
-			SessionManager.setCurrentUser(currentUser);
+			SessionManager.getInstance().setCurrentUser(currentUser);
 		}
 		return super.execute(mapping, form, request, response);
 	}

@@ -10,15 +10,23 @@ import org.securityfilter.realm.SecurityRealmInterface;
 import fr.umlv.ir3.emagine.util.EMagineException;
 
 public class SecurityProxy<Type> implements InvocationHandler {
-	static protected SecurityRealmInterface realm = EmagineSecurityFilter.getRealm();	// TODO : améliorer cette dépendance
+	private SecurityRealmInterface realm;
 	private Type object;
 	private Object proxy;
+	private SessionManager sessionManager;
 	
 	
-	public SecurityProxy(Type object) {
+	/**
+	 * 
+	 * @param object
+	 * @throws EMagineException if the security filter has not been initialized
+	 */
+	public SecurityProxy(Type object) throws EMagineException {
 		this.object = object;
 		this.proxy = Proxy.newProxyInstance(object.getClass().getClassLoader(),
 				object.getClass().getInterfaces(), this);
+		this.realm = EmagineSecurityFilter.getInstance().getRealm();
+		this.sessionManager = SessionManager.getInstance();
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -26,17 +34,11 @@ public class SecurityProxy<Type> implements InvocationHandler {
 		return (Type)proxy;
 	}
 	
-	/*
-	public static Object createRightManagedObject(Object object) {
-		return Proxy.newProxyInstance(object.getClass().getClassLoader(),
-				object.getClass().getInterfaces(), new SecurityProxy(object));
-	}*/
-
 	public Object invoke(Object proxy, Method method, Object[] args)
 			throws Throwable {
 		MustHaveRights rights = method.getAnnotation(MustHaveRights.class);
 		if (rights != null) {
-			Principal currentPrincipal = SessionManager.getCurrentPrincipal();
+			Principal currentPrincipal = sessionManager.getCurrentPrincipal();
 			for (String right : rights.value()) {
 				if (!realm.isUserInRole(currentPrincipal, right)) {
 					throw new EMagineException("exception.userIsNotAllowed", right);

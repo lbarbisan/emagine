@@ -56,9 +56,9 @@ public class UserManagerImpl
 	public void delete(User user, boolean force) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
-			if (SessionManager.isUserConnected(user)) {
+			if (SessionManager.getInstance().isUserConnected(user)) {
 				if (force) {
-					SessionManager.killUserSession(user);
+					SessionManager.getInstance().killUserSession(user);
 				} else {
 					throw new EMagineException("exception.userManager.delete.userConnected");
 				}

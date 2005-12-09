@@ -8,7 +8,6 @@ import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.Extractable;
 import fr.umlv.ir3.emagine.util.MailManager;
-import fr.umlv.ir3.emagine.util.ManagerManager;
 import fr.umlv.ir3.emagine.util.base.BaseEditableManagerImpl;
 import fr.umlv.ir3.emagine.util.person.Person;
 
@@ -16,9 +15,7 @@ public class MailingListManager extends BaseEditableManagerImpl<MailingList, Mai
 
 	@Override
 	protected MailingListDAO getDAO() {
-		ManagerManager instance = ManagerManager.getInstance();
-		instance.getMailingListManager();
-		return null;
+		return DAOManager.getInstance().getMailingListDAO();
 	}
 
 	//CRUD

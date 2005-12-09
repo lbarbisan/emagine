@@ -18,15 +18,16 @@ import fr.umlv.ir3.emagine.util.ManagerManager;
  *
  */
 public class SessionManager {
-	private static ConcurrentHashMap<String, HttpSession> loginSessions = new ConcurrentHashMap<String, HttpSession>();
-	private static ConcurrentHashMap<String, Principal> loginPrincipal = new ConcurrentHashMap<String, Principal>();
-	private static ThreadLocal<User> currentUser = new ThreadLocal<User>();
+	private static SessionManager instance;
+	private ConcurrentHashMap<String, HttpSession> loginSessions = new ConcurrentHashMap<String, HttpSession>();
+	private ConcurrentHashMap<String, Principal> loginPrincipal = new ConcurrentHashMap<String, Principal>();
+	private ThreadLocal<User> currentUser = new ThreadLocal<User>();
 
 	/**
 	 * Sets the user for the current thread
 	 * @param user
 	 */
-	public static void setCurrentUser(User user) {
+	public void setCurrentUser(User user) {
 		currentUser.set(user);
 	}
 	
@@ -34,7 +35,7 @@ public class SessionManager {
 	 * Gets the user associated with the current thread
 	 * @return
 	 */
-	public static User getCurrentUser() {
+	public User getCurrentUser() {
 		return currentUser.get();
 	}
 	
@@ -43,7 +44,7 @@ public class SessionManager {
 	 * @param user
 	 * @return
 	 */
-	public static boolean isUserConnected(User user) {
+	public boolean isUserConnected(User user) {
 		return loginSessions.containsKey(user.getLogin());
 	}
 	
@@ -51,7 +52,7 @@ public class SessionManager {
 	 * Kills the specified user's session.
 	 * @param user
 	 */
-	public static void killUserSession(User user) {
+	public void killUserSession(User user) {
 		HttpSession session = loginSessions.remove(user.getLogin());
 		if (session != null) {	// TODO : synchronized ?
 			session.invalidate();
@@ -68,15 +69,7 @@ public class SessionManager {
 	 * @param httpSession
 	 * @throws EMagineException throws if the user cannot be retreived
 	 */
-	public static void login(Principal principal, String login, String password, HttpSession session) throws EMagineException {
-		//FIXME : quand hibernate sera OK
-//		User user = new User();
-//		user.setEmail("email@fr");
-//		user.setFirstName("Laurent");
-//		user.setLastName("Barbisan");
-//		user.setLogin("lbarbisan");
-//		user.setPassword("dfsd");
-
+	protected void login(Principal principal, String login, String password, HttpSession session) throws EMagineException {
 		synchronized (login) {
 			User user = ManagerManager.getInstance().getUserManager().find(login, password);
 			if (user != null) {
@@ -95,7 +88,7 @@ public class SessionManager {
 	 * Gets the principal associated with the current thread, or <code>null</code> if no user is currently connected
 	 * @return
 	 */
-	public static Principal getCurrentPrincipal() {
+	public Principal getCurrentPrincipal() {
 		User user = currentUser.get();
 		if (user != null) {
 			return loginPrincipal.get(user.getLogin());
@@ -103,4 +96,10 @@ public class SessionManager {
 		return null;
 	}
 
+	public static SessionManager getInstance() {
+		if (instance == null) {
+			instance = new SessionManager();
+		}
+		return instance;
+	}
 }

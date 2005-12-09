@@ -17,19 +17,42 @@ import fr.umlv.ir3.emagine.user.profile.ProfileManager;
 public class ManagerManager {
 	private static ManagerManager instance;
 	
-	private UserManager userManager = new SecurityProxy<UserManager>(new UserManagerImpl()).getProxy();
-	private ProfileManager profileManager = new ProfileManager();
-	private ExtractionManager extractionManager = new ExtractionManager();
-	private TeacherTutorManager teacherTutorManager = new TeacherTutorManager();
-	private FirmManager firmManager = new FirmManager();
-	private EventManager eventManager = new EventManager();
-	private MailingListManager mailingListManager = new MailingListManager();
-	private MailingTypeManager mailingTypeManager = new MailingTypeManager();
-	private MassMailingManager massMailingManager = new MassMailingManager();
-	private CandidateManager candidateManager = new CandidateManager();
-	private ApprenticeManager apprenticeManager = new ApprenticeManager();
+	private UserManager userManager;
+	private ProfileManager profileManager;
+	private ExtractionManager extractionManager;
+	private TeacherTutorManager teacherTutorManager;
+	private FirmManager firmManager;
+	private EventManager eventManager;
+	private MailingListManager mailingListManager;
+	private MailingTypeManager mailingTypeManager;
+	private MassMailingManager massMailingManager;
+	private CandidateManager candidateManager;
+	private ApprenticeManager apprenticeManager;
 	
-	public static ManagerManager getInstance() {
+	/**
+	 * 
+	 * @throws EMagineException if the security filter has not been initialized
+	 */
+	public ManagerManager() throws EMagineException {
+		userManager = new SecurityProxy<UserManager>(new UserManagerImpl()).getProxy();
+		profileManager = new ProfileManager();
+		extractionManager = new ExtractionManager();
+		teacherTutorManager = new TeacherTutorManager();
+		firmManager = new FirmManager();
+		eventManager = new EventManager();
+		mailingListManager = new MailingListManager();
+		mailingTypeManager = new MailingTypeManager();
+		massMailingManager = new MassMailingManager();
+		candidateManager = new CandidateManager();
+		apprenticeManager = new ApprenticeManager();
+	}
+	
+	/**
+	 * Gets the singleton of the ManagerManager.
+	 * @return the singleton of the ManagerManager
+	 * @throws EMagineException if the security filter has not been initialized
+	 */
+	public static ManagerManager getInstance() throws EMagineException {
 		if (instance == null) {
 			instance = new ManagerManager();
 		}

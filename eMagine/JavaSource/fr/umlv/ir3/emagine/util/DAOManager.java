@@ -7,6 +7,9 @@ import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenterDAO;
 import fr.umlv.ir3.emagine.apprentice.candidate.room.RoomDAO;
 import fr.umlv.ir3.emagine.event.EventDAO;
 import fr.umlv.ir3.emagine.extraction.ExtractionDAO;
+import fr.umlv.ir3.emagine.extraction.mailings.MailingListDAO;
+import fr.umlv.ir3.emagine.extraction.mailstype.MailingTypeDAO;
+import fr.umlv.ir3.emagine.extraction.massmailing.MassMailingDAO;
 import fr.umlv.ir3.emagine.firm.FirmDAO;
 import fr.umlv.ir3.emagine.firm.JobDAO;
 import fr.umlv.ir3.emagine.firm.actor.EngineerTutorDAO;
@@ -38,7 +41,9 @@ public class DAOManager {
 	private FormationCenterDAO formationCenterDAO = new FormationCenterDAO();
 	private RoomDAO roomDAO = new RoomDAO();
 	private RightDAO rightDAO = new RightDAO();
-	
+	private MailingListDAO mailingListDAO = new MailingListDAO();
+	private MailingTypeDAO mailingTypeDAO = new MailingTypeDAO();
+	private MassMailingDAO massMailingDAO = new MassMailingDAO();
 	
 	public RightDAO getRightDAO() {
 		return rightDAO;
@@ -90,6 +95,15 @@ public class DAOManager {
 	}
 	public RoomDAO getRoomDAO() {
 		return roomDAO;
+	}
+	public MailingListDAO getMailingListDAO() {
+		return mailingListDAO;
+	}
+	public MailingTypeDAO getMailingTypeDAO() {
+		return mailingTypeDAO;
+	}
+	public MassMailingDAO getMassMailingDAO() {
+		return massMailingDAO;
 	}
 	public static DAOManager getInstance() {
 		if (instance == null) {
