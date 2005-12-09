@@ -36,35 +36,6 @@ public class BaseEntity implements Serializable {
 	protected BaseEntity() {super();}
 
 	/**
-	 * return the value of specified property in this class 
-	 * @param name name of property
-	 * @return return the object associated to the name property
-	 */
-	//FIXME:Supprimer le warinig
-	@SuppressWarnings("unchecked")
-	public FieldModification getField(String name) {
-		FieldModification field = new FieldModification();
-		
-		//TODO : BaseEntity.getFieldValue
-		field.setPropertyName(name);
-		field.setPropertyValue(HibernateUtils.getPropertyValue(name, this));
-		return field;
-	}
-	
-	/**
-	 * return the value of specified property in this class 
-	 * @param name name of property
-	 * @return return the object associated to the name property
-	 */
-	public List<FieldModification> getFields() {
-		ArrayList<FieldModification> properties = new ArrayList<FieldModification>();
-		for(String propertyName : HibernateUtils.getPropertyNames(this)) {
-			properties.add(getField(propertyName));
-		}
-		return properties;
-	}
-	
-	/**
 	 * This method compare id of each object, if id are equals it return true
 	 * else it return false
 	 * @see java.lang.Object#equals(java.lang.Object)
