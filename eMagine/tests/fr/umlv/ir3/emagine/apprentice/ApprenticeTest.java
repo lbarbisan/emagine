@@ -30,7 +30,6 @@ public class ApprenticeTest extends TestCase {
 			List<Apprentice> lists= apprenticeDao.find(searchParam);	
 			apprentice = lists.get(0);
 		} catch (Exception e) {
-			e.printStackTrace();
 			apprentice = new Apprentice(candidate);
 			apprentice.setFirstName("apprentice1");
 			apprentice.setLastName("apprentice1");
