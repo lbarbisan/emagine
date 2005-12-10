@@ -7,6 +7,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import fr.umlv.ir3.emagine.extraction.CSVExtractor;
 import fr.umlv.ir3.emagine.extraction.Extractable;
 import fr.umlv.ir3.emagine.extraction.Extractor;
 import fr.umlv.ir3.emagine.extraction.ObjectListExtractable;
@@ -166,6 +167,10 @@ public class Main {
 		Extractor extractor = new XLSExtractor();
 		OutputStream outputStream = new FileOutputStream(new File("toto.xls"));
 		extractor.extract(extractable, outputStream);
+
+		extractor = new CSVExtractor();
+		outputStream = new FileOutputStream(new File("toto.csv"));
+		extractor.extract(extractable, outputStream);	
 	}
 	
 	public static void InitializeUser()
