@@ -12,6 +12,7 @@ import fr.umlv.ir3.emagine.util.base.EditableEntity;
 @Entity(access = AccessType.FIELD)
 public class MailingType extends EditableEntity {
 
+	//TODO Title et Comment sont en majuscule
 	private static final long serialVersionUID = 5127008085508457457L;
 	@OneToMany
 	private List<Attachment> attachments;
