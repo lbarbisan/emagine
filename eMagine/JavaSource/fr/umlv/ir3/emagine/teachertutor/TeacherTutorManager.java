@@ -5,7 +5,6 @@ import java.util.List;
 import fr.umlv.ir3.emagine.apprentice.Apprentice;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.Extractable;
 import fr.umlv.ir3.emagine.util.base.BaseManagerImpl;
 
 public class TeacherTutorManager extends BaseManagerImpl<TeacherTutor, TeacherTutorDAO>{
@@ -40,17 +39,5 @@ public class TeacherTutorManager extends BaseManagerImpl<TeacherTutor, TeacherTu
 	protected TeacherTutorDAO getDAO() {
 			DAOManager instance = DAOManager.getInstance();
 			return instance.getTeacherTutorDAO();
-	}
-	
-	/**
-	 * Extracts the selected list, with selected columns (fields) into the selected file format
-	 */
-	public Extractable extract(TeacherTutorSearchParam teacherTutorSearchParam, Iterable<String> selectedColumns) throws Exception {
-		Extractable extractable;
-		TeacherTutorDAO dao = getDAO();
-		
-		extractable = dao.extract(teacherTutorSearchParam, selectedColumns);
-		
-		return extractable;
 	}	
 }

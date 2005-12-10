@@ -2,11 +2,9 @@ package fr.umlv.ir3.emagine.user;
 
 import java.util.List;
 
-import fr.umlv.ir3.emagine.extraction.ExtractionParam;
 import fr.umlv.ir3.emagine.security.SessionManager;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.Extractable;
 import fr.umlv.ir3.emagine.util.MailManager;
 import fr.umlv.ir3.emagine.util.base.BaseEditableManagerImpl;
 
@@ -98,15 +96,6 @@ public class UserManagerImpl
 	@Override
 	public User retrieve(long id) throws EMagineException {
 		return getDAO().retrieve(id);
-	}
-
-	/**
-	 * @see fr.umlv.ir3.emagine.user.UserManager#extract(fr.umlv.ir3.emagine.extraction.ExtractionParam)
-	 */
-	@Override
-	public Extractable extract(ExtractionParam extractionParam) {
-		// TODO UserManagerImpl.extract()
-		return null;
 	}
 
 }

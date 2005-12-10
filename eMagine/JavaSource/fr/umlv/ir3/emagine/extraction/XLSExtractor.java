@@ -1,26 +1,62 @@
 package fr.umlv.ir3.emagine.extraction;
 
+import java.io.IOException;
 import java.io.OutputStream;
+import java.lang.reflect.InvocationTargetException;
+
+import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 import fr.umlv.ir3.emagine.util.EMagineException;
 
 public class XLSExtractor implements Extractor {
 
-	public void extract(ExtractionParam extractionParam, OutputStream outputStream) throws EMagineException {
-		//final HSSFWorkbook wb = new HSSFWorkbook();
-		//HSSFSheet sheet = wb.createSheet("export");
-		//HSSFRow row = sheet.createRow((short) 0);
-		
-//		String[] fields = extractionParam.getSelectedFields();
-//		Extractable extractable = extractionParam.getExtractable();
-		
-//		short i = 0;
-//		for (String field : fields) {
-//			row.createCell(i++).setCellValue(
-//					field);	// TODO : récupérer le nom de la colonne
-//		}
+	public void extract(Extractable extractable, OutputStream outputStream) throws EMagineException {
+		final HSSFWorkbook wb = new HSSFWorkbook();
+		HSSFSheet sheet = wb.createSheet("export");
+		HSSFRow row = sheet.createRow((short) 0);
+
+		// Extraction of each column title
+		short i = 0;
+		for (String columnTitle : extractable.getColumnTitles()) {
+			row.createCell(i++).setCellValue(
+					columnTitle);
+		}
+
 		// Extraction of each row
-//		i = 1;
+		i = 1;
+		for (ExtractableRow extractableRow : extractable.getRows()) {
+			// Création d'une nouvelle ligne dans la feuille
+			row = sheet.createRow(i++);
+			short j = 0;
+			for (ExtractableCell extractableCell : extractableRow.getCells()) {
+				Object value = extractableCell.getCellValue();
+				if (value != null) {
+					HSSFCell cell = row.createCell(j);
+					try {
+						cell.getClass().getMethod("setCellValue", value.getClass()).invoke(cell, value);
+					} catch (IllegalArgumentException e) {
+						throw new EMagineException("exception.xlsExtractor.extract.error", e);
+					} catch (SecurityException e) {
+						throw new EMagineException("exception.xlsExtractor.extract.error", e);
+					} catch (IllegalAccessException e) {
+						throw new EMagineException("exception.xlsExtractor.extract.error", e);
+					} catch (InvocationTargetException e) {
+						throw new EMagineException("exception.xlsExtractor.extract.error", e);
+					} catch (NoSuchMethodException e) {
+						throw new EMagineException("exception.xlsExtractor.extract.error", e);
+					}
+				}
+				++j;
+			}
+		}
+		try {
+			wb.write(outputStream);
+		} catch (IOException e) {
+			throw new EMagineException("exception.xlsExtractor.extract.error", e);
+		}
 //		try {
 //			for (Object objectRow : extractable.getRows()) {
 //				// Création d'une nouvelle ligne dans la feuille
@@ -66,4 +102,5 @@ public class XLSExtractor implements Extractor {
 //			throw new EMagineException("exception.extraction.xlsExtractor.extractError", e);
 //		}
 	}
+
 }

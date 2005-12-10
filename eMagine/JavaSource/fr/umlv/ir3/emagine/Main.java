@@ -1,15 +1,23 @@
 package fr.umlv.ir3.emagine;
 
+import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Collection;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
+import fr.umlv.ir3.emagine.extraction.Extractable;
+import fr.umlv.ir3.emagine.extraction.Extractor;
+import fr.umlv.ir3.emagine.extraction.ObjectListExtractable;
+import fr.umlv.ir3.emagine.extraction.XLSExtractor;
 import fr.umlv.ir3.emagine.user.User;
 import fr.umlv.ir3.emagine.user.UserDAO;
 import fr.umlv.ir3.emagine.user.profile.Profile;
 import fr.umlv.ir3.emagine.user.profile.Right;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.search.SearchParamImpl;
+
 
 public class Main {
 
@@ -20,17 +28,75 @@ public class Main {
 	 */
 	public static void main(String[] args) throws FileNotFoundException, EMagineException {
 
-
+		/*
+		UserDAO userDAO = DAOManager.getInstance().getUserDAO();
+		User user = new User();
+		user.setEmail("email@fr");
+		user.setFirstName("Laurent");
+		user.setLastName("Barbisan");
+		user.setLogin("lbarbisan");
+		user.setPassword("dfsd");
+		userDAO.create(user);
 		
-		InitializeUser();
+		DAOManager.beginTransaction();
 
+		userDAO.create(user);
+		DAOManager.commitTransaction();*/
+		
 		/*UserDAO userDAO = DAOManager.getInstance().getUserDAO();
 		SearchParamImpl searchParam = new SearchParamImpl();
 		searchParam.setField("firstName", "Laurent");
 		searchParam.setField("lastName", "Barbisan");
+		try {
+			RightDAO rightDAO = DAOManager.getInstance().getRightDAO();
+			ProfileDAO profileDAO = DAOManager.getInstance().getProfileDAO();
+			UserDAO userDAO = DAOManager.getInstance().getUserDAO();
+			
+			Profile profile = new Profile();
+			profile.setName("User");
+			List<Right> rights = new ArrayList<Right>();
+			
+			Right right = new Right();
+			right.setName("user.create");
+			rightDAO.create(right);
+			rights.add(right);
+	
+			right = new Right();
+			right.setName("user.update");
+			rightDAO.create(right);
+			rights.add(right);
+			
+			right = new Right();
+			right.setName("user.delete");
+			rightDAO.create(right);
+			rights.add(right);
+	
+			right = new Right();
+			right.setName("user.find");
+			rightDAO.create(right);
+			rights.add(right);
+			
+			profile.setRights(rights);
+			profileDAO.create(profile);
+			
+			User user = userDAO.retrieve(1L);
+			user.setProfile(profile);
+			userDAO.update(user);
+			
+			DAOManager.commitTransaction();
+		} catch (Exception exception) {
+			DAOManager.rollBackTransaction();
+		}
 		
-		Collection<User> list = userDAO.find(searchParam);
-		
+//		user.setLastName("Barbisan");
+//		user.setLogin("lbarbisan");
+//		user.setPassword("dfsd");
+//		HibernateUtils.getPropertySnapShot(user);
+//		DAOManager.commitTransaction();
+//		HibernateUtils.getPropertySnapShot(user);
+
+		//Collection<User> list = userDAO.find(searchParam);
+		/*
 		for (User user : list) {
 			System.out.println(user.getFirstName());
 		}
@@ -46,6 +112,10 @@ public class Main {
 		
 
 		ManagerManager.getInstance().getExtractionManager().extract(extractionForm, new FileOutputStream(new File("toto.xls")));
+		*/
+		
+		
+		/*
 		UserSearchForm form = new UserSearchForm();
 		for (String field : form.getFields()) {
 			System.out.println(field);
@@ -55,6 +125,11 @@ public class Main {
 			System.out.println(" > "+field+" // "+field.isAnnotationPresent(IsAField.class));
 		}
 		
+		/*
+		for (Object string : CountryEnum.values()) {
+			System.out.println(string);
+		}
+		CountryEnum.valueOf("FR");
 		
 		
 		UserSearchForm form = new UserSearchForm();
@@ -75,8 +150,22 @@ public class Main {
 				System.out.println();
 			}
 		}
-		
 		*/
+
+		UserDAO userDAO = DAOManager.getInstance().getUserDAO();
+		List<User> users = userDAO.findAll();
+		List<String> properties = new ArrayList<String>();
+		properties.add("firstName");
+		properties.add("lastName");
+		properties.add("login");
+		properties.add("password");
+		properties.add("email");
+		properties.add("profile.name");
+		
+		Extractable extractable = new ObjectListExtractable<User>(users, properties);
+		Extractor extractor = new XLSExtractor();
+		OutputStream outputStream = new FileOutputStream(new File("toto.xls"));
+		extractor.extract(extractable, outputStream);
 	}
 	
 	public static void InitializeUser()

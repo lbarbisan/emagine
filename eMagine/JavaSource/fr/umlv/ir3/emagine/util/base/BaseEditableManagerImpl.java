@@ -1,61 +1,87 @@
 package fr.umlv.ir3.emagine.util.base;
 
-import fr.umlv.ir3.emagine.extraction.ExtractionParam;
 import fr.umlv.ir3.emagine.modification.FieldModification;
+import fr.umlv.ir3.emagine.modification.Modification;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.Extractable;
 
-public abstract class BaseEditableManagerImpl
-	<EntityType extends EditableEntity, EntityDAO extends BaseDAO<EntityType>> 
-	extends BaseManagerImpl<EntityType, EntityDAO> 
-	implements BaseEditableManager<EntityType, EntityDAO> {
+public abstract class BaseEditableManagerImpl<EntityType extends EditableEntity, EntityDAO extends BaseDAO<EntityType>>
+		extends BaseManagerImpl<EntityType, EntityDAO> implements
+		BaseEditableManager<EntityType, EntityDAO> {
 
-    /**
+	/**
 	 * @see fr.umlv.ir3.emagine.util.base.BaseEditableManager#update(EntityType)
 	 */
 	@Override
 	public void update(EntityType newEntity) throws EMagineException {
-			DAOManager.beginTransaction();
-			//Load the original object 
-    		EntityType oldEntity = retrieve(newEntity.getId());
-    		// set the modification
-    		newEntity.addModification(oldEntity);
-    		super.update(newEntity);
+		// TODO : vérifier les droits courrants
+		// si le user a les droits, faire un update classique, sinon faire un
+		// ajout de modification
 	}
-	
+
 	/**
-	 * @see fr.umlv.ir3.emagine.util.base.BaseEditableManager#acceptAllModificationFor(EntityType)
+	 * @throws EMagineException
+	 * @see fr.umlv.ir3.emagine.util.base.BaseEditableManager#acceptAllModification(EntityType)
 	 */
-	public void acceptAllModificationFor(EntityType entity) {
+	public void acceptAllModification(EntityType entity)
+			throws EMagineException {
 		DAOManager.beginTransaction();
-		entity.acceptModification();
+		// entity.acceptModification();
 		try {
 			super.update(entity);
+			DAOManager.commitTransaction();
 		} catch (EMagineException e) {
-			// TODO EMagineException.e Not Implemented
-			e.printStackTrace();
+			DAOManager.rollBackTransaction();
+			throw e;
 		}
 	}
-	
+
 	/**
-	 * @see fr.umlv.ir3.emagine.util.base.BaseEditableManager#acceptFieldModificationFor(EntityType, java.lang.String)
+	 * @throws EMagineException
+	 * @see fr.umlv.ir3.emagine.util.base.BaseEditableManager#acceptFieldModification(EntityType,
+	 *      java.lang.String)
 	 */
-	public void acceptFieldModificationFor(EntityType entity, String name) {
+	public void acceptFieldModification(EntityType entity, String name)
+			throws EMagineException {
+		// TODO acceptFieldModification
 		DAOManager.beginTransaction();
-		FieldModification field = entity.getCurrentModification().getFieldModification(name);
-		entity.acceptFieldModification(field);
+		FieldModification field = entity.getCurrentModification()
+				.getFieldModification(name);
+		// entity.acceptFieldModification(field);
 		try {
 			super.update(entity);
+			DAOManager.commitTransaction();
 		} catch (EMagineException e) {
-			// TODO EMagineException.e Not Implemented
-			e.printStackTrace();
+			DAOManager.rollBackTransaction();
+			throw e;
 		}
 	}
-	
+
 	/**
-	 * @see fr.umlv.ir3.emagine.util.base.BaseEditableManager#extract(fr.umlv.ir3.emagine.extraction.ExtractionParam)
+	 * @throws EMagineException 
+	 * @see fr.umlv.ir3.emagine.util.base.BaseEditableManager#addModification()
 	 */
-	//FIXME: Utilisé les générics
-	public abstract Extractable extract(ExtractionParam extractionParam);
+	public void addModification(EntityType entity) throws EMagineException {
+		// TODO addModification
+		DAOManager.beginTransaction();
+		try {
+			// Load the original object
+			EntityType oldEntity = retrieve(entity.getId());
+			// set the modification
+			Modification modification = new Modification();
+//			for (FieldModification<EntityType> field : entity.getFields()) {
+//				Object propertyValue = field.getPropertyValue();
+//				if (propertyValue.equals(oldEntity.getField(field.getPropertyName()))) {
+//					modification.addFieldModification(field);
+//					entity.getModifications().add(modification);
+//				}
+//			}
+			super.update(entity);
+			DAOManager.commitTransaction();
+		} catch (EMagineException e) {
+			DAOManager.rollBackTransaction();
+			throw e;
+		}
+	}
+
 }

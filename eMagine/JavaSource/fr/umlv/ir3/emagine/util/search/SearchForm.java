@@ -7,10 +7,10 @@ import java.util.List;
 
 import org.apache.struts.action.ActionForm;
 
-import fr.umlv.ir3.emagine.util.Extractable;
+import fr.umlv.ir3.emagine.extraction.Extractable;
 import fr.umlv.ir3.emagine.util.IsAField;
 
-public abstract class SearchForm<BaseType> extends ActionForm implements SearchParam, Extractable {
+public abstract class SearchForm<BaseType> extends ActionForm implements SearchParam {
 	protected int nbResultsByPage;
 	protected int indexPage;
 	protected List<BaseType> results;
@@ -50,6 +50,9 @@ public abstract class SearchForm<BaseType> extends ActionForm implements SearchP
 		this.indexPage = indexPage;
 	}
 	
+	/**
+	 * @see fr.umlv.ir3.emagine.util.search.SearchParam#getField(java.lang.String)
+	 */
 	public Object getField(String field) {
 		// TODO SelectSearchForm.getField()
 		return null;
@@ -74,9 +77,6 @@ public abstract class SearchForm<BaseType> extends ActionForm implements SearchP
 		// TODO SearchForm.getPropertyNameForColumn()
 		return "TODO SearchForm.getPropertyNameForColumn()";
 	}
-
-	public Collection getRows() {
-		return getResults();
-	}
 	
+	public abstract Extractable getExtractable();
 }

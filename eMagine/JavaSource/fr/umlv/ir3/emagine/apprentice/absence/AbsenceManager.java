@@ -4,10 +4,8 @@ import java.util.Collection;
 import java.util.List;
 
 import fr.umlv.ir3.emagine.apprentice.Apprentice;
-import fr.umlv.ir3.emagine.extraction.ExtractionParam;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.Extractable;
 import fr.umlv.ir3.emagine.util.base.BaseEditableManagerImpl;
 
 public class AbsenceManager extends BaseEditableManagerImpl<Absence, AbsenceDAO> {
@@ -26,11 +24,5 @@ public class AbsenceManager extends BaseEditableManagerImpl<Absence, AbsenceDAO>
 	@Override
 	protected AbsenceDAO getDAO() {
 		return DAOManager.getInstance().getAbsenceDAO();
-	}
-
-	@Override
-	public Extractable extract(ExtractionParam extractionParam) {
-		// TODO AbsenceManager.extract()
-		return null;
 	}
 }

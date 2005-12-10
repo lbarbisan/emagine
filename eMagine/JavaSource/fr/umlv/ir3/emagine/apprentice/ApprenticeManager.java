@@ -5,13 +5,11 @@ import java.util.List;
 
 import fr.umlv.ir3.emagine.apprentice.absence.Absence;
 import fr.umlv.ir3.emagine.event.Event;
-import fr.umlv.ir3.emagine.extraction.ExtractionParam;
 import fr.umlv.ir3.emagine.firm.Firm;
 import fr.umlv.ir3.emagine.firm.actor.EngineerTutor;
 import fr.umlv.ir3.emagine.teachertutor.TeacherTutor;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.Extractable;
 import fr.umlv.ir3.emagine.util.base.BaseEventableManager;
 
 public class ApprenticeManager extends BaseEventableManager<Apprentice, ApprenticeDAO> {
@@ -145,11 +143,5 @@ public class ApprenticeManager extends BaseEventableManager<Apprentice, Apprenti
 	@Override
 	protected ApprenticeDAO getDAO() {
 		return DAOManager.getInstance().getApprenticeDAO();
-	}
-
-	@Override
-	public Extractable extract(ExtractionParam extractionParam) {
-		// TODO ApprenticeManager.extract()
-		return null;
 	}
 }

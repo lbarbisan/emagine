@@ -2,10 +2,8 @@ package fr.umlv.ir3.emagine.statistic;
 
 import java.util.List;
 
-import fr.umlv.ir3.emagine.extraction.ExtractionParam;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.Extractable;
 import fr.umlv.ir3.emagine.util.base.BaseEditableManagerImpl;
 
 public class StatisticManager extends BaseEditableManagerImpl<Statistic, StatisticDAO> {
@@ -18,11 +16,5 @@ public class StatisticManager extends BaseEditableManagerImpl<Statistic, Statist
 	protected StatisticDAO getDAO() {
 		DAOManager instance = DAOManager.getInstance();
 		return instance.getStatisticDAO();
-	}
-
-	@Override
-	public Extractable extract(ExtractionParam extractionParam) {
-		// TODO StatisticManager.extract()
-		return null;
 	}
 }

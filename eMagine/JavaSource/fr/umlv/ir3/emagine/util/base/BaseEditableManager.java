@@ -1,22 +1,15 @@
 package fr.umlv.ir3.emagine.util.base;
 
-import fr.umlv.ir3.emagine.extraction.ExtractionParam;
-import fr.umlv.ir3.emagine.util.Extractable;
+import fr.umlv.ir3.emagine.util.EMagineException;
+
 
 public interface BaseEditableManager
 	<EntityType extends EditableEntity, EntityDAO extends BaseDAO<EntityType>> 
 	extends BaseManager<EntityType, EntityDAO>{
 
-	public void acceptAllModificationFor(EntityType entity);
+	public void acceptAllModification(EntityType entity) throws EMagineException;
 
-	public void acceptFieldModificationFor(EntityType entity, String name);
-
-	/**
-	 * 
-	 * @param extractionParam
-	 * @return
-	 */
-	//FIXME: Utilisé les générics
-	public Extractable extract(ExtractionParam extractionParam);
-
+	public void acceptFieldModification(EntityType entity, String name) throws EMagineException;
+	
+	public void addModification(EntityType entity) throws EMagineException;
 }

@@ -5,7 +5,6 @@ import java.util.Collection;
 import org.apache.struts.action.ActionForm;
 
 import fr.umlv.ir3.emagine.user.User;
-import fr.umlv.ir3.emagine.util.Extractable;
 
 public class ExtractionForm extends ActionForm implements ExtractionParam {
 

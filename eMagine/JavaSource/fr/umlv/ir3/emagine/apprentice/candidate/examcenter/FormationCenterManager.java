@@ -9,10 +9,8 @@ import fr.umlv.ir3.emagine.apprentice.candidate.Candidate;
 import fr.umlv.ir3.emagine.apprentice.candidate.CandidateDAO;
 import fr.umlv.ir3.emagine.apprentice.candidate.room.Room;
 import fr.umlv.ir3.emagine.apprentice.candidate.room.RoomDAO;
-import fr.umlv.ir3.emagine.extraction.ExtractionParam;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.Extractable;
 import fr.umlv.ir3.emagine.util.base.BaseEditableManagerImpl;
 
 public class FormationCenterManager extends BaseEditableManagerImpl<FormationCenter, FormationCenterDAO> {
@@ -131,11 +129,5 @@ public class FormationCenterManager extends BaseEditableManagerImpl<FormationCen
 	@Override
 	protected FormationCenterDAO getDAO() {
 		return DAOManager.getInstance().getFormationCenterDAO();
-	}
-
-	@Override
-	public Extractable extract(ExtractionParam extractionParam) {
-		// TODO FormationCenterManager.extract()
-		return null;
 	}
 }

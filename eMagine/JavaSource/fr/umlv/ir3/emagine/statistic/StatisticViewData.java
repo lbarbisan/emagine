@@ -2,14 +2,16 @@ package fr.umlv.ir3.emagine.statistic;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.Map;
 
 import org.jfree.data.general.DefaultPieDataset;
 
 import de.laures.cewolf.DatasetProduceException;
 import de.laures.cewolf.DatasetProducer;
-import fr.umlv.ir3.emagine.util.Extractable;
+import fr.umlv.ir3.emagine.extraction.Extractable;
+import fr.umlv.ir3.emagine.extraction.ExtractableCell;
+import fr.umlv.ir3.emagine.extraction.ExtractableRow;
+import fr.umlv.ir3.emagine.util.EMagineException;
 
 /** 
  * An example data producer.
@@ -41,9 +43,18 @@ public class StatisticViewData implements DatasetProducer, Serializable {
         	dataset = new DefaultPieDataset();
     	} 
     	
-        for (Iterable<Object> row : datas) {
-			Iterator obj = row.iterator();
-			dataset.setValue(obj.next().toString(),Integer.parseInt(obj.next().toString()));
+        for (ExtractableRow row : datas.getRows()) {
+        	for (ExtractableCell cell : row.getCells()) {
+        		try {
+					dataset.setValue(cell.getColumnName(), Integer.parseInt(cell.getCellValue().toString()));
+				} catch (NumberFormatException e) {
+					e.printStackTrace();
+					throw new DatasetProduceException();
+				} catch (EMagineException e) {
+					e.printStackTrace();
+					throw new DatasetProduceException();
+				}
+        	}
 		}
         
         return dataset;
