@@ -8,7 +8,8 @@
 	<security-constraint>
 		<web-resource-collection>
 			<web-resource-name>Administration</web-resource-name>
-			<url-pattern>/administration/*</url-pattern>
+			<url-pattern>*.do</url-pattern>
+			<url-pattern>*.jsp</url-pattern>
 		</web-resource-collection>
 		<auth-constraint>
 			<role-name>*</role-name>
@@ -18,8 +19,8 @@
 	<login-config>
 		<auth-method>FORM</auth-method>
 		<form-login-config>
-			<form-login-page>/index.jsp</form-login-page>
-			<form-error-page>/loginError.jsp</form-error-page>
+			<form-login-page>/common/login.jsp</form-login-page>
+			<form-error-page>/common/login.jsp</form-error-page>
 			<form-default-page>/apprenticeSearch.do</form-default-page>
 		</form-login-config>
 	</login-config>

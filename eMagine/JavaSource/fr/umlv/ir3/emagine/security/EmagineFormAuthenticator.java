@@ -5,6 +5,9 @@ import java.security.Principal;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.struts.Globals;
+import org.apache.struts.action.ActionMessage;
+import org.apache.struts.action.ActionMessages;
 import org.securityfilter.authenticator.FormAuthenticator;
 import org.securityfilter.filter.SecurityFilter;
 import org.securityfilter.filter.SecurityRequestWrapper;
@@ -91,6 +94,10 @@ public class EmagineFormAuthenticator extends FormAuthenticator {
 			} else {
 				// login failed
 				// set response status and forward to error page
+				ActionMessages errors = new ActionMessages();
+				errors.add(ActionMessages.GLOBAL_MESSAGE,
+						new ActionMessage("exception.login.failed"));
+				request.setAttribute(Globals.ERROR_KEY, errors);
 				response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
 				request.getRequestDispatcher(errorPage).forward(request,
 						response);
