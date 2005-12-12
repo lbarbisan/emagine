@@ -1,5 +1,6 @@
 package fr.umlv.ir3.emagine.modification;
 
+import java.util.Date;
 import java.util.Map;
 
 import javax.persistence.AccessType;
@@ -31,8 +32,19 @@ public class Modification<ObjectType extends EventableEntity> extends BaseEntity
 	@OneToMany(mappedBy = "modification")
 	@MapKey(name = "propertyName")
 	private Map<String, FieldModification> fieldsModifications;
-	private ModificationStateEnum modificationSate;
+	//private ModificationStateEnum modificationState;
 	private String comment;
+	private String className;
+	private String fieldName;
+	private String event;
+	private String userName;
+	private Date date;
+	private String newValue;
+	private String oldValue;
+	private String persistedObjectId;
+	private BaseEntity entity;
+	
+	public Modification(){super();}
 	
 	/**
 	 * @return Returns the comment.
@@ -49,15 +61,15 @@ public class Modification<ObjectType extends EventableEntity> extends BaseEntity
 	/**
 	 * @return Returns the modificationSate.
 	 */
-	public ModificationStateEnum getModificationSate() {
-		return modificationSate;
-	}
+	/*public ModificationStateEnum getModificationState() {
+		return modificationState;
+	}*/
 	/**
 	 * @param modificationSate The modificationSate to set.
 	 */
-	public void setModificationSate(ModificationStateEnum modificationSate) {
-		this.modificationSate = modificationSate;
-	}
+	/*public void setModificationSate(ModificationStateEnum modificationState) {
+		this.modificationState = modificationState;
+	}*/
 	/**
 	 * @return Returns the userDestination.
 	 */
@@ -99,4 +111,50 @@ public class Modification<ObjectType extends EventableEntity> extends BaseEntity
 	{
 		return this.fieldsModifications.get(propertyName);
 	}
+	
+
+	
+	public void setEntityName(String className) {
+		this.className = className;
+	}
+
+	public void setEntityAttribute(String fieldName) {
+		this.fieldName = fieldName;
+	}
+
+	public void setMessage(String event) {
+		this.event = event;
+	}
+
+	public void setUpdatedBy(String userName) {
+		this.userName = userName;
+	}
+
+	public void setUpdatedDate(Date date) {
+		this.date = date;
+	}
+
+	public void setNewValue(String newValue) {
+		this.newValue = newValue;
+	}
+
+	public void setOldValue(String oldValue) {
+		this.oldValue = oldValue;
+		
+	}
+
+	public void setEntityId(String string) {
+		this.persistedObjectId = persistedObjectId;
+		
+	}
+
+	public void setEntity(BaseEntity entity) {
+		this.entity = entity;
+		
+	}
+
+	public Object getEntity() {
+		return entity;
+	}
+
 }

@@ -9,8 +9,12 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.AnnotationConfiguration;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.event.FlushEntityEventListener;
 import org.hibernate.metadata.ClassMetadata;
 
+import fr.umlv.ir3.emagine.modification.Intercept;
+import fr.umlv.ir3.emagine.modification.ModificationInterceptor;
 import fr.umlv.ir3.emagine.util.base.BaseEntity;
 
 public class HibernateUtils {
@@ -25,10 +29,18 @@ public class HibernateUtils {
     static {
         try {            
         	
-        	sessionFactory = new AnnotationConfiguration()
+        	Configuration cfg = new AnnotationConfiguration();
+        	ModificationInterceptor modificationInterceptor = new ModificationInterceptor();
+
             //TODO : Hibernate - Trouver un moyen pour mettre le nom de fichier dans un fichier poroperties ou autre.
-        	.configure("fr/umlv/ir3/emagine/ressource/hibernate.cfg.xml")
-        	.buildSessionFactory();
+        	cfg.configure("fr/umlv/ir3/emagine/ressource/hibernate.cfg.xml")
+        	.setInterceptor(modificationInterceptor);
+
+        	sessionFactory = cfg.buildSessionFactory(); 
+        	modificationInterceptor.setSessionFactory(sessionFactory);
+        	
+
+        	
         } catch (Throwable ex) {
             log.error("Initial SessionFactory creation failed.", ex);
             throw new ExceptionInInitializerError(ex);

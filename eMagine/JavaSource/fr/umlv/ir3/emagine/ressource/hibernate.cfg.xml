@@ -4,6 +4,7 @@
 "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
+    
     	<!--  Configuration de la base de données, à mettre dans un environement managé -->
         <property name="hibernate.cglib.use_reflection_optimizer">false</property>
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
@@ -83,6 +84,6 @@
  		
 		<mapping package="fr.umlv.ir3.emagine.teachertutor"/>
 		<mapping class="fr.umlv.ir3.emagine.teachertutor.TeacherTutor"/>				
-		
+
     </session-factory>
 </hibernate-configuration>
