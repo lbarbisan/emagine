@@ -4,6 +4,7 @@ import java.util.Collection;
 
 import junit.framework.TestCase;
 import fr.umlv.ir3.emagine.util.EMagineException;
+import fr.umlv.ir3.emagine.util.search.SearchParam;
 
 public abstract class BaseDAOTest <EntityType extends BaseEntity> extends TestCase {
 	
@@ -110,30 +111,40 @@ public abstract class BaseDAOTest <EntityType extends BaseEntity> extends TestCa
 	}
 
 	/*
-	 * Test method for 'fr.umlv.ir3.emagine.util.base.BaseDAO.getEntityClass()'
-	 */
-	public void testGetEntityClass() {
-		
-	}
-
-	/*
 	 * Test method for 'fr.umlv.ir3.emagine.util.base.BaseDAO.find(SearchParam)'
 	 */
 	public void testFind() {
-
+		try {
+			EntityType entity = createEntity();
+			getDAO().create(entity);
+			assertEquals(1,getDAO().find(createSearchParam()).size());
+			getDAO().delete(entity);
+		} catch (EMagineException e) {
+			// Problem with de creation of the object
+			assertFalse(true);
+		}
 	}
 
 	/*
 	 * Test method for 'fr.umlv.ir3.emagine.util.base.BaseDAO.findAll()'
 	 */
 	public void testFindAll() {
-
+		Collection<EntityType> entities = createEntityCollection();
+		try {
+		for (EntityType entity : entities) {
+				getDAO().create(entity);
+		}
+		assertEquals(entities.size(),getDAO().findAll().size());
+		} catch (EMagineException e) {
+			assertFalse(true);
+		}
 	}
 	
 	protected abstract BaseDAO<EntityType> getDAO();
 	protected abstract EntityType createEntity();
 	protected abstract Collection<EntityType> createEntityCollection();
 	protected abstract void updateEntity(EntityType entity);
+	protected abstract SearchParam createSearchParam();
 	protected abstract boolean compareEntity(EntityType entity1, EntityType entity2);
 
 }
