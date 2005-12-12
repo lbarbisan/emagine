@@ -10,10 +10,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.event.FlushEntityEventListener;
 import org.hibernate.metadata.ClassMetadata;
 
-import fr.umlv.ir3.emagine.modification.Intercept;
 import fr.umlv.ir3.emagine.modification.ModificationInterceptor;
 import fr.umlv.ir3.emagine.util.base.BaseEntity;
 
