@@ -8,6 +8,7 @@ import fr.umlv.ir3.emagine.apprentice.absence.Absence;
 import fr.umlv.ir3.emagine.apprentice.candidate.Candidate;
 import fr.umlv.ir3.emagine.util.Address;
 import fr.umlv.ir3.emagine.util.DAOManager;
+import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.ManagerManager;
 import fr.umlv.ir3.emagine.util.search.SearchParamImpl;
 
@@ -17,7 +18,7 @@ public class ApprenticeTest extends TestCase {
 	private Candidate candidate = new Candidate();
 	private Apprentice apprentice;
 	
-	public ApprenticeTest(String arg0) {
+	public ApprenticeTest(String arg0) throws EMagineException {
 		super(arg0);
 		apprenticeDao = ManagerManager.getInstance().getApprenticeManager().getDAO();
 	}
