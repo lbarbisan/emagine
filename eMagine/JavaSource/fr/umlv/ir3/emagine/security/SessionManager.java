@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import fr.umlv.ir3.emagine.user.User;
 import fr.umlv.ir3.emagine.util.Constants;
+import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.ManagerManager;
 
@@ -71,7 +72,7 @@ public class SessionManager {
 	 */
 	protected void login(Principal principal, String login, String password, HttpSession session) throws EMagineException {
 		synchronized (login) {
-			User user = ManagerManager.getInstance().getUserManager().find(login, password);
+			User user = DAOManager.getInstance().getUserDAO().find(login, password);
 			if (user != null) {
 				HttpSession prevSession = loginSessions.put(login, session);
 				if (prevSession != null) {
