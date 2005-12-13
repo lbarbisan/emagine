@@ -125,6 +125,16 @@ public class FormationCenterManager extends BaseEditableManagerImpl<FormationCen
 		}
 		return treatedCandidates;
 	}
+	
+	/**
+	 * Searches for the given formationCenterSearchParams
+	 * @param formationCenterSearchParams
+	 * @return
+	 * @throws EMagineException
+	 */
+	public List<FormationCenter> find(FormationCenterSearchParams formationCenterSearchParams) throws EMagineException {
+		return getDAO().find(formationCenterSearchParams);
+	}
 
 	@Override
 	protected FormationCenterDAO getDAO() {

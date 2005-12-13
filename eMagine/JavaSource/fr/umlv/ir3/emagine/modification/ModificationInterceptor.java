@@ -31,7 +31,12 @@ import fr.umlv.ir3.emagine.util.base.EditableEntity;
  */
 public class ModificationInterceptor extends EmptyInterceptor {
 
-    private Log log = LogFactory.getLog(ModificationInterceptor.class);
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -4309640442405255339L;
+
+	private Log log = LogFactory.getLog(ModificationInterceptor.class);
 
     private SessionFactory sessionFactory;
     private static final String UPDATE = "update";
@@ -60,7 +65,7 @@ public class ModificationInterceptor extends EmptyInterceptor {
     public boolean onFlushDirty(Object obj, Serializable id, Object[] newValues, Object[] oldValues,
             String[] properties, Type[] types) throws CallbackException {
 
-    	//Vérifie que l'object est bien un objet persitent
+    	//Vï¿½rifie que l'object est bien un objet persitent
         if (obj instanceof EditableEntity) {
             
             Session session = sessionFactory.openSession();

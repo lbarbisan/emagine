@@ -2,10 +2,10 @@ package fr.umlv.ir3.emagine.user;
 
 import fr.umlv.ir3.emagine.user.profile.Profile;
 import fr.umlv.ir3.emagine.util.RequestParam;
-import fr.umlv.ir3.emagine.util.search.SearchParam;
+import fr.umlv.ir3.emagine.util.search.SearchParams;
 
 
-public interface UserSearchParam extends SearchParam {
+public interface UserSearchParam extends SearchParams {
 	@RequestParam("user.firstName")
 	public String getFirstName();
 	@RequestParam("user.lastName")

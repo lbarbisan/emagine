@@ -1,7 +1,5 @@
 package fr.umlv.ir3.emagine.user;
 
-import java.util.List;
-
 import fr.umlv.ir3.emagine.security.SessionManager;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
@@ -76,26 +74,8 @@ public class UserManagerImpl
 	public User find(String login, String password) throws EMagineException {
 		return getDAO().find(login, password);
 	}
-
-	/**
-	 * @see fr.umlv.ir3.emagine.user.UserManager#findAll()
-	 */
-	public List<User> findAll()
-	{
-		UserDAO dao = getDAO();
-		return dao.findAll();
-	}
 	
 	protected UserDAO getDAO() {
 		return DAOManager.getInstance().getUserDAO();
 	}
-
-	/**
-	 * @see fr.umlv.ir3.emagine.user.UserManager#retrieve(long)
-	 */
-	@Override
-	public User retrieve(long id) throws EMagineException {
-		return getDAO().retrieve(id);
-	}
-
 }

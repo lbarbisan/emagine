@@ -3,10 +3,8 @@ package fr.umlv.ir3.emagine.util.base;
 import java.util.Collection;
 import java.util.List;
 
-import org.hibernate.type.EntityType;
-
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.search.SearchParam;
+import fr.umlv.ir3.emagine.util.search.SearchParams;
 
 public interface BaseManager
 	<EntityType extends BaseEntity, EntityDAO extends BaseDAO<EntityType>> {
@@ -32,7 +30,14 @@ public interface BaseManager
 	 * @return the object which is associated to id, null if not found
 	 * @throws EMagineException throw this exception if an SQLException occures
 	 */
-	public List<EntityType> find(SearchParam searchParam) throws EMagineException;
+	public List<EntityType> find(SearchParams searchParams) throws EMagineException;
+	
+	/**
+	 * Returns all the entities of the paramitrized type, or null if none found
+	 * @return
+	 * @throws EMagineException throws if an SQLException occures
+	 */
+	public List<EntityType> findAll() throws EMagineException;
 
 	/**
 	 * Updates the database data for the specified object. Handles the update with a transaction.

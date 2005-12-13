@@ -13,12 +13,12 @@ public class AbsenceManager extends BaseEditableManagerImpl<Absence, AbsenceDAO>
 	/**
 	 * Lists absences for a list of Apprentice, between 2 dates
 	 * @param apprentices selected apprentices
-	 * @param absenceSearchParam
+	 * @param absenceSearchParams
 	 * @throws EMagineException if an SQLException occures
 	 */
-	public List<Absence> find(Collection<Apprentice> apprentices, AbsenceSearchParam absenceSearchParam) throws EMagineException {
+	public List<Absence> find(Collection<Apprentice> apprentices, AbsenceSearchParams absenceSearchParams) throws EMagineException {
 		AbsenceDAO dao = getDAO();
-		return dao.find(apprentices, absenceSearchParam);
+		return dao.find(apprentices, absenceSearchParams);
 	}
 	
 	@Override

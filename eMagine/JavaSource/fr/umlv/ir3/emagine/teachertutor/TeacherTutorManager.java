@@ -10,7 +10,7 @@ import fr.umlv.ir3.emagine.util.base.BaseManagerImpl;
 public class TeacherTutorManager extends BaseManagerImpl<TeacherTutor, TeacherTutorDAO>{
 	
 	/**
-	 * Add a apprentice to a tutor
+	 * Adds an apprentice to a tutor
 	 * @param apprentice apprentice to add
 	 * @param teacherTutor teacher to add apprentice
 	 * @throws EMagineException if apprentice already exist
@@ -21,19 +21,6 @@ public class TeacherTutorManager extends BaseManagerImpl<TeacherTutor, TeacherTu
 		apprentices.add(apprentice);
 		update(teacherTutor);
 	}
-
-	/*@Override
-	public void update(TeacherTutor teacherTutor) throws EMagineException {
-		DAOManager.beginTransaction();
-		try {
-			TeacherTutorDAO dao =  getDAO();
-			dao.update(teacherTutor);
-			DAOManager.commitTransaction();
-		} catch (EMagineException exception) {
-			DAOManager.rollBackTransaction();
-			throw exception;
-		}
-	}*/
 	
 	@Override
 	protected TeacherTutorDAO getDAO() {

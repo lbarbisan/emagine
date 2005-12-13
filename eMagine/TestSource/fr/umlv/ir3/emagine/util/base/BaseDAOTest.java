@@ -4,7 +4,7 @@ import java.util.Collection;
 
 import junit.framework.TestCase;
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.search.SearchParam;
+import fr.umlv.ir3.emagine.util.search.SearchParams;
 
 public abstract class BaseDAOTest <EntityType extends BaseEntity> extends TestCase {
 	
@@ -117,7 +117,7 @@ public abstract class BaseDAOTest <EntityType extends BaseEntity> extends TestCa
 		try {
 			EntityType entity = createEntity();
 			getDAO().create(entity);
-			assertEquals(1,getDAO().find(createSearchParam()).size());
+			assertEquals(1,getDAO().find(createSearchParams()).size());
 			getDAO().delete(entity);
 		} catch (EMagineException e) {
 			// Problem with de creation of the object
@@ -144,7 +144,7 @@ public abstract class BaseDAOTest <EntityType extends BaseEntity> extends TestCa
 	protected abstract EntityType createEntity();
 	protected abstract Collection<EntityType> createEntityCollection();
 	protected abstract void updateEntity(EntityType entity);
-	protected abstract SearchParam createSearchParam();
+	protected abstract SearchParams createSearchParams();
 	protected abstract boolean compareEntity(EntityType entity1, EntityType entity2);
 
 }

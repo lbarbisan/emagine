@@ -1,10 +1,7 @@
 package fr.umlv.ir3.emagine.extraction.mailings;
 
 import java.util.Collection;
-import java.util.List;
 
-import fr.umlv.ir3.emagine.extraction.Extractable;
-import fr.umlv.ir3.emagine.extraction.ExtractionParam;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.MailManager;
@@ -25,7 +22,7 @@ public class MailingListManager extends BaseEditableManagerImpl<MailingList, Mai
 	//Use case « Visualiser une mailing-list »	
 	
 	//TODO : Use case « Ajouter un membre à une mailing-list »
-	public void addPerson(MailingList mailingList, Person person)
+	public <PersonType extends Person> void addPerson(MailingList<PersonType> mailingList, PersonType person)
 	{
 		MailingListDAO mailingListDAO = getDAO();
 		DAOManager.beginTransaction();
@@ -39,12 +36,12 @@ public class MailingListManager extends BaseEditableManagerImpl<MailingList, Mai
 	}
 	
 	//TODO : Use case « Ajouter des membres à une mailing-list »
-	public void addPersons(MailingList mailingList, Collection<Person> persons)
+	public <PersonType extends Person> void addPersons(MailingList<PersonType> mailingList, Collection<PersonType> persons)
 	{
 		MailingListDAO mailingListDAO = getDAO();
 		DAOManager.beginTransaction();
 		try {
-			mailingList.getPersons().add(persons);
+			mailingList.getPersons().addAll(persons);
 			mailingListDAO.update(mailingList);
 			DAOManager.commitTransaction();
 		} catch (EMagineException e) {
@@ -53,7 +50,7 @@ public class MailingListManager extends BaseEditableManagerImpl<MailingList, Mai
 	}
 	
 	//TODO : Use case « Supprimer un membre à une mailing-list »
-	public void removePerson(MailingList mailingList, Person person)
+	public <PersonType extends Person> void removePerson(MailingList<PersonType> mailingList, PersonType person)
 	{
 		MailingListDAO mailingListDAO = getDAO();
 		DAOManager.beginTransaction();
@@ -67,12 +64,12 @@ public class MailingListManager extends BaseEditableManagerImpl<MailingList, Mai
 	}
 	
 //	TODO : Use case « Supprimer un membre à une mailing-list »
-	public void removePersons(MailingList mailingList, Collection<Person> persons)
+	public <PersonType extends Person> void removePersons(MailingList<PersonType> mailingList, Collection<PersonType> persons)
 	{
 		MailingListDAO mailingListDAO = getDAO();
 		DAOManager.beginTransaction();
 		try {
-			mailingList.getPersons().remove(persons);
+			mailingList.getPersons().removeAll(persons);
 			mailingListDAO.update(mailingList);
 			DAOManager.commitTransaction();
 		} catch (EMagineException e) {
@@ -80,14 +77,6 @@ public class MailingListManager extends BaseEditableManagerImpl<MailingList, Mai
 		}
 	}
 
-	//TODO : Use case « Visualiser la liste des mailing-list »
-	public List<MailingList> findAll()
-	{
-		MailingListDAO mailingListDAO = getDAO();
-		return mailingListDAO.findAll();
-	}
-
-	
 	//TODO : Use case « Générer mailing »
 	public void generateMailing(MailingList<? extends Person> mailingList, String object, String body, Collection<Attachment> attachments)
 	{

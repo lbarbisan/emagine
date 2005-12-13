@@ -17,7 +17,7 @@ public class ApprenticeDAOTest extends TestCase {
 	}
 
 	/*
-	 * Test method for 'fr.umlv.ir3.emagine.apprentice.ApprenticeDAO.find(ApprenticeSearchParam)'
+	 * Test method for 'fr.umlv.ir3.emagine.apprentice.ApprenticeDAO.find(ApprenticeSearchParams)'
 	 */
 	public void testFind() {
 

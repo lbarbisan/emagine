@@ -5,17 +5,23 @@ import java.util.List;
 
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.search.SearchParam;
+import fr.umlv.ir3.emagine.util.search.SearchParams;
 
 public abstract class BaseManagerImpl
 	<EntityType extends BaseEntity, EntityDAO extends BaseDAO<EntityType>> 
 	implements BaseManager<EntityType, EntityDAO> {
 	/**
-	 * @see fr.umlv.ir3.emagine.util.base.BaseManager#find(fr.umlv.ir3.emagine.util.search.SearchParam)
+	 * @see fr.umlv.ir3.emagine.util.base.BaseManager#find(fr.umlv.ir3.emagine.util.search.SearchParams)
 	 */
-	public List<EntityType> find(SearchParam searchParam) throws EMagineException {
-		EntityDAO dao = getDAO();
-		return dao.find(searchParam);
+	public List<EntityType> find(SearchParams searchParams) throws EMagineException {
+		return getDAO().find(searchParams);
+	}
+	
+	/**
+	 * @see fr.umlv.ir3.emagine.util.base.BaseManager#findAll()
+	 */
+	public List<EntityType> findAll() throws EMagineException {
+		return getDAO().findAll();
 	}
 
 	/**
@@ -84,7 +90,9 @@ public abstract class BaseManagerImpl
 		DAOManager.beginTransaction();
 		try {
 			EntityDAO dao = getDAO();
-			dao.delete(entities);
+			for (EntityType entity : entities) {
+				dao.delete(entity);
+			}
 			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {
 			DAOManager.rollBackTransaction();

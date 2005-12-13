@@ -8,9 +8,8 @@ import java.util.List;
 import org.apache.struts.action.ActionForm;
 
 import fr.umlv.ir3.emagine.extraction.Extractable;
-import fr.umlv.ir3.emagine.util.IsAField;
 
-public abstract class SearchForm<BaseType> extends ActionForm implements SearchParam {
+public abstract class SearchForm<BaseType> extends ActionForm implements SearchParams {
 	protected int nbResultsByPage;
 	protected int indexPage;
 	protected List<BaseType> results;
@@ -51,7 +50,7 @@ public abstract class SearchForm<BaseType> extends ActionForm implements SearchP
 	}
 	
 	/**
-	 * @see fr.umlv.ir3.emagine.util.search.SearchParam#getField(java.lang.String)
+	 * @see fr.umlv.ir3.emagine.util.search.SearchParams#getField(java.lang.String)
 	 */
 	public Object getField(String field) {
 		// TODO SelectSearchForm.getField()
@@ -63,7 +62,7 @@ public abstract class SearchForm<BaseType> extends ActionForm implements SearchP
 			fields = new LinkedList<String>();
 			for (Field field : getClass().getDeclaredFields()) {
 				// TODO: getFields en fonction des annotations
-				if (/*field.getName().startsWith("get") && */field.isAnnotationPresent(IsAField.class)) {
+				if (/*field.getName().startsWith("get") && *//*field.isAnnotationPresent(IsASearchParam.class)*/false) {
 					//String methodName = method.getName();
 					//String fieldName = methodName.substring(3, 4).toLowerCase() + methodName.substring(4);
 					fields.add(field.getName());

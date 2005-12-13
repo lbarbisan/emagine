@@ -138,7 +138,15 @@ public class ApprenticeManager extends BaseEventableManager<Apprentice, Apprenti
 		}
 	}
 	
-	
+	/**
+	 * Searches for the given apprenticeSearchParams
+	 * @param apprenticeSearchParams
+	 * @return
+	 * @throws EMagineException 
+	 */
+	public List<Apprentice> find(ApprenticeSearchParams apprenticeSearchParams) throws EMagineException {
+		return super.find(apprenticeSearchParams);
+	}
 	
 	@Override
 	protected ApprenticeDAO getDAO() {

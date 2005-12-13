@@ -1,6 +1,5 @@
 package fr.umlv.ir3.emagine.user.profile;
 
-import java.util.Collection;
 import java.util.List;
 
 import fr.umlv.ir3.emagine.user.User;
@@ -10,16 +9,6 @@ import fr.umlv.ir3.emagine.util.base.BaseManagerImpl;
 
 public class ProfileManager extends BaseManagerImpl<Profile, ProfileDAO> {
 
-	/**
-	 * Lists all the profiles.
-	 * @return
-	 * @throws EMagineException
-	 */
-	public Collection<Profile> findAll() throws EMagineException {
-		ProfileDAO dao = getDAO();
-		return dao.findAll();
-	}
-	
 	/**
 	 * Deletes a the given "deletingProfile" profile, and reallocate all its users to the "reallocatingProfile" specified.
 	 * @param deletingProfile the profile to delete

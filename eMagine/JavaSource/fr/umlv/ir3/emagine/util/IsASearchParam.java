@@ -6,8 +6,12 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.FIELD)
+@Target(ElementType.METHOD)
 
-public @interface IsAField {
-
+public @interface IsASearchParam {
+	/**
+	 * The names or paths of the database fields that match the given param
+	 * @return
+	 */
+	String[] value();
 }

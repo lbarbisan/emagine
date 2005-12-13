@@ -6,7 +6,7 @@ import org.apache.struts.action.ActionForm;
 
 import fr.umlv.ir3.emagine.user.User;
 
-public class ExtractionForm extends ActionForm implements ExtractionParam {
+public class ExtractionForm extends ActionForm implements ExtractionParams {
 
 	private static final long serialVersionUID = -3336470878301794439L;
 

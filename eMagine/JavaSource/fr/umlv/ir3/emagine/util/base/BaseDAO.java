@@ -13,7 +13,7 @@ import org.hibernate.Session;
 
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.HibernateUtils;
-import fr.umlv.ir3.emagine.util.search.SearchParam;
+import fr.umlv.ir3.emagine.util.search.SearchParams;
 
 /**
  * This class implement the core of DAO design pattern, each DAO class must
@@ -77,6 +77,7 @@ public class BaseDAO<EntityType extends BaseEntity> {
 	 * @throws EMagineException
 	 *             throw this exception if an SQLException occures
 	 */
+	@SuppressWarnings("unchecked")
 	public EntityType retrieve(long id) throws EMagineException {
 		try {
 			Session session = HibernateUtils.getSession();
@@ -132,14 +133,20 @@ public class BaseDAO<EntityType extends BaseEntity> {
 		return EntityClass;
 	}
 
-	public List<EntityType> find(SearchParam searchParam) {
+	/**
+	 * Searches for a list of parameterized type objects which match the given searchParams
+	 * @param searchParams
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
+	public List<EntityType> find(SearchParams searchParams) throws EMagineException {
 
 		boolean first = true;
 		String queryString;
 
 		queryString = "From " + getEntityClass().getName()
-				+ (searchParam.getFields().size() == 0 ? "" : " where");
-		for (String field : searchParam.getFields()) {
+				+ (searchParams.getFields().size() == 0 ? "" : " where");
+		for (String field : searchParams.getFields()) {
 			// TODO : Optimiser avec des StringBUffer
 			queryString = queryString + (first == true ? "" : " and ") + " "
 					+ field + " = :" + field;
@@ -149,14 +156,20 @@ public class BaseDAO<EntityType extends BaseEntity> {
 		}
 
 		Query query = HibernateUtils.getSession().createQuery(queryString);
-		for (String field : searchParam.getFields()) {
-			Object value = searchParam.getField(field);
+		for (String field : searchParams.getFields()) {
+			Object value = searchParams.getField(field);
 			query.setParameter(field, value);
 		}
 		return query.list();
 	}
 
-	public List<EntityType> findAll() {
+	/**
+	 * Returns all the entities of the paramitrized type, or null if none found
+	 * @return
+	 * @throws EMagineException throws if an SQLException occures
+	 */
+	@SuppressWarnings("unchecked")
+	public List<EntityType> findAll() throws EMagineException {
 		List<EntityType> foundResults = (List<EntityType>) HibernateUtils
 				.getSession().createQuery("from "+getEntityClass().getName()).list();
 		if (foundResults.size() <= 0) {

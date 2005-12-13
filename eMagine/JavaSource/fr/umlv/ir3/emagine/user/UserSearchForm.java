@@ -4,7 +4,6 @@ import java.util.Collection;
 import java.util.Iterator;
 
 import fr.umlv.ir3.emagine.user.profile.Profile;
-import fr.umlv.ir3.emagine.util.IsAField;
 import fr.umlv.ir3.emagine.util.search.SelectSearchForm;
 
 public class UserSearchForm extends SelectSearchForm<User> implements UserSearchParam {
@@ -16,16 +15,16 @@ public class UserSearchForm extends SelectSearchForm<User> implements UserSearch
 
 	private Collection<Profile> profiles;
 	
-	@IsAField
+	//@IsASearchParam
 	private String firstName;
 
-	@IsAField
+	//@IsASearchParam
 	private String lastName;
 
-	@IsAField
+	//@IsASearchParam
 	private String login;
 
-	@IsAField
+	//@IsASearchParam
 	private Profile profile;
 	
 	private boolean deletionForced;

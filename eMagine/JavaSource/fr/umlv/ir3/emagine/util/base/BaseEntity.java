@@ -1,8 +1,6 @@
 package fr.umlv.ir3.emagine.util.base;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
@@ -11,9 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Version;
-
-import fr.umlv.ir3.emagine.modification.FieldModification;
-import fr.umlv.ir3.emagine.util.HibernateUtils;
 
 /**
  * 
@@ -40,7 +35,7 @@ public class BaseEntity implements Serializable {
 	 * else it return false
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
-	//FIXME : Hibernate - method equals de base doit être changé, deplus la method hashCode doit être surcharé 
+	//FIXME : Hibernate - method equals de base doit ï¿½tre changï¿½, deplus la method hashCode doit ï¿½tre surcharï¿½ 
     @Override
 	public boolean equals(Object obj) {
 		return id == ((BaseEntity)obj).getId();

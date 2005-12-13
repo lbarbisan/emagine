@@ -1,12 +1,12 @@
 package fr.umlv.ir3.emagine.teachertutor;
 
-import fr.umlv.ir3.emagine.util.search.SearchParam;
+import fr.umlv.ir3.emagine.util.search.SearchParams;
 
 /**
  * Represent the criteria for searching a teacher tutor
  * @author eMagine team
  */
-public interface TeacherTutorSearchParam extends SearchParam {
+public interface TeacherTutorSearchParams extends SearchParams {
 	/**
 	 * @return the firstName of teacher tutor
 	 */

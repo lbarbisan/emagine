@@ -20,7 +20,7 @@ import fr.umlv.ir3.emagine.user.UserDAO;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.HibernateUtils;
-import fr.umlv.ir3.emagine.util.search.SearchParamImpl;
+import fr.umlv.ir3.emagine.util.search.SearchParamsImpl;
 
 
 public class Main {
@@ -36,11 +36,11 @@ public class Main {
 	 */
 	public static void main(String[] args) throws FileNotFoundException, EMagineException {
 		
-			SearchParamImpl searchParam = new SearchParamImpl();
+			SearchParamsImpl searchParams = new SearchParamsImpl();
 			
 			userDao = DAOManager.getInstance().getUserDAO();
-			searchParam.setField("FirstName", "Laurent");
-			List<User> lists= userDao.find(searchParam);	
+			searchParams.setField("FirstName", "Laurent");
+			List<User> lists= userDao.find(searchParams);	
 			user = lists.get(0);
 			user.setPassword(args[0]);
 			

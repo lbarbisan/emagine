@@ -10,48 +10,38 @@ public class ExtractionManager extends BaseManagerImpl<Extraction, ExtractionDAO
 
 
 	/**
-	 * Return Selected Columns for spécified User and Specified View
+	 * Return Selected Columns for specified User and specified View
 	 */
 	//TODO : Use case « Configurer l'extraction d'une liste »
-	public List<String> getSelectedColumns(ExtractionParam extractionParam)  
+	public List<String> getSelectedColumns(ExtractionParams extractionParams)  
 	{
-//		ExtractionDAO extractionDAO = getDAO(); 
-//		try {
-//			//Extraction extraction = extractionDAO.find(extractionParam);
-//			return null; // extraction.getColumns();
-//		} catch (EMagineException e) {
-//			// TODO EMagineException.e Not Implemented
-//			e.printStackTrace();
-//		}
-//		
-		return null; 
+		// TODO fr.umlv.ir3.emagine.extraction.ExtractionManager.getSelectedColumns(extractionParams)
+		throw new RuntimeException(new EMagineException(
+				"exception.unimplementedMethod",
+				"fr.umlv.ir3.emagine.extraction.ExtractionManager.getSelectedColumns(extractionParams)"));
 	}
 
 	
 	public void setColumns(Extraction extraction, List<String> columns)  
 	{
-		DAOManager.beginTransaction();
-		try {
-			extraction.setColumns(columns);
-			getDAO().update(extraction);
-			DAOManager.commitTransaction();
-		} catch (EMagineException e) {
-			// TODO EMagineException.e Not Implemented
-			DAOManager.rollBackTransaction();
-			e.printStackTrace();
-		}
+		// TODO fr.umlv.ir3.emagine.extraction.ExtractionManager.setColumns(extraction, columns)
+		throw new RuntimeException(new EMagineException(
+				"exception.unimplementedMethod",
+				"fr.umlv.ir3.emagine.extraction.ExtractionManager.setColumns(extraction, columns)"));
+//		DAOManager.beginTransaction();
+//		try {
+//			extraction.setColumns(columns);
+//			getDAO().update(extraction);
+//			DAOManager.commitTransaction();
+//		} catch (EMagineException e) {
+//			// TODO EMagineException.e Not Implemented
+//			DAOManager.rollBackTransaction();
+//			e.printStackTrace();
+//		}
 
 		
 	}
-
-
-	@Override
-	public Extraction retrieve(long id) throws EMagineException {
-		// TODO ExtractionManager.retrieve()
-		return null;
-	}
-
-
+	
 	@Override
 	protected ExtractionDAO getDAO() {
 		DAOManager instance = DAOManager.getInstance();

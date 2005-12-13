@@ -11,9 +11,4 @@ public class FirmActorManager extends BaseEventableManager<FirmActor, FirmActorD
 		DAOManager instance = DAOManager.getInstance();
 		return instance.getFirmActorDAO();
 	}
-
-	@Override
-	public FirmActor retrieve(long id) throws EMagineException {
-		return getDAO().retrieve(id);
-	}
 }

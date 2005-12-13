@@ -1,7 +1,5 @@
 package fr.umlv.ir3.emagine.user;
 
-import java.util.List;
-
 import fr.umlv.ir3.emagine.security.MustHaveRights;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.base.BaseEditableManager;
@@ -43,11 +41,5 @@ public interface UserManager
 	 * @throws EMagineException if an SQLException occures
 	 */
 	public User find(String login, String password) throws EMagineException;
-
-	/**
-	 * Lists all users.
-	 * @return
-	 */
-	public List<User> findAll();
 
 }

@@ -4,13 +4,16 @@ import java.util.Date;
 import java.util.List;
 
 import junit.framework.TestCase;
+import fr.umlv.ir3.emagine.apprentice.Apprentice;
+import fr.umlv.ir3.emagine.apprentice.ApprenticeDAO;
+import fr.umlv.ir3.emagine.apprentice.CountryEnum;
+import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
 import fr.umlv.ir3.emagine.apprentice.absence.Absence;
 import fr.umlv.ir3.emagine.apprentice.candidate.Candidate;
 import fr.umlv.ir3.emagine.util.Address;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.ManagerManager;
-import fr.umlv.ir3.emagine.util.search.SearchParamImpl;
+import fr.umlv.ir3.emagine.util.search.SearchParamsImpl;
 
 public class ApprenticeTest extends TestCase {
 
@@ -20,15 +23,15 @@ public class ApprenticeTest extends TestCase {
 	
 	public ApprenticeTest(String arg0) throws EMagineException {
 		super(arg0);
-		apprenticeDao = ManagerManager.getInstance().getApprenticeManager().getDAO();
+		apprenticeDao = DAOManager.getInstance().getApprenticeDAO();
 	}
 
 	protected void setUp() throws Exception {
 		super.setUp();
 		try {
-			SearchParamImpl searchParam = new SearchParamImpl();
-			searchParam.setField("FirstName", "apprentice1");
-			List<Apprentice> lists= apprenticeDao.find(searchParam);	
+			SearchParamsImpl searchParams = new SearchParamsImpl();
+			searchParams.setField("FirstName", "apprentice1");
+			List<Apprentice> lists= apprenticeDao.find(searchParams);	
 			apprentice = lists.get(0);
 		} catch (Exception e) {
 			apprentice = new Apprentice(candidate);

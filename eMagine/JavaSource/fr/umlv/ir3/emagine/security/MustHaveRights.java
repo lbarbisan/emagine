@@ -9,5 +9,9 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 
 public @interface MustHaveRights {
+	/**
+	 * The names of the rights which the current user must have to get access to the target method (attached to this annotation)
+	 * @return
+	 */
 	String[] value();
 }

@@ -2,6 +2,7 @@ package fr.umlv.ir3.emagine.apprentice.candidate;
 
 import java.util.Collection;
 import java.util.LinkedList;
+import java.util.List;
 
 import fr.umlv.ir3.emagine.apprentice.Apprentice;
 import fr.umlv.ir3.emagine.apprentice.ApprenticeDAO;
@@ -58,6 +59,16 @@ public class CandidateManager extends BaseEventableManager<Candidate, CandidateD
 			throw exception;
 		}
 		return apprentices;
+	}
+	
+	/**
+	 * Searches for the given candidateSearchParams
+	 * @param candidateSearchParams
+	 * @return
+	 * @throws EMagineException
+	 */
+	public List<Candidate> find(CandidateSearchParams candidateSearchParams) throws EMagineException {
+		return super.find(candidateSearchParams);
 	}
 	
 	public @Override CandidateDAO getDAO() {
