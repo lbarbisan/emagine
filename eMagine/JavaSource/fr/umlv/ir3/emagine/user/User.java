@@ -24,10 +24,10 @@ public class User extends EditableEntity{
 	@ManyToOne(cascade = {CascadeType.ALL})
 	@JoinColumn(name = "profile_id")
 	private Profile profile;
-	@OneToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE, CascadeType.REFRESH},
+	@OneToMany(cascade = {CascadeType.ALL},
 			mappedBy = "userDestination")
 	private List<Modification> modificationsInWait;
-	@OneToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE, CascadeType.REFRESH},
+	@OneToMany(cascade = {CascadeType.ALL},
 			mappedBy = "userSource")
 	private List<Modification> modificationsRequest;
 	

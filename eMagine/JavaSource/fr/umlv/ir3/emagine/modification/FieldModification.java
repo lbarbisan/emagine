@@ -1,9 +1,11 @@
 package fr.umlv.ir3.emagine.modification;
 
+import java.io.Serializable;
+
 import javax.persistence.AccessType;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.Lob;
-import javax.persistence.LobType;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import fr.umlv.ir3.emagine.util.base.BaseEntity;
@@ -16,11 +18,11 @@ public class FieldModification<ObjectType> extends BaseEntity {
 	 */
 	private static final long serialVersionUID = 8847825872307086136L;
 	
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name = "modification_fk")
 	private Modification modification;
 	private String propertyName;
-	@Lob(type = LobType.BLOB)
-	private ObjectType propertyValue;
+	private Serializable propertyValue;
 	
 	public Modification getModification() {
 		return modification;
@@ -34,10 +36,10 @@ public class FieldModification<ObjectType> extends BaseEntity {
 	public void setPropertyName(String propertyName) {
 		this.propertyName = propertyName;
 	}
-	public ObjectType getPropertyValue() {
+	public Serializable getPropertyValue() {
 		return propertyValue;
 	}
-	public void setPropertyValue(ObjectType propertyValue) {
+	public void setPropertyValue(Serializable propertyValue) {
 		this.propertyValue = propertyValue;
 	}
 	

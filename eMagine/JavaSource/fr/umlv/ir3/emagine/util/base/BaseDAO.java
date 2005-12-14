@@ -53,7 +53,7 @@ public class BaseDAO<EntityType extends BaseEntity> {
 	/**
 	 * Updates the database data for the specified object
 	 * 
-	 * @param object
+	 * @param newEntity
 	 *            object that must update save in database
 	 * @throws EMagineException
 	 *             throw this exception if the update failed or if an
@@ -108,7 +108,7 @@ public class BaseDAO<EntityType extends BaseEntity> {
 	/**
 	 * Deletes the database data associated the the specified objects
 	 * 
-	 * @param object
+	 * @param objects
 	 *            object to delete
 	 * @throws EMagineException
 	 *             throw this excepion if the deletation failed or if an
@@ -136,9 +136,9 @@ public class BaseDAO<EntityType extends BaseEntity> {
 	/**
 	 * Searches for a list of parameterized type objects which match the given searchParams
 	 * @param searchParams
-	 * @return
+	 * @return List for search
+	 * @throws EMagineException 
 	 */
-	@SuppressWarnings("unchecked")
 	public List<EntityType> find(SearchParams searchParams) throws EMagineException {
 
 		boolean first = true;
@@ -147,7 +147,7 @@ public class BaseDAO<EntityType extends BaseEntity> {
 		queryString = "From " + getEntityClass().getName()
 				+ (searchParams.getFields().size() == 0 ? "" : " where");
 		for (String field : searchParams.getFields()) {
-			// TODO : Optimiser avec des StringBUffer
+			// TODO : Optimiser avec des StringBuffer
 			queryString = queryString + (first == true ? "" : " and ") + " "
 					+ field + " = :" + field;
 			if (first == true) {
@@ -165,10 +165,9 @@ public class BaseDAO<EntityType extends BaseEntity> {
 
 	/**
 	 * Returns all the entities of the paramitrized type, or null if none found
-	 * @return
+	 * @return all collection of objects
 	 * @throws EMagineException throws if an SQLException occures
 	 */
-	@SuppressWarnings("unchecked")
 	public List<EntityType> findAll() throws EMagineException {
 		List<EntityType> foundResults = (List<EntityType>) HibernateUtils
 				.getSession().createQuery("from "+getEntityClass().getName()).list();

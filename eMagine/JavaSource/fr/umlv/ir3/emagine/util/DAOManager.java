@@ -20,6 +20,9 @@ import fr.umlv.ir3.emagine.teachertutor.TeacherTutorDAO;
 import fr.umlv.ir3.emagine.user.UserDAO;
 import fr.umlv.ir3.emagine.user.profile.ProfileDAO;
 import fr.umlv.ir3.emagine.user.profile.RightDAO;
+import fr.umlv.ir3.emagine.util.base.BaseDAO;
+import fr.umlv.ir3.emagine.util.base.BaseEntity;
+import fr.umlv.ir3.emagine.util.base.EditableEntity;
 
 public class DAOManager {
 	private static DAOManager instance;
@@ -44,7 +47,12 @@ public class DAOManager {
 	private MailingListDAO mailingListDAO = new MailingListDAO();
 	private MailingTypeDAO mailingTypeDAO = new MailingTypeDAO();
 	private MassMailingDAO massMailingDAO = new MassMailingDAO();
+	private BaseDAO<BaseEntity> baseDAO = new BaseDAO<BaseEntity>();
 	
+	
+	public BaseDAO<BaseEntity> getBaseDAO() {
+		return baseDAO;
+	}
 	public RightDAO getRightDAO() {
 		return rightDAO;
 	}

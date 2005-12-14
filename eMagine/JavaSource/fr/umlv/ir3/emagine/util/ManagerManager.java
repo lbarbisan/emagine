@@ -13,6 +13,8 @@ import fr.umlv.ir3.emagine.teachertutor.TeacherTutorManager;
 import fr.umlv.ir3.emagine.user.UserManager;
 import fr.umlv.ir3.emagine.user.UserManagerImpl;
 import fr.umlv.ir3.emagine.user.profile.ProfileManager;
+import fr.umlv.ir3.emagine.util.base.BaseEditableManager;
+import fr.umlv.ir3.emagine.util.base.BaseEditableManagerImpl;
 
 public class ManagerManager {
 	private static ManagerManager instance;
@@ -28,7 +30,22 @@ public class ManagerManager {
 	private MassMailingManager massMailingManager;
 	private CandidateManager candidateManager;
 	private ApprenticeManager apprenticeManager;
+	private BaseEditableManager baseEditableManager;
 	
+	/**
+	 * @return Returns the baseEditableManager.
+	 */
+	public BaseEditableManager getBaseEditableManager() {
+		return baseEditableManager;
+	}
+
+	/**
+	 * @param baseEditableManager The baseEditableManager to set.
+	 */
+	public void setBaseEditableManager(BaseEditableManager baseEditableManager) {
+		this.baseEditableManager = baseEditableManager;
+	}
+
 	/**
 	 * 
 	 * @throws EMagineException if the security filter has not been initialized
@@ -45,6 +62,7 @@ public class ManagerManager {
 		massMailingManager = new MassMailingManager();
 		candidateManager = new CandidateManager();
 		apprenticeManager = new ApprenticeManager();
+		baseEditableManager = new BaseEditableManagerImpl();
 	}
 	
 	/**

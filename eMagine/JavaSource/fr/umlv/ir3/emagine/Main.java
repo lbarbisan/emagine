@@ -8,12 +8,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Hibernate;
+import org.jboss.util.file.Files;
 
 import fr.umlv.ir3.emagine.extraction.CSVExtractor;
 import fr.umlv.ir3.emagine.extraction.Extractable;
 import fr.umlv.ir3.emagine.extraction.Extractor;
 import fr.umlv.ir3.emagine.extraction.ObjectListExtractable;
 import fr.umlv.ir3.emagine.extraction.XLSExtractor;
+import fr.umlv.ir3.emagine.modification.FieldModification;
 import fr.umlv.ir3.emagine.modification.Modification;
 import fr.umlv.ir3.emagine.user.User;
 import fr.umlv.ir3.emagine.user.UserDAO;
@@ -37,8 +39,8 @@ public class Main {
 	public static void main(String[] args) throws FileNotFoundException, EMagineException {
 		
 			SearchParamsImpl searchParams = new SearchParamsImpl();
-			
 			userDao = DAOManager.getInstance().getUserDAO();
+			
 			searchParams.setField("FirstName", "Laurent");
 			List<User> lists= userDao.find(searchParams);	
 			user = lists.get(0);
@@ -47,16 +49,13 @@ public class Main {
 			DAOManager.beginTransaction();
 			userDao.update(user);
 			DAOManager.commitTransaction();
-			
-//			DAOManager.beginTransaction();
-//			Modification modification = new Modification();
-//			modification.setComment("zer");
-//			HibernateUtils.getSession().save(modification);
-//			DAOManager.commitTransaction();
-			
-	
 	}
 	
+	/**
+	 * 
+	 * @throws FileNotFoundException
+	 * @throws EMagineException
+	 */
 	public static void Extract() throws FileNotFoundException, EMagineException
 	{
 		UserDAO userDAO = DAOManager.getInstance().getUserDAO();
