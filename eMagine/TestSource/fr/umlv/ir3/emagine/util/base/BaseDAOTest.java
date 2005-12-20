@@ -27,7 +27,7 @@ public abstract class BaseDAOTest <EntityType extends BaseEntity> extends TestCa
 		try {
 			EntityType entity = createEntity();
 			getDAO().create(entity);
-			assertTrue(compareEntity(getDAO().retrieve(entity.getId()),entity));
+			compareEntity(getDAO().retrieve(entity.getId()),entity);
 			getDAO().delete(entity);
 		} catch (EMagineException e) {
 			// Problem with de creation of the object
@@ -42,10 +42,10 @@ public abstract class BaseDAOTest <EntityType extends BaseEntity> extends TestCa
 		EntityType entity = createEntity();
 		try {
 			getDAO().create(entity);
-			assertTrue(compareEntity(getDAO().retrieve(entity.getId()),entity));
+			compareEntity(getDAO().retrieve(entity.getId()),entity);
 			updateEntity(entity);
 			getDAO().update(entity);
-			assertTrue(compareEntity(getDAO().retrieve(entity.getId()),entity));
+			compareEntity(getDAO().retrieve(entity.getId()),entity);
 			getDAO().delete(entity);
 		} catch (EMagineException e) {
 			// Problem with de creation of the object
@@ -60,7 +60,7 @@ public abstract class BaseDAOTest <EntityType extends BaseEntity> extends TestCa
 		try {
 			EntityType entity = createEntity();
 			getDAO().create(entity);
-			assertTrue(compareEntity(getDAO().retrieve(entity.getId()),entity));
+			compareEntity(getDAO().retrieve(entity.getId()),entity);
 			getDAO().delete(entity);
 		} catch (EMagineException e) {
 			// Problem with de creation of the object
@@ -145,6 +145,6 @@ public abstract class BaseDAOTest <EntityType extends BaseEntity> extends TestCa
 	protected abstract Collection<EntityType> createEntityCollection();
 	protected abstract void updateEntity(EntityType entity);
 	protected abstract SearchParams createSearchParams();
-	protected abstract boolean compareEntity(EntityType entity1, EntityType entity2);
+	protected abstract void compareEntity(EntityType entity1, EntityType entity2);
 
 }
