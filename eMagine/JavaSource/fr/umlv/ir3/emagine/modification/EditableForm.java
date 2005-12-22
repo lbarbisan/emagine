@@ -8,9 +8,8 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 
-import fr.umlv.ir3.emagine.util.base.EditableEntity;
 
-public abstract class ModificationForm<EntityType extends EditableEntity> extends ActionForm {
+public abstract class EditableForm<EntityType extends EditableEntity> extends ActionForm {
 
 	private static final long serialVersionUID = 4056396430505536168L;
 	

@@ -1,9 +1,9 @@
 package fr.umlv.ir3.emagine.user;
 
-import fr.umlv.ir3.emagine.modification.ModificationForm;
+import fr.umlv.ir3.emagine.modification.EditableForm;
 import fr.umlv.ir3.emagine.user.profile.Profile;
 
-public class UserModifyForm extends ModificationForm<User> {
+public class UserModifyForm extends EditableForm<User> {
 	
 	private static final long serialVersionUID = 6326596143394397304L;
 	

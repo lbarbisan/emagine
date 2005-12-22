@@ -1,6 +1,8 @@
-package fr.umlv.ir3.emagine.util.base;
+package fr.umlv.ir3.emagine.modification;
 
 import fr.umlv.ir3.emagine.util.EMagineException;
+import fr.umlv.ir3.emagine.util.base.BaseDAO;
+import fr.umlv.ir3.emagine.util.base.BaseManager;
 
 
 /**
@@ -9,7 +11,7 @@ import fr.umlv.ir3.emagine.util.EMagineException;
  * @param <EntityType>
  * @param <EntityDAO>
  */
-public interface BaseEditableManager
+public interface EditableManager
 	<EntityType extends EditableEntity, EntityDAO extends BaseDAO<EntityType>> 
 	extends BaseManager<EntityType, EntityDAO>{
 

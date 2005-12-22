@@ -1,9 +1,9 @@
 package fr.umlv.ir3.emagine.extraction.massmailing;
 
+import fr.umlv.ir3.emagine.modification.EditableManagerImpl;
 import fr.umlv.ir3.emagine.util.DAOManager;
-import fr.umlv.ir3.emagine.util.base.BaseEditableManagerImpl;
 
-public class MassMailingManager extends BaseEditableManagerImpl<MassMailing, MassMailingDAO> {
+public class MassMailingManager extends EditableManagerImpl<MassMailing, MassMailingDAO> {
 
 	@Override
 	protected MassMailingDAO getDAO() {

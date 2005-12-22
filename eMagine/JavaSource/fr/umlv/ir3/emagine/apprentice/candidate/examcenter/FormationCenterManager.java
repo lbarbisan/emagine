@@ -9,11 +9,11 @@ import fr.umlv.ir3.emagine.apprentice.candidate.Candidate;
 import fr.umlv.ir3.emagine.apprentice.candidate.CandidateDAO;
 import fr.umlv.ir3.emagine.apprentice.candidate.room.Room;
 import fr.umlv.ir3.emagine.apprentice.candidate.room.RoomDAO;
+import fr.umlv.ir3.emagine.modification.EditableManagerImpl;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.base.BaseEditableManagerImpl;
 
-public class FormationCenterManager extends BaseEditableManagerImpl<FormationCenter, FormationCenterDAO> {
+public class FormationCenterManager extends EditableManagerImpl<FormationCenter, FormationCenterDAO> {
 
 	/**
 	 * Adds the given room to the given formationCenter

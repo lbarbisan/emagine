@@ -1,6 +1,6 @@
 package fr.umlv.ir3.emagine.modification;
 
-public enum ModificationStateEnum {
+public enum EditableStateEnum {
 	VALIDING,
 	VALIDATED,
 	REFUSED

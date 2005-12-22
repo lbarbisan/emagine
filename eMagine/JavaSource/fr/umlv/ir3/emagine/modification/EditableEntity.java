@@ -1,4 +1,4 @@
-package fr.umlv.ir3.emagine.util.base;
+package fr.umlv.ir3.emagine.modification;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
-import fr.umlv.ir3.emagine.modification.Modification;
+import fr.umlv.ir3.emagine.util.base.BaseEntity;
 
 /**
  * 

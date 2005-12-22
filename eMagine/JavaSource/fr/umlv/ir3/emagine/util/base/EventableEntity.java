@@ -10,6 +10,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OrderBy;
 
 import fr.umlv.ir3.emagine.event.Event;
+import fr.umlv.ir3.emagine.modification.EditableEntity;
 import fr.umlv.ir3.emagine.modification.Modification;
 
 /**

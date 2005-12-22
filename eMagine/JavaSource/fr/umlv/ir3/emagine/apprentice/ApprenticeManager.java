@@ -10,9 +10,9 @@ import fr.umlv.ir3.emagine.firm.actor.EngineerTutor;
 import fr.umlv.ir3.emagine.teachertutor.TeacherTutor;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.base.BaseEventableManager;
+import fr.umlv.ir3.emagine.util.base.EventableManager;
 
-public class ApprenticeManager extends BaseEventableManager<Apprentice, ApprenticeDAO> {
+public class ApprenticeManager extends EventableManager<Apprentice, ApprenticeDAO> {
 
 	/**
 	 * Excludes the given apprentice

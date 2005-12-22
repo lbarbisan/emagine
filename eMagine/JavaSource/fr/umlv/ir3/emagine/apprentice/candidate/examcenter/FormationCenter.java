@@ -13,8 +13,8 @@ import javax.persistence.OneToMany;
 
 import fr.umlv.ir3.emagine.apprentice.candidate.Candidate;
 import fr.umlv.ir3.emagine.apprentice.candidate.room.Room;
+import fr.umlv.ir3.emagine.modification.EditableEntity;
 import fr.umlv.ir3.emagine.util.Address;
-import fr.umlv.ir3.emagine.util.base.EditableEntity;
 
 /**
  * @author Laurent

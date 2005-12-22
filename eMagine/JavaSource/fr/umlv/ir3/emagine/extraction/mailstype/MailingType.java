@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
 import fr.umlv.ir3.emagine.extraction.mailings.Attachment;
-import fr.umlv.ir3.emagine.util.base.EditableEntity;
+import fr.umlv.ir3.emagine.modification.EditableEntity;
 
 @Entity(access = AccessType.FIELD)
 public class MailingType extends EditableEntity {

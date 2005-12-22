@@ -12,15 +12,13 @@ import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.metadata.ClassMetadata;
 
-import fr.umlv.ir3.emagine.modification.ModificationInterceptor;
+import fr.umlv.ir3.emagine.modification.EditableInterceptor;
 import fr.umlv.ir3.emagine.util.base.BaseEntity;
 
 public class HibernateUtils {
 
     private static Log log = LogFactory.getLog(HibernateUtils.class);
-
     private static final SessionFactory sessionFactory;
-    
     private static final ThreadLocal<Session> threadSession = new ThreadLocal<Session>();
     private static final ThreadLocal<Transaction> threadTransaction = new ThreadLocal<Transaction>();
     
@@ -28,7 +26,7 @@ public class HibernateUtils {
         try {            
         	
         	Configuration cfg = new AnnotationConfiguration();
-        	ModificationInterceptor modificationInterceptor = new ModificationInterceptor();
+        	EditableInterceptor modificationInterceptor = new EditableInterceptor();
 
             //TODO : Hibernate - Trouver un moyen pour mettre le nom de fichier dans un fichier poroperties ou autre.
         	cfg.configure("fr/umlv/ir3/emagine/ressource/hibernate.cfg.xml")
@@ -36,8 +34,6 @@ public class HibernateUtils {
 
         	sessionFactory = cfg.buildSessionFactory(); 
         	modificationInterceptor.setSessionFactory(sessionFactory);
-        	
-
         	
         } catch (Throwable ex) {
             log.error("Initial SessionFactory creation failed.", ex);
@@ -62,6 +58,12 @@ public class HibernateUtils {
         if (s != null)
             s.close();
     }
+    
+    
+	public static SessionFactory getSessionFactory() {
+		return sessionFactory;
+	}
+    
     
     public static void beginTransaction()
     {
@@ -129,7 +131,8 @@ public class HibernateUtils {
     	ClassMetadata classMetadata = sessionFactory.getClassMetadata(entity.getClass());
     	return classMetadata.getPropertyNames();
     }
-    
+
+
     //TODO : Supprimer cette si elle ne sert pas 
     /* public static Map<String, FieldModification> getPropertySnapShot(BaseEntity entity)
     {

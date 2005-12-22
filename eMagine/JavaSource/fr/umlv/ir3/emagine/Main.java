@@ -7,21 +7,15 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.hibernate.Hibernate;
-import org.jboss.util.file.Files;
-
 import fr.umlv.ir3.emagine.extraction.CSVExtractor;
 import fr.umlv.ir3.emagine.extraction.Extractable;
 import fr.umlv.ir3.emagine.extraction.Extractor;
 import fr.umlv.ir3.emagine.extraction.ObjectListExtractable;
 import fr.umlv.ir3.emagine.extraction.XLSExtractor;
-import fr.umlv.ir3.emagine.modification.FieldModification;
-import fr.umlv.ir3.emagine.modification.Modification;
 import fr.umlv.ir3.emagine.user.User;
 import fr.umlv.ir3.emagine.user.UserDAO;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.HibernateUtils;
 import fr.umlv.ir3.emagine.util.search.SearchParamsImpl;
 
 

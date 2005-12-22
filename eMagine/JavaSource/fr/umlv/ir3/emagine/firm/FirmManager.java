@@ -7,9 +7,9 @@ import fr.umlv.ir3.emagine.event.Event;
 import fr.umlv.ir3.emagine.firm.actor.FirmActor;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.base.BaseEventableManager;
+import fr.umlv.ir3.emagine.util.base.EventableManager;
 
-public class FirmManager extends BaseEventableManager<Firm, FirmDAO> {
+public class FirmManager extends EventableManager<Firm, FirmDAO> {
 
 	/**
 	 * Lists the firms which want one or more Apprentice of the given courseOption. The list is ordered and tries to put the most asking firms on top.

@@ -10,7 +10,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
-import fr.umlv.ir3.emagine.util.base.EditableEntity;
+import fr.umlv.ir3.emagine.modification.EditableEntity;
 import fr.umlv.ir3.emagine.util.person.Person;
 
 /**

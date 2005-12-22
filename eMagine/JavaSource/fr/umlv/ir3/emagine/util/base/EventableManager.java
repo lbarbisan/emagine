@@ -3,10 +3,11 @@ package fr.umlv.ir3.emagine.util.base;
 import java.util.Collection;
 
 import fr.umlv.ir3.emagine.event.Event;
+import fr.umlv.ir3.emagine.modification.EditableManagerImpl;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 
-public abstract class BaseEventableManager <EntityType extends EventableEntity, EntityDAO extends BaseDAO<EntityType>> extends BaseEditableManagerImpl <EntityType, BaseDAO<EntityType>> {
+public abstract class EventableManager <EntityType extends EventableEntity, EntityDAO extends BaseDAO<EntityType>> extends EditableManagerImpl <EntityType, BaseDAO<EntityType>> {
 
 	public void addEvent(EntityType entityType, Event event) throws EMagineException {
 		DAOManager.beginTransaction();

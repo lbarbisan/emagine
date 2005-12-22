@@ -1,6 +1,5 @@
 package fr.umlv.ir3.emagine.modification;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,7 +13,6 @@ import javax.persistence.OneToMany;
 
 import fr.umlv.ir3.emagine.user.User;
 import fr.umlv.ir3.emagine.util.base.BaseEntity;
-import fr.umlv.ir3.emagine.util.base.EditableEntity;
 import fr.umlv.ir3.emagine.util.base.EventableEntity;
 
 @Entity(access = AccessType.FIELD)
@@ -31,16 +29,11 @@ public class Modification<ObjectType extends EventableEntity> extends BaseEntity
 	@ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
 	@JoinColumn(name = "entity_id")
 	private EditableEntity editableEntity;
-	@ManyToOne(cascade =CascadeType.ALL)
-	@JoinColumn(name = "baseentity_id")
-	private ObjectType baseEntity;
 	@OneToMany(mappedBy = "modification", cascade=CascadeType.ALL)
 	@MapKey(name = "propertyName")
 	private Map<String, FieldModification> fieldsModifications = new HashMap<String, FieldModification>();
 	//private ModificationStateEnum modificationState;
 	private String comment;
-	private Date date;
-	private BaseEntity entity;
 	
 	public Modification(){super();}
 	
@@ -75,12 +68,7 @@ public class Modification<ObjectType extends EventableEntity> extends BaseEntity
 	public User getUserSource() {
 		return userSource;
 	}
-	public ObjectType getBaseEntity() {
-		return baseEntity;
-	}
-	public void setBaseEntity(ObjectType baseEntity) {
-		this.baseEntity = baseEntity;
-	}
+
 	public void setUserSource(User userSource) {
 		this.userSource = userSource;
 	}
@@ -92,21 +80,13 @@ public class Modification<ObjectType extends EventableEntity> extends BaseEntity
 	{
 		return this.fieldsModifications.get(propertyName);
 	}
-	
-	public void setEntity(BaseEntity entity) {
-		this.entity = entity;
-		
-	}
 
-	public Object getEntity() {
-		return entity;
-	}
-
-	/**
-	 * @return Returns the editableEntity.
-	 */
 	public EditableEntity getEditableEntity() {
 		return editableEntity;
+	}
+
+	public void setEditableEntity(EditableEntity editableEntity) {
+		this.editableEntity = editableEntity;
 	}
 
 }

@@ -21,7 +21,6 @@
          
  		<mapping package="fr.umlv.ir3.emagine.base"/> 
 		<mapping class="fr.umlv.ir3.emagine.util.base.BaseEntity"/>
-		<mapping class="fr.umlv.ir3.emagine.util.base.EditableEntity"/>
 		<mapping class="fr.umlv.ir3.emagine.util.base.EventableEntity"/>
   			
  		<mapping package="fr.umlv.ir3.emagine.Person"/> 
@@ -68,6 +67,7 @@
 		<mapping package="fr.umlv.ir3.emagine.modification"/>
 		<mapping class="fr.umlv.ir3.emagine.modification.Modification"/>
 		<mapping class="fr.umlv.ir3.emagine.modification.FieldModification"/>
+		<mapping class="fr.umlv.ir3.emagine.modification.EditableEntity"/>
  		
 		<mapping package="fr.umlv.ir3.emagine.user"/>
 		<mapping class="fr.umlv.ir3.emagine.user.User"/>

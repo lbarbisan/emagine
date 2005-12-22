@@ -8,9 +8,9 @@ import fr.umlv.ir3.emagine.apprentice.Apprentice;
 import fr.umlv.ir3.emagine.apprentice.ApprenticeDAO;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.base.BaseEventableManager;
+import fr.umlv.ir3.emagine.util.base.EventableManager;
 
-public class CandidateManager extends BaseEventableManager<Candidate, CandidateDAO> {
+public class CandidateManager extends EventableManager<Candidate, CandidateDAO> {
 	
 	/**
 	 * Delete a list of candidates.

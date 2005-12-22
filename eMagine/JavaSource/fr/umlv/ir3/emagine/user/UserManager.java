@@ -1,11 +1,11 @@
 package fr.umlv.ir3.emagine.user;
 
+import fr.umlv.ir3.emagine.modification.EditableManager;
 import fr.umlv.ir3.emagine.security.MustHaveRights;
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.base.BaseEditableManager;
 
 public interface UserManager
-	extends BaseEditableManager<User, UserDAO> {
+	extends EditableManager<User, UserDAO> {
 
 	/**
 	 * Creates a new user with the given User. Sends a mail to the new user.

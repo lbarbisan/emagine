@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 
 import fr.umlv.ir3.emagine.apprentice.candidate.Candidate;
 import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenter;
-import fr.umlv.ir3.emagine.util.base.EditableEntity;
+import fr.umlv.ir3.emagine.modification.EditableEntity;
 
 
 /**

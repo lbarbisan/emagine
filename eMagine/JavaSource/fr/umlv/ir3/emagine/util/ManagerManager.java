@@ -8,13 +8,13 @@ import fr.umlv.ir3.emagine.extraction.mailings.MailingListManager;
 import fr.umlv.ir3.emagine.extraction.mailstype.MailingTypeManager;
 import fr.umlv.ir3.emagine.extraction.massmailing.MassMailingManager;
 import fr.umlv.ir3.emagine.firm.FirmManager;
+import fr.umlv.ir3.emagine.modification.EditableManager;
+import fr.umlv.ir3.emagine.modification.EditableManagerImpl;
 import fr.umlv.ir3.emagine.security.SecurityProxy;
 import fr.umlv.ir3.emagine.teachertutor.TeacherTutorManager;
 import fr.umlv.ir3.emagine.user.UserManager;
 import fr.umlv.ir3.emagine.user.UserManagerImpl;
 import fr.umlv.ir3.emagine.user.profile.ProfileManager;
-import fr.umlv.ir3.emagine.util.base.BaseEditableManager;
-import fr.umlv.ir3.emagine.util.base.BaseEditableManagerImpl;
 
 public class ManagerManager {
 	private static ManagerManager instance;
@@ -30,20 +30,20 @@ public class ManagerManager {
 	private MassMailingManager massMailingManager;
 	private CandidateManager candidateManager;
 	private ApprenticeManager apprenticeManager;
-	private BaseEditableManager baseEditableManager;
+	private EditableManager editableManager;
 	
 	/**
 	 * @return Returns the baseEditableManager.
 	 */
-	public BaseEditableManager getBaseEditableManager() {
-		return baseEditableManager;
+	public EditableManager getEditableManager() {
+		return editableManager;
 	}
 
 	/**
 	 * @param baseEditableManager The baseEditableManager to set.
 	 */
-	public void setBaseEditableManager(BaseEditableManager baseEditableManager) {
-		this.baseEditableManager = baseEditableManager;
+	public void setEditableManager(EditableManager editableManager) {
+		this.editableManager = editableManager;
 	}
 
 	/**
@@ -62,7 +62,7 @@ public class ManagerManager {
 		massMailingManager = new MassMailingManager();
 		candidateManager = new CandidateManager();
 		apprenticeManager = new ApprenticeManager();
-		baseEditableManager = new BaseEditableManagerImpl();
+		editableManager = new EditableManagerImpl();
 	}
 	
 	/**

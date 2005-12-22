@@ -1,15 +1,15 @@
 package fr.umlv.ir3.emagine.user;
 
+import fr.umlv.ir3.emagine.modification.EditableManagerImpl;
 import fr.umlv.ir3.emagine.security.SessionManager;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.MailManager;
-import fr.umlv.ir3.emagine.util.base.BaseEditableManagerImpl;
 
 
 
 public class UserManagerImpl 
-	extends BaseEditableManagerImpl<User, UserDAO> 
+	extends EditableManagerImpl<User, UserDAO> 
 	implements UserManager {
 
 	/**

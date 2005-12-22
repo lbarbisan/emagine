@@ -1,8 +1,9 @@
-package fr.umlv.ir3.emagine.util.base;
+package fr.umlv.ir3.emagine.modification;
 
-import fr.umlv.ir3.emagine.modification.FieldModification;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
+import fr.umlv.ir3.emagine.util.base.BaseDAO;
+import fr.umlv.ir3.emagine.util.base.BaseManagerImpl;
 
 /**
  * @author 
@@ -10,18 +11,20 @@ import fr.umlv.ir3.emagine.util.EMagineException;
  * @param <EntityType>
  * @param <EntityDAO>
  */
-public class BaseEditableManagerImpl<EntityType extends EditableEntity, EntityDAO extends BaseDAO<EntityType>>
+public class EditableManagerImpl<EntityType extends EditableEntity, EntityDAO extends BaseDAO<EntityType>>
 		extends BaseManagerImpl<EntityType, EntityDAO> implements
-		BaseEditableManager<EntityType, EntityDAO> {
+		EditableManager<EntityType, EntityDAO> {
 
+	private EditableInterceptor modificationInterceptor;
 
 	/**
-	 * @see fr.umlv.ir3.emagine.util.base.BaseEditableManager#acceptAllModification(EntityType)
+	 * @see fr.umlv.ir3.emagine.modification.EditableManager#acceptAllModification(EntityType)
 	 */
 	public void acceptAllModification(EntityType entity)
-			throws EMagineException {
+		throws EMagineException {
 		DAOManager.beginTransaction();
-		// entity.acceptModification();
+		
+		
 		try {
 			super.update(entity);
 			DAOManager.commitTransaction();
@@ -33,7 +36,7 @@ public class BaseEditableManagerImpl<EntityType extends EditableEntity, EntityDA
 
 	/**
 	 * @throws EMagineException
-	 * @see fr.umlv.ir3.emagine.util.base.BaseEditableManager#acceptFieldModification(EntityType,
+	 * @see fr.umlv.ir3.emagine.modification.EditableManager#acceptFieldModification(EntityType,
 	 *      java.lang.String)
 	 */
 	public void acceptFieldModification(EntityType entity, String name)
