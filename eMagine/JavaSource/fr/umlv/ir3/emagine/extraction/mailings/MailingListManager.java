@@ -2,13 +2,13 @@ package fr.umlv.ir3.emagine.extraction.mailings;
 
 import java.util.Collection;
 
+import fr.umlv.ir3.emagine.modification.EditableManagerImpl;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.MailManager;
-import fr.umlv.ir3.emagine.util.base.BaseEditableManagerImpl;
 import fr.umlv.ir3.emagine.util.person.Person;
 
-public class MailingListManager extends BaseEditableManagerImpl<MailingList, MailingListDAO> {
+public class MailingListManager extends EditableManagerImpl<MailingList, MailingListDAO> {
 
 	@Override
 	protected MailingListDAO getDAO() {

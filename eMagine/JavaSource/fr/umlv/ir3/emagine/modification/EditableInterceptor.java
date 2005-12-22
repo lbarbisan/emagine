@@ -15,8 +15,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.type.Type;
 
-import fr.umlv.ir3.emagine.util.EMagineException;
-
 
 /**
  * @author eMagine Team

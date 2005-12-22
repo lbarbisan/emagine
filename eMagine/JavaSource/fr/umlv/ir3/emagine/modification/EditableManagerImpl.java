@@ -15,7 +15,7 @@ public class EditableManagerImpl<EntityType extends EditableEntity, EntityDAO ex
 		extends BaseManagerImpl<EntityType, EntityDAO> implements
 		EditableManager<EntityType, EntityDAO> {
 
-	private EditableInterceptor modificationInterceptor;
+	//private EditableInterceptor modificationInterceptor;
 
 	/**
 	 * @see fr.umlv.ir3.emagine.modification.EditableManager#acceptAllModification(EntityType)
@@ -43,8 +43,8 @@ public class EditableManagerImpl<EntityType extends EditableEntity, EntityDAO ex
 			throws EMagineException {
 		// TODO acceptFieldModification
 		DAOManager.beginTransaction();
-		FieldModification field = entity.getCurrentModification()
-				.getFieldModification(name);
+		//FieldModification field = entity.getCurrentModification()
+		//		.getFieldModification(name);
 		// entity.acceptFieldModification(field);
 		try {
 			super.update(entity);

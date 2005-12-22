@@ -12,7 +12,6 @@ import fr.umlv.ir3.emagine.user.User;
 import fr.umlv.ir3.emagine.util.Constants;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.ManagerManager;
 
 /**
  * @author iorga

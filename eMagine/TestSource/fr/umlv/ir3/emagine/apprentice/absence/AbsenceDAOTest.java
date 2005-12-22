@@ -67,7 +67,13 @@ public class AbsenceDAOTest extends BaseDAOTest {
 	@Override
 	protected SearchParams createSearchParams() {
 		// TODO enclosing_package.AbsenceDAOTest.createSearchParams(enclosing_method_arguments)
-		throw new EMagineException("exception.unimplementedMethod", "enclosing_package.AbsenceDAOTest.createSearchParams(enclosing_method_arguments)");
+		try {
+			throw new EMagineException("exception.unimplementedMethod", "enclosing_package.AbsenceDAOTest.createSearchParams(enclosing_method_arguments)");
+		} catch (EMagineException e) {
+			// TODO EMagineException.e Not Implemented
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	@Override
