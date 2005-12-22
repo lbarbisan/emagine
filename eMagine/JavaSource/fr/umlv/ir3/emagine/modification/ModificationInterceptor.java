@@ -85,7 +85,7 @@ public class ModificationInterceptor extends EmptyInterceptor {
             			fieldModification.setPropertyValue((Serializable)newValues[index]);
             			try
             			{
-            				DAOManager.getInstance().getBaseDAO().create(fieldModification);
+            				DAOManager.getInstance().getBaseDAO().ge create(fieldModification);
         				} catch (EMagineException e) {
         					// TODO EMagineException.e Not Implemented
         					e.printStackTrace();
