@@ -27,4 +27,10 @@ public interface EditableManager
 	 * @throws EMagineException
 	 */
 	public void acceptFieldModification(EntityType entity, String name) throws EMagineException;
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public EditableInterceptor getModificationInterceptor();
 }

@@ -26,7 +26,9 @@ public class HibernateUtils {
         try {            
         	
         	Configuration cfg = new AnnotationConfiguration();
-        	EditableInterceptor modificationInterceptor = new EditableInterceptor();
+        	EditableInterceptor modificationInterceptor;
+        	
+        	modificationInterceptor = ManagerManager.getInstance().getEditableManager().getModificationInterceptor();
 
             //TODO : Hibernate - Trouver un moyen pour mettre le nom de fichier dans un fichier poroperties ou autre.
         	cfg.configure("fr/umlv/ir3/emagine/ressource/hibernate.cfg.xml")

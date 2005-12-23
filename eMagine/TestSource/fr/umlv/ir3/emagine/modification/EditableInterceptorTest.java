@@ -13,14 +13,15 @@ import fr.umlv.ir3.emagine.user.User;
 import fr.umlv.ir3.emagine.user.UserDAO;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
+import fr.umlv.ir3.emagine.util.ManagerManager;
 import fr.umlv.ir3.emagine.util.search.SearchParamsImpl;
 
-public class ModificationInterceptorTest extends TestCase {
+public class EditableInterceptorTest extends TestCase {
 
 	private static UserDAO userDao;
 	private static User user;
 	
-	private Log log = LogFactory.getLog(ModificationInterceptorTest.class);
+	private Log log = LogFactory.getLog(EditableInterceptorTest.class);
 	
 	/*
 	 * Test method for 'fr.umlv.ir3.emagine.modification.ModificationInterceptor.onFlushDirty(Object, Serializable, Object[], Object[], String[], Type[])'
@@ -51,9 +52,10 @@ public class ModificationInterceptorTest extends TestCase {
 		DAOManager.beginTransaction();
 		userDao.update(user);
 		DAOManager.commitTransaction();
-		
+		System.out.println(user.getPassword());
+		log.debug("Test accept modification");
 		/* Accepte les modification du password */
-		//ManagerManager.getInstance().getBaseEditableManager().acceptAllModification(user);
+		ManagerManager.getInstance().getEditableManager().acceptAllModification(user);
 		
 		
 		

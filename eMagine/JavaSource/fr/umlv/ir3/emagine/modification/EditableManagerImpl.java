@@ -1,7 +1,11 @@
 package fr.umlv.ir3.emagine.modification;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
+import fr.umlv.ir3.emagine.util.HibernateUtils;
 import fr.umlv.ir3.emagine.util.base.BaseDAO;
 import fr.umlv.ir3.emagine.util.base.BaseManagerImpl;
 
@@ -14,8 +18,10 @@ import fr.umlv.ir3.emagine.util.base.BaseManagerImpl;
 public class EditableManagerImpl<EntityType extends EditableEntity, EntityDAO extends BaseDAO<EntityType>>
 		extends BaseManagerImpl<EntityType, EntityDAO> implements
 		EditableManager<EntityType, EntityDAO> {
-
-	//private EditableInterceptor modificationInterceptor;
+	
+	private Log log = LogFactory.getLog(this.getClass());
+	
+	private EditableInterceptor modificationInterceptor = new EditableInterceptor();
 
 	/**
 	 * @see fr.umlv.ir3.emagine.modification.EditableManager#acceptAllModification(EntityType)
@@ -23,11 +29,12 @@ public class EditableManagerImpl<EntityType extends EditableEntity, EntityDAO ex
 	public void acceptAllModification(EntityType entity)
 		throws EMagineException {
 		DAOManager.beginTransaction();
-		
-		
+		log.debug("acceptAllModification for '" + entity.getCurrentModification() + "'");
+		modificationInterceptor.addAcceptedModifications(entity.getCurrentModification());
 		try {
 			super.update(entity);
 			DAOManager.commitTransaction();
+			entity.getModifications().remove(entity.getCurrentModification());
 		} catch (EMagineException e) {
 			DAOManager.rollBackTransaction();
 			throw e;
@@ -58,5 +65,18 @@ public class EditableManagerImpl<EntityType extends EditableEntity, EntityDAO ex
 	@Override
 	protected EntityDAO getDAO() {
 		return (EntityDAO) DAOManager.getInstance().getBaseDAO();
+	}
+
+	@Override
+	public void update(EntityType newEntity) throws EMagineException {
+		super.update(newEntity);
+		//FIXME : Utiliser DAO et HibernateException
+		DAOManager.beginTransaction();	
+		DAOManager.commitTransaction();
+		HibernateUtils.getSession().refresh(newEntity);
+	}
+
+	public EditableInterceptor getModificationInterceptor() {
+		return modificationInterceptor;
 	}
 }
