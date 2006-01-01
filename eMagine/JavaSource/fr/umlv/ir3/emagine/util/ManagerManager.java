@@ -1,20 +1,30 @@
 package fr.umlv.ir3.emagine.util;
 
 import fr.umlv.ir3.emagine.apprentice.ApprenticeManager;
+import fr.umlv.ir3.emagine.apprentice.ApprenticeManagerImpl;
 import fr.umlv.ir3.emagine.apprentice.candidate.CandidateManager;
+import fr.umlv.ir3.emagine.apprentice.candidate.CandidateManagerImpl;
 import fr.umlv.ir3.emagine.event.EventManager;
+import fr.umlv.ir3.emagine.event.EventManagerImpl;
 import fr.umlv.ir3.emagine.extraction.ExtractionManager;
+import fr.umlv.ir3.emagine.extraction.ExtractionManagerImpl;
 import fr.umlv.ir3.emagine.extraction.mailings.MailingListManager;
+import fr.umlv.ir3.emagine.extraction.mailings.MailingListManagerImpl;
 import fr.umlv.ir3.emagine.extraction.mailstype.MailingTypeManager;
+import fr.umlv.ir3.emagine.extraction.mailstype.MailingTypeManagerImpl;
 import fr.umlv.ir3.emagine.extraction.massmailing.MassMailingManager;
+import fr.umlv.ir3.emagine.extraction.massmailing.MassMailingManagerImpl;
 import fr.umlv.ir3.emagine.firm.FirmManager;
+import fr.umlv.ir3.emagine.firm.FirmManagerImpl;
 import fr.umlv.ir3.emagine.modification.EditableManager;
 import fr.umlv.ir3.emagine.modification.EditableManagerImpl;
-import fr.umlv.ir3.emagine.security.SecurityProxy;
 import fr.umlv.ir3.emagine.teachertutor.TeacherTutorManager;
+import fr.umlv.ir3.emagine.teachertutor.TeacherTutorManagerImpl;
 import fr.umlv.ir3.emagine.user.UserManager;
 import fr.umlv.ir3.emagine.user.UserManagerImpl;
 import fr.umlv.ir3.emagine.user.profile.ProfileManager;
+import fr.umlv.ir3.emagine.user.profile.ProfileManagerImpl;
+
 
 public class ManagerManager {
 	private static ManagerManager instance;
@@ -54,16 +64,16 @@ public class ManagerManager {
 		//FIXME: remetre la ligne commenttée
 		//userManager = new SecurityProxy<UserManager>(new UserManagerImpl()).getProxy();
 		userManager = new UserManagerImpl();
-		profileManager = new ProfileManager();
-		extractionManager = new ExtractionManager();
-		teacherTutorManager = new TeacherTutorManager();
-		firmManager = new FirmManager();
-		eventManager = new EventManager();
-		mailingListManager = new MailingListManager();
-		mailingTypeManager = new MailingTypeManager();
-		massMailingManager = new MassMailingManager();
-		candidateManager = new CandidateManager();
-		apprenticeManager = new ApprenticeManager();
+		profileManager = new ProfileManagerImpl();
+		extractionManager = new ExtractionManagerImpl();
+		teacherTutorManager = new TeacherTutorManagerImpl();
+		firmManager = new FirmManagerImpl();
+		eventManager = new EventManagerImpl();
+		mailingListManager = new MailingListManagerImpl();
+		mailingTypeManager = new MailingTypeManagerImpl();
+		massMailingManager = new MassMailingManagerImpl();
+		candidateManager = new CandidateManagerImpl();
+		apprenticeManager = new ApprenticeManagerImpl();
 		editableManager = new EditableManagerImpl();
 	}
 	
