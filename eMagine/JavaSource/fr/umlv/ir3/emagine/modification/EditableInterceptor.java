@@ -45,6 +45,11 @@ public class EditableInterceptor extends EmptyInterceptor {
 	 * List of Field modification
 	 */
 	private Map<Long, Modification> acceptedFieldModifications = new HashMap<Long, Modification>();
+	
+	/**
+	 * 
+	 */
+	private boolean directWriteAllowed = false;
 
 	/**
 	 * @param sessionFactory The sessionFactory to set.
@@ -55,13 +60,6 @@ public class EditableInterceptor extends EmptyInterceptor {
 			log.warn("sessionFactory has been set to null");
 		}
 		this.sessionFactory = sessionFactory;
-	}
-	
-	//FIXME : Supprimer, pour test internet
-	private boolean userHasRight;
-	public void isUserHasRight(boolean value)
-	{
-		userHasRight = value;
 	}
 	
 	//TODO : passer par une fonction au lieu de deux
@@ -219,11 +217,13 @@ public class EditableInterceptor extends EmptyInterceptor {
 			String[] propertyNames, Type[] types) {
 	
 			//Vérifie que l'objet est bien un objet persitant modifiable et que l'utilisateur à les droits
-			if (entity instanceof EditableEntity && 
-					!userHasRight) 
+			if (entity instanceof EditableEntity) 
 			{
-				//créer les demande de modifications
-				createModification((EditableEntity)entity,id, currentState, previousState, propertyNames);
+				if(directWriteAllowed==false)
+				{
+					//créer les demande de modifications
+					createModification((EditableEntity)entity,id, currentState, previousState, propertyNames);
+				}
 		
 				//Applique les modifications en attente
 				applyModifications((EditableEntity)entity, currentState, previousState, propertyNames);
@@ -231,5 +231,20 @@ public class EditableInterceptor extends EmptyInterceptor {
 		
 		return null;
 
+	}
+
+
+	/**
+	 * @return Returns the saveModification.
+	 */
+	public boolean isDirectWriteAllowed() {
+		return directWriteAllowed;
+	}
+
+	/**
+	 * @param directWriteAllow The directWriteAllow to set.
+	 */
+	public void setDirectWriteAllowed(boolean directWriteAllow) {
+		this.directWriteAllowed = directWriteAllow;
 	}
 }

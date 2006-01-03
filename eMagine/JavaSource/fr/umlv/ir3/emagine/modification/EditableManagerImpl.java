@@ -69,16 +69,23 @@ public class EditableManagerImpl<EntityType extends EditableEntity, EntityDAO ex
 
 	@Override
 	public void update(EntityType newEntity) throws EMagineException {
-		super.update(newEntity);
-		//FIXME : Utiliser DAO et HibernateException
-		DAOManager.beginTransaction();	
-		DAOManager.commitTransaction();
-		HibernateUtils.getSession().refresh(newEntity);
+		modificationInterceptor.setDirectWriteAllowed(true);
+		try
+		{
+			super.update(newEntity);
+		}
+		finally
+		{
+			modificationInterceptor.setDirectWriteAllowed(false);
+		}
+;
 	}
 	
 	public void updateWithoutRights(EntityType newEntity) throws EMagineException {
-		// TODO fr.umlv.ir3.emagine.modification.EditableManagerImpl.updateWithoutRights(enclosing_method_arguments)
-		throw new EMagineException("exception.unimplementedMethod", "fr.umlv.ir3.emagine.modification.EditableManagerImpl.updateWithoutRights(enclosing_method_arguments)");
+		
+		modificationInterceptor.setDirectWriteAllowed(false);
+		super.update(newEntity);
+		HibernateUtils.getSession().refresh(newEntity);
 	}
 
 	public EditableInterceptor getModificationInterceptor() {

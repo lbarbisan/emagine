@@ -30,8 +30,7 @@ public class EditableInterceptorTest extends TestCase {
 		
 		EditableInterceptor editableInterceptor =  ManagerManager.getInstance().getEditableManager().getModificationInterceptor();
 
-		//FIXME : A repasser en mode Normal avec la sécurité standard
-		editableInterceptor.isUserHasRight(false);
+		editableInterceptor.setDirectWriteAllowed(false);
 		 
 		SearchParamsImpl searchParams = new SearchParamsImpl();
 		userDao = DAOManager.getInstance().getUserDAO();
@@ -62,7 +61,7 @@ public class EditableInterceptorTest extends TestCase {
 		
 		/* Accepte les modification du password */
 		//FIXME : A repasser en mode Normal avec la sécurité standard
-		editableInterceptor.isUserHasRight(true);
+		editableInterceptor.setDirectWriteAllowed(true);
 		ManagerManager.getInstance().getEditableManager().acceptAllModification(user);
 		
 	}
