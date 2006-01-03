@@ -26,47 +26,41 @@ public abstract class BaseDAOTest <EntityType extends BaseEntity> extends TestCa
 	/*
 	 * Test method for 'fr.umlv.ir3.emagine.util.base.BaseDAO.create(EntityType)'
 	 */
-	public void testCreate() {
+	public void testCreate() throws EMagineException {
 		try {
 			getDAO().create(entity);
 			compareEntity(getDAO().retrieve(entity.getId()),entity);
+		}
+		finally {
 			getDAO().delete(entity);
-		} catch (EMagineException e) {
-			// Problem with de creation of the object
-			assertFalse(true);
 		}
 	}
 
 	/*
 	 * Test method for 'fr.umlv.ir3.emagine.util.base.BaseDAO.update(EntityType)'
 	 */
-	public void testUpdate() {
-		EntityType entity = createEntity();
+	public void testUpdate() throws EMagineException {
 		try {
 			getDAO().create(entity);
-			compareEntity(getDAO().retrieve(entity.getId()),entity);
 			updateEntity(entity);
 			getDAO().update(entity);
 			compareEntity(getDAO().retrieve(entity.getId()),entity);
+		}
+		finally {
 			getDAO().delete(entity);
-		} catch (EMagineException e) {
-			// Problem with de creation of the object
-			assertFalse(true);		
 		}
 	}
 
 	/*
 	 * Test method for 'fr.umlv.ir3.emagine.util.base.BaseDAO.retrieve(long)'
 	 */
-	public void testRetrieve() {
+	public void testRetrieve() throws EMagineException {
 		try {
-			EntityType entity = createEntity();
 			getDAO().create(entity);
 			compareEntity(getDAO().retrieve(entity.getId()),entity);
+		}
+		finally {
 			getDAO().delete(entity);
-		} catch (EMagineException e) {
-			// Problem with de creation of the object
-			assertFalse(true);
 		}
 	}
 
@@ -148,5 +142,4 @@ public abstract class BaseDAOTest <EntityType extends BaseEntity> extends TestCa
 	protected abstract void updateEntity(EntityType entity);
 	protected abstract SearchParams createSearchParams();
 	protected abstract void compareEntity(EntityType entity1, EntityType entity2);
-
 }
