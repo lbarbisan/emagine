@@ -10,6 +10,7 @@ import fr.umlv.ir3.emagine.util.base.BaseDAO;
 import fr.umlv.ir3.emagine.util.base.BaseDAOTest;
 import fr.umlv.ir3.emagine.util.base.BaseEntity;
 import fr.umlv.ir3.emagine.util.search.SearchParams;
+import fr.umlv.ir3.emagine.util.search.SearchParamsImpl;
 
 public class AbsenceDAOTest extends BaseDAOTest {
 
@@ -66,14 +67,9 @@ public class AbsenceDAOTest extends BaseDAOTest {
 
 	@Override
 	protected SearchParams createSearchParams() {
-		// TODO enclosing_package.AbsenceDAOTest.createSearchParams(enclosing_method_arguments)
-		try {
-			throw new EMagineException("exception.unimplementedMethod", "enclosing_package.AbsenceDAOTest.createSearchParams(enclosing_method_arguments)");
-		} catch (EMagineException e) {
-			// TODO EMagineException.e Not Implemented
-			e.printStackTrace();
-		}
-		return null;
+		SearchParamsImpl searchParams = new SearchParamsImpl();
+		searchParams.setField("JustificationComment" , "test de date");
+		return searchParams;
 	}
 
 	@Override
