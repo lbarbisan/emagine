@@ -1,8 +1,12 @@
 package fr.umlv.ir3.emagine.util.base;
 
 import java.util.Collection;
+import java.util.List;
 
 import junit.framework.TestCase;
+
+import org.hibernate.type.EntityType;
+
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.search.SearchParams;
 
@@ -67,72 +71,71 @@ public abstract class BaseDAOTest <EntityType extends BaseEntity> extends TestCa
 	/*
 	 * Test method for 'fr.umlv.ir3.emagine.util.base.BaseDAO.delete(EntityType)'
 	 */
-	public void testDeleteEntityType() {
+	public void testDeleteEntityType() throws EMagineException {
+		getDAO().create(entity);
+		getDAO().delete(entity);
+
 		try {
-			EntityType entity = createEntity();
-			getDAO().create(entity);
-			getDAO().delete(entity);
-			if(getDAO().retrieve(entity.getId()) == null){
-				assertTrue(true);
-			}
-			else{
-				assertFalse(true);
-			}
-		} catch (EMagineException e) {
-			// Problem with de creation of the object
-			assertFalse(true);
+			getDAO().retrieve(entity.getId());
+			assertTrue(true);
+		}
+		catch (EMagineException e) {
 		}
 	}
 
 	/*
 	 * Test method for 'fr.umlv.ir3.emagine.util.base.BaseDAO.delete(Collection<EntityType>)'
 	 */
-	public void testDeleteCollectionOfEntityType() {
-		Collection<EntityType> entities = createEntityCollection();
-		try {
-		for (EntityType entity : entities) {
-				getDAO().create(entity);
+	public void testDeleteCollectionOfEntityType() throws EMagineException {
+		Collection<EntityType> entitiesc = createEntityCollection();
+
+		for (EntityType entity : entitiesc) {
+			getDAO().create(entity);
 		}
-		getDAO().delete(entities);
-		for (EntityType entity : entities) {
-			getDAO().retrieve(entity.getId());
-			if(getDAO().retrieve(entity.getId()) != null){
-				assertFalse(true);
+	
+		getDAO().delete(entitiesc);
+
+		for (EntityType entity : entitiesc) {
+			try {
+				getDAO().retrieve(entity.getId());
+				assertTrue(true);
 			}
-	}
-		assertTrue(true);
-		} catch (EMagineException e) {
-			assertFalse(true);
+			catch (EMagineException e) {
+			}
 		}
 	}
 
 	/*
 	 * Test method for 'fr.umlv.ir3.emagine.util.base.BaseDAO.find(SearchParam)'
 	 */
-	public void testFind() {
-		try {
-			EntityType entity = createEntity();
-			getDAO().create(entity);
-			assertEquals(1,getDAO().find(createSearchParams()).size());
+	public void testFind() throws EMagineException {
+		Collection <EntityType> entitiesc = createEntityCollection();
+		List <EntityType> entities = getDAO().find(createSearchParams());
+
+		assertEquals(2,entities.size());
+		for (EntityType entity : entities) {
+			compareEntity(this.entity, entity);
+		}
+
+		for (EntityType entity : entities) {
 			getDAO().delete(entity);
-		} catch (EMagineException e) {
-			// Problem with de creation of the object
-			assertFalse(true);
 		}
 	}
 
 	/*
 	 * Test method for 'fr.umlv.ir3.emagine.util.base.BaseDAO.findAll()'
 	 */
-	public void testFindAll() {
-		Collection<EntityType> entities = createEntityCollection();
-		try {
+	public void testFindAll() throws EMagineException {
+		Collection <EntityType> entitiesc = createEntityCollection();
+		List <EntityType> entities = getDAO().findAll();
+
+		assertEquals(2,entities.size());
 		for (EntityType entity : entities) {
-				getDAO().create(entity);
+			compareEntity(this.entity, entity);
 		}
-		assertEquals(entities.size(),getDAO().findAll().size());
-		} catch (EMagineException e) {
-			assertFalse(true);
+
+		for (EntityType entity : entities) {
+			getDAO().delete(entity);
 		}
 	}
 	
