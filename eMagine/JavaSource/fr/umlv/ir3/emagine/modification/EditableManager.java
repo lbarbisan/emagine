@@ -33,4 +33,14 @@ public interface EditableManager
 	 * @return
 	 */
 	public EditableInterceptor getModificationInterceptor();
+	
+	/**
+	 * Updates the entity without having the rights to update it. Actually, it compares the
+	 * entity saved in database with the given newEntity and adds the modifications to the entity.
+	 * That method is called when the current connected user doesn't have the rights to update
+	 * the entity.
+	 * @param newEntity
+	 * @throws EMagineException when some SQLExceptions occure.
+	 */
+	public void updateWithoutRights(EntityType newEntity) throws EMagineException;
 }

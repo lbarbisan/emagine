@@ -7,6 +7,7 @@ import java.security.Principal;
 
 import org.securityfilter.realm.SecurityRealmInterface;
 
+import fr.umlv.ir3.emagine.modification.EditableEntity;
 import fr.umlv.ir3.emagine.util.EMagineException;
 
 public class SecurityProxy<Type> implements InvocationHandler {
@@ -41,6 +42,12 @@ public class SecurityProxy<Type> implements InvocationHandler {
 			Principal currentPrincipal = sessionManager.getCurrentPrincipal();
 			for (String right : rights.value()) {
 				if (!realm.isUserInRole(currentPrincipal, right)) {
+					if (method.getName().equals("update")) {
+						Method updateWithoutRightsMethod = method.getDeclaringClass().getMethod("updateWithoutRights", EditableEntity.class);
+						if (updateWithoutRightsMethod != null) {
+							return updateWithoutRightsMethod.invoke(object, args);
+						}
+					}
 					throw new EMagineException("exception.userIsNotAllowed", right);
 				}
 			}

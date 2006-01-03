@@ -5,6 +5,7 @@ import java.util.List;
 
 import fr.umlv.ir3.emagine.apprentice.Apprentice;
 import fr.umlv.ir3.emagine.modification.EditableManager;
+import fr.umlv.ir3.emagine.security.MustHaveRights;
 import fr.umlv.ir3.emagine.util.EMagineException;
 
 
@@ -19,4 +20,6 @@ public interface AbsenceManager extends EditableManager<Absence, AbsenceDAO> {
 	public abstract List<Absence> find(Collection<Apprentice> apprentices,
 			AbsenceSearchParams absenceSearchParams) throws EMagineException;
 
+	@MustHaveRights("absence.update")
+	public void update(Absence newEntity) throws EMagineException;
 }

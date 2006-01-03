@@ -75,6 +75,11 @@ public class EditableManagerImpl<EntityType extends EditableEntity, EntityDAO ex
 		DAOManager.commitTransaction();
 		HibernateUtils.getSession().refresh(newEntity);
 	}
+	
+	public void updateWithoutRights(EntityType newEntity) throws EMagineException {
+		// TODO fr.umlv.ir3.emagine.modification.EditableManagerImpl.updateWithoutRights(enclosing_method_arguments)
+		throw new EMagineException("exception.unimplementedMethod", "fr.umlv.ir3.emagine.modification.EditableManagerImpl.updateWithoutRights(enclosing_method_arguments)");
+	}
 
 	public EditableInterceptor getModificationInterceptor() {
 		return modificationInterceptor;

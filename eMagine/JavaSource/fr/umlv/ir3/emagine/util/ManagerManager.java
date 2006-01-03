@@ -2,6 +2,8 @@ package fr.umlv.ir3.emagine.util;
 
 import fr.umlv.ir3.emagine.apprentice.ApprenticeManager;
 import fr.umlv.ir3.emagine.apprentice.ApprenticeManagerImpl;
+import fr.umlv.ir3.emagine.apprentice.absence.AbsenceManager;
+import fr.umlv.ir3.emagine.apprentice.absence.AbsenceManagerImpl;
 import fr.umlv.ir3.emagine.apprentice.candidate.CandidateManager;
 import fr.umlv.ir3.emagine.apprentice.candidate.CandidateManagerImpl;
 import fr.umlv.ir3.emagine.event.EventManager;
@@ -18,6 +20,7 @@ import fr.umlv.ir3.emagine.firm.FirmManager;
 import fr.umlv.ir3.emagine.firm.FirmManagerImpl;
 import fr.umlv.ir3.emagine.modification.EditableManager;
 import fr.umlv.ir3.emagine.modification.EditableManagerImpl;
+import fr.umlv.ir3.emagine.security.SecurityProxy;
 import fr.umlv.ir3.emagine.teachertutor.TeacherTutorManager;
 import fr.umlv.ir3.emagine.teachertutor.TeacherTutorManagerImpl;
 import fr.umlv.ir3.emagine.user.UserManager;
@@ -41,6 +44,7 @@ public class ManagerManager {
 	private CandidateManager candidateManager;
 	private ApprenticeManager apprenticeManager;
 	private EditableManager editableManager;
+	private AbsenceManager absenceManager;
 	
 	/**
 	 * @return Returns the baseEditableManager.
@@ -75,6 +79,7 @@ public class ManagerManager {
 		candidateManager = new CandidateManagerImpl();
 		apprenticeManager = new ApprenticeManagerImpl();
 		editableManager = new EditableManagerImpl();
+		absenceManager = new SecurityProxy<AbsenceManager>(new AbsenceManagerImpl()).getProxy();
 	}
 	
 	/**
@@ -132,6 +137,10 @@ public class ManagerManager {
 	}
 	public ApprenticeManager getApprenticeManager() {
 		return apprenticeManager;
+	}
+
+	public AbsenceManager getAbsenceManager() {
+		return absenceManager;
 	}
 	
 }
