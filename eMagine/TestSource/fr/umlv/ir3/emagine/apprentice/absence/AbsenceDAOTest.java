@@ -76,48 +76,15 @@ public class AbsenceDAOTest extends BaseDAOTest {
 	protected void compareEntity(BaseEntity entity1, BaseEntity entity2) {
 		Absence abs1 = (Absence) entity1;
 		Absence abs2 = (Absence) entity2;
-		if(abs1.getCurrentModification()== abs2.getCurrentModification()){
-			assertTrue(true);
-		}
-		else{
-			assertTrue(false);
-		}
-		if(abs1.getEndDate()== abs2.getEndDate()){
-			assertTrue(true);
-		}
-		else{
-			assertTrue(false);
-		}
-		if(abs1.getId()== abs2.getId()){
-			assertTrue(true);
-		}
-		else{
-			assertTrue(false);
-		}
-		if(abs1.getJustificationComment().equals(abs2.getJustificationComment())){
-			assertTrue(true);
-		}
-		else{
-			assertTrue(false);
-		}
-		if(abs1.getModifications() == abs2.getModifications()){
-			assertTrue(true);
-		}
-		else{
-			assertTrue(false);
-		}
-		if(abs1.getNumberOfWorkedDays() == abs2.getNumberOfWorkedDays()){
-			assertTrue(true);
-		}
-		else{
-			assertTrue(false);
-		}
-		if(abs1.getStartDate() == abs2.getStartDate()){
-			assertTrue(true);
-		}
-		else{
-			assertTrue(false);
-		}
-	}
 
+		assertTrue(abs1.getCurrentModification().equals(abs2.getCurrentModification()));
+		assertTrue(abs1.getEndDate().equals(abs2.getEndDate()));
+		assertTrue(abs1.getId()== abs2.getId());
+		assertTrue(abs1.getJustificationComment().equals(abs2.getJustificationComment()));
+		assertTrue(abs1.getJustificationComment().equals(abs2.getJustificationComment()));
+		assertTrue(abs1.getModifications().equals(abs2.getModifications()));
+		assertTrue(abs1.getModifications().equals(abs2.getModifications()));
+		assertTrue(abs1.getNumberOfWorkedDays() == abs2.getNumberOfWorkedDays());
+		assertTrue(abs1.getStartDate().equals(abs2.getStartDate()));
+	}
 }
