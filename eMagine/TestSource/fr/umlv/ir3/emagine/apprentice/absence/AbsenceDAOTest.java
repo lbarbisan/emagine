@@ -5,6 +5,8 @@ import java.util.Calendar;
 import java.util.Collection;
 import java.util.GregorianCalendar;
 
+import org.hibernate.type.EntityType;
+
 import fr.umlv.ir3.emagine.util.base.BaseDAOTest;
 import fr.umlv.ir3.emagine.util.search.SearchParams;
 import fr.umlv.ir3.emagine.util.search.SearchParamsImpl;
@@ -70,14 +72,29 @@ public class AbsenceDAOTest extends BaseDAOTest<Absence> {
 
 	@Override
 	protected void compareEntity(Absence abs1, Absence abs2) {
-		assertTrue(abs1.getCurrentModification().equals(abs2.getCurrentModification()));
-		assertTrue(abs1.getEndDate().equals(abs2.getEndDate()));
-		assertTrue(abs1.getId()== abs2.getId());
-		assertTrue(abs1.getJustificationComment().equals(abs2.getJustificationComment()));
-		assertTrue(abs1.getJustificationComment().equals(abs2.getJustificationComment()));
-		assertTrue(abs1.getModifications().equals(abs2.getModifications()));
-		assertTrue(abs1.getModifications().equals(abs2.getModifications()));
-		assertTrue(abs1.getNumberOfWorkedDays() == abs2.getNumberOfWorkedDays());
-		assertTrue(abs1.getStartDate().equals(abs2.getStartDate()));
+
+		assertTrue(conditionCheck(abs1.getCurrentModification(), abs2.getCurrentModification()));
+		assertTrue(conditionCheck(abs1.getEndDate(),abs2.getEndDate()));
+		assertTrue(conditionCheck(abs1.getId(), abs2.getId()));
+		assertTrue(conditionCheck(abs1.getJustificationComment(),abs2.getJustificationComment()));
+		assertTrue(conditionCheck(abs1.getJustificationComment(),abs2.getJustificationComment()));
+		assertTrue(conditionCheck(abs1.getModifications(),abs2.getModifications()));
+		assertTrue(conditionCheck(abs1.getModifications(),abs2.getModifications()));
+		assertTrue(conditionCheck(abs1.getNumberOfWorkedDays(),abs2.getNumberOfWorkedDays()));
+		assertTrue(conditionCheck(abs1.getStartDate(),abs2.getStartDate()));
+	}
+	
+	/**
+	 * Renvoi True si la condition est vérifier False Sinon
+	 * @param <ConditionnalEntityType>
+	 * @param Obj1 Première Object à Tester
+	 * @param Obj2 Deuxième Object à Tester
+	 * @return True si la condition est vérifier False Sinon
+	 */
+	private<ConditionnalEntityType> boolean conditionCheck(ConditionnalEntityType Obj1, ConditionnalEntityType Obj2)
+	{
+			return (!(Obj1!=null ^ Obj2!=null)) &&
+					((Obj1==null && Obj2==null) || 
+					Obj1.equals(Obj2));
 	}
 }
