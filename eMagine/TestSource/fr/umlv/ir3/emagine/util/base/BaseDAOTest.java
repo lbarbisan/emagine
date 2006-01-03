@@ -4,9 +4,6 @@ import java.util.Collection;
 import java.util.List;
 
 import junit.framework.TestCase;
-
-import org.hibernate.type.EntityType;
-
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.search.SearchParams;
 
@@ -112,9 +109,11 @@ public abstract class BaseDAOTest <EntityType extends BaseEntity> extends TestCa
 		Collection <EntityType> entitiesc = createEntityCollection();
 		List <EntityType> entities = getDAO().find(createSearchParams());
 
-		assertEquals(2,entities.size());
+		assertEquals(entitiesc.size(),entities.size());
 		for (EntityType entity : entities) {
-			compareEntity(this.entity, entity);
+			EntityType entity2 = getElement(entitiesc,entity);
+			assertNull(entity2);
+			compareEntity(entity2, entity);
 		}
 
 		for (EntityType entity : entities) {
@@ -129,15 +128,26 @@ public abstract class BaseDAOTest <EntityType extends BaseEntity> extends TestCa
 		Collection <EntityType> entitiesc = createEntityCollection();
 		List <EntityType> entities = getDAO().findAll();
 
-		assertEquals(2,entities.size());
+		assertEquals(entitiesc.size(),entities.size());
 		for (EntityType entity : entities) {
-			compareEntity(this.entity, entity);
+			EntityType entity2 = getElement(entitiesc,entity);
+			assertNull(entity2);
+			compareEntity(entity2, entity);
 		}
 
 		for (EntityType entity : entities) {
 			getDAO().delete(entity);
 		}
 	}
+	
+	private EntityType getElement(Collection <EntityType> entities, EntityType entity) {
+		for (EntityType entity2 : entities) {
+			if(entity.equals(entity2))
+				return entity2;
+		}			
+		return null;
+	}
+
 	
 	protected abstract BaseDAO<EntityType> getDAO();
 	protected abstract EntityType createEntity();
