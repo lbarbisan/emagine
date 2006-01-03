@@ -7,16 +7,19 @@ import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.search.SearchParams;
 
 public abstract class BaseDAOTest <EntityType extends BaseEntity> extends TestCase {
-	
+	private EntityType entity;
+
 	public BaseDAOTest(String arg0) {
 		super(arg0);
 	}
 
 	protected void setUp() throws Exception {
 		super.setUp();
+		entity = createEntity();
 	}
 
 	protected void tearDown() throws Exception {
+		entity = null; 
 		super.tearDown();
 	}
 
@@ -25,7 +28,6 @@ public abstract class BaseDAOTest <EntityType extends BaseEntity> extends TestCa
 	 */
 	public void testCreate() {
 		try {
-			EntityType entity = createEntity();
 			getDAO().create(entity);
 			compareEntity(getDAO().retrieve(entity.getId()),entity);
 			getDAO().delete(entity);
