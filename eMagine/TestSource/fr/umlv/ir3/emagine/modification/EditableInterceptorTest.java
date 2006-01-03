@@ -28,6 +28,11 @@ public class EditableInterceptorTest extends TestCase {
 	 */
 	public void testOnFlushDirtyObjectSerializableObjectArrayObjectArrayStringArrayTypeArray() throws EMagineException {
 		
+		EditableInterceptor editableInterceptor =  ManagerManager.getInstance().getEditableManager().getModificationInterceptor();
+
+		//FIXME : A repasser en mode Normal avec la sécurité standard
+		editableInterceptor.isUserHasRight(false);
+		 
 		SearchParamsImpl searchParams = new SearchParamsImpl();
 		userDao = DAOManager.getInstance().getUserDAO();
 		
@@ -54,12 +59,12 @@ public class EditableInterceptorTest extends TestCase {
 		DAOManager.commitTransaction();
 		System.out.println(user.getPassword());
 		log.debug("Test accept modification");
+		
 		/* Accepte les modification du password */
+		//FIXME : A repasser en mode Normal avec la sécurité standard
+		editableInterceptor.isUserHasRight(true);
 		ManagerManager.getInstance().getEditableManager().acceptAllModification(user);
 		
-		
-		
-
 	}
 
 }

@@ -47,7 +47,6 @@ public class EditableInterceptor extends EmptyInterceptor {
 	private Map<Long, Modification> acceptedFieldModifications = new HashMap<Long, Modification>();
 
 	/**
-	 * 
 	 * @param sessionFactory The sessionFactory to set.
 	 */
 	public void setSessionFactory(SessionFactory sessionFactory) {
@@ -56,6 +55,13 @@ public class EditableInterceptor extends EmptyInterceptor {
 			log.warn("sessionFactory has been set to null");
 		}
 		this.sessionFactory = sessionFactory;
+	}
+	
+	//FIXME : Supprimer, pour test internet
+	private boolean userHasRight;
+	public void isUserHasRight(boolean value)
+	{
+		userHasRight = value;
 	}
 	
 	//TODO : passer par une fonction au lieu de deux
@@ -214,7 +220,7 @@ public class EditableInterceptor extends EmptyInterceptor {
 	
 			//Vérifie que l'objet est bien un objet persitant modifiable et que l'utilisateur à les droits
 			if (entity instanceof EditableEntity && 
-				/* FIXME : Vérifié que l'utilisateur à les droit sur l'objet */true) 
+					!userHasRight) 
 			{
 				//créer les demande de modifications
 				createModification((EditableEntity)entity,id, currentState, previousState, propertyNames);
