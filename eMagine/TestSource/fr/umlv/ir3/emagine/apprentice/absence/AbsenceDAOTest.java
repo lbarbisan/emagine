@@ -5,14 +5,11 @@ import java.util.Calendar;
 import java.util.Collection;
 import java.util.GregorianCalendar;
 
-import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.base.BaseDAO;
 import fr.umlv.ir3.emagine.util.base.BaseDAOTest;
-import fr.umlv.ir3.emagine.util.base.BaseEntity;
 import fr.umlv.ir3.emagine.util.search.SearchParams;
 import fr.umlv.ir3.emagine.util.search.SearchParamsImpl;
 
-public class AbsenceDAOTest extends BaseDAOTest {
+public class AbsenceDAOTest extends BaseDAOTest<Absence> {
 
 	AbsenceDAO dao;
 	
@@ -31,17 +28,17 @@ public class AbsenceDAOTest extends BaseDAOTest {
 	}
 	
 	@Override
-	protected BaseDAO getDAO() {
+	protected AbsenceDAO getDAO() {
 		return dao;
 	}
 
 	@Override
-	protected BaseEntity createEntity() {
+	protected Absence createEntity() {
 		return new Absence(true,"Test de justification. &щ~#'{([-|`_ч^р@)]=+}^и$гд%∙*╡?,;.:!з<>",GregorianCalendar.getInstance().getTime(),GregorianCalendar.getInstance().getTime());
 	}
 
 	@Override
-	protected Collection createEntityCollection() {
+	protected Collection<Absence> createEntityCollection() {
 		ArrayList<Absence> list = new ArrayList<Absence>();
 		GregorianCalendar start = new GregorianCalendar(2005,Calendar.DECEMBER,12);
 		GregorianCalendar end = new GregorianCalendar(2006,Calendar.JANUARY,1);
@@ -55,8 +52,7 @@ public class AbsenceDAOTest extends BaseDAOTest {
 	}
 
 	@Override
-	protected void updateEntity(BaseEntity entity) {
-		Absence abs = (Absence) entity;
+	protected void updateEntity(Absence abs) {
 		GregorianCalendar start = new GregorianCalendar(2005,Calendar.JULY,14);
 		GregorianCalendar end = new GregorianCalendar(2006,Calendar.NOVEMBER,11);
 		abs.setStartDate(start.getTime());
@@ -73,10 +69,7 @@ public class AbsenceDAOTest extends BaseDAOTest {
 	}
 
 	@Override
-	protected void compareEntity(BaseEntity entity1, BaseEntity entity2) {
-		Absence abs1 = (Absence) entity1;
-		Absence abs2 = (Absence) entity2;
-
+	protected void compareEntity(Absence abs1, Absence abs2) {
 		assertTrue(abs1.getCurrentModification().equals(abs2.getCurrentModification()));
 		assertTrue(abs1.getEndDate().equals(abs2.getEndDate()));
 		assertTrue(abs1.getId()== abs2.getId());
