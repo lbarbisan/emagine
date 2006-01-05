@@ -14,7 +14,10 @@ import javax.persistence.Table;
 import fr.umlv.ir3.emagine.modification.EditableEntity;
 import fr.umlv.ir3.emagine.modification.Modification;
 import fr.umlv.ir3.emagine.user.profile.Profile;
-
+/**
+ * This class represent a user. A user can login application.
+ * @author eMagine Team
+ */
 @Entity(access = AccessType.FIELD)
 @Table(name = "applicationuser")
 public class User extends EditableEntity{
@@ -40,6 +43,9 @@ public class User extends EditableEntity{
 	private String lastName;
 	private String password;
 	
+	/**
+	 * Constructor reserved for Hibernate
+	 */
 	public User(){}
 
 	/**
@@ -99,6 +105,7 @@ public class User extends EditableEntity{
 	}
 
 	/**
+	 * Return the list of modification that the user as to do
 	 * @return Returns the modificationsInWait.
 	 */
 	public List<Modification> getModificationsInWait() {
@@ -106,24 +113,11 @@ public class User extends EditableEntity{
 	}
 
 	/**
-	 * @param modificationsInWait The modificationsInWait to set.
-	 */
-	public void setModificationsInWait(List<Modification> modificationsInWait) {
-		this.modificationsInWait = modificationsInWait;
-	}
-
-	/**
+	 * List all modifications tha this user ask to do
 	 * @return Returns the modificationsRequest.
 	 */
 	public List<Modification> getModificationsRequest() {
 		return modificationsRequest;
-	}
-
-	/**
-	 * @param modificationsRequest The modificationsRequest to set.
-	 */
-	public void setModificationsRequest(List<Modification> modificationsRequest) {
-		this.modificationsRequest = modificationsRequest;
 	}
 
 	/**

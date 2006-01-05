@@ -18,7 +18,11 @@ import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.search.SearchParamsImpl;
 
-
+/**
+ * This class is used to  do temp tests.
+ * This class isn't not used in production
+ * @author eMagine Team
+ */
 public class Main {
 
 	private static UserDAO userDao;

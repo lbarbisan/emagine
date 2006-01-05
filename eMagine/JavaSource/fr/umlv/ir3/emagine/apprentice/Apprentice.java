@@ -20,8 +20,11 @@ import fr.umlv.ir3.emagine.firm.Firm;
 import fr.umlv.ir3.emagine.firm.actor.EngineerTutor;
 import fr.umlv.ir3.emagine.teachertutor.TeacherTutor;
 import fr.umlv.ir3.emagine.util.Address;
-;
-
+/**
+ * This class represent an apprentice
+ * @author Laurent
+ *
+ */
 @Entity(access = AccessType.FIELD)
 public class Apprentice extends Candidate {
 
@@ -66,8 +69,15 @@ public class Apprentice extends Candidate {
 	private Integer year;
 	private Boolean excluded;
 	
+	/**
+	 *  This constructor is only for Hibernate
+	 */
 	public Apprentice(){super();}
 	
+	/**
+	 * This constructor
+	 * @param candidate constructor
+	 */
 	public Apprentice(Candidate candidate) {
 		super(candidate.getModifications(), candidate.getEvents(), candidate.getAddressPersonnal(), candidate.getBirthdayDate(),
 				candidate.getBirthdayCity(), candidate.getBirthdayCountry(), candidate.getBirthdayDepartment(), candidate.getNationality(), candidate.getSex(),
@@ -77,111 +87,201 @@ public class Apprentice extends Candidate {
 		
 	}
 
+	/**
+	 * @return Returns the absences.
+	 */
 	public List<Absence> getAbsences() {
 		return absences;
 	}
 
+	/**
+	 * @param absences The absences to set.
+	 */
+	public void setAbsences(List<Absence> absences) {
+		this.absences = absences;
+	}
+
+	/**
+	 * @return Returns the addressAcademic.
+	 */
 	public Address getAddressAcademic() {
 		return addressAcademic;
 	}
 
+	/**
+	 * @param addressAcademic The addressAcademic to set.
+	 */
 	public void setAddressAcademic(Address addressAcademic) {
 		this.addressAcademic = addressAcademic;
 	}
 
+	/**
+	 * @return Returns the addressProfessional.
+	 */
 	public Address getAddressProfessional() {
 		return addressProfessional;
 	}
 
+	/**
+	 * @param addressProfessional The addressProfessional to set.
+	 */
 	public void setAddressProfessional(Address addressProfessional) {
 		this.addressProfessional = addressProfessional;
 	}
 
+	/**
+	 * @return Returns the defaultAdress.
+	 */
 	public DefaultAddressEnum getDefaultAdress() {
 		return defaultAdress;
 	}
 
+	/**
+	 * @param defaultAdress The defaultAdress to set.
+	 */
 	public void setDefaultAdress(DefaultAddressEnum defaultAdress) {
 		this.defaultAdress = defaultAdress;
 	}
 
+	/**
+	 * @return Returns the diplomas.
+	 */
 	public ArrayList<String> getDiplomas() {
 		return diplomas;
 	}
 
+	/**
+	 * @param diplomas The diplomas to set.
+	 */
 	public void setDiplomas(ArrayList<String> diplomas) {
 		this.diplomas = diplomas;
 	}
 
+	/**
+	 * @return Returns the engineerTutor.
+	 */
 	public EngineerTutor getEngineerTutor() {
 		return engineerTutor;
 	}
 
+	/**
+	 * @param engineerTutor The engineerTutor to set.
+	 */
 	public void setEngineerTutor(EngineerTutor engineerTutor) {
 		this.engineerTutor = engineerTutor;
 	}
 
-	public Firm getFirm() {
-		return firm;
-	}
-
-	public void setFirm(Firm firm) {
-		this.firm = firm;
-	}
-
+	/**
+	 * @return Returns the examsMark.
+	 */
 	public ArrayList<Integer> getExamsMark() {
 		return examsMark;
 	}
 
+	/**
+	 * @param examsMark The examsMark to set.
+	 */
 	public void setExamsMark(ArrayList<Integer> examsMark) {
 		this.examsMark = examsMark;
 	}
 
-	public LanguageEnum getFirstLanguage() {
-		return firstLanguage;
-	}
-
-	public void setFirstLanguage(LanguageEnum firstLanguage) {
-		this.firstLanguage = firstLanguage;
-	}
-
-	public ArrayList<String> getSchooling() {
-		return schooling;
-	}
-
-	public void setSchooling(ArrayList<String> schooling) {
-		this.schooling = schooling;
-	}
-
-	public LanguageEnum getSecondLanguage() {
-		return secondLanguage;
-	}
-
-	public void setSecondLanguage(LanguageEnum secondLanguage) {
-		this.secondLanguage = secondLanguage;
-	}
-
-	public TeacherTutor getTeacherTutor() {
-		return teacherTutor;
-	}
-
-	public void setTeacherTutor(TeacherTutor teacherTutor) {
-		this.teacherTutor = teacherTutor;
-	}
-
-	public Integer getYear() {
-		return year;
-	}
-
-	public void setYear(Integer year) {
-		this.year = year;
-	}
-
+	/**
+	 * @return Returns the excluded.
+	 */
 	public Boolean getExcluded() {
 		return excluded;
 	}
 
+	/**
+	 * @param excluded The excluded to set.
+	 */
 	public void setExcluded(Boolean excluded) {
 		this.excluded = excluded;
 	}
+
+	/**
+	 * @return Returns the firm.
+	 */
+	public Firm getFirm() {
+		return firm;
+	}
+
+	/**
+	 * @param firm The firm to set.
+	 */
+	public void setFirm(Firm firm) {
+		this.firm = firm;
+	}
+
+	/**
+	 * @return Returns the firstLanguage.
+	 */
+	public LanguageEnum getFirstLanguage() {
+		return firstLanguage;
+	}
+
+	/**
+	 * @param firstLanguage The firstLanguage to set.
+	 */
+	public void setFirstLanguage(LanguageEnum firstLanguage) {
+		this.firstLanguage = firstLanguage;
+	}
+
+	/**
+	 * @return Returns the schooling.
+	 */
+	public ArrayList<String> getSchooling() {
+		return schooling;
+	}
+
+	/**
+	 * @param schooling The schooling to set.
+	 */
+	public void setSchooling(ArrayList<String> schooling) {
+		this.schooling = schooling;
+	}
+
+	/**
+	 * @return Returns the secondLanguage.
+	 */
+	public LanguageEnum getSecondLanguage() {
+		return secondLanguage;
+	}
+
+	/**
+	 * @param secondLanguage The secondLanguage to set.
+	 */
+	public void setSecondLanguage(LanguageEnum secondLanguage) {
+		this.secondLanguage = secondLanguage;
+	}
+
+	/**
+	 * @return Returns the teacherTutor.
+	 */
+	public TeacherTutor getTeacherTutor() {
+		return teacherTutor;
+	}
+
+	/**
+	 * @param teacherTutor The teacherTutor to set.
+	 */
+	public void setTeacherTutor(TeacherTutor teacherTutor) {
+		this.teacherTutor = teacherTutor;
+	}
+
+	/**
+	 * @return Returns the year.
+	 */
+	public Integer getYear() {
+		return year;
+	}
+
+	/**
+	 * @param year The year to set.
+	 */
+	public void setYear(Integer year) {
+		this.year = year;
+	}
+
+
 }
