@@ -5,8 +5,6 @@ import java.util.Calendar;
 import java.util.Collection;
 import java.util.GregorianCalendar;
 
-import org.hibernate.type.EntityType;
-
 import fr.umlv.ir3.emagine.util.base.BaseDAOTest;
 import fr.umlv.ir3.emagine.util.search.SearchParams;
 import fr.umlv.ir3.emagine.util.search.SearchParamsImpl;
