@@ -149,7 +149,7 @@ public class BaseDAO<EntityType extends BaseEntity> {
 		for (String field : searchParams.getFields()) {
 			// TODO : Optimiser avec des StringBuffer
 			queryString = queryString + (first == true ? "" : " and ") + " "
-					+ field + " = :" + field;
+					+ field + " like :" + field;
 			if (first == true) {
 				first = false;
 			}
