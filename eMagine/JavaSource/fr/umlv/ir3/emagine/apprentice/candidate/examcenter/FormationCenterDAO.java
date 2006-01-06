@@ -5,13 +5,17 @@ import java.util.List;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.base.BaseDAO;
 
+/**
+ * DAO For FormationCenter Data in Database
+ * @author Laurent
+ */
 public class FormationCenterDAO extends BaseDAO<FormationCenter> {
 
 	/**
 	 * Searches for the given formationCenterSearchParams
 	 * @param formationCenterSearchParams
-	 * @return
-	 * @throws EMagineException
+	 * @return FormationCenter's List
+	 * @throws EMagineException if error accurs during find
 	 */
 	public List<FormationCenter> find(FormationCenterSearchParams formationCenterSearchParams) throws EMagineException {
 		// TODO fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenterDAO.find(formationCenterSearchParams)

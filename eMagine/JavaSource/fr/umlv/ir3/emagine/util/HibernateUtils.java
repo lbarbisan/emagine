@@ -1,6 +1,8 @@
 package fr.umlv.ir3.emagine.util;
 
 
+import javax.persistence.CascadeType;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.EntityMode;
@@ -21,6 +23,7 @@ public class HibernateUtils {
     private static final SessionFactory sessionFactory;
     private static final ThreadLocal<Session> threadSession = new ThreadLocal<Session>();
     private static final ThreadLocal<Transaction> threadTransaction = new ThreadLocal<Transaction>();
+    public static final CascadeType[] ALL_NOREMOVE = {CascadeType.PERSIST,CascadeType.MERGE, CascadeType.MERGE};
     
     static {
         try {            

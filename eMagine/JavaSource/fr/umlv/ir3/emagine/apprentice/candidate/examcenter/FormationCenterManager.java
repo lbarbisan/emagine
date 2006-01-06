@@ -8,6 +8,10 @@ import fr.umlv.ir3.emagine.apprentice.candidate.room.Room;
 import fr.umlv.ir3.emagine.modification.EditableManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 
+/**
+ * @author eMagine Team
+ *
+ */
 public interface FormationCenterManager extends EditableManager<FormationCenter, FormationCenterDAO> {
 
 	/**
@@ -31,7 +35,7 @@ public interface FormationCenterManager extends EditableManager<FormationCenter,
 	/**
 	 * Removes the given rooms from the given formationCenter
 	 * @param formationCenter
-	 * @param room
+	 * @param rooms 
 	 * @throws EMagineException throws if an SQLException occures
 	 */
 	public abstract void removeRooms(FormationCenter formationCenter,
@@ -40,7 +44,7 @@ public interface FormationCenterManager extends EditableManager<FormationCenter,
 	/**
 	 * Tries to fill the given formationCenter rooms with its candidates. Returns the candidates who are in one of the rooms.
 	 * @param formationCenter
-	 * @return
+	 * @return Candidate's List
 	 * @throws EMagineException
 	 */
 	public abstract List<Candidate> generateAttendanceSheet(
@@ -49,7 +53,7 @@ public interface FormationCenterManager extends EditableManager<FormationCenter,
 	/**
 	 * Searches for the given formationCenterSearchParams
 	 * @param formationCenterSearchParams
-	 * @return
+	 * @return Candidate's List
 	 * @throws EMagineException
 	 */
 	public abstract List<FormationCenter> find(
