@@ -79,18 +79,5 @@ public class RightDAOTest extends BaseDAOTest<Right> {
 		assertTrue(conditionCheck(entity1.getId(), entity2.getId()));
 		assertTrue(conditionCheck(entity1.getName(), entity2.getName()));
 	}
-
-	/**
-	 * Renvoi True si la condition est vérifier False Sinon
-	 * @param <ConditionnalEntityType>
-	 * @param Obj1 Première Object à Tester
-	 * @param Obj2 Deuxième Object à Tester
-	 * @return True si la condition est vérifier False Sinon
-	 */
-	private<ConditionnalEntityType> boolean conditionCheck(ConditionnalEntityType Obj1, ConditionnalEntityType Obj2)
-	{
-			return (!(Obj1!=null ^ Obj2!=null)) &&
-					((Obj1==null && Obj2==null) || 
-					Obj1.equals(Obj2));
-	}
+	
 }

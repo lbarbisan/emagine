@@ -155,4 +155,18 @@ public abstract class BaseDAOTest <EntityType extends BaseEntity> extends TestCa
 	protected abstract void updateEntity(EntityType entity);
 	protected abstract SearchParams createSearchParams();
 	protected abstract void compareEntity(EntityType entity1, EntityType entity2);
+	
+	/**
+	 * Renvoi True si la condition est vérifier False Sinon
+	 * @param <ConditionnalEntityType>
+	 * @param Obj1 Première Object à Tester
+	 * @param Obj2 Deuxième Object à Tester
+	 * @return True si la condition est vérifier False Sinon
+	 */
+	protected<ConditionnalEntityType> boolean conditionCheck(ConditionnalEntityType Obj1, ConditionnalEntityType Obj2)
+	{
+			return (!(Obj1!=null ^ Obj2!=null)) &&
+					((Obj1==null && Obj2==null) || 
+					Obj1.equals(Obj2));
+	}
 }

@@ -97,21 +97,4 @@ public class UserDAOTest extends BaseDAOTest<User> {
 		assertTrue(conditionCheck(entity1.getPassword(), entity2.getPassword()));
 		assertTrue(conditionCheck(entity1.getProfile(), entity2.getProfile()));
 	} 
-
-	
-	/**
-	 * Permet de tester l'égalité de deux objets, même si l'un deux ou les
-	 * deux est/sont null.
-	 * @param <ConditionnalEntityType> Type de l'objet à tester
-	 * @param Obj1 Première Object à Tester
-	 * @param Obj2 Deuxième Object à Tester
-	 * @return True si la condition est vérifier False Sinon
-	 */
-	private<ConditionnalEntityType> boolean conditionCheck(ConditionnalEntityType Obj1, ConditionnalEntityType Obj2)
-	{
-			return (!(Obj1!=null ^ Obj2!=null)) &&
-					((Obj1==null && Obj2==null) || 
-					Obj1.equals(Obj2));
-	}
-	
 }

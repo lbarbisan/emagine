@@ -86,18 +86,4 @@ public class ProfileDAOTest extends BaseDAOTest<Profile> {
 		assertTrue(conditionCheck(entity1.getRights(), entity2.getRights()));
 		assertTrue(conditionCheck(entity1.getUsers(), entity2.getUsers()));
 	}
-
-	/**
-	 * Renvoi True si la condition est vérifier False Sinon
-	 * @param <ConditionnalEntityType>
-	 * @param Obj1 Première Object à Tester
-	 * @param Obj2 Deuxième Object à Tester
-	 * @return True si la condition est vérifier False Sinon
-	 */
-	private<ConditionnalEntityType> boolean conditionCheck(ConditionnalEntityType Obj1, ConditionnalEntityType Obj2)
-	{
-			return (!(Obj1!=null ^ Obj2!=null)) &&
-					((Obj1==null && Obj2==null) || 
-					Obj1.equals(Obj2));
-	}
 }

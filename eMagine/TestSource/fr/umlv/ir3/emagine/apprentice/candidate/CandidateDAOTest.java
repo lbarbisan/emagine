@@ -1,5 +1,7 @@
 package fr.umlv.ir3.emagine.apprentice.candidate;
 
+
+
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -214,18 +216,5 @@ public class CandidateDAOTest extends BaseDAOTest<Candidate> {
 		assertTrue(conditionCheck(entity1.getNationality(), entity2.getNationality()));
 		assertTrue(conditionCheck(entity1.getPhone(), entity2.getPhone()));
 		assertTrue(conditionCheck(entity1.getSex(), entity2.getSex()));
-	}
-	/**
-	 * Renvoi True si la condition est vérifier False Sinon
-	 * @param <ConditionnalEntityType>
-	 * @param Obj1 Première Object à Tester
-	 * @param Obj2 Deuxième Object à Tester
-	 * @return True si la condition est vérifier False Sinon
-	 */
-	private<ConditionnalEntityType> boolean conditionCheck(ConditionnalEntityType Obj1, ConditionnalEntityType Obj2)
-	{
-			return (!(Obj1!=null ^ Obj2!=null)) &&
-					((Obj1==null && Obj2==null) || 
-					Obj1.equals(Obj2));
 	}
 }

@@ -2,6 +2,7 @@ package fr.umlv.ir3.emagine.teachertutor;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.GregorianCalendar;
 
 import fr.umlv.ir3.emagine.apprentice.CountryEnum;
 import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
@@ -55,6 +56,8 @@ public class TeacherTutorDAOTest extends BaseDAOTest<TeacherTutor> {
 		//teacherTutor.setApprentice();
 		teacherTutor.setBirthdayCity("city");
 		teacherTutor.setBirthdayCountry(CountryEnum.FR);
+		teacherTutor.setBirthdayDate(GregorianCalendar.getInstance().getTime());
+		teacherTutor.setBirthdayDepartment(DepartmentEnum.D01);
 		teacherTutor.setEmail("mail");
 		teacherTutor.setEvents(new ArrayList<Event>());
 		teacherTutor.setFax("fax");
@@ -92,6 +95,8 @@ public class TeacherTutorDAOTest extends BaseDAOTest<TeacherTutor> {
 		//teacherTutor.setApprentice();
 		teacherTutor1.setBirthdayCity("city");
 		teacherTutor1.setBirthdayCountry(CountryEnum.FR);
+		teacherTutor1.setBirthdayDate(GregorianCalendar.getInstance().getTime());
+		teacherTutor1.setBirthdayDepartment(DepartmentEnum.D01);
 		teacherTutor1.setEmail("mail");
 		teacherTutor1.setEvents(new ArrayList<Event>());
 		teacherTutor1.setFax("fax");
@@ -109,6 +114,8 @@ public class TeacherTutorDAOTest extends BaseDAOTest<TeacherTutor> {
 		//teacherTutor.setApprentice();
 		teacherTutor2.setBirthdayCity("city");
 		teacherTutor2.setBirthdayCountry(CountryEnum.FR);
+		teacherTutor2.setBirthdayDate(GregorianCalendar.getInstance().getTime());
+		teacherTutor2.setBirthdayDepartment(DepartmentEnum.D01);
 		teacherTutor2.setEmail("mail");
 		teacherTutor2.setEvents(new ArrayList<Event>());
 		teacherTutor2.setFax("fax");
@@ -180,18 +187,4 @@ public class TeacherTutorDAOTest extends BaseDAOTest<TeacherTutor> {
 		assertTrue(conditionCheck(entity1.getPhone(), entity2.getPhone()));
 		assertTrue(conditionCheck(entity1.getSex(), entity2.getSex()));
 	}
-	/**
-	 * Renvoi True si la condition est vérifier False Sinon
-	 * @param <ConditionnalEntityType>
-	 * @param Obj1 Première Object à Tester
-	 * @param Obj2 Deuxième Object à Tester
-	 * @return True si la condition est vérifier False Sinon
-	 */
-	private<ConditionnalEntityType> boolean conditionCheck(ConditionnalEntityType Obj1, ConditionnalEntityType Obj2)
-	{
-			return (!(Obj1!=null ^ Obj2!=null)) &&
-					((Obj1==null && Obj2==null) || 
-					Obj1.equals(Obj2));
-	}
-
 }

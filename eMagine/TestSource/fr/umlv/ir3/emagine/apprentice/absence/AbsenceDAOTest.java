@@ -82,18 +82,4 @@ public class AbsenceDAOTest extends BaseDAOTest<Absence> {
 		assertTrue(conditionCheck(abs1.getStartDate(),abs2.getStartDate()));
 	}
 	
-	/**
-	 * Permet de tester l'égaliter de deux objets, même si l'un deux ou les
-	 * deux sont null
-	 * @param <ConditionnalEntityType>
-	 * @param Obj1 Première Object à Tester
-	 * @param Obj2 Deuxième Object à Tester
-	 * @return True si la condition est vérifier False Sinon
-	 */
-	private<ConditionnalEntityType> boolean conditionCheck(ConditionnalEntityType Obj1, ConditionnalEntityType Obj2)
-	{
-			return (!(Obj1!=null ^ Obj2!=null)) &&
-					((Obj1==null && Obj2==null) || 
-					Obj1.equals(Obj2));
-	}
 }
