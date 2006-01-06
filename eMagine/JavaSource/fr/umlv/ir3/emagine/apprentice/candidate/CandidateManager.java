@@ -4,9 +4,11 @@ import java.util.Collection;
 import java.util.List;
 
 import fr.umlv.ir3.emagine.apprentice.Apprentice;
+import fr.umlv.ir3.emagine.security.MustHaveRights;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.base.EventableManager;
 
+@MustHaveRights("candidate")
 public interface CandidateManager extends EventableManager<Candidate, CandidateDAO> {
 	/**
 	 * Delete a list of candidates.

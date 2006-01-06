@@ -4,6 +4,7 @@ import fr.umlv.ir3.emagine.modification.EditableManager;
 import fr.umlv.ir3.emagine.security.MustHaveRights;
 import fr.umlv.ir3.emagine.util.EMagineException;
 
+@MustHaveRights("user")
 public interface UserManager
 	extends EditableManager<User, UserDAO> {
 
@@ -12,7 +13,6 @@ public interface UserManager
 	 * @param user the user to create
 	 * @throws EMagineException if the login already exists, or if there is an SQL exception
 	 */
-	@MustHaveRights("user.create")
 	public void create(User user) throws EMagineException;
 
 	/**
@@ -21,7 +21,6 @@ public interface UserManager
 	 * @param user the user to update
 	 * @throws EMagineException if the login already exists for another id, or if there is an SQL exception
 	 */
-	@MustHaveRights("user.update")
 	public void update(User user) throws EMagineException;
 
 	/**
@@ -30,7 +29,6 @@ public interface UserManager
 	 * @param force Force the deletion, even if the user is connected
 	 * @throws EMagineException if the user doesn't exist in the database, or if he or she is connected and the force switch is <code>false</code>
 	 */
-	@MustHaveRights("user.delete")
 	public void delete(User user, boolean force) throws EMagineException;
 
 	/**

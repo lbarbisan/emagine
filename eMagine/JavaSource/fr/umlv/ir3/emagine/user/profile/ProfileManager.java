@@ -1,8 +1,10 @@
 package fr.umlv.ir3.emagine.user.profile;
 
+import fr.umlv.ir3.emagine.security.MustHaveRights;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.base.BaseManager;
 
+@MustHaveRights("profile")
 public interface ProfileManager extends BaseManager<Profile, ProfileDAO> {
 
 	/**

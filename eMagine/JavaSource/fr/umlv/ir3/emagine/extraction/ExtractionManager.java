@@ -2,8 +2,11 @@ package fr.umlv.ir3.emagine.extraction;
 
 import java.util.List;
 
+import fr.umlv.ir3.emagine.security.MustHaveRights;
 import fr.umlv.ir3.emagine.util.base.BaseManager;
 
+@MustHaveRights("extraction")
+// FIXME : rappeler l'utilité de cette classe ?!
 public interface ExtractionManager extends BaseManager<Extraction, ExtractionDAO> {
 
 	/**

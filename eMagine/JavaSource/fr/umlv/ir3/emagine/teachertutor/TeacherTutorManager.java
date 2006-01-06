@@ -1,8 +1,10 @@
 package fr.umlv.ir3.emagine.teachertutor;
 
 import fr.umlv.ir3.emagine.apprentice.Apprentice;
+import fr.umlv.ir3.emagine.security.MustHaveRights;
 import fr.umlv.ir3.emagine.util.EMagineException;
 
+@MustHaveRights("teacherTutor")
 public interface TeacherTutorManager {
 
 	/**
@@ -11,6 +13,7 @@ public interface TeacherTutorManager {
 	 * @param teacherTutor teacher to add apprentice
 	 * @throws EMagineException if apprentice already exist
 	 */
+	@MustHaveRights("teacherTutor.update")
 	public abstract void addApprentice(Apprentice apprentice,
 			TeacherTutor teacherTutor) throws EMagineException;
 

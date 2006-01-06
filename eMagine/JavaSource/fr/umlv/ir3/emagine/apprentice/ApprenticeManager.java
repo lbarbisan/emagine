@@ -4,9 +4,11 @@ import java.util.Collection;
 import java.util.List;
 
 import fr.umlv.ir3.emagine.apprentice.absence.Absence;
+import fr.umlv.ir3.emagine.security.MustHaveRights;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.base.EventableManager;
 
+@MustHaveRights("apprentice")
 public interface ApprenticeManager extends EventableManager<Apprentice, ApprenticeDAO> {
 
 	/**
@@ -31,6 +33,7 @@ public interface ApprenticeManager extends EventableManager<Apprentice, Apprenti
 	 * @param absence
 	 * @throws EMagineException throws if an SQLException occures
 	 */
+	@MustHaveRights("apprentice.update")
 	public abstract void addAbsence(Apprentice apprentice, Absence absence)
 			throws EMagineException;
 
@@ -40,6 +43,7 @@ public interface ApprenticeManager extends EventableManager<Apprentice, Apprenti
 	 * @param absence
 	 * @throws EMagineException throws if an SQLException occures
 	 */
+	@MustHaveRights("apprentice.update")
 	public abstract void removeAbsence(Apprentice apprentice, Absence absence)
 			throws EMagineException;
 

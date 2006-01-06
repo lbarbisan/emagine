@@ -4,9 +4,11 @@ import java.util.Collection;
 import java.util.List;
 
 import fr.umlv.ir3.emagine.firm.actor.FirmActor;
+import fr.umlv.ir3.emagine.security.MustHaveRights;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.base.EventableManager;
 
+@MustHaveRights("firm")
 public interface FirmManager extends EventableManager<Firm, FirmDAO> {
 
 	/**
@@ -27,6 +29,7 @@ public interface FirmManager extends EventableManager<Firm, FirmDAO> {
 	 * @param job
 	 * @throws EMagineException
 	 */
+	@MustHaveRights("firm.update")
 	public abstract void addJob(Firm firm, Job job) throws EMagineException;
 
 	/**
@@ -35,6 +38,7 @@ public interface FirmManager extends EventableManager<Firm, FirmDAO> {
 	 * @param job
 	 * @throws EMagineException
 	 */
+	@MustHaveRights("firm.update")
 	public abstract void removeJob(Firm firm, Job job) throws EMagineException;
 
 	/**
@@ -43,6 +47,7 @@ public interface FirmManager extends EventableManager<Firm, FirmDAO> {
 	 * @param jobs
 	 * @throws EMagineException
 	 */
+	@MustHaveRights("firm.update")
 	public abstract void removeJobs(Firm firm, Collection<Job> jobs)
 			throws EMagineException;
 
@@ -52,6 +57,7 @@ public interface FirmManager extends EventableManager<Firm, FirmDAO> {
 	 * @param actor
 	 * @throws EMagineException
 	 */
+	@MustHaveRights("firm.update")
 	public abstract void addFirmActor(Firm firm, FirmActor actor)
 			throws EMagineException;
 
@@ -61,6 +67,7 @@ public interface FirmManager extends EventableManager<Firm, FirmDAO> {
 	 * @param actor
 	 * @throws EMagineException
 	 */
+	@MustHaveRights("firm.update")
 	public abstract void removeFirmActor(Firm firm, FirmActor actor)
 			throws EMagineException;
 
@@ -70,6 +77,7 @@ public interface FirmManager extends EventableManager<Firm, FirmDAO> {
 	 * @param actors
 	 * @throws EMagineException
 	 */
+	@MustHaveRights("firm.update")
 	public abstract void removeFirmActors(Firm firm,
 			Collection<FirmActor> actors) throws EMagineException;
 
