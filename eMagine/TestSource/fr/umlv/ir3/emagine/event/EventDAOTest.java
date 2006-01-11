@@ -79,6 +79,9 @@ public class EventDAOTest extends BaseDAOTest<Event> {
 		entity2.setTitle("title2");
 		entity2.setType(EventTypeEnum.MODIFY);
 		
+		list.add(entity1);
+		list.add(entity2);
+		
 		return list;
 	}
 
