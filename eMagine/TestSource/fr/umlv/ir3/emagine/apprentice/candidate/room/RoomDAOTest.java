@@ -5,7 +5,6 @@ import java.util.Collection;
 
 import fr.umlv.ir3.emagine.apprentice.candidate.Candidate;
 import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenter;
-import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.base.BaseDAO;
 import fr.umlv.ir3.emagine.util.base.BaseDAOTest;
 import fr.umlv.ir3.emagine.util.search.SearchParams;
