@@ -21,8 +21,7 @@ public class ApprenticeManagerImpl extends EventableManagerImpl<Apprentice, Appr
 		DAOManager.beginTransaction();
 		try {
 			apprentice.setExcluded(true);
-			ApprenticeDAO dao = getDAO();
-			dao.update(apprentice);
+			getDAO().update(apprentice);
 			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {
 			DAOManager.rollBackTransaction();
@@ -58,8 +57,7 @@ public class ApprenticeManagerImpl extends EventableManagerImpl<Apprentice, Appr
 		try {
 			List<Absence> absences = apprentice.getAbsences();
 			absences.add(absence);
-			ApprenticeDAO dao = getDAO();
-			dao.update(apprentice);
+			getDAO().update(apprentice);
 			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {
 			DAOManager.rollBackTransaction();
@@ -89,6 +87,8 @@ public class ApprenticeManagerImpl extends EventableManagerImpl<Apprentice, Appr
 	public void update(Apprentice apprentice) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
+			throw new EMagineException("exception.todo", "Initialiser l'event"); // TODO : le code commenté est bon, mais il faut initialiser l'évennement
+			/*
 			Apprentice oldApprentice = retrieve(apprentice.getId());
 			// Comparison of the teacherTutors
 			TeacherTutor teacherTutor = apprentice.getTeacherTutor();
@@ -119,7 +119,7 @@ public class ApprenticeManagerImpl extends EventableManagerImpl<Apprentice, Appr
 			
 			ApprenticeDAO dao = getDAO();
 			dao.update(apprentice);
-			DAOManager.commitTransaction();
+			DAOManager.commitTransaction();*/
 		} catch (EMagineException exception) {
 			DAOManager.rollBackTransaction();
 			throw exception;

@@ -56,8 +56,7 @@ public class FormationCenterManagerImpl extends EditableManagerImpl<FormationCen
 		try {
 			List<Room> centerRooms = formationCenter.getRooms();
 			centerRooms.removeAll(rooms);
-			FormationCenterDAO dao = getDAO();
-			dao.update(formationCenter);
+			getDAO().update(formationCenter);
 			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {
 			DAOManager.rollBackTransaction();

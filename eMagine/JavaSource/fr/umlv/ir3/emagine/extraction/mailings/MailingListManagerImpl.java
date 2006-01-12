@@ -22,11 +22,10 @@ public class MailingListManagerImpl extends EditableManagerImpl<MailingList, Mai
 	 */
 	public <PersonType extends Person> void addPerson(MailingList<PersonType> mailingList, PersonType person)
 	{
-		MailingListDAO mailingListDAO = getDAO();
 		DAOManager.beginTransaction();
 		try {
 			mailingList.getPersons().add(person);
-			mailingListDAO.update(mailingList);
+			getDAO().update(mailingList);
 			DAOManager.commitTransaction();
 		} catch (EMagineException e) {
 			DAOManager.rollBackTransaction();
@@ -39,11 +38,10 @@ public class MailingListManagerImpl extends EditableManagerImpl<MailingList, Mai
 	 */
 	public <PersonType extends Person> void addPersons(MailingList<PersonType> mailingList, Collection<PersonType> persons)
 	{
-		MailingListDAO mailingListDAO = getDAO();
 		DAOManager.beginTransaction();
 		try {
 			mailingList.getPersons().addAll(persons);
-			mailingListDAO.update(mailingList);
+			getDAO().update(mailingList);
 			DAOManager.commitTransaction();
 		} catch (EMagineException e) {
 			DAOManager.rollBackTransaction();
@@ -56,11 +54,10 @@ public class MailingListManagerImpl extends EditableManagerImpl<MailingList, Mai
 	 */
 	public <PersonType extends Person> void removePerson(MailingList<PersonType> mailingList, PersonType person)
 	{
-		MailingListDAO mailingListDAO = getDAO();
 		DAOManager.beginTransaction();
 		try {
 			mailingList.getPersons().remove(person);
-			mailingListDAO.update(mailingList);
+			getDAO().update(mailingList);
 			DAOManager.commitTransaction();
 		} catch (EMagineException e) {
 			DAOManager.rollBackTransaction();
@@ -73,11 +70,10 @@ public class MailingListManagerImpl extends EditableManagerImpl<MailingList, Mai
 	 */
 	public <PersonType extends Person> void removePersons(MailingList<PersonType> mailingList, Collection<PersonType> persons)
 	{
-		MailingListDAO mailingListDAO = getDAO();
 		DAOManager.beginTransaction();
 		try {
 			mailingList.getPersons().removeAll(persons);
-			mailingListDAO.update(mailingList);
+			getDAO().update(mailingList);
 			DAOManager.commitTransaction();
 		} catch (EMagineException e) {
 			DAOManager.rollBackTransaction();
@@ -86,20 +82,15 @@ public class MailingListManagerImpl extends EditableManagerImpl<MailingList, Mai
 
 	//TODO : Use case « Générer mailing »
 	/**
+	 * @throws EMagineException 
 	 * @see fr.umlv.ir3.emagine.extraction.mailings.MailingListManager#generateMailing(fr.umlv.ir3.emagine.extraction.mailings.MailingList, java.lang.String, java.lang.String, java.util.Collection)
 	 */
-	public void generateMailing(MailingList<? extends Person> mailingList, String object, String body, Collection<Attachment> attachments)
+	public void generateMailing(MailingList<? extends Person> mailingList, String object, String body, Collection<Attachment> attachments) throws EMagineException
 	{
-		String to = "";
+		// TODO : voir que faire en cas de l'envoie de la moitié des mails ...
 		for(Person user : mailingList.getPersons() )
 		{
-			to = user.getEmail() + ";";
-		}
-		try {
-			MailManager.sendMail(to, object, body, attachments);
-		} catch (EMagineException e) {
-			// TODO EMagineException.e Not Implemented
-			e.printStackTrace();
+			MailManager.sendMail(user.getEmail(), object, body, attachments);
 		}
 	}
 }

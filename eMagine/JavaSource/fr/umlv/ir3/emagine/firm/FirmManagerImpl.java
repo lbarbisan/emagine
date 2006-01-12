@@ -23,16 +23,24 @@ public class FirmManagerImpl extends EventableManagerImpl<Firm, FirmDAO> impleme
 	 */
 	@Override
 	public void update(Firm firm) throws EMagineException {
-		// Creates an event and associates it to this
-		Event event = new Event();
-		// TODO FirmManagerImpl.update Initialiser le event
-		addEvent(firm, event);
-		
-		super.update(firm);
-		// FIXME : manque les transactions
-		// TODO fr.umlv.ir3.emagine.firm.FirmManagerImpl.update(firm)
-		throw new EMagineException("exception.unimplementedMethod",
-				"fr.umlv.ir3.emagine.firm.FirmManagerImpl.update(firm)");
+		DAOManager.beginTransaction();
+		try {
+			// Creates an event and associates it to this
+			Event event = new Event();
+			// TODO FirmManagerImpl.update Initialiser le event
+			addEvent(firm, event);
+			
+			super.update(firm);
+			
+			DAOManager.commitTransaction();
+
+			// TODO fr.umlv.ir3.emagine.firm.FirmManagerImpl.update(firm)
+			throw new EMagineException("exception.unimplementedMethod",
+					"fr.umlv.ir3.emagine.firm.FirmManagerImpl.update(firm)");
+		} catch (EMagineException e) {
+			DAOManager.rollBackTransaction();
+			throw e;
+		}
 	}
 	
 	/**

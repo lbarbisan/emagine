@@ -13,10 +13,16 @@ public class TeacherTutorManagerImpl extends BaseManagerImpl<TeacherTutor, Teach
 	 * @see fr.umlv.ir3.emagine.teachertutor.TeacherTutorManager#addApprentice(fr.umlv.ir3.emagine.apprentice.Apprentice, fr.umlv.ir3.emagine.teachertutor.TeacherTutor)
 	 */
 	public void addApprentice(Apprentice apprentice , TeacherTutor teacherTutor) throws EMagineException {
-
-		List<Apprentice> apprentices = teacherTutor.getApprentice();
-		apprentices.add(apprentice);
-		update(teacherTutor);
+		DAOManager.beginTransaction();
+		try {
+			List<Apprentice> apprentices = teacherTutor.getApprentice();
+			apprentices.add(apprentice);
+			update(teacherTutor);
+			DAOManager.commitTransaction();
+		} catch (EMagineException e) {
+			DAOManager.rollBackTransaction();
+			throw e;
+		}
 	}
 	
 	@Override

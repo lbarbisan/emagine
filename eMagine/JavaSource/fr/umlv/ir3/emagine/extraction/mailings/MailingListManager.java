@@ -4,6 +4,7 @@ import java.util.Collection;
 
 import fr.umlv.ir3.emagine.modification.EditableManager;
 import fr.umlv.ir3.emagine.security.MustHaveRights;
+import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.person.Person;
 
 @MustHaveRights("mailingList")
@@ -32,6 +33,6 @@ public interface MailingListManager extends EditableManager<MailingList, Mailing
 	//TODO : Use case « Générer mailing »
 	public abstract void generateMailing(
 			MailingList<? extends Person> mailingList, String object,
-			String body, Collection<Attachment> attachments);
+			String body, Collection<Attachment> attachments) throws EMagineException;
 
 }
