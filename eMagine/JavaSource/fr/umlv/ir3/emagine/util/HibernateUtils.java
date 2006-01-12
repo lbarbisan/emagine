@@ -23,6 +23,7 @@ public class HibernateUtils {
     private static final SessionFactory sessionFactory;
     private static final ThreadLocal<Session> threadSession = new ThreadLocal<Session>();
     private static final ThreadLocal<Transaction> threadTransaction = new ThreadLocal<Transaction>();
+    private static final ThreadLocal<EditableInterceptor> threadInterceptor = new ThreadLocal<EditableInterceptor>();
     public static final CascadeType[] ALL_NOREMOVE = {CascadeType.PERSIST,CascadeType.MERGE, CascadeType.MERGE};
     
     static {
@@ -31,14 +32,14 @@ public class HibernateUtils {
         	Configuration cfg = new AnnotationConfiguration();
         	EditableInterceptor modificationInterceptor;
         	
-        	modificationInterceptor = ManagerManager.getInstance().getEditableManager().getModificationInterceptor();
+        	threadInterceptor.set(ManagerManager.getInstance().getEditableManager().getModificationInterceptor());
 
             //TODO : Hibernate - Trouver un moyen pour mettre le nom de fichier dans un fichier poroperties ou autre.
         	cfg.configure("fr/umlv/ir3/emagine/ressource/hibernate.cfg.xml")
-        	.setInterceptor(modificationInterceptor);
+        	.setInterceptor(threadInterceptor.get());
 
         	sessionFactory = cfg.buildSessionFactory(); 
-        	modificationInterceptor.setSessionFactory(sessionFactory);
+        	threadInterceptor.get().setSessionFactory(sessionFactory);
         	
         } catch (Throwable ex) {
             log.error("Initial SessionFactory creation failed.", ex);

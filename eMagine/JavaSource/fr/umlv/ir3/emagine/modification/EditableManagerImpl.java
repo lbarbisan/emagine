@@ -21,7 +21,7 @@ public class EditableManagerImpl<EntityType extends EditableEntity, EntityDAO ex
 	
 	private Log log = LogFactory.getLog(this.getClass());
 	
-	private EditableInterceptor modificationInterceptor = new EditableInterceptor();
+	private ThreadLocal<EditableInterceptor>  threadEditableInterceptor = new ThreadLocal<EditableInterceptor>();
 
 	/**
 	 * @see fr.umlv.ir3.emagine.modification.EditableManager#acceptAllModification(EntityType)
@@ -30,7 +30,7 @@ public class EditableManagerImpl<EntityType extends EditableEntity, EntityDAO ex
 		throws EMagineException {
 		DAOManager.beginTransaction();
 		log.debug("acceptAllModification for '" + entity.getCurrentModification() + "'");
-		modificationInterceptor.addAcceptedModifications(entity.getCurrentModification());
+		threadEditableInterceptor.get().addAcceptedModifications(entity.getCurrentModification());
 		try {
 			super.update(entity);
 			DAOManager.commitTransaction();
@@ -69,26 +69,26 @@ public class EditableManagerImpl<EntityType extends EditableEntity, EntityDAO ex
 
 	@Override
 	public void update(EntityType newEntity) throws EMagineException {
-		modificationInterceptor.setDirectWriteAllowed(true);
+		threadEditableInterceptor.get().setDirectWriteAllowed(true);
 		try
 		{
 			super.update(newEntity);
 		}
 		finally
 		{
-			modificationInterceptor.setDirectWriteAllowed(false);
+			threadEditableInterceptor.get().setDirectWriteAllowed(false);
 		}
 ;
 	}
 	
 	public void updateWithoutRights(EntityType newEntity) throws EMagineException {
 		
-		modificationInterceptor.setDirectWriteAllowed(false);
+		threadEditableInterceptor.get().setDirectWriteAllowed(false);
 		super.update(newEntity);
 		HibernateUtils.getSession().refresh(newEntity);
 	}
 
 	public EditableInterceptor getModificationInterceptor() {
-		return modificationInterceptor;
+		return threadEditableInterceptor.get();
 	}
 }
