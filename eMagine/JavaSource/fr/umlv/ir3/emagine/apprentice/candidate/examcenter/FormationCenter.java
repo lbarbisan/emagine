@@ -15,7 +15,6 @@ import fr.umlv.ir3.emagine.apprentice.candidate.Candidate;
 import fr.umlv.ir3.emagine.apprentice.candidate.room.Room;
 import fr.umlv.ir3.emagine.modification.EditableEntity;
 import fr.umlv.ir3.emagine.util.Address;
-import fr.umlv.ir3.emagine.util.HibernateUtils;
 
 /**
  * This class represent the Formation Center.
@@ -34,7 +33,7 @@ public class FormationCenter extends EditableEntity {
 	@OneToMany(cascade = {CascadeType.ALL},
 			mappedBy = "formationCenter")
 	private List<Room> rooms;
-	@OneToMany(cascade = HibernateUtils.ALL_NOREMOVE,
+	@OneToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE, CascadeType.REFRESH },
 			mappedBy = "formationCenter")
 	private List<Candidate> candidates;
 	

@@ -65,9 +65,11 @@ public class ManagerManager {
 	 * @throws EMagineException if the security filter has not been initialized
 	 */
 	public ManagerManager() throws EMagineException {
+		
 		//FIXME: remetre la ligne commenttée
 		//userManager = new SecurityProxy<UserManager>(new UserManagerImpl()).getProxy();
 		userManager = new UserManagerImpl();
+		
 		profileManager = new ProfileManagerImpl();
 		extractionManager = new ExtractionManagerImpl();
 		teacherTutorManager = new TeacherTutorManagerImpl();
@@ -79,7 +81,9 @@ public class ManagerManager {
 		candidateManager = new CandidateManagerImpl();
 		apprenticeManager = new ApprenticeManagerImpl();
 		editableManager = new EditableManagerImpl();
-		absenceManager = new SecurityProxy<AbsenceManager>(new AbsenceManagerImpl()).getProxy();
+		
+		//FIXME: remetre la ligne commenttée
+		//absenceManager = new SecurityProxy<AbsenceManager>(new AbsenceManagerImpl()).getProxy();
 	}
 	
 	/**

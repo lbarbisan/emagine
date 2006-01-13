@@ -24,7 +24,6 @@ public class HibernateUtils {
     private static final ThreadLocal<Session> threadSession = new ThreadLocal<Session>();
     private static final ThreadLocal<Transaction> threadTransaction = new ThreadLocal<Transaction>();
     private static final ThreadLocal<EditableInterceptor> threadInterceptor = new ThreadLocal<EditableInterceptor>();
-    public static final CascadeType[] ALL_NOREMOVE = {CascadeType.PERSIST,CascadeType.MERGE, CascadeType.MERGE};
     
     static {
         try {            
