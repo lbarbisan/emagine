@@ -22,6 +22,15 @@ public class EditableManagerImpl<EntityType extends EditableEntity, EntityDAO ex
 	private Log log = LogFactory.getLog(this.getClass());
 	
 	private ThreadLocal<EditableInterceptor>  threadEditableInterceptor = new ThreadLocal<EditableInterceptor>();
+	
+	/**
+	 *  constructor
+	 */
+	public EditableManagerImpl()
+	{
+		super();
+		threadEditableInterceptor.set(new EditableInterceptor());
+	}
 
 	/**
 	 * @see fr.umlv.ir3.emagine.modification.EditableManager#acceptAllModification(EntityType)
