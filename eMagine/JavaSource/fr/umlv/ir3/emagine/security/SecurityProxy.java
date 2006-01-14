@@ -5,10 +5,16 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
+import org.apache.catalina.realm.JDBCRealm;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.securityfilter.realm.SecurityRealmInterface;
+import org.securityfilter.realm.catalina.CatalinaRealmAdapter;
 
 import fr.umlv.ir3.emagine.modification.EditableEntity;
+import fr.umlv.ir3.emagine.util.Config;
 import fr.umlv.ir3.emagine.util.EMagineException;
 
 public class SecurityProxy<Type> implements InvocationHandler {
@@ -17,6 +23,11 @@ public class SecurityProxy<Type> implements InvocationHandler {
 	private Object proxy;
 	private SessionManager sessionManager;
 	
+	/**
+	 * Log for java
+	 */
+	private Log log = LogFactory.getLog(SecurityProxy.class);
+
 	
 	/**
 	 * 
@@ -27,7 +38,50 @@ public class SecurityProxy<Type> implements InvocationHandler {
 		this.object = object;
 		this.proxy = Proxy.newProxyInstance(object.getClass().getClassLoader(),
 				object.getClass().getInterfaces(), this);
-		this.realm = EmagineSecurityFilter.getInstance().getRealm();
+		
+		// If we don't want the securityFilter, for test for example, instanciate a JDBCRealm instead.
+		ResourceBundle bundle = Config.getResourceBundle();
+		String securityRealm = bundle.getString("security.SecurityProxy.securityFilterRealm");
+		
+		if("properties".equals(securityRealm)) {
+			JDBCRealm realm = new JDBCRealm();
+			realm.setDriverName(bundle.getString("security.SecurityProxy.driverName"));
+			realm.setConnectionURL(bundle.getString("security.SecurityProxy.connectionURL"));
+			realm.setConnectionName(bundle.getString("security.SecurityProxy.connectionName"));
+			realm.setConnectionPassword(bundle.getString("security.SecurityProxy.connectionPassword"));
+			realm.setUserTable(bundle.getString("security.SecurityProxy.userTable"));
+			realm.setUserNameCol(bundle.getString("security.SecurityProxy.userNameCol"));
+			realm.setUserCredCol(bundle.getString("security.SecurityProxy.userCredCol"));
+			realm.setUserRoleTable(bundle.getString("security.SecurityProxy.userRoleTable"));
+			realm.setRoleNameCol(bundle.getString("security.SecurityProxy.roleNameCol"));
+			
+			CatalinaRealmAdapter realmAdapter = new CatalinaRealmAdapter();
+			realmAdapter.setRealm(realm);
+			this.realm = realmAdapter;
+			
+		} else if ("none".equals(securityRealm)) {
+			this.realm = new SecurityRealmInterface() {
+				final class StringPrincipal implements Principal {
+					String name;
+					public StringPrincipal(String name) {
+						this.name = name;
+					}
+					public String getName() {
+						return name;
+					}
+				};
+				public Principal authenticate(String username, String password) {
+					log.debug("authenticate : "+username+" / "+password);
+					return new StringPrincipal(username);
+				}
+				public boolean isUserInRole(Principal principal, String rolename) {
+					log.debug("isUserInRole : "+(principal != null ? principal.getName() : "[principal_null]")+" / "+rolename);
+					return true;
+				}
+			};
+		} else {
+			this.realm = EmagineSecurityFilter.getInstance().getRealm();
+		}
 		this.sessionManager = SessionManager.getInstance();
 	}
 	
@@ -49,7 +103,7 @@ public class SecurityProxy<Type> implements InvocationHandler {
 			for (String right : classRights.value()) {
 				rightList.add(right+"."+method.getName());
 			}
-			rights = rightList.toArray(rights);
+			rights = rightList.toArray(new String[rightList.size()]);
 		} else if (methodRights != null) {
 			rights = methodRights.value();
 		}

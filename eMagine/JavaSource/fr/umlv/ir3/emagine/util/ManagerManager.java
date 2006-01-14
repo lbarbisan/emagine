@@ -3,7 +3,6 @@ package fr.umlv.ir3.emagine.util;
 import fr.umlv.ir3.emagine.apprentice.ApprenticeManager;
 import fr.umlv.ir3.emagine.apprentice.ApprenticeManagerImpl;
 import fr.umlv.ir3.emagine.apprentice.absence.AbsenceManager;
-import fr.umlv.ir3.emagine.apprentice.absence.AbsenceManagerImpl;
 import fr.umlv.ir3.emagine.apprentice.candidate.CandidateManager;
 import fr.umlv.ir3.emagine.apprentice.candidate.CandidateManagerImpl;
 import fr.umlv.ir3.emagine.event.EventManager;
@@ -68,20 +67,34 @@ public class ManagerManager {
 		
 		//FIXME: remetre la ligne commenttée
 		//userManager = new SecurityProxy<UserManager>(new UserManagerImpl()).getProxy();
-		userManager = new UserManagerImpl();
+//		userManager = new UserManagerImpl();
+//		
+//		profileManager = new ProfileManagerImpl();
+//		extractionManager = new ExtractionManagerImpl();
+//		teacherTutorManager = new TeacherTutorManagerImpl();
+//		firmManager = new FirmManagerImpl();
+//		eventManager = new EventManagerImpl();
+//		mailingListManager = new MailingListManagerImpl();
+//		mailingTypeManager = new MailingTypeManagerImpl();
+//		massMailingManager = new MassMailingManagerImpl();
+//		candidateManager = new CandidateManagerImpl();
+//		apprenticeManager = new ApprenticeManagerImpl();
+//		editableManager = new EditableManagerImpl();
+
+		userManager = new SecurityProxy<UserManager>(new UserManagerImpl()).getProxy();
 		
-		profileManager = new ProfileManagerImpl();
-		extractionManager = new ExtractionManagerImpl();
-		teacherTutorManager = new TeacherTutorManagerImpl();
-		firmManager = new FirmManagerImpl();
-		eventManager = new EventManagerImpl();
-		mailingListManager = new MailingListManagerImpl();
-		mailingTypeManager = new MailingTypeManagerImpl();
-		massMailingManager = new MassMailingManagerImpl();
-		candidateManager = new CandidateManagerImpl();
-		apprenticeManager = new ApprenticeManagerImpl();
+		profileManager = new SecurityProxy<ProfileManagerImpl>(new ProfileManagerImpl()).getProxy();
+		extractionManager = new SecurityProxy<ExtractionManagerImpl>(new ExtractionManagerImpl()).getProxy();
+		teacherTutorManager = new SecurityProxy<TeacherTutorManagerImpl>(new TeacherTutorManagerImpl()).getProxy();
+		firmManager = new SecurityProxy<FirmManagerImpl>(new FirmManagerImpl()).getProxy();
+		eventManager = new SecurityProxy<EventManagerImpl>(new EventManagerImpl()).getProxy();
+		mailingListManager = new SecurityProxy<MailingListManagerImpl>(new MailingListManagerImpl()).getProxy();
+		mailingTypeManager = new SecurityProxy<MailingTypeManagerImpl>(new MailingTypeManagerImpl()).getProxy();
+		massMailingManager = new SecurityProxy<MassMailingManagerImpl>(new MassMailingManagerImpl()).getProxy();
+		candidateManager = new SecurityProxy<CandidateManagerImpl>(new CandidateManagerImpl()).getProxy();
+		apprenticeManager = new SecurityProxy<ApprenticeManagerImpl>(new ApprenticeManagerImpl()).getProxy();
 		editableManager = new EditableManagerImpl();
-		
+
 		//FIXME: remetre la ligne commenttée
 		//absenceManager = new SecurityProxy<AbsenceManager>(new AbsenceManagerImpl()).getProxy();
 	}

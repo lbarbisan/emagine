@@ -117,7 +117,9 @@ public class BaseDAO<EntityType extends BaseEntity> {
 	public void delete(Collection<EntityType> objects) throws EMagineException {
 		try {
 			Session session = HibernateUtils.getSession();
-			session.delete(objects);
+			for (EntityType object : objects) {
+				session.delete(object);
+			}
 		} catch (HibernateException exception) {
 			throw new EMagineException("exception.baseDAO.delete", exception);
 		}
@@ -144,7 +146,7 @@ public class BaseDAO<EntityType extends BaseEntity> {
 		boolean first = true;
 		String queryString;
 
-		queryString = "From " + getEntityClass().getName()
+		queryString = "From " + getEntityClass().getSimpleName()
 				+ (searchParams.getFields().size() == 0 ? "" : " where");
 		for (String field : searchParams.getFields()) {
 			// TODO : Optimiser avec des StringBuffer
@@ -170,7 +172,7 @@ public class BaseDAO<EntityType extends BaseEntity> {
 	 */
 	public List<EntityType> findAll() throws EMagineException {
 		List<EntityType> foundResults = (List<EntityType>) HibernateUtils
-				.getSession().createQuery("from "+getEntityClass().getName()).list();
+				.getSession().createQuery("from "+getEntityClass().getSimpleName()).list();
 		if (foundResults.size() <= 0) {
 			return null;
 		}

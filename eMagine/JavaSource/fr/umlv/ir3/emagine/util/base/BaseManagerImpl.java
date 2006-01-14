@@ -30,8 +30,7 @@ public abstract class BaseManagerImpl
 	public void create(EntityType entity) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
-			EntityDAO dao = getDAO();
-			dao.create(entity);
+			getDAO().create(entity);
 			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {
 			DAOManager.rollBackTransaction();
@@ -44,12 +43,7 @@ public abstract class BaseManagerImpl
 	 */
 	public EntityType retrieve(long id) throws EMagineException
 	{
-		try {
-			EntityDAO dao = getDAO();
-			return dao.retrieve(id);
-		} catch (EMagineException exception) {
-			throw exception;
-		}
+		return getDAO().retrieve(id);
 	}
 	
 
@@ -59,8 +53,7 @@ public abstract class BaseManagerImpl
 	public void update(EntityType newEntity) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
-			EntityDAO dao =  getDAO();
-			dao.update(newEntity);
+			getDAO().update(newEntity);
 			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {
 			DAOManager.rollBackTransaction();
@@ -74,8 +67,7 @@ public abstract class BaseManagerImpl
 	public void delete(EntityType entity) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
-			EntityDAO dao = getDAO();
-			dao.delete(entity);
+			getDAO().delete(entity);
 			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {
 			DAOManager.rollBackTransaction();

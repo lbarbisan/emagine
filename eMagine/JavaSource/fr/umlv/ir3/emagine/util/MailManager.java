@@ -52,14 +52,16 @@ public class MailManager {
 			mbp.setText(body);
 			mp.addBodyPart(mbp);
 			
-			for (Attachment attachment : attachments) {
-				// Adds an attachment
-				MimeBodyPart mbpFile = new MimeBodyPart();
-				mbpFile.setText("Attachement " + attachment.getName());
-				FileDataSource fds = new FileDataSource(attachment.getPath());
-				mbpFile.setDataHandler(new DataHandler(fds));
-				mbpFile.setFileName(attachment.getName());
-				mp.addBodyPart(mbpFile);
+			if (attachments != null) {
+				for (Attachment attachment : attachments) {
+					// Adds an attachment
+					MimeBodyPart mbpFile = new MimeBodyPart();
+					mbpFile.setText("Attachement " + attachment.getName());
+					FileDataSource fds = new FileDataSource(attachment.getPath());
+					mbpFile.setDataHandler(new DataHandler(fds));
+					mbpFile.setFileName(attachment.getName());
+					mp.addBodyPart(mbpFile);
+				}
 			}
 			
 			// Links the body with the mail

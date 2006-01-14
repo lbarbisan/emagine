@@ -1,8 +1,6 @@
 package fr.umlv.ir3.emagine.util;
 
 
-import javax.persistence.CascadeType;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.EntityMode;
@@ -31,6 +29,7 @@ public class HibernateUtils {
         	Configuration cfg = new AnnotationConfiguration();
         	EditableInterceptor modificationInterceptor;
         	
+        	//TODO : Pourquoi un editableManager générique ? Un peu porki non ? - Anthony
         	threadInterceptor.set(ManagerManager.getInstance().getEditableManager().getModificationInterceptor());
 
             //TODO : Hibernate - Trouver un moyen pour mettre le nom de fichier dans un fichier poroperties ou autre.
