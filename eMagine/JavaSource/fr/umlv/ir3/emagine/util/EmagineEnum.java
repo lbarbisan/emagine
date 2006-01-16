@@ -5,20 +5,23 @@ package fr.umlv.ir3.emagine.util;
 
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.persistence.AccessType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
 import fr.umlv.ir3.emagine.util.base.BaseEntity;
+import fr.umlv.ir3.emagine.util.search.SearchParamsImpl;
 
 /**
  * @author lbarbisan
  *
  */
 @Entity(access = AccessType.FIELD)
-public class EmagineEnum extends BaseEntity implements Serializable{
+public class EmagineEnum<EntityType extends EmagineEnum<EntityType>> extends BaseEntity implements Serializable{
 
 	// S T A T I C
 	@ManyToOne
@@ -34,12 +37,31 @@ public class EmagineEnum extends BaseEntity implements Serializable{
 	}
 	
 	// I N S T A N C E S
+	@Column(unique = true, nullable = false)
 	private final String name;
-
+	
 	protected EmagineEnum(String name)
 	{
+		SearchParamsImpl searchParamsImpl = new SearchParamsImpl();
+		searchParamsImpl.setField("name", name);
+		
 		this.name = name;
-		list.put(name, this);
+
+		DAOManager.beginTransaction();
+		
+		try {
+			List<EmagineEnum> DBlist =  DAOManager.getInstance().getEmagineEnumDAO().find(searchParamsImpl);
+			if(DBlist.isEmpty())
+			{
+				DAOManager.getInstance().getEmagineEnumDAO().create(this);
+				list.put(name, this);
+			}
+		} catch (EMagineException e) {
+			// TODO Emagine Enum a catch
+		}
+		
+		DAOManager.commitTransaction();
+		
 	}	
 	public String getName()
 	{

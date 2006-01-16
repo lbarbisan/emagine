@@ -21,23 +21,23 @@ public class HibernateUtils {
     private static final SessionFactory sessionFactory;
     private static final ThreadLocal<Session> threadSession = new ThreadLocal<Session>();
     private static final ThreadLocal<Transaction> threadTransaction = new ThreadLocal<Transaction>();
-    private static final ThreadLocal<EditableInterceptor> threadInterceptor = new ThreadLocal<EditableInterceptor>();
+    private static final EditableInterceptor editableInterceptor = new EditableInterceptor();
     
     static {
         try {            
         	
         	Configuration cfg = new AnnotationConfiguration();
-        	EditableInterceptor modificationInterceptor;
+        	//EditableInterceptor modificationInterceptor = new EditableInterceptor();
         	
         	//TODO : Pourquoi un editableManager générique ? Un peu porki non ? - Anthony
-        	threadInterceptor.set(ManagerManager.getInstance().getEditableManager().getModificationInterceptor());
+        	//modificationInterceptor =  ManagerManager.getInstance().getEditableManager().getModificationInterceptor();
 
             //TODO : Hibernate - Trouver un moyen pour mettre le nom de fichier dans un fichier poroperties ou autre.
         	cfg.configure("fr/umlv/ir3/emagine/ressource/hibernate.cfg.xml")
-        	.setInterceptor(threadInterceptor.get());
+        	.setInterceptor(editableInterceptor);
 
         	sessionFactory = cfg.buildSessionFactory(); 
-        	threadInterceptor.get().setSessionFactory(sessionFactory);
+        	editableInterceptor.setSessionFactory(sessionFactory);
         	
         } catch (Throwable ex) {
             log.error("Initial SessionFactory creation failed.", ex);
@@ -135,6 +135,10 @@ public class HibernateUtils {
     	ClassMetadata classMetadata = sessionFactory.getClassMetadata(entity.getClass());
     	return classMetadata.getPropertyNames();
     }
+
+	public static EditableInterceptor getEditableInterceptor() {
+		return editableInterceptor;
+	}
 
 
     //TODO : Supprimer cette si elle ne sert pas 

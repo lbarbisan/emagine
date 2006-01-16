@@ -15,6 +15,7 @@ import fr.umlv.ir3.emagine.firm.JobDAO;
 import fr.umlv.ir3.emagine.firm.actor.EngineerTutorDAO;
 import fr.umlv.ir3.emagine.firm.actor.FirmActorDAO;
 import fr.umlv.ir3.emagine.modification.EditableDAO;
+import fr.umlv.ir3.emagine.security.EmagineAuthenticatorFactory;
 import fr.umlv.ir3.emagine.statistic.StatisticDAO;
 import fr.umlv.ir3.emagine.teachertutor.TeacherTutorDAO;
 import fr.umlv.ir3.emagine.user.UserDAO;
@@ -46,6 +47,7 @@ public class DAOManager {
 	private MailingListDAO mailingListDAO = new MailingListDAO();
 	private MailingTypeDAO mailingTypeDAO = new MailingTypeDAO();
 	private MassMailingDAO massMailingDAO = new MassMailingDAO();
+	private EmagineEnumDAO emagineEnumDAO = new EmagineEnumDAO();
 	private BaseDAO<BaseEntity> baseDAO = new BaseDAO<BaseEntity>();
 	
 	
@@ -147,5 +149,11 @@ public class DAOManager {
      */
 	public static void closeSession() {
 		HibernateUtils.closeSession();
+	}
+	public EmagineEnumDAO getEmagineEnumDAO() {
+		return emagineEnumDAO;
+	}
+	public void setEmagineEnumDAO(EmagineEnumDAO emagineEnumDAO) {
+		this.emagineEnumDAO = emagineEnumDAO;
 	}
 }

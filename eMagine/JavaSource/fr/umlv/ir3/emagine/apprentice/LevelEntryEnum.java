@@ -1,6 +1,16 @@
 package fr.umlv.ir3.emagine.apprentice;
 
-public enum LevelEntryEnum {
-	BAC0,
-	BAC2
+import javax.persistence.AccessType;
+import javax.persistence.Entity;
+
+import fr.umlv.ir3.emagine.util.EmagineEnum;
+
+@Entity(access = AccessType.FIELD)
+public class LevelEntryEnum extends EmagineEnum<LevelEntryEnum> {
+
+	private static final long serialVersionUID = -3760839927504476550L;
+	
+	protected LevelEntryEnum(String string) {
+		super(string);
+	}
 }

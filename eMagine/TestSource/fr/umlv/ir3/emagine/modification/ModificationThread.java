@@ -16,43 +16,27 @@ import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.ManagerManager;
 import fr.umlv.ir3.emagine.util.search.SearchParamsImpl;
 
-public class EditableInterceptorTest extends TestCase {
+public class ModificationThread implements Runnable {
 
 	private static UserDAO userDao;
 	private static User user;
 	
 	private Log log = LogFactory.getLog(EditableInterceptorTest.class);
 	
-	/*
-	 * Test method for 'fr.umlv.ir3.emagine.modification.ModificationInterceptor.onFlushDirty(Object, Serializable, Object[], Object[], String[], Type[])'
-	 */
-	public void testOnFlushDirtyObjectSerializableObjectArrayObjectArrayStringArrayTypeArray() throws EMagineException {
-		
-		EditableInterceptor editableInterceptor =  ManagerManager.getInstance().getEditableManager().getModificationInterceptor();
+	public void run() {
 
-		editableInterceptor.setDirectWriteAllowed(false);
+		EditableInterceptor editableInterceptor;
+		try {
+		editableInterceptor = ManagerManager.getInstance().getEditableManager().getModificationInterceptor();
 		
-//		Thread thread = new Thread(new ModificationThread());
-//		thread.run();
-//		
-//		try {
-//			Thread.sleep(5000);
-//		} catch (InterruptedException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		editableInterceptor.setDirectWriteAllowed(true);
 		
-		System.out.println(editableInterceptor.isDirectWriteAllowed());
-		 
 		SearchParamsImpl searchParams = new SearchParamsImpl();
 		userDao = DAOManager.getInstance().getUserDAO();
 		
 		searchParams.setField("FirstName", "Laurent");
 		List<User> lists= userDao.find(searchParams);	
 		user = lists.get(0);
-		user.getProfile().setName("Profile2");
-
-		assertNotNull(user);
 
 		/* Generate password */
 		char[] password = new char[10];
@@ -69,13 +53,13 @@ public class EditableInterceptorTest extends TestCase {
 		DAOManager.beginTransaction();
 		userDao.update(user);
 		DAOManager.commitTransaction();
-		System.out.println(user.getPassword());
 		log.debug("Test accept modification");
 		
-		/* Accepte les modification du password */
-		//FIXME : A repasser en mode Normal avec la sécurité standard
-		editableInterceptor.setDirectWriteAllowed(true);
-		ManagerManager.getInstance().getEditableManager().acceptAllModification(user);
-		
+		} catch (EMagineException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
+
 }

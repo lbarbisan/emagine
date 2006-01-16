@@ -22,7 +22,8 @@
  		<mapping package="fr.umlv.ir3.emagine.base"/> 
 		<mapping class="fr.umlv.ir3.emagine.util.base.BaseEntity"/>
 		<mapping class="fr.umlv.ir3.emagine.util.base.EventableEntity"/>
-  			
+		<mapping class="fr.umlv.ir3.emagine.util.EmagineEnum"/>
+
  		<mapping package="fr.umlv.ir3.emagine.Person"/> 
 		<mapping class="fr.umlv.ir3.emagine.util.person.Person"/>
 		<mapping class="fr.umlv.ir3.emagine.util.Address"/>
@@ -36,6 +37,11 @@
 		<mapping package="fr.umlv.ir3.emagine.apprentice"/> 
 		<mapping class="fr.umlv.ir3.emagine.apprentice.Apprentice"/> 
 		<mapping class="fr.umlv.ir3.emagine.apprentice.Contact"/>
+		<mapping class="fr.umlv.ir3.emagine.apprentice.DefaultAddressEnum"/>
+		<mapping class="fr.umlv.ir3.emagine.apprentice.DepartmentEnum"/>
+		<mapping class="fr.umlv.ir3.emagine.apprentice.CountryEnum"/>
+		
+
 		<mapping package="fr.umlv.ir3.emagine.apprentice.candidate"/> 
 		<mapping class="fr.umlv.ir3.emagine.apprentice.candidate.Candidate"/>
  				

@@ -28,28 +28,27 @@ public class EditableInterceptor extends EmptyInterceptor {
 	/**
 	 * Log for java
 	 */
-	private Log log = LogFactory.getLog(EditableInterceptor.class);
+	private final Log log = LogFactory.getLog(EditableInterceptor.class);
+	/**
+	 * List of 'asking for' modification. The modification will be saved on post flush event
+	 */
+	private final Map<Serializable, Modification> modifications = new HashMap<Serializable, Modification>();
+	/**
+	 * List of accepted modification
+	 */
+	private final Map<Long, List<Modification>> acceptedModifications = new HashMap<Long, List<Modification>>();
+	/**
+	 * List of Field modification
+	 */
+	private final Map<Long, Modification> acceptedFieldModifications = new HashMap<Long, Modification>();
+	/**
+	 * flag de mise à jour des
+	 */
+	private final ThreadLocal<Boolean> directWriteAllowed = new ThreadLocal<Boolean>();
 	/**
 	 * Current session factory
 	 */
 	private SessionFactory sessionFactory;
-	/**
-	 * List of 'asking for' modification. The modification will be saved on post flush event
-	 */
-	private Map<Serializable, Modification> modifications = new HashMap<Serializable, Modification>();
-	/**
-	 * List of accepted modification
-	 */
-	private Map<Long, List<Modification>> acceptedModifications = new HashMap<Long, List<Modification>>();
-	/**
-	 * List of Field modification
-	 */
-	private Map<Long, Modification> acceptedFieldModifications = new HashMap<Long, Modification>();
-	
-	/**
-	 * 
-	 */
-	private boolean directWriteAllowed = false;
 
 	/**
 	 * @param sessionFactory The sessionFactory to set.
@@ -60,6 +59,11 @@ public class EditableInterceptor extends EmptyInterceptor {
 			log.warn("sessionFactory has been set to null");
 		}
 		this.sessionFactory = sessionFactory;
+	}
+	
+	public EditableInterceptor()
+	{
+		directWriteAllowed.set(true);
 	}
 	
 	//TODO : passer par une fonction au lieu de deux
@@ -219,7 +223,7 @@ public class EditableInterceptor extends EmptyInterceptor {
 			//Vérifie que l'objet est bien un objet persitant modifiable et que l'utilisateur à les droits
 			if (entity instanceof EditableEntity) 
 			{
-				if(directWriteAllowed==false)
+				if(directWriteAllowed.get()==false)
 				{
 					//créer les demande de modifications
 					createModification((EditableEntity)entity,id, currentState, previousState, propertyNames);
@@ -238,13 +242,13 @@ public class EditableInterceptor extends EmptyInterceptor {
 	 * @return Returns the saveModification.
 	 */
 	public boolean isDirectWriteAllowed() {
-		return directWriteAllowed;
+		return directWriteAllowed.get();
 	}
 
 	/**
 	 * @param directWriteAllow The directWriteAllow to set.
 	 */
 	public void setDirectWriteAllowed(boolean directWriteAllow) {
-		this.directWriteAllowed = directWriteAllow;
+		this.directWriteAllowed.set(directWriteAllow);
 	}
 }
