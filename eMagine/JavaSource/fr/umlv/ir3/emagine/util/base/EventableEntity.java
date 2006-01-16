@@ -22,12 +22,10 @@ public abstract class EventableEntity extends EditableEntity implements Serializ
 	
 	private static final long serialVersionUID = 15466724567987L;
 	
-    @ManyToMany(cascade={CascadeType.ALL},mappedBy="sources")
+    @ManyToMany(cascade={CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @OrderBy("date")
     private List<Event> events;
-
-    
-    
+ 
 	protected EventableEntity(List<Modification> modifications, List<Event> events) {
 		this.events = events;
 	}

@@ -107,12 +107,18 @@ public abstract class BaseDAOTest <EntityType extends BaseEntity> extends TestCa
 	 */
 	public void testFind() throws EMagineException {
 		Collection <EntityType> entitiesc = createEntityCollection();
+		
+		for(EntityType baseEntity : entitiesc)
+		{
+			getDAO().create(baseEntity);
+		}
+		
 		List <EntityType> entities = getDAO().find(createSearchParams());
 
 		assertEquals(entitiesc.size(),entities.size());
 		for (EntityType entity : entities) {
 			EntityType entity2 = getElement(entitiesc,entity);
-			assertNull(entity2);
+			assertNotNull(entity2);
 			compareEntity(entity2, entity);
 		}
 
@@ -126,12 +132,20 @@ public abstract class BaseDAOTest <EntityType extends BaseEntity> extends TestCa
 	 */
 	public void testFindAll() throws EMagineException {
 		Collection <EntityType> entitiesc = createEntityCollection();
+		
+		for(EntityType baseEntity : entitiesc)
+		{
+			getDAO().create(baseEntity);
+		}
+		
 		List <EntityType> entities = getDAO().findAll();
 
+		assertNotNull(entitiesc);
+		assertNotNull(entities);
 		assertEquals(entitiesc.size(),entities.size());
 		for (EntityType entity : entities) {
 			EntityType entity2 = getElement(entitiesc,entity);
-			assertNull(entity2);
+			assertNotNull(entity2);
 			compareEntity(entity2, entity);
 		}
 

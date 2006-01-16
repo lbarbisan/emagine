@@ -49,7 +49,7 @@ public class EventDAOTest extends BaseDAOTest<Event> {
 		entity.setDate(GregorianCalendar.getInstance().getTime());
 		entity.setSources(sources);
 		entity.setTitle("title");
-		entity.setType(EventTypeEnum.ADD);
+		entity.setType(EventTypeEnum.INFO);
 		return entity;
 	}
 
@@ -70,14 +70,14 @@ public class EventDAOTest extends BaseDAOTest<Event> {
 		entity1.setDate(GregorianCalendar.getInstance().getTime());
 		entity1.setSources(sources);
 		entity1.setTitle("title1");
-		entity1.setType(EventTypeEnum.ADD);
+		entity1.setType(EventTypeEnum.INFO);
 		
 		Event entity2 = new Event();
 		entity2.setComment("comment2");
 		entity2.setDate(GregorianCalendar.getInstance().getTime());
 		entity2.setSources(sources);
 		entity2.setTitle("title2");
-		entity2.setType(EventTypeEnum.MODIFY);
+		entity2.setType(EventTypeEnum.INFO);
 		
 		list.add(entity1);
 		list.add(entity2);
@@ -90,14 +90,14 @@ public class EventDAOTest extends BaseDAOTest<Event> {
 		entity.setComment("new comment");
 		entity.setDate(GregorianCalendar.getInstance().getTime());
 		entity.setTitle("new title");
-		entity.setType(EventTypeEnum.SEND);
+		entity.setType(EventTypeEnum.INFO);
 	}
 
 	@Override
 	protected SearchParams createSearchParams() {
 		SearchParamsImpl searchParams = new SearchParamsImpl();
-		searchParams.setField("title" , "title*");
-		searchParams.setField("comment" , "comment*");
+		searchParams.setField("title" , "title%");
+		searchParams.setField("comment" , "comment%");
 		return searchParams;
 	}
 

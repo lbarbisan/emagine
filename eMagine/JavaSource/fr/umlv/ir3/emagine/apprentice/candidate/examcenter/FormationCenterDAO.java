@@ -17,13 +17,13 @@ public class FormationCenterDAO extends BaseDAO<FormationCenter> {
 	 * @return FormationCenter's List
 	 * @throws EMagineException if error accurs during find
 	 */
-	public List<FormationCenter> find(FormationCenterSearchParams formationCenterSearchParams) throws EMagineException {
+/*	public List<FormationCenter> find(FormationCenterSearchParams formationCenterSearchParams) throws EMagineException {
 		// TODO fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenterDAO.find(formationCenterSearchParams)
 		throw new EMagineException(
 				"exception.unimplementedMethod",
-				"fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenterDAO.find(formationCenterSearchParams)");
+				"fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenterDAO.find(formationCenterSearchParams)");*/
 		/*
 		 * 	gérer les numberOfRooms et totalFreeSits
 		 */
-	}
+	//}
 }

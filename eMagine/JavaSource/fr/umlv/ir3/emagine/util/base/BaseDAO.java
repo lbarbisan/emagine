@@ -7,10 +7,13 @@ import java.lang.reflect.ParameterizedType;
 import java.util.Collection;
 import java.util.List;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
+import fr.umlv.ir3.emagine.modification.EditableInterceptor;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.HibernateUtils;
 import fr.umlv.ir3.emagine.util.search.SearchParams;
@@ -30,6 +33,9 @@ import fr.umlv.ir3.emagine.util.search.SearchParams;
  *            the type of object to manipulate.
  */
 public class BaseDAO<EntityType extends BaseEntity> {
+	
+	private Log log = LogFactory.getLog(BaseDAO.class);
+	
 	private Class EntityClass;
 
 	/**
@@ -171,8 +177,13 @@ public class BaseDAO<EntityType extends BaseEntity> {
 	 * @throws EMagineException throws if an SQLException occures
 	 */
 	public List<EntityType> findAll() throws EMagineException {
+		
+		String query = "from "+ getEntityClass().getSimpleName();
+		
+		log.debug("findall() for '" + query + "'");
+		
 		List<EntityType> foundResults = (List<EntityType>) HibernateUtils
-				.getSession().createQuery("from "+getEntityClass().getSimpleName()).list();
+				.getSession().createQuery(query).list();
 		if (foundResults.size() <= 0) {
 			return null;
 		}
