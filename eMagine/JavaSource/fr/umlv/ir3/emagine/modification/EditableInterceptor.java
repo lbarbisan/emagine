@@ -63,7 +63,9 @@ public class EditableInterceptor extends EmptyInterceptor {
 	
 	public EditableInterceptor()
 	{
+		log.debug("Constructor for" + directWriteAllowed);
 		directWriteAllowed.set(true);
+		log.debug("directWriteAllowed set to " + directWriteAllowed.get());
 	}
 	
 	//TODO : passer par une fonction au lieu de deux
@@ -223,6 +225,11 @@ public class EditableInterceptor extends EmptyInterceptor {
 			//Vérifie que l'objet est bien un objet persitant modifiable et que l'utilisateur à les droits
 			if (entity instanceof EditableEntity) 
 			{
+				if(directWriteAllowed.get()==null)
+				{
+					directWriteAllowed.set(true);
+				}
+				
 				if(directWriteAllowed.get()==false)
 				{
 					//créer les demande de modifications
@@ -242,6 +249,10 @@ public class EditableInterceptor extends EmptyInterceptor {
 	 * @return Returns the saveModification.
 	 */
 	public boolean isDirectWriteAllowed() {
+		if(directWriteAllowed.get()==null)
+		{
+			directWriteAllowed.set(true);
+		}
 		return directWriteAllowed.get();
 	}
 

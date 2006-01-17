@@ -40,10 +40,10 @@ public class UserCreateForm extends ActionForm {
 		if(dispatch.equals("show"))
 			return errors;
 			
-		if(!password.equals(repassword))
-			errors.add("isNotTheSamePwd", new ActionMessage("user.create.error.isNotTheSamePwd"));
 		if(firstName.equals("") || lastName.equals("") || email.equals("") || login.equals(""))
 			errors.add("allRequiredFieldIsNotfillin", new ActionMessage("user.error.allRequiredFieldIsNotfillin"));
+		else if(!password.equals(repassword))
+			errors.add("isNotTheSamePwd", new ActionMessage("user.create.error.isNotTheSamePwd"));
 			
 		return errors;
 	}

@@ -18,13 +18,20 @@ public class UserManagerImpl
 	@Override
 	public void create(User user) throws EMagineException {
 		DAOManager.beginTransaction();
+
 		try {
 			UserDAO dao = getDAO();
 			dao.create(user);
-			MailManager.sendMail(user.getEmail(), "Titre création", "Corps création", null);	// FIXME : charger la phrase du titre du mail depuis les properties
 			DAOManager.commitTransaction();
+	
 		} catch (EMagineException exception) {
 			DAOManager.rollBackTransaction();
+			throw exception;	// FIXME : Mapper sur la bonne erreur : en cas de double login, mettre un titre correct
+		}
+		
+		try {
+			MailManager.sendMail(user.getEmail(), "Titre création", "Corps création", null);	// FIXME : charger la phrase du titre du mail depuis les properties
+		} catch (EMagineException exception) {
 			throw exception;	// FIXME : Mapper sur la bonne erreur : en cas de double login, mettre un titre correct
 		}
 	}
@@ -38,10 +45,16 @@ public class UserManagerImpl
 		try {
 			UserDAO dao = getDAO();
 			dao.update(user);
-			MailManager.sendMail(user.getEmail(), "Titre modification", "Corps modification", null);	// FIXME : charger la phrase du titre du mail depuis les properties
+			
 			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {
 			DAOManager.rollBackTransaction();
+			throw exception;	// FIXME : Mapper sur la bonne erreur : en cas de double login, mettre un titre correct
+		}
+		
+		try {
+			MailManager.sendMail(user.getEmail(), "Titre modification", "Corps modification", null);
+		} catch (EMagineException exception) {
 			throw exception;	// FIXME : Mapper sur la bonne erreur : en cas de double login, mettre un titre correct
 		}
 	}

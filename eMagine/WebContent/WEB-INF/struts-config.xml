@@ -185,7 +185,7 @@
 		<!-- administration -->
 		<action path="/userSearch" forward="administration.userSearch" />
 
-		<action path="/userCreate" type="fr.umlv.ir3.emagine.user.UserCreateAction" name="userCreateForm" validate="true" input="/userSearch.do" parameter="dispatch" scope="session">
+		<action path="/userCreate" type="fr.umlv.ir3.emagine.user.UserCreateAction" name="userCreateForm" validate="true" input="administration.userCreate" parameter="dispatch" scope="session">
 			<forward name="success" path="administration.userCreate" />
 		</action>
 

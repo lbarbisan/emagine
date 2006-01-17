@@ -64,12 +64,12 @@ public class UserCreateAction extends BaseAction {
 			userManager.create(user);
 			errors.add("confirm", new ActionMessage("user.create.confirm"));
 		} catch (EMagineException exception) {
-			if(!"exceptions.mailManager.sendMail.messagingException".equals(exception.getMessageId()))
-				addEMagineExceptionError(errors, exception);
-			else
+			exception.printStackTrace();
+			if("exceptions.mailManager.sendMail.messagingException".equals(exception.getMessageId()))
 				errors.add("mail", new ActionMessage("user.create.error.mail"));
+			else
+				addEMagineExceptionError(errors, exception);
 		}
-
 
         // Report back any errors, and exit if any
 		return successIfNoErrors(mapping, request, errors);
