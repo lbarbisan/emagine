@@ -23,19 +23,18 @@ public class AbsenceDAO extends BaseDAO<Absence> {
 	 * @return the abscence list, if no elements are found return an empty list
 	 * @throws EMagineException if an SQLException occures
 	 */
-	@SuppressWarnings("unchecked")
 	public List<Absence> find(Collection<Apprentice> apprentices, AbsenceSearchParams absenceSearchParams) throws EMagineException {
 		
-		String queryString;
+		StringBuilder queryString = new StringBuilder();
 
-		queryString = "From Abscence a where (a.Apprentice in : apprentices) " ;
+		queryString.append("From Abscence a where (a.Apprentice in : apprentices) ") ;
 		
 		for (String field : absenceSearchParams.getFields()) {
-			// TODO : Optimiser avec des StringBuffer
-			queryString = queryString + " and " + field + " like :" + field;
+			queryString.append(" and ").append(field).append(" like :").append(field);
 		}
 
-		Query query = HibernateUtils.getSession().createQuery(queryString);
+		Query query = HibernateUtils.getSession().createQuery(queryString.toString());
+		
 		for (String field : absenceSearchParams.getFields()) {
 			Object value = absenceSearchParams.getField(field);
 			query.setParameter(field, value);
