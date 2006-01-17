@@ -15,6 +15,8 @@
 	<form-beans>
 		<form-bean name="userInformationForm"
 			type="fr.umlv.ir3.emagine.user.UserInformationForm" />
+		<form-bean name="userCreateForm"
+			type="fr.umlv.ir3.emagine.user.UserCreateForm" />
 	</form-beans>
 
 	<!-- ========== Action Mapping Definitions =============================== -->
@@ -182,22 +184,20 @@
 
 		<!-- administration -->
 		<action path="/userSearch" forward="administration.userSearch" />
-		<action path="/userCreate" forward="administration.userCreate" />
+
+		<action path="/userCreate" type="fr.umlv.ir3.emagine.user.UserCreateAction" name="userCreateForm" validate="true" input="/userSearch.do" parameter="dispatch" scope="session">
+			<forward name="success" path="administration.userCreate" />
+		</action>
+
 		<action path="/profilCreate"
 			forward="administration.profilCreate" />
 		<action path="/profilList" forward="administration.profilList" />
 		<action path="/profilDetail"
 			forward="administration.profilDetail" />
 		<action path="/userDetail" forward="administration.userDetail" />
-		<!-- <action path="/userCreate" 
-			type="fr.umlv.ir3.emagine.user.UserModifyAction"
-			name="userInformationForm" parameter="dispatchAction"
-			scope="session">
-			<forward name="success"
-			path="/administration/userInformation.jsp" />
-			</action>
+		
 			
-			<action path="/userModify"
+			<!-- action path="/userModify"
 			type="fr.umlv.ir3.emagine.user.UserModifyAction"
 			name="userInformationForm" parameter="dispatchAction"
 			scope="session">
