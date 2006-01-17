@@ -13,6 +13,8 @@
 	<property name="db.url.admin" value="jdbc:postgresql://server.srv-net.com:54321/template1" />
 	<property name="db.username.admin" value="postgres" />
 	<property name="db.password.admin" value="postgres" />
+	<property environment="env" />
+	<property name="tomcat.lib" value="${env.CATALINA_HOME}/common/lib" />
 
 
 	<!-- =================================== H I B E R N A T E =========================================== -->
@@ -192,10 +194,10 @@
 
 	<target name="junitcompile" depends="compile">
 		<javac srcdir="${junit}" destdir="${classes}" debug="on">
-			<classpath refid="classpath_default" />
+			<classpath refid="classpath.test" />
 		</javac>
 	</target>
-
+<!--
 	<target name="junittest" depends="compile" description="Run JUnit tests and create HTML reports">
 		<junit haltonfailure="false" printsummary="off">
 			<classpath refid="classpath_default" />
@@ -212,6 +214,59 @@
 			<fileset file="${outTest}/*.xml" />
 		</delete>
 	</target>
+-->
+	
+	  <property name="TALK" value="true" />
+
+	  <path id="classpath.base">
+	  </path>
+	  <path id="classpath.test">
+		<pathelement path="${classes}" />
+	    <!--<pathelement location="${lib}/junit.jar" />-->
+		<fileset dir="${lib}">
+			<include name="**/*.jar" />
+		</fileset>
+		<fileset dir="${tomcat.lib}">
+			<include name="**/*.jar" />
+		</fileset>
+	  	<!--
+	    <pathelement location="${tomcat.lib}/servlet-api.jar" />
+	  	<path location="${tomcat.lib}" />
+		<fileset dir="${tomcat.lib}">
+			<include name="**/*.jar" />
+		</fileset>
+		-->
+	    <pathelement location="${outTest}" />
+	    <path refid="classpath.base" />
+	  </path>
+	
+<!--
+	  <target name="compile-test">
+	    <javac srcdir="${tst-dir}"
+	           verbose="${TALK}"
+	           >
+	      <classpath refid="classpath.test"/>
+	    </javac>
+	  </target>
+	-->
+	  <target name="clean-compile-junit">
+	    <delete verbose="${TALK}">
+	      <fileset dir="${outTest}" includes="**/*.class" />
+	    </delete>
+	  </target>
+
+	  <target name="junittest" depends="junitcompile">
+	    <junit>
+	      <classpath refid="classpath.test" />
+	      <formatter type="brief" usefile="false" />
+			<batchtest fork="yes" todir="${outTest}">
+				<fileset dir="${junit}" includes="**/*Test.java" />
+			</batchtest>
+			<!--<formatter type="xml" />-->
+	    </junit>
+	  </target>
+
+	  <target name="clean" depends="clean-compile-junit" />
 
 	<!-- ================================================================================================= -->
 </project>
