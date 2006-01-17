@@ -38,7 +38,7 @@ public class ExtractionDAOTest extends BaseDAOTest<Extraction> {
 		return dao;
 	}
 
-	@Override
+	//@Override
 	protected Extraction createEntity() {
 		Extraction entity = new Extraction();
 		ArrayList<String> columns = new ArrayList<String>();
@@ -53,7 +53,7 @@ public class ExtractionDAOTest extends BaseDAOTest<Extraction> {
 		return entity;
 	}
 
-	@Override
+	//@Override
 	protected Collection<Extraction> createEntityCollection() {
 		ArrayList<Extraction> list = new ArrayList<Extraction>();
 		
@@ -109,6 +109,26 @@ public class ExtractionDAOTest extends BaseDAOTest<Extraction> {
 		assertTrue(conditionCheck(entity1.getId(), entity2.getId()));
 		assertTrue(conditionCheck(entity1.getUser(), entity2.getUser()));
 		assertTrue(conditionCheck(entity1.getViewName(), entity2.getViewName()));
+	}
+
+	//@Override
+	protected Collection<Extraction> createForFindEntityCollection() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected Extraction createEntity(int index) {
+		// TODO enclosing_package.ExtractionDAOTest.createEntity(enclosing_method_arguments)
+		//throw new EMagineException("exception.unimplementedMethod", "enclosing_package.ExtractionDAOTest.createEntity(enclosing_method_arguments)");
+		return null;
+	}
+
+	@Override
+	protected Extraction createEntityForSearchParams(SearchParams params, int index) {
+		// TODO enclosing_package.ExtractionDAOTest.createEntityForSearchParams(enclosing_method_arguments)
+		//throw new EMagineException("exception.unimplementedMethod", "enclosing_package.ExtractionDAOTest.createEntityForSearchParams(enclosing_method_arguments)");
+		return null;
 	}
 
 }

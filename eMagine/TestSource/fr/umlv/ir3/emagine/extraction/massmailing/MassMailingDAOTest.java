@@ -33,7 +33,7 @@ public class MassMailingDAOTest extends BaseDAOTest<MassMailing> {
 		return dao;
 	}
 
-	@Override
+	//@Override
 	protected MassMailing createEntity() {
 		
 		Model model = new Model();
@@ -48,7 +48,7 @@ public class MassMailingDAOTest extends BaseDAOTest<MassMailing> {
 		return entity;
 	}
 
-	@Override
+	//@Override
 	protected Collection<MassMailing> createEntityCollection() {
 		
 		ArrayList<MassMailing> list = new ArrayList<MassMailing>();
@@ -94,6 +94,26 @@ public class MassMailingDAOTest extends BaseDAOTest<MassMailing> {
 		assertTrue(conditionCheck(entity1.getId(), entity2.getId()));
 		assertTrue(conditionCheck(entity1.getModelPath(), entity2.getModelPath()));
 		assertTrue(conditionCheck(entity1.getTitle(), entity2.getTitle()));
+	}
+
+	//@Override
+	protected Collection<MassMailing> createForFindEntityCollection() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected MassMailing createEntity(int index) {
+		// TODO enclosing_package.MassMailingDAOTest.createEntity(enclosing_method_arguments)
+		//throw new EMagineException("exception.unimplementedMethod", "enclosing_package.MassMailingDAOTest.createEntity(enclosing_method_arguments)");
+		return null;
+	}
+
+	@Override
+	protected MassMailing createEntityForSearchParams(SearchParams params, int index) {
+		// TODO enclosing_package.MassMailingDAOTest.createEntityForSearchParams(enclosing_method_arguments)
+		//throw new EMagineException("exception.unimplementedMethod", "enclosing_package.MassMailingDAOTest.createEntityForSearchParams(enclosing_method_arguments)");
+		return null;
 	}
 
 }

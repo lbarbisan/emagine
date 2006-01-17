@@ -32,7 +32,7 @@ public class MailingListDAOTest extends BaseDAOTest<MailingList> {
 		return dao;
 	}
 
-	@Override
+	//@Override
 	protected MailingList createEntity() {
 		MailingList entity = new MailingList();
 		entity.setComment("Comment of the mailing");
@@ -41,7 +41,7 @@ public class MailingListDAOTest extends BaseDAOTest<MailingList> {
 		return entity;
 	}
 
-	@Override
+	//@Override
 	protected Collection<MailingList> createEntityCollection() {
 		
 		ArrayList<MailingList> list = new ArrayList<MailingList>();
@@ -69,6 +69,26 @@ public class MailingListDAOTest extends BaseDAOTest<MailingList> {
 
 	@Override
 	protected void compareEntity(MailingList entity1, MailingList entity2) {
+	}
+
+	//@Override
+	protected Collection<MailingList> createForFindEntityCollection() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected MailingList createEntity(int index) {
+		// TODO enclosing_package.MailingListDAOTest.createEntity(enclosing_method_arguments)
+		//throw new EMagineException("exception.unimplementedMethod", "enclosing_package.MailingListDAOTest.createEntity(enclosing_method_arguments)");
+		return null;
+	}
+
+	@Override
+	protected MailingList createEntityForSearchParams(SearchParams params, int index) {
+		// TODO enclosing_package.MailingListDAOTest.createEntityForSearchParams(enclosing_method_arguments)
+		//throw new EMagineException("exception.unimplementedMethod", "enclosing_package.MailingListDAOTest.createEntityForSearchParams(enclosing_method_arguments)");
+		return null;
 	}
 
 }

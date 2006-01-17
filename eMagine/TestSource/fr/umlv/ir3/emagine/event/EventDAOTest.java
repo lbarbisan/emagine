@@ -34,7 +34,7 @@ public class EventDAOTest extends BaseDAOTest<Event> {
 		return dao;
 	}
 
-	@Override
+	//@Override
 	protected Event createEntity() {
 		ArrayList<BaseEntity> sources = new ArrayList<BaseEntity>();
 		User user = new User();
@@ -53,7 +53,7 @@ public class EventDAOTest extends BaseDAOTest<Event> {
 		return entity;
 	}
 
-	@Override
+	//@Override
 	protected Collection<Event> createEntityCollection() {
 		ArrayList<Event> list = new ArrayList<Event>();
 		ArrayList<BaseEntity> sources = new ArrayList<BaseEntity>();
@@ -109,6 +109,26 @@ public class EventDAOTest extends BaseDAOTest<Event> {
 		assertTrue(conditionCheck(entity1.getSources(), entity2.getSources()));
 		assertTrue(conditionCheck(entity1.getTitle(), entity2.getTitle()));
 		assertTrue(conditionCheck(entity1.getType(), entity2.getType()));
+	}
+
+	//@Override
+	protected Collection<Event> createForFindEntityCollection() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected Event createEntity(int index) {
+		// TODO enclosing_package.EventDAOTest.createEntity(enclosing_method_arguments)
+		//throw new EMagineException("exception.unimplementedMethod", "enclosing_package.EventDAOTest.createEntity(enclosing_method_arguments)");
+		return null;
+	}
+
+	@Override
+	protected Event createEntityForSearchParams(SearchParams params, int index) {
+		// TODO enclosing_package.EventDAOTest.createEntityForSearchParams(enclosing_method_arguments)
+		//throw new EMagineException("exception.unimplementedMethod", "enclosing_package.EventDAOTest.createEntityForSearchParams(enclosing_method_arguments)");
+		return null;
 	}
 
 }

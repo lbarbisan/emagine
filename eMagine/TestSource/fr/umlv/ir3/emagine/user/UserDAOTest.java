@@ -32,7 +32,7 @@ public class UserDAOTest extends BaseDAOTest<User> {
 		return dao;
 	}
 
-	@Override
+	//@Override
 	protected User createEntity() {
 		User user = new User();
 		user.setLogin("login");
@@ -44,7 +44,7 @@ public class UserDAOTest extends BaseDAOTest<User> {
 		return user;
 	}
 
-	@Override
+	//@Override
 	protected Collection<User> createEntityCollection() {
 		ArrayList<User> list = new ArrayList<User>();
 		User user1 = new User();
@@ -96,5 +96,25 @@ public class UserDAOTest extends BaseDAOTest<User> {
 		assertTrue(conditionCheck(entity1.getModificationsInWait(), entity2.getModificationsInWait()));
 		assertTrue(conditionCheck(entity1.getPassword(), entity2.getPassword()));
 		assertTrue(conditionCheck(entity1.getProfile(), entity2.getProfile()));
+	}
+
+	//@Override
+	protected Collection<User> createForFindEntityCollection() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected User createEntity(int index) {
+		// TODO enclosing_package.UserDAOTest.createEntity(enclosing_method_arguments)
+		//throw new EMagineException("exception.unimplementedMethod", "enclosing_package.UserDAOTest.createEntity(enclosing_method_arguments)");
+		return null;
+	}
+
+	@Override
+	protected User createEntityForSearchParams(SearchParams params, int index) {
+		// TODO enclosing_package.UserDAOTest.createEntityForSearchParams(enclosing_method_arguments)
+		//throw new EMagineException("exception.unimplementedMethod", "enclosing_package.UserDAOTest.createEntityForSearchParams(enclosing_method_arguments)");
+		return null;
 	} 
 }

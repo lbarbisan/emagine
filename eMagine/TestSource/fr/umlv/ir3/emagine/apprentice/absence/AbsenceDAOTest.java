@@ -1,8 +1,6 @@
 package fr.umlv.ir3.emagine.apprentice.absence;
 
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Collection;
 import java.util.GregorianCalendar;
 
 import fr.umlv.ir3.emagine.util.base.BaseDAOTest;
@@ -12,43 +10,24 @@ import fr.umlv.ir3.emagine.util.search.SearchParamsImpl;
 public class AbsenceDAOTest extends BaseDAOTest<Absence> {
 
 	AbsenceDAO dao;
-	
 	public AbsenceDAOTest(String arg0) {
 		super(arg0);
 	}
-
 	protected void setUp() throws Exception {
 		dao = new AbsenceDAO();
 		super.setUp();
 	}
-
 	protected void tearDown() throws Exception {
 		dao = null;
 		super.tearDown();
 	}
-	
 	@Override
 	protected AbsenceDAO getDAO() {
 		return dao;
 	}
-
 	@Override
-	protected Absence createEntity() {
-		return new Absence(true,"Test de justification. &щ~#'{([-|`_ч^р@)]=+}^и$гд%∙*╡?,;.:!з<>",GregorianCalendar.getInstance().getTime(),GregorianCalendar.getInstance().getTime());
-	}
-
-	@Override
-	protected Collection<Absence> createEntityCollection() {
-		ArrayList<Absence> list = new ArrayList<Absence>();
-		GregorianCalendar start = new GregorianCalendar(2005,Calendar.DECEMBER,12);
-		GregorianCalendar end = new GregorianCalendar(2006,Calendar.JANUARY,1);
-		list.add(new Absence(true,"Test de justification. &щ~#'{([-|`_ч^р@)]=+}^и$гд%∙*╡?,;.:!з<>",GregorianCalendar.getInstance().getTime(),GregorianCalendar.getInstance().getTime()));
-		list.add(new Absence(false,"Test de justification. &щ~#'{([-|`_ч^р@)]=+}^и$гд%∙*╡?,;.:!з<>",GregorianCalendar.getInstance().getTime(),GregorianCalendar.getInstance().getTime()));
-		list.add(new Absence(true,"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",GregorianCalendar.getInstance().getTime(),GregorianCalendar.getInstance().getTime()));
-		list.add(new Absence(false,"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",GregorianCalendar.getInstance().getTime(),GregorianCalendar.getInstance().getTime()));
-		list.add(new Absence(true,"test de date",start.getTime(),end.getTime()));
-		list.add(new Absence(false,"test de date",start.getTime(),end.getTime()));
-		return list;
+	protected Absence createEntity(int index) {
+		return new Absence(true,index + "Test de justification. &щ~#'{([-|`_ч^р@)]=+}^и$гд%∙*╡?,;.:!з<>",GregorianCalendar.getInstance().getTime(),GregorianCalendar.getInstance().getTime());
 	}
 
 	@Override
@@ -80,6 +59,13 @@ public class AbsenceDAOTest extends BaseDAOTest<Absence> {
 		assertTrue(conditionCheck(abs1.getModifications(),abs2.getModifications()));
 		assertTrue(conditionCheck(abs1.getNumberOfWorkedDays(),abs2.getNumberOfWorkedDays()));
 		assertTrue(conditionCheck(abs1.getStartDate(),abs2.getStartDate()));
+	}
+	
+	@Override
+	protected Absence createEntityForSearchParams(SearchParams params, int index) {
+		GregorianCalendar startDate = new GregorianCalendar(2005,Calendar.DECEMBER,12);
+		GregorianCalendar endDate = new GregorianCalendar(2006,Calendar.JANUARY,1);
+		return new Absence(false,"test de date",startDate.getTime(),endDate.getTime());
 	}
 	
 }

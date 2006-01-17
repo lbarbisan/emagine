@@ -32,7 +32,7 @@ public class JobDAOTest extends BaseDAOTest<Job> {
 		return dao;
 	}
 
-	@Override
+	//@Override
 	protected Job createEntity() {
 		
 		Firm firm = new Firm();
@@ -48,7 +48,7 @@ public class JobDAOTest extends BaseDAOTest<Job> {
 		return job;
 	}
 
-	@Override
+	//@Override
 	protected Collection<Job> createEntityCollection() {
 		
 		ArrayList<Job> list = new ArrayList<Job>();
@@ -103,6 +103,26 @@ public class JobDAOTest extends BaseDAOTest<Job> {
 		assertTrue(conditionCheck(entity1.getName(), entity2.getName()));
 		assertTrue(conditionCheck(entity1.getNbPlace(), entity2.getNbPlace()));
 		assertTrue(conditionCheck(entity1.getTitle(), entity2.getTitle()));
+	}
+
+	//@Override
+	protected Collection<Job> createForFindEntityCollection() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected Job createEntity(int index) {
+		// TODO enclosing_package.JobDAOTest.createEntity(enclosing_method_arguments)
+		//throw new EMagineException("exception.unimplementedMethod", "enclosing_package.JobDAOTest.createEntity(enclosing_method_arguments)");
+		return null;
+	}
+
+	@Override
+	protected Job createEntityForSearchParams(SearchParams params, int index) {
+		// TODO enclosing_package.JobDAOTest.createEntityForSearchParams(enclosing_method_arguments)
+		//throw new EMagineException("exception.unimplementedMethod", "enclosing_package.JobDAOTest.createEntityForSearchParams(enclosing_method_arguments)");
+		return null;
 	}
 
 }

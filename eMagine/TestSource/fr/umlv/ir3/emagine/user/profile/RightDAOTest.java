@@ -31,14 +31,14 @@ public class RightDAOTest extends BaseDAOTest<Right> {
 		return dao;
 	}
 
-	@Override
+	//@Override
 	protected Right createEntity() {
 		Right right = new Right("right");
 		right.setDescription("description  &щ~#'{([-|`_ч^р@)]=+}^и$гд%∙*╡?,;.:!з<>");
 		return right;
 	}
 
-	@Override
+	//@Override
 	protected Collection<Right> createEntityCollection() {
 		
 		ArrayList<Right> list = new ArrayList<Right>();
@@ -78,6 +78,26 @@ public class RightDAOTest extends BaseDAOTest<Right> {
 		assertTrue(conditionCheck(entity1.getDescription(), entity2.getDescription()));
 		assertTrue(conditionCheck(entity1.getId(), entity2.getId()));
 		assertTrue(conditionCheck(entity1.getName(), entity2.getName()));
+	}
+
+	//@Override
+	protected Collection<Right> createForFindEntityCollection() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected Right createEntity(int index) {
+		// TODO enclosing_package.RightDAOTest.createEntity(enclosing_method_arguments)
+		//throw new EMagineException("exception.unimplementedMethod", "enclosing_package.RightDAOTest.createEntity(enclosing_method_arguments)");
+		return null;
+	}
+
+	@Override
+	protected Right createEntityForSearchParams(SearchParams params, int index) {
+		// TODO enclosing_package.RightDAOTest.createEntityForSearchParams(enclosing_method_arguments)
+		//throw new EMagineException("exception.unimplementedMethod", "enclosing_package.RightDAOTest.createEntityForSearchParams(enclosing_method_arguments)");
+		return null;
 	}
 	
 }

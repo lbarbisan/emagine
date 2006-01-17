@@ -33,7 +33,7 @@ public class RoomDAOTest extends BaseDAOTest<Room> {
 		return dao;
 	}
 
-	@Override
+	//@Override
 	protected Room createEntity() {
 		// TODO candidats?
 		Room entity = new Room();
@@ -48,7 +48,7 @@ public class RoomDAOTest extends BaseDAOTest<Room> {
 		return entity;
 	}
 
-	@Override
+	//@Override
 	protected Collection<Room> createEntityCollection() {
 		
 		ArrayList<Room> list = new ArrayList<Room>();
@@ -103,6 +103,25 @@ public class RoomDAOTest extends BaseDAOTest<Room> {
 		assertTrue(conditionCheck(entity1.getId(), entity2.getId()));
 		assertTrue(conditionCheck(entity1.getName(), entity2.getName()));
 		assertTrue(conditionCheck(entity1.getNumberOfFreeSits(), entity2.getNumberOfFreeSits()));
+	}
+
+	//@Override
+	protected Collection<Room> createForFindEntityCollection() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	@Override
+	protected Room createEntity(int index) {
+		// TODO enclosing_package.FormationCenterDAOTest.createEntity(enclosing_method_arguments)
+		//throw new EMagineException("exception.unimplementedMethod", "enclosing_package.FormationCenterDAOTest.createEntity(enclosing_method_arguments)");
+		return null;
+	}
+	@Override
+	protected Room createEntityForSearchParams(SearchParams params, int index) {
+		// TODO enclosing_package.FormationCenterDAOTest.createEntityForSearchParams(enclosing_method_arguments)
+		//throw new EMagineException("exception.unimplementedMethod", "enclosing_package.FormationCenterDAOTest.createEntityForSearchParams(enclosing_method_arguments)");
+		return null;
 	}
 
 }

@@ -42,7 +42,7 @@ public class CandidateDAOTest extends BaseDAOTest<Candidate> {
 		return dao;
 	}
 
-	@Override
+	//@Override
 	protected Candidate createEntity() {
 		Candidate candidate = new Candidate(); 
 		//TODO rien dans le constructeur d'un contact et d'une formation ? on doit utiliser la liste de modification?
@@ -61,13 +61,13 @@ public class CandidateDAOTest extends BaseDAOTest<Candidate> {
 		//attributs hérités de Person :
 		Address address = new Address();
 		address.setCity("new city");
-		address.setCountry(CountryEnum.EN);
-		address.setDepartment(DepartmentEnum.D02);
+		address.setCountry(CountryEnum.enumFor("England"));
+		address.setDepartment(DepartmentEnum.enumFor("D2"));
 		address.setPostalCode("new postal");
 		address.setStreet("new street");
 		candidate.setAddressPersonnal(address);
 		candidate.setBirthdayCity("city");
-		candidate.setBirthdayCountry(CountryEnum.FR);
+		candidate.setBirthdayCountry(CountryEnum.enumFor("France"));
 		candidate.setEmail("mail");
 		candidate.setEvents(new ArrayList<Event>());
 		candidate.setFax("fax");
@@ -81,7 +81,7 @@ public class CandidateDAOTest extends BaseDAOTest<Candidate> {
 		return candidate;
 	}
 
-	@Override
+	//@Override
 	protected Collection<Candidate> createEntityCollection() {
 		ArrayList<Candidate> list = new ArrayList<Candidate>();
 		Candidate candidate1 = new Candidate(); 
@@ -98,13 +98,13 @@ public class CandidateDAOTest extends BaseDAOTest<Candidate> {
 		//attributs hérités de Person :
 		Address address = new Address();
 		address.setCity("new city");
-		address.setCountry(CountryEnum.EN);
-		address.setDepartment(DepartmentEnum.D02);
+		address.setCountry(CountryEnum.enumFor("England"));
+		address.setDepartment(DepartmentEnum.enumFor("D2"));
 		address.setPostalCode("new postal");
 		address.setStreet("new street");
 		candidate1.setAddressPersonnal(address);
 		candidate1.setBirthdayCity("city");
-		candidate1.setBirthdayCountry(CountryEnum.FR);
+		candidate1.setBirthdayCountry(CountryEnum.enumFor("France"));
 		candidate1.setEmail("mail");
 		candidate1.setEvents(new ArrayList<Event>());
 		candidate1.setFax("fax");
@@ -128,13 +128,13 @@ public class CandidateDAOTest extends BaseDAOTest<Candidate> {
 		
 		//attributs hérités de Person :
 		address.setCity("new city");
-		address.setCountry(CountryEnum.EN);
-		address.setDepartment(DepartmentEnum.D02);
+		address.setCountry(CountryEnum.enumFor("England"));
+		address.setDepartment(DepartmentEnum.enumFor("D2"));
 		address.setPostalCode("new postal");
 		address.setStreet("new street");
 		candidate2.setAddressPersonnal(address);
 		candidate2.setBirthdayCity("city");
-		candidate2.setBirthdayCountry(CountryEnum.FR);
+		candidate2.setBirthdayCountry(CountryEnum.enumFor("England"));
 		candidate2.setEmail("mail");
 		candidate2.setEvents(new ArrayList<Event>());
 		candidate2.setFax("fax");
@@ -164,13 +164,13 @@ public class CandidateDAOTest extends BaseDAOTest<Candidate> {
 		//attributs hérités de Person :
 		Address address = new Address();
 		address.setCity("new city");
-		address.setCountry(CountryEnum.EN);
-		address.setDepartment(DepartmentEnum.D02);
+		address.setCountry(CountryEnum.enumFor("England"));
+		address.setDepartment(DepartmentEnum.enumFor("D1"));
 		address.setPostalCode("new postal");
 		address.setStreet("new street");
 		entity.setAddressPersonnal(address);
 		entity.setBirthdayCity("city");
-		entity.setBirthdayCountry(CountryEnum.FR);
+		entity.setBirthdayCountry(CountryEnum.enumFor("France"));
 		entity.setEmail("mail");
 		entity.setEvents(new ArrayList<Event>());
 		entity.setFax("fax");
@@ -216,5 +216,25 @@ public class CandidateDAOTest extends BaseDAOTest<Candidate> {
 		assertTrue(conditionCheck(entity1.getNationality(), entity2.getNationality()));
 		assertTrue(conditionCheck(entity1.getPhone(), entity2.getPhone()));
 		assertTrue(conditionCheck(entity1.getSex(), entity2.getSex()));
+	}
+
+	//@Override
+	protected Collection<Candidate> createForFindEntityCollection() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected Candidate createEntity(int index) {
+		// TODO enclosing_package.CandidateDAOTest.createEntity(enclosing_method_arguments)
+		//throw new EMagineException("exception.unimplementedMethod", "enclosing_package.CandidateDAOTest.createEntity(enclosing_method_arguments)");
+		return null;
+	}
+
+	@Override
+	protected Candidate createEntityForSearchParams(SearchParams params, int index) {
+		// TODO enclosing_package.CandidateDAOTest.createEntityForSearchParams(enclosing_method_arguments)
+		//throw new EMagineException("exception.unimplementedMethod", "enclosing_package.CandidateDAOTest.createEntityForSearchParams(enclosing_method_arguments)");
+		return null;
 	}
 }

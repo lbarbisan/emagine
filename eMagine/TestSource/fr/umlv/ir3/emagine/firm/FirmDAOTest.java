@@ -37,14 +37,14 @@ public class FirmDAOTest extends BaseDAOTest<Firm> {
 		return dao;
 	}
 
-	@Override
+	//@Override
 	protected Firm createEntity() {
 		Firm firm = new Firm();
 		
 		Address address = new Address();
 		address.setCity("city");
-		address.setCountry(CountryEnum.FR);
-		address.setDepartment(DepartmentEnum.D01);
+		address.setCountry(CountryEnum.enumFor("FR"));
+		address.setDepartment(DepartmentEnum.enumFor("D01"));
 		address.setPostalCode("postal");
 		address.setStreet("street");
 		
@@ -69,15 +69,15 @@ public class FirmDAOTest extends BaseDAOTest<Firm> {
 		return firm;
 	}
 
-	@Override
+	//@Override
 	protected Collection<Firm> createEntityCollection() {
 		
 		ArrayList<Firm> list = new ArrayList<Firm>();
 		
 		Address address = new Address();
 		address.setCity("city");
-		address.setCountry(CountryEnum.FR);
-		address.setDepartment(DepartmentEnum.D01);
+		address.setCountry(CountryEnum.enumFor("FR"));
+		address.setDepartment(DepartmentEnum.enumFor("D01"));
 		address.setPostalCode("postal");
 		address.setStreet("street");
 		
@@ -166,6 +166,26 @@ public class FirmDAOTest extends BaseDAOTest<Firm> {
 		assertTrue(conditionCheck(entity1.getName(), entity2.getName()));
 		assertTrue(conditionCheck(entity1.getPhone(), entity2.getPhone()));
 		assertTrue(conditionCheck(entity1.getWebSite(), entity2.getWebSite()));
+	}
+
+	//@Override
+	protected Collection<Firm> createForFindEntityCollection() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected Firm createEntity(int index) {
+		// TODO enclosing_package.FirmDAOTest.createEntity(enclosing_method_arguments)
+		//throw new EMagineException("exception.unimplementedMethod", "enclosing_package.FirmDAOTest.createEntity(enclosing_method_arguments)");
+		return null;
+	}
+
+	@Override
+	protected Firm createEntityForSearchParams(SearchParams params, int index) {
+		// TODO enclosing_package.FirmDAOTest.createEntityForSearchParams(enclosing_method_arguments)
+		//throw new EMagineException("exception.unimplementedMethod", "enclosing_package.FirmDAOTest.createEntityForSearchParams(enclosing_method_arguments)");
+		return null;
 	}
 
 }

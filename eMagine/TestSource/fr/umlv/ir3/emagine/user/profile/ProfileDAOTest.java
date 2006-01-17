@@ -31,7 +31,7 @@ public class ProfileDAOTest extends BaseDAOTest<Profile> {
 		return dao;
 	}
 
-	@Override
+	//@Override
 	protected Profile createEntity() {
 		Profile profile = new Profile();
 		profile.setDescription("description  &é~#'{([-|`_ç^à@)]=+}^¨$£¤%ù*µ?,;.:!§<>");
@@ -40,7 +40,7 @@ public class ProfileDAOTest extends BaseDAOTest<Profile> {
 		return profile;
 	}
 
-	@Override
+	//@Override
 	protected Collection<Profile> createEntityCollection() {
 		ArrayList<Profile> list = new ArrayList<Profile>();
 		
@@ -85,5 +85,25 @@ public class ProfileDAOTest extends BaseDAOTest<Profile> {
 		// FIXME getRights mais où est le set?
 		assertTrue(conditionCheck(entity1.getRights(), entity2.getRights()));
 		assertTrue(conditionCheck(entity1.getUsers(), entity2.getUsers()));
+	}
+
+	//@Override
+	protected Collection<Profile> createForFindEntityCollection() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected Profile createEntity(int index) {
+		// TODO enclosing_package.ProfileDAOTest.createEntity(enclosing_method_arguments)
+		//throw new EMagineException("exception.unimplementedMethod", "enclosing_package.ProfileDAOTest.createEntity(enclosing_method_arguments)");
+		return null;
+	}
+
+	@Override
+	protected Profile createEntityForSearchParams(SearchParams params, int index) {
+		// TODO enclosing_package.ProfileDAOTest.createEntityForSearchParams(enclosing_method_arguments)
+		//throw new EMagineException("exception.unimplementedMethod", "enclosing_package.ProfileDAOTest.createEntityForSearchParams(enclosing_method_arguments)");
+		return null;
 	}
 }

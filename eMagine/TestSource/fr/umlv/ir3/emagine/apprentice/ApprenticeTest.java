@@ -80,8 +80,8 @@ public class ApprenticeTest extends TestCase {
 	public void testSetAddressAcademic() {
 		Address address = new Address();
 		address.setCity("City1");
-		address.setCountry(CountryEnum.FR);
-		address.setDepartment(DepartmentEnum.D01);
+		address.setCountry(CountryEnum.enumFor("FR"));
+		address.setDepartment(DepartmentEnum.enumFor("D01"));
 		address.setPostalCode("66666");
 		address.setStreet("1 rue de paradie");
 		apprentice.setAddressAcademic(address);
@@ -95,8 +95,8 @@ public class ApprenticeTest extends TestCase {
 	public void testSetAddressProfessional() {
 		Address address = new Address();
 		address.setCity("City2");
-		address.setCountry(CountryEnum.FR);
-		address.setDepartment(DepartmentEnum.D01);
+		address.setCountry(CountryEnum.enumFor("FR"));
+		address.setDepartment(DepartmentEnum.enumFor("D01"));
 		address.setPostalCode("77777");
 		address.setStreet("1 rue de paradie");
 		apprentice.setAddressProfessional(address);
@@ -108,8 +108,8 @@ public class ApprenticeTest extends TestCase {
 	public void testSetDefaultAdress() {
 		Address address = new Address();
 		address.setCity("City3");
-		address.setCountry(CountryEnum.FR);
-		address.setDepartment(DepartmentEnum.D01);
+		address.setCountry(CountryEnum.enumFor("FR"));
+		address.setDepartment(DepartmentEnum.enumFor("D01"));
 		address.setPostalCode("88888");
 		address.setStreet("1 rue de paradie");
 		apprentice.setAddressProfessional(address);

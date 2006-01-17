@@ -38,13 +38,13 @@ public class TeacherTutorDAOTest extends BaseDAOTest<TeacherTutor> {
 		return dao;
 	}
 
-	@Override
+	//@Override
 	protected TeacherTutor createEntity() {
 		
 		Address address = new Address();
 		address.setCity("city");
-		address.setCountry(CountryEnum.FR);
-		address.setDepartment(DepartmentEnum.D01);
+		address.setCountry(CountryEnum.enumFor("FR"));
+		address.setDepartment(DepartmentEnum.enumFor("D01"));
 		address.setPostalCode("postal");
 		address.setStreet("street");
 		
@@ -55,9 +55,9 @@ public class TeacherTutorDAOTest extends BaseDAOTest<TeacherTutor> {
 		// TODO setApprentice();
 		//teacherTutor.setApprentice();
 		teacherTutor.setBirthdayCity("city");
-		teacherTutor.setBirthdayCountry(CountryEnum.FR);
+		teacherTutor.setBirthdayCountry(CountryEnum.enumFor("FR"));
 		teacherTutor.setBirthdayDate(GregorianCalendar.getInstance().getTime());
-		teacherTutor.setBirthdayDepartment(DepartmentEnum.D01);
+		teacherTutor.setBirthdayDepartment(DepartmentEnum.enumFor("D01"));
 		teacherTutor.setEmail("mail");
 		teacherTutor.setEvents(new ArrayList<Event>());
 		teacherTutor.setFax("fax");
@@ -70,21 +70,21 @@ public class TeacherTutorDAOTest extends BaseDAOTest<TeacherTutor> {
 		return teacherTutor;
 	}
 
-	@Override
+	//@Override
 	protected Collection<TeacherTutor> createEntityCollection() {
 		
 		ArrayList<TeacherTutor> list = new ArrayList<TeacherTutor>();
 		
 		Address address1 = new Address();
 		address1.setCity("city");
-		address1.setCountry(CountryEnum.FR);
-		address1.setDepartment(DepartmentEnum.D01);
+		address1.setCountry(CountryEnum.enumFor("FR"));
+		address1.setDepartment(DepartmentEnum.enumFor("D01"));
 		address1.setPostalCode("postal");
 		address1.setStreet("street");
 		Address address2 = new Address();
 		address2.setCity("city");
-		address2.setCountry(CountryEnum.FR);
-		address2.setDepartment(DepartmentEnum.D01);
+		address2.setCountry(CountryEnum.enumFor("FR"));
+		address2.setDepartment(DepartmentEnum.enumFor("D01"));
 		address2.setPostalCode("postal");
 		address2.setStreet("street");
 		
@@ -94,9 +94,9 @@ public class TeacherTutorDAOTest extends BaseDAOTest<TeacherTutor> {
 		// TODO setApprentice();
 		//teacherTutor.setApprentice();
 		teacherTutor1.setBirthdayCity("city");
-		teacherTutor1.setBirthdayCountry(CountryEnum.FR);
+		teacherTutor1.setBirthdayCountry(CountryEnum.enumFor("FR"));
 		teacherTutor1.setBirthdayDate(GregorianCalendar.getInstance().getTime());
-		teacherTutor1.setBirthdayDepartment(DepartmentEnum.D01);
+		teacherTutor1.setBirthdayDepartment(DepartmentEnum.enumFor("D01"));
 		teacherTutor1.setEmail("mail");
 		teacherTutor1.setEvents(new ArrayList<Event>());
 		teacherTutor1.setFax("fax");
@@ -113,9 +113,9 @@ public class TeacherTutorDAOTest extends BaseDAOTest<TeacherTutor> {
 		// TODO setApprentice();
 		//teacherTutor.setApprentice();
 		teacherTutor2.setBirthdayCity("city");
-		teacherTutor2.setBirthdayCountry(CountryEnum.FR);
+		teacherTutor2.setBirthdayCountry(CountryEnum.enumFor("FR"));
 		teacherTutor2.setBirthdayDate(GregorianCalendar.getInstance().getTime());
-		teacherTutor2.setBirthdayDepartment(DepartmentEnum.D01);
+		teacherTutor2.setBirthdayDepartment(DepartmentEnum.enumFor("D01"));
 		teacherTutor2.setEmail("mail");
 		teacherTutor2.setEvents(new ArrayList<Event>());
 		teacherTutor2.setFax("fax");
@@ -136,8 +136,8 @@ public class TeacherTutorDAOTest extends BaseDAOTest<TeacherTutor> {
 	protected void updateEntity(TeacherTutor entity) {
 		Address address = new Address();
 		address.setCity("new city");
-		address.setCountry(CountryEnum.EN);
-		address.setDepartment(DepartmentEnum.D02);
+		address.setCountry(CountryEnum.enumFor("EN"));
+		address.setDepartment(DepartmentEnum.enumFor("D02"));
 		address.setPostalCode("new postal");
 		address.setStreet("new street");
 		entity.setAddressPersonnal(address);
@@ -146,7 +146,7 @@ public class TeacherTutorDAOTest extends BaseDAOTest<TeacherTutor> {
 		// TODO setApprentice();
 		//teacherTutor.setApprentice();
 		entity.setBirthdayCity("new city");
-		entity.setBirthdayCountry(CountryEnum.FR);
+		entity.setBirthdayCountry(CountryEnum.enumFor("FR"));
 		entity.setEmail("new mail");
 		entity.setEvents(new ArrayList<Event>());
 		entity.setFax("new fax");
@@ -186,5 +186,25 @@ public class TeacherTutorDAOTest extends BaseDAOTest<TeacherTutor> {
 		assertTrue(conditionCheck(entity1.getNationality(), entity2.getNationality()));
 		assertTrue(conditionCheck(entity1.getPhone(), entity2.getPhone()));
 		assertTrue(conditionCheck(entity1.getSex(), entity2.getSex()));
+	}
+
+	//@Override
+	protected Collection<TeacherTutor> createForFindEntityCollection() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected TeacherTutor createEntity(int index) {
+		// TODO enclosing_package.TeacherTutorDAOTest.createEntity(enclosing_method_arguments)
+		//throw new EMagineException("exception.unimplementedMethod", "enclosing_package.TeacherTutorDAOTest.createEntity(enclosing_method_arguments)");
+		return null;
+	}
+
+	@Override
+	protected TeacherTutor createEntityForSearchParams(SearchParams params, int index) {
+		// TODO enclosing_package.TeacherTutorDAOTest.createEntityForSearchParams(enclosing_method_arguments)
+		//throw new EMagineException("exception.unimplementedMethod", "enclosing_package.TeacherTutorDAOTest.createEntityForSearchParams(enclosing_method_arguments)");
+		return null;
 	}
 }

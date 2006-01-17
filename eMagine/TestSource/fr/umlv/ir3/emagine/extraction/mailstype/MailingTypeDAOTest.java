@@ -31,7 +31,7 @@ public class MailingTypeDAOTest extends BaseDAOTest<MailingType> {
 		return dao;
 	}
 
-	@Override
+	//@Override
 	protected MailingType createEntity() {
 		
 		MailingType entity = new MailingType();
@@ -41,7 +41,7 @@ public class MailingTypeDAOTest extends BaseDAOTest<MailingType> {
 		return entity;
 	}
 
-	@Override
+	//@Override
 	protected Collection<MailingType> createEntityCollection() {
 		ArrayList<MailingType> list = new ArrayList<MailingType>();
 		
@@ -95,6 +95,26 @@ public class MailingTypeDAOTest extends BaseDAOTest<MailingType> {
 		assertTrue(conditionCheck(entity1.getMailCore(), entity2.getMailCore()));
 		assertTrue(conditionCheck(entity1.getMailObject(), entity2.getMailObject()));
 		assertTrue(conditionCheck(entity1.getTitle(), entity2.getTitle()));
+	}
+
+	//@Override
+	protected Collection<MailingType> createForFindEntityCollection() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected MailingType createEntity(int index) {
+		// TODO enclosing_package.MailingTypeDAOTest.createEntity(enclosing_method_arguments)
+		//throw new EMagineException("exception.unimplementedMethod", "enclosing_package.MailingTypeDAOTest.createEntity(enclosing_method_arguments)");
+		return null;
+	}
+
+	@Override
+	protected MailingType createEntityForSearchParams(SearchParams params, int index) {
+		// TODO enclosing_package.MailingTypeDAOTest.createEntityForSearchParams(enclosing_method_arguments)
+		//throw new EMagineException("exception.unimplementedMethod", "enclosing_package.MailingTypeDAOTest.createEntityForSearchParams(enclosing_method_arguments)");
+		return  null;
 	}
 
 }
