@@ -82,7 +82,6 @@ public class BaseDAO<EntityType extends BaseEntity> {
 	 * @throws EMagineException
 	 *             throw this exception if an SQLException occures
 	 */
-	@SuppressWarnings("unchecked")
 	public EntityType retrieve(long id) throws EMagineException {
 		try {
 			Session session = HibernateUtils.getSession();
@@ -149,20 +148,24 @@ public class BaseDAO<EntityType extends BaseEntity> {
 	public List<EntityType> find(SearchParams searchParams) throws EMagineException {
 
 		boolean first = true;
-		String queryString;
+		StringBuilder queryString = new StringBuilder();
 
-		queryString = "From " + getEntityClass().getSimpleName()
-				+ (searchParams.getFields().size() == 0 ? "" : " where");
+		queryString.append("From " )
+			.append(getEntityClass().getSimpleName())
+			.append((searchParams.getFields().size() == 0 ? "" : " where"));
+		
 		for (String field : searchParams.getFields()) {
-			// TODO : Optimiser avec des StringBuffer
-			queryString = queryString + (first == true ? "" : " and ") + " "
-					+ field + " like :" + field;
+			queryString.append((first == true ? "" : " and "))
+			.append(" ")
+			.append(field)
+			.append(" like :")
+			.append(field);
 			if (first == true) {
 				first = false;
 			}
 		}
 
-		Query query = HibernateUtils.getSession().createQuery(queryString);
+		Query query = HibernateUtils.getSession().createQuery(queryString.toString());
 		for (String field : searchParams.getFields()) {
 			Object value = searchParams.getField(field);
 			query.setParameter(field, value);
@@ -177,12 +180,12 @@ public class BaseDAO<EntityType extends BaseEntity> {
 	 */
 	public List<EntityType> findAll() throws EMagineException {
 		
-		String query = "from "+ getEntityClass().getSimpleName();
+		StringBuilder queryString = new StringBuilder().append("from ").append(getEntityClass().getSimpleName());
 		
-		log.debug("findall() for '" + query + "'");
+		log.debug("findall() with '" + queryString + "'");
 		
 		List<EntityType> foundResults = (List<EntityType>) HibernateUtils
-				.getSession().createQuery(query).list();
+				.getSession().createQuery(queryString.toString()).list();
 		if (foundResults.size() <= 0) {
 			return null;
 		}
