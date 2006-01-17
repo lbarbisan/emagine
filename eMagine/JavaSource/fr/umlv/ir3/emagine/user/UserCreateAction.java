@@ -8,13 +8,11 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
-import org.apache.struts.actions.DispatchAction;
 
 import fr.umlv.ir3.emagine.user.profile.ProfileManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.ManagerManager;
 import fr.umlv.ir3.emagine.util.base.BaseAction;
-import fr.umlv.ir3.emagine.util.search.SearchAction;
 
 public class UserCreateAction extends BaseAction {
 

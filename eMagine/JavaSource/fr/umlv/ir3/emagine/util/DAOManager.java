@@ -15,7 +15,6 @@ import fr.umlv.ir3.emagine.firm.JobDAO;
 import fr.umlv.ir3.emagine.firm.actor.EngineerTutorDAO;
 import fr.umlv.ir3.emagine.firm.actor.FirmActorDAO;
 import fr.umlv.ir3.emagine.modification.EditableDAO;
-import fr.umlv.ir3.emagine.security.EmagineAuthenticatorFactory;
 import fr.umlv.ir3.emagine.statistic.StatisticDAO;
 import fr.umlv.ir3.emagine.teachertutor.TeacherTutorDAO;
 import fr.umlv.ir3.emagine.user.UserDAO;

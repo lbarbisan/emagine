@@ -10,7 +10,6 @@ import fr.umlv.ir3.emagine.user.profile.Profile;
 import fr.umlv.ir3.emagine.user.profile.Right;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.EmagineEnum;
 import fr.umlv.ir3.emagine.util.EmagineEnumDAO;
 
 public class InitDB {

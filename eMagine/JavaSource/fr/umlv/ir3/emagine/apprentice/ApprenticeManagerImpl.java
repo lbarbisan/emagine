@@ -4,10 +4,6 @@ import java.util.Collection;
 import java.util.List;
 
 import fr.umlv.ir3.emagine.apprentice.absence.Absence;
-import fr.umlv.ir3.emagine.event.Event;
-import fr.umlv.ir3.emagine.firm.Firm;
-import fr.umlv.ir3.emagine.firm.actor.EngineerTutor;
-import fr.umlv.ir3.emagine.teachertutor.TeacherTutor;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.base.EventableManagerImpl;

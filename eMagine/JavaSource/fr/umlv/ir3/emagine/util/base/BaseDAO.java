@@ -13,7 +13,6 @@ import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-import fr.umlv.ir3.emagine.modification.EditableInterceptor;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.HibernateUtils;
 import fr.umlv.ir3.emagine.util.search.SearchParams;

@@ -4,15 +4,12 @@ import java.util.Collection;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.struts.action.ActionError;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
-import org.apache.struts.action.ActionMessages;
 
 import fr.umlv.ir3.emagine.user.profile.Profile;
-import fr.umlv.ir3.emagine.util.EMagineException;
 
 public class UserCreateForm extends ActionForm {
 	

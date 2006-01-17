@@ -5,7 +5,6 @@ import java.util.Collection;
 import java.util.List;
 
 import junit.framework.TestCase;
-import fr.umlv.ir3.emagine.apprentice.absence.Absence;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.search.SearchParams;

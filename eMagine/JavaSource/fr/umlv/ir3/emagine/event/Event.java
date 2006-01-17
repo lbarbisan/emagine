@@ -11,7 +11,6 @@ import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.TemporalType;
 
-import fr.umlv.ir3.emagine.util.EmagineEnum;
 import fr.umlv.ir3.emagine.util.base.BaseEntity;
 
 /**

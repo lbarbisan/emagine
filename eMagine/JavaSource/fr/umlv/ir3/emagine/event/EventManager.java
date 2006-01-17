@@ -1,10 +1,6 @@
 package fr.umlv.ir3.emagine.event;
 
-import java.util.List;
-
 import fr.umlv.ir3.emagine.security.MustHaveRights;
-import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.base.BaseEntity;
 import fr.umlv.ir3.emagine.util.base.BaseManager;
 
 @MustHaveRights("event")

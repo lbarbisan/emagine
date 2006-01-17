@@ -4,8 +4,6 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
 
-import junit.framework.TestCase;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
