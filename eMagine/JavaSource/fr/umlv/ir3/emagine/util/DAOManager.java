@@ -1,5 +1,9 @@
 package fr.umlv.ir3.emagine.util;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.hibernate.HibernateException;
+
 import fr.umlv.ir3.emagine.apprentice.ApprenticeDAO;
 import fr.umlv.ir3.emagine.apprentice.absence.AbsenceDAO;
 import fr.umlv.ir3.emagine.apprentice.candidate.CandidateDAO;
@@ -25,134 +29,191 @@ import fr.umlv.ir3.emagine.util.base.BaseEntity;
 
 public class DAOManager {
 	private static DAOManager instance;
-	
+	private final static Log log = LogFactory.getLog(DAOManager.class);
+
 	private UserDAO userDAO = new UserDAO();
+
 	private ProfileDAO profileDAO = new ProfileDAO();
+
 	private EditableDAO modificationDAO = new EditableDAO();
+
 	private TeacherTutorDAO teacherTutorDAO = new TeacherTutorDAO();
+
 	private EngineerTutorDAO engineerTutorDAO = new EngineerTutorDAO();
+
 	private ApprenticeDAO apprenticeDAO = new ApprenticeDAO();
+
 	private FirmDAO firmDAO = new FirmDAO();
+
 	private FirmActorDAO firmActorDAO = new FirmActorDAO();
+
 	private JobDAO jobDAO = new JobDAO();
+
 	private EventDAO eventDAO = new EventDAO();
+
 	private StatisticDAO statisticDAO = new StatisticDAO();
+
 	private AbsenceDAO absenceDAO = new AbsenceDAO();
+
 	private CandidateDAO candidateDAO = new CandidateDAO();
+
 	private ExtractionDAO extractionDAO = new ExtractionDAO();
+
 	private FormationCenterDAO formationCenterDAO = new FormationCenterDAO();
+
 	private RoomDAO roomDAO = new RoomDAO();
+
 	private RightDAO rightDAO = new RightDAO();
+
 	private MailingListDAO mailingListDAO = new MailingListDAO();
+
 	private MailingTypeDAO mailingTypeDAO = new MailingTypeDAO();
+
 	private MassMailingDAO massMailingDAO = new MassMailingDAO();
+
 	private EmagineEnumDAO emagineEnumDAO = new EmagineEnumDAO();
+
 	private BaseDAO<BaseEntity> baseDAO = new BaseDAO<BaseEntity>();
-	
-	
+
 	public BaseDAO<BaseEntity> getBaseDAO() {
 		return baseDAO;
 	}
+
 	public RightDAO getRightDAO() {
 		return rightDAO;
 	}
+
 	public EditableDAO getModificationDAO() {
 		return modificationDAO;
 	}
+
 	public ProfileDAO getProfileDAO() {
 		return profileDAO;
 	}
+
 	public UserDAO getUserDAO() {
 		return userDAO;
 	}
+
 	public TeacherTutorDAO getTeacherTutorDAO() {
 		return teacherTutorDAO;
 	}
+
 	public EngineerTutorDAO getEngineerTutorDAO() {
 		return engineerTutorDAO;
 	}
+
 	public ApprenticeDAO getApprenticeDAO() {
 		return apprenticeDAO;
 	}
+
 	public FirmDAO getFirmDAO() {
 		return firmDAO;
 	}
+
 	public FirmActorDAO getFirmActorDAO() {
 		return firmActorDAO;
 	}
+
 	public JobDAO getJobDAO() {
 		return jobDAO;
 	}
+
 	public EventDAO getEventDAO() {
 		return eventDAO;
 	}
+
 	public StatisticDAO getStatisticDAO() {
 		return statisticDAO;
 	}
+
 	public AbsenceDAO getAbsenceDAO() {
 		return absenceDAO;
 	}
+
 	public CandidateDAO getCandidateDAO() {
 		return candidateDAO;
 	}
+
 	public ExtractionDAO getExtractionDAO() {
 		return extractionDAO;
 	}
+
 	public FormationCenterDAO getFormationCenterDAO() {
 		return formationCenterDAO;
 	}
+
 	public RoomDAO getRoomDAO() {
 		return roomDAO;
 	}
+
 	public MailingListDAO getMailingListDAO() {
 		return mailingListDAO;
 	}
+
 	public MailingTypeDAO getMailingTypeDAO() {
 		return mailingTypeDAO;
 	}
+
 	public MassMailingDAO getMassMailingDAO() {
 		return massMailingDAO;
 	}
+
+	public EmagineEnumDAO getEmagineEnumDAO() {
+		return emagineEnumDAO;
+	}
+
 	public static DAOManager getInstance() {
 		if (instance == null) {
 			instance = new DAOManager();
 		}
 		return instance;
 	}
-	
-    /**
-     * @see fr.umlv.ir3.emagine.util.DAOManager#beginTransaction()
-     */
-    public static void beginTransaction() {
-    	HibernateUtils.beginTransaction();
-    }
 
-    /**
-     * @see fr.umlv.ir3.emagine.util.DAOManager#commitTransaction()
-     */
-    public static void commitTransaction() {
-    	HibernateUtils.commitTransaction();
-    }
+	/**
+	 * @see fr.umlv.ir3.emagine.util.DAOManager#beginTransaction()
+	 */
+	public static void beginTransaction() {
+		try {
+			HibernateUtils.beginTransaction();
+		} catch (HibernateException hibernateException) {
+			log.error("beginTransaction failed", hibernateException);
+		}
+	}
 
-    /**
-     * @see fr.umlv.ir3.emagine.util.DAOManager#rollBackTransaction()
-     */
-    public static void rollBackTransaction() {
-    	HibernateUtils.rollbackTransaction();
-        
-    }
+	/**
+	 * @see fr.umlv.ir3.emagine.util.DAOManager#commitTransaction()
+	 */
+	public static void commitTransaction() throws EMagineException {
+		try {
+			HibernateUtils.commitTransaction();
+		} catch (HibernateException hibernateException) {
+			throw new EMagineException("commitTransaction failed", hibernateException);
+		}
+	}
 
-    /**
-     * Close the session, flush the hibernate cache, commit the last uncommited objects
-     *
-     */
-	public static void closeSession() {
-		HibernateUtils.closeSession();
+	/**
+	 * @see fr.umlv.ir3.emagine.util.DAOManager#rollBackTransaction()
+	 */
+	public static void rollBackTransaction(){
+		try {
+			HibernateUtils.rollbackTransaction();
+		} catch (HibernateException hibernateException) {
+			log.error("rollBackTransaction failed", hibernateException);
+		}
+
 	}
-	public EmagineEnumDAO getEmagineEnumDAO() {
-		return emagineEnumDAO;
+
+	/**
+	 * Close the session, flush the hibernate cache, commit the last uncommited objects
+	 *
+	 */
+	public static void closeSession() throws EMagineException{
+		try {
+			HibernateUtils.closeSession();
+		} catch (HibernateException hibernateException) {
+			throw new EMagineException("closeSession failed", hibernateException);
+		}
 	}
-	public void setEmagineEnumDAO(EmagineEnumDAO emagineEnumDAO) {
-		this.emagineEnumDAO = emagineEnumDAO;
-	}
+
 }

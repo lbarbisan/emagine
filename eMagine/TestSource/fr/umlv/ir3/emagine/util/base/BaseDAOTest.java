@@ -51,12 +51,15 @@ public abstract class BaseDAOTest <EntityType extends BaseEntity> extends TestCa
 			DAOManager.beginTransaction();
 			getDAO().create(entity);
 			DAOManager.commitTransaction();
+			
 			DAOManager.beginTransaction();
 			updateEntity(entity);
 			DAOManager.commitTransaction();
+			
 			DAOManager.beginTransaction();
 			getDAO().update(entity);
 			DAOManager.commitTransaction();
+			
 			compareEntity(getDAO().retrieve(entity.getId()),entity);
 		}
 		finally {
@@ -181,28 +184,28 @@ public abstract class BaseDAOTest <EntityType extends BaseEntity> extends TestCa
 	 * Test method for 'fr.umlv.ir3.emagine.util.base.BaseDAO.findAll()'
 	 */
 	public void testFindAll() throws EMagineException {
-		Collection <EntityType> entitiesc = createEntityCollection(20,30);
+		Collection <EntityType> initialEntities = createEntityCollection(20,30);
 		
 		DAOManager.beginTransaction();
-		for(EntityType baseEntity : entitiesc)
+		for(EntityType baseEntity : initialEntities)
 		{
 			getDAO().create(baseEntity);
 		}
 		DAOManager.commitTransaction();
 		
-		List <EntityType> entities = getDAO().findAll();
+		List <EntityType> findEntities = getDAO().findAll();
 
-		assertNotNull(entitiesc);
-		assertNotNull(entities);
-		assertEquals(entitiesc.size(),entities.size());
-		for (EntityType entity : entities) {
-			EntityType entity2 = getElement(entitiesc,entity);
+		assertNotNull(initialEntities);
+		assertNotNull(findEntities);
+		assertEquals(initialEntities.size(),findEntities.size());
+		for (EntityType entity : findEntities) {
+			EntityType entity2 = getElement(initialEntities,entity);
 			assertNotNull(entity2);
 			compareEntity(entity2, entity);
 		}
 
 		DAOManager.beginTransaction();
-		for (EntityType entity : entities) {
+		for (EntityType entity : initialEntities) {
 			getDAO().delete(entity);
 		}
 		DAOManager.commitTransaction();

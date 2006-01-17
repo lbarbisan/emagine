@@ -9,7 +9,7 @@ import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 
 /**
- * @author eMagien Team
+ * @author eMagine Team
  * @see fr.umlv.ir3.emagine.apprentice.absence.AbsenceManager
  */
 public class AbsenceManagerImpl extends EditableManagerImpl<Absence, AbsenceDAO> implements AbsenceManager {

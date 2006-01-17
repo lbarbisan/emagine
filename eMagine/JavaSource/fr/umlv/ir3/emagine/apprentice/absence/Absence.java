@@ -8,35 +8,38 @@ import java.util.Date;
 import javax.persistence.AccessType;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.persistence.TemporalType;
+import javax.persistence.UniqueConstraint;
 
 import fr.umlv.ir3.emagine.apprentice.Apprentice;
 import fr.umlv.ir3.emagine.modification.EditableEntity;
 
 /**
- * This class represent an abscence
+ * This class represent an abscence. 
  * @author Administrateur
  *
  */
 @Entity(access = AccessType.FIELD)
+@Table(uniqueConstraints={@UniqueConstraint(columnNames={"apprentice_id", "startDate", "endDate" })})
 public class Absence extends EditableEntity {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -2760061716558049781L;
 	
 	@ManyToOne(cascade= {CascadeType.ALL})
-	@JoinColumn(name = "apprentice_id")
+	@JoinColumn(name = "apprentice_id", nullable = false)
 	private Apprentice apprentice;
 	@Basic(temporalType = TemporalType.TIMESTAMP) 
+	@Column(nullable=false)
 	private Date startDate;
 	@Basic(temporalType = TemporalType.TIMESTAMP)
+	@Column(nullable=false)
 	private Date endDate;
-	private boolean justification;
+	private boolean justification=false;
 	private String justificationComment;
 	
 	/**
@@ -66,6 +69,7 @@ public class Absence extends EditableEntity {
 	}
 
 	/**
+	 * This parameter must be set.
 	 * @param endDate The endDate to set.
 	 */
 	public void setEndDate(Date endDate) {
@@ -73,6 +77,7 @@ public class Absence extends EditableEntity {
 	}
 
 	/**
+	 * By default, this parameter is set to false
 	 * @return Returns the justification.
 	 */
 	public boolean isJustification() {
@@ -108,6 +113,7 @@ public class Absence extends EditableEntity {
 	}
 
 	/**
+	 * This parameter must be set.
 	 * @param startDate The startDate to set.
 	 */
 	public void setStartDate(Date startDate) {

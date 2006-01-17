@@ -85,11 +85,12 @@ public class InitDB {
 		user.setProfile(profile);
 		userDAO.create(user);
 		
+		DAOManager.commitTransaction();	
 		} catch (EMagineException emagine) {
 			// TODO EMagineException.e1 Not Implemented
 			emagine.printStackTrace();
 		}
-		DAOManager.commitTransaction();
+
 
 	}
 	
@@ -205,11 +206,13 @@ public class InitDB {
 			emagineEnumDAO.create(new DepartmentEnum("D986", "Wallis-et-Futuna"));
 			emagineEnumDAO.create(new DepartmentEnum("D987", "Polynésie française"));
 			emagineEnumDAO.create(new DepartmentEnum("D988", "Nouvelle-Calédonie"));
+			
+			DAOManager.commitTransaction();
 		} catch (EMagineException emagine) {
 			// TODO EMagineException.e1 Not Implemented
 			emagine.printStackTrace();
 		}
-		DAOManager.commitTransaction();
+		;
 	}
 
 	public static void InitializeCountryEnum()
@@ -442,11 +445,12 @@ public class InitDB {
 			emagineEnumDAO.create(new CountryEnum("Zaire", "Zaire"));
 			emagineEnumDAO.create(new CountryEnum("Zambia", "Zambia"));
 			emagineEnumDAO.create(new CountryEnum("Zimbabwe", "Zimbabwe"));
-
+			
+			DAOManager.commitTransaction();
 		} catch (EMagineException emagine) {
 			// TODO EMagineException.e1 Not Implemented
 			emagine.printStackTrace();
 		}
-		DAOManager.commitTransaction();
+	
 	}
 }

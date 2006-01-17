@@ -28,6 +28,7 @@ public class FormationCenter extends EditableEntity {
 	
 	private String name;
 	@Embedded
+	//FIXME : lbarbisan - Contrainte Unique sur l'addresse de la salle
 	private Address address;
 	private String phone;
 	@OneToMany(cascade = {CascadeType.ALL},

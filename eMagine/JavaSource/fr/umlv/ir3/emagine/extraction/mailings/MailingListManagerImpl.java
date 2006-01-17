@@ -22,8 +22,9 @@ public class MailingListManagerImpl extends EditableManagerImpl<MailingList, Mai
 	 */
 	public <PersonType extends Person> void addPerson(MailingList<PersonType> mailingList, PersonType person)
 	{
-		DAOManager.beginTransaction();
+		
 		try {
+			DAOManager.beginTransaction();
 			mailingList.getPersons().add(person);
 			getDAO().update(mailingList);
 			DAOManager.commitTransaction();
