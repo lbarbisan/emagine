@@ -2,7 +2,7 @@
 
 	<property name="source" value="./JavaSource" />
 	<property name="lib" value="./WebContent/WEB-INF/lib" />
-	<property name="classes" value="./.deployables\eMagine\WEB-INF\classes" />
+	<property name="classes" value="./WebContent/WEB-INF/classes" />
 	<property name="junit" value="./TestSource" />
 	<property name="outTest" value="${junit}/result" />
 	<property name="ressourceDir" value="${source}/fr/umlv/ir3/emagine/ressource" />
