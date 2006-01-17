@@ -13,6 +13,8 @@
 
 	<!-- ========== Form Mapping Definitions =============================== -->
 	<form-beans>
+		<form-bean name="apprenticeAbsenceAddForm" 
+			type="fr.umlv.ir3.emagine.apprentice.absence.ApprenticeAbsenceAddForm" /> 
 		<form-bean name="userInformationForm"
 			type="fr.umlv.ir3.emagine.user.UserInformationForm" />
 		<form-bean name="userCreateForm"
@@ -25,6 +27,20 @@
 	<!-- in a real application deployment -->
 
 	<action-mappings>
+	
+<!-- Struts layout en test -->	
+<action path="/sort"
+	type="fr.improve.struts.taglib.layout.sort.SortAction"
+	scope="request"
+	validate="false">
+</action>
+    
+<action path="/treeview"
+	type="fr.improve.struts.taglib.layout.treeview.TreeviewAction"
+	scope="request"
+	validate="false">
+</action>
+<!-- Struts layout en test -->	
 
 		<action path="/administration/toto" type="fr.umlv.ir3.emagine.security.TestAction">
 			<forward name="success" path="/apprenticeSearch.do" />
@@ -60,6 +76,15 @@
 			forward="apprentice.apprenticeAbsenceDetail" />
 		<action path="/apprenticeAbsenceAdd"
 			forward="apprentice.apprenticeAbsenceAdd" />
+		<action path="/apprenticeAbsenceAddAction" 
+			type="fr.umlv.ir3.emagine.apprentice.absence.ApprenticeAbsenceAddAction" 
+			name="apprenticeAbsenceAddForm" 
+			validate="true"
+			input="/apprenticeAbsenceAdd.do"
+			scope="session">
+			<forward name="success"
+			path="/apprenticeVisuAbsence.do" />			
+ 		</action>
 		<action path="/apprenticeExtract"
 			forward="apprentice.apprenticeExtract" />
 		<action path="/apprenticeAbsenceExtract"
@@ -74,6 +99,8 @@
 			forward="apprentice.apprenticeEmailDo" />
 		<action path="/apprenticeMailDo"
 			forward="apprentice.apprenticeMailDo" />
+			
+
 
 		<!-- teacher -->
 		<action path="/teacherSearch" forward="teacher.teacherSearch" />
