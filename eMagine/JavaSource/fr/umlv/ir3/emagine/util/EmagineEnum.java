@@ -25,7 +25,7 @@ public class EmagineEnum<EntityType extends EmagineEnum<EntityType>> extends Bas
 
 	// S T A T I C
 	@ManyToOne
-	private static Map<String ,EmagineEnum> list = new HashMap<String, EmagineEnum>();
+	protected static Map<String ,EmagineEnum> list = new HashMap<String, EmagineEnum>();
 	private static final long serialVersionUID = 3836342655386886511L;
 	public static Map<String, EmagineEnum> getList()
 	{
@@ -38,7 +38,7 @@ public class EmagineEnum<EntityType extends EmagineEnum<EntityType>> extends Bas
 	
 	// I N S T A N C E S
 	@Column(unique = true, nullable = false)
-	private final String name;
+	private String name;
 	
 	protected EmagineEnum(String name)
 	{
@@ -47,22 +47,24 @@ public class EmagineEnum<EntityType extends EmagineEnum<EntityType>> extends Bas
 		
 		this.name = name;
 
-		DAOManager.beginTransaction();
-		
-		try {
-			List<EmagineEnum> DBlist =  DAOManager.getInstance().getEmagineEnumDAO().find(searchParamsImpl);
-			if(DBlist.isEmpty())
-			{
-				DAOManager.getInstance().getEmagineEnumDAO().create(this);
-				list.put(name, this);
-			}
-		} catch (EMagineException e) {
-			// TODO Emagine Enum a catch
-		}
-		
-		DAOManager.commitTransaction();
+//		DAOManager.beginTransaction();
+//		
+//		try {
+//			List<EmagineEnum> DBlist =  DAOManager.getInstance().getEmagineEnumDAO().find(searchParamsImpl);
+//			if(DBlist.isEmpty())
+//			{
+//				DAOManager.getInstance().getEmagineEnumDAO().create(this);
+//				list.put(name, this);
+//			}
+//		} catch (EMagineException e) {
+//			// TODO Emagine Enum a catch
+//		}
+//		
+//		DAOManager.commitTransaction();
 		
 	}	
+	protected EmagineEnum(){super();}
+	
 	public String getName()
 	{
 		return this.name;

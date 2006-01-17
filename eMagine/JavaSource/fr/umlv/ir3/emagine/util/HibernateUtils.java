@@ -17,20 +17,18 @@ import fr.umlv.ir3.emagine.util.base.BaseEntity;
 
 public class HibernateUtils {
 
+	
     private static Log log = LogFactory.getLog(HibernateUtils.class);
     private static final SessionFactory sessionFactory;
     private static final ThreadLocal<Session> threadSession = new ThreadLocal<Session>();
     private static final ThreadLocal<Transaction> threadTransaction = new ThreadLocal<Transaction>();
     private static final EditableInterceptor editableInterceptor = new EditableInterceptor();
-    
+   
+	 
     static {
         try {            
         	
         	Configuration cfg = new AnnotationConfiguration();
-        	//EditableInterceptor modificationInterceptor = new EditableInterceptor();
-        	
-        	//TODO : Pourquoi un editableManager générique ? Un peu porki non ? - Anthony
-        	//modificationInterceptor =  ManagerManager.getInstance().getEditableManager().getModificationInterceptor();
 
             //TODO : Hibernate - Trouver un moyen pour mettre le nom de fichier dans un fichier poroperties ou autre.
         	cfg.configure("fr/umlv/ir3/emagine/ressource/hibernate.cfg.xml")
@@ -44,7 +42,6 @@ public class HibernateUtils {
             throw new ExceptionInInitializerError(ex);
         }
     }
-
     
     public static Session getSession() throws HibernateException {
         Session session = threadSession.get();
@@ -82,7 +79,8 @@ public class HibernateUtils {
             }
         }
         catch (Exception exception) {
-            throw new IllegalThreadStateException();
+            exception.printStackTrace();
+        	throw new IllegalThreadStateException();
         }
     }
 

@@ -100,8 +100,8 @@ public class InitDB {
 		DAOManager.beginTransaction();
 		
 		try {				
-			emagineEnumDAO.create(new DepartmentEnum("D1", "Ain"));
-			emagineEnumDAO.create(new DepartmentEnum("D2", "Aisne"));
+			//emagineEnumDAO.create(new DepartmentEnum("D1", "Ain"));
+			//emagineEnumDAO.create(new DepartmentEnum("D2", "Aisne"));
 			emagineEnumDAO.create(new DepartmentEnum("D3", "Allier"));
 			emagineEnumDAO.create(new DepartmentEnum("D4", "Alpes-de-Haute-Provence"));
 			emagineEnumDAO.create(new DepartmentEnum("D5", "Hautes-Alpes"));
@@ -286,7 +286,7 @@ public class InitDB {
 			emagineEnumDAO.create(new CountryEnum("Falkland Islands", "Falkland Islands"));
 			emagineEnumDAO.create(new CountryEnum("Fiji", "Fiji"));
 			emagineEnumDAO.create(new CountryEnum("Finland", "Finland"));
-			emagineEnumDAO.create(new CountryEnum("France", "France"));
+			//emagineEnumDAO.create(new CountryEnum("France", "France"));
 			emagineEnumDAO.create(new CountryEnum("French Guiana", "French Guiana"));
 			emagineEnumDAO.create(new CountryEnum("French Polynesia", "French Polynesia"));
 			emagineEnumDAO.create(new CountryEnum("Gabon", "Gabon"));
