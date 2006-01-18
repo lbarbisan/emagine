@@ -51,13 +51,24 @@ public class SessionManager {
 	/**
 	 * Kills the specified user's session.
 	 * @param user
+	 * @throws NullPointerException if specified user is null
 	 */
 	public void killUserSession(User user) {
-		HttpSession session = loginSessions.remove(user.getLogin());
-		if (session != null) {	// TODO : synchronized ?
-			session.invalidate();
-			loginPrincipal.remove(user.getLogin());
+		synchronized (user.getId()) {
+			HttpSession session = loginSessions.remove(user.getLogin());
+			if (session != null) {
+				session.invalidate();
+				loginPrincipal.remove(user.getLogin());
+			}
 		}
+	}
+	
+	/**
+	 * Kills the current connected user's session.
+	 * @throws NullPointerException if there isn't any current connected user.
+	 */
+	public void killCurrentSession() {
+		killUserSession(getCurrentUser());
 	}
 	
 	/**
