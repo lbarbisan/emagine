@@ -69,6 +69,10 @@ public class UserSearchAction extends SearchAction {
 				addEMagineExceptionError(errors, exception);
 			}
 		}
+		
+		// Search again
+		search(mapping, form, request, response);
+		
         // Report back any errors, and exit if any
 		return successIfNoErrors(mapping, request, errors);
 	}
