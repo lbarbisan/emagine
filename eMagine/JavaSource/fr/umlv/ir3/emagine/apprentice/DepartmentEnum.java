@@ -10,7 +10,7 @@ public class DepartmentEnum extends EmagineEnum<DepartmentEnum>{
 
 	private static final long serialVersionUID = -3760839927504476550L;	
 	
-	public static DepartmentEnum enumFor(String name)
+	public static DepartmentEnum valueOf(String name)
 	{
 		return (DepartmentEnum) list.get(name);
 	}

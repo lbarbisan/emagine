@@ -45,8 +45,8 @@ public class FormationCenterDAOTest extends BaseDAOTest<FormationCenter> {
 		
 		Address address = new Address();
 		address.setCity("city");
-		address.setCountry(CountryEnum.enumFor("France"));
-		address.setDepartment(DepartmentEnum.enumFor("D1"));
+		address.setCountry(CountryEnum.valueOf("France"));
+		address.setDepartment(DepartmentEnum.valueOf("D1"));
 		address.setPostalCode("postal");
 		address.setStreet("street");
 		
@@ -74,8 +74,8 @@ public class FormationCenterDAOTest extends BaseDAOTest<FormationCenter> {
 		
 		Address address1 = new Address();
 		address1.setCity("city1");
-		address1.setCountry(CountryEnum.enumFor("France"));
-		address1.setDepartment(DepartmentEnum.enumFor("D1"));
+		address1.setCountry(CountryEnum.valueOf("France"));
+		address1.setDepartment(DepartmentEnum.valueOf("D1"));
 		address1.setPostalCode("postal1");
 		address1.setStreet("street1");
 		
@@ -94,8 +94,8 @@ public class FormationCenterDAOTest extends BaseDAOTest<FormationCenter> {
 		
 		Address address2 = new Address();
 		address2.setCity("city3");
-		address2.setCountry(CountryEnum.enumFor("France"));
-		address2.setDepartment(DepartmentEnum.enumFor("D1"));
+		address2.setCountry(CountryEnum.valueOf("France"));
+		address2.setDepartment(DepartmentEnum.valueOf("D1"));
 		address2.setPostalCode("postal3");
 		address2.setStreet("street3");
 		
@@ -123,8 +123,8 @@ public class FormationCenterDAOTest extends BaseDAOTest<FormationCenter> {
 		
 		Address address = new Address();
 		address.setCity("city");
-		address.setCountry(CountryEnum.enumFor("France"));
-		address.setDepartment(DepartmentEnum.enumFor("D1"));
+		address.setCountry(CountryEnum.valueOf("France"));
+		address.setDepartment(DepartmentEnum.valueOf("D1"));
 		address.setPostalCode("postal");
 		address.setStreet("street");
 		
@@ -167,8 +167,8 @@ public class FormationCenterDAOTest extends BaseDAOTest<FormationCenter> {
 		
 		Address address = new Address();
 		address.setCity("city2");
-		address.setCountry(CountryEnum.enumFor("France"));
-		address.setDepartment(DepartmentEnum.enumFor("D1"));
+		address.setCountry(CountryEnum.valueOf("France"));
+		address.setDepartment(DepartmentEnum.valueOf("D1"));
 		address.setPostalCode("postal");
 		address.setStreet("street");
 		

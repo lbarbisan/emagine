@@ -61,13 +61,13 @@ public class CandidateDAOTest extends BaseDAOTest<Candidate> {
 		//attributs hérités de Person :
 		Address address = new Address();
 		address.setCity("new city");
-		address.setCountry(CountryEnum.enumFor("England"));
-		address.setDepartment(DepartmentEnum.enumFor("D2"));
+		address.setCountry(CountryEnum.valueOf("England"));
+		address.setDepartment(DepartmentEnum.valueOf("D2"));
 		address.setPostalCode("new postal");
 		address.setStreet("new street");
 		candidate.setAddressPersonnal(address);
 		candidate.setBirthdayCity("city");
-		candidate.setBirthdayCountry(CountryEnum.enumFor("France"));
+		candidate.setBirthdayCountry(CountryEnum.valueOf("France"));
 		candidate.setEmail("mail");
 		candidate.setEvents(new ArrayList<Event>());
 		candidate.setFax("fax");
@@ -98,13 +98,13 @@ public class CandidateDAOTest extends BaseDAOTest<Candidate> {
 		//attributs hérités de Person :
 		Address address = new Address();
 		address.setCity("new city");
-		address.setCountry(CountryEnum.enumFor("England"));
-		address.setDepartment(DepartmentEnum.enumFor("D2"));
+		address.setCountry(CountryEnum.valueOf("England"));
+		address.setDepartment(DepartmentEnum.valueOf("D2"));
 		address.setPostalCode("new postal");
 		address.setStreet("new street");
 		candidate1.setAddressPersonnal(address);
 		candidate1.setBirthdayCity("city");
-		candidate1.setBirthdayCountry(CountryEnum.enumFor("France"));
+		candidate1.setBirthdayCountry(CountryEnum.valueOf("France"));
 		candidate1.setEmail("mail");
 		candidate1.setEvents(new ArrayList<Event>());
 		candidate1.setFax("fax");
@@ -128,13 +128,13 @@ public class CandidateDAOTest extends BaseDAOTest<Candidate> {
 		
 		//attributs hérités de Person :
 		address.setCity("new city");
-		address.setCountry(CountryEnum.enumFor("England"));
-		address.setDepartment(DepartmentEnum.enumFor("D2"));
+		address.setCountry(CountryEnum.valueOf("England"));
+		address.setDepartment(DepartmentEnum.valueOf("D2"));
 		address.setPostalCode("new postal");
 		address.setStreet("new street");
 		candidate2.setAddressPersonnal(address);
 		candidate2.setBirthdayCity("city");
-		candidate2.setBirthdayCountry(CountryEnum.enumFor("England"));
+		candidate2.setBirthdayCountry(CountryEnum.valueOf("England"));
 		candidate2.setEmail("mail");
 		candidate2.setEvents(new ArrayList<Event>());
 		candidate2.setFax("fax");
@@ -164,13 +164,13 @@ public class CandidateDAOTest extends BaseDAOTest<Candidate> {
 		//attributs hérités de Person :
 		Address address = new Address();
 		address.setCity("new city");
-		address.setCountry(CountryEnum.enumFor("England"));
-		address.setDepartment(DepartmentEnum.enumFor("D1"));
+		address.setCountry(CountryEnum.valueOf("England"));
+		address.setDepartment(DepartmentEnum.valueOf("D1"));
 		address.setPostalCode("new postal");
 		address.setStreet("new street");
 		entity.setAddressPersonnal(address);
 		entity.setBirthdayCity("city");
-		entity.setBirthdayCountry(CountryEnum.enumFor("France"));
+		entity.setBirthdayCountry(CountryEnum.valueOf("France"));
 		entity.setEmail("mail");
 		entity.setEvents(new ArrayList<Event>());
 		entity.setFax("fax");

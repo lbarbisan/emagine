@@ -43,8 +43,8 @@ public class FirmDAOTest extends BaseDAOTest<Firm> {
 		
 		Address address = new Address();
 		address.setCity("city");
-		address.setCountry(CountryEnum.enumFor("FR"));
-		address.setDepartment(DepartmentEnum.enumFor("D01"));
+		address.setCountry(CountryEnum.valueOf("FR"));
+		address.setDepartment(DepartmentEnum.valueOf("D01"));
 		address.setPostalCode("postal");
 		address.setStreet("street");
 		
@@ -76,8 +76,8 @@ public class FirmDAOTest extends BaseDAOTest<Firm> {
 		
 		Address address = new Address();
 		address.setCity("city");
-		address.setCountry(CountryEnum.enumFor("FR"));
-		address.setDepartment(DepartmentEnum.enumFor("D01"));
+		address.setCountry(CountryEnum.valueOf("FR"));
+		address.setDepartment(DepartmentEnum.valueOf("D01"));
 		address.setPostalCode("postal");
 		address.setStreet("street");
 		

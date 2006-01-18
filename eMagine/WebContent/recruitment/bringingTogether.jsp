@@ -1,19 +1,26 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
+
 <h2><bean:message key="bringingTogether.title"/></h2>
-<form name="results">
+<html:form action="/userCreate" method="POST" focus="lastName">
 	<br/>
 	<div align="center">
 		<div class="search">
 			<fieldset>
-				<p><label for="die"><bean:message key="criteria.search.die"/></label>
+				<p>
+					<label for="die"><bean:message key="form.die"/></label>
+					<html:select property="die">
+						<html:optionsCollection property="dies" value="id" label="filière"/>		
+					</html:select>
+				</p>
+				
+				<!--<p><label for="die"><bean:message key="criteria.search.die"/></label>
 					<select name="die">
-						<!-- à mettre en base -->
 						<option value="all" selected="selected"><bean:message key="select.all.feminin"/></option>
 						<option value="ir">IR</option>
 						<option value="mfpi">MFPI</option>
 						<option value="gmu">GMU</option>
-					</select></p>
+					</select></p>-->
 			</fieldset>
 		</div>
 		<br/>
@@ -48,7 +55,9 @@
 		</ul>
 		<h2>&nbsp;</h2>	
 		<ul>
-			<li><html:link action="/bringingTogetherExtract"><img src="/eMagine/common/images/icones/extraire.png" title="<bean:message key="button.title.extract"/>"/></html:link></li>
+			<li><html:image src="/eMagine/common/images/icones/extraire.png" titleKey="button.title.extract" onclick="javascript:setDispatch('create')" /></li>
+		
+			<!--  <li><html:link action="/bringingTogetherExtract"><img src="/eMagine/common/images/icones/extraire.png" title="<bean:message key="button.title.extract"/>"/></html:link></li>-->
 		</ul>
 	</div>
-</form>
+</html:form>

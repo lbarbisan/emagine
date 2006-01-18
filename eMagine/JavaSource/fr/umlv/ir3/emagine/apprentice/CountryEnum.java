@@ -10,7 +10,7 @@ public class CountryEnum extends EmagineEnum<CountryEnum> {
 	
 	private static final long serialVersionUID = 1448815442738936324L;
 	
-	public static CountryEnum enumFor(String name)
+	public static CountryEnum valueOf(String name)
 	{
 		return (CountryEnum) list.get(name);
 	}

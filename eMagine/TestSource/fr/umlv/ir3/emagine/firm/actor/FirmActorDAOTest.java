@@ -43,8 +43,8 @@ public class FirmActorDAOTest extends BaseDAOTest<FirmActor> {
 	protected FirmActor createEntity() {
 		Address address = new Address();
 		address.setCity("city");
-		address.setCountry(CountryEnum.enumFor("FR"));
-		address.setDepartment(DepartmentEnum.enumFor("D01"));
+		address.setCountry(CountryEnum.valueOf("FR"));
+		address.setDepartment(DepartmentEnum.valueOf("D01"));
 		address.setPostalCode("postal");
 		address.setStreet("street");
 		
@@ -55,9 +55,9 @@ public class FirmActorDAOTest extends BaseDAOTest<FirmActor> {
 		firmActor.setAddressPersonnal(address);
 		firmActor.setAddressProfessional(address);
 		firmActor.setBirthdayCity("city");
-		firmActor.setBirthdayCountry(CountryEnum.enumFor("FR"));
+		firmActor.setBirthdayCountry(CountryEnum.valueOf("FR"));
 		firmActor.setBirthdayDate(GregorianCalendar.getInstance().getTime());
-		firmActor.setBirthdayDepartment(DepartmentEnum.enumFor("D01"));
+		firmActor.setBirthdayDepartment(DepartmentEnum.valueOf("D01"));
 		firmActor.setEmail("mail");
 		firmActor.setEvents(new ArrayList<Event>());
 		firmActor.setFax("fax");
@@ -83,14 +83,14 @@ public class FirmActorDAOTest extends BaseDAOTest<FirmActor> {
 		
 		Address address1 = new Address();
 		address1.setCity("city");
-		address1.setCountry(CountryEnum.enumFor("FR"));
-		address1.setDepartment(DepartmentEnum.enumFor("D01"));
+		address1.setCountry(CountryEnum.valueOf("FR"));
+		address1.setDepartment(DepartmentEnum.valueOf("D01"));
 		address1.setPostalCode("postal");
 		address1.setStreet("street");
 		Address address2 = new Address();
 		address2.setCity("city");
-		address2.setCountry(CountryEnum.enumFor("FR"));
-		address2.setDepartment(DepartmentEnum.enumFor("D01"));
+		address2.setCountry(CountryEnum.valueOf("FR"));
+		address2.setDepartment(DepartmentEnum.valueOf("D01"));
 		address2.setPostalCode("postal");
 		address2.setStreet("street");
 		
@@ -98,9 +98,9 @@ public class FirmActorDAOTest extends BaseDAOTest<FirmActor> {
 		firmActor1.setAddressPersonnal(address1);
 		firmActor1.setAddressProfessional(address1);
 		firmActor1.setBirthdayCity("city");
-		firmActor1.setBirthdayCountry(CountryEnum.enumFor("FR"));
+		firmActor1.setBirthdayCountry(CountryEnum.valueOf("FR"));
 		firmActor1.setBirthdayDate(GregorianCalendar.getInstance().getTime());
-		firmActor1.setBirthdayDepartment(DepartmentEnum.enumFor("D01"));
+		firmActor1.setBirthdayDepartment(DepartmentEnum.valueOf("D01"));
 		firmActor1.setEmail("mail");
 		firmActor1.setEvents(new ArrayList<Event>());
 		firmActor1.setFax("fax");
@@ -117,9 +117,9 @@ public class FirmActorDAOTest extends BaseDAOTest<FirmActor> {
 		firmActor2.setAddressPersonnal(address2);
 		firmActor2.setAddressProfessional(address2);
 		firmActor2.setBirthdayCity("city");
-		firmActor2.setBirthdayCountry(CountryEnum.enumFor("FR"));
+		firmActor2.setBirthdayCountry(CountryEnum.valueOf("FR"));
 		firmActor2.setBirthdayDate(GregorianCalendar.getInstance().getTime());
-		firmActor2.setBirthdayDepartment(DepartmentEnum.enumFor("D01"));
+		firmActor2.setBirthdayDepartment(DepartmentEnum.valueOf("D01"));
 		firmActor2.setEmail("mail");
 		firmActor2.setEvents(new ArrayList<Event>());
 		firmActor2.setFax("fax");
@@ -142,15 +142,15 @@ public class FirmActorDAOTest extends BaseDAOTest<FirmActor> {
 	protected void updateEntity(FirmActor entity) {
 		Address address = new Address();
 		address.setCity("new city");
-		address.setCountry(CountryEnum.enumFor("EN"));
-		address.setDepartment(DepartmentEnum.enumFor("D02"));
+		address.setCountry(CountryEnum.valueOf("EN"));
+		address.setDepartment(DepartmentEnum.valueOf("D02"));
 		address.setPostalCode("new postal");
 		address.setStreet("new street");
 		entity.setAddressPersonnal(address);
 		entity.setAddressProfessional(address);
 		
 		entity.setBirthdayCity("new city");
-		entity.setBirthdayCountry(CountryEnum.enumFor("FR"));
+		entity.setBirthdayCountry(CountryEnum.valueOf("FR"));
 		entity.setEmail("new mail");
 		entity.setEvents(new ArrayList<Event>());
 		entity.setFax("new fax");

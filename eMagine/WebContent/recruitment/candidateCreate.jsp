@@ -1,17 +1,25 @@
+<%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
+
 <h2><bean:message key="candidate.create.title"/></h2>
 <br/>
 <div class="form">
+
+<SCRIPT>
+   function setDispatch(value){document.userCreateForm.dispatch.value=value;}
+</SCRIPT>
+
+<html:form action="/candidateCreate" method="POST" focus="lastName">
 	<fieldset>
 		<legend><bean:message key="form.fieldset.status"/></legend>
-		<p><label for="name"><bean:message key="form.name"/><font color="red">*</font> </label><input type="text" id="name" size="20" /></p>
-		<p><label for="firstName"><bean:message key="form.firstName"/><font color="red">*</font> </label><input type="text" id="firstName" size="20" /></p>
-		<p><label for="sex"><bean:message key="radio.sex"/></label><input type="radio" name="sex" value="male"><bean:message key="radio.sex.female"/><input type="radio" name="sex" value="female" checked><bean:message key="radio.sex.male"/></p>
-		<p><label for="date"><bean:message key="form.date"/><font color="red">*</font> </label><input type="text" id="date" size="20" />&nbsp;<a href="#"><img src="/eMagine/common/images/icones/calendar.png" title="<bean:message key="button.title.calendar"/>"/></a></p>
-		<p><label for="city"><bean:message key="form.city"/></label><input type="text" id="city" size="20" /></p>
-		<p><label for="department"><bean:message key="form.department"/></label><input type="text" id="department" size="20" /></p>
-		<p><label for="country"><bean:message key="form.country"/></label><input type="text" id="country" size="20" /></p>
-		<p><label for="nationality"><bean:message key="form.nationality"/><font color="red">*</font> </label><input type="text" id="nationality" size="20" /></p>
+			<p><label for="lastName"><bean:message key="form.name"/><font color="red">*</font></label><html:text property="lastName" size="20" /></p>
+			<p><label for="firstName"><bean:message key="form.firstName"/><font color="red">*</font></label><html:text property="firstName" size="20" /></p>
+			<!--<p><label for="sex"><bean:message key="radio.sex"/></label><html:radio property="male" name="sex"><bean:message key="radio.sex.female"/><html:radio property="female" name="sex" checked><bean:message key="radio.sex.male"/></p>
+			<p><label for="date"><bean:message key="form.date"/><font color="red">*</font> </label><input type="text" id="date" size="20" />&nbsp;<a href="#"><img src="/eMagine/common/images/icones/calendar.png" title="<bean:message key="button.title.calendar"/>"/></a></p>-->
+			<p><label for="city"><bean:message key="form.city"/></label><html:text property="city" size="20" /></p>
+			<p><label for="department"><bean:message key="form.department"/></label><html:text property=="department" size="20" /></p>
+			<p><label for="country"><bean:message key="form.country"/></label><html:text property="country" size="20" /></p>
+			<p><label for="nationality"><bean:message key="form.nationality"/><font color="red">*</font></label><html:text property="nationality" size="20" /></p>
 	</fieldset>
 	<br/>
 	<fieldset>

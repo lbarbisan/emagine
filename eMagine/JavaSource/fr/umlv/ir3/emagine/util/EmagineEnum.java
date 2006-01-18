@@ -4,6 +4,7 @@
 package fr.umlv.ir3.emagine.util;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,11 +27,18 @@ public class EmagineEnum<EntityType extends EmagineEnum<EntityType>> extends Bas
 	@ManyToOne
 	protected static Map<String ,EmagineEnum> list = new HashMap<String, EmagineEnum>();
 	private static final long serialVersionUID = 3836342655386886511L;
-	public static Map<String, EmagineEnum> getList()
+	
+	public static EmagineEnum[] values()
 	{
-		return list;
+		return (EmagineEnum[]) list.values().toArray();
 	}
-	public static EmagineEnum enumFor(String name)
+	
+	public static Collection<EmagineEnum> collection()
+	{
+		return list.values();
+	}
+	
+	public static EmagineEnum valueOf(String name)
 	{
 		return list.get(name);
 	}
