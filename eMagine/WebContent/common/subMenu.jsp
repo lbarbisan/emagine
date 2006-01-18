@@ -5,7 +5,7 @@
 <!--
 	function disconnect() {
 		if(confirm("Souhaitez-vous réellement vous déconnecter ?"))
-			afaire();
+			open("logout.do?action=logout", "_self");
 	}
 -->
 </script>

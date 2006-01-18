@@ -51,13 +51,18 @@ public class SessionManager {
 	/**
 	 * Kills the specified user's session.
 	 * @param user
+	 * @throws EMagineException if the current user's session already had been killed before
 	 * @throws NullPointerException if specified user is null
 	 */
-	public void killUserSession(User user) {
+	public void killUserSession(User user) throws EMagineException {
 		synchronized (user.getId()) {
 			HttpSession session = loginSessions.remove(user.getLogin());
 			if (session != null) {
-				session.invalidate();
+				try {
+					session.invalidate();
+				} catch (IllegalStateException e) {
+					throw new EMagineException("exception.sessionManager.killUserSession.alreadyKilled");
+				}
 				loginPrincipal.remove(user.getLogin());
 			}
 		}
@@ -65,9 +70,10 @@ public class SessionManager {
 	
 	/**
 	 * Kills the current connected user's session.
+	 * @throws EMagineException if the current user's session already had been killed before
 	 * @throws NullPointerException if there isn't any current connected user.
 	 */
-	public void killCurrentSession() {
+	public void killCurrentSession() throws EMagineException {
 		killUserSession(getCurrentUser());
 	}
 	
