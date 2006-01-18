@@ -16,15 +16,23 @@ import fr.umlv.ir3.emagine.util.base.BaseAction;
 
 public class UserCreateAction extends BaseAction {
 
-	
 	/**
+	 * The administrator wants to show a new create form.
+	 * 
+	 * @param mapping The ActionMapping used to select this instance
+	 * @param form The optional ActionForm bean for this request (if any)
+	 * @param request The HTTP request we are processing
+	 * @param response The HTTP response we are creating
+	 * @return an ActionForward instance describing where and how control should be forwarded, or null if the response has already been completed.
+	 * @throws Exception if an exception occurs
 	 */
 	public ActionForward show(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionMessages errors = new ActionMessages();
 		UserCreateForm userCreateForm = (UserCreateForm) form;
-
+		
 		// Retrieve all profiles and set them in the form
 		try {
+			userCreateForm.reset();
 			userCreateForm.setProfiles(ManagerManager.getInstance().getProfileManager().findAll());
 		} catch (EMagineException exception) {
 			addEMagineExceptionError(errors, exception);
@@ -33,12 +41,17 @@ public class UserCreateAction extends BaseAction {
         // Report back any errors, and exit if any
 		return successIfNoErrors(mapping, request, errors);
 	}
-
+	
 	
 	/**
-	 * The administrator wants to search all the users matching his or her request.
-	 * @param params the search parameters
-	 * @param request the request
+	 * The administrator wants to create an user.
+	 * 
+	 * @param mapping The ActionMapping used to select this instance
+	 * @param form The optional ActionForm bean for this request (if any)
+	 * @param request The HTTP request we are processing
+	 * @param response The HTTP response we are creating
+	 * @return an ActionForward instance describing where and how control should be forwarded, or null if the response has already been completed.
+	 * @throws Exception if an exception occurs
 	 */
 	public ActionForward create(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionMessages errors = new ActionMessages();
@@ -55,14 +68,13 @@ public class UserCreateAction extends BaseAction {
 		user.setLogin(userForm.getLogin());
 		user.setPassword(userForm.getPassword());
 		user.setEmail(userForm.getEmail());
-		user.setProfile(profilManager.retrieve(Long.parseLong(userForm.getProfile())));
+		user.setProfile(profilManager.retrieve(Long.parseLong(userForm.getIdProfile())));
 		
 		// Create an user
 		try {
 			userManager.create(user);
 			errors.add("confirm", new ActionMessage("user.create.confirm"));
 		} catch (EMagineException exception) {
-			exception.printStackTrace();
 			if("exceptions.mailManager.sendMail.messagingException".equals(exception.getMessageId()))
 				errors.add("mail", new ActionMessage("user.create.error.mail"));
 			else
