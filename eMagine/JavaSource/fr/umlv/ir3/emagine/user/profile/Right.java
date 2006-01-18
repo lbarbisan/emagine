@@ -15,19 +15,21 @@ import fr.umlv.ir3.emagine.util.base.BaseEntity;
 @Entity(access = AccessType.FIELD)
 @Table(name="rightapplication")
 public class Right extends BaseEntity {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = -9217586569535677028L;
 	
 	private String description;
 	
 	@Column(unique = true)
-	private String name;
+	private String name;	
+	
+	protected Right() {}
 	
 	public Right(String name) {
 		this.name = name;
 	}
+	
+	
 	/**
 	 * @return Returns the description.
 	 */
@@ -53,5 +55,4 @@ public class Right extends BaseEntity {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
 }

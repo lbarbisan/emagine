@@ -13,6 +13,8 @@ import fr.umlv.ir3.emagine.util.base.BaseEntity;
 
 public abstract class SelectSearchForm<EntityType extends BaseEntity> extends SearchForm<EntityType> {
 
+	
+	
 	protected Set<String> selectedIds;
 
 	protected String currentSelectedIds[];

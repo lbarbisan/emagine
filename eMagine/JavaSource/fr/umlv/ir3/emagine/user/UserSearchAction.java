@@ -1,7 +1,5 @@
 package fr.umlv.ir3.emagine.user;
 
-import java.util.Collection;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -58,22 +56,19 @@ public class UserSearchAction extends SearchAction {
 	public ActionForward delete(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionMessages errors = new ActionMessages();
 		UserSearchForm userSearchForm = (UserSearchForm)form;
-		ManagerManager manager = ManagerManager.getInstance();
-
-		// Retrieve the collection of users to delete
-		Collection <User> users = null; // TODO récupérer du form cette liste
-
+		UserManager userManager = ManagerManager.getInstance().getUserManager();
+		
 		// Delete the users
 		DAOManager.beginTransaction();
-/*
-		try {
-			// TODO faire mértode pour effacer plusieurs en forcant
-			//			ManagerManager.getInstance().getUserManager().delete(users, userSearchForm.isDeletionForced());
-		} catch (EMagineException exception) {
-			// save the error
-			addEMagineExceptionError(errors, exception);
+		for (String idUser : userSearchForm.getCurrentSelectedIds()) {
+			try {
+				User user = userManager.retrieve(Long.parseLong(idUser));
+				userManager.delete(user, true);
+			} catch (EMagineException exception) {
+				exception.printStackTrace();
+				addEMagineExceptionError(errors, exception);
+			}
 		}
-*/
         // Report back any errors, and exit if any
 		return successIfNoErrors(mapping, request, errors);
 	}

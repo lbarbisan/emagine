@@ -2,6 +2,7 @@
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic"%>
 
+
 <script type="text/javascript">
 <!--
 	function setDispatch(value) {
@@ -49,6 +50,8 @@
 			<p><label for="result"><bean:message key="statSearch.results"/></label><input type="text" id="result" size="5"/>&nbsp;&nbsp;&nbsp;
 			<label for="pageNb"><bean:message key="statSearch.numberByPage"/></label><input type="text" id="pageNb" size="5" /></p>
 		</div>
+			
+
 		<table cellpadding="0" cellspacing="0">
 			<tr>
 				<th>&nbsp;</th>
@@ -59,9 +62,9 @@
 			</tr>
 			
 			<logic:notEmpty name="userSearchForm" property="results">
-				<logic:iterate id="user" name="userSearchForm" property="results">
+				<logic:iterate id="user" name="userSearchForm" property="results" type="fr.umlv.ir3.emagine.user.User">
 					<tr>
-						<td><input type="checkbox" value="ON" name="all_none" /></td>
+						<td><html:multibox property="currentSelectedIds" value="<%= user.getId().toString() %>" /></td>
 						<td><html:link action="/userModify?dispatch=show" paramId="id" paramName="user" paramProperty="id"><bean:write name="user" property="lastName" /></html:link></td>
 						<td><bean:write name="user" property="firstName" /></td>
 						<td><bean:write name="user" property="login" /></td>
@@ -73,6 +76,7 @@
 			<logic:empty name="userSearchForm" property="results">
 				<tr><td colspan="5">Pas de résultats</td></tr>
 			</logic:empty>
+
 		</table>
 	</div>
 

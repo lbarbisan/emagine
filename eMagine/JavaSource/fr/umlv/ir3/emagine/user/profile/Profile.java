@@ -33,6 +33,8 @@ public class Profile extends BaseEntity{
 	private String description;
 	
 	
+	public Profile() {}
+	
 	public String getName() {
 		return name;
 	}
