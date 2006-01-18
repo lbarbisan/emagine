@@ -28,12 +28,16 @@ public class InitDB {
 		
 		try {
 		
-		Profile profile = new Profile();
-		profile.setDescription("Droit des utilisateurs");
-		profile.setName("Administrateur");
-		profile.addRights(new Right("user.create"));
-		profile.addRights(new Right("user.update"));
-		profile.addRights(new Right("user.delete"));
+		Profile administrateur = new Profile();
+		administrateur.setDescription("Droit des utilisateurs");
+		administrateur.setName("Administrateur");
+		administrateur.addRights(new Right("user.create"));
+		administrateur.addRights(new Right("user.update"));
+		administrateur.addRights(new Right("user.delete"));
+		
+		Profile visitor = new Profile();
+		visitor.setDescription("Droit des utilisateurs");
+		visitor.setName("Utilisateur");
 			
 		User user = new User();
 		user.setEmail("lbarbisan@gmail.com");
@@ -41,7 +45,7 @@ public class InitDB {
 		user.setLastName("Barbisan");
 		user.setLogin("lbarbisan");
 		user.setPassword("lbarbisan");	
-		user.setProfile(profile);
+		user.setProfile(administrateur);
 		userDAO.create(user);
 
 		user = new User();
@@ -50,7 +54,7 @@ public class InitDB {
 		user.setLastName("Ogier");
 		user.setLogin("aogier");
 		user.setPassword("aogier");
-		user.setProfile(profile);
+		user.setProfile(administrateur);
 		userDAO.create(user);
 		
 		user = new User();
@@ -59,7 +63,7 @@ public class InitDB {
 		user.setLastName("Renaudi");
 		user.setLogin("jrenaudi");
 		user.setPassword("jrenaudi");
-		user.setProfile(profile);
+		user.setProfile(administrateur);
 		userDAO.create(user);
 		
 		user = new User();
@@ -68,7 +72,7 @@ public class InitDB {
 		user.setLastName("Rondini");
 		user.setLogin("crondini");
 		user.setPassword("crondini");
-		user.setProfile(profile);
+		user.setProfile(administrateur);
 		userDAO.create(user);
 		
 		user = new User();
@@ -77,7 +81,7 @@ public class InitDB {
 		user.setLastName("Mancel");
 		user.setLogin("mmancel");
 		user.setPassword("mmancel");
-		user.setProfile(profile);
+		user.setProfile(administrateur);
 		userDAO.create(user);
 		
 		user = new User();
@@ -86,7 +90,7 @@ public class InitDB {
 		user.setLastName("a");
 		user.setLogin("a");
 		user.setPassword("");
-		user.setProfile(profile);
+		user.setProfile(visitor);
 		userDAO.create(user);
 		
 		DAOManager.commitTransaction();	

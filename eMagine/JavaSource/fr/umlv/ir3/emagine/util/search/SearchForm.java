@@ -98,7 +98,7 @@ public abstract class SearchForm<BaseType> extends ActionForm implements SearchP
 		for (Method m : this.getClass().getDeclaredMethods()) {
 			if (m.getAnnotation(IsASearchParam.class) != null) {
 				// This method can be a field, if it begins with "get" or "is"
-				int prefixLength = -1;
+				/*int prefixLength = -1;
 				
 				if (m.getName().startsWith("get")) {
 					prefixLength = 3;
@@ -107,11 +107,11 @@ public abstract class SearchForm<BaseType> extends ActionForm implements SearchP
 				}
 				if (prefixLength > 0) {
 					// This method represents a field. It must be added in the list
-					String fieldName = m.getName().substring(prefixLength, prefixLength + 1).toLowerCase() + m.getName().substring(prefixLength + 1);
-					log.debug("Add field " + fieldName);
-					methods.put(fieldName, m.getName());
+					String fieldName = m.getName().substring(prefixLength, prefixLength + 1).toLowerCase() + m.getName().substring(prefixLength + 1);*/
+					log.debug("Add field " + m.getAnnotation(IsASearchParam.class).value()[0]);
+					methods.put(m.getAnnotation(IsASearchParam.class).value()[0], m.getName());
 				//}
-			}
+			//}
 			}
 		}
 		return methods.keySet();

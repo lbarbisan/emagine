@@ -12,6 +12,7 @@ import org.apache.commons.logging.LogFactory;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.type.LongType;
 
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.HibernateUtils;
@@ -150,36 +151,40 @@ public class BaseDAO<EntityType extends BaseEntity> {
 		boolean first = true;
 		StringBuilder queryString = new StringBuilder();
 
-		queryString.append("From " )
-			.append(getEntityClass().getSimpleName())
-			.append((searchParams.getFields().size() == 0 ? "" : " where"));
+		queryString.append("From " ).append(getEntityClass().getSimpleName())
+			.append(" as ")
+			.append(getEntityClass().getSimpleName().toLowerCase());
 		
 		for (String field : searchParams.getFields()) {
-			if(	!searchParams.getField(field).equals("") ||
-				searchParams.getField(field)!= null)
+			if(	searchParams.getField(field)!= null &&
+				!searchParams.getField(field).equals(""))
+				
 			{
-				queryString.append((first == true ? "" : " and "))
-				.append(" ")
+				log.trace("create parameter '"+ field +"'");
+				queryString.append((first == true ? "  where " : " and "))
 				.append(field)
 				.append(" like :")
-				.append(field);
+				.append(field.replace(".", "_"));
 				if (first == true) {
 					first = false;
 				}
 			}
 		}
 
-		log.debug("Search for " + queryString);
-		
 		Query query = HibernateUtils.getSession().createQuery(queryString.toString());
 		for (String field : searchParams.getFields()) {
-			if(	!searchParams.getField(field).equals("") ||
-					searchParams.getField(field)!= null)
+			log.trace("get value for '" + field + "' : '" + searchParams.getField(field)+ "'");
+			if(	searchParams.getField(field)!= null &&
+				!searchParams.getField(field).equals(""))
 				{
 					Object value = searchParams.getField(field);
-					query.setParameter(field, value);
+					query.setParameter(field.replace(".", "_"), value.toString().replace("*", "%"));
+					log.trace(value.getClass().getName());
+					log.trace("setparameter '" + field.replace(".", "_") + "' for '" + value.toString() + "'");
 				}
 		}
+		
+		log.debug("Search for " + queryString);		
 		return query.list();
 	}
 

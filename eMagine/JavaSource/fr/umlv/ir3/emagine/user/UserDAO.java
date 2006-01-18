@@ -2,13 +2,31 @@ package fr.umlv.ir3.emagine.user;
 
 import java.util.List;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.hibernate.Hibernate;
 
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.HibernateUtils;
 import fr.umlv.ir3.emagine.util.base.BaseDAO;
+import fr.umlv.ir3.emagine.util.search.SearchParams;
 
 public class UserDAO extends BaseDAO<User> {
+
+	private Log log = LogFactory.getLog(UserDAO.class);
+	
+	@Override
+	public List<User> find(SearchParams searchParams) throws EMagineException {
+		List<User> list = super.find(searchParams);
+		
+		for(User user : list)
+		{
+			log.debug(user.getProfile().getName());
+		}
+		
+		return list;
+		
+	}
 
 	/**
 	 * Returns the user who's login and password is specified

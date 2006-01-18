@@ -60,7 +60,7 @@ public class UserSearchForm extends SelectSearchForm<User> implements UserSearch
 	/**
 	 * @return Returns the firstName.
 	 */
-	@IsASearchParam("user.firstname")
+	@IsASearchParam("user.firstName")
 	public String getFirstName() {
 		return firstName;
 	}
@@ -73,7 +73,7 @@ public class UserSearchForm extends SelectSearchForm<User> implements UserSearch
 	/**
 	 * @return Returns the lastName.
 	 */
-	@IsASearchParam("user.lastname")
+	@IsASearchParam("user.lastName")
 	public String getLastName() {
 		return lastName;
 	}
@@ -99,6 +99,7 @@ public class UserSearchForm extends SelectSearchForm<User> implements UserSearch
 	/**
 	 * @return Returns the profile.
 	 */
+	@IsASearchParam("user.profile.id")
 	public String getProfile() {
 		return idProfile;
 	}
