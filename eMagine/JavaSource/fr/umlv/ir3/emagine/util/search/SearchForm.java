@@ -16,6 +16,13 @@ public abstract class SearchForm<BaseType> extends ActionForm implements SearchP
 	
 	protected Collection<String> fields;
 
+	/**
+	 * Reset all informations of this form
+	 */
+	public void reset() {
+		results = null;
+	}
+	
 	public int getNbResultsByPage() {
 		return nbResultsByPage;
 	}

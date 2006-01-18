@@ -1,20 +1,14 @@
 package fr.umlv.ir3.emagine.user;
 
 import java.util.Collection;
-import java.util.Iterator;
 
 import fr.umlv.ir3.emagine.user.profile.Profile;
 import fr.umlv.ir3.emagine.util.search.SelectSearchForm;
 
 public class UserSearchForm extends SelectSearchForm<User> implements UserSearchParam {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -2405706291327109100L;
 
-	private Collection<Profile> profiles;
-	
 	//@IsASearchParam
 	private String firstName;
 
@@ -25,69 +19,113 @@ public class UserSearchForm extends SelectSearchForm<User> implements UserSearch
 	private String login;
 
 	//@IsASearchParam
-	private Profile profile;
+	private String idProfile;
 	
+	/** Decide if you must force the deleted of entity **/
 	private boolean deletionForced;
+
+	/** List of all profils **/
+	private Collection <Profile> profiles;
+
+	/** Use to DispacthAction **/
+	private String dispatch;
 	
-	private User selectedUser;
+	
+	/**
+	 * @see fr.umlv.ir3.emagine.util.search.SearchForm#reset()
+	 */
+	public void reset() {
+		firstName = "";
+		lastName = "";
+		login = "";
+		idProfile = "";
+		profiles = null;
+		super.reset();
+	}
 	
 	
-	public User getSelectedUser() {
-		return selectedUser;
-	}
-	public void setSelectedUser(User selectedUser) {
-		this.selectedUser = selectedUser;
-	}
-	public String getFirstName() {
-		return firstName;
-	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
+	/**
+	 * @return Returns the deletionForced.
+	 */
 	public boolean isDeletionForced() {
 		return deletionForced;
 	}
-	public void setDeletionForced(boolean forceDeletion) {
-		this.deletionForced = forceDeletion;
+	/**
+	 * @param deletionForced The deletionForced to set.
+	 */
+	public void setDeletionForced(boolean deletionForced) {
+		this.deletionForced = deletionForced;
 	}
+	/**
+	 * @return Returns the firstName.
+	 */
+	public String getFirstName() {
+		return firstName;
+	}
+	/**
+	 * @param firstName The firstName to set.
+	 */
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	/**
+	 * @return Returns the lastName.
+	 */
 	public String getLastName() {
 		return lastName;
 	}
+	/**
+	 * @param lastName The lastName to set.
+	 */
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+	/**
+	 * @return Returns the login.
+	 */
 	public String getLogin() {
 		return login;
 	}
+	/**
+	 * @param login The login to set.
+	 */
 	public void setLogin(String login) {
 		this.login = login;
 	}
-	public Profile getProfile() {
-		return profile;
+	/**
+	 * @return Returns the profile.
+	 */
+	public String getProfile() {
+		return idProfile;
 	}
-	public void setProfile(Profile profile) {
-		this.profile = profile;
+	/**
+	 * @param profile The profile to set.
+	 */
+	public void setProfile(String profile) {
+		this.idProfile = profile;
 	}
+	/**
+	 * @return Returns the profiles.
+	 */
 	public Collection<Profile> getProfiles() {
 		return profiles;
 	}
+	/**
+	 * @param profiles The profiles to set.
+	 */
 	public void setProfiles(Collection<Profile> profiles) {
 		this.profiles = profiles;
 	}
-	public void setSelectedColums(Iterable<String> selectedColumns) {
-		// TODO UserSearchForm.setSelectedColums()
-		
+	/**
+	 * @return Returns the dispatch.
+	 */
+	public String getDispatch() {
+		return dispatch;
 	}
-	public Iterator<String> getColumnsName() {
-		// TODO UserSearchForm.getColumnsName()
-		return null;
-	}
-	public Iterator<String> getselectedColumnsName() {
-		// TODO UserSearchForm.getselectedColumnsName()
-		return null;
-	}
-	public Iterator<Iterable<Object>> iterator() {
-		// TODO UserSearchForm.iterator()
-		return null;
+	/**
+	 * @param dispatch The dispatch to set.
+	 */
+	public void setDispatch(String dispatch) {
+		this.dispatch = dispatch;
 	}
 }

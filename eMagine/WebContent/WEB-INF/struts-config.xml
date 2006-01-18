@@ -13,12 +13,11 @@
 
 	<!-- ========== Form Mapping Definitions =============================== -->
 	<form-beans>
-		<form-bean name="apprenticeAbsenceAddForm" 
-			type="fr.umlv.ir3.emagine.apprentice.absence.ApprenticeAbsenceAddForm" /> 
-		<form-bean name="userInformationForm"
-			type="fr.umlv.ir3.emagine.user.UserInformationForm" />
-		<form-bean name="userCreateForm"
-			type="fr.umlv.ir3.emagine.user.UserCreateForm" />
+		<form-bean name="apprenticeAbsenceAddForm" type="fr.umlv.ir3.emagine.apprentice.absence.ApprenticeAbsenceAddForm" /> 
+		<form-bean name="userModifyForm" type="fr.umlv.ir3.emagine.user.UserModifyForm" />
+		<form-bean name="userCreateForm" type="fr.umlv.ir3.emagine.user.UserCreateForm" />
+		<form-bean name="userSearchForm" type="fr.umlv.ir3.emagine.user.UserSearchForm" />
+		<form-bean name="profileListForm" type="fr.umlv.ir3.emagine.user.profile.ProfileListForm" />
 	</form-beans>
 
 	<!-- ========== Action Mapping Definitions =============================== -->
@@ -210,15 +209,24 @@
 			forward="statistics.statisticsDetail" />
 
 		<!-- administration -->
-		<action path="/userSearch" forward="administration.userSearch" />
-
+		<action path="/userSearch" type="fr.umlv.ir3.emagine.user.UserSearchAction" name="userSearchForm" parameter="dispatch" scope="session">
+			<forward name="success" path="administration.userSearch" />
+		</action>
 		<action path="/userCreate" type="fr.umlv.ir3.emagine.user.UserCreateAction" name="userCreateForm" validate="true" input="administration.userCreate" parameter="dispatch" scope="session">
 			<forward name="success" path="administration.userCreate" />
+		</action>
+		<action path="/userModify" type="fr.umlv.ir3.emagine.user.UserModifyAction" name="userModifyForm" parameter="dispatch" scope="session">
+			<forward name="success" path="administration.userDetail" />
+		</action>
+		<action path="/userDelete" type="fr.umlv.ir3.emagine.user.UserDeleteAction" scope="session">
+			<forward name="success" path="administration.userSearch" />
+		</action>
+		<action path="/profileList" type="fr.umlv.ir3.emagine.user.profile.ProfileListAction" name="profileListForm" parameter="dispatch" scope="session">
+			<forward name="success" path="administration.profilList" />
 		</action>
 
 		<action path="/profilCreate"
 			forward="administration.profilCreate" />
-		<action path="/profilList" forward="administration.profilList" />
 		<action path="/profilDetail"
 			forward="administration.profilDetail" />
 		<action path="/userDetail" forward="administration.userDetail" />

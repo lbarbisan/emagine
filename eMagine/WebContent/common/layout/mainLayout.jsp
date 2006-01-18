@@ -6,16 +6,15 @@
 	<head>
 		<link rel="stylesheet" href="/eMagine/common/style/style1.css" type="text/css">
 		<title><bean:message key="app.title" /></title>
-		<script src="/struts-layout/config/javascript.js"></script>
+		<script type="text/javascript" src="/struts-layout/config/javascript.js"></script>
+		<script type="text/javascript" src="/eMagine/common/js/checkboxTools.js"></script>
 
-		<script type="text/javascript" src="/eMagine/common/js/checkboxTools.js" />
-		<script language="javascript">
-		<!--
-			function deconnection() {
-				if(confirm("Souhaitez-vous r?ellement vous d?connecter ?"))
-					window.open("/eMagine/index.jsp","_self");
-			}
-		-->
+		<script type="text/javascript">
+<!--
+	function afaire() {
+		alert("Cette fonctionnalité est en cours de développement");
+	}
+-->
 		</script>
 	</head>
 	<body>

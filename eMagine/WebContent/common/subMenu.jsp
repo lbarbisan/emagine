@@ -1,9 +1,19 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
+
+<script language="javascript">
+<!--
+	function disconnect() {
+		if(confirm("Souhaitez-vous réellement vous déconnecter ?"))
+			afaire();
+	}
+-->
+</script>
+
 <div id="bloc_menu2">
 	<ul id="menu2">
-		<li><html:link action="/userSearch"><bean:message key="form.administration"/></html:link> | </li>
-		<li> <a href="#">Aide</a> | </li>
-		<li><html:link href="javascript:deconnection();"><bean:message key="form.disconnect"/></html:link></li>
+		<li><html:link action="/userSearch?dispatch=show"><bean:message key="form.administration"/></html:link> | </li>
+		<li><html:link href="javascript:afaire();"><bean:message key="form.help"/></html:link> | </li>
+		<li><html:link href="javascript:disconnect();"><bean:message key="form.disconnect"/></html:link></li>
 	</ul>
 </div>

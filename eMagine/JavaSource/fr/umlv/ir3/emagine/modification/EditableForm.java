@@ -25,6 +25,10 @@ public abstract class EditableForm<EntityType extends EditableEntity> extends Ac
 		return entity;
 	}
 
+	public void setEntity(EntityType entity) {
+		this.entity = entity;
+	}
+
 	public Long getId() {
 		return entity.getId();	
 	}
