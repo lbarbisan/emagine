@@ -5,14 +5,14 @@ import java.util.HashMap;
 
 public class SearchParamsImpl implements SearchParams {
 
-	HashMap<String, Object> fields = new HashMap<String, Object>();
+	/**  **/
+	HashMap<String, String> fields = new HashMap<String, String>();
 	
-	public void setField(String name, Object value)
-	{
+	public void setField(String name, String value) {
 		fields.put(name, value);
 	}
 	
-	public Object getField(String field) {
+	public String getField(String field) {
 		return fields.get(field);
 	}
 

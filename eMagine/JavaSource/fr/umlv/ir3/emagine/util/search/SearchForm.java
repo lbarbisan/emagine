@@ -10,12 +10,20 @@ import org.apache.struts.action.ActionForm;
 import fr.umlv.ir3.emagine.extraction.Extractable;
 
 public abstract class SearchForm<BaseType> extends ActionForm implements SearchParams {
+
+	/** Number of page : Pagination **/
 	protected int nbResultsByPage;
+
+	/** Page Courante **/
 	protected int indexPage;
+
+	/** List of Results **/
 	protected List<BaseType> results;
 	
+	/** List of Fields to use **/
 	protected Collection<String> fields;
 
+	
 	/**
 	 * Reset all informations of this form
 	 */
@@ -59,7 +67,7 @@ public abstract class SearchForm<BaseType> extends ActionForm implements SearchP
 	/**
 	 * @see fr.umlv.ir3.emagine.util.search.SearchParams#getField(java.lang.String)
 	 */
-	public Object getField(String field) {
+	public String getField(String field) {
 		// TODO SelectSearchForm.getField()
 		return null;
 	}

@@ -34,7 +34,7 @@ public class UserSearchAction extends SearchAction {
 		// Retrieve all profiles and set them in the form
 		try {
 			userSearchForm.reset();
-			userSearchForm.setProfiles(ManagerManager.getInstance().getProfileManager().findAll());
+			userSearchForm.setProfiles(ManagerManager.getInstance().getProfileManager().find(userSearchForm.getSeachParams()));
 		} catch (EMagineException exception) {
 			addEMagineExceptionError(errors, exception);
 		}

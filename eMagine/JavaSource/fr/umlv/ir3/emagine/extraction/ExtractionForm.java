@@ -112,7 +112,7 @@ public class ExtractionForm extends ActionForm implements ExtractionParams {
 		return null;
 	}
 
-	public Object getField(String field) {
+	public String getField(String field) {
 		// TODO ExtractionForm.getField()
 		return null;
 	}
