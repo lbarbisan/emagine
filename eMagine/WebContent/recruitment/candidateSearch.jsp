@@ -55,7 +55,7 @@
 			</tr>
 			<tr>
 				<td><input type="checkbox" value="ON"  name="all_none"/></td>
-				<td><html:link action="/candidateOnglet">Cadic</html:link></td>
+				<td><html:link action="/candidateVisuInfo">Cadic</html:link></td>
 				<td>Yann</td>
 				<td>GM</td>
 				<td>Paris</td>
@@ -65,7 +65,7 @@
 			</tr>
 			<tr>
 				<td><input type="checkbox" value="ON"  name="all_none"/></td>
-				<td><html:link action="/candidateOnglet">Dumoleyn</html:link></td>
+				<td><html:link action="/candidateVisuInfo">Dumoleyn</html:link></td>
 				<td>Delphine</td>
 				<td>EI</td>
 				<td>Paris</td>
