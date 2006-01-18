@@ -34,8 +34,6 @@ public class ProfileListAction extends SearchAction {
 		} catch (EMagineException exception) {
 			addEMagineExceptionError(errors, exception);
 		}
-		
-		System.out.println("ok ici");
 
         // Report back any errors, and exit if any
 		return successIfNoErrors(mapping, request, errors);
