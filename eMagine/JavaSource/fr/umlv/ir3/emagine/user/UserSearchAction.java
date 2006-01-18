@@ -34,7 +34,7 @@ public class UserSearchAction extends SearchAction {
 		// Retrieve all profiles and set them in the form
 		try {
 			userSearchForm.reset();
-			userSearchForm.setProfiles(ManagerManager.getInstance().getProfileManager().find(userSearchForm.getSeachParams()));
+			userSearchForm.setProfiles(ManagerManager.getInstance().getProfileManager().findAll());
 		} catch (EMagineException exception) {
 			addEMagineExceptionError(errors, exception);
 		}
@@ -95,10 +95,7 @@ public class UserSearchAction extends SearchAction {
 
 		// Retrieve the searched users, and set them in the page 
 		try {
-			//userSearchForm.setResults(manager.getUserManager().find(userSearchForm));
-			userSearchForm.setResults(manager.getUserManager().findAll());
-			
-			// TODO à échanger
+			userSearchForm.setResults(manager.getUserManager().find(userSearchForm));
 		} catch (EMagineException exception) {
 			addEMagineExceptionError(errors, exception);
 		}

@@ -1,16 +1,22 @@
 package fr.umlv.ir3.emagine.util.search;
 
-import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.Collection;
-import java.util.LinkedList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.apache.struts.action.ActionForm;
 
 import fr.umlv.ir3.emagine.extraction.Extractable;
+import fr.umlv.ir3.emagine.util.IsASearchParam;
 
 public abstract class SearchForm<BaseType> extends ActionForm implements SearchParams {
 
+	private Log log = LogFactory.getLog(SearchForm.class);
+	
 	/** Number of page : Pagination **/
 	protected int nbResultsByPage;
 
@@ -21,7 +27,8 @@ public abstract class SearchForm<BaseType> extends ActionForm implements SearchP
 	protected List<BaseType> results;
 	
 	/** List of Fields to use **/
-	protected Collection<String> fields;
+	//protected Collection<String> fields;
+	protected Map<String, String> methods;
 
 	
 	/**
@@ -68,23 +75,40 @@ public abstract class SearchForm<BaseType> extends ActionForm implements SearchP
 	 * @see fr.umlv.ir3.emagine.util.search.SearchParams#getField(java.lang.String)
 	 */
 	public String getField(String field) {
-		// TODO SelectSearchForm.getField()
-		return null;
+		try {
+			return this.getClass().getMethod(methods.get(field), null).invoke(this, null).toString();
+		} catch (Exception exception) {
+			log.error("can't retrieve value for field " + field, exception);
+			return null;
+		}
 	}
-
+	
 	public Collection<String> getFields() {
-		if (fields == null) {
-			fields = new LinkedList<String>();
-			for (Field field : getClass().getDeclaredFields()) {
-				// TODO: getFields en fonction des annotations
-				if (/*field.getName().startsWith("get") && *//*field.isAnnotationPresent(IsASearchParam.class)*/false) {
-					//String methodName = method.getName();
-					//String fieldName = methodName.substring(3, 4).toLowerCase() + methodName.substring(4);
-					fields.add(field.getName());
+		if (methods != null) {
+			return methods.keySet();
+		}
+		methods = new HashMap<String,String>();
+		//isBoolean = new ArrayList<Boolean>();
+		for (Method m : this.getClass().getDeclaredMethods()) {
+			if (m.getAnnotation(IsASearchParam.class) != null) {
+				// This method can be a field, if it begins with "get" or "is"
+				int prefixLength = -1;
+				
+				if (m.getName().startsWith("get")) {
+					prefixLength = 3;
+				} else if (m.getName().startsWith("is")) {
+					prefixLength = 2;
 				}
+				if (prefixLength > 0) {
+					// This method represents a field. It must be added in the list
+					String fieldName = m.getName().substring(prefixLength, prefixLength + 1).toLowerCase() + m.getName().substring(prefixLength + 1);
+					log.debug("Add field " + fieldName);
+					methods.put(fieldName, m.getName());
+				//}
+			}
 			}
 		}
-		return fields;
+		return methods.keySet();
 	}
 
 	public String getPropertyNameForColumn(String column) {

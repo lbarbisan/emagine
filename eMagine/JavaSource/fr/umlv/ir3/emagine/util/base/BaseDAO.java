@@ -155,20 +155,30 @@ public class BaseDAO<EntityType extends BaseEntity> {
 			.append((searchParams.getFields().size() == 0 ? "" : " where"));
 		
 		for (String field : searchParams.getFields()) {
-			queryString.append((first == true ? "" : " and "))
-			.append(" ")
-			.append(field)
-			.append(" like :")
-			.append(field);
-			if (first == true) {
-				first = false;
+			if(	!searchParams.getField(field).equals("") ||
+				searchParams.getField(field)!= null)
+			{
+				queryString.append((first == true ? "" : " and "))
+				.append(" ")
+				.append(field)
+				.append(" like :")
+				.append(field);
+				if (first == true) {
+					first = false;
+				}
 			}
 		}
 
+		log.debug("Search for " + queryString);
+		
 		Query query = HibernateUtils.getSession().createQuery(queryString.toString());
 		for (String field : searchParams.getFields()) {
-			Object value = searchParams.getField(field);
-			query.setParameter(field, value);
+			if(	!searchParams.getField(field).equals("") ||
+					searchParams.getField(field)!= null)
+				{
+					Object value = searchParams.getField(field);
+					query.setParameter(field, value);
+				}
 		}
 		return query.list();
 	}

@@ -3,6 +3,7 @@ package fr.umlv.ir3.emagine.user;
 import java.util.Collection;
 
 import fr.umlv.ir3.emagine.user.profile.Profile;
+import fr.umlv.ir3.emagine.util.IsASearchParam;
 import fr.umlv.ir3.emagine.util.search.SelectSearchForm;
 
 public class UserSearchForm extends SelectSearchForm<User> implements UserSearchParam {
@@ -59,6 +60,7 @@ public class UserSearchForm extends SelectSearchForm<User> implements UserSearch
 	/**
 	 * @return Returns the firstName.
 	 */
+	@IsASearchParam("user.firstname")
 	public String getFirstName() {
 		return firstName;
 	}
@@ -71,6 +73,7 @@ public class UserSearchForm extends SelectSearchForm<User> implements UserSearch
 	/**
 	 * @return Returns the lastName.
 	 */
+	@IsASearchParam("user.lastname")
 	public String getLastName() {
 		return lastName;
 	}
@@ -128,4 +131,5 @@ public class UserSearchForm extends SelectSearchForm<User> implements UserSearch
 	public void setDispatch(String dispatch) {
 		this.dispatch = dispatch;
 	}
+
 }

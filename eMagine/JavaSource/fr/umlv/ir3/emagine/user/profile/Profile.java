@@ -4,11 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.AccessType;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
-import javax.persistence.OrderBy;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import fr.umlv.ir3.emagine.user.User;
 import fr.umlv.ir3.emagine.util.base.BaseEntity;
@@ -23,11 +24,11 @@ public class Profile extends BaseEntity{
 	
 	@Column(unique = true)
 	private String name;	
-	@OneToMany(cascade = {CascadeType.ALL})
-	@OrderBy("name")
+	@OneToMany 
+	@Cascade(CascadeType.SAVE_UPDATE)
 	private List<Right> rights = new ArrayList<Right>();
-	@OneToMany(cascade = {CascadeType.MERGE,CascadeType.PERSIST, CascadeType.REFRESH},
-			mappedBy = "profile")
+	@OneToMany(mappedBy = "profile")
+	@Cascade(CascadeType.SAVE_UPDATE)
 	private List<User> users;
 	private String description;
 	
