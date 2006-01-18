@@ -36,12 +36,12 @@
 			</tr>
 			<tr>
 				<td><input type="checkbox" value="ON" name="all_none"/></td>
-				<td><html:link action="/companyOnglet">Keops</html:link></td>
+				<td><html:link action="/companyVisuInfo">Keops</html:link></td>
 				<td>77</td>
 			</tr>
 			<tr>
 				<td><input type="checkbox" value="ON" name="all_none"/></td>
-				<td><html:link action="/companyOnglet">Nestle</html:link></td>
+				<td><html:link action="/companyVisuInfo">Nestle</html:link></td>
 				<td>93</td>
 			</tr>
 		</table>
