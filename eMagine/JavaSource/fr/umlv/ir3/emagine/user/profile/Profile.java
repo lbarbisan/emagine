@@ -17,9 +17,6 @@ import fr.umlv.ir3.emagine.util.base.BaseEntity;
 @Entity(access = AccessType.FIELD)
 public class Profile extends BaseEntity{
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -3504019715473060113L;
 	
 	@Column(unique = true)
