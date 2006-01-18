@@ -37,6 +37,12 @@ public abstract class SearchForm<BaseType> extends ActionForm implements SearchP
 	public void reset() {
 		results = null;
 	}
+
+	public int getNbResults() {
+		if(results == null)
+			return 0;
+		return results.size();
+	}
 	
 	public int getNbResultsByPage() {
 		return nbResultsByPage;

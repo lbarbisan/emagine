@@ -27,7 +27,7 @@ public class UserSearchForm extends SelectSearchForm<User> implements UserSearch
 
 	/** List of all profils **/
 	private Collection <Profile> profiles;
-
+	
 	/** Use to DispacthAction **/
 	private String dispatch;
 	

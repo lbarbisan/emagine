@@ -47,7 +47,7 @@
 	<h2><bean:message key="title.results"/></h2> 
 	<div align=center>
 		<div id="statSearch">
-			<p><label for="result"><bean:message key="statSearch.results"/></label><input type="text" id="result" size="5"/>&nbsp;&nbsp;&nbsp;
+			<p><label for="result"><bean:message key="statSearch.results"/></label><html:text property="nbResults" size="5" disabled="true"/>&nbsp;&nbsp;&nbsp;
 			<label for="pageNb"><bean:message key="statSearch.numberByPage"/></label><input type="text" id="pageNb" size="5" /></p>
 		</div>
 			
@@ -82,8 +82,8 @@
 
 	<div id="actions">
 		<ul>
-			<li><a href="javascript:checkAll('userSearchForm','all_none');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
-			<li><a href="javascript:checkNothing('userSearchForm','all_none');"><bean:message key="all_none.none"/></a></li>
+			<li><a href="javascript:checkAll('userSearchForm','currentSelectedIds');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
+			<li><a href="javascript:checkNothing('userSearchForm','currentSelectedIds');"><bean:message key="all_none.none"/></a></li>
 		</ul>
 		
 		<h2>&nbsp;</h2>
