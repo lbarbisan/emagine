@@ -3,13 +3,15 @@ package fr.umlv.ir3.emagine.user;
 import java.util.List;
 
 import javax.persistence.AccessType;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import fr.umlv.ir3.emagine.modification.EditableEntity;
 import fr.umlv.ir3.emagine.modification.Modification;
@@ -24,14 +26,15 @@ public class User extends EditableEntity{
 
 	private static final long serialVersionUID = 3947274315317297604L;
 
-	@ManyToOne(cascade = {CascadeType.ALL})
+	@ManyToOne
+	@Cascade({CascadeType.SAVE_UPDATE})
 	@JoinColumn(name = "profile_id")
 	private Profile profile;
-	@OneToMany(cascade = {CascadeType.ALL},
-			mappedBy = "userDestination")
+	@OneToMany(mappedBy = "userDestination")
+	
 	private List<Modification> modificationsInWait;
-	@OneToMany(cascade = {CascadeType.ALL},
-			mappedBy = "userSource")
+	@OneToMany(mappedBy = "userSource")
+	@Cascade({CascadeType.SAVE_UPDATE})
 	private List<Modification> modificationsRequest;
 	
 	

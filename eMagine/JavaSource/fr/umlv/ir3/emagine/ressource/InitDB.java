@@ -80,6 +80,15 @@ public class InitDB {
 		user.setProfile(profile);
 		userDAO.create(user);
 		
+		user = new User();
+		user.setEmail("a@gmail.com");
+		user.setFirstName("a");
+		user.setLastName("a");
+		user.setLogin("a");
+		user.setPassword("");
+		user.setProfile(profile);
+		userDAO.create(user);
+		
 		DAOManager.commitTransaction();	
 		} catch (EMagineException emagine) {
 			// TODO EMagineException.e1 Not Implemented

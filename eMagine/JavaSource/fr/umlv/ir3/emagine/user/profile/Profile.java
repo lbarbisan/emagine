@@ -21,7 +21,7 @@ public class Profile extends BaseEntity{
 	
 	@Column(unique = true)
 	private String name;	
-	@OneToMany 
+	@OneToMany
 	@Cascade(CascadeType.SAVE_UPDATE)
 	private List<Right> rights = new ArrayList<Right>();
 	@OneToMany(mappedBy = "profile")

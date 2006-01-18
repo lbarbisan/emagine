@@ -86,6 +86,7 @@ public class UserSearchForm extends SelectSearchForm<User> implements UserSearch
 	/**
 	 * @return Returns the login.
 	 */
+	@IsASearchParam("user.login")
 	public String getLogin() {
 		return login;
 	}
