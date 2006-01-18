@@ -1,5 +1,13 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
+
+<div class="tabs">
+	<ul>
+		<li><html:link action="/companyVisuInfo">Informations&nbsp;g&eacute;n&eacute;rales&nbsp;</html:link></li>
+		<span class="tab_clicked"><li><html:link action="/actorVisuEvent">Ev&eacute;nement</html:link></li></span>
+	</ul>
+</div>
+<div class="tabs_div">
 <form name="results">
 <h2><bean:message key="event.search"/></h2>
 <br/>
@@ -73,5 +81,6 @@
 			<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" title="<bean:message key="button.title.remove"/>"/></a></li>
 			<li><html:link action="/actorEventExtract"><img src="/eMagine/common/images/icones/extraire.png" title="<bean:message key="button.title.extract"/>"/></html:link></li>
 		</ul>
+	</div>
 	</div>
 </form>

@@ -1,5 +1,15 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
+
+<div class="tabs">
+	<ul>
+		<li><html:link action="/companyVisuInfo">Informations&nbsp;g&eacute;n&eacute;rales&nbsp;</html:link></li>
+		<span class="tab_clicked"><li><html:link action="/companyVisuActor">Acteur</html:link></li></span>
+		<li><html:link action="/companyVisuPost">Poste</html:link></li>
+		<li><html:link action="/companyVisuEvent">Ev&eacute;nement</html:link></li>
+</ul>
+</div>
+<div class="tabs_div">
 <form name="results">
 	<h2><bean:message key="actor.list.title"/></h2>
 	<br/>
@@ -15,7 +25,7 @@
 			</tr>
 			<tr>
 				<td><input type="checkbox" value="ON" name="all_none"/></td>
-				<td><html:link action="/actorOnglet">Bariton</html:link></td>
+				<td><html:link action="/actorVisuInfo">Bariton</html:link></td>
 				<td>José</td>
 				<td>PDG</td>
 				<td>0134658900</td>
@@ -23,7 +33,7 @@
 			</tr>
 			<tr>
 				<td><input type="checkbox" value="ON" name="all_none"/></td>
-				<td><html:link action="/actorOnglet">Manille</html:link></td>
+				<td><html:link action="/actorVisuInfo">Manille</html:link></td>
 				<td>Patricia</td>
 				<td>DRH</td>
 				<td>0134658902</td>
@@ -45,5 +55,6 @@
 			<li><html:link action="/actorExtract"><img src="/eMagine/common/images/icones/extraire.png" title="<bean:message key="button.title.extract"/>"/></html:link></li>
 			<li><html:link action="/actorCreate"><img src="/eMagine/common/images/icones/ajouter.png" title="<bean:message key="button.title.add"/>"/></html:link></li>
 		</ul>
+	</div>
 	</div>
 </form>
