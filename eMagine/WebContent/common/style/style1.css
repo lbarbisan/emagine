@@ -283,7 +283,7 @@ ul#menu2 {
 .form fieldset {
 	color:#809AD0;
 	font-size:10pt;
-	border-width:1px;
+	border-width:1;
 	border-style:solid;
 	border-color:#809AD0;
 	padding:10px;
