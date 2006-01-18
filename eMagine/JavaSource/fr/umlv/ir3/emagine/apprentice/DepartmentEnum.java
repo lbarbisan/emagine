@@ -9,22 +9,22 @@ import fr.umlv.ir3.emagine.util.EmagineEnum;
 public class DepartmentEnum extends EmagineEnum<DepartmentEnum>{
 
 	private static final long serialVersionUID = -3760839927504476550L;	
-	
+	public static DepartmentEnum[] values()
+	{
+		return (DepartmentEnum[]) list.values().toArray();
+	}
 	public static DepartmentEnum valueOf(String name)
 	{
-		return (DepartmentEnum) list.get(name);
+		return (DepartmentEnum)list.get(name);
 	}
 	
 	
-	private String departementName;
-	
+	private String departementName;	
 	protected DepartmentEnum(){super();}
-	
 	public DepartmentEnum(String string, String departementName) {
 		super(string);
 		this.departementName = departementName;
 	}
-	
 	public String getDepartementName() {
 		return departementName;
 	}

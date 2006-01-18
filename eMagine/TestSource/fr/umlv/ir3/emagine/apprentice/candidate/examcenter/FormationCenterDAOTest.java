@@ -34,34 +34,6 @@ public class FormationCenterDAOTest extends BaseDAOTest<FormationCenter> {
 		return dao;
 	}
 
-	//@Override
-	protected FormationCenter createEntity() {
-		
-		List<Room> rooms = new ArrayList<Room>();
-		rooms.add(new Room());
-		
-		List<Candidate> candidates = new ArrayList<Candidate>();
-		candidates.add(new Candidate());
-		
-		Address address = new Address();
-		address.setCity("city");
-		address.setCountry(CountryEnum.valueOf("France"));
-		address.setDepartment(DepartmentEnum.valueOf("D1"));
-		address.setPostalCode("postal");
-		address.setStreet("street");
-		
-		FormationCenter formCenter = new FormationCenter();
-		formCenter.setName("FormCenter");
-		formCenter.setAddress(address);
-		formCenter.setPhone("0000000000");
-		formCenter.setRooms(rooms);
-		formCenter.setCandidate(candidates);
-		
-		
-		return formCenter;
-	}
-
-	//@Override
 	protected Collection<FormationCenter> createEntityCollection() {
 		
 		ArrayList<FormationCenter> list = new ArrayList<FormationCenter>();
@@ -184,9 +156,28 @@ public class FormationCenterDAOTest extends BaseDAOTest<FormationCenter> {
 	}
 	@Override
 	protected FormationCenter createEntity(int index) {
-		// TODO enclosing_package.FormationCenterDAOTest.createEntity(enclosing_method_arguments)
-		//throw new EMagineException("exception.unimplementedMethod", "enclosing_package.FormationCenterDAOTest.createEntity(enclosing_method_arguments)");
-		return null;
+		List<Room> rooms = new ArrayList<Room>();
+		rooms.add(new Room());
+		
+		List<Candidate> candidates = new ArrayList<Candidate>();
+		candidates.add(new Candidate());
+		
+		Address address = new Address();
+		address.setCity("city" + index);
+		address.setCountry(CountryEnum.valueOf("France"));
+		address.setDepartment(DepartmentEnum.valueOf("D"+ index));
+		address.setPostalCode("postal"+ index);
+		address.setStreet("street" + index);
+		
+		FormationCenter formCenter = new FormationCenter();
+		formCenter.setName("FormCenter" + index);
+		formCenter.setAddress(address);
+		formCenter.setPhone("0000000000");
+		formCenter.setRooms(rooms);
+		formCenter.setCandidate(candidates);
+		
+		
+		return formCenter;
 	}
 	@Override
 	protected FormationCenter createEntityForSearchParams(SearchParams params, int index) {

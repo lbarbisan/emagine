@@ -138,6 +138,8 @@ public abstract class BaseDAOTest <EntityType extends BaseEntity> extends TestCa
 	public void testFind() throws EMagineException {
 		
 		Collection <EntityType> entities = createEntityCollection(11,15);
+		assertEquals(15, entities.size());
+		
 		SearchParams searchParams = createSearchParams();
 		
 		DAOManager.beginTransaction();
@@ -150,7 +152,9 @@ public abstract class BaseDAOTest <EntityType extends BaseEntity> extends TestCa
 		Collection <EntityType>  entitiesFilter = new ArrayList<EntityType>();
 		for(int index=16;index<20;index++)
 		{
-			entitiesFilter.add(createEntityForSearchParams(searchParams,index));	
+			EntityType entityType = createEntityForSearchParams(searchParams,index);
+			assertNotNull(entityType);
+			entitiesFilter.add(entityType);	
 		}
 		
 		
@@ -185,6 +189,7 @@ public abstract class BaseDAOTest <EntityType extends BaseEntity> extends TestCa
 	 */
 	public void testFindAll() throws EMagineException {
 		Collection <EntityType> initialEntities = createEntityCollection(20,30);
+		assertEquals(30, initialEntities.size());
 		
 		DAOManager.beginTransaction();
 		for(EntityType baseEntity : initialEntities)
@@ -224,7 +229,9 @@ public abstract class BaseDAOTest <EntityType extends BaseEntity> extends TestCa
 	
 		for(int index=start; index < start + lenght; index ++)
 		{
-			createEntity(index);
+			EntityType entityType = createEntity(index);
+			assertNotNull(entityType);
+			list.add (entityType);
 		}
 		return list;
 	}

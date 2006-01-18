@@ -4,7 +4,6 @@
 package fr.umlv.ir3.emagine.util;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,19 +27,14 @@ public class EmagineEnum<EntityType extends EmagineEnum<EntityType>> extends Bas
 	protected static Map<String ,EmagineEnum> list = new HashMap<String, EmagineEnum>();
 	private static final long serialVersionUID = 3836342655386886511L;
 	
-	public static EmagineEnum[] values()
+	public static EmagineEnum<?>[] values()
 	{
-		return (EmagineEnum[]) list.values().toArray();
+		return (EmagineEnum<?>[]) list.values().toArray();
 	}
 	
-	public static Collection<EmagineEnum> collection()
+	public static EmagineEnum<?> valueOf(String name)
 	{
-		return list.values();
-	}
-	
-	public static EmagineEnum valueOf(String name)
-	{
-		return list.get(name);
+		return (EmagineEnum<?>)list.get(name);
 	}
 	
 	// I N S T A N C E S
@@ -52,23 +46,7 @@ public class EmagineEnum<EntityType extends EmagineEnum<EntityType>> extends Bas
 		SearchParamsImpl searchParamsImpl = new SearchParamsImpl();
 		searchParamsImpl.setField("name", name);
 		
-		this.name = name;
-
-//		DAOManager.beginTransaction();
-//		
-//		try {
-//			List<EmagineEnum> DBlist =  DAOManager.getInstance().getEmagineEnumDAO().find(searchParamsImpl);
-//			if(DBlist.isEmpty())
-//			{
-//				DAOManager.getInstance().getEmagineEnumDAO().create(this);
-//				list.put(name, this);
-//			}
-//		} catch (EMagineException e) {
-//			// TODO Emagine Enum a catch
-//		}
-//		
-//		DAOManager.commitTransaction();
-		
+		this.name = name;		
 	}	
 	protected EmagineEnum(){super();}
 	

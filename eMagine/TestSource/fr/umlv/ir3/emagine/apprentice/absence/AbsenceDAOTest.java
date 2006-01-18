@@ -27,7 +27,8 @@ public class AbsenceDAOTest extends BaseDAOTest<Absence> {
 	}
 	@Override
 	protected Absence createEntity(int index) {
-		return new Absence(true,index + "Test de justification. &é~#'{([-|`_ç^à@)]=+}^¨$£¤%ù*µ?,;.:!§<>",GregorianCalendar.getInstance().getTime(),GregorianCalendar.getInstance().getTime());
+		//FIXME : lbarbisan - Créer un candidat, sinon le test échoue, le candidat ne doit pas pouvoir être null
+		return new Absence(true,index + " Test de justification. &é~#'{([-|`_ç^à@)]=+}^¨$£¤%ù*µ?,;.:!§<>",GregorianCalendar.getInstance().getTime(),GregorianCalendar.getInstance().getTime());
 	}
 
 	@Override
@@ -43,7 +44,7 @@ public class AbsenceDAOTest extends BaseDAOTest<Absence> {
 	@Override
 	protected SearchParams createSearchParams() {
 		SearchParamsImpl searchParams = new SearchParamsImpl();
-		searchParams.setField("JustificationComment" , "test de date");
+		searchParams.setField("JustificationComment" , "test de dat%");
 		return searchParams;
 	}
 
@@ -59,6 +60,7 @@ public class AbsenceDAOTest extends BaseDAOTest<Absence> {
 		assertTrue(conditionCheck(abs1.getModifications(),abs2.getModifications()));
 		assertTrue(conditionCheck(abs1.getNumberOfWorkedDays(),abs2.getNumberOfWorkedDays()));
 		assertTrue(conditionCheck(abs1.getStartDate(),abs2.getStartDate()));
+		assertTrue(conditionCheck(abs1.getApprentice(),abs2.getApprentice()));
 	}
 	
 	@Override
