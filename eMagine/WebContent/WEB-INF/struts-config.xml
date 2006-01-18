@@ -48,7 +48,7 @@
 		<action path="/authentification" forward="authentification" />
 		
 		<action path="/logout" type="fr.umlv.ir3.emagine.security.LogoutAction" parameter="action">
-			<forward name="success" path="/common/login.jsp" />
+			<forward name="success" redirect="true" path="/index.jsp" />
 		</action>
 
 		<!-- apprentice -->
