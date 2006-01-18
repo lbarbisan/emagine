@@ -1,5 +1,15 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
+
+<div class="tabs">
+<ul>
+	<span class="tab_clicked"><li><html:link action="/teacherVisuInfo">Informations&nbsp;g&eacute;n&eacute;rales&nbsp;</html:link></li></span>
+	<li><html:link action="/teacherVisuEvent">Ev&eacute;nement</html:link></li>
+	
+</ul>
+</div>
+<div class="tabs_div">
+
 <form name="results">
 	<div class="form">
 		<br/>
@@ -57,3 +67,5 @@
 	</div>
 </form>
 <div align="right"><font color="red" size="1"><bean:message key="form.msg.obligation.star"/></font></div>
+</div>
+</div>

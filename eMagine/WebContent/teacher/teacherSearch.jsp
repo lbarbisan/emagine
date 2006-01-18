@@ -1,5 +1,6 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
+
 <form name="results">
 	<h2><bean:message key="teacher.search.title"/></h2>
 	<br/>
@@ -34,13 +35,13 @@
 			</tr>
 			<tr>
 				<td><input type="checkbox" value="ON" name="all_none" /></td>
-				<td><html:link action="/teacherOnglet">Duris</html:link></td>
+				<td><html:link action="/teacherVisuInfo">Duris</html:link></td>
 				<td>Etienne</td>
 				<td>0123456789</td>
 			</tr>
 			<tr>
 				<td><input type="checkbox" value="ON" name="all_none" /></td>
-				<td><html:link action="/teacherOnglet">Mourrier</html:link></td>
+				<td><html:link action="/teacherVisuInfo">Mourrier</html:link></td>
 				<td>Yves</td>
 				<td>0123456789</td>
 			</tr>
