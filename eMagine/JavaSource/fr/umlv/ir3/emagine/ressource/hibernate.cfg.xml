@@ -9,7 +9,7 @@
         <property name="hibernate.cglib.use_reflection_optimizer">false</property>
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
         <property name="hibernate.connection.password">eMagine</property>
-        <property name="hibernate.connection.url">jdbc:postgresql://server.srv-net.com:54321/eMagine</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/eMagine</property>
         <property name="hibernate.connection.username">eMagine</property>
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
         <property name="hibernate.connection.autocommit">false</property>
@@ -22,7 +22,6 @@
  		<mapping package="fr.umlv.ir3.emagine.base"/> 
 		<mapping class="fr.umlv.ir3.emagine.util.base.BaseEntity"/>
 		<mapping class="fr.umlv.ir3.emagine.util.base.EventableEntity"/>
-		<mapping class="fr.umlv.ir3.emagine.util.EmagineEnum"/>
 
  		<mapping package="fr.umlv.ir3.emagine.Person"/> 
 		<mapping class="fr.umlv.ir3.emagine.util.person.Person"/>
@@ -37,11 +36,7 @@
 		<mapping package="fr.umlv.ir3.emagine.apprentice"/> 
 		<mapping class="fr.umlv.ir3.emagine.apprentice.Apprentice"/> 
 		<mapping class="fr.umlv.ir3.emagine.apprentice.Contact"/>
-		<mapping class="fr.umlv.ir3.emagine.apprentice.DefaultAddressEnum"/>
-		<mapping class="fr.umlv.ir3.emagine.apprentice.DepartmentEnum"/>
-		<mapping class="fr.umlv.ir3.emagine.apprentice.CountryEnum"/>
 		
-
 		<mapping package="fr.umlv.ir3.emagine.apprentice.candidate"/> 
 		<mapping class="fr.umlv.ir3.emagine.apprentice.candidate.Candidate"/>
  				
