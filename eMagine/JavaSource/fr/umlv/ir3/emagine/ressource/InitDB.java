@@ -2,15 +2,12 @@ package fr.umlv.ir3.emagine.ressource;
 
 import java.io.FileNotFoundException;
 
-import fr.umlv.ir3.emagine.apprentice.CountryEnum;
-import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
 import fr.umlv.ir3.emagine.user.User;
 import fr.umlv.ir3.emagine.user.UserDAO;
 import fr.umlv.ir3.emagine.user.profile.Profile;
 import fr.umlv.ir3.emagine.user.profile.Right;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.EmagineEnumDAO;
 
 public class InitDB {
 
