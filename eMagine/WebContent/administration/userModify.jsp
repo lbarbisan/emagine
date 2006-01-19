@@ -3,18 +3,18 @@
 
 <script type="text/javascript">
 <!--
-	function setDispatch(value) {
+	function setAction(value) {
 		document.userModifyForm.dispatch.value = value;
 	}
 	
 	function deleteUser() {
 		if(confirm("Souhaitez-vous réellement supprimer cet utilisateur ?")) {
-			open("/eMagine/userDelete.do?id=" + document.userModifyForm.elements['user.id'].value, "_self");
+			open("/eMagine/userDelete.do?action=deleteOne&from=modify&id=" + document.userModifyForm.elements['idUserToModify'].value, "_self");
 		}
 	}
 	
 	function modifyUser() {
-		setDispatch('update');
+		setAction('modify');
 		document.userModifyForm.submit();
 	}
 
@@ -56,8 +56,8 @@
 	</ul>
 </div>
 
-<html:hidden property="user.id" />
-<html:hidden property="dispatch" />
+<html:hidden property="idUserToModify" />
+<html:hidden property="action" />
 </html:form>
 
 <div align="right"><font color="red" size="1"><bean:message key="form.msg.obligation.star"/></font></div>

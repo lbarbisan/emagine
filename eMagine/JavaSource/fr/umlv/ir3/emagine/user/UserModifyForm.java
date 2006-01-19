@@ -21,8 +21,9 @@ public class UserModifyForm extends ActionForm {
 	
 	private static final long serialVersionUID = -2405706291327109100L;
 
-	/** User blinding **/
-	private User user;
+	
+	/** User to modify **/
+	private String idUserToModify;
 	
 	/** User firstname **/
 	private String firstName;
@@ -38,25 +39,25 @@ public class UserModifyForm extends ActionForm {
 	
 	/** User repassword **/
 	private String repassword;
-	
-	/** Identifier of selected profile **/
-	private String idProfile;
-	
+		
 	/** User email **/
 	private String email;
 	
+	/** Identifier of selected profile **/
+	private String idProfile;
+
 	/** List of all profils **/
 	private Collection <Profile> profiles;
 
 	/** Use to DispacthAction **/
-	private String dispatch;
+	private String action;
 
 
 	@Override
 	public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
 		ActionErrors errors = new ActionErrors();
 
-		if(dispatch.equals("create")) {
+		if("create".equals(action) || "modify".equals(action)) {
 			if(firstName.equals("") || lastName.equals("") || email.equals("") || login.equals(""))
 				errors.add("allRequiredFieldIsNotfillin", new ActionMessage("user.error.allRequiredFieldIsNotfillin"));
 			else if(!password.equals(repassword))
@@ -66,19 +67,35 @@ public class UserModifyForm extends ActionForm {
 		return errors;
 	}
 
+	/**
+	 * Reset information
+	 */
+	public void reset() {
+		idUserToModify = "";
+		firstName = "";
+		lastName = "";
+		login = "";
+		password = "";
+		repassword = "";
+		email = "";
+		idProfile = "";
+		profiles = null;
+		action = "";
+	}
+	
 	
 	/**
 	 * @return Returns the dispatch.
 	 */
 	public String getDispatch() {
-		return dispatch;
+		return action;
 	}
 
 	/**
 	 * @param dispatch The dispatch to set.
 	 */
 	public void setDispatch(String dispatch) {
-		this.dispatch = dispatch;
+		this.action = dispatch;
 	}
 
 	/**
@@ -194,16 +211,30 @@ public class UserModifyForm extends ActionForm {
 	}
 
 	/**
-	 * @return Returns the user.
+	 * @return Returns the action.
 	 */
-	public User getUser() {
-		return user;
+	public String getAction() {
+		return action;
 	}
 
 	/**
-	 * @param user The user to set.
+	 * @param action The action to set.
 	 */
-	public void setUser(User user) {
-		this.user = user;
+	public void setAction(String action) {
+		this.action = action;
+	}
+
+	/**
+	 * @return Returns the idUserToModify.
+	 */
+	public String getIdUserToModify() {
+		return idUserToModify;
+	}
+
+	/**
+	 * @param idUserToModify The idUserToModify to set.
+	 */
+	public void setIdUserToModify(String idUserToModify) {
+		this.idUserToModify = idUserToModify;
 	}
 }

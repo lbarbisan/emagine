@@ -11,6 +11,7 @@ public class UserSearchForm extends SelectSearchForm<User> implements UserSearch
 	
 	private static final long serialVersionUID = -2405706291327109100L;
 
+	
 	//@IsASearchParam
 	private String firstName;
 
@@ -30,7 +31,7 @@ public class UserSearchForm extends SelectSearchForm<User> implements UserSearch
 	private Collection <Profile> profiles;
 	
 	/** Use to DispacthAction **/
-	private String dispatch;
+	private String action;
 	
 	
 	/**
@@ -40,8 +41,10 @@ public class UserSearchForm extends SelectSearchForm<User> implements UserSearch
 		firstName = "";
 		lastName = "";
 		login = "";
+		deletionForced = false;
 		idProfile = "";
 		profiles = null;
+		action = "";
 		super.reset();
 	}
 	
@@ -125,15 +128,15 @@ public class UserSearchForm extends SelectSearchForm<User> implements UserSearch
 		this.profiles = profiles;
 	}
 	/**
-	 * @return Returns the dispatch.
+	 * @return Returns the action.
 	 */
-	public String getDispatch() {
-		return dispatch;
+	public String getAction() {
+		return action;
 	}
 	/**
-	 * @param dispatch The dispatch to set.
+	 * @param action The action to set.
 	 */
-	public void setDispatch(String dispatch) {
-		this.dispatch = dispatch;
+	public void setAction(String dispatch) {
+		this.action = dispatch;
 	}
 }

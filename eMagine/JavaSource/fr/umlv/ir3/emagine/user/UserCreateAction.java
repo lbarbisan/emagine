@@ -28,18 +28,18 @@ public class UserCreateAction extends BaseAction {
 	 */
 	public ActionForward show(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionMessages errors = new ActionMessages();
-		UserCreateForm userCreateForm = (UserCreateForm) form;
+		UserModifyForm userModifyForm = (UserModifyForm) form;
 		
 		// Retrieve all profiles and set them in the form
 		try {
-			userCreateForm.reset();
-			userCreateForm.setProfiles(ManagerManager.getInstance().getProfileManager().findAll());
+			userModifyForm.reset();
+			userModifyForm.setProfiles(ManagerManager.getInstance().getProfileManager().findAll());
 		} catch (EMagineException exception) {
 			addEMagineExceptionError(errors, exception);
 		}
 		
         // Report back any errors, and exit if any
-		return successIfNoErrors(mapping, request, errors);
+		return viewFormIfNoErrors(mapping, request, errors);
 	}
 	
 	
@@ -55,25 +55,25 @@ public class UserCreateAction extends BaseAction {
 	 */
 	public ActionForward create(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionMessages errors = new ActionMessages();
-		UserCreateForm userForm = (UserCreateForm) form;
-
+		UserModifyForm userModifyForm = (UserModifyForm) form;
 		ManagerManager managerManager = ManagerManager.getInstance();
 		UserManager userManager = managerManager.getUserManager();
 		ProfileManager profilManager = managerManager.getProfileManager();
-
-		// Init user
-		User user = new User();
-		user.setFirstName(userForm.getFirstName());
-		user.setLastName(userForm.getLastName());
-		user.setLogin(userForm.getLogin());
-		user.setPassword(userForm.getPassword());
-		user.setEmail(userForm.getEmail());
-		user.setProfile(profilManager.retrieve(Long.parseLong(userForm.getIdProfile())));
 		
-		// Create an user
 		try {
+			// Init user
+			User user = new User();
+			user.setFirstName(userModifyForm.getFirstName());
+			user.setLastName(userModifyForm.getLastName());
+			user.setLogin(userModifyForm.getLogin());
+			user.setPassword(userModifyForm.getPassword());
+			user.setEmail(userModifyForm.getEmail());
+			user.setProfile(profilManager.retrieve(Long.parseLong(userModifyForm.getIdProfile())));
+
+			// Create an user
 			userManager.create(user);
-			errors.add("confirm", new ActionMessage("user.create.confirm"));
+
+			errors.add("confirm", new ActionMessage("user.create.confirm")); // TODO A revoir
 		} catch (EMagineException exception) {
 			if("exceptions.mailManager.sendMail.messagingException".equals(exception.getMessageId()))
 				errors.add("mail", new ActionMessage("user.create.error.mail"));

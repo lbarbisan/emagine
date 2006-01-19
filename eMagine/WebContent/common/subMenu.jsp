@@ -12,7 +12,7 @@
 
 <div id="bloc_menu2">
 	<ul id="menu2">
-		<li><html:link action="/userSearch?dispatch=show"><bean:message key="form.administration"/></html:link> | </li>
+		<li><html:link action="/userSearch?action=show"><bean:message key="form.administration"/></html:link> | </li>
 		<li><html:link href="javascript:afaire();"><bean:message key="form.help"/></html:link> | </li>
 		<li><html:link href="javascript:disconnect();"><bean:message key="form.disconnect"/></html:link></li>
 	</ul>

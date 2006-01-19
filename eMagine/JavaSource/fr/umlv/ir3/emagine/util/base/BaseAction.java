@@ -52,41 +52,57 @@ public class BaseAction extends DispatchAction {
 
 	// ------------------------------------------------------ Protected Methods
 
-	/**
-	 * Return the local or global forward named "failure"
-	 * or null if there is no such forward.
-	 * @param mapping Our ActionMapping
-	 * @return Return the mapping named "failure" or null if there is no such mapping.
-	 */
-	protected ActionForward findFailure(ActionMapping mapping) {
-		return (mapping.findForward(Constants.FAILURE));
-	}
-
-	/**
-	 * Return the mapping labeled "success"
-	 * or null if there is no such mapping.
-	 * @param mapping Our ActionMapping
-	 * @return Return the mapping named "success" or null if there is no such mapping.
-	 */
-	protected ActionForward findSuccess(ActionMapping mapping) {
-		return (mapping.findForward(Constants.SUCCESS));
-	}
-	
-
 	protected void addEMagineExceptionError(ActionMessages errors, EMagineException exception) {
 		errors.add(
                 ActionMessages.GLOBAL_MESSAGE,
                 new ActionMessage(exception.getMessageId()));
 	}
+
 	
+	/**
+	 * Return the local or global forward named "failure" or null if there is no such forward.
+	 * 
+	 * @param mapping Our ActionMapping
+	 * @return Return the mapping named "failure" or null if there is no such mapping.
+	 */
 	protected ActionForward successIfNoErrors(ActionMapping mapping, HttpServletRequest request, ActionMessages errors) {
-        if (!errors.isEmpty()) {
-            this.saveErrors(request, errors);
-            return (mapping.getInputForward());
-        }
-		return findSuccess(mapping);
+		return forward(mapping, request, errors, Constants.SUCCESS, Constants.FAILURE);
 	}
 	
+	/**
+	 * Return the local or global forward named "failure" or null if there is no such forward.
+	 * 
+	 * @param mapping Our ActionMapping
+	 * @return Return the mapping named "failure" or null if there is no such mapping.
+	 */
+	protected ActionForward viewFormIfNoErrors(ActionMapping mapping, HttpServletRequest request, ActionMessages errors) {
+		return forward(mapping, request, errors, Constants.VIEW_FORM, Constants.FAILURE);
+	}
+	
+	protected ActionForward findSuccess(ActionMapping mapping) {
+		return mapping.findForward(Constants.SUCCESS);
+	}
+
+	protected ActionForward forward(ActionMapping mapping, HttpServletRequest request, ActionMessages errors, String successTarget, String failureTarget) {
+		ActionForward actionForward = mapping.findForward(Constants.ALL_TARGETS);
+		
+		if (actionForward == null) {
+			// Detect the from request
+			String from = request.getParameter(Constants.FROM);
+			from = (from != null && !"".equals(from) ? "_from_" + from: "");
+				
+			// save errors
+			if(!errors.isEmpty()) {
+				this.saveErrors(request, errors);
+				actionForward = mapping.findForward(failureTarget + from);
+			}
+			else 
+				actionForward = mapping.findForward(successTarget + from);
+		}
+
+		return actionForward;
+	}
+		
 	/**
 	 * Extracts the selected list, with selected columns (fields) into the selected file format
 	 */

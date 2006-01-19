@@ -3,22 +3,22 @@
 
 <script type="text/javascript">
 <!--
-	function setDispatch(value) {
-		document.userCreateForm.dispatch.value = value;
+	function setAction(value) {
+		document.userModifyForm.action.value = value;
 	}
 
 	function createUser() {
-		setDispatch('create');
-		document.userCreateForm.submit();
+		setAction('create');
+		document.userModifyForm.submit();
 	}
 
 	function resetForm() {
-		document.userCreateForm.reset();
+		document.userModifyForm.reset();
 	}
 -->
 </script>
 
-<h2><bean:message key="user.create.title"/><html:link action="/userSearch?dispatch=show"><html:img src="/eMagine/common/images/icones/retour.png" titleKey="button.title.return" /></html:link></h2>
+<h2><bean:message key="user.create.title"/><html:link action="/userSearch?action=show"><html:img src="/eMagine/common/images/icones/retour.png" titleKey="button.title.return" /></html:link></h2>
 <div class="form">
 	<br/>
 
@@ -50,7 +50,7 @@
 	</ul>
 </div>
 
-<html:hidden property="dispatch" />
+<html:hidden property="action" />
 </html:form>
 
 <div align="right"><font color="red" size="1"><bean:message key="form.msg.obligation.star"/></font></div>

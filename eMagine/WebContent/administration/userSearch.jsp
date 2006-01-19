@@ -5,14 +5,17 @@
 
 <script type="text/javascript">
 <!--
-	function setDispatch(value) {
-		document.userSearchForm.dispatch.value = value;
+	function setAction(value) {
+		document.userSearchForm.action.value = value;
 	}
 
 	function deleteUsers() {
 		if(confirm("Souhaitez-vous réellement supprimer ses utilisateurs ?")) {
-			setDispatch('delete');
-			document.userSearchForm.submit();
+			idUsers = "";
+
+
+			setAction('deleteMulti');
+			open("/eMagine/userDelete.do?action=deleteOne&from=search&id=" + document.userModifyForm.elements['user.id'].value, "_self");
 		}
 	}
 -->
@@ -42,7 +45,7 @@
 			</fieldset>
 		</div>
 		<br/>
-		<div class="buttons"><html:submit onclick="javascript:setDispatch('search');" titleKey="button.title.search"><bean:message key="form.search" /></html:submit></div>
+		<div class="buttons"><html:submit onclick="javascript:setAction('search');" titleKey="button.title.search"><bean:message key="form.search" /></html:submit></div>
 	</div>
 	<h2><bean:message key="title.results"/></h2> 
 	<div align=center>
@@ -65,7 +68,7 @@
 				<logic:iterate id="user" name="userSearchForm" property="results" type="fr.umlv.ir3.emagine.user.User">
 					<tr>
 						<td><html:multibox property="currentSelectedIds" value="<%= user.getId().toString() %>" /></td>
-						<td><html:link action="/userModify?dispatch=show" paramId="id" paramName="user" paramProperty="id"><bean:write name="user" property="lastName" /></html:link></td>
+						<td><html:link action="/userModify?action=show" paramId="id" paramName="user" paramProperty="id"><bean:write name="user" property="lastName" /></html:link></td>
 						<td><bean:write name="user" property="firstName" /></td>
 						<td><bean:write name="user" property="login" /></td>
 						<td><bean:write name="user" property="profile.name" /></td>
@@ -93,5 +96,5 @@
 		</ul>
 	</div>
 	
-<html:hidden property="dispatch" />	
+<html:hidden property="action" />	
 </html:form>

@@ -11,6 +11,7 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessages;
 
+import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.ManagerManager;
 import fr.umlv.ir3.emagine.util.base.BaseAction;
@@ -18,7 +19,7 @@ import fr.umlv.ir3.emagine.util.base.BaseAction;
 public class UserDeleteAction extends BaseAction {
 
 	/**
-	 * The administrator wants to delete this user.
+	 * The administrator wants to delete a user.
 	 * 
 	 * @param mapping The ActionMapping used to select this instance
 	 * @param form The optional ActionForm bean for this request (if any)
@@ -27,11 +28,12 @@ public class UserDeleteAction extends BaseAction {
 	 * @return an ActionForward instance describing where and how control should be forwarded, or null if the response has already been completed.
 	 * @throws Exception if an exception occurs
 	 */
-	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception  {
+	public ActionForward deleteOne(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception  {
 		ActionMessages errors = new ActionMessages();
 		UserManager userManager = ManagerManager.getInstance().getUserManager();
 		
 		try {
+			// Delete this user
 			userManager.delete(userManager.retrieve(Long.parseLong(request.getParameter("id"))));
 		} catch (EMagineException exception) {
 			exception.printStackTrace();
@@ -41,4 +43,33 @@ public class UserDeleteAction extends BaseAction {
         // Report back any errors, and exit if any
 		return successIfNoErrors(mapping, request, errors);
 	}
+	
+	/**
+	 * The administrator wants to delete all several users.
+	 * 
+	 * @param mapping The ActionMapping used to select this instance
+	 * @param form The optional ActionForm bean for this request (if any)
+	 * @param request The HTTP request we are processing
+	 * @param response The HTTP response we are creating
+	 * @return an ActionForward instance describing where and how control should be forwarded, or null if the response has already been completed.
+	 * @throws Exception if an exception occurs
+	 */
+	public ActionForward deleteMulti(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		ActionMessages errors = new ActionMessages();
+		UserManager userManager = ManagerManager.getInstance().getUserManager();
+		
+		// Delete the users
+		DAOManager.beginTransaction();
+		for (String idUser : request.getParameterValues("id")) {
+			try {
+				User user = userManager.retrieve(Long.parseLong(idUser));
+				userManager.delete(user, true); // TODO A faire pour le forcage
+			} catch (EMagineException exception) {
+				addEMagineExceptionError(errors, exception);
+			}
+		}
+		
+        // Report back any errors, and exit if any
+		return successIfNoErrors(mapping, request, errors);
+	}	
 }
