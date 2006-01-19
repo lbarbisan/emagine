@@ -9,7 +9,7 @@
         <property name="hibernate.cglib.use_reflection_optimizer">false</property>
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
         <property name="hibernate.connection.password">eMagine</property>
-        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/eMagine</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://server.srv-net.com:54321/eMagine</property>
         <property name="hibernate.connection.username">eMagine</property>
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
         <property name="hibernate.connection.autocommit">false</property>
