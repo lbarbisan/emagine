@@ -6,14 +6,16 @@ import java.util.HashMap;
 public class SearchParamsImpl implements SearchParams {
 
 	/**  **/
-	HashMap<String, String> fields = new HashMap<String, String>();
+	HashMap<String, ParameterInfo> fields = new HashMap<String, ParameterInfo>();
+	HashMap<String, Object> values = new HashMap<String, Object>();
 	
-	public void setField(String name, String value) {
-		fields.put(name, value);
+	public void setField(String name, Object value) {
+		values.put(name, value);
+		fields.put(name, new ParameterInfo(name, value.getClass() ,name));
 	}
 	
 	public String getField(String field) {
-		return fields.get(field);
+		return values.get(field).toString();
 	}
 
 	public Collection<String> getFields() {
@@ -21,7 +23,6 @@ public class SearchParamsImpl implements SearchParams {
 	}
 
 	public ParameterInfo getParameterInfo(String field) {
-		
 		return null;
 	}
 

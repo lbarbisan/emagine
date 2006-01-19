@@ -113,7 +113,7 @@ public class HibernateUtils {
             if(tx!=null && !tx.wasCommitted() && !tx.wasRolledBack())
             {
                 tx.commit();
-                threadTransaction.set(null);
+               closeSession();
             }
         }
         catch (HibernateException exception) {

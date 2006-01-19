@@ -37,10 +37,8 @@ public class User extends EditableEntity{
 	@Cascade({CascadeType.SAVE_UPDATE})
 	private List<Modification> modificationsRequest;
 	
-	
 	@Column(unique = true)
 	private String login;	
-	@Column(unique = true)
 	private String email;
 	private String firstName;
 	private String lastName;

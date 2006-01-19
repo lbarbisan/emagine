@@ -4,7 +4,6 @@
 package fr.umlv.ir3.emagine.util.base;
 
 import java.lang.reflect.ParameterizedType;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
@@ -14,7 +13,6 @@ import org.hibernate.HibernateException;
 import org.hibernate.LockMode;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.hql.ast.ParameterTranslationsImpl;
 
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.HibernateUtils;
