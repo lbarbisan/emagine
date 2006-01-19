@@ -4,20 +4,13 @@ import java.util.Collection;
 import java.util.List;
 
 import fr.umlv.ir3.emagine.apprentice.Apprentice;
+import fr.umlv.ir3.emagine.modification.EditableManager;
 import fr.umlv.ir3.emagine.security.MustHaveRights;
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.base.EventableManager;
 
 @MustHaveRights("candidate")
-public interface CandidateManager extends EventableManager<Candidate, CandidateDAO> {
-	/**
-	 * Delete a list of candidates.
-	 * @param candidates The list of candidates to be deleted
-	 * @throws EMagineException if one of those candidates doesn't exist in the database, or if one of them is connected and the force switch is false
-	 */
-	public abstract void delete(Collection<Candidate> candidates)
-			throws EMagineException;
-
+public interface CandidateManager extends EditableManager<Candidate , CandidateDAO> 
+{
 	/**
 	 * Integrates the given candidates : apprentices are created, based on the given candidates.
 	 * @param candidates
@@ -34,7 +27,7 @@ public interface CandidateManager extends EventableManager<Candidate, CandidateD
 	 * @throws EMagineException
 	 */
 	public abstract List<Candidate> find(
-			CandidateSearchParams candidateSearchParams)
+			CandidateSearchParam candidateSearchParams)
 			throws EMagineException;
 
 }

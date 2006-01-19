@@ -7,6 +7,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
 import fr.umlv.ir3.emagine.extraction.CSVExtractor;
 import fr.umlv.ir3.emagine.extraction.Extractable;
 import fr.umlv.ir3.emagine.extraction.Extractor;
@@ -35,7 +36,7 @@ public class Main {
 	 * @throws FileNotFoundException 
 	 */
 	public static void main(String[] args) throws FileNotFoundException, EMagineException {
-		
+
 			SearchParamsImpl searchParams = new SearchParamsImpl();
 			userDao = DAOManager.getInstance().getUserDAO();
 			
@@ -47,6 +48,10 @@ public class Main {
 			DAOManager.beginTransaction();
 			userDao.update(user);
 			DAOManager.commitTransaction();
+
+/*		for (DepartmentEnum departmentEnum : DepartmentEnum.values()) {
+			System.out.println(departmentEnum.getId()+" / "+departmentEnum.getName()+" / "+departmentEnum.ordinal()+" / "+departmentEnum.name());
+		}*/
 	}
 	
 	/**

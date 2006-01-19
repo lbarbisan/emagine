@@ -3,15 +3,25 @@
  */
 package fr.umlv.ir3.emagine.apprentice;
 
-import javax.persistence.AccessType;
-import javax.persistence.Entity;
 
 /**
  * @author Laurent
  *
  */
-@Entity(access = AccessType.FIELD)
 public enum NationalityEnum {
-	FRENCH,
-	ENGLISH
+	FRENCH("française"),
+	ENGLISH("anglaise");
+	
+	private String name;
+	private NationalityEnum(String name) {
+		this.name = name;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getId() {
+		return this.toString();
+	}
 }

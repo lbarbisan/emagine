@@ -1,12 +1,12 @@
 package fr.umlv.ir3.emagine.apprentice.candidate;
 
-public enum CourseOptionEnum {
-	MFPI("MFPI"),
-	IR("IR"),
-	MI("MI");
+public enum SectionEnum {
+	S1("Informatique"),
+	S2("Scientificque"),
+	S3("STT");
 	
 	private String name;
-	private CourseOptionEnum(String name) {
+	private SectionEnum(String name) {
 		this.name = name;
 	}
 

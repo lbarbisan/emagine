@@ -74,7 +74,7 @@ public class CandidateDAOTest extends BaseDAOTest<Candidate> {
 		candidate.setFirstName("firstname");
 		candidate.setLastName("lastname");
 		candidate.setMobilePhone("mobile");
-		candidate.setNationality(NationalityEnum.FRENCH);
+		candidate.setNationality(NationalityEnum.francaise);
 		candidate.setPhone("phone");
 		candidate.setSex(SexEnum.MALE);
 		
@@ -111,7 +111,7 @@ public class CandidateDAOTest extends BaseDAOTest<Candidate> {
 		candidate1.setFirstName("firstname");
 		candidate1.setLastName("lastname");
 		candidate1.setMobilePhone("mobile");
-		candidate1.setNationality(NationalityEnum.FRENCH);
+		candidate1.setNationality(NationalityEnum.francaise);
 		candidate1.setPhone("phone");
 		candidate1.setSex(SexEnum.MALE);
 		
@@ -141,7 +141,7 @@ public class CandidateDAOTest extends BaseDAOTest<Candidate> {
 		candidate2.setFirstName("firstname");
 		candidate2.setLastName("lastname");
 		candidate2.setMobilePhone("mobile");
-		candidate2.setNationality(NationalityEnum.FRENCH);
+		candidate2.setNationality(NationalityEnum.francaise);
 		candidate2.setPhone("phone");
 		candidate2.setSex(SexEnum.MALE);
 		
@@ -177,7 +177,7 @@ public class CandidateDAOTest extends BaseDAOTest<Candidate> {
 		entity.setFirstName("firstname");
 		entity.setLastName("lastname");
 		entity.setMobilePhone("mobile");
-		entity.setNationality(NationalityEnum.FRENCH);
+		entity.setNationality(NationalityEnum.francaise);
 		entity.setPhone("phone");
 		entity.setSex(SexEnum.MALE);
 	}

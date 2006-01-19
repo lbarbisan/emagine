@@ -228,11 +228,15 @@ public enum CountryEnum {
 		Zimbabwe("Zimbabwe");
 		
 		private String name;
-		private CountryEnum(String name)
-		{
+		private CountryEnum(String name) {
 			this.name = name;
 		}
+
 		public String getName() {
 			return name;
+		}
+
+		public String getId() {
+			return this.toString();
 		}
 }

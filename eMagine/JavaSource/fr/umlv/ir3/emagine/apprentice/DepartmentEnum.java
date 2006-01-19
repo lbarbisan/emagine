@@ -1,10 +1,11 @@
 package fr.umlv.ir3.emagine.apprentice;
 
-import javax.persistence.AccessType;
-import javax.persistence.Entity;
+import java.util.HashMap;
+import java.util.Map;
 
-@Entity(access = AccessType.FIELD)
+
 public enum DepartmentEnum {
+	
 	D1("Ain"),
 	D2("Aisne"),
 	D3("Allier"),
@@ -113,11 +114,15 @@ public enum DepartmentEnum {
 	D988("Nouvelle-Calédonie");
 	
 	private String name;
-	private DepartmentEnum(String name)
-	{
+	private DepartmentEnum(String name) {
 		this.name = name;
 	}
+
 	public String getName() {
 		return name;
+	}
+
+	public String getId() {
+		return this.toString();
 	}
 }

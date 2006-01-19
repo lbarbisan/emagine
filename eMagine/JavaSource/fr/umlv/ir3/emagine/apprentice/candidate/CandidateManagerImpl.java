@@ -6,11 +6,11 @@ import java.util.List;
 
 import fr.umlv.ir3.emagine.apprentice.Apprentice;
 import fr.umlv.ir3.emagine.apprentice.ApprenticeDAO;
+import fr.umlv.ir3.emagine.modification.EditableManagerImpl;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.base.EventableManagerImpl;
 
-public class CandidateManagerImpl extends EventableManagerImpl<Candidate, CandidateDAO> implements CandidateManager {
+public class CandidateManagerImpl extends EditableManagerImpl<Candidate, CandidateDAO> implements CandidateManager {
 	
 	/**
 	 * @see fr.umlv.ir3.emagine.apprentice.candidate.CandidateManager#delete(java.util.Collection)
@@ -59,7 +59,7 @@ public class CandidateManagerImpl extends EventableManagerImpl<Candidate, Candid
 	/**
 	 * @see fr.umlv.ir3.emagine.apprentice.candidate.CandidateManager#find(fr.umlv.ir3.emagine.apprentice.candidate.CandidateSearchParams)
 	 */
-	public List<Candidate> find(CandidateSearchParams candidateSearchParams) throws EMagineException {
+	public List<Candidate> find(CandidateSearchParam candidateSearchParams) throws EMagineException {
 		return super.find(candidateSearchParams);
 	}
 	

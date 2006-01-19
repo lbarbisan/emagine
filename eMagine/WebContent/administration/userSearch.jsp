@@ -86,8 +86,7 @@
 			<li><a href="javascript:checkNothing('userSearchForm','currentSelectedIds');"><bean:message key="all_none.none"/></a></li>
 		</ul>
 		
-		<h2>&nbsp;</h2>
-	
+		<h2>&nbsp;</h2>	
 		<ul>
 			<li><html:link href="javascript:deleteUsers();"><html:img src="/eMagine/common/images/icones/supprimer.png" titleKey="button.title.remove" /></html:link></li>
 		</ul>

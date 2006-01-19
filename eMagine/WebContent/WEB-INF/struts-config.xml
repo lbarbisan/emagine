@@ -17,7 +17,7 @@
 		<form-bean name="userSearchForm" type="fr.umlv.ir3.emagine.user.UserSearchForm" />
 		<form-bean name="userModifyForm" type="fr.umlv.ir3.emagine.user.UserModifyForm" />
 		<form-bean name="profileListForm" type="fr.umlv.ir3.emagine.user.profile.ProfileListForm" />
-		<form-bean name="candidateCreateForm" type="fr.umlv.ir3.emagine.apprentice.candidate.CandidateCreateForm" />
+		<form-bean name="candidateModifyForm" type="fr.umlv.ir3.emagine.apprentice.candidate.CandidateModifyForm" />
 		<form-bean name="candidateSearchForm" type="fr.umlv.ir3.emagine.apprentice.candidate.CandidateSearchForm" />
 		<form-bean name="teacherTutorModifyForm" type="fr.umlv.ir3.emagine.teachertutor.TeacherTutorModifyForm" />
 		<form-bean name="teacherTutorSearchForm" type="fr.umlv.ir3.emagine.teachertutor.TeacherTutorSearchForm" />
@@ -189,7 +189,7 @@
 		<action path="/candidateSearch" type="fr.umlv.ir3.emagine.apprentice.candidate.CandidateSearchAction" name="candidateSearchForm" parameter="action" scope="session">
 			<forward name="_default_target_" path="recruitment.candidateSearch" />
 		</action>
-		<action path="/candidateCreate" type="fr.umlv.ir3.emagine.apprentice.candidate.CandidateCreateAction" name="candidateCreateForm" input="recruitment.candidateCreate" parameter="action" scope="session" validate="true">
+		<action path="/candidateCreate" type="fr.umlv.ir3.emagine.apprentice.candidate.CandidateCreateAction" name="candidateModifyForm" input="recruitment.candidateCreate" parameter="action" scope="session" validate="true">
 			<forward name="_default_target_" path="recruitment.candidateCreate" />
 		</action>		
 		<action path="/candidateOnglet"
