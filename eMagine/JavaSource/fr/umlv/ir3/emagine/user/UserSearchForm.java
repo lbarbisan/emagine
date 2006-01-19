@@ -102,17 +102,15 @@ public class UserSearchForm extends SelectSearchForm<User> implements UserSearch
 	/**
 	 * @return Returns the profile.
 	 */
-	@IsASearchParam(
-			value = "user.profile.id",
-			type = Long.class)
-	public String getProfile() {
+	@IsASearchParam(value = "user.profile.id",type = Long.class)
+	public String getIdProfile() {
 		return idProfile;
 	}
 	/**
 	 * @param profile The profile to set.
 	 */
-	public void setProfile(String profile) {
-		this.idProfile = profile;
+	public void setIdProfile(String idProfile) {
+		this.idProfile = idProfile;
 	}
 	/**
 	 * @return Returns the profiles.

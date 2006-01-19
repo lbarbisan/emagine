@@ -16,5 +16,5 @@ public interface UserSearchParam extends SearchParams {
 	public String getLogin();
 	
 	@RequestParam("user.profile.id")
-	public String getProfile();
+	public String getIdProfile();
 }

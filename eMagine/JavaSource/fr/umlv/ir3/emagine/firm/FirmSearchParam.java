@@ -9,5 +9,5 @@ public interface FirmSearchParam extends SearchParams {
 	public String getName();
 
 	@RequestParam("user.department.id")
-	public String getDepartment();
+	public String getIdDepartment();
 }

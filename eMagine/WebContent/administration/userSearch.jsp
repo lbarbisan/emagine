@@ -33,7 +33,7 @@
 					<p><label for="identifiant"><bean:message key="criteria.search.identifiant"/></label><html:text property="login" size="20" /></p>
 					<p><label for="profil"><bean:message key="criteria.search.profil"/></label>
 		
-						<html:select property="profile">
+						<html:select property="idProfile">
 							<option value="" ></option>
 							<html:optionsCollection property="profiles" value="id" label="name"/>		
 						</html:select>
