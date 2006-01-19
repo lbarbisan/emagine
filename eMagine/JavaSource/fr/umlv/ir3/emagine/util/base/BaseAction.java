@@ -84,22 +84,24 @@ public class BaseAction extends DispatchAction {
 	}
 
 	protected ActionForward forward(ActionMapping mapping, HttpServletRequest request, ActionMessages errors, String successTarget, String failureTarget) {
-		ActionForward actionForward = mapping.findForward(Constants.ALL_TARGETS);
+		// Save errors if they exist
+		if(!errors.isEmpty())
+			this.saveErrors(request, errors);
 		
+		// All targets
+		ActionForward actionForward = mapping.findForward(Constants.ALL_TARGETS);
+
+		// Specificied target
 		if (actionForward == null) {
-			// Detect the from request
 			String from = request.getParameter(Constants.FROM);
-			from = (from != null && !"".equals(from) ? "_from_" + from: "");
-				
-			// save errors
-			if(!errors.isEmpty()) {
-				this.saveErrors(request, errors);
-				actionForward = mapping.findForward(failureTarget + from);
-			}
-			else 
-				actionForward = mapping.findForward(successTarget + from);
+			from = (from != null && !"".equals(from) ? "_from_" + from : "");
+			actionForward = mapping.findForward((errors.isEmpty() ? successTarget : failureTarget) + from);
 		}
 
+		// Default target
+		if (actionForward == null)
+			actionForward = mapping.findForward(Constants.DEFAULT_TARGET);		
+		
 		return actionForward;
 	}
 		

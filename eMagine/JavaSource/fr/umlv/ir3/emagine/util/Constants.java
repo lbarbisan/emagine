@@ -40,5 +40,5 @@ public class Constants {
     /**
      * The token representing the default target for the mapping in this application.
      */
-	public static final String ALL_DEFAULT_TARGET = "_default_target_";
+	public static final String DEFAULT_TARGET = "_default_target_";
 }

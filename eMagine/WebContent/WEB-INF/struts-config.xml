@@ -213,21 +213,18 @@
 
 		<!-- administration -->
 		<action path="/userSearch" type="fr.umlv.ir3.emagine.user.UserSearchAction" name="userSearchForm" parameter="action" scope="session">
-			<forward name="_default_targets_" path="administration.userSearch" />
+			<forward name="_default_target_" path="administration.userSearch" />
 		</action>
 		<action path="/userCreate" type="fr.umlv.ir3.emagine.user.UserCreateAction" name="userModifyForm" input="administration.userCreate" parameter="action" scope="session" validate="true">
-			<forward name="viewform" path="administration.userCreate" />
-			<forward name="success" path="administration.userCreate" />
-			<forward name="failure" path="administration.userCreate" />
+			<forward name="_default_target_" path="administration.userCreate" />
 		</action>
 		<action path="/userModify" type="fr.umlv.ir3.emagine.user.UserModifyAction" name="userModifyForm" input="administration.userModify" parameter="action" scope="session" validate="true">
-			<forward name="viewform" path="administration.userModify" />
+			<forward name="_default_target_" path="administration.userModify" />
 			<forward name="success" redirect="true" path="/userSearch.do?action=search" />
-			<forward name="failure" path="administration.userModify" />
 		</action>
 		<action path="/userDelete" type="fr.umlv.ir3.emagine.user.UserDeleteAction" parameter="action">
-			<forward name="success_from_modify" path="/userSearch.do?action=search" redirect="true" />
-			<forward name="failure_from_modify" path="/userSearch.do?action=search" redirect="true" />
+			<forward name="success_from_modify" path="/userModify.do?action=show" redirect="true" />
+			<forward name="failure_from_modify" path="/userModify.do?action=show" redirect="true" />
 			<forward name="success_from_search" path="/userSearch.do?action=search" redirect="true" />
 			<forward name="failure_from_search" path="/userSearch.do?action=search" redirect="true" />
 		</action>
