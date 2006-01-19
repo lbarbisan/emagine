@@ -3,18 +3,17 @@
 	<property name="source" value="./JavaSource" />
 	<property name="lib" value="./WebContent/WEB-INF/lib" />
 	<property name="classes" value="./WebContent/WEB-INF/classes" />
+	
+	<property name="ressourceDir" value="${source}/fr/umlv/ir3/emagine/ressource" />
+	<property file="${ressourceDir}/eMagine.properties"/>
+
 	<property name="junit" value="./TestSource" />
 	<property name="outTest" value="${junit}/result" />
-	<property name="ressourceDir" value="${source}/fr/umlv/ir3/emagine/ressource" />
-	<property name="db.driver" value="org.postgresql.Driver" />
-	<property name="db.url" value="jdbc:postgresql://server.srv-net.com:54321/eMagine" />
-	<property name="db.username" value="eMagine" />
-	<property name="db.password" value="eMagine" />
-	<property name="db.url.admin" value="jdbc:postgresql://server.srv-net.com:54321/template1" />
-	<property name="db.username.admin" value="postgres" />
-	<property name="db.password.admin" value="postgres" />
-	<property environment="env" />
+
 	<property name="tomcat.lib" value="${env.CATALINA_HOME}/common/lib" />
+	<property name="db.url" value="${db.connectionURLPrefix}${db.hostname}:${db.port}/${db.name}" />
+	<property name="db.url.admin" value="${db.connectionURLPrefix}${db.hostname}:${db.port}/template1" />
+
 
 
 	<!-- =================================== H I B E R N A T E =========================================== -->

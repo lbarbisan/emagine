@@ -52,10 +52,14 @@ public class SecurityProxy<R> implements InvocationHandler {
 		
 		if("properties".equals(securityRealm)) {
 			JDBCRealm realm = new JDBCRealm();
-			realm.setDriverName(bundle.getString("security.SecurityProxy.driverName"));
-			realm.setConnectionURL(bundle.getString("security.SecurityProxy.connectionURL"));
-			realm.setConnectionName(bundle.getString("security.SecurityProxy.connectionName"));
-			realm.setConnectionPassword(bundle.getString("security.SecurityProxy.connectionPassword"));
+			realm.setDriverName(bundle.getString("db.driverName"));
+			realm.setConnectionURL(
+					bundle.getString("db.connectionURLPrefix") +
+					bundle.getString("db.hostname") + ":" +
+					bundle.getString("db.port") + "/" +
+					bundle.getString("db.name"));
+			realm.setConnectionName(bundle.getString("db.username"));
+			realm.setConnectionPassword(bundle.getString("db.Password"));
 			realm.setUserTable(bundle.getString("security.SecurityProxy.userTable"));
 			realm.setUserNameCol(bundle.getString("security.SecurityProxy.userNameCol"));
 			realm.setUserCredCol(bundle.getString("security.SecurityProxy.userCredCol"));
