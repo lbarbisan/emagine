@@ -330,14 +330,14 @@
 	<definition name="administration.userModify" extends="administration">
 		<put name="body" value="/administration/userModify.jsp" />
 	</definition>
-	<definition name="administration.profilCreate" extends="administration">
-		<put name="body" value="/administration/profilCreate.jsp" />
+	<definition name="administration.profileCreate" extends="administration">
+		<put name="body" value="/administration/profileCreate.jsp" />
 	</definition>
-	<definition name="administration.profilList" extends="administration">
-		<put name="body" value="/administration/profilList.jsp" />
+	<definition name="administration.profileList" extends="administration">
+		<put name="body" value="/administration/profileList.jsp" />
 	</definition>
-	<definition name="administration.profilDetail" extends="administration">
-		<put name="body" value="/administration/profilDetail.jsp" />
+	<definition name="administration.profileDetail" extends="administration">
+		<put name="body" value="/administration/profileDetail.jsp" />
 	</definition>
 	
 </tiles-definitions>

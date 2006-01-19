@@ -211,6 +211,7 @@
 		<action path="/statisticsDetail"
 			forward="statistics.statisticsDetail" />
 
+
 		<!-- administration -->
 		<action path="/userSearch" type="fr.umlv.ir3.emagine.user.UserSearchAction" name="userSearchForm" parameter="action" scope="session">
 			<forward name="_default_target_" path="administration.userSearch" />
@@ -225,32 +226,20 @@
 		<action path="/userDelete" type="fr.umlv.ir3.emagine.user.UserDeleteAction" parameter="action">
 			<forward name="_default_target_" path="/userSearch.do?action=search" redirect="true" />
 		</action>
-		<action path="/profileList" type="fr.umlv.ir3.emagine.user.profile.ProfileListAction" name="profileListForm" parameter="dispatch" scope="session">
-			<forward name="success" path="administration.profilList" />
-		</action>
-
-		<action path="/profilCreate"
-			forward="administration.profilCreate" />
-		<action path="/profilDetail"
-			forward="administration.profilDetail" />
-		<action path="/userDetail" forward="administration.userDetail" />
 		
-			
-			<!-- action path="/userModify"
-			type="fr.umlv.ir3.emagine.user.UserModifyAction"
-			name="userInformationForm" parameter="dispatchAction"
-			scope="session">
-			
-			<forward name="success"
-			path="/administration/userInformation.jsp" />
-			</action>
-			
-			<action path="/userShowInformation"
-			type="fr.umlv.ir3.emagine.user.UserShowInformationAction"
-			name="userInformationForm" scope="session">
-			<forward name="success"
-			path="/administration/userInformation.jsp" />
-			</action> -->
+		<action path="/profileList" type="fr.umlv.ir3.emagine.user.profile.ProfileListAction" name="profileListForm" parameter="action" scope="session">
+			<forward name="_default_target_" path="administration.profileList" />
+		</action>
+		<action path="/profileCreate" type="fr.umlv.ir3.emagine.user.profile.ProfileCreateAction" name="profileModifyForm" input="administration.profileCreate" parameter="action" scope="session" validate="true">
+			<forward name="_default_target_" path="administration.profileCreate" />
+		</action>
+		<action path="/profileModify" type="fr.umlv.ir3.emagine.user.profile.ProfileModifyAction" name="profileModifyForm" input="administration.profileModify" parameter="action" scope="session" validate="true">
+			<forward name="_default_target_" path="administration.profileModify" />
+			<forward name="success" path="/profileList.do?action=list" redirect="true" />
+		</action>
+		<action path="/profileDelete" type="fr.umlv.ir3.emagine.user.profile.ProfileDeleteAction" parameter="action">
+			<forward name="_default_target_" path="/profileList.do?action=list" redirect="true" />
+		</action>
 	</action-mappings>
 
 	<!-- ========== Request Processor Declaration =================== -->
