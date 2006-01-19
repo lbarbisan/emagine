@@ -50,6 +50,7 @@ public class ManagerManager {
 	private AbsenceManager absenceManager;
 	private FormationCenterManager formationCenterManager;
 	private RightManager rightManager;
+	private EmagineEnumManager emagineEnumManager;
 	
 	/**
 	 * @return Returns the baseEditableManager.
@@ -101,6 +102,7 @@ public class ManagerManager {
 		apprenticeManager = new SecurityProxy<ApprenticeManager>(new ApprenticeManagerImpl()).getProxy();
 		formationCenterManager = new SecurityProxy<FormationCenterManager>(new FormationCenterManagerImpl()).getProxy();
 		rightManager = new SecurityProxy<RightManager>(new RightManagerImpl()).getProxy();
+		emagineEnumManager = new SecurityProxy<EmagineEnumManagerImpl>(new EmagineEnumManagerImpl()).getProxy();
 		editableManager = new EditableManagerImpl();
 
 		//FIXME: remetre la ligne commenttée
@@ -177,6 +179,14 @@ public class ManagerManager {
 
 	public RightManager getRightManager() {
 		return rightManager;
+	}
+
+	public EmagineEnumManager getEmagineEnumManager() {
+		return emagineEnumManager;
+	}
+
+	public void setEmagineEnumManager(EmagineEnumManager emagineEnumManager) {
+		this.emagineEnumManager = emagineEnumManager;
 	}
 	
 }
