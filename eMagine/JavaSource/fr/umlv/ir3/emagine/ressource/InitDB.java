@@ -128,11 +128,30 @@ public class InitDB {
 		userDAO.create(user);
 		
 		user = new User();
+		user.setEmail("admin@gmail.com");
+		user.setFirstName("admin");
+		user.setLastName("admin");
+		user.setLogin("admin");
+		user.setPassword("admin");
+		user.setProfile(administrateur);
+		userDAO.create(user);
+		
+		
+		user = new User();
 		user.setEmail("a@gmail.com");
 		user.setFirstName("a");
 		user.setLastName("a");
 		user.setLogin("a");
 		user.setPassword("");
+		user.setProfile(visitor);
+		userDAO.create(user);
+		
+		user = new User();
+		user.setEmail("user@gmail.com");
+		user.setFirstName("user");
+		user.setLastName("user");
+		user.setLogin("user");
+		user.setPassword("user");
 		user.setProfile(visitor);
 		userDAO.create(user);
 		
