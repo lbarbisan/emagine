@@ -2,6 +2,29 @@
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic"%>
 
+<script type="text/javascript">
+<!--
+	function setAction(value) {
+		document.teacherTutorSearchForm.action.value = value;
+	}
+	
+	function deleteTeacher() {
+		if(confirm("Souhaitez-vous réellement supprimer cet enseignant ?")) {
+			open("/eMagine/teacherDelete.do?action=delete&from=modify&currentSelectedIds=" + document.teacherTutorModifyForm.elements['idUserToModify'].value, "_self");
+		}
+	}
+	
+	function modifyTeacher() {
+		setAction('modify');
+		document.teacherTutorModifyForm.submit();
+	}
+
+	function resetForm() {
+		document.teacherTutorModifyForm.reset();
+	}
+-->
+</script>
+
 <div class="tabs">
 <ul>
 	<span class="tab_clicked"><li>Informations&nbsp;g&eacute;n&eacute;rales&nbsp;</li></span>
@@ -18,12 +41,12 @@
 		<p><label for="address"><bean:message key="form.adress"/><font color="red">*</font> </label><html:text property="address" size="20" /></p>
 		<p><label for="postalCode"><bean:message key="form.postalCode"/><font color="red">*</font> </label><html:text property="postalCode" size="20" /></p>
 		<p><label for="city"><bean:message key="form.city"/><font color="red">*</font> </label><html:text property="city" size="20" /></p>
-		<p><label for="department"><bean:message key="form.department"/><font color="red">*</font></label>
+		<p><label for="idDepartment"><bean:message key="form.department"/><font color="red">*</font></label>
 			
-		<html:select property="departments">
-					
-		</html:select>
-						</p>
+		<p><html:select property="idDepartment">
+				
+		</html:select></p>
+		
 		<p><label for="phone"><bean:message key="form.phone"/></label><html:text property="phone" size="20" /></p>	
 		<p><label for="cellular"><bean:message key="form.mobile"/></label><html:text property="cellular" size="20" /></p>
 		<p><label for="fax"><bean:message key="form.fax"/></label><html:text property="fax" size="20" /></p>
@@ -54,5 +77,12 @@
 <html:hidden property="action" />
 </html:form>
 <div align="right"><font color="red" size="1"><bean:message key="form.msg.obligation.star"/></font></div>
+</div>
+<div id="actions">
+	<ul>
+		<li><html:link href="javascript:modifyTeacher();"><html:img src="/eMagine/common/images/icones/modif.png" titleKey="button.title.update" /></html:link></li>
+		<li><html:link href="javascript:resetForm();"><html:img src="/eMagine/common/images/icones/reinit.png" titleKey="button.title.reinitialize" /></html:link></li>
+		<li><html:link href="javascript:deleteTeacher();"><html:img src="/eMagine/common/images/icones/supprimer.png" titleKey="button.title.remove" /></html:link></li>
+	</ul>
 </div>
 </div>

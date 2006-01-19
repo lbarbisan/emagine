@@ -52,7 +52,6 @@
 					<tr>
 						<td><html:multibox property="currentSelectedIds" value="<%= teacher.getId().toString() %>" /></td>
 						<td><html:link action="/teacherModify?action=show" paramId="id" paramName="teacher" paramProperty="id"><bean:write name="teacher" property="lastName" /></html:link></td>
-						<td><bean:write name="teacher" property="lastName" /></td>
 						<td><bean:write name="teacher" property="firstName" /></td>
 						<td><bean:write name="teacher" property="phone" /></td>
 					</tr>
