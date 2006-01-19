@@ -186,6 +186,7 @@ public class InitDB {
 			teacher.setFirstName("LastName" + index);
 			teacher.setLastName("FirstName" + index);
 			teacher.setMobilePhone("709870");
+			teacher.setPhone("12003" + index);
 			teacher.setSex(SexEnum.values()[index%2]);
 			teacherTutorDAO.create(teacher);
 		}
