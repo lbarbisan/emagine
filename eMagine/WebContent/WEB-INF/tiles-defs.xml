@@ -336,8 +336,8 @@
 	<definition name="administration.profileList" extends="administration">
 		<put name="body" value="/administration/profileList.jsp" />
 	</definition>
-	<definition name="administration.profileDetail" extends="administration">
-		<put name="body" value="/administration/profileDetail.jsp" />
+	<definition name="administration.profileModify" extends="administration">
+		<put name="body" value="/administration/profileModify.jsp" />
 	</definition>
 	
 </tiles-definitions>

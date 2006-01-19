@@ -1,5 +1,7 @@
 package fr.umlv.ir3.emagine.user.profile;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -28,9 +30,9 @@ public class ProfileCreateAction extends BaseAction {
 	 */
 	public ActionForward show(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionMessages errors = new ActionMessages();
-		ProfileModifyForm userModifyForm = (ProfileModifyForm) form;
+		ProfileModifyForm profileModifyForm = (ProfileModifyForm) form;
 		
-		userModifyForm.reset();
+		profileModifyForm.reset();
 		
         // Report back any errors, and exit if any
 		return viewFormIfNoErrors(mapping, request, errors);
@@ -49,17 +51,27 @@ public class ProfileCreateAction extends BaseAction {
 	 */
 	public ActionForward create(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionMessages errors = new ActionMessages();
-		ProfileModifyForm profileModifyForm = (ProfileModifyForm) form;
 		ManagerManager managerManager = ManagerManager.getInstance();
 		ProfileManager profileManager = managerManager.getProfileManager();
-		
-		try {
-			// Init profile
-			Profile profile = new Profile();
-			profile.setDescription(profileModifyForm.getDescription());
-			profile.setName(profileModifyForm.getName());
-//			profile.
+		RightManager rightManager = managerManager.getRightManager();
+		ProfileModifyForm profileModifyForm = (ProfileModifyForm) form;
 
+		// Update the Profile
+		try {
+			Profile profile = new Profile();
+			profile.setName(profileModifyForm.getName());
+			profile.setDescription(profileModifyForm.getDescription());
+			
+			profile.setRights(new ArrayList<Right>());
+			for (String idRight : profileModifyForm.getRightIds()) {
+				try {
+					profile.addRights(rightManager.retrieve(Long.parseLong(idRight)));
+				}
+				catch(EMagineException exception) {
+					addEMagineExceptionError(errors, exception);
+				}
+			}
+			
 			// Create a profile
 			profileManager.create(profile);
 

@@ -5,5 +5,5 @@
 	<li><html:link action="/userSearch?action=show"><bean:message key="user.search.title"/></html:link></li>
 	<li><html:link action="/userCreate?action=show"><bean:message key="user.create.title"/></html:link></li>
 	<li><html:link action="/profileList?action=list"><bean:message key="profil.list.title"/></html:link></li>
-	<li><html:link action="/profileCreate"><bean:message key="profil.create.title"/></html:link></li>
+	<li><html:link action="/profileCreate?action=show"><bean:message key="profil.create.title"/></html:link></li>
 </ul>

@@ -1,32 +1,69 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
+<%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic"%>
 
-<h2><bean:message key="profil.detail.title"/><html:link action="/profilList"><img src="/eMagine/common/images/icones/retour.png" title="<bean:message key="button.title.return"/>"/></html:link></h2>
+<script type="text/javascript">
+<!--
+	function setAction(value) {
+		document.profileModifyForm.action.value = value;
+	}
+	
+	function deleteProfile() {
+		if(confirm("Souhaitez-vous réellement supprimer ce profile ?")) {
+			open("/eMagine/profileDelete.do?action=delete&from=modify&rightIds=" + document.profileModifyForm.elements['idProfileToModify'].value, "_self");
+		}
+	}
+	
+	function modifyProfile() {
+		setAction('modify');
+		document.profileModifyForm.submit();
+	}
+
+	function resetForm() {
+		document.profileModifyForm.reset();
+	}
+-->
+</script>
+
+<h2><bean:message key="profil.detail.title"/><html:link action="/profileList?action=list"><img src="/eMagine/common/images/icones/retour.png" title="<bean:message key="button.title.return"/>"/></html:link></h2>
 <br/>
+
+<html:form action="/profileModify" method="POST">
 <div class="form">
-	<p><label for="name"><bean:message key="form.name"/></label><input type="text" id="name" size="20" /></p>
-	<br/>
-	<fieldset>
-		<p><label for="administration"><bean:message key="form.administration"/></label>
-		<input type="checkbox" value="ON" name="administration" /></p>
-		<p><label for="absence"><bean:message key="form.absence"/></label>
-		<input type="checkbox" value="ON" name="absence" /></p>
-		<p><label for="apprentice"><bean:message key="form.apprentice"/></label>
-		<input type="checkbox" value="ON" name="apprentice" /></p>
-		<p><label for="teacher"><bean:message key="form.teacher"/></label>
-		<input type="checkbox" value="ON" name="teacher" /></p>
-		<p><label for="recruitment"><bean:message key="form.recruitment"/></label>
-		<input type="checkbox" value="ON" name="recruitment" /></p>
-		<p><label for="statistics"><bean:message key="form.statistics"/></label>
-		<input type="checkbox" value="ON" name="statistics" /></p>
-	</fieldset>
+	<p><label for="name"><bean:message key="form.name"/></label><html:text property="name" size="20" /></p><br/>
+	<p><label for="description"><bean:message key="form.description"/></label><html:text property="description" size="20" /></p><br/>
+		
+	<table cellpadding="0" cellspacing="0">
+			<tr>
+				<th>&nbsp;</th>
+				<th><bean:message key="table.header.name"/></th>
+			</tr>
+			<logic:notEmpty name="profileModifyForm" property="rights">
+				<logic:iterate id="right" name="profileModifyForm" property="rights" type="fr.umlv.ir3.emagine.user.profile.Right">
+					<tr>
+						<td><html:multibox property="rightIds" value="<%= right.getId().toString() %>" />&nbsp;</td>
+						<td><bean:write name="right" property="name" />&nbsp;</td>
+					</tr>
+				</logic:iterate>
+			</logic:notEmpty>	
+		</table>
 </div>
+
+<br />
+<html:errors />
+
 <div id="actions">
 	<h2>&nbsp;</h2>
 	<ul>
-		<li><a href="#"><img src="/eMagine/common/images/icones/modif.png" title="<bean:message key="button.title.update"/>"/></a></li>
-		<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" title="<bean:message key="button.title.remove"/>"/></a></li>
+		<li><html:link href="javascript:modifyProfile();"><html:img src="/eMagine/common/images/icones/modif.png" titleKey="button.title.update" /></html:link></li>
+		<li><html:link href="javascript:resetForm();"><html:img src="/eMagine/common/images/icones/reinit.png" titleKey="button.title.reinitialize" /></html:link></li>
+		<li><html:link href="javascript:deleteProfile();"><html:img src="/eMagine/common/images/icones/supprimer.png" titleKey="button.title.remove" /></html:link></li>
 	</ul>
 </div>
 <br/>
+
+<html:hidden property="idProfileToModify" />
+<html:hidden property="action" />
+</html:form>
+
 <div align="right"><font color="red" size="1"><bean:message key="form.msg.obligation.star"/></font></div>

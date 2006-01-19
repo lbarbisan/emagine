@@ -19,7 +19,10 @@ public class ProfileModifyForm extends ActionForm {
 	
 	private static final long serialVersionUID = -2405706291327109100L;
 
-	
+
+	/** Profile to modify **/
+	private String idProfileToModify;
+
 	/** User to modify **/
 	private String name;
 	
@@ -56,6 +59,7 @@ public class ProfileModifyForm extends ActionForm {
 		description = "";
 		rightIds = null;
 		rights = null;
+		idProfileToModify = "";
 		action = "";
 	}
 
@@ -128,6 +132,20 @@ public class ProfileModifyForm extends ActionForm {
 	 */
 	public void setRights(Collection<Right> rights) {
 		this.rights = rights;
+	}
+
+	/**
+	 * @return Returns the idProfileToModify.
+	 */
+	public String getIdProfileToModify() {
+		return idProfileToModify;
+	}
+
+	/**
+	 * @param idProfileToModify The idProfileToModify to set.
+	 */
+	public void setIdProfileToModify(String idProfileToModify) {
+		this.idProfileToModify = idProfileToModify;
 	}
 	
 	

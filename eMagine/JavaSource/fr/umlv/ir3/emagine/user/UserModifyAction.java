@@ -53,7 +53,6 @@ public class UserModifyAction extends BaseAction {
 			userModifyForm.setProfiles(managerManager.getProfileManager().findAll());
 
 		} catch (EMagineException exception) {
-			exception.printStackTrace();
 			addEMagineExceptionError(errors, exception);
 		}
 		

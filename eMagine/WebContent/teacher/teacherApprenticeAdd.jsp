@@ -1,55 +1,57 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
+
+<script type="text/javascript">
+<!--
+	function setAction(value) {
+		document.apprenticeSearchForm.action.value = value;
+	}
+-->
+</script>
+
 <h2><bean:message key="teacher.apprentice.add.title"/><html:link action="/teacherVisuInfo"><img src="/eMagine/common/images/icones/retour.png" title="<bean:message key="button.title.return"/>"/></html:link></h2>
-<form name="results">
+
+
+<html:form action="/apprenticeSearch" method="POST" focus="lastName">
 	<br/>
 	<div align="center">
 		<div class="search">
 			<fieldset>
 				<div class="search_b1">
 					<p><label for="name"><bean:message key="criteria.search.name"/></label>
-						<input type="text" id="name" size="20" /> 
+						<html:text property="lastName" size="20" /> 
 					</p>
 					<p>
 						<label for="firstName"><bean:message key="criteria.search.firstName"/></label>
-						<input type="text" id="firstName" size="20" /> 
+						<html:text property="firstName" size="20" /> 
 					</p>
 				</div>
 				<div class="search_b2">
 				<p><label for="die"><bean:message key="criteria.search.die"/></label>
+
 					<select name="die">
-						<!-- à mettre en base -->
-						<option value="all" selected="selected"><bean:message key="select.all.feminin"/></option>
-						<option value="ir">IR</option>
-						<option value="mfpi">MFPI</option>
-						<option value="gmu">GMU</option>
+						<option value=""></option>
+						
 					</select>
 				<p>
 				<p>
 					<label for="year"><bean:message key="criteria.search.year"/></label>
 					<select name="year">
-						<!-- à mettre en base -->
-						<option value="all" selected="selected">Toutes</option>
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5</option>
+						<option value=""></option>
+
 					</select>
 				</p>	
 			</div>
 		</fieldset>
 	</div>
 	<br/>
-	<div class="buttons"><input type="button" value="Rechercher"/></div>
+		<div class="buttons"><html:submit onclick="javascript:setAction('search');" titleKey="button.title.search"><bean:message key="form.search" /></html:submit></div>
 </div>
 <h3><bean:message key="title.results"/></h3>
 	<div align="center">
 		<div id="statSearch">
-			<p>
-			<label for="result"><bean:message key="statSearch.results"/></label><input type="text" id="result" size="5" />&nbsp;&nbsp;&nbsp;
-			<label for="pageNb"><bean:message key="statSearch.numberByPage"/></label><input type="text" id="pageNb" size="5" /> 
-			</p>
+			<p><label for="result"><bean:message key="statSearch.results"/></label><html:text property="nbResults" size="5" disabled="true"/>&nbsp;&nbsp;&nbsp;
+			<label for="pageNb"><bean:message key="statSearch.numberByPage"/></label><html:text property="nbResults" size="5" disabled="true"/></p>
 		</div>
 		<table cellpadding="0" cellspacing="0">
 		<tr>
@@ -73,6 +75,33 @@
 			<td>IR</td>
 			<td>3</td>
 		</tr>
+			<p><label for="sex"><bean:message key="radio.sex"/></label>
+				<logic:notEmpty name="candidateModifyForm" property="sexes">
+					<logic:iterate id="sex" name="candidateModifyForm" property="sexes" type="fr.umlv.ir3.emagine.apprentice.SexEnum">
+						 
+  						<bean:write name="sex" property="name"/>
+					</logic:iterate>	   	
+				</logic:notEmpty>
+			</p>
+
+
+			<logic:notEmpty name="apprenticeSearchForm" property="results">
+				<logic:iterate id="user" name="userSearchForm" property="results" type="fr.umlv.ir3.emagine.user.User">
+					<tr>
+					<html:radio property="idSex" value="id" idName="sex"/>
+						<td><html:radio property="currentSelectedIds" value="<%= user.getId().toString() %>" />&nbsp;</td>
+						<td><html:link action="/userModify?action=show" paramId="id" paramName="user" paramProperty="id"><bean:write name="user" property="lastName" />&nbsp;</html:link></td>
+						<td><bean:write name="user" property="firstName" />&nbsp;</td>
+						<td><bean:write name="user" property="login" />&nbsp;</td>
+						<td><bean:write name="user" property="profile.name" />&nbsp;</td>
+					</tr>
+				</logic:iterate>
+			</logic:notEmpty>	
+
+			<logic:empty name="userSearchForm" property="results">
+				<tr><td colspan="5">Pas de résultats</td></tr>
+			</logic:empty>
+
 	</table>
 </div>
 	<div id="actions">

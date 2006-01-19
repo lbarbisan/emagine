@@ -17,13 +17,14 @@
 		<form-bean name="userSearchForm" type="fr.umlv.ir3.emagine.user.UserSearchForm" />
 		<form-bean name="userModifyForm" type="fr.umlv.ir3.emagine.user.UserModifyForm" />
 		<form-bean name="profileListForm" type="fr.umlv.ir3.emagine.user.profile.ProfileListForm" />
+		<form-bean name="profileModifyForm" type="fr.umlv.ir3.emagine.user.profile.ProfileModifyForm" />
 		<form-bean name="candidateModifyForm" type="fr.umlv.ir3.emagine.apprentice.candidate.CandidateModifyForm" />
 		<form-bean name="candidateSearchForm" type="fr.umlv.ir3.emagine.apprentice.candidate.CandidateSearchForm" />
 		<form-bean name="teacherTutorModifyForm" type="fr.umlv.ir3.emagine.teachertutor.TeacherTutorModifyForm" />
 		<form-bean name="teacherTutorSearchForm" type="fr.umlv.ir3.emagine.teachertutor.TeacherTutorSearchForm" />
-		
 		<form-bean name="formationCenterListForm" type="fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenterListForm" />
 	</form-beans>
+
 	<!-- ========== Action Mapping Definitions =============================== -->
 	<!-- The standard administrative actions available with Tiles -->
 	<!-- These would be either omitted or protected by security constraints -->
@@ -45,10 +46,6 @@
 </action>
 <!-- Struts layout en test -->	
 
-		<action path="/administration/toto" type="fr.umlv.ir3.emagine.security.TestAction">
-			<forward name="success" path="/apprenticeSearch.do" />
-		</action>
-
 		<action path="/authentification" forward="authentification" />
 		
 		<action path="/logout" type="fr.umlv.ir3.emagine.security.LogoutAction" parameter="action">
@@ -58,9 +55,8 @@
 		<!-- apprentice -->
 		<action path="/apprenticeVisuAdress"
 			forward="apprentice.apprenticeVisuAdress" />
-		<action path="/apprenticeSearch" type="fr.umlv.ir3.emagine.apprentice.ApprenticeSearchAction">
-			<forward name="success" path="apprentice.apprenticeSearch"/>
-		</action>
+		<action path="/apprenticeSearch"
+			forward="apprentice.apprenticeSearch" />
 		<action path="/apprenticeVisuSituation"
 			forward="apprentice.apprenticeVisuSituation" />
 		<action path="/apprenticeVisuStatus"
@@ -197,11 +193,10 @@
 			forward="recruitment.candidateOnglet" />
 		<action path="/candidateVisuInfo"
 			forward="recruitment.candidateVisuInfo" />
-		
 		<action path="/centerDetail" 
 			forward="recruitment.centerDetail" />
 		<action path="/centerList" 
-			forward="recruitment.centerList" /> 
+			forward="recruitment.centerList" />
 		<action path="/roomDetail" 
 			forward="recruitment.roomDetail" />
 		<action path="/roomAdd" 
@@ -225,14 +220,9 @@
 		<action path="/candidateMailDo"
 			forward="recruitment.candidateMailDo" />
 
-
-
 <action path="/formationCenterList" type="fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenterListAction" name="formationCenterListForm" parameter="action" scope="session">
 			<forward name="_default_target_" path="recruitment.centerList" />
 		</action>
-
-
-
 
 		<!-- mail -->
 		<action path="/emailDo" forward="mail.emailDo" />

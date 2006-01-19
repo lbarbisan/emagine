@@ -3,6 +3,9 @@
 
 <h2><bean:message key="profil.detail.title"/><html:link action="/profilList"><img src="/eMagine/common/images/icones/retour.png" title="<bean:message key="button.title.return"/>"/></html:link></h2>
 <br/>
+
+<html:form action="/userModify" method="POST" focus="lastName">
+
 <div class="form">
 	<p><label for="name"><bean:message key="form.name"/></label><input type="text" id="name" size="20" /></p>
 	<br/>
@@ -29,4 +32,8 @@
 	</ul>
 </div>
 <br/>
+
+<html:hidden property="action" />
+</html:form>
+
 <div align="right"><font color="red" size="1"><bean:message key="form.msg.obligation.star"/></font></div>

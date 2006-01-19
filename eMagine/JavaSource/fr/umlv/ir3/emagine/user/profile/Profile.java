@@ -62,6 +62,9 @@ public class Profile extends BaseEntity{
 		this.rights.add(right);
 	}
 
+	public void setRights(List<Right> rights) {
+		this.rights = rights;
+	}
 
 	public List<User> getUsers() {
 		return users;
