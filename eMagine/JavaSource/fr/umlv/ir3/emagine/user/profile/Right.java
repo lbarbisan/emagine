@@ -63,7 +63,7 @@ public class Right extends BaseEntity {
 	
 	public void setFullName(String fullName)
 	{
-		String[] string =  fullName.split(".");
+		String[] string =  fullName.split("\\.");
 		if(string.length==2)
 		{
 			this.name = string[1];
@@ -71,6 +71,7 @@ public class Right extends BaseEntity {
 		}
 		else
 		{
+			System.err.println(fullName);
 			this.name = fullName;
 		}
 	}
