@@ -64,7 +64,22 @@
 				<th><bean:message key="table.header.initDate"/></th>
 				<th><bean:message key="table.header.endDate"/></th>
 			</tr>
-<!-- A FAIRE --> 
+			<logic:notEmpty name="teacherTutorModifyForm" property="pupils">
+				<logic:iterate id="currentPupil" name="teacherTutorModifyForm" property="pupils">
+					<tr>
+						<td><bean:write name="currentPupil" property="lastName" />&nbsp;</td>
+						<td><bean:write name="currentPupil" property="firstName" />&nbsp;</td>
+						<td><bean:write name="currentPupil" property="class" />&nbsp;</td>
+						<td><bean:write name="currentPupil" property="group" />&nbsp;</td>
+						<td><bean:write name="currentPupil" property="initDate" />&nbsp;</td>
+						<td><bean:write name="currentPupil" property="endDate" />&nbsp;</td>
+					</tr>
+				</logic:iterate>
+			</logic:notEmpty>	
+
+			<logic:empty name="teacherTutorModifyForm" property="pupils">
+				<tr><td colspan="6">Aucun pupille enregistré</td></tr>
+			</logic:empty>
 		</table>
 	</div>
 	<html:errors />
