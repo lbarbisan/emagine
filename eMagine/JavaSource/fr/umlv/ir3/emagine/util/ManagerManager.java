@@ -5,6 +5,8 @@ import fr.umlv.ir3.emagine.apprentice.ApprenticeManagerImpl;
 import fr.umlv.ir3.emagine.apprentice.absence.AbsenceManager;
 import fr.umlv.ir3.emagine.apprentice.candidate.CandidateManager;
 import fr.umlv.ir3.emagine.apprentice.candidate.CandidateManagerImpl;
+import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenterManager;
+import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenterManagerImpl;
 import fr.umlv.ir3.emagine.event.EventManager;
 import fr.umlv.ir3.emagine.event.EventManagerImpl;
 import fr.umlv.ir3.emagine.extraction.ExtractionManager;
@@ -46,6 +48,7 @@ public class ManagerManager {
 	private ApprenticeManager apprenticeManager;
 	private EditableManager editableManager;
 	private AbsenceManager absenceManager;
+	private FormationCenterManager formationCenterManager;
 	private RightManager rightManager;
 	
 	/**
@@ -96,6 +99,7 @@ public class ManagerManager {
 		massMailingManager = new SecurityProxy<MassMailingManagerImpl>(new MassMailingManagerImpl()).getProxy();
 		candidateManager = new SecurityProxy<CandidateManagerImpl>(new CandidateManagerImpl()).getProxy();
 		apprenticeManager = new SecurityProxy<ApprenticeManagerImpl>(new ApprenticeManagerImpl()).getProxy();
+		formationCenterManager = new SecurityProxy<FormationCenterManagerImpl>(new FormationCenterManagerImpl()).getProxy();
 		rightManager = new SecurityProxy<RightManagerImpl>(new RightManagerImpl()).getProxy();
 		editableManager = new EditableManagerImpl();
 
@@ -162,6 +166,13 @@ public class ManagerManager {
 
 	public AbsenceManager getAbsenceManager() {
 		return absenceManager;
+	}
+
+	/**
+	 * @return Returns the formationCenterManager.
+	 */
+	public FormationCenterManager getFormationCenterManager() {
+		return formationCenterManager;
 	}
 
 	public RightManager getRightManager() {
