@@ -22,7 +22,7 @@ public class CandidateModifyForm extends ActionForm {
 	
 	
 	/** Identifier of candidate to modify **/
-	private String idCandidatToModify;
+	private String idCandidateToModify;
 	
 	/** candidate firstname **/
 	private String firstName;
@@ -197,7 +197,7 @@ public class CandidateModifyForm extends ActionForm {
 		idLevel="";
 		city = "";
 		action = "";
-		idCandidatToModify = "";
+		idCandidateToModify = "";
 		persAdress = "";
 		persPostalCode ="";
 		persCity = "";
@@ -804,16 +804,16 @@ public class CandidateModifyForm extends ActionForm {
 	}
 
 	/**
-	 * @return Returns the idCandidatToModify.
+	 * @return Returns the idCandidateToModify.
 	 */
-	public String getIdCandidatToModify() {
-		return idCandidatToModify;
+	public String getIdCandidateToModify() {
+		return idCandidateToModify;
 	}
 
 	/**
-	 * @param idCandidatToModify The idCandidatToModify to set.
+	 * @param idCandidateToModify The idCandidateToModify to set.
 	 */
-	public void setIdCandidatToModify(String idCandidatToModify) {
-		this.idCandidatToModify = idCandidatToModify;
+	public void setIdCandidateToModify(String idCandidateToModify) {
+		this.idCandidateToModify = idCandidateToModify;
 	}
 }

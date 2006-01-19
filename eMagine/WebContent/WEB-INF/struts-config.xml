@@ -188,11 +188,14 @@
 		</action>
 		<action path="/candidateCreate" type="fr.umlv.ir3.emagine.apprentice.candidate.CandidateCreateAction" name="candidateModifyForm" input="recruitment.candidateCreate" parameter="action" scope="session" validate="true">
 			<forward name="_default_target_" path="recruitment.candidateCreate" />
-		</action>		
+		</action>
+		<action path="/candidateModify" type="fr.umlv.ir3.emagine.apprentice.candidate.CandidateModifyAction" name="candidateModifyForm" input="recruitment.candidateVisuInfo" parameter="action" scope="session" validate="true">
+			<forward name="_default_target_" path="/candidateVisuInfo.do" redirect="true" />
+			<forward name="success" path="/candidateSearch.do?action=search" redirect="true" />
+		</action>
+		<action path="/candidateVisuInfo" forward="recruitment.candidateVisuInfo" scope="session"/>
 		<action path="/candidateOnglet"
 			forward="recruitment.candidateOnglet" />
-		<action path="/candidateVisuInfo"
-			forward="recruitment.candidateVisuInfo" />
 		<action path="/centerDetail" 
 			forward="recruitment.centerDetail" />
 		<action path="/centerList" 

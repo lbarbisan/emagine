@@ -1,6 +1,6 @@
 package fr.umlv.ir3.emagine.apprentice.candidate;
 
-import java.util.Arrays;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,6 +11,7 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessages;
 
 import fr.umlv.ir3.emagine.util.EMagineException;
+import fr.umlv.ir3.emagine.util.EmagineEnumManager;
 import fr.umlv.ir3.emagine.util.ManagerManager;
 import fr.umlv.ir3.emagine.util.search.SearchAction;
 
@@ -29,7 +30,8 @@ public class CandidateSearchAction extends SearchAction {
 	public ActionForward show(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionMessages errors = new ActionMessages();
 		CandidateSearchForm candidateSearchForm = (CandidateSearchForm) form;
-
+		ManagerManager managerManager = ManagerManager.getInstance();
+		EmagineEnumManager emagineEnumManager = managerManager.getEmagineEnumManager();
 		
 		try {
 			candidateSearchForm.reset();
@@ -38,7 +40,7 @@ public class CandidateSearchAction extends SearchAction {
 			candidateSearchForm.setCenters(ManagerManager.getInstance().getFormationCenterManager().findAll());
 			
 			//Retrieve all courseOptions and set them in the form
-			candidateSearchForm.setCourseOptions(Arrays.asList(CourseOptionEnum.values()));
+			candidateSearchForm.setCourseOptions((List<CourseOptionEnum>)emagineEnumManager.findAll(CourseOptionEnum.class));
 		
 		} catch (EMagineException exception) {
 			addEMagineExceptionError(errors, exception);
