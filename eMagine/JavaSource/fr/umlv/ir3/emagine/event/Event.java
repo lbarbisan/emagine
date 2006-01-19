@@ -25,7 +25,7 @@ public class Event extends BaseEntity {
 	private static final long serialVersionUID = 4144109134646449620L;
 	
 	@Basic(temporalType = TemporalType.TIMESTAMP)
-	private Date date;
+	private Date date = new Date();
 	private ArrayList<BaseEntity> sources = new ArrayList<BaseEntity>();
 	private String Title;
 	private String comment;

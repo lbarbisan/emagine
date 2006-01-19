@@ -7,7 +7,7 @@ import fr.umlv.ir3.emagine.modification.EditableManagerImpl;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 
-public abstract class EventableManagerImpl <EntityType extends EventableEntity, EntityDAO extends BaseDAO<EntityType>> extends EditableManagerImpl <EntityType, BaseDAO<EntityType>> implements EventableManager<EntityType, EntityDAO> {
+public abstract class EventableManagerImpl <EntityType extends EventableEntity, EntityDAO extends BaseDAO<EntityType>> extends EditableManagerImpl <EntityType, EntityDAO> implements EventableManager<EntityType, EntityDAO> {
 
 	/**
 	 * @see fr.umlv.ir3.emagine.util.base.EventableManager#addEvent(EntityType, fr.umlv.ir3.emagine.event.Event)

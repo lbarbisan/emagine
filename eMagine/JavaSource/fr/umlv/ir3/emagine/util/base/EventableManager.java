@@ -5,7 +5,7 @@ import java.util.Collection;
 import fr.umlv.ir3.emagine.event.Event;
 import fr.umlv.ir3.emagine.util.EMagineException;
 
-public interface EventableManager<EntityType extends EventableEntity, EntityDAO extends BaseDAO<EntityType>> {
+public interface EventableManager<EntityType extends EventableEntity, EntityDAO extends BaseDAO<EntityType>> extends BaseManager<EntityType, EntityDAO> {
 
 	public abstract void addEvent(EntityType entityType, Event event)
 			throws EMagineException;

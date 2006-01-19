@@ -4,6 +4,12 @@ import java.util.Collection;
 import java.util.List;
 
 import fr.umlv.ir3.emagine.apprentice.absence.Absence;
+import fr.umlv.ir3.emagine.event.Event;
+import fr.umlv.ir3.emagine.event.EventTypeEnum;
+import fr.umlv.ir3.emagine.firm.Firm;
+import fr.umlv.ir3.emagine.firm.actor.EngineerTutor;
+import fr.umlv.ir3.emagine.teachertutor.TeacherTutor;
+import fr.umlv.ir3.emagine.util.Bundles;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.base.EventableManagerImpl;
@@ -83,39 +89,47 @@ public class ApprenticeManagerImpl extends EventableManagerImpl<Apprentice, Appr
 	public void update(Apprentice apprentice) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
-			throw new EMagineException("exception.todo", "Initialiser l'event"); // TODO : le code commenté est bon, mais il faut initialiser l'évennement
-			/*
+			//throw new EMagineException("exception.todo", "Initialiser l'event"); // TODO : le code commenté est bon, mais il faut initialiser l'évennement
 			Apprentice oldApprentice = retrieve(apprentice.getId());
 			// Comparison of the teacherTutors
 			TeacherTutor teacherTutor = apprentice.getTeacherTutor();
 			TeacherTutor oldTeacherTutor = oldApprentice.getTeacherTutor();
-			if (!teacherTutor.equals(oldTeacherTutor)) {
+			if (teacherTutor != null && !teacherTutor.equals(oldTeacherTutor)) {
 				Event event = new Event();
-				// TODO : initialiser l'event
+				event.setType(EventTypeEnum.MODIFICATION);
+				event.setTitle(Bundles.getMessageResources().getMessage("event.apprentice.update.teacherTutor.title"));
+				event.setComment(Bundles.getMessageResources().getMessage("event.apprentice.update.teacherTutor.comment", oldTeacherTutor.getFirstName(), oldTeacherTutor.getLastName()));
+				event.getSources().add(apprentice);
 				addEvent(apprentice, event);
 			}
 			
 			// Comparison of the engineerTutor
 			EngineerTutor engineerTutor = apprentice.getEngineerTutor();
 			EngineerTutor oldEngineerTutor = oldApprentice.getEngineerTutor();
-			if (!engineerTutor.equals(oldEngineerTutor)) {
+			if (engineerTutor != null && !engineerTutor.equals(oldEngineerTutor)) {
 				Event event = new Event();
-				// TODO : initialiser l'event
+				event.setType(EventTypeEnum.MODIFICATION);
+				event.setTitle(Bundles.getMessageResources().getMessage("event.apprentice.update.engineerTutor.title"));
+				event.setComment(Bundles.getMessageResources().getMessage("event.apprentice.update.engineerTutor.comment", oldEngineerTutor.getFirstName(), oldEngineerTutor.getLastName()));
+				event.getSources().add(apprentice);
 				addEvent(apprentice, event);
 			}
 			
 			// Comparison of the firm
 			Firm firm = apprentice.getFirm();
 			Firm oldFirm = oldApprentice.getFirm();
-			if (!firm.equals(oldFirm)) {
+			if (firm != null && !firm.equals(oldFirm)) {
 				Event event = new Event();
-				// TODO : initialiser l'event
+				event.setType(EventTypeEnum.MODIFICATION);
+				event.setTitle(Bundles.getMessageResources().getMessage("event.apprentice.update.firm.title"));
+				event.setComment(Bundles.getMessageResources().getMessage("event.apprentice.update.firm.comment", oldFirm.getName(), oldFirm.getAddress()));
+				event.getSources().add(apprentice);
 				addEvent(apprentice, event);
 			}
 			
 			ApprenticeDAO dao = getDAO();
 			dao.update(apprentice);
-			DAOManager.commitTransaction();*/
+			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {
 			DAOManager.rollBackTransaction();
 			throw exception;
