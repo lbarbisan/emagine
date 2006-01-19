@@ -48,11 +48,10 @@ public class Candidate extends Person {
 	private ProfessionEnum professionMother;
 	private ProfessionEnum professionFather;
 	private CourseOptionEnum courseOption;
+	private DiplomaEnum lastDiploma;
+	private SectionEnum lastSection;
 	
-	
-	
-	
-	
+
 	/**
 	 * @param id
 	 * @param version
@@ -157,6 +156,26 @@ public class Candidate extends Person {
 	}
 	public void setCourseOption(CourseOptionEnum courseOption) {
 		this.courseOption = courseOption;
+	}
+
+
+	public DiplomaEnum getLastDiploma() {
+		return lastDiploma;
+	}
+
+
+	public void setLastDiploma(DiplomaEnum lastDiploma) {
+		this.lastDiploma = lastDiploma;
+	}
+
+
+	public SectionEnum getLastSection() {
+		return lastSection;
+	}
+
+
+	public void setLastSection(SectionEnum lastSection) {
+		this.lastSection = lastSection;
 	}
 
 }
