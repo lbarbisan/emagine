@@ -12,7 +12,7 @@ public class RightDAO extends BaseDAO<Right> {
 		List<Object[]> list = HibernateUtils
 				.getSession()
 				.createQuery(
-						"select distinct right.category from Right right")
+						"select distinct rights.category from Right rights")
 				.list();
 		if (list.size() <= 0) {
 			return null;
@@ -31,7 +31,7 @@ public class RightDAO extends BaseDAO<Right> {
 		List<Right> list = HibernateUtils
 		.getSession()
 		.createQuery(
-				"from Right right where right.category like '" + category + "'")
+				"Right rights where rights.category like '" + category + "'")
 		.list();
 		if (list.size() <= 0) {
 			return null;
