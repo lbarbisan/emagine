@@ -14,7 +14,7 @@ public abstract class PersonModifyForm<ObjectType extends Person> extends Editab
 	
 	@Override
 	public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
-		// TODO UserModifyForm.validate()
+		// TODO ProfileModifyForm.validate()
 		return super.validate(mapping, request);
 	}
 	

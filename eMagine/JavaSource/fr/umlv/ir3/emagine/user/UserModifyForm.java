@@ -58,7 +58,7 @@ public class UserModifyForm extends ActionForm {
 		ActionErrors errors = new ActionErrors();
 
 		if("create".equals(action) || "modify".equals(action)) {
-			if(firstName.equals("") || lastName.equals("") || email.equals("") || login.equals(""))
+			if("".equals(firstName) || "".equals(lastName) || "".equals(email) || "".equals(login))
 				errors.add("allRequiredFieldIsNotfillin", new ActionMessage("user.error.allRequiredFieldIsNotfillin"));
 			else if(!password.equals(repassword))
 				errors.add("isNotTheSamePwd", new ActionMessage("user.create.error.isNotTheSamePwd"));
@@ -84,20 +84,6 @@ public class UserModifyForm extends ActionForm {
 	}
 	
 	
-	/**
-	 * @return Returns the dispatch.
-	 */
-	public String getDispatch() {
-		return action;
-	}
-
-	/**
-	 * @param dispatch The dispatch to set.
-	 */
-	public void setDispatch(String dispatch) {
-		this.action = dispatch;
-	}
-
 	/**
 	 * @return Returns the email.
 	 */

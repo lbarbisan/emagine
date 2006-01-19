@@ -4,7 +4,6 @@ import java.util.Collection;
 
 import fr.umlv.ir3.emagine.user.profile.Profile;
 import fr.umlv.ir3.emagine.util.IsASearchParam;
-import fr.umlv.ir3.emagine.util.search.ParameterInfo;
 import fr.umlv.ir3.emagine.util.search.SelectSearchForm;
 
 public class UserSearchForm extends SelectSearchForm<User> implements UserSearchParam {
@@ -136,7 +135,7 @@ public class UserSearchForm extends SelectSearchForm<User> implements UserSearch
 	/**
 	 * @param action The action to set.
 	 */
-	public void setAction(String dispatch) {
-		this.action = dispatch;
+	public void setAction(String action) {
+		this.action = action;
 	}
 }
