@@ -2,6 +2,7 @@ package fr.umlv.ir3.emagine.security;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
+import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Proxy;
 import java.security.Principal;
 import java.util.ArrayList;
@@ -17,9 +18,15 @@ import fr.umlv.ir3.emagine.modification.EditableEntity;
 import fr.umlv.ir3.emagine.util.Bundles;
 import fr.umlv.ir3.emagine.util.EMagineException;
 
-public class SecurityProxy<Type> implements InvocationHandler {
+/**
+ * 
+ * @author aogier
+ *
+ * @param <R> specifies the interface used to base the rights on. The right annotations of <b>that interface</b> will be used to resolve the rights of the proxy.
+ */
+public class SecurityProxy<R> implements InvocationHandler {
 	private SecurityRealmInterface realm;
-	private Type object;
+	private R object;
 	private Object proxy;
 	private SessionManager sessionManager;
 	
@@ -34,7 +41,7 @@ public class SecurityProxy<Type> implements InvocationHandler {
 	 * @param object
 	 * @throws EMagineException if the security filter has not been initialized
 	 */
-	public SecurityProxy(Type object) throws EMagineException {
+	public SecurityProxy(R object) throws EMagineException {
 		this.object = object;
 		this.proxy = Proxy.newProxyInstance(object.getClass().getClassLoader(),
 				object.getClass().getInterfaces(), this);
@@ -86,32 +93,37 @@ public class SecurityProxy<Type> implements InvocationHandler {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public Type getProxy() {
-		return (Type)proxy;
+	public R getProxy() {
+		return (R)proxy;
 	}
 	
 	public Object invoke(Object proxy, Method method, Object[] args)
 			throws Throwable {
 		try {
+			// Retrieve the specified reference interface for rights for the object in the proxy
+			ParameterizedType type = (ParameterizedType)((SecurityProxy<?>)proxy).object.getClass().getGenericSuperclass();
+			Class<?> clazz = (Class<?>) (type.getActualTypeArguments()[0]);
+
 			MustHaveRights methodRights = method.getAnnotation(MustHaveRights.class);
-			MustHaveRights classRights = method.getDeclaringClass().getAnnotation(MustHaveRights.class);
+			MustHaveRights classRights = clazz.getAnnotation(MustHaveRights.class);
 	
-			String[] rights = null;
+			ArrayList<String> rightList = new ArrayList<String>();
 			if (methodRights == null && classRights != null) {
 				// Adds the class rights if no method rights are specified
 				// The checked rights become : [class right].[methode name] for each class right
-				ArrayList<String> rightList = new ArrayList<String>();
-				for (String right : classRights.value()) {
-					rightList.add(right+"."+method.getName());
+				for (String classRight : classRights.value()) {
+					rightList.add(classRight+"."+method.getName());
 				}
-				rights = rightList.toArray(new String[rightList.size()]);
 			} else if (methodRights != null) {
-				rights = methodRights.value();
+				// Else, we take the rights as they are listed in the anotation for that method
+				for (String right : methodRights.value()) {
+					rightList.add(right);
+				}
 			}
 			
-			if (rights != null) {
+			if (!rightList.isEmpty()) {
 				Principal currentPrincipal = sessionManager.getCurrentPrincipal();
-				for (String right : rights) {
+				for (String right : rightList) {
 					if (!realm.isUserInRole(currentPrincipal, right)) {
 						if (method.getName().equals("update")) {
 							Method updateWithoutRightsMethod = method.getDeclaringClass().getMethod("updateWithoutRights", EditableEntity.class);

@@ -1,25 +1,31 @@
 package fr.umlv.ir3.emagine.ressource;
 
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashSet;
 
 import fr.umlv.ir3.emagine.apprentice.CountryEnum;
 import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
 import fr.umlv.ir3.emagine.apprentice.SexEnum;
-import fr.umlv.ir3.emagine.apprentice.candidate.CourseOptionEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenter;
 import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenterDAO;
 import fr.umlv.ir3.emagine.apprentice.candidate.room.Room;
+import fr.umlv.ir3.emagine.security.MustHaveRights;
 import fr.umlv.ir3.emagine.teachertutor.TeacherTutor;
 import fr.umlv.ir3.emagine.teachertutor.TeacherTutorDAO;
 import fr.umlv.ir3.emagine.user.User;
 import fr.umlv.ir3.emagine.user.UserDAO;
 import fr.umlv.ir3.emagine.user.profile.Profile;
 import fr.umlv.ir3.emagine.user.profile.Right;
+import fr.umlv.ir3.emagine.user.profile.RightDAO;
 import fr.umlv.ir3.emagine.util.Address;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
+
+
 
 public class InitDB {
 
@@ -43,6 +49,13 @@ public class InitDB {
 		DAOManager.beginTransaction();
 		
 		try {
+			// Init Rights
+			File rootFolder = new File("JavaSource/fr");
+			
+			initFolderManager(rootFolder, "fr");
+			
+
+
 		
 		Profile administrateur = new Profile();
 		administrateur.setDescription("Droit des utilisateurs");
@@ -236,5 +249,61 @@ public class InitDB {
 				// TODO EMagineException.e1 Not Implemented
 				emagine.printStackTrace();
 			}
+	}
+	
+	private static final void initFolderManager(File root, String packageName) throws EMagineException {
+		RightDAO rightDAO = DAOManager.getInstance().getRightDAO();
+		HashSet<String> rightSet = new HashSet<String>();
+		
+		rightSet.add("user.create");
+		rightSet.add("user.update");
+		rightSet.add("user.delete");
+		
+		for (File file : root.listFiles()) {
+			String fullPackName = packageName+"."+file.getName();
+			// Lists all files
+			if (file.isDirectory()) {
+				// If it's a directory, treat it as new package
+				initFolderManager(file, fullPackName);
+			} else {
+				// else, treat it as new class
+				if (fullPackName.endsWith("Manager.java")) {
+					System.out.println(fullPackName);
+					String className = fullPackName.substring(0, fullPackName.indexOf(".java"));
+					// It's a manager
+					Class<?> clazz;
+					try {
+						clazz = Class.forName(className);
+						// Iterate on each method
+						for (Method method : clazz.getMethods()) {
+							MustHaveRights methodRights = method.getAnnotation(MustHaveRights.class);
+							MustHaveRights classRights = clazz.getAnnotation(MustHaveRights.class);
+					
+							if (methodRights == null && classRights != null) {
+								// Adds the class rights if no method rights are specified
+								// The checked rights become : [class right].[methode name] for each class right
+								for (String classRight : classRights.value()) {
+									String rightName = classRight+"."+method.getName();
+									if (!rightSet.contains(rightName)) {
+										rightDAO.create(new Right(rightName));
+										rightSet.add(rightName);
+									}
+								}
+							} else if (methodRights != null) {
+								// Else, we take the rights as they are listed in the anotation for that method
+								for (String rightName : methodRights.value()) {
+									if (!rightSet.contains(rightName)) {
+										rightDAO.create(new Right(rightName));
+										rightSet.add(rightName);
+									}
+								}
+							}
+						}
+					} catch (ClassNotFoundException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}
 	}
 }
