@@ -14,7 +14,7 @@ import org.securityfilter.realm.SecurityRealmInterface;
 import org.securityfilter.realm.catalina.CatalinaRealmAdapter;
 
 import fr.umlv.ir3.emagine.modification.EditableEntity;
-import fr.umlv.ir3.emagine.util.Config;
+import fr.umlv.ir3.emagine.util.Bundles;
 import fr.umlv.ir3.emagine.util.EMagineException;
 
 public class SecurityProxy<Type> implements InvocationHandler {
@@ -40,7 +40,7 @@ public class SecurityProxy<Type> implements InvocationHandler {
 				object.getClass().getInterfaces(), this);
 		
 		// If we don't want the securityFilter, for test for example, instanciate a JDBCRealm instead.
-		ResourceBundle bundle = Config.getResourceBundle();
+		ResourceBundle bundle = Bundles.getConfigBundle();
 		String securityRealm = bundle.getString("security.SecurityProxy.securityFilterRealm");
 		
 		if("properties".equals(securityRealm)) {
@@ -126,7 +126,7 @@ public class SecurityProxy<Type> implements InvocationHandler {
 			return method.invoke(object, args);
 		} catch (Exception e) {
 			Throwable t = e;
-			while (!(t instanceof EMagineException) || t == null) {
+			while (t != null && !(t instanceof EMagineException)) {
 				t = t.getCause();
 			}
 			if (t != null) {
