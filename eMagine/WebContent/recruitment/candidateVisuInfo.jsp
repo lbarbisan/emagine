@@ -1,6 +1,29 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 
+<script type="text/javascript">
+<!--
+	function setAction(value) {
+		document.candidateModifyForm.action.value = value;
+	}
+	
+	function deleteUser() {
+		if(confirm("Souhaitez-vous réellement supprimer ce candidat ?")) {
+			open("/eMagine/userDelete.do?action=delete&from=modify&currentSelectedIds=" + document.candidateModifyForm.elements['idCandidateToModify'].value, "_self");
+		}
+	}
+	
+	function modifyUser() {
+		setAction('modify');
+		document.candidateModifyForm.submit();
+	}
+
+	function resetForm() {
+		document.candidateModifyForm.reset();
+	}
+-->
+</script>
+
 <div class="tabs">
 <ul>
 	<span class="tab_clicked"><li><html:link action="/candidateVisuInfo">Informations&nbsp;g&eacute;n&eacute;rales&nbsp;</html:link></li></span>

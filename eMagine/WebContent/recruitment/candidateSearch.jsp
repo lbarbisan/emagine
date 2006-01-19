@@ -76,26 +76,26 @@
 				<logic:iterate id="candidate" name="candidateSearchForm" property="results" type="fr.umlv.ir3.emagine.apprentice.candidate.Candidate">
 					<tr>
 						<td><html:multibox property="currentSelectedIds" value="<%= candidate.getId().toString() %>"/></td>
-						<td><html:link action="/candidateModify?action=show" paramId="id" paramName="candidate" paramProperty="id"><bean:write name="candidate" property="lastName"/></html:link></td>
-						<td><bean:write name="candidate" property="firstName"/></td>
-						<td><bean:write name="candidate" property="courseOption.name"/></td>
-						<td><bean:write name="candidate" property="formationCenter.name"/></td>
-						<td><bean:write name="candidate" property="phone" /></td>
-						<td><bean:write name="candidate" property="email" /></td>
-						<td><bean:write name="candidate" property="accepted" /></td>
+						<td><html:link action="/candidateModify?action=show" paramId="id" paramName="candidate" paramProperty="id"><bean:write name="candidate" property="lastName"/>&nbsp;</html:link></td>
+						<td><bean:write name="candidate" property="firstName"/>&nbsp;</td>
+						<td><bean:write name="candidate" property="courseOption.name"/>&nbsp;</td>
+						<td><bean:write name="candidate" property="formationCenter.name"/>&nbsp;</td>
+						<td><bean:write name="candidate" property="phone" />&nbsp;</td>
+						<td><bean:write name="candidate" property="email" />&nbsp;</td>
+						<td><bean:write name="candidate" property="accepted" />&nbsp;</td>
 					</tr>
 				</logic:iterate>
 			</logic:notEmpty>	
 
 			<logic:empty name="candidateSearchForm" property="results">
-				<tr><td colspan="5">Pas de résultats</td></tr>
+				<tr><td colspan="8">Pas de résultats</td></tr>
 			</logic:empty>
 		</table>
 	</div>
 	<div id="actions">
 		<ul>
-			<li><a href="javascript:checkAll('results','all_none');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
-			<li><a href="javascript:checkNothing('results','all_none');"><bean:message key="all_none.none"/></a></li>
+			<li><a href="javascript:checkAll('candidateSearchForm','currentSelectedIds');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
+			<li><a href="javascript:checkNothing('candidateSearchForm','currentSelectedIds');"><bean:message key="all_none.none"/></a></li>
 		</ul>
 		<h2>&nbsp;</h2>
 		<ul>

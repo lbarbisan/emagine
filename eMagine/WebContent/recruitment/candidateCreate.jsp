@@ -151,8 +151,11 @@
 			</html:select>
 		</p>
 	</fieldset>
-	<br/>
 	</div>
+
+<br/>
+<html:errors />
+
 	<div id="actions">
 		<h2>&nbsp;</h2>
 		<ul>
@@ -161,5 +164,6 @@
 		</ul>
 	</div>
 	<div align="right"><font color="red" size="1"><bean:message key="form.msg.obligation.star"/></font></div>
-	<html:hidden property="action"/>
+
+<html:hidden property="action"/>
 </html:form>

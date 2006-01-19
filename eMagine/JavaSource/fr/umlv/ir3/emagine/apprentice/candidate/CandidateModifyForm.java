@@ -146,7 +146,7 @@ public class CandidateModifyForm extends ActionForm {
 
 		if("create".equals(action) || "modify".equals(action)) {
 			if("".equals(firstName) || "".equals(lastName) || "".equals(persCity) || "".equals(persEmail)|| "".equals(persPostalCode)|| "".equals(persAdress)){
-				errors.add("allRequiredFieldIsNotfillin", new ActionMessage("candidate.error.allRequiredFieldIsNotfillin"));
+				errors.add("allRequiredFieldIsNotfillin", new ActionMessage("user.error.allRequiredFieldIsNotfillin"));
 			}
 			else {
 			/* TODO if (!isValide(birth)){
