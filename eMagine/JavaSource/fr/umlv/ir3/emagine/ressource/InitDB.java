@@ -2,10 +2,17 @@ package fr.umlv.ir3.emagine.ressource;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Calendar;
 
+import fr.umlv.ir3.emagine.apprentice.CountryEnum;
+import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
+import fr.umlv.ir3.emagine.apprentice.SexEnum;
+import fr.umlv.ir3.emagine.apprentice.candidate.CourseOptionEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenter;
 import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenterDAO;
 import fr.umlv.ir3.emagine.apprentice.candidate.room.Room;
+import fr.umlv.ir3.emagine.teachertutor.TeacherTutor;
+import fr.umlv.ir3.emagine.teachertutor.TeacherTutorDAO;
 import fr.umlv.ir3.emagine.user.User;
 import fr.umlv.ir3.emagine.user.UserDAO;
 import fr.umlv.ir3.emagine.user.profile.Profile;
@@ -24,6 +31,7 @@ public class InitDB {
 	public static void main(String[] args) throws FileNotFoundException, EMagineException {
 		InitializeUser();
 		createUsers(1,40);
+		createTeachers(1,40);
 		InitializeFormationCenter();
 		
 	}
@@ -139,6 +147,54 @@ public class InitDB {
 			emagine.printStackTrace();
 		}
 		
+	}
+	
+	private static void createTeachers(int start, int length)
+	{
+		UserDAO userDAO = DAOManager.getInstance().getUserDAO();
+		TeacherTutorDAO teacherTutorDAO = DAOManager.getInstance().getTeacherTutorDAO();
+		DAOManager.beginTransaction();
+		
+		try {
+		
+		
+		for(int index =start;index<length;index++)
+		{
+			TeacherTutor teacher = new TeacherTutor();
+				
+			teacher.setAddressPersonnal(createAddress(index*2) );
+			teacher.setAddressProfessional(createAddress(index));
+			teacher.setBirthdayCity("Paris" + index);
+			teacher.setBirthdayCountry(CountryEnum.values()[index]);
+			teacher.setBirthdayDate(Calendar.getInstance().getTime());
+			teacher.setBirthdayDepartment(DepartmentEnum.values()[index]);
+			teacher.setEmail("mail" + index + "@gmail.com");
+			teacher.setFax("9" + index *100);
+			teacher.setFirstName("LastName" + index);
+			teacher.setLastName("FirstName" + index);
+			teacher.setMobilePhone("709870");
+			teacher.setSex(SexEnum.values()[index%2]);
+			teacherTutorDAO.create(teacher);
+		}
+		
+		DAOManager.commitTransaction();	
+		} catch (EMagineException emagine) {
+			// TODO EMagineException.e1 Not Implemented
+			emagine.printStackTrace();
+		}
+		
+	}
+	
+	private static Address createAddress(int index)
+	{
+		Address address =  new Address();
+		address.setCity("City" + index);
+		address.setCountry(CountryEnum.values()[index]);
+		address.setDepartment(DepartmentEnum.values()[index]);
+		address.setPostalCode("99" + index);
+		address.setStreet(index + "rue de la java");
+		
+		return address;
 	}
 	
 	private  static void InitializeFormationCenter()
