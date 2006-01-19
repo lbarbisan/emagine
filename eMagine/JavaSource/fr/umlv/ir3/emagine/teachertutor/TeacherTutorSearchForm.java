@@ -30,6 +30,7 @@ public class TeacherTutorSearchForm extends SelectSearchForm<TeacherTutor> imple
 		firstName = "";
 		lastName = "";
 		action = "";
+		super.reset();
 	}
 
 	/**
