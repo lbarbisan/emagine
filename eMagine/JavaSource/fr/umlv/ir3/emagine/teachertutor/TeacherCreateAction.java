@@ -32,10 +32,9 @@ public class TeacherCreateAction extends BaseAction {
 	public ActionForward show(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionMessages errors = new ActionMessages();
 		TeacherTutorModifyForm teacherModifyForm = (TeacherTutorModifyForm) form;
-		
 		// Retrieve all departments and set them in the form
 		teacherModifyForm.reset();
-		teacherModifyForm.setDepartments(Arrays.asList(DepartmentEnum.values()));
+		//teacherModifyForm.setDepartments(Arrays.asList(DepartmentEnum.values()));
 		
         // Report back any errors, and exit if any
 		return viewFormIfNoErrors(mapping, request, errors);
@@ -62,7 +61,7 @@ public class TeacherCreateAction extends BaseAction {
 			TeacherTutor tutor = new TeacherTutor();
 			tutor.getAddressProfessional().setCity(teacherModifyForm.getCity());
 			//tutor.getAddressProfessional().setCountry(CountryEnum.France);
-			tutor.getAddressProfessional().setDepartment(DepartmentEnum.valueOf(teacherModifyForm.getIdDepartment()));
+			//tutor.getAddressProfessional().setDepartment(DepartmentEnum.valueOf(teacherModifyForm.getIdDepartment()));
 			tutor.getAddressProfessional().setPostalCode(teacherModifyForm.getPostalCode());
 			tutor.getAddressProfessional().setStreet(teacherModifyForm.getAddress());
 			tutor.setEmail(teacherModifyForm.getMail());
