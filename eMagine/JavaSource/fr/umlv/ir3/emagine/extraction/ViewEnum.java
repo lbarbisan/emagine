@@ -9,7 +9,7 @@ import fr.umlv.ir3.emagine.util.EmagineEnum;
 public class ViewEnum extends EmagineEnum{
 
 	private static final long serialVersionUID = 7685541972504739777L;
-
+	protected ViewEnum(){super();}
 	public ViewEnum(String string) {
 		super(string);
 	}

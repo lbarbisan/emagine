@@ -7,6 +7,7 @@ import fr.umlv.ir3.emagine.util.EmagineEnum;
 
 @Entity(access = AccessType.FIELD)
 public class LevelEntryEnum extends EmagineEnum{
+	protected LevelEntryEnum(){super();}
 	public LevelEntryEnum(String string) {
 		super(string);
 	}

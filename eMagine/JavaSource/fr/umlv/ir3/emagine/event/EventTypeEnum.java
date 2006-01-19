@@ -14,6 +14,7 @@ import fr.umlv.ir3.emagine.util.EmagineEnum;
  */
 @Entity(access = AccessType.FIELD)
 public class EventTypeEnum extends EmagineEnum{
+	protected EventTypeEnum(){super();}
 	public EventTypeEnum(String name) {
 		super(name);
 	}

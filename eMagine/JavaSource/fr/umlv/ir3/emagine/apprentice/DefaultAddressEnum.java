@@ -7,6 +7,7 @@ import fr.umlv.ir3.emagine.util.EmagineEnum;
 
 @Entity(access = AccessType.FIELD)
 public class DefaultAddressEnum extends EmagineEnum{
+	protected DefaultAddressEnum(){super();}
 	public DefaultAddressEnum(String string) {
 		super(string);
 	}

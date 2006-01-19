@@ -7,6 +7,7 @@ import fr.umlv.ir3.emagine.util.EmagineEnum;
 
 @Entity(access = AccessType.FIELD)
 public class YearEnum extends EmagineEnum{
+	protected YearEnum(){super();}
 	public YearEnum(String string) {
 		super(string);
 	}

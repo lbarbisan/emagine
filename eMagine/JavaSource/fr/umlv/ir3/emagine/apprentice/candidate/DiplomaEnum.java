@@ -7,7 +7,7 @@ import fr.umlv.ir3.emagine.util.EmagineEnum;
 
 @Entity(access = AccessType.FIELD)
 public class DiplomaEnum extends EmagineEnum{
-	
+	protected DiplomaEnum(){super();}
 	public DiplomaEnum(String name) {
 		super(name);
 	}

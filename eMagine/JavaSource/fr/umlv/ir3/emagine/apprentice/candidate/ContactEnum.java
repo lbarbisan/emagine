@@ -7,6 +7,7 @@ import fr.umlv.ir3.emagine.util.EmagineEnum;
 
 @Entity(access = AccessType.FIELD)
 public class ContactEnum extends EmagineEnum{
+	protected ContactEnum(){super();}
 	public ContactEnum(String name) {
 		super(name);
 	}

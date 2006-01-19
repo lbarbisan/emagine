@@ -7,6 +7,7 @@ import fr.umlv.ir3.emagine.util.EmagineEnum;
 
 @Entity(access = AccessType.FIELD)
 public class CountryEnum extends EmagineEnum{
+	protected CountryEnum(){super();}
 	public CountryEnum(String string) {
 		super(string);
 	}
