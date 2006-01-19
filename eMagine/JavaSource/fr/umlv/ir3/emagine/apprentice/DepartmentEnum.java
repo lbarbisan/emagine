@@ -3,7 +3,17 @@ package fr.umlv.ir3.emagine.apprentice;
 import java.util.HashMap;
 import java.util.Map;
 
+<<<<<<< .mine
+import fr.umlv.ir3.emagine.util.EmagineEnum;
 
+@Entity(access = AccessType.FIELD)
+=======
+
+>>>>>>> .r503
+<<<<<<< .mine
+public class DepartmentEnum extends EmagineEnum{
+	private static final long serialVersionUID = -2714890313691705005L;
+=======
 public enum DepartmentEnum {
 	
 	D1("Ain"),
@@ -121,6 +131,7 @@ public enum DepartmentEnum {
 	public String getName() {
 		return name;
 	}
+>>>>>>> .r503
 
 	public String getId() {
 		return this.toString();

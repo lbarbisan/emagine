@@ -26,9 +26,17 @@
  		<mapping package="fr.umlv.ir3.emagine.Person"/> 
 		<mapping class="fr.umlv.ir3.emagine.util.person.Person"/>
 		<mapping class="fr.umlv.ir3.emagine.util.Address"/>
+		<mapping class="fr.umlv.ir3.emagine.util.EmagineEnum"/>
+		
+		<mapping package="fr.umlv.ir3.emagine.extraction"/> 
+		<mapping class="fr.umlv.ir3.emagine.extraction.ViewEnum"/> 
+
 		
 		<mapping package="fr.umlv.ir3.emagine.event"/> 
 		<mapping class="fr.umlv.ir3.emagine.event.Event"/>
+		<mapping class="fr.umlv.ir3.emagine.event.EventTypeEnum"/>
+		
+
 		
 		<mapping package="fr.umlv.ir3.emagine.teachertutor"/> 
 		<mapping class="fr.umlv.ir3.emagine.teachertutor.TeacherTutor"/>		
@@ -36,9 +44,19 @@
 		<mapping package="fr.umlv.ir3.emagine.apprentice"/> 
 		<mapping class="fr.umlv.ir3.emagine.apprentice.Apprentice"/> 
 		<mapping class="fr.umlv.ir3.emagine.apprentice.Contact"/>
+		<mapping class="fr.umlv.ir3.emagine.apprentice.CountryEnum"/>
+		<mapping class="fr.umlv.ir3.emagine.apprentice.DefaultAddressEnum"/> 
+		<mapping class="fr.umlv.ir3.emagine.apprentice.DepartmentEnum"/>
+		<mapping class="fr.umlv.ir3.emagine.apprentice.LanguageEnum"/>
+		<mapping class="fr.umlv.ir3.emagine.apprentice.LevelEntryEnum"/>
+		<mapping class="fr.umlv.ir3.emagine.apprentice.NationalityEnum"/>
+		<mapping class="fr.umlv.ir3.emagine.apprentice.SexEnum"/>
+		<mapping class="fr.umlv.ir3.emagine.apprentice.YearEnum"/>
 		
 		<mapping package="fr.umlv.ir3.emagine.apprentice.candidate"/> 
 		<mapping class="fr.umlv.ir3.emagine.apprentice.candidate.Candidate"/>
+		<mapping class="fr.umlv.ir3.emagine.apprentice.candidate.CourseOptionEnum"/>
+		<mapping class="fr.umlv.ir3.emagine.apprentice.candidate.ProfessionEnum"/>
  				
 		<mapping package="fr.umlv.ir3.emagine.apprentice.candidate.examcenter"/>
 		<mapping class="fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenter"/>
@@ -69,7 +87,8 @@
 		<mapping class="fr.umlv.ir3.emagine.modification.Modification"/>
 		<mapping class="fr.umlv.ir3.emagine.modification.FieldModification"/>
 		<mapping class="fr.umlv.ir3.emagine.modification.EditableEntity"/>
- 		
+		<mapping class="fr.umlv.ir3.emagine.modification.EditableStateEnum"/>
+	
 		<mapping package="fr.umlv.ir3.emagine.user"/>
 		<mapping class="fr.umlv.ir3.emagine.user.User"/>
  		

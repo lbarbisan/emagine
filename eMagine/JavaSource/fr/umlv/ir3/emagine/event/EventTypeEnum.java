@@ -14,13 +14,7 @@ import fr.umlv.ir3.emagine.util.EmagineEnum;
  */
 @Entity(access = AccessType.FIELD)
 public class EventTypeEnum extends EmagineEnum{
-	
-	public static final EventTypeEnum ERROR = new EventTypeEnum("ERROR");
-	public static final EventTypeEnum WARNING = new EventTypeEnum("WARNING");
-	public static final EventTypeEnum INFO = new EventTypeEnum("INFO");
-	public static final EventTypeEnum MODIFICATION = new EventTypeEnum("MODIFICATION");
-	
-	protected EventTypeEnum(String name) {
+	public EventTypeEnum(String name) {
 		super(name);
 	}
 

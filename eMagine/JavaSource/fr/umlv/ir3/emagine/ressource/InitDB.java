@@ -2,14 +2,16 @@ package fr.umlv.ir3.emagine.ressource;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashSet;
 
 import fr.umlv.ir3.emagine.apprentice.CountryEnum;
-import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
-import fr.umlv.ir3.emagine.apprentice.SexEnum;
+import fr.umlv.ir3.emagine.apprentice.DefaultAddressEnum;
+import fr.umlv.ir3.emagine.apprentice.candidate.CourseOptionEnum;
+import fr.umlv.ir3.emagine.apprentice.candidate.ProfessionEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenter;
 import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenterDAO;
 import fr.umlv.ir3.emagine.apprentice.candidate.room.Room;
@@ -24,6 +26,8 @@ import fr.umlv.ir3.emagine.user.profile.RightDAO;
 import fr.umlv.ir3.emagine.util.Address;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
+import fr.umlv.ir3.emagine.util.EmagineEnum;
+import fr.umlv.ir3.emagine.util.EmagineEnumDAO;
 
 
 
@@ -33,15 +37,28 @@ public class InitDB {
 	 * @param args
 	 * @throws EMagineException 
 	 * @throws FileNotFoundException 
+	 * @throws InvocationTargetException 
+	 * @throws IllegalAccessException 
+	 * @throws IllegalArgumentException 
 	 */
-	public static void main(String[] args) throws FileNotFoundException, EMagineException {
+	public static void main(String[] args) throws FileNotFoundException, EMagineException, IllegalArgumentException, IllegalAccessException, InvocationTargetException {
+		//Initialize Enum
+		Object[] objects = {1,20};
+		for(Method method : InitEnums.class.getDeclaredMethods())
+		{
+			if(method.getName().startsWith("create"))
+			{
+				method.invoke(null, objects);
+			}
+		}
+		
 		InitializeUser();
 		createUsers(1,40);
 		createTeachers(1,40);
 		InitializeFormationCenter();
-		
 	}
 	
+
 	public static void InitializeUser()
 	{
 		
@@ -53,10 +70,7 @@ public class InitDB {
 			File rootFolder = new File("JavaSource/fr");
 			
 			initFolderManager(rootFolder, "fr");
-			
 
-
-		
 		Profile administrateur = new Profile();
 		administrateur.setDescription("Droit des utilisateurs");
 		administrateur.setName("Administrateur");
@@ -178,16 +192,16 @@ public class InitDB {
 			teacher.setAddressPersonnal(createAddress(index*2) );
 			teacher.setAddressProfessional(createAddress(index));
 			teacher.setBirthdayCity("Paris" + index);
-			teacher.setBirthdayCountry(CountryEnum.values()[index]);
+			//teacher.setBirthdayCountry(CountryEnum.values()[index]);
 			teacher.setBirthdayDate(Calendar.getInstance().getTime());
-			teacher.setBirthdayDepartment(DepartmentEnum.values()[index]);
+			//teacher.setBirthdayDepartment(DepartmentEnum.values()[index]);
 			teacher.setEmail("mail" + index + "@gmail.com");
 			teacher.setFax("9" + index *100);
 			teacher.setFirstName("LastName" + index);
 			teacher.setLastName("FirstName" + index);
 			teacher.setMobilePhone("709870");
 			teacher.setPhone("12003" + index);
-			teacher.setSex(SexEnum.values()[index%2]);
+			//teacher.setSex(SexEnum.values()[index%2]);
 			teacherTutorDAO.create(teacher);
 		}
 		
@@ -199,12 +213,12 @@ public class InitDB {
 		
 	}
 	
-	private static Address createAddress(int index)
+	private static Address createAddress(int index) throws EMagineException
 	{
 		Address address =  new Address();
 		address.setCity("City" + index);
-		address.setCountry(CountryEnum.values()[index]);
-		address.setDepartment(DepartmentEnum.values()[index]);
+		//address.setCountry((CountryEnum) getEmagineEnum(CountryEnum.class));
+		//address.setDepartment((DepartmentEnum) getEmagineEnum("Department1"));
 		address.setPostalCode("99" + index);
 		address.setStreet(index + "rue de la java");
 		
@@ -251,7 +265,7 @@ public class InitDB {
 				emagine.printStackTrace();
 			}
 	}
-	
+		
 	private static final void initFolderManager(File root, String packageName) throws EMagineException {
 		RightDAO rightDAO = DAOManager.getInstance().getRightDAO();
 		HashSet<String> rightSet = new HashSet<String>();

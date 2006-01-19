@@ -24,6 +24,7 @@ public class BaseEntity implements Serializable {
 	private Long id;
     @Version
     private Long version;
+    private String humanName;
 
 	/**
      * This constructor is necessary for Hibernate, it's used for lazy load
@@ -60,5 +61,19 @@ public class BaseEntity implements Serializable {
 	 */
 	public void setVersion(Long version) {
 		this.version = version;
+	}
+
+	/**
+	 * @return Returns the humanName.
+	 */
+	public String getHumanName() {
+		return humanName;
+	}
+
+	/**
+	 * @param humanName The humanName to set.
+	 */
+	public void setHumanName(String humanName) {
+		this.humanName = humanName;
 	}
 }
