@@ -21,12 +21,13 @@ public class Right extends BaseEntity {
 	private String description;
 	
 	@Column(unique = true)
-	private String name;	
+	private String name;
+	private String category;
 	
 	protected Right() {}
 	
-	public Right(String name) {
-		this.name = name;
+	public Right(String fullname) {
+		this.setFullName(fullname);
 	}
 	
 	
@@ -49,10 +50,32 @@ public class Right extends BaseEntity {
 	public String getName() {
 		return name;
 	}
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
 	/**
 	 * @param name The name to set.
 	 */
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public void setFullName(String fullName)
+	{
+		String[] string =  fullName.split(".");
+		if(string.length==2)
+		{
+			this.name = string[1];
+			this.category = string[0];
+		}
+		else
+		{
+			this.name = fullName;
+		}
+	}
+
+	public String getCategory() {
+		return category;
 	}
 }
