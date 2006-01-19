@@ -1,20 +1,13 @@
 package fr.umlv.ir3.emagine.apprentice.candidate;
 
-public enum SectionEnum {
-	S1("Informatique"),
-	S2("Scientificque"),
-	S3("STT");
-	
-	private String name;
-	private SectionEnum(String name) {
-		this.name = name;
-	}
+import javax.persistence.AccessType;
+import javax.persistence.Entity;
 
-	public String getName() {
-		return name;
-	}
+import fr.umlv.ir3.emagine.util.EmagineEnum;
 
-	public String getId() {
-		return this.toString();
+@Entity(access = AccessType.FIELD)
+public class SectionEnum extends EmagineEnum{
+	public SectionEnum(String name) {
+		super(name);
 	}
 }

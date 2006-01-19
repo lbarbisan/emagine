@@ -1,20 +1,13 @@
 package fr.umlv.ir3.emagine.apprentice.candidate;
 
-public enum ContactEnum {
-	C1("Internet"),
-	C2("Lycée, IUT"),
-	C3("JPO");
-	
-	private String name;
-	private ContactEnum(String name) {
-		this.name = name;
-	}
+import javax.persistence.AccessType;
+import javax.persistence.Entity;
 
-	public String getName() {
-		return name;
-	}
+import fr.umlv.ir3.emagine.util.EmagineEnum;
 
-	public String getId() {
-		return this.toString();
+@Entity(access = AccessType.FIELD)
+public class ContactEnum extends EmagineEnum{
+	public ContactEnum(String name) {
+		super(name);
 	}
 }

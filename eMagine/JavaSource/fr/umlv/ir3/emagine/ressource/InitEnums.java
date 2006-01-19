@@ -7,8 +7,11 @@ import fr.umlv.ir3.emagine.apprentice.LevelEntryEnum;
 import fr.umlv.ir3.emagine.apprentice.NationalityEnum;
 import fr.umlv.ir3.emagine.apprentice.SexEnum;
 import fr.umlv.ir3.emagine.apprentice.YearEnum;
+import fr.umlv.ir3.emagine.apprentice.candidate.ContactEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.CourseOptionEnum;
+import fr.umlv.ir3.emagine.apprentice.candidate.DiplomaEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.ProfessionEnum;
+import fr.umlv.ir3.emagine.apprentice.candidate.SectionEnum;
 import fr.umlv.ir3.emagine.event.EventTypeEnum;
 import fr.umlv.ir3.emagine.extraction.ViewEnum;
 import fr.umlv.ir3.emagine.modification.EditableStateEnum;
@@ -139,6 +142,36 @@ public class InitEnums {
 		}
 	}
 	
+	
+	static final void createDiplomaEnum(int start, int length) throws EMagineException
+	{
+		EmagineEnumDAO emagineEnumDAO =  DAOManager.getInstance().getEmagineEnumDAO();
+		for(int index=start;index<length; index++)
+		{
+			DiplomaEnum enums =  new DiplomaEnum("DiplomaEnum" + index);
+			emagineEnumDAO.create(enums);
+		}
+	}
+	
+	static final void createContactEnum(int start, int length) throws EMagineException
+	{
+		EmagineEnumDAO emagineEnumDAO =  DAOManager.getInstance().getEmagineEnumDAO();
+		for(int index=start;index<length; index++)
+		{
+			ContactEnum enums =  new ContactEnum("ContactEnum" + index);
+			emagineEnumDAO.create(enums);
+		}
+	}
+	
+	static final void createSectionEnum(int start, int length) throws EMagineException
+	{
+		EmagineEnumDAO emagineEnumDAO =  DAOManager.getInstance().getEmagineEnumDAO();
+		for(int index=start;index<length; index++)
+		{
+			SectionEnum enums =  new SectionEnum("SectionEnum" + index);
+			emagineEnumDAO.create(enums);
+		}
+	}
 	
 	
 	private final static EmagineEnum getEmagineEnum(Class clazz) throws EMagineException
