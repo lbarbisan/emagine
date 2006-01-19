@@ -3,6 +3,7 @@ package fr.umlv.ir3.emagine.util;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Properties;
+import java.util.ResourceBundle;
 
 import javax.activation.DataHandler;
 import javax.activation.FileDataSource;
@@ -33,14 +34,16 @@ public class MailManager {
 	{
 		// Thanks to http://www.infini-fr.com/Sciences/Informatique/Langages/Imperatifs/Java/javamail.html
 		try {
+			ResourceBundle config = Bundles.getConfigBundle();
+			
 			// Target smtp server
 			Properties props = System.getProperties();
-			props.put("mail.smtp.host", "localhost");	// FIXME : charger le smtp depuis un fichier de conf
+			props.put("mail.smtp.host", config.getString("mailManager.smtpServer"));
 			Session session = Session.getDefaultInstance(props, null);
 			
 			// Creates a new mail
 			MimeMessage msg = new MimeMessage(session);
-			msg.setFrom(new InternetAddress("eMagineMailer@free.fr"));	// FIXME : charger le from depuis un fichier de conf
+			msg.setFrom(new InternetAddress(config.getString("mailManager.fromAdress")));
 			InternetAddress[] address = {new InternetAddress(to)};
 			msg.setRecipients(Message.RecipientType.TO, address);
 			msg.setSubject(subject);
