@@ -18,7 +18,7 @@
 -->
 </script>
 
-<h2><bean:message key="teacher.create.title"/><html:link action="/teacherSearch"><img src="/eMagine/common/images/icones/retour.png" title="<bean:message key="button.title.return"/>"/></html:link></h2>
+<h2><bean:message key="teacher.create.title"/><html:link action="/teacherSearch?action=show"><img src="/eMagine/common/images/icones/retour.png" title="<bean:message key="button.title.return"/>"/></html:link></h2>
 <div class="form">
 <html:form action="/teacherCreate" method="POST" focus="lastName">
 	<br/>
@@ -38,7 +38,10 @@
 		<p><label for="fax"><bean:message key="form.fax"/></label><html:text property="fax" size="20" /></p>
 		<p><label for="mail"><bean:message key="form.email"/><font color="red">*</font> </label><html:text property="mail" size="20" /></p>
 	</div>
-	<br/>
+
+<br/>
+<html:errors />
+
 	<div id="actions">
 	<h2>&nbsp;</h2>
 	<ul>
@@ -46,6 +49,8 @@
 		<li><html:link href="javascript:resetForm();"><html:img src="/eMagine/common/images/icones/reinit.png" titleKey="button.title.reinitialize" /></html:link></li>
 	</ul>
 </div>
+
 <html:hidden property="action" />
 </html:form>
+
 <div align="right"><font color="red" size="1"><bean:message key="form.msg.obligation.star"/></font></div>

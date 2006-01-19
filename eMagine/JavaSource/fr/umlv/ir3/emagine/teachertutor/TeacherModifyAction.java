@@ -84,7 +84,7 @@ public class TeacherModifyAction extends BaseAction {
 			TeacherTutor tutor = teacherManager.retrieve(Long.parseLong(teacherModifyForm.getIdTeacherTutorToModify()));
 			tutor.getAddressProfessional().setCity(teacherModifyForm.getCity());
 			tutor.getAddressProfessional().setCountry(CountryEnum.France);
-			tutor.getAddressProfessional().setDepartment(DepartmentEnum.valueOf(teacherModifyForm.getIdDepartment()));
+			/*tutor.getAddressProfessional().setDepartment(DepartmentEnum.valueOf(teacherModifyForm.getIdDepartment()));*/
 			tutor.getAddressProfessional().setPostalCode(teacherModifyForm.getPostalCode());
 			tutor.getAddressProfessional().setStreet(teacherModifyForm.getAddress());
 			tutor.setEmail(teacherModifyForm.getMail());

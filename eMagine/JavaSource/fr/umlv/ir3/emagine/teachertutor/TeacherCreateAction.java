@@ -13,6 +13,7 @@ import org.apache.struts.action.ActionMessages;
 
 import fr.umlv.ir3.emagine.apprentice.CountryEnum;
 import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
+import fr.umlv.ir3.emagine.util.Address;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.ManagerManager;
 import fr.umlv.ir3.emagine.util.base.BaseAction;
@@ -59,13 +60,14 @@ public class TeacherCreateAction extends BaseAction {
 		try {
 			// Init teacher
 			TeacherTutor tutor = new TeacherTutor();
+			tutor.setEmail(teacherModifyForm.getMail());
+			tutor.setFax(teacherModifyForm.getFax());
+			tutor.setAddressProfessional(new Address());
 			tutor.getAddressProfessional().setCity(teacherModifyForm.getCity());
 			//tutor.getAddressProfessional().setCountry(CountryEnum.France);
 			//tutor.getAddressProfessional().setDepartment(DepartmentEnum.valueOf(teacherModifyForm.getIdDepartment()));
 			tutor.getAddressProfessional().setPostalCode(teacherModifyForm.getPostalCode());
 			tutor.getAddressProfessional().setStreet(teacherModifyForm.getAddress());
-			tutor.setEmail(teacherModifyForm.getMail());
-			tutor.setFax(teacherModifyForm.getFax());
 			tutor.setFirstName(teacherModifyForm.getFirstName());
 			tutor.setLastName(teacherModifyForm.getLastName());
 			tutor.setMobilePhone(teacherModifyForm.getCellular());
@@ -74,11 +76,8 @@ public class TeacherCreateAction extends BaseAction {
 			// Create a teacher
 			teacherTutorManager.create(tutor);
 
-			errors.add("confirm", new ActionMessage("user.create.confirm")); // TODO A revoir
+			errors.add("confirm", new ActionMessage("teacher.create.confirm")); // TODO A revoir
 		} catch (EMagineException exception) {
-			if("exceptions.mailManager.sendMail.messagingException".equals(exception.getMessageId()))
-				errors.add("mail", new ActionMessage("user.create.error.mail"));
-			else
 				addEMagineExceptionError(errors, exception);
 		}
 

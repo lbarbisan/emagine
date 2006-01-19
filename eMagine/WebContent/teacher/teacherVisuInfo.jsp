@@ -5,12 +5,12 @@
 <script type="text/javascript">
 <!--
 	function setAction(value) {
-		document.teacherTutorSearchForm.action.value = value;
+		document.teacherTutorModifyForm.action.value = value;
 	}
 	
 	function deleteTeacher() {
 		if(confirm("Souhaitez-vous réellement supprimer cet enseignant ?")) {
-			open("/eMagine/teacherDelete.do?action=delete&from=modify&currentSelectedIds=" + document.teacherTutorModifyForm.elements['idUserToModify'].value, "_self");
+			open("/eMagine/teacherDelete.do?action=delete&from=modify&currentSelectedIds=" + document.teacherModifyForm.elements['idUserToModify'].value, "_self");
 		}
 	}
 	
@@ -67,6 +67,7 @@
 <!-- A FAIRE --> 
 		</table>
 	</div>
+	<html:errors />
 	<div id="actions">
 		<h2>&nbsp;</h2>	
 		<ul>

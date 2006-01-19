@@ -60,7 +60,7 @@ public class TeacherTutorModifyForm extends ActionForm {
 
 	/** Teacher mail **/
 	private String mail;
-	
+
 	/** Teacher identifier to modify **/
 	private String idTeacherTutorToModify;
 	
@@ -70,7 +70,7 @@ public class TeacherTutorModifyForm extends ActionForm {
 		ActionErrors errors = new ActionErrors();
 		if("create".equals(action) || "show".equals(action) ) {
 			if("".equals(firstName) || "".equals(lastName) || "".equals(address) || "".equals(postalCode) || "".equals(city) || "".equals(mail))
-				errors.add("allRequiredFieldIsNotfillin", new ActionMessage("teacherTutor.error.allRequiredFieldIsNotfillin"));
+				errors.add("allRequiredFieldIsNotfillin", new ActionMessage("user.error.allRequiredFieldIsNotfillin"));
 		}			
 		return errors;
 	}
