@@ -43,6 +43,9 @@ public class TeacherTutorModifyForm extends ActionForm {
 	/** Teacher pupils list **/
 	private Collection <DepartmentEnum> departments;
 
+	/** Teacher pupils id **/
+	private String idPupils;
+	
 	/** Teacher pupils list **/
 	private Collection <Apprentice> pupils;
 	
@@ -87,6 +90,7 @@ public class TeacherTutorModifyForm extends ActionForm {
 		departments = null;
 		postalCode= "";
 		pupils = null;
+		idPupils = "";
 		phone = "";
 		cellular = "";
 		fax = "";
@@ -289,6 +293,20 @@ public class TeacherTutorModifyForm extends ActionForm {
 	 */
 	public void setDepartments(Collection<DepartmentEnum> departments) {
 		this.departments = departments;
+	}
+
+	/**
+	 * @return Returns the idPupils.
+	 */
+	public String getIdPupils() {
+		return idPupils;
+	}
+
+	/**
+	 * @param idPupils The idPupils to set.
+	 */
+	public void setIdPupils(String idPupils) {
+		this.idPupils = idPupils;
 	}
 }
 
