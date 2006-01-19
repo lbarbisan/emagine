@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
 
 import fr.umlv.ir3.emagine.user.profile.ProfileManager;
@@ -88,7 +89,10 @@ public class UserModifyAction extends BaseAction {
 			user.setProfile(profileManager.retrieve(Long.parseLong(userModifyForm.getIdProfile())));
 			userManager.update(user);
 		} catch (EMagineException exception) {
-			addEMagineExceptionError(errors, exception);
+			if("exceptions.mailManager.sendMail.messagingException".equals(exception.getMessageId()))
+				errors.add("mail", new ActionMessage("user.create.error.mail"));
+			else
+				addEMagineExceptionError(errors, exception);
 		}
 
         // Report back any errors, and exit if any

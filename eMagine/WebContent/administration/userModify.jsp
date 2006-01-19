@@ -4,12 +4,12 @@
 <script type="text/javascript">
 <!--
 	function setAction(value) {
-		document.userModifyForm.dispatch.value = value;
+		document.userModifyForm.action.value = value;
 	}
 	
 	function deleteUser() {
 		if(confirm("Souhaitez-vous réellement supprimer cet utilisateur ?")) {
-			open("/eMagine/userDelete.do?action=deleteOne&from=modify&id=" + document.userModifyForm.elements['idUserToModify'].value, "_self");
+			open("/eMagine/userDelete.do?action=delete&from=modify&currentSelectedIds=" + document.userModifyForm.elements['idUserToModify'].value, "_self");
 		}
 	}
 	
@@ -46,6 +46,7 @@
 </div>
 
 <br/>
+<html:errors />
 
 <div id="actions">
 	<h2>&nbsp;</h2>

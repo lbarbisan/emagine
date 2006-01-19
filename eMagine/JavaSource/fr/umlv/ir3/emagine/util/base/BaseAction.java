@@ -1,5 +1,8 @@
 package fr.umlv.ir3.emagine.util.base;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -56,6 +59,10 @@ public class BaseAction extends DispatchAction {
 		errors.add(
                 ActionMessages.GLOBAL_MESSAGE,
                 new ActionMessage(exception.getMessageId()));
+
+		StringWriter writer = new StringWriter();
+		exception.printStackTrace(new PrintWriter(writer));
+		log.info(writer.getBuffer().toString());
 	}
 
 	
@@ -101,6 +108,8 @@ public class BaseAction extends DispatchAction {
 		// Default target
 		if (actionForward == null)
 			actionForward = mapping.findForward(Constants.DEFAULT_TARGET);		
+		
+		log.info("Forward name : " + (actionForward != null ? actionForward.getName() : null));
 		
 		return actionForward;
 	}

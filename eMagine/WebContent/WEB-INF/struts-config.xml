@@ -220,7 +220,7 @@
 		</action>
 		<action path="/userModify" type="fr.umlv.ir3.emagine.user.UserModifyAction" name="userModifyForm" input="administration.userModify" parameter="action" scope="session" validate="true">
 			<forward name="_default_target_" path="administration.userModify" />
-			<forward name="success" redirect="true" path="/userSearch.do?action=search" />
+			<forward name="success" path="/userSearch.do?action=search" redirect="true" />
 		</action>
 		<action path="/userDelete" type="fr.umlv.ir3.emagine.user.UserDeleteAction" parameter="action">
 			<forward name="_default_target_" path="/userSearch.do?action=search" redirect="true" />

@@ -11,11 +11,8 @@
 
 	function deleteUsers() {
 		if(confirm("Souhaitez-vous réellement supprimer ses utilisateurs ?")) {
-			idUsers = "";
-
-
-			setAction('deleteMulti');
-			open("/eMagine/userDelete.do?action=deleteOne&from=search&id=" + document.userModifyForm.elements['user.id'].value, "_self");
+			document.userSearchForm.action = "/eMagine/userDelete.do?action=delete&from=search";
+			document.userSearchForm.submit();
 		}
 	}
 -->

@@ -62,8 +62,6 @@ public class UserSearchAction extends SearchAction {
 			addEMagineExceptionError(errors, exception);
 		}
 		
-		addEMagineExceptionError(errors, new EMagineException("ppa"));
-		
         // Report back any errors, and exit if any
 		return successIfNoErrors(mapping, request, errors);
 	}
