@@ -1,11 +1,12 @@
 package fr.umlv.ir3.emagine.teachertutor;
 
 import fr.umlv.ir3.emagine.apprentice.Apprentice;
+import fr.umlv.ir3.emagine.modification.EditableManager;
 import fr.umlv.ir3.emagine.security.MustHaveRights;
 import fr.umlv.ir3.emagine.util.EMagineException;
 
 @MustHaveRights("teacherTutor")
-public interface TeacherTutorManager {
+public interface TeacherTutorManager extends EditableManager<TeacherTutor, TeacherTutorDAO>  {
 
 	/**
 	 * Adds an apprentice to a tutor
