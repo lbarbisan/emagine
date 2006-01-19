@@ -2,7 +2,6 @@
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic"%>
 
-
 <script type="text/javascript">
 <!--
 	function setAction(value) {
@@ -10,7 +9,7 @@
 	}
 
 	function deleteUsers() {
-		if(confirm("Souhaitez-vous réellement supprimer ses utilisateurs ?")) {
+		if(confirm("Souhaitez-vous réellement supprimer ces utilisateurs ?")) {
 			document.userSearchForm.action = "/eMagine/userDelete.do?action=delete&from=search";
 			document.userSearchForm.submit();
 		}
@@ -50,7 +49,6 @@
 			<p><label for="result"><bean:message key="statSearch.results"/></label><html:text property="nbResults" size="5" disabled="true"/>&nbsp;&nbsp;&nbsp;
 			<label for="pageNb"><bean:message key="statSearch.numberByPage"/></label><html:text property="nbResults" size="5" disabled="true"/></p>
 		</div>
-			
 
 		<table cellpadding="0" cellspacing="0">
 			<tr>
@@ -64,11 +62,11 @@
 			<logic:notEmpty name="userSearchForm" property="results">
 				<logic:iterate id="user" name="userSearchForm" property="results" type="fr.umlv.ir3.emagine.user.User">
 					<tr>
-						<td><html:multibox property="currentSelectedIds" value="<%= user.getId().toString() %>" /></td>
-						<td><html:link action="/userModify?action=show" paramId="id" paramName="user" paramProperty="id"><bean:write name="user" property="lastName" /></html:link></td>
-						<td><bean:write name="user" property="firstName" /></td>
-						<td><bean:write name="user" property="login" /></td>
-						<td><bean:write name="user" property="profile.name" /></td>
+						<td><html:multibox property="currentSelectedIds" value="<%= user.getId().toString() %>" />&nbsp;</td>
+						<td><html:link action="/userModify?action=show" paramId="id" paramName="user" paramProperty="id"><bean:write name="user" property="lastName" />&nbsp;</html:link></td>
+						<td><bean:write name="user" property="firstName" />&nbsp;</td>
+						<td><bean:write name="user" property="login" />&nbsp;</td>
+						<td><bean:write name="user" property="profile.name" />&nbsp;</td>
 					</tr>
 				</logic:iterate>
 			</logic:notEmpty>	

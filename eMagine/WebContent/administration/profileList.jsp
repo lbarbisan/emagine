@@ -34,9 +34,9 @@
 			<logic:notEmpty name="profileListForm" property="results">
 				<logic:iterate id="profile" name="profileListForm" property="results" type="fr.umlv.ir3.emagine.user.profile.Profile">
 					<tr>
-						<td><html:multibox property="currentSelectedIds" value="<%= profile.getId().toString() %>" /></td>
-						<td><html:link action="/profileModify?action=show" paramId="id" paramName="profile" paramProperty="id"><bean:write name="profile" property="name" /></html:link></td>
-						<td><bean:write name="profile" property="description" /></td>
+						<td><html:multibox property="currentSelectedIds" value="<%= profile.getId().toString() %>" />&nbsp;</td>
+						<td><html:link action="/profileModify?action=show" paramId="id" paramName="profile" paramProperty="id"><bean:write name="profile" property="name" />&nbsp;</html:link></td>
+						<td><bean:write name="profile" property="description" />&nbsp;</td>
 					</tr>
 				</logic:iterate>
 			</logic:notEmpty>	
