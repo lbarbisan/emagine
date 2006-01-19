@@ -17,6 +17,8 @@
 		<form-bean name="userSearchForm" type="fr.umlv.ir3.emagine.user.UserSearchForm" />
 		<form-bean name="userModifyForm" type="fr.umlv.ir3.emagine.user.UserModifyForm" />
 		<form-bean name="profileListForm" type="fr.umlv.ir3.emagine.user.profile.ProfileListForm" />
+		<form-bean name="candidateCreateForm" type="fr.umlv.ir3.emagine.apprentice.candidate.CandidateCreateForm" />
+		<form-bean name="candidateSearchForm" type="fr.umlv.ir3.emagine.apprentice.candidate.CandidateSearchForm" />
 		<form-bean name="teacherTutorModifyForm" type="fr.umlv.ir3.emagine.teachertutor.TeacherTutorModifyForm" />
 		<form-bean name="teacherTutorSearchForm" type="fr.umlv.ir3.emagine.teachertutor.TeacherTutorSearchForm" />
 	</form-beans>
@@ -78,8 +80,10 @@
 			forward="apprentice.apprenticeVisuAbsence" />
 		<action path="/apprenticeAbsenceDetail"
 			forward="apprentice.apprenticeAbsenceDetail" />
+		
 		<action path="/apprenticeAbsenceAdd"
 			forward="apprentice.apprenticeAbsenceAdd" />
+		
 		<action path="/apprenticeAbsenceAddAction" 
 			type="fr.umlv.ir3.emagine.apprentice.absence.ApprenticeAbsenceAddAction" 
 			name="apprenticeAbsenceAddForm" 
@@ -182,18 +186,24 @@
 		<action path="/actorOnglet" forward="company.actorOnglet" />
 
 		<!-- recruitment -->
-		<action path="/candidateSearch"
-			forward="recruitment.candidateSearch" />
-		<action path="/candidateCreate"
-			forward="recruitment.candidateCreate" />
+		<action path="/candidateSearch" type="fr.umlv.ir3.emagine.apprentice.candidate.CandidateSearchAction" name="candidateSearchForm" parameter="action" scope="session">
+			<forward name="_default_target_" path="recruitment.candidateSearch" />
+		</action>
+		<action path="/candidateCreate" type="fr.umlv.ir3.emagine.apprentice.candidate.CandidateCreateAction" name="candidateCreateForm" input="recruitment.candidateCreate" parameter="action" scope="session" validate="true">
+			<forward name="_default_target_" path="recruitment.candidateCreate" />
+		</action>		
 		<action path="/candidateOnglet"
 			forward="recruitment.candidateOnglet" />
 		<action path="/candidateVisuInfo"
 			forward="recruitment.candidateVisuInfo" />
-		<action path="/centerDetail" forward="recruitment.centerDetail" />
-		<action path="/centerList" forward="recruitment.centerList" />
-		<action path="/roomDetail" forward="recruitment.roomDetail" />
-		<action path="/roomAdd" forward="recruitment.roomAdd" />
+		<action path="/centerDetail" 
+			forward="recruitment.centerDetail" />
+		<action path="/centerList" 
+			forward="recruitment.centerList" />
+		<action path="/roomDetail" 
+			forward="recruitment.roomDetail" />
+		<action path="/roomAdd" 
+			forward="recruitment.roomAdd" />
 		<action path="/bringingTogether"
 			forward="recruitment.bringingTogether" />
 		<action path="/candidateVisuEvent"
