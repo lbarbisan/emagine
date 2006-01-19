@@ -26,6 +26,8 @@ import fr.umlv.ir3.emagine.user.UserManager;
 import fr.umlv.ir3.emagine.user.UserManagerImpl;
 import fr.umlv.ir3.emagine.user.profile.ProfileManager;
 import fr.umlv.ir3.emagine.user.profile.ProfileManagerImpl;
+import fr.umlv.ir3.emagine.user.profile.RightManager;
+import fr.umlv.ir3.emagine.user.profile.RightManagerImpl;
 
 
 public class ManagerManager {
@@ -44,6 +46,7 @@ public class ManagerManager {
 	private ApprenticeManager apprenticeManager;
 	private EditableManager editableManager;
 	private AbsenceManager absenceManager;
+	private RightManager rightManager;
 	
 	/**
 	 * @return Returns the baseEditableManager.
@@ -93,6 +96,7 @@ public class ManagerManager {
 		massMailingManager = new SecurityProxy<MassMailingManagerImpl>(new MassMailingManagerImpl()).getProxy();
 		candidateManager = new SecurityProxy<CandidateManagerImpl>(new CandidateManagerImpl()).getProxy();
 		apprenticeManager = new SecurityProxy<ApprenticeManagerImpl>(new ApprenticeManagerImpl()).getProxy();
+		rightManager = new SecurityProxy<RightManagerImpl>(new RightManagerImpl()).getProxy();
 		editableManager = new EditableManagerImpl();
 
 		//FIXME: remetre la ligne commenttée
@@ -158,6 +162,10 @@ public class ManagerManager {
 
 	public AbsenceManager getAbsenceManager() {
 		return absenceManager;
+	}
+
+	public RightManager getRightManager() {
+		return rightManager;
 	}
 	
 }
