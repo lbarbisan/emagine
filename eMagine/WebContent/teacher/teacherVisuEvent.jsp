@@ -1,6 +1,29 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 
+<script type="text/javascript">
+<!--
+	function setAction(value) {
+		document.teacherTutorModifyForm.action.value = value;
+	}
+	
+	function deleteTeacher() {
+		if(confirm("Souhaitez-vous réellement supprimer cet enseignant ?")) {
+			open("/eMagine/teacherDelete.do?action=delete&from=modify&currentSelectedIds=" + document.teacherModifyForm.elements['idTeacherTutorToModify'].value, "_self");
+		}
+	}
+	
+	function modifyTeacher() {
+		setAction('modify');
+		document.teacherTutorModifyForm.submit();
+	}
+
+	function resetForm() {
+		document.teacherTutorModifyForm.reset();
+	}
+-->
+</script>
+
 <div class="tabs">
 <ul>
 	<li><html:link action="/teacherVisuInfo">Informations&nbsp;g&eacute;n&eacute;rales&nbsp;</html:link></li>
@@ -83,3 +106,10 @@
 	</div>
 	</div>
 </form>
+<div id="actions">
+	<ul>
+		<li><html:link href="javascript:modifyTeacher();"><html:img src="/eMagine/common/images/icones/modif.png" titleKey="button.title.update" /></html:link></li>
+		<li><html:link href="javascript:resetForm();"><html:img src="/eMagine/common/images/icones/reinit.png" titleKey="button.title.reinitialize" /></html:link></li>
+		<li><html:link href="javascript:deleteTeacher();"><html:img src="/eMagine/common/images/icones/supprimer.png" titleKey="button.title.remove" /></html:link></li>
+	</ul>
+</div>
