@@ -20,4 +20,9 @@ public class SearchParamsImpl implements SearchParams {
 		return fields.keySet();
 	}
 
+	public ParameterInfo getParameterInfo(String field) {
+		
+		return null;
+	}
+
 }

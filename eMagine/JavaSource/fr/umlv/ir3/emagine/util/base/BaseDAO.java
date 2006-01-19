@@ -4,6 +4,7 @@
 package fr.umlv.ir3.emagine.util.base;
 
 import java.lang.reflect.ParameterizedType;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
@@ -12,7 +13,7 @@ import org.apache.commons.logging.LogFactory;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.type.LongType;
+import org.hibernate.hql.ast.ParameterTranslationsImpl;
 
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.HibernateUtils;
@@ -178,16 +179,32 @@ public class BaseDAO<EntityType extends BaseEntity> {
 				!searchParams.getField(field).equals(""))
 				{
 					Object value = searchParams.getField(field);
-					query.setParameter(field.replace(".", "_"), value.toString().replace("*", "%"));
-					log.trace(value.getClass().getName());
+					query.setParameter(field.replace(".", "_"), convertToRightType(value.toString(), searchParams.getParameterInfo(field).getType()));
 					log.trace("setparameter '" + field.replace(".", "_") + "' for '" + value.toString() + "'");
 				}
 		}
-		
+		//ParameterTranslationsImpl parameterTranslationsImpl = new ParameterTranslationsImpl(Arrays.asList(query.getNamedParameters()));
 		log.debug("Search for " + queryString);		
 		return query.list();
 	}
 
+	//FIXME : Passer en Factory
+	private Object convertToRightType(String value, Class clazz)
+	{
+		if(clazz == Long.class)
+		{
+			return Long.parseLong(value.toString());
+		}
+		if(clazz == Integer.class)
+		{
+			return Integer.parseInt(value.toString());
+		}
+		else
+		{
+			return value.toString().replace("*", "%");
+		}
+	}
+	
 	/**
 	 * Returns all the entities of the paramitrized type, or null if none found
 	 * @return all collection of objects

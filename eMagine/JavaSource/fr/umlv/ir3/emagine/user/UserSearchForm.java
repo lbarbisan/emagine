@@ -4,6 +4,7 @@ import java.util.Collection;
 
 import fr.umlv.ir3.emagine.user.profile.Profile;
 import fr.umlv.ir3.emagine.util.IsASearchParam;
+import fr.umlv.ir3.emagine.util.search.ParameterInfo;
 import fr.umlv.ir3.emagine.util.search.SelectSearchForm;
 
 public class UserSearchForm extends SelectSearchForm<User> implements UserSearchParam {
@@ -99,7 +100,9 @@ public class UserSearchForm extends SelectSearchForm<User> implements UserSearch
 	/**
 	 * @return Returns the profile.
 	 */
-	@IsASearchParam("user.profile.id")
+	@IsASearchParam(
+			value = "user.profile.id",
+			type = Long.class)
 	public String getProfile() {
 		return idProfile;
 	}
@@ -133,5 +136,4 @@ public class UserSearchForm extends SelectSearchForm<User> implements UserSearch
 	public void setDispatch(String dispatch) {
 		this.dispatch = dispatch;
 	}
-
 }

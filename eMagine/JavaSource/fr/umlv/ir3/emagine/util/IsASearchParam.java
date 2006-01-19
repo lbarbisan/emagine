@@ -13,5 +13,7 @@ public @interface IsASearchParam {
 	 * The names or paths of the database fields that match the given param
 	 * @return
 	 */
-	String[] value();
+	String value();
+	
+	Class type()   default String.class;
 }

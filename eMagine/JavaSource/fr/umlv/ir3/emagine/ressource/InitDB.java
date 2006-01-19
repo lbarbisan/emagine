@@ -1,11 +1,16 @@
 package fr.umlv.ir3.emagine.ressource;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 
+import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenter;
+import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenterDAO;
+import fr.umlv.ir3.emagine.apprentice.candidate.room.Room;
 import fr.umlv.ir3.emagine.user.User;
 import fr.umlv.ir3.emagine.user.UserDAO;
 import fr.umlv.ir3.emagine.user.profile.Profile;
 import fr.umlv.ir3.emagine.user.profile.Right;
+import fr.umlv.ir3.emagine.util.Address;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 
@@ -18,6 +23,9 @@ public class InitDB {
 	 */
 	public static void main(String[] args) throws FileNotFoundException, EMagineException {
 		InitializeUser();
+		createUsers(1,40);
+		InitializeFormationCenter();
+		
 	}
 	
 	public static void InitializeUser()
@@ -99,6 +107,78 @@ public class InitDB {
 			emagine.printStackTrace();
 		}
 
-
+	}
+	
+	private static void createUsers(int start, int length)
+	{
+		UserDAO userDAO = DAOManager.getInstance().getUserDAO();
+		FormationCenterDAO formationCenterDAO = DAOManager.getInstance().getFormationCenterDAO();
+		DAOManager.beginTransaction();
+		
+		try {
+		
+		Profile CFA = new Profile();
+		CFA.setDescription("Droit des utilisateurs");
+		CFA.setName("CFA");
+		
+		for(int index =start;index<length;index++)
+		{
+			User user = new User();
+			user.setEmail("user" + index + "@gmail.com");
+			user.setFirstName("LastName" + index);
+			user.setLastName("FirstName" + index);
+			user.setLogin("login" + index);
+			user.setPassword("password" + index);	
+			user.setProfile(CFA);
+			userDAO.create(user);
+		}
+		
+		DAOManager.commitTransaction();	
+		} catch (EMagineException emagine) {
+			// TODO EMagineException.e1 Not Implemented
+			emagine.printStackTrace();
+		}
+		
+	}
+	
+	private  static void InitializeFormationCenter()
+	{
+		FormationCenterDAO formationCenterDAO = DAOManager.getInstance().getFormationCenterDAO();
+		DAOManager.beginTransaction();
+		try {
+			
+			ArrayList<Room> list = new ArrayList<Room>();
+			
+			Room room = new Room();
+			room.setCapacity(100);
+			room.setName("10DC10");
+			
+			list.add(room);
+			
+			room = new Room();
+			room.setCapacity(102);
+			room.setName("10DC11");
+			
+			list.add(room);
+			
+			room = new Room();
+			room.setCapacity(101);
+			room.setName("10DC11");
+			
+			list.add(room);
+			
+			FormationCenter formationCenter = new FormationCenter();
+			formationCenter.setAddress(new Address());
+			formationCenter.setName("Lyon");
+			formationCenter.setPhone("0180808080");
+			formationCenter.setRooms(list);
+			
+			formationCenterDAO.create(formationCenter);
+			
+			DAOManager.commitTransaction();	
+			} catch (EMagineException emagine) {
+				// TODO EMagineException.e1 Not Implemented
+				emagine.printStackTrace();
+			}
 	}
 }

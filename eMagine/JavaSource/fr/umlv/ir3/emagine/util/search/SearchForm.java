@@ -28,7 +28,7 @@ public abstract class SearchForm<BaseType> extends ActionForm implements SearchP
 	
 	/** List of Fields to use **/
 	//protected Collection<String> fields;
-	protected Map<String, String> methods;
+	protected Map<String, ParameterInfo> methods;
 
 	
 	/**
@@ -82,7 +82,7 @@ public abstract class SearchForm<BaseType> extends ActionForm implements SearchP
 	 */
 	public String getField(String field) {
 		try {
-			return this.getClass().getMethod(methods.get(field), null).invoke(this, null).toString();
+			return this.getClass().getMethod(methods.get(field).getMethodName(), null).invoke(this, null).toString();
 		} catch (Exception exception) {
 			log.error("can't retrieve value for field " + field, exception);
 			return null;
@@ -93,25 +93,18 @@ public abstract class SearchForm<BaseType> extends ActionForm implements SearchP
 		if (methods != null) {
 			return methods.keySet();
 		}
-		methods = new HashMap<String,String>();
-		//isBoolean = new ArrayList<Boolean>();
+		methods = new HashMap<String,ParameterInfo>();
+		
 		for (Method m : this.getClass().getDeclaredMethods()) {
 			if (m.getAnnotation(IsASearchParam.class) != null) {
-				// This method can be a field, if it begins with "get" or "is"
-				/*int prefixLength = -1;
-				
-				if (m.getName().startsWith("get")) {
-					prefixLength = 3;
-				} else if (m.getName().startsWith("is")) {
-					prefixLength = 2;
-				}
-				if (prefixLength > 0) {
-					// This method represents a field. It must be added in the list
-					String fieldName = m.getName().substring(prefixLength, prefixLength + 1).toLowerCase() + m.getName().substring(prefixLength + 1);*/
-					log.debug("Add field " + m.getAnnotation(IsASearchParam.class).value()[0]);
-					methods.put(m.getAnnotation(IsASearchParam.class).value()[0], m.getName());
-				//}
-			//}
+					log.debug("Add field " + m.getAnnotation(IsASearchParam.class).value());
+
+					ParameterInfo parameterInfo = new ParameterInfo(
+							m.getAnnotation(IsASearchParam.class).value(),
+							m.getAnnotation(IsASearchParam.class).type(),
+							m.getName()
+					);
+					methods.put(parameterInfo.getName(), parameterInfo);
 			}
 		}
 		return methods.keySet();
@@ -123,4 +116,8 @@ public abstract class SearchForm<BaseType> extends ActionForm implements SearchP
 	}
 	
 	public abstract Extractable getExtractable();
+
+	public ParameterInfo getParameterInfo(String field) {
+		return methods.get(field);
+	}
 }

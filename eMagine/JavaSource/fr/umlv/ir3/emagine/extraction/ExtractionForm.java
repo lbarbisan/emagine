@@ -5,6 +5,7 @@ import java.util.Collection;
 import org.apache.struts.action.ActionForm;
 
 import fr.umlv.ir3.emagine.user.User;
+import fr.umlv.ir3.emagine.util.search.ParameterInfo;
 
 public class ExtractionForm extends ActionForm implements ExtractionParams {
 
@@ -119,6 +120,10 @@ public class ExtractionForm extends ActionForm implements ExtractionParams {
 
 	public Collection<String> getFields() {
 		// TODO ExtractionForm.getFields()
+		return null;
+	}
+
+	public ParameterInfo getParameterInfo(String field) {
 		return null;
 	}
 }
