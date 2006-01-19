@@ -11,7 +11,7 @@
 	<!--  <img src="/eMagine/common/images/auth.png"/><br/><br/>-->
 
 			<div class="login">
-				<form id="get" action="j_security_check">
+				<form id="post" action="j_security_check">
 					<html:img src="/eMagine/common/images/logo.gif"/>
 					<h2>Authentification</h2>
 					<br/>
