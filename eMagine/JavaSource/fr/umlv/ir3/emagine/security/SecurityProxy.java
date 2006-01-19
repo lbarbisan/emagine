@@ -2,33 +2,32 @@ package fr.umlv.ir3.emagine.security;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
-import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Proxy;
 import java.security.Principal;
 import java.util.ArrayList;
-import java.util.ResourceBundle;
 
-import org.apache.catalina.realm.JDBCRealm;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.securityfilter.realm.SecurityRealmInterface;
-import org.securityfilter.realm.catalina.CatalinaRealmAdapter;
 
 import fr.umlv.ir3.emagine.modification.EditableEntity;
-import fr.umlv.ir3.emagine.util.Bundles;
 import fr.umlv.ir3.emagine.util.EMagineException;
+import fr.umlv.ir3.emagine.util.base.BaseDAO;
+import fr.umlv.ir3.emagine.util.base.BaseEntity;
+import fr.umlv.ir3.emagine.util.base.BaseManager;
 
 /**
  * 
  * @author aogier
  *
- * @param <R> specifies the interface used to base the rights on. The right annotations of <b>that interface</b> will be used to resolve the rights of the proxy.
+ * @param <M> specifies the manager class used to base the rights on. The right annotations of <b>that interface</b> will be used to resolve the rights of the proxy.
  */
-public class SecurityProxy<R> implements InvocationHandler {
-	private SecurityRealmInterface realm;
-	private R object;
-	private Object proxy;
-	private SessionManager sessionManager;
+public class SecurityProxy<M extends BaseManager<E, D>, D extends BaseDAO<E>, E extends BaseEntity> implements InvocationHandler {
+	protected SecurityRealmInterface realm;
+	private M proxifiedManager;
+	private M proxy;
+	protected SessionManager sessionManager;
+	private Class<?> rightsInterface;
 	
 	/**
 	 * Log for java
@@ -38,79 +37,36 @@ public class SecurityProxy<R> implements InvocationHandler {
 	
 	/**
 	 * 
-	 * @param object
+	 * @param proxifiedManager
 	 * @throws EMagineException if the security filter has not been initialized
 	 */
-	public SecurityProxy(R object) throws EMagineException {
-		this.object = object;
-		this.proxy = Proxy.newProxyInstance(object.getClass().getClassLoader(),
+	@SuppressWarnings("unchecked")
+	protected SecurityProxy(M object) throws EMagineException {
+		this.proxifiedManager = object;
+		this.proxy = (M)Proxy.newProxyInstance(object.getClass().getClassLoader(),
 				object.getClass().getInterfaces(), this);
-		
-		// If we don't want the securityFilter, for test for example, instanciate a JDBCRealm instead.
-		ResourceBundle bundle = Bundles.getConfigBundle();
-		String securityRealm = bundle.getString("security.SecurityProxy.securityFilterRealm");
-		
-		if("properties".equals(securityRealm)) {
-			JDBCRealm realm = new JDBCRealm();
-			realm.setDriverName(bundle.getString("db.driver"));
-			realm.setConnectionURL(
-					bundle.getString("db.connectionURLPrefix") +
-					bundle.getString("db.hostname") + ":" +
-					bundle.getString("db.port") + "/" +
-					bundle.getString("db.name"));
-			realm.setConnectionName(bundle.getString("db.username"));
-			realm.setConnectionPassword(bundle.getString("db.password"));
-			realm.setUserTable(bundle.getString("security.SecurityProxy.userTable"));
-			realm.setUserNameCol(bundle.getString("security.SecurityProxy.userNameCol"));
-			realm.setUserCredCol(bundle.getString("security.SecurityProxy.userCredCol"));
-			realm.setUserRoleTable(bundle.getString("security.SecurityProxy.userRoleTable"));
-			realm.setRoleNameCol(bundle.getString("security.SecurityProxy.roleNameCol"));
-			
-			CatalinaRealmAdapter realmAdapter = new CatalinaRealmAdapter();
-			realmAdapter.setRealm(realm);
-			this.realm = realmAdapter;
-			
-		} else if ("none".equals(securityRealm)) {
-			this.realm = new SecurityRealmInterface() {
-				final class StringPrincipal implements Principal {
-					String name;
-					public StringPrincipal(String name) {
-						this.name = name;
-					}
-					public String getName() {
-						return name;
-					}
-				};
-				public Principal authenticate(String username, String password) {
-					log.debug("authenticate : "+username+" / "+password);
-					return new StringPrincipal(username);
-				}
-				public boolean isUserInRole(Principal principal, String rolename) {
-					log.debug("isUserInRole : "+(principal != null ? principal.getName() : "[principal_null]")+" / "+rolename);
-					return true;
-				}
-			};
-		} else {
-			this.realm = EmagineSecurityFilter.getInstance().getRealm();
-		}
-		this.sessionManager = SessionManager.getInstance();
 	}
 	
-	@SuppressWarnings("unchecked")
-	public R getProxy() {
-		return (R)proxy;
+	protected M getProxy() {
+		return proxy;
 	}
 	
 	public Object invoke(Object proxy, Method method, Object[] args)
 			throws Throwable {
 		try {
-			/*
-			// Retrieve the specified reference interface for rights for the object in the proxy
-			ParameterizedType type = (ParameterizedType)proxy.getClass().getGenericSuperclass();
-			Class<?> clazz = (Class<?>) (type.getActualTypeArguments()[0]);
+			// Retrieve the specified reference interface for rights for the proxifiedManager in the proxy
+			if (rightsInterface == null) {
+				rightsInterface = proxifiedManager.getClass();
+				String className = rightsInterface.getName();
+				if (className.endsWith("Impl")) {
+					// The specified object is an implementation of the interface which owns the rights
+					// Let's get that interface
+					rightsInterface = Class.forName(className.substring(0, className.length() - 4));
+				}
+			}
 
 			MustHaveRights methodRights = method.getAnnotation(MustHaveRights.class);
-			MustHaveRights classRights = clazz.getAnnotation(MustHaveRights.class);
+			MustHaveRights classRights = rightsInterface.getAnnotation(MustHaveRights.class);
 	
 			ArrayList<String> rightList = new ArrayList<String>();
 			if (methodRights == null && classRights != null) {
@@ -129,21 +85,24 @@ public class SecurityProxy<R> implements InvocationHandler {
 			if (!rightList.isEmpty()) {
 				Principal currentPrincipal = sessionManager.getCurrentPrincipal();
 				for (String right : rightList) {
+					log.debug("Check if user '"+sessionManager.getCurrentUser().getLogin()+"' has right "+right);
 					if (!realm.isUserInRole(currentPrincipal, right)) {
 						if (method.getName().equals("update")) {
 							Method updateWithoutRightsMethod = method.getDeclaringClass().getMethod("updateWithoutRights", EditableEntity.class);
 							if (updateWithoutRightsMethod != null) {
-								return updateWithoutRightsMethod.invoke(object, args);
+								return updateWithoutRightsMethod.invoke(proxifiedManager, args);
 							}
 						}
 						throw new EMagineException("exception.userIsNotAllowed", right);
 					}
 				}
-			}*/
-			return method.invoke(object, args);
+			} else {
+				log.info("No right check for method "+proxifiedManager.getClass().getName()+"."+method.getName()+" (user : "+sessionManager.getCurrentUser().getLogin()+")");
+			}
+			return method.invoke(proxifiedManager, args);
 		} catch (Exception e) {
 			Throwable t = e;
-			while (t != null && !(t instanceof EMagineException)) {
+			while (t != null && !(t instanceof EMagineException) && t != t.getCause()) {
 				t = t.getCause();
 			}
 			if (t != null) {
@@ -151,12 +110,6 @@ public class SecurityProxy<R> implements InvocationHandler {
 			} else {
 				throw e;
 			}
-			/*
-			if (e.getCause() instanceof EMagineException) {
-				throw e.getCause();
-			} else {
-				throw e;
-			}*/
 		}
 	}
 

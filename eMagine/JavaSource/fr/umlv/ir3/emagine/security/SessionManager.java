@@ -113,7 +113,7 @@ public class SessionManager {
 		return null;
 	}
 
-	public static SessionManager getInstance() {
+	public static synchronized SessionManager getInstance() {
 		if (instance == null) {
 			instance = new SessionManager();
 		}

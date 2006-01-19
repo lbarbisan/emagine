@@ -5,7 +5,6 @@ import java.util.List;
 
 import fr.umlv.ir3.emagine.apprentice.absence.Absence;
 import fr.umlv.ir3.emagine.event.Event;
-import fr.umlv.ir3.emagine.event.EventTypeEnum;
 import fr.umlv.ir3.emagine.firm.Firm;
 import fr.umlv.ir3.emagine.firm.actor.EngineerTutor;
 import fr.umlv.ir3.emagine.teachertutor.TeacherTutor;
@@ -96,7 +95,7 @@ public class ApprenticeManagerImpl extends EventableManagerImpl<Apprentice, Appr
 			TeacherTutor oldTeacherTutor = oldApprentice.getTeacherTutor();
 			if (teacherTutor != null && !teacherTutor.equals(oldTeacherTutor)) {
 				Event event = new Event();
-				event.setType(EventTypeEnum.MODIFICATION);
+				//event.setType(EventTypeEnum.MODIFICATION); // TODO : event.setType (EventTypeEnum)
 				event.setTitle(Bundles.getMessageResources().getMessage("event.apprentice.update.teacherTutor.title"));
 				event.setComment(Bundles.getMessageResources().getMessage("event.apprentice.update.teacherTutor.comment", oldTeacherTutor.getFirstName(), oldTeacherTutor.getLastName()));
 				event.getSources().add(apprentice);
@@ -108,7 +107,7 @@ public class ApprenticeManagerImpl extends EventableManagerImpl<Apprentice, Appr
 			EngineerTutor oldEngineerTutor = oldApprentice.getEngineerTutor();
 			if (engineerTutor != null && !engineerTutor.equals(oldEngineerTutor)) {
 				Event event = new Event();
-				event.setType(EventTypeEnum.MODIFICATION);
+				//event.setType(EventTypeEnum.MODIFICATION); // TODO : event.setType (EventTypeEnum)
 				event.setTitle(Bundles.getMessageResources().getMessage("event.apprentice.update.engineerTutor.title"));
 				event.setComment(Bundles.getMessageResources().getMessage("event.apprentice.update.engineerTutor.comment", oldEngineerTutor.getFirstName(), oldEngineerTutor.getLastName()));
 				event.getSources().add(apprentice);
@@ -120,7 +119,7 @@ public class ApprenticeManagerImpl extends EventableManagerImpl<Apprentice, Appr
 			Firm oldFirm = oldApprentice.getFirm();
 			if (firm != null && !firm.equals(oldFirm)) {
 				Event event = new Event();
-				event.setType(EventTypeEnum.MODIFICATION);
+				//event.setType(EventTypeEnum.MODIFICATION); // TODO : event.setType (EventTypeEnum)
 				event.setTitle(Bundles.getMessageResources().getMessage("event.apprentice.update.firm.title"));
 				event.setComment(Bundles.getMessageResources().getMessage("event.apprentice.update.firm.comment", oldFirm.getName(), oldFirm.getAddress()));
 				event.getSources().add(apprentice);

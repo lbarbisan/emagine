@@ -21,7 +21,7 @@ import fr.umlv.ir3.emagine.firm.FirmManager;
 import fr.umlv.ir3.emagine.firm.FirmManagerImpl;
 import fr.umlv.ir3.emagine.modification.EditableManager;
 import fr.umlv.ir3.emagine.modification.EditableManagerImpl;
-import fr.umlv.ir3.emagine.security.SecurityProxy;
+import fr.umlv.ir3.emagine.security.SecurityProxyFactory;
 import fr.umlv.ir3.emagine.teachertutor.TeacherTutorManager;
 import fr.umlv.ir3.emagine.teachertutor.TeacherTutorManagerImpl;
 import fr.umlv.ir3.emagine.user.UserManager;
@@ -73,7 +73,7 @@ public class ManagerManager {
 	public ManagerManager() throws EMagineException {
 		
 		//FIXME: remetre la ligne commenttée
-		//userManager = new SecurityProxy<UserManager>(new UserManagerImpl()).getProxy();
+		//userManager = SecurityProxyFactory.getProxy(new UserManagerImpl());
 //		userManager = new UserManagerImpl();
 //		
 //		profileManager = new ProfileManagerImpl();
@@ -88,25 +88,26 @@ public class ManagerManager {
 //		apprenticeManager = new ApprenticeManagerImpl();
 //		editableManager = new EditableManagerImpl();
 
-		userManager = new SecurityProxy<UserManager>(new UserManagerImpl()).getProxy();
+		userManager = SecurityProxyFactory.getProxy(new UserManagerImpl());
 		
-		profileManager = new SecurityProxy<ProfileManager>(new ProfileManagerImpl()).getProxy();
-		extractionManager = new SecurityProxy<ExtractionManager>(new ExtractionManagerImpl()).getProxy();
-		teacherTutorManager = new SecurityProxy<TeacherTutorManager>(new TeacherTutorManagerImpl()).getProxy();
-		firmManager = new SecurityProxy<FirmManager>(new FirmManagerImpl()).getProxy();
-		eventManager = new SecurityProxy<EventManager>(new EventManagerImpl()).getProxy();
-		mailingListManager = new SecurityProxy<MailingListManager>(new MailingListManagerImpl()).getProxy();
-		mailingTypeManager = new SecurityProxy<MailingTypeManager>(new MailingTypeManagerImpl()).getProxy();
-		massMailingManager = new SecurityProxy<MassMailingManager>(new MassMailingManagerImpl()).getProxy();
-		candidateManager = new SecurityProxy<CandidateManager>(new CandidateManagerImpl()).getProxy();
-		apprenticeManager = new SecurityProxy<ApprenticeManager>(new ApprenticeManagerImpl()).getProxy();
-		formationCenterManager = new SecurityProxy<FormationCenterManager>(new FormationCenterManagerImpl()).getProxy();
-		rightManager = new SecurityProxy<RightManager>(new RightManagerImpl()).getProxy();
-		emagineEnumManager = new SecurityProxy<EmagineEnumManagerImpl>(new EmagineEnumManagerImpl()).getProxy();
+		profileManager = SecurityProxyFactory.getProxy(new ProfileManagerImpl());
+		extractionManager = SecurityProxyFactory.getProxy(new ExtractionManagerImpl());
+		teacherTutorManager = SecurityProxyFactory.getProxy(new TeacherTutorManagerImpl());
+		firmManager = SecurityProxyFactory.getProxy(new FirmManagerImpl());
+		eventManager = SecurityProxyFactory.getProxy(new EventManagerImpl());
+		mailingListManager = SecurityProxyFactory.getProxy(new MailingListManagerImpl());
+		mailingTypeManager = SecurityProxyFactory.getProxy(new MailingTypeManagerImpl());
+		massMailingManager = SecurityProxyFactory.getProxy(new MassMailingManagerImpl());
+		candidateManager = SecurityProxyFactory.getProxy(new CandidateManagerImpl());
+		apprenticeManager = SecurityProxyFactory.getProxy(new ApprenticeManagerImpl());
+		formationCenterManager = SecurityProxyFactory.getProxy(new FormationCenterManagerImpl());
+		rightManager = SecurityProxyFactory.getProxy(new RightManagerImpl());
+		emagineEnumManager = new EmagineEnumManagerImpl();	// No rights on that manager
+
 		editableManager = new EditableManagerImpl();
 
 		//FIXME: remetre la ligne commenttée
-		//absenceManager = new SecurityProxy<AbsenceManager>(new AbsenceManagerImpl()).getProxy();
+		//absenceManager = SecurityProxyFactory.getProxy(new AbsenceManagerImpl());
 	}
 	
 	/**
