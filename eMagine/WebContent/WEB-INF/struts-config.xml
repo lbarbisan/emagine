@@ -223,10 +223,7 @@
 			<forward name="success" redirect="true" path="/userSearch.do?action=search" />
 		</action>
 		<action path="/userDelete" type="fr.umlv.ir3.emagine.user.UserDeleteAction" parameter="action">
-			<forward name="success_from_modify" path="/userModify.do?action=show" redirect="true" />
-			<forward name="failure_from_modify" path="/userModify.do?action=show" redirect="true" />
-			<forward name="success_from_search" path="/userSearch.do?action=search" redirect="true" />
-			<forward name="failure_from_search" path="/userSearch.do?action=search" redirect="true" />
+			<forward name="_default_target_" path="/userSearch.do?action=search" redirect="true" />
 		</action>
 		<action path="/profileList" type="fr.umlv.ir3.emagine.user.profile.ProfileListAction" name="profileListForm" parameter="dispatch" scope="session">
 			<forward name="success" path="administration.profilList" />
