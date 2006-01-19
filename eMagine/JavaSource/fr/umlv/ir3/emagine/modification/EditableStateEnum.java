@@ -7,6 +7,7 @@ import fr.umlv.ir3.emagine.util.EmagineEnum;
 
 @Entity(access = AccessType.FIELD)
 public class EditableStateEnum extends EmagineEnum{
+	public EditableStateEnum(){super();}
 	public EditableStateEnum(String string) {
 		super(string);
 	}

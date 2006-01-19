@@ -7,7 +7,7 @@ import fr.umlv.ir3.emagine.util.EmagineEnum;
 
 @Entity(access = AccessType.FIELD)
 public class ProfessionEnum extends EmagineEnum{
-	protected ProfessionEnum(){super();}
+	public ProfessionEnum(){super();}
 	public ProfessionEnum(String string) {
 		super(string);
 	}

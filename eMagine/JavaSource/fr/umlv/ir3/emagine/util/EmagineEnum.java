@@ -21,7 +21,7 @@ public class EmagineEnum extends BaseEntity{
 	@Column(unique = true, nullable = false)
 	private String name;
 	
-	protected EmagineEnum(){super();}
+	public EmagineEnum(){super();}
 	protected EmagineEnum(String name)
 	{	
 		this.name = name;		

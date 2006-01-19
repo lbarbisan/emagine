@@ -81,7 +81,7 @@ public class EmagineEnumDAO
 		StringBuilder queryString = new StringBuilder().append("from ").append(clazz.getSimpleName());
 		
 		log.debug("findall() with '" + queryString + "'");
-		
+		System.out.println(queryString);
 		List<?> foundResults = (List<?>) HibernateUtils
 				.getSession().createQuery(queryString.toString()).list();
 		if (foundResults.size() <= 0) {

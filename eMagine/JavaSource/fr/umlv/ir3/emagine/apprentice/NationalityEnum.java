@@ -15,7 +15,7 @@ import fr.umlv.ir3.emagine.util.EmagineEnum;
  */
 @Entity(access=AccessType.FIELD)
 public class NationalityEnum extends EmagineEnum{
-	protected NationalityEnum(){super();}
+	public NationalityEnum(){super();}
 	public NationalityEnum(String string) {
 		super(string);
 	}

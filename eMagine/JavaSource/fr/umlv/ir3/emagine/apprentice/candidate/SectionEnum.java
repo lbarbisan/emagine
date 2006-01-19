@@ -7,7 +7,7 @@ import fr.umlv.ir3.emagine.util.EmagineEnum;
 
 @Entity(access = AccessType.FIELD)
 public class SectionEnum extends EmagineEnum{
-	protected SectionEnum(){super();}
+	public SectionEnum(){super();}
 	public SectionEnum(String name) {
 		super(name);
 	}

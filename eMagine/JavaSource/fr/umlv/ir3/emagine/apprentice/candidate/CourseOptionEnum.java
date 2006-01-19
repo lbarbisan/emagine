@@ -7,7 +7,7 @@ import fr.umlv.ir3.emagine.util.EmagineEnum;
 
 @Entity(access = AccessType.FIELD)
 public class CourseOptionEnum extends EmagineEnum {
-	protected CourseOptionEnum(){super();}
+	public CourseOptionEnum(){super();}
 	public CourseOptionEnum(String string) {
 		super(string);
 	}

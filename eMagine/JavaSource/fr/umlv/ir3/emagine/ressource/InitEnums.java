@@ -2,6 +2,7 @@ package fr.umlv.ir3.emagine.ressource;
 
 import fr.umlv.ir3.emagine.apprentice.CountryEnum;
 import fr.umlv.ir3.emagine.apprentice.DefaultAddressEnum;
+import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
 import fr.umlv.ir3.emagine.apprentice.LanguageEnum;
 import fr.umlv.ir3.emagine.apprentice.LevelEntryEnum;
 import fr.umlv.ir3.emagine.apprentice.NationalityEnum;
@@ -29,6 +30,16 @@ public class InitEnums {
 		{
 			DefaultAddressEnum defaultAddressEnum =  new DefaultAddressEnum("DefaultAddressEnum" + index);
 			emagineEnumDAO.create(defaultAddressEnum);
+		}
+	}
+	
+	static final void createDepartmentEnum(int start, int length) throws EMagineException
+	{
+		EmagineEnumDAO emagineEnumDAO =  DAOManager.getInstance().getEmagineEnumDAO();
+		for(int index=start;index<length; index++)
+		{
+			DepartmentEnum enums =  new DepartmentEnum("DepartmentEnum" + index);
+			emagineEnumDAO.create(enums);
 		}
 	}
 	

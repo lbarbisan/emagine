@@ -7,7 +7,7 @@ import fr.umlv.ir3.emagine.util.EmagineEnum;
 
 @Entity(access = AccessType.FIELD)
 public class SexEnum extends EmagineEnum{
-	protected SexEnum(){super();}
+	public SexEnum(){}
 	public SexEnum(String string) {
 		super(string);
 	}
