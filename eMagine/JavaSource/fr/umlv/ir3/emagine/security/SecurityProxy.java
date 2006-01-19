@@ -104,8 +104,9 @@ public class SecurityProxy<R> implements InvocationHandler {
 	public Object invoke(Object proxy, Method method, Object[] args)
 			throws Throwable {
 		try {
+			/*
 			// Retrieve the specified reference interface for rights for the object in the proxy
-			ParameterizedType type = (ParameterizedType)((SecurityProxy<?>)proxy).object.getClass().getGenericSuperclass();
+			ParameterizedType type = (ParameterizedType)proxy.getClass().getGenericSuperclass();
 			Class<?> clazz = (Class<?>) (type.getActualTypeArguments()[0]);
 
 			MustHaveRights methodRights = method.getAnnotation(MustHaveRights.class);
@@ -138,7 +139,7 @@ public class SecurityProxy<R> implements InvocationHandler {
 						throw new EMagineException("exception.userIsNotAllowed", right);
 					}
 				}
-			}
+			}*/
 			return method.invoke(object, args);
 		} catch (Exception e) {
 			Throwable t = e;
