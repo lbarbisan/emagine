@@ -89,18 +89,18 @@ public class ManagerManager {
 
 		userManager = new SecurityProxy<UserManager>(new UserManagerImpl()).getProxy();
 		
-		profileManager = new SecurityProxy<ProfileManagerImpl>(new ProfileManagerImpl()).getProxy();
-		extractionManager = new SecurityProxy<ExtractionManagerImpl>(new ExtractionManagerImpl()).getProxy();
-		teacherTutorManager = new SecurityProxy<TeacherTutorManagerImpl>(new TeacherTutorManagerImpl()).getProxy();
-		firmManager = new SecurityProxy<FirmManagerImpl>(new FirmManagerImpl()).getProxy();
-		eventManager = new SecurityProxy<EventManagerImpl>(new EventManagerImpl()).getProxy();
-		mailingListManager = new SecurityProxy<MailingListManagerImpl>(new MailingListManagerImpl()).getProxy();
-		mailingTypeManager = new SecurityProxy<MailingTypeManagerImpl>(new MailingTypeManagerImpl()).getProxy();
-		massMailingManager = new SecurityProxy<MassMailingManagerImpl>(new MassMailingManagerImpl()).getProxy();
-		candidateManager = new SecurityProxy<CandidateManagerImpl>(new CandidateManagerImpl()).getProxy();
-		apprenticeManager = new SecurityProxy<ApprenticeManagerImpl>(new ApprenticeManagerImpl()).getProxy();
-		formationCenterManager = new SecurityProxy<FormationCenterManagerImpl>(new FormationCenterManagerImpl()).getProxy();
-		rightManager = new SecurityProxy<RightManagerImpl>(new RightManagerImpl()).getProxy();
+		profileManager = new SecurityProxy<ProfileManager>(new ProfileManagerImpl()).getProxy();
+		extractionManager = new SecurityProxy<ExtractionManager>(new ExtractionManagerImpl()).getProxy();
+		teacherTutorManager = new SecurityProxy<TeacherTutorManager>(new TeacherTutorManagerImpl()).getProxy();
+		firmManager = new SecurityProxy<FirmManager>(new FirmManagerImpl()).getProxy();
+		eventManager = new SecurityProxy<EventManager>(new EventManagerImpl()).getProxy();
+		mailingListManager = new SecurityProxy<MailingListManager>(new MailingListManagerImpl()).getProxy();
+		mailingTypeManager = new SecurityProxy<MailingTypeManager>(new MailingTypeManagerImpl()).getProxy();
+		massMailingManager = new SecurityProxy<MassMailingManager>(new MassMailingManagerImpl()).getProxy();
+		candidateManager = new SecurityProxy<CandidateManager>(new CandidateManagerImpl()).getProxy();
+		apprenticeManager = new SecurityProxy<ApprenticeManager>(new ApprenticeManagerImpl()).getProxy();
+		formationCenterManager = new SecurityProxy<FormationCenterManager>(new FormationCenterManagerImpl()).getProxy();
+		rightManager = new SecurityProxy<RightManager>(new RightManagerImpl()).getProxy();
 		editableManager = new EditableManagerImpl();
 
 		//FIXME: remetre la ligne commenttée
