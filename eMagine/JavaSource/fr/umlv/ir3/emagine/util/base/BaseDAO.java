@@ -162,7 +162,7 @@ public class BaseDAO<EntityType extends BaseEntity> {
 			{
 				log.trace("create parameter '"+ field +"'");
 				queryString.append((first == true ? "  where " : " and "))
-				.append(field)
+				.append(field.replace(getEntityClass().getSimpleName(), getEntityClass().getSimpleName().toLowerCase()))
 				.append(" like :")
 				.append(field.replace(".", "_"));
 				if (first == true) {
