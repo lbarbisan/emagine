@@ -49,7 +49,7 @@ public class Person extends EventableEntity {
         @AttributeOverride(name="street", column = @Column(name="personnalstreet")),
         @AttributeOverride(name="postalCode", column = @Column(name="personnalpostalCode")),
         @AttributeOverride(name="city", column = @Column(name="personnalcity"))})
-	private Address addressPersonnal;
+	private Address addressPersonnal = new Address();
 
 	@Basic(temporalType = TemporalType.TIMESTAMP)
 	private Date birthdayDate;

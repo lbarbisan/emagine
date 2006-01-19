@@ -50,7 +50,7 @@ public class Apprentice extends Candidate {
         @AttributeOverride(name="street", column = @Column(name="professionalstreet")),
         @AttributeOverride(name="postalCode", column = @Column(name="professionalpostalCode")),
         @AttributeOverride(name="city", column = @Column(name="professionalcity"))})
-	private Address addressProfessional;
+	private Address addressProfessional = new Address();
 	@AttributeOverrides( {
         @AttributeOverride(name="department", column = @Column(name="academicdepartment")),
         @AttributeOverride(name="country", column = @Column(name="academiccountry")),
@@ -58,7 +58,7 @@ public class Apprentice extends Candidate {
         @AttributeOverride(name="postalCode", column = @Column(name="academicpostalCode")),
         @AttributeOverride(name="city", column = @Column(name="academiccity"))})
 	@Embedded()
-	private Address addressAcademic;
+	private Address addressAcademic = new Address();
 	
 	private ArrayList<Integer> examsMark;
 	private ArrayList<String> diplomas;
