@@ -39,7 +39,7 @@ public class JobDAOTest extends BaseDAOTest<Job> {
 		firm.setName("Firm for test");
 		
 		Job job = new Job();
-		job.setCursus(CourseOptionEnum.values()[0]);
+		//job.setCursus(CourseOptionEnum.values()[0]);
 		job.setFirm(firm);
 		job.setName("apprentice");
 		job.setNbPlace(3);
@@ -56,14 +56,14 @@ public class JobDAOTest extends BaseDAOTest<Job> {
 		firm.setName("Firm for test");
 		
 		Job job1 = new Job();
-		job1.setCursus(CourseOptionEnum.values()[0]);
+		//job1.setCursus(CourseOptionEnum.values()[0]);
 		job1.setFirm(firm);
 		job1.setName("apprentice 1");
 		job1.setNbPlace(3);
 		job1.setTitle("title 1");
 		
 		Job job2 = new Job();
-		job2.setCursus(CourseOptionEnum.values()[1]);
+		//job2.setCursus(CourseOptionEnum.values()[1]);
 		job2.setFirm(firm);
 		job2.setName("apprentice 2");
 		job2.setNbPlace(1);
@@ -81,7 +81,7 @@ public class JobDAOTest extends BaseDAOTest<Job> {
 		Firm firm = new Firm();
 		firm.setName("new Firm for test");
 		
-		entity.setCursus(CourseOptionEnum.values()[0]);
+		//entity.setCursus(CourseOptionEnum.values()[0]);
 		entity.setFirm(firm);
 		entity.setName("new apprentice");
 		entity.setNbPlace(9);

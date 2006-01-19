@@ -49,7 +49,7 @@ public class ExtractionDAOTest extends BaseDAOTest<Extraction> {
 		
 		entity.setColumns(columns);
 		entity.setUser(user);
-		entity.setViewName(ViewEnum.APPRENTICE);
+		//entity.setViewName(ViewEnum.APPRENTICE);
 		return entity;
 	}
 
@@ -72,14 +72,14 @@ public class ExtractionDAOTest extends BaseDAOTest<Extraction> {
 		
 		extraction1.setColumns(columns);
 		extraction1.setUser(user);
-		extraction1.setViewName(ViewEnum.APPRENTICE);
+		//extraction1.setViewName(ViewEnum.APPRENTICE);
 		
 		
 		Extraction extraction2 = new Extraction();
 		
 		extraction2.setColumns(columns2);
 		extraction2.setUser(user);
-		extraction2.setViewName(ViewEnum.FIRM);
+		//extraction2.setViewName(ViewEnum.FIRM);
 		
 		list.add(extraction1);
 		list.add(extraction2);

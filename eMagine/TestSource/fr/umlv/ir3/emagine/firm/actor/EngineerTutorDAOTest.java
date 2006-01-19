@@ -44,8 +44,8 @@ public class EngineerTutorDAOTest extends BaseDAOTest<EngineerTutor>  {
 	protected EngineerTutor createEntity() {
 		Address address = new Address();
 		address.setCity("city");
-		address.setCountry(CountryEnum.valueOf("FR"));
-		address.setDepartment(DepartmentEnum.valueOf("D01"));
+		//address.setCountry(CountryEnum.valueOf("FR"));
+		//address.setDepartment(DepartmentEnum.valueOf("D01"));
 		address.setPostalCode("postal");
 		address.setStreet("street");
 		
@@ -56,18 +56,18 @@ public class EngineerTutorDAOTest extends BaseDAOTest<EngineerTutor>  {
 		engineerTutor.setAddressPersonnal(address);
 		engineerTutor.setAddressProfessional(address);
 		engineerTutor.setBirthdayCity("city");
-		engineerTutor.setBirthdayCountry(CountryEnum.valueOf("FR"));
+		//engineerTutor.setBirthdayCountry(CountryEnum.valueOf("FR"));
 		engineerTutor.setBirthdayDate(GregorianCalendar.getInstance().getTime());
-		engineerTutor.setBirthdayDepartment(DepartmentEnum.valueOf("D01"));
+		//engineerTutor.setBirthdayDepartment(DepartmentEnum.valueOf("D01"));
 		engineerTutor.setEmail("mail");
 		engineerTutor.setEvents(new ArrayList<Event>());
 		engineerTutor.setFax("fax");
 		engineerTutor.setFirstName("firstname");
 		engineerTutor.setLastName("lastname");
 		engineerTutor.setMobilePhone("mobile");
-		engineerTutor.setNationality(NationalityEnum.FRENCH);
+		//engineerTutor.setNationality(NationalityEnum.FRENCH);
 		engineerTutor.setPhone("phone");
-		engineerTutor.setSex(SexEnum.MALE);
+		//engineerTutor.setSex(SexEnum.MALE);
 		engineerTutor.setFirm(firm);
 		engineerTutor.setFunction("function");
 		engineerTutor.setApprentice(new ArrayList<Apprentice>());
@@ -85,14 +85,14 @@ public class EngineerTutorDAOTest extends BaseDAOTest<EngineerTutor>  {
 		
 		Address address1 = new Address();
 		address1.setCity("city");
-		address1.setCountry(CountryEnum.valueOf("FR"));
-		address1.setDepartment(DepartmentEnum.valueOf("D01"));
+		//address1.setCountry(CountryEnum.valueOf("FR"));
+		//address1.setDepartment(DepartmentEnum.valueOf("D01"));
 		address1.setPostalCode("postal");
 		address1.setStreet("street");
 		Address address2 = new Address();
 		address2.setCity("city");
-		address2.setCountry(CountryEnum.valueOf("FR"));
-		address2.setDepartment(DepartmentEnum.valueOf("D01"));
+		//address2.setCountry(CountryEnum.valueOf("FR"));
+		//address2.setDepartment(DepartmentEnum.valueOf("D01"));
 		address2.setPostalCode("postal");
 		address2.setStreet("street");
 		
@@ -100,18 +100,18 @@ public class EngineerTutorDAOTest extends BaseDAOTest<EngineerTutor>  {
 		engineerTutor1.setAddressPersonnal(address1);
 		engineerTutor1.setAddressProfessional(address1);
 		engineerTutor1.setBirthdayCity("city");
-		engineerTutor1.setBirthdayCountry(CountryEnum.valueOf("FR"));
+		//engineerTutor1.setBirthdayCountry(CountryEnum.valueOf("FR"));
 		engineerTutor1.setBirthdayDate(GregorianCalendar.getInstance().getTime());
-		engineerTutor1.setBirthdayDepartment(DepartmentEnum.valueOf("D01"));
+		//engineerTutor1.setBirthdayDepartment(DepartmentEnum.valueOf("D01"));
 		engineerTutor1.setEmail("mail");
 		engineerTutor1.setEvents(new ArrayList<Event>());
 		engineerTutor1.setFax("fax");
 		engineerTutor1.setFirstName("firstname");
 		engineerTutor1.setLastName("lastname");
 		engineerTutor1.setMobilePhone("mobile");
-		engineerTutor1.setNationality(NationalityEnum.FRENCH);
+		//engineerTutor1.setNationality(NationalityEnum.FRENCH);
 		engineerTutor1.setPhone("phone");
-		engineerTutor1.setSex(SexEnum.MALE);
+		//engineerTutor1.setSex(SexEnum.MALE);
 		engineerTutor1.setFirm(firm);
 		engineerTutor1.setFunction("function");
 		engineerTutor1.setApprentice(new ArrayList<Apprentice>());
@@ -120,18 +120,18 @@ public class EngineerTutorDAOTest extends BaseDAOTest<EngineerTutor>  {
 		engineerTutor2.setAddressPersonnal(address2);
 		engineerTutor2.setAddressProfessional(address2);
 		engineerTutor2.setBirthdayCity("city");
-		engineerTutor2.setBirthdayCountry(CountryEnum.valueOf("FR"));
+		//engineerTutor2.setBirthdayCountry(CountryEnum.valueOf("FR"));
 		engineerTutor2.setBirthdayDate(GregorianCalendar.getInstance().getTime());
-		engineerTutor2.setBirthdayDepartment(DepartmentEnum.valueOf("D01"));
+		//engineerTutor2.setBirthdayDepartment(DepartmentEnum.valueOf("D01"));
 		engineerTutor2.setEmail("mail");
 		engineerTutor2.setEvents(new ArrayList<Event>());
 		engineerTutor2.setFax("fax");
 		engineerTutor2.setFirstName("firstname");
 		engineerTutor2.setLastName("lastname");
 		engineerTutor2.setMobilePhone("mobile");
-		engineerTutor2.setNationality(NationalityEnum.FRENCH);
+		//engineerTutor2.setNationality(NationalityEnum.FRENCH);
 		engineerTutor2.setPhone("phone");
-		engineerTutor2.setSex(SexEnum.MALE);
+		//engineerTutor2.setSex(SexEnum.MALE);
 		engineerTutor2.setFirm(firm);
 		engineerTutor2.setFunction("function");
 		engineerTutor2.setApprentice(new ArrayList<Apprentice>());
@@ -146,24 +146,24 @@ public class EngineerTutorDAOTest extends BaseDAOTest<EngineerTutor>  {
 	protected void updateEntity(EngineerTutor entity) {
 		Address address = new Address();
 		address.setCity("new city");
-		address.setCountry(CountryEnum.valueOf("EN"));
-		address.setDepartment(DepartmentEnum.valueOf("D02"));
+		//address.setCountry(CountryEnum.valueOf("EN"));
+		//address.setDepartment(DepartmentEnum.valueOf("D02"));
 		address.setPostalCode("new postal");
 		address.setStreet("new street");
 		entity.setAddressPersonnal(address);
 		entity.setAddressProfessional(address);
 		
 		entity.setBirthdayCity("new city");
-		entity.setBirthdayCountry(CountryEnum.valueOf("FR"));
+		//entity.setBirthdayCountry(CountryEnum.valueOf("FR"));
 		entity.setEmail("new mail");
 		entity.setEvents(new ArrayList<Event>());
 		entity.setFax("new fax");
 		entity.setFirstName("new firstname");
 		entity.setLastName("new lastname");
 		entity.setMobilePhone("new mobile");
-		entity.setNationality(NationalityEnum.FRENCH);
+		//entity.setNationality(NationalityEnum.FRENCH);
 		entity.setPhone("new phone");
-		entity.setSex(SexEnum.MALE);
+		//entity.setSex(SexEnum.MALE);
 	}
 
 	@Override

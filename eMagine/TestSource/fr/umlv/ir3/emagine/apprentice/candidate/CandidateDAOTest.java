@@ -61,22 +61,22 @@ public class CandidateDAOTest extends BaseDAOTest<Candidate> {
 		//attributs hérités de Person :
 		Address address = new Address();
 		address.setCity("new city");
-		address.setCountry(CountryEnum.valueOf("England"));
-		address.setDepartment(DepartmentEnum.valueOf("D2"));
+		//address.setCountry(CountryEnum.valueOf("England"));
+		//address.setDepartment(DepartmentEnum.valueOf("D2"));
 		address.setPostalCode("new postal");
 		address.setStreet("new street");
 		candidate.setAddressPersonnal(address);
 		candidate.setBirthdayCity("city");
-		candidate.setBirthdayCountry(CountryEnum.valueOf("France"));
+		//candidate.setBirthdayCountry(CountryEnum.valueOf("France"));
 		candidate.setEmail("mail");
 		candidate.setEvents(new ArrayList<Event>());
 		candidate.setFax("fax");
 		candidate.setFirstName("firstname");
 		candidate.setLastName("lastname");
 		candidate.setMobilePhone("mobile");
-		candidate.setNationality(NationalityEnum.francaise);
+		//candidate.setNationality(NationalityEnum.francaise);
 		candidate.setPhone("phone");
-		candidate.setSex(SexEnum.MALE);
+		//candidate.setSex(SexEnum.MALE);
 		
 		return candidate;
 	}
@@ -98,22 +98,22 @@ public class CandidateDAOTest extends BaseDAOTest<Candidate> {
 		//attributs hérités de Person :
 		Address address = new Address();
 		address.setCity("new city");
-		address.setCountry(CountryEnum.valueOf("England"));
-		address.setDepartment(DepartmentEnum.valueOf("D2"));
+		//address.setCountry(CountryEnum.valueOf("England"));
+		//address.setDepartment(DepartmentEnum.valueOf("D2"));
 		address.setPostalCode("new postal");
 		address.setStreet("new street");
 		candidate1.setAddressPersonnal(address);
 		candidate1.setBirthdayCity("city");
-		candidate1.setBirthdayCountry(CountryEnum.valueOf("France"));
+		//candidate1.setBirthdayCountry(CountryEnum.valueOf("France"));
 		candidate1.setEmail("mail");
 		candidate1.setEvents(new ArrayList<Event>());
 		candidate1.setFax("fax");
 		candidate1.setFirstName("firstname");
 		candidate1.setLastName("lastname");
 		candidate1.setMobilePhone("mobile");
-		candidate1.setNationality(NationalityEnum.francaise);
+		//candidate1.setNationality(NationalityEnum.francaise);
 		candidate1.setPhone("phone");
-		candidate1.setSex(SexEnum.MALE);
+		//candidate1.setSex(SexEnum.MALE);
 		
 		Candidate candidate2 = new Candidate(); 
 		candidate2.setContactOriginIG2K(new Contact());
@@ -128,22 +128,22 @@ public class CandidateDAOTest extends BaseDAOTest<Candidate> {
 		
 		//attributs hérités de Person :
 		address.setCity("new city");
-		address.setCountry(CountryEnum.valueOf("England"));
-		address.setDepartment(DepartmentEnum.valueOf("D2"));
+		//address.setCountry(CountryEnum.valueOf("England"));
+		//address.setDepartment(DepartmentEnum.valueOf("D2"));
 		address.setPostalCode("new postal");
 		address.setStreet("new street");
 		candidate2.setAddressPersonnal(address);
 		candidate2.setBirthdayCity("city");
-		candidate2.setBirthdayCountry(CountryEnum.valueOf("England"));
+		//candidate2.setBirthdayCountry(CountryEnum.valueOf("England"));
 		candidate2.setEmail("mail");
 		candidate2.setEvents(new ArrayList<Event>());
 		candidate2.setFax("fax");
 		candidate2.setFirstName("firstname");
 		candidate2.setLastName("lastname");
 		candidate2.setMobilePhone("mobile");
-		candidate2.setNationality(NationalityEnum.francaise);
+		//candidate2.setNationality(NationalityEnum.francaise);
 		candidate2.setPhone("phone");
-		candidate2.setSex(SexEnum.MALE);
+		//candidate2.setSex(SexEnum.MALE);
 		
 		list.add(candidate1);
 		list.add(candidate2);
@@ -164,22 +164,22 @@ public class CandidateDAOTest extends BaseDAOTest<Candidate> {
 		//attributs hérités de Person :
 		Address address = new Address();
 		address.setCity("new city");
-		address.setCountry(CountryEnum.valueOf("England"));
-		address.setDepartment(DepartmentEnum.valueOf("D1"));
+		//address.setCountry(CountryEnum.valueOf("England"));
+		//address.setDepartment(DepartmentEnum.valueOf("D1"));
 		address.setPostalCode("new postal");
 		address.setStreet("new street");
 		entity.setAddressPersonnal(address);
 		entity.setBirthdayCity("city");
-		entity.setBirthdayCountry(CountryEnum.valueOf("France"));
+		//entity.setBirthdayCountry(CountryEnum.valueOf("France"));
 		entity.setEmail("mail");
 		entity.setEvents(new ArrayList<Event>());
 		entity.setFax("fax");
 		entity.setFirstName("firstname");
 		entity.setLastName("lastname");
 		entity.setMobilePhone("mobile");
-		entity.setNationality(NationalityEnum.francaise);
+		//entity.setNationality(NationalityEnum.francaise);
 		entity.setPhone("phone");
-		entity.setSex(SexEnum.MALE);
+		//entity.setSex(SexEnum.MALE);
 	}
 
 	@Override
