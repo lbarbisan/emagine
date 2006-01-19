@@ -4,7 +4,7 @@
 	<ul id="menu">
 		<li><html:link action="/apprenticeSearch"><bean:message key="form.apprentice"/></html:link>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;</li>
 		<li><html:link action="/companySearch"><bean:message key="form.company"/></html:link>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;</li>
-		<li><html:link action="/teacherSearch"><bean:message key="form.teacher"/></html:link>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		<li><html:link action="/teacherSearch?action=show"><bean:message key="form.teacher"/></html:link>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;</li>
 		<li><html:link action="/candidateSearch"><bean:message key="form.recruitment"/></html:link>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;</li>
 		<li><html:link action="/statisticsVisu"><bean:message key="form.statistics"/></html:link>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;</li>
 		<li><html:link action="/mailingListVisu"><bean:message key="form.mail"/></html:link></li>

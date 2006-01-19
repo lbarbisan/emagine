@@ -4,7 +4,8 @@
 <div class="tabs">
 <ul>
 	<li><html:link action="/teacherVisuInfo">Informations&nbsp;g&eacute;n&eacute;rales&nbsp;</html:link></li>
-	<span class="tab_clicked"><li><html:link action="/teacherVisuEvent">Ev&eacute;nement</html:link></li></span>
+	<span class="tab_clicked"><li>Ev&eacute;nement</li></span>
+	
 	
 </ul>
 </div>

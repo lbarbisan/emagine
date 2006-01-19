@@ -17,6 +17,8 @@
 		<form-bean name="userSearchForm" type="fr.umlv.ir3.emagine.user.UserSearchForm" />
 		<form-bean name="userModifyForm" type="fr.umlv.ir3.emagine.user.UserModifyForm" />
 		<form-bean name="profileListForm" type="fr.umlv.ir3.emagine.user.profile.ProfileListForm" />
+		<form-bean name="teacherTutorModifyForm" type="fr.umlv.ir3.emagine.teachertutor.TeacherTutorModifyForm" />
+		<form-bean name="teacherTutorSearchForm" type="fr.umlv.ir3.emagine.teachertutor.TeacherTutorSearchForm" />
 	</form-beans>
 
 	<!-- ========== Action Mapping Definitions =============================== -->
@@ -105,11 +107,29 @@
 
 
 		<!-- teacher -->
+		<action path="/teacherSearch" type="fr.umlv.ir3.emagine.teachertutor.TeacherSearchAction" name="teacherTutorSearchForm" parameter="action" scope="session">
+			<forward name="_default_target_" path="teacher.teacherSearch" />
+		</action>
+		<action path="/teacherCreate" type="fr.umlv.ir3.emagine.teachertutor.TeacherCreateAction" name="teacherTutorModifyForm" input="teacher.teacherCreate" parameter="action" scope="session" validate="true">
+			<forward name="_default_target_" path="teacher.teacherCreate" />
+		</action>
+		<action path="/teacherModify" type="fr.umlv.ir3.emagine.teachertutor.TeacherModifyAction" name="teacherTutorModifyForm" input="teacher.teacherModify" parameter="action" scope="session" validate="true">
+			<forward name="_default_target_" path="/teacherVisuInfo.do" redirect="true" />
+			<forward name="success" path="/teacherSearch.do?action=search" redirect="true" />
+		</action>
+		<action path="/teacherVisuInfo" forward="teacher.teacherVisuInfo" name="teacherTutorModifyForm" scope="session" />
+		<action path="/teacherVisuEvent" forward="teacher.teacherVisuEvent" name="teacherTutorModifyForm" scope="session" />
+		<action path="/teacherDelete" type="fr.umlv.ir3.emagine.teachertutor.TeacherDeleteAction" parameter="action">
+			<forward name="_default_target_" path="/teacherSearch.do?action=search" redirect="true" />
+		</action>
+		
+		<!--
 		<action path="/teacherSearch" forward="teacher.teacherSearch" />
 		<action path="/teacherCreate" forward="teacher.teacherCreate" />
 		<action path="/teacherVisuInfo"
 			forward="teacher.teacherVisuInfo" />
 		<action path="/teacherOnglet" forward="teacher.teacherOnglet" />
+		-->
 		<action path="/teacherApprenticeAdd"
 			forward="teacher.teacherApprenticeAdd" />
 		<action path="/teacherVisuEvent"

@@ -69,7 +69,7 @@ public enum CountryEnum {
 		FalklandIslands("Falkland Islands"),
 		Fiji("Fiji"),
 		Finland("Finland"),
-		//France("France"),
+		France("France"),
 		FrenchGuiana("French Guiana"),
 		FrenchPolynesia("French Polynesia"),
 		Gabon("Gabon"),
