@@ -1,6 +1,6 @@
 package fr.umlv.ir3.emagine.teachertutor;
 
-import java.util.Arrays;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,7 +11,6 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
 
-import fr.umlv.ir3.emagine.apprentice.CountryEnum;
 import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
 import fr.umlv.ir3.emagine.util.Address;
 import fr.umlv.ir3.emagine.util.EMagineException;
@@ -33,9 +32,10 @@ public class TeacherCreateAction extends BaseAction {
 	public ActionForward show(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionMessages errors = new ActionMessages();
 		TeacherTutorModifyForm teacherModifyForm = (TeacherTutorModifyForm) form;
+		
 		// Retrieve all departments and set them in the form
 		teacherModifyForm.reset();
-		//teacherModifyForm.setDepartments(Arrays.asList(DepartmentEnum.values()));
+		teacherModifyForm.setDepartments((List<DepartmentEnum>) ManagerManager.getInstance().getEmagineEnumManager().findAll(DepartmentEnum.class));
 		
         // Report back any errors, and exit if any
 		return viewFormIfNoErrors(mapping, request, errors);
@@ -65,7 +65,7 @@ public class TeacherCreateAction extends BaseAction {
 			tutor.setAddressProfessional(new Address());
 			tutor.getAddressProfessional().setCity(teacherModifyForm.getCity());
 			//tutor.getAddressProfessional().setCountry(CountryEnum.France);
-			//tutor.getAddressProfessional().setDepartment(DepartmentEnum.valueOf(teacherModifyForm.getIdDepartment()));
+			tutor.getAddressProfessional().setDepartment((DepartmentEnum)managerManager.getEmagineEnumManager().retrieve(Long.parseLong(teacherModifyForm.getIdDepartment()), DepartmentEnum.class));
 			tutor.getAddressProfessional().setPostalCode(teacherModifyForm.getPostalCode());
 			tutor.getAddressProfessional().setStreet(teacherModifyForm.getAddress());
 			tutor.setFirstName(teacherModifyForm.getFirstName());

@@ -27,7 +27,7 @@ public class TeacherTutor extends Person {
 	private List<Apprentice> apprentice;
 
 	@Embedded
-	private Address addressProfessional;
+	private Address addressProfessional = new Address();
 
 	/**
 	 * @return the professional address for this teacher tutor, the professional

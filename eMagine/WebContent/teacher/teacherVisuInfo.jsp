@@ -41,11 +41,11 @@
 		<p><label for="address"><bean:message key="form.adress"/><font color="red">*</font> </label><html:text property="address" size="20" /></p>
 		<p><label for="postalCode"><bean:message key="form.postalCode"/><font color="red">*</font> </label><html:text property="postalCode" size="20" /></p>
 		<p><label for="city"><bean:message key="form.city"/><font color="red">*</font> </label><html:text property="city" size="20" /></p>
-		<p><label for="idDepartment"><bean:message key="form.department"/><font color="red">*</font></label>
-			
-		<p><html:select property="idDepartment">
-				
-		</html:select></p>
+		<p><label for="department"><bean:message key="form.department"/><font color="red">*</font></label>
+			<html:select property="idDepartment">
+			 	<html:optionsCollection property="departments" label="name" value="id" />
+		  	</html:select>
+		</p>
 		
 		<p><label for="phone"><bean:message key="form.phone"/></label><html:text property="phone" size="20" /></p>	
 		<p><label for="cellular"><bean:message key="form.mobile"/></label><html:text property="cellular" size="20" /></p>
