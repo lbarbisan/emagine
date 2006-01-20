@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashSet;
 
+import fr.umlv.ir3.emagine.apprentice.CountryEnum;
+import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
+import fr.umlv.ir3.emagine.apprentice.SexEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenter;
 import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenterDAO;
 import fr.umlv.ir3.emagine.apprentice.candidate.room.Room;
@@ -201,16 +204,16 @@ public class InitDB {
 				teacher.setAddressPersonnal(createAddress(index * 2));
 				teacher.setAddressProfessional(createAddress(index));
 				teacher.setBirthdayCity("Paris" + index);
-				// teacher.setBirthdayCountry(CountryEnum.values()[index]);
+				teacher.setBirthdayCountry((CountryEnum) InitEnums.getEmagineEnum(CountryEnum.class));
 				teacher.setBirthdayDate(Calendar.getInstance().getTime());
-				// teacher.setBirthdayDepartment(DepartmentEnum.values()[index]);
+				teacher.setBirthdayDepartment((DepartmentEnum) InitEnums.getEmagineEnum(DepartmentEnum.class));
 				teacher.setEmail("mail" + index + "@gmail.com");
 				teacher.setFax("9" + index * 100);
 				teacher.setFirstName("LastName" + index);
 				teacher.setLastName("FirstName" + index);
 				teacher.setMobilePhone("709870");
 				teacher.setPhone("12003" + index);
-				// teacher.setSex(SexEnum.values()[index%2]);
+				teacher.setSex((SexEnum) InitEnums.getEmagineEnum(SexEnum.class));
 				teacherTutorDAO.create(teacher);
 			}
 
@@ -225,9 +228,8 @@ public class InitDB {
 	private static Address createAddress(int index) throws EMagineException {
 		Address address = new Address();
 		address.setCity("City" + index);
-		// address.setCountry((CountryEnum) getEmagineEnum(CountryEnum.class));
-		// address.setDepartment((DepartmentEnum)
-		// getEmagineEnum("Department1"));
+		address.setCountry((CountryEnum) InitEnums.getEmagineEnum(CountryEnum.class));
+		address.setDepartment((DepartmentEnum) InitEnums.getEmagineEnum(DepartmentEnum.class));
 		address.setPostalCode("99" + index);
 		address.setStreet(index + "rue de la java");
 

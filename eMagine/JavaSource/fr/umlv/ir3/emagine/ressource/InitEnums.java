@@ -184,7 +184,7 @@ public class InitEnums {
 	}
 	
 	
-	private final static EmagineEnum getEmagineEnum(Class clazz) throws EMagineException
+	static final EmagineEnum getEmagineEnum(Class clazz) throws EMagineException
 	{
 		EmagineEnumDAO emagineEnumDAO =  DAOManager.getInstance().getEmagineEnumDAO();
 		
