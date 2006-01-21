@@ -28,7 +28,7 @@ public class FormationCenterListAction extends SearchAction {
 		ActionMessages errors = new ActionMessages();
 		FormationCenterListForm formationCenterListForm = (FormationCenterListForm)form;
 		try {
-			formationCenterListForm.setCenters(ManagerManager.getInstance().getFormationCenterManager().findAll());
+			formationCenterListForm.setResults(ManagerManager.getInstance().getFormationCenterManager().findAll());
 		} catch (EMagineException exception) {
 			addEMagineExceptionError(errors, exception);
 		}

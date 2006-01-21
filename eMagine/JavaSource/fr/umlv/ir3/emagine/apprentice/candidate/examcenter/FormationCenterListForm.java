@@ -1,11 +1,9 @@
 package fr.umlv.ir3.emagine.apprentice.candidate.examcenter;
 
-import java.util.Collection;
-
-import org.apache.struts.action.ActionForm;
+import fr.umlv.ir3.emagine.util.search.SelectSearchForm;
 
 
-public class FormationCenterListForm extends ActionForm {
+public class FormationCenterListForm extends SelectSearchForm<FormationCenter> {
 	
 	private static final long serialVersionUID = -2405706291327109100L;
 
@@ -13,15 +11,12 @@ public class FormationCenterListForm extends ActionForm {
 	/** Use to DispacthAction **/
 	private String action;
 	
-	private Collection<FormationCenter> centers;
-	
-	
 	/**
 	 * @see fr.umlv.ir3.emagine.util.search.SearchForm#reset()
 	 */
 	public void reset() {
 		action = "";
-		centers = null;
+		super.reset();
 	}
 	
 	/**
@@ -37,20 +32,4 @@ public class FormationCenterListForm extends ActionForm {
 	public void setAction(String action) {
 		this.action = action;
 	}
-
-	/**
-	 * @return Returns the centers.
-	 */
-	public Collection<FormationCenter> getCenters() {
-		return centers;
-	}
-
-	/**
-	 * @param centers The centers to set.
-	 */
-	public void setCenters(Collection<FormationCenter> centers) {
-		this.centers = centers;
-	}
-
-
 }

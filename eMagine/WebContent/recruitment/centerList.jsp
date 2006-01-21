@@ -17,19 +17,19 @@
 			<th><bean:message key="table.header.nbAvailable"/></th>
 		</tr>
 		
-		  <logic:notEmpty name="formationCenterListForm" property="centers">
-				<logic:iterate id="currentCenter" name="teacherTutorModifyForm" property="centers">
+		  <logic:notEmpty name="formationCenterListForm" property="results">
+				<logic:iterate id="center" name="teacherTutorModifyForm" property="results" type="fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenter">
 					<tr>
-						<td><bean:write name="currentCenter" property="name" />&nbsp;</td>
-						<td><bean:write name="currentCenter" property="address" />&nbsp;</td>
-						<td><bean:write name="currentCenter" property="phone" />&nbsp;</td>
-						<td><bean:write name="currentCenter" property="phone" />&nbsp;</td>
-						<td><bean:write name="currentCenter" property="phone" />&nbsp;</td>
+						<td><bean:write name="center" property="name" />&nbsp;</td>
+						<td><bean:write name="center" property="address" />&nbsp;</td>
+						<td><bean:write name="center" property="phone" />&nbsp;</td>
+						<td><bean:write name="center" property="phone" />&nbsp;</td>
+						<td><bean:write name="center" property="phone" />&nbsp;</td>
 					</tr>
 				</logic:iterate>
 			</logic:notEmpty>	
 
-			<logic:empty name="formationCenterListForm" property="centers">
+			<logic:empty name="formationCenterListForm" property="results">
 				<tr><td colspan="6">Aucun centre de formation</td></tr>
 			</logic:empty>		
 	</table>
