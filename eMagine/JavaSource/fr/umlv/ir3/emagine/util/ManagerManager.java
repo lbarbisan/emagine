@@ -88,20 +88,20 @@ public class ManagerManager {
 //		apprenticeManager = new ApprenticeManagerImpl();
 //		editableManager = new EditableManagerImpl();
 
-		userManager = SecurityProxyFactory.getProxy(new UserManagerImpl());
+		userManager = SecurityProxyFactory.createProxy(new UserManagerImpl());
 		
-		profileManager = SecurityProxyFactory.getProxy(new ProfileManagerImpl());
-		extractionManager = SecurityProxyFactory.getProxy(new ExtractionManagerImpl());
-		teacherTutorManager = SecurityProxyFactory.getProxy(new TeacherTutorManagerImpl());
-		firmManager = SecurityProxyFactory.getProxy(new FirmManagerImpl());
-		eventManager = SecurityProxyFactory.getProxy(new EventManagerImpl());
-		mailingListManager = SecurityProxyFactory.getProxy(new MailingListManagerImpl());
-		mailingTypeManager = SecurityProxyFactory.getProxy(new MailingTypeManagerImpl());
-		massMailingManager = SecurityProxyFactory.getProxy(new MassMailingManagerImpl());
-		candidateManager = SecurityProxyFactory.getProxy(new CandidateManagerImpl());
-		apprenticeManager = SecurityProxyFactory.getProxy(new ApprenticeManagerImpl());
-		formationCenterManager = SecurityProxyFactory.getProxy(new FormationCenterManagerImpl());
-		rightManager = SecurityProxyFactory.getProxy(new RightManagerImpl());
+		profileManager = SecurityProxyFactory.createProxy(new ProfileManagerImpl());
+		extractionManager = SecurityProxyFactory.createProxy(new ExtractionManagerImpl());
+		teacherTutorManager = SecurityProxyFactory.createProxy(new TeacherTutorManagerImpl());
+		firmManager = SecurityProxyFactory.createProxy(new FirmManagerImpl());
+		eventManager = SecurityProxyFactory.createProxy(new EventManagerImpl());
+		mailingListManager = SecurityProxyFactory.createProxy(new MailingListManagerImpl());
+		mailingTypeManager = SecurityProxyFactory.createProxy(new MailingTypeManagerImpl());
+		massMailingManager = SecurityProxyFactory.createProxy(new MassMailingManagerImpl());
+		candidateManager = SecurityProxyFactory.createProxy(new CandidateManagerImpl());
+		apprenticeManager = SecurityProxyFactory.createProxy(new ApprenticeManagerImpl());
+		formationCenterManager = SecurityProxyFactory.createProxy(new FormationCenterManagerImpl());
+		rightManager = SecurityProxyFactory.createProxy(new RightManagerImpl());
 		emagineEnumManager = new EmagineEnumManagerImpl();	// No rights on that manager
 
 		editableManager = new EditableManagerImpl();

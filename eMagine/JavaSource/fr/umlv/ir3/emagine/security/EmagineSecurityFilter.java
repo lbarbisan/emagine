@@ -17,8 +17,6 @@ import org.securityfilter.filter.URLPattern;
 import org.securityfilter.filter.URLPatternFactory;
 import org.securityfilter.realm.SecurityRealmInterface;
 
-import fr.umlv.ir3.emagine.util.EMagineException;
-
 public class EmagineSecurityFilter extends SecurityFilter {
 	private static EmagineSecurityFilter instance;
 
@@ -97,11 +95,11 @@ public class EmagineSecurityFilter extends SecurityFilter {
 	/**
 	 * Returns the instance of the security filter.
 	 * @return
-	 * @throws EMagineException if the security filter has not been initialized
+	 * @throws SecurityFilterNotInitializedException if the security filter has not been initialized
 	 */
-	public static EmagineSecurityFilter getInstance() throws EMagineException {
+	public static EmagineSecurityFilter getInstance() throws SecurityFilterNotInitializedException {
 		if (instance == null) {
-			throw new EMagineException("exception.eMagineSecurityFilter.notInitialized");
+			throw new SecurityFilterNotInitializedException();
 		}
 		return instance;
 	}

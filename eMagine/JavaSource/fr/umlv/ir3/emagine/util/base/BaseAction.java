@@ -16,7 +16,6 @@ import org.apache.struts.action.ActionMessages;
 import org.apache.struts.actions.DispatchAction;
 
 import fr.umlv.ir3.emagine.security.SessionManager;
-import fr.umlv.ir3.emagine.user.User;
 import fr.umlv.ir3.emagine.util.Constants;
 import fr.umlv.ir3.emagine.util.EMagineException;
 
@@ -46,10 +45,7 @@ public class BaseAction extends DispatchAction {
      */
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
-		User currentUser = (User)request.getSession().getAttribute(Constants.LOGGED_IN_USER_KEY);
-		if (currentUser != null) {
-			SessionManager.getInstance().setCurrentUser(currentUser);
-		}
+		SessionManager.getInstance().initThreadLocal(request);
 		return super.execute(mapping, form, request, response);
 	}
 
@@ -58,7 +54,7 @@ public class BaseAction extends DispatchAction {
 	protected void addEMagineExceptionError(ActionMessages errors, EMagineException exception) {
 		errors.add(
                 ActionMessages.GLOBAL_MESSAGE,
-                new ActionMessage(exception.getMessageId()));
+                new ActionMessage(exception.getMessageId(), exception.getParams()));
 
 		StringWriter writer = new StringWriter();
 		exception.printStackTrace(new PrintWriter(writer));

@@ -1,8 +1,8 @@
 package fr.umlv.ir3.emagine.util;
 
 public class EMagineException extends Exception {
-
-	private String[] variables;
+	protected String messageId;
+	protected String[] params;
 	
 	/**
 	 * 
@@ -14,8 +14,8 @@ public class EMagineException extends Exception {
 	 * @param messageId The name of this exception string property
 	 */
 	public EMagineException(String messageId) {
-		super(messageId);
-		// TODO EMagineException() Not Implemented
+		super();
+		this.messageId = messageId;
 	}
 
 	/**
@@ -24,47 +24,61 @@ public class EMagineException extends Exception {
 	 * @param cause The cause
 	 */
 	public EMagineException(String messageId, Throwable cause) {
-		super(messageId, cause);
-		// TODO EMagineException() Not Implemented
+		super(cause);
+		this.messageId = messageId;
 	}
 	
 	/**
 	 * An eMagine Exception.
 	 * @param messageId The name of this exception string property
+	 * @param params The parameters for the message of that exception
 	 */
-	public EMagineException(String messageId, String... variables) {
-		super(messageId);
-		this.variables = variables;
-		// TODO EMagineException() Not Implemented
+	public EMagineException(String messageId, String... params) {
+		super();
+		this.params = params;
+		this.messageId = messageId;
 	}
 
 	/**
 	 * An eMagine Exception.
 	 * @param messageId The name of this exception string property
 	 * @param cause The cause
+	 * @param params The parameters for the message of that exception
 	 */
-	public EMagineException(String messageId, Throwable cause, String... variables) {
-		super(messageId, cause);
-		this.variables = variables;
-		// TODO EMagineException() Not Implemented
-	}
-	/**
-	 * Gets the name of this exception string property
-	 * @return
-	 */
-	public String getMessageId() {
-		return getMessage();
+	public EMagineException(String messageId, Throwable cause, String... params) {
+		super(cause);
+		this.params = params;
+		this.messageId = messageId;
 	}
 	
 	@Override
-	public String toString() {
-		// TODO EMagineException.toString()
-		StringBuilder builder = new StringBuilder(super.toString());
-		if (variables != null) {
-			for (String variable : variables) {
-				builder.append(" ["+variable+"]");
+	public String getLocalizedMessage() {
+		try {
+			return Bundles.getMessageResources().getMessage(messageId, params);
+		} catch (Exception e) {
+			StringBuilder builder = new StringBuilder(messageId);
+			if (params != null) {
+				for (String param : params) {
+					builder.append(" ["+param+"]");
+				}
 			}
+			return builder.toString();
 		}
-		return builder.toString();
+	}
+
+	public String getMessageId() {
+		return messageId;
+	}
+
+	public void setMessageId(String messageId) {
+		this.messageId = messageId;
+	}
+
+	public String[] getParams() {
+		return params;
+	}
+
+	public void setParams(String[] params) {
+		this.params = params;
 	}
 }
