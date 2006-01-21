@@ -198,8 +198,6 @@
 			forward="recruitment.candidateOnglet" />
 		<action path="/centerDetail" 
 			forward="recruitment.centerDetail" />
-		<action path="/centerList" 
-			forward="recruitment.centerList" />
 		<action path="/roomDetail" 
 			forward="recruitment.roomDetail" />
 		<action path="/roomAdd" 
@@ -223,7 +221,7 @@
 		<action path="/candidateMailDo"
 			forward="recruitment.candidateMailDo" />
 
-<action path="/formationCenterList" type="fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenterListAction" name="formationCenterListForm" parameter="action" scope="session">
+		<action path="/formationCenterList" type="fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenterListAction" name="formationCenterListForm" parameter="action" scope="session">
 			<forward name="_default_target_" path="recruitment.centerList" />
 		</action>
 

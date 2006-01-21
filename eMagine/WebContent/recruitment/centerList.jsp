@@ -18,7 +18,7 @@
 		</tr>
 		
 		  <logic:notEmpty name="formationCenterListForm" property="results">
-				<logic:iterate id="center" name="teacherTutorModifyForm" property="results" type="fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenter">
+				<logic:iterate id="center" name="formationCenterListForm" property="results" type="fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenter">
 					<tr>
 						<td><bean:write name="center" property="name" />&nbsp;</td>
 						<td><bean:write name="center" property="address" />&nbsp;</td>
