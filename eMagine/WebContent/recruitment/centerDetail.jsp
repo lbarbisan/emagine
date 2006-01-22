@@ -1,10 +1,13 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
+<%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic"%>
+
 <h2><bean:message key="center.detail.title"/></h2>
 <br/>
-<form name="results">
+
+<html:form action="/centerDetail" method="POST" focus="name">
 	<div class="form">
-		<p><label for="name"><bean:message key="form.name"/><font color="red">*</font> </label><input type="text" id="name" size="20"/></p>
+		<p><label for="name"><bean:message key="form.name"/><font color="red">*</font> </label><html:text property="name" size="20" /></p>
 		<p><label for="adress"><bean:message key="form.adress"/><font color="red">*</font> </label><input type="text" id="adress" size="20"/></p>
 		<p><label for="postalCode"><bean:message key="form.postalCode"/><font color="red">*</font> </label><input type="text" id="postalCode" size="20" /></p>
 			<p><label for="city"><bean:message key="form.city"/><font color="red">*</font> </label><input type="text" id="city" size="20" /></p>
@@ -39,6 +42,7 @@
 			</tr>
 		</table>
 	</div>
+	<html:errors />
 	<div id="actions">
 		<ul>
 			<li><a href="javascript:checkAll('results','all_none');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
@@ -50,5 +54,8 @@
 			<li><html:link action="roomAdd"><img src="/eMagine/common/images/icones/ajouter.png" title="<bean:message key="button.title.add"/>"/></html:link></li>
 		</ul>
 	</div>
-</form>
+	<html:hidden property="idFormationCenterToModify" />
+	<html:hidden property="action" />
+</html:form>
+
 <div align="right"><font color="red" size="1"><bean:message key="form.msg.obligation.star"/></font></div>

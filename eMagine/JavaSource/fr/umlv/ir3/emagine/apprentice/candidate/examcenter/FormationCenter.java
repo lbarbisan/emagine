@@ -3,6 +3,7 @@
  */
 package fr.umlv.ir3.emagine.apprentice.candidate.examcenter;
 
+import java.util.Iterator;
 import java.util.List;
 
 import javax.persistence.AccessType;
@@ -97,5 +98,26 @@ public class FormationCenter extends EditableEntity {
 	 */
 	public void setRooms(List<Room> rooms) {
 		this.rooms = rooms;
+	}
+	
+	public String getCity(){
+		return "aaa";
+	}
+	
+	public void setCity(String city){
+		this.address.setCity(city);
+	}
+	
+	public int getNbRooms(){
+		return this.rooms.size();
+	}
+	
+	public int getNbAvailable(){
+		int nbAvaible=0;
+		for (Iterator iter = rooms.iterator(); iter.hasNext();) {
+			Room element = (Room) iter.next();
+			nbAvaible+=element.getNumberOfFreeSits();
+		}
+		return nbAvaible;
 	}
 }
