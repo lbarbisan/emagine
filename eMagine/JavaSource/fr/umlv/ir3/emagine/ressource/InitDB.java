@@ -263,7 +263,7 @@ public class InitDB {
 			list.add(room);
 
 			FormationCenter formationCenter = new FormationCenter();
-			formationCenter.setAddress(new Address());
+			formationCenter.setAddress(createAddress(1));
 			formationCenter.setName("Lyon");
 			formationCenter.setPhone("0180808080");
 			formationCenter.setRooms(list);

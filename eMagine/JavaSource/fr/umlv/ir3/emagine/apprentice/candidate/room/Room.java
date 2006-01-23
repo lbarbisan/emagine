@@ -32,7 +32,7 @@ public class Room extends EditableEntity {
 	private String  name;
 	private Integer capacity;
 	
-	@OneToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE},
+	@OneToMany(cascade = {CascadeType.ALL},
 			mappedBy = "room")
 	private List<Candidate> candidates;
 	
