@@ -28,6 +28,8 @@
 -->
 </script>
 <html:form action="/candidateCreate" method="POST" focus="lastName">
+<html:errors />
+<br/>
 	<fieldset>
 		<legend><bean:message key="form.fieldset.status"/></legend>
 			<p><label for="lastName"><bean:message key="form.name"/><font color="red">*</font></label><html:text property="lastName" size="20" /></p>
@@ -155,7 +157,6 @@
 
 <br/>
 <html:errors />
-
 	<div id="actions">
 		<h2>&nbsp;</h2>
 		<ul>

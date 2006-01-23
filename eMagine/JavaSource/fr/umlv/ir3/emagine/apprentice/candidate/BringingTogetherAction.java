@@ -15,10 +15,10 @@ import fr.umlv.ir3.emagine.util.EmagineEnumManager;
 import fr.umlv.ir3.emagine.util.ManagerManager;
 import fr.umlv.ir3.emagine.util.search.SearchAction;
 
-public class CandidateSearchAction extends SearchAction {
+public class BringingTogetherAction extends SearchAction {
 
 	/**
-	 * The administrator wants to show the search form.
+	 * The user wants to show the bringing together form.
 	 * 
 	 * @param mapping The ActionMapping used to select this instance
 	 * @param form The optional ActionForm bean for this request (if any)
@@ -29,18 +29,15 @@ public class CandidateSearchAction extends SearchAction {
 	 */
 	public ActionForward show(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionMessages errors = new ActionMessages();
-		CandidateSearchForm candidateSearchForm = (CandidateSearchForm) form;
+		BringingTogetherForm bringingTogetherForm = (BringingTogetherForm) form;
 		ManagerManager managerManager = ManagerManager.getInstance();
 		EmagineEnumManager emagineEnumManager = managerManager.getEmagineEnumManager();
 		
 		try {
-			candidateSearchForm.reset();
-			
-			//Retrieve all centers of formation and set them in the form
-			candidateSearchForm.setCenters(ManagerManager.getInstance().getFormationCenterManager().findAll());
+			bringingTogetherForm.reset();
 			
 			//Retrieve all courseOptions and set them in the form
-			candidateSearchForm.setCourseOptions((List<CourseOptionEnum>)emagineEnumManager.findAll(CourseOptionEnum.class));
+			bringingTogetherForm.setCourseOptions((List<CourseOptionEnum>)emagineEnumManager.findAll(CourseOptionEnum.class));
 
 		} catch (EMagineException exception) {
 			addEMagineExceptionError(errors, exception);
@@ -51,7 +48,7 @@ public class CandidateSearchAction extends SearchAction {
 	}
 	
 	/**
-	 * The administrator wants to search all the candidates matching his or her request.
+	 * The user wants to bringing together the candidates matching his or her request.
 	 * 
 	 * @param mapping The ActionMapping used to select this instance
 	 * @param form The optional ActionForm bean for this request (if any)
@@ -60,17 +57,18 @@ public class CandidateSearchAction extends SearchAction {
 	 * @return an ActionForward instance describing where and how control should be forwarded, or null if the response has already been completed.
 	 * @throws Exception if an exception occurs
 	 */
-	public ActionForward search(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward bringingTogether(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionMessages errors = new ActionMessages();
-		CandidateSearchForm candidateSearchForm = (CandidateSearchForm)form;
+		BringingTogetherForm bringingTogetherForm = (BringingTogetherForm)form;
 		ManagerManager manager = ManagerManager.getInstance();
 
 		// Retrieve the searched candidate, and set them in the page 
-		try {
-			candidateSearchForm.setResults(manager.getCandidateManager().find(candidateSearchForm));
+		/*try {
+			//TODO faire la fonction de rapprochement !!
+			bringingTogetherForm.setResults(manager.getCandidateManager().find(candidateSearchForm));
 		} catch (EMagineException exception) {
 			addEMagineExceptionError(errors, exception);
-		}
+		}*/
 		
         // Report back any errors, and exit if any
 		return successIfNoErrors(mapping, request, errors);

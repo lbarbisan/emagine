@@ -24,6 +24,7 @@
 		<form-bean name="teacherTutorSearchForm" type="fr.umlv.ir3.emagine.teachertutor.TeacherTutorSearchForm" />
 		<form-bean name="formationCenterListForm" type="fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenterListForm" />
 		<form-bean name="formationCenterModifyForm" type="fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenterModifyForm" />
+		<form-bean name="bringingTogetherForm" type="fr.umlv.ir3.emagine.apprentice.candidate.BringingTogetherForm" />		
 	</form-beans>
 
 	<!-- ========== Action Mapping Definitions =============================== -->
@@ -194,14 +195,19 @@
 			<forward name="_default_target_" path="/candidateVisuInfo.do" redirect="true" />
 			<forward name="success" path="/candidateSearch.do?action=search" redirect="true" />
 		</action>
-		
-		
+		<action path="/candidateDelete" type="fr.umlv.ir3.emagine.apprentice.candidate.CandidateDeleteAction" parameter="action">
+			<forward name="_default_target_" path="/candidateSearch.do?action=search" redirect="true" />
+		</action>
+		<action path="/candidateIntegrate" type="fr.umlv.ir3.emagine.apprentice.candidate.CandidateIntegrateAction" parameter="action">
+			<forward name="_default_target_" path="/candidateSearch.do?action=search" redirect="true" />
+		</action>
+		<action path="/bringingTogether" type="fr.umlv.ir3.emagine.apprentice.candidate.BringingTogetherAction" name="bringingTogetherForm" parameter="action" scope="session">
+			<forward name="_default_target_" path="recruitment.bringingTogether" />
+		</action>
 		<action path="/centerDetail" type="fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenterModifyAction" name="formationCenterModifyForm" input="recruitment.centerDetail" parameter="action" scope="session" validate="true">
 			<forward name="_default_target_" path="recruitment.centerDetail" redirect="true" />
 			<forward name="success" path="/formationCenterList.do?action=list" redirect="true" />
-		</action>
-		
-		
+		</action>		
 		<action path="/candidateVisuInfo" forward="recruitment.candidateVisuInfo" scope="session"/>
 		<action path="/candidateOnglet"
 			forward="recruitment.candidateOnglet" />
@@ -209,8 +215,6 @@
 			forward="recruitment.roomDetail" />
 		<action path="/roomAdd" 
 			forward="recruitment.roomAdd" />
-		<action path="/bringingTogether"
-			forward="recruitment.bringingTogether" />
 		<action path="/candidateVisuEvent"
 			forward="recruitment.candidateVisuEvent" />
 		<action path="/candidateEventDetail"

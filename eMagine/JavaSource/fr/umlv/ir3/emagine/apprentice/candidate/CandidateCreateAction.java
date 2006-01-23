@@ -80,7 +80,7 @@ public class CandidateCreateAction extends BaseAction {
 			//Retrieve all department and set them in the form
 			candidateModifyForm.setContacts((List<ContactEnum>)emagineEnumManager.findAll(ContactEnum.class));
 		
-			//log.trace(candidateCreateForm.isFormation());
+
 
 
 		}catch (EMagineException exception) {

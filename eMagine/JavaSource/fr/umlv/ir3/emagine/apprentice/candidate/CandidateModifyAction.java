@@ -8,6 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -28,6 +29,7 @@ import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenterManage
 import fr.umlv.ir3.emagine.user.profile.ProfileManager;
 import fr.umlv.ir3.emagine.util.Address;
 import fr.umlv.ir3.emagine.util.EMagineException;
+import fr.umlv.ir3.emagine.util.EmagineEnumManager;
 import fr.umlv.ir3.emagine.util.ManagerManager;
 import fr.umlv.ir3.emagine.util.base.BaseAction;
 
@@ -47,6 +49,7 @@ public class CandidateModifyAction extends BaseAction {
 		ActionMessages errors = new ActionMessages();
 		ManagerManager managerManager = ManagerManager.getInstance();
 		CandidateModifyForm candidateModifyForm = (CandidateModifyForm) form;
+		EmagineEnumManager emagineEnumManager = managerManager.getEmagineEnumManager();
 		
 		try {
 			// Retrieve the candidate we want to see (if he exists) 
@@ -65,57 +68,54 @@ public class CandidateModifyAction extends BaseAction {
 				candidateModifyForm.setIdFather(Long.toString(candidate.getProfessionFather().getId()));
 				candidateModifyForm.setIdCenter(Long.toString(candidate.getFormationCenter().getId()));
 				//TODO candidateModifyForm.setContactOriginIG2K(ContactEnum.valueOf(candidateModifyForm.getIdContact()));
-				//TODO candidateModifyForm.setLastDiploma(DiplomaEnum.valueOf(candidateModifyForm.getIdDiploma()));
-				//TODO candidateModifyForm.setLastSection(LastSectionEnum.valueOf(candidateModifyForm.getIdSection()));
-				/*candidateModifyForm.setEntryLevel(LevelEntryEnum.valueOf(candidateModifyForm.getIdLevel()));
-				candidateModifyForm.setBirthdayCity(candidateModifyForm.getCity());
-				candidateModifyForm.setAddressPersonnal(new Address());
-				candidateModifyForm.getAddressPersonnal().setStreet(candidateModifyForm.getPersAdress());
-				candidateModifyForm.getAddressPersonnal().setPostalCode(candidateModifyForm.getPersPostalCode());
-				candidateModifyForm.getAddressPersonnal().setCity(candidateModifyForm.getPersCity());
-				candidateModifyForm.getAddressPersonnal().setDepartment(DepartmentEnum.valueOf(candidateModifyForm.getIdPersDepartment()));
-				candidateModifyForm.setMobilePhone(candidateModifyForm.getPersMobile());
-				candidateModifyForm.setEmail(candidateModifyForm.getPersEmail());
-				candidateModifyForm.setFax(candidateModifyForm.getPersFax());
-				candidateModifyForm.setPhone(candidateModifyForm.getPersPhone());
-				candidateModifyForm.setAccepted(candidateModifyForm.isAdmissibility());
-				candidateModifyForm.setOtherFormation(candidateModifyForm.isFormation());
+				candidateModifyForm.setIdDiploma(Long.toString(candidate.getLastDiploma().getId()));
+				candidateModifyForm.setIdSection(Long.toString(candidate.getLastSection().getId()));
+				candidateModifyForm.setIdLevel(Long.toString(candidate.getEntryLevel().getId()));
+				candidateModifyForm.setCity(candidate.getBirthdayCity());
+				/*TODO candidateModifyForm.getPersAdress(candidate.getAddressPersonnal().getStreet().toString());
+				candidateModifyForm.getIdPersDepartment(Long.toString(candidate.getAddressPersonnal().getDepartment().getId()));
+				candidateModifyForm.getPersPostalCode(candidate.getAddressPersonnal().getPostalCode());
+				candidateModifyForm.getPersCity(candidate.getAddressPersonnal().getCity());*/
+				candidateModifyForm.setPersMobile(candidate.getMobilePhone());
+				candidateModifyForm.setPersEmail(candidate.getEmail());
+				candidateModifyForm.setPersFax(candidateModifyForm.getPersFax());
+				candidateModifyForm.setPersPhone(candidateModifyForm.getPersPhone());
+				candidateModifyForm.setAdmissibility(candidate.isAccepted());
+				candidateModifyForm.setFormation(candidate.isOtherFormation());
 				
 				//Retrieve all formation centers and set them in the form
 				candidateModifyForm.setCenters(ManagerManager.getInstance().getFormationCenterManager().findAll());
 
 				//Retrieve all department and set them in the form
-				candidateModifyForm.setDepartments(Arrays.asList(DepartmentEnum.values()));
+				candidateModifyForm.setDepartments((List<DepartmentEnum>)emagineEnumManager.findAll(DepartmentEnum.class));
 				
 				//Retrieve all courseOptions and set them in the form
-				candidateModifyForm.setCourseOptions(Arrays.asList(CourseOptionEnum.values()));
+				candidateModifyForm.setCourseOptions((List<CourseOptionEnum>)emagineEnumManager.findAll(CourseOptionEnum.class));
 		
 				//Retrieve all sexes and set them in the form
-				candidateModifyForm.setSexes(Arrays.asList(SexEnum.values()));
+				candidateModifyForm.setSexes((List<SexEnum>)emagineEnumManager.findAll(SexEnum.class));
 		
 				//Retrieve all diplomas and set them in the form		
-				candidateModifyForm.setDiplomas(Arrays.asList(DiplomaEnum.values()));
+				candidateModifyForm.setDiplomas((List<DiplomaEnum>)emagineEnumManager.findAll(DiplomaEnum.class));
 
 				//Retrieve all sections for the diploma and set them in the form
-				candidateModifyForm.setSections(Arrays.asList(SectionEnum.values()));
+				candidateModifyForm.setSections((List<SectionEnum>)emagineEnumManager.findAll(SectionEnum.class));
 				
 				//Retrieve all nationalities and set them in the form
-				candidateModifyForm.setNationalities(Arrays.asList(NationalityEnum.values()));
+				candidateModifyForm.setNationalities((List<NationalityEnum>)emagineEnumManager.findAll(NationalityEnum.class));
 
 				//Retrieve all levels and set them in the form
-				candidateModifyForm.setLevels(Arrays.asList(LevelEntryEnum.values()));
+				candidateModifyForm.setLevels((List<LevelEntryEnum>)emagineEnumManager.findAll(LevelEntryEnum.class));
 
 				//Retrieve all professions and set them in the form
-				candidateModifyForm.setProfessions(Arrays.asList(ProfessionEnum.values()));
+				candidateModifyForm.setProfessions((List<ProfessionEnum>)emagineEnumManager.findAll(ProfessionEnum.class));
 				
 				//Retrieve all countries and set them in the form
-				candidateModifyForm.setCountries(Arrays.asList(CountryEnum.values()));
+				candidateModifyForm.setCountries((List<CountryEnum>)emagineEnumManager.findAll(CountryEnum.class));
 				
 				//Retrieve all department and set them in the form
-				candidateModifyForm.setContacts(Arrays.asList(ContactEnum.values()));
-			
-				candidateModifyForm.setIdSex((SexEnum.MALE).getId());
-		*/
+				candidateModifyForm.setContacts((List<ContactEnum>)emagineEnumManager.findAll(ContactEnum.class));
+
 
 			}
 			
@@ -144,43 +144,43 @@ public class CandidateModifyAction extends BaseAction {
 		CandidateManager candidateManager = managerManager.getCandidateManager();
 		FormationCenterManager centerManager = managerManager.getFormationCenterManager();
 		CandidateModifyForm candidateModifyForm = (CandidateModifyForm) form;
-
-		// Update the Candidate
-		/*try {
+		EmagineEnumManager emagineEnumManager = managerManager.getEmagineEnumManager();
+		
+		// TODO !!! Update the Candidate
+		try {
 			Candidate candidate = candidateManager.retrieve(Long.parseLong(candidateModifyForm.getIdCandidateToModify()));
 			candidate.setFirstName(candidateModifyForm.getFirstName());
 			candidate.setLastName(candidateModifyForm.getLastName());
-			candidate.setSex(SexEnum.valueOf(candidateModifyForm.getIdSex()));
-			candidate.setBirthdayDate(StringToDate(candidateModifyForm.getBirth()));		
-			candidate.setBirthdayCountry(CountryEnum.valueOf(candidateModifyForm.getIdCountry()));
-			candidate.setNationality(NationalityEnum.valueOf(candidateModifyForm.getIdNationality()));
-			//TODO candidate.setBirthdayDepartment(DepartmentEnum.valueOf(candidateModifyForm.getIdDepartment()));
-			candidate.setCourseOption(CourseOptionEnum.valueOf(candidateModifyForm.getIdCourseOption()));
-			candidate.setProfessionMother(ProfessionEnum.valueOf(candidateModifyForm.getIdMother()));
-			candidate.setProfessionFather(ProfessionEnum.valueOf(candidateModifyForm.getIdFather()));
-			candidate.setFormationCenter(centerManager.retrieve(Long.parseLong(candidateModifyForm.getIdCenter())));
-			//TODO candidate.setContactOriginIG2K(ContactEnum.valueOf(candidateModifyForm.getIdContact()));
-			//TODO candidate.setLastDiploma(DiplomaEnum.valueOf(candidateModifyForm.getIdDiploma()));
-			//TODO candidate.setLastSection(LastSectionEnum.valueOf(candidateModifyForm.getIdSection()));
-			candidate.setEntryLevel(LevelEntryEnum.valueOf(candidateModifyForm.getIdLevel()));
+			candidate.setSex((SexEnum) emagineEnumManager.retrieve(Long.parseLong(candidateModifyForm.getIdSex()), SexEnum.class));
+			candidate.setBirthdayDate(StringToDate(candidateModifyForm.getBirth()));	
+			candidate.setBirthdayCountry((CountryEnum) emagineEnumManager.retrieve(Long.parseLong(candidateModifyForm.getIdCountry()), CountryEnum.class));
+			candidate.setNationality((NationalityEnum) emagineEnumManager.retrieve(Long.parseLong(candidateModifyForm.getIdNationality()), NationalityEnum.class));
+			candidate.setBirthdayDepartment((DepartmentEnum) emagineEnumManager.retrieve(Long.parseLong(candidateModifyForm.getIdDepartment()), DepartmentEnum.class));
+			candidate.setCourseOption((CourseOptionEnum) emagineEnumManager.retrieve(Long.parseLong(candidateModifyForm.getIdCourseOption()), CourseOptionEnum.class));
+			candidate.setProfessionMother((ProfessionEnum) emagineEnumManager.retrieve(Long.parseLong(candidateModifyForm.getIdMother()), ProfessionEnum.class));
+			candidate.setProfessionFather((ProfessionEnum) emagineEnumManager.retrieve(Long.parseLong(candidateModifyForm.getIdFather()), ProfessionEnum.class));
+			//TODO candidate.setFormationCenter(centerManager.retrieve(Long.parseLong(candidateModifyForm.getIdCenter())), ProfessionEnum.class);
+			//TODO candidate.setContactOriginIG2K(new Contact((ContactEnum) emagineEnumManager.retrieve(Long.parseLong(candidateModifyForm.getIdContact()), ContactEnum.class)));
+			candidate.setLastDiploma((DiplomaEnum) emagineEnumManager.retrieve(Long.parseLong(candidateModifyForm.getIdDiploma()), DiplomaEnum.class));
+			candidate.setLastSection((SectionEnum) emagineEnumManager.retrieve(Long.parseLong(candidateModifyForm.getIdSection()), SectionEnum.class));
+			candidate.setEntryLevel((LevelEntryEnum) emagineEnumManager.retrieve(Long.parseLong(candidateModifyForm.getIdLevel()), LevelEntryEnum.class));
 			candidate.setBirthdayCity(candidateModifyForm.getCity());
 			candidate.setAddressPersonnal(new Address());
 			candidate.getAddressPersonnal().setStreet(candidateModifyForm.getPersAdress());
 			candidate.getAddressPersonnal().setPostalCode(candidateModifyForm.getPersPostalCode());
 			candidate.getAddressPersonnal().setCity(candidateModifyForm.getPersCity());
-			candidate.getAddressPersonnal().setDepartment(DepartmentEnum.valueOf(candidateModifyForm.getIdPersDepartment()));
+			candidate.getAddressPersonnal().setDepartment((DepartmentEnum) emagineEnumManager.retrieve(Long.parseLong(candidateModifyForm.getIdDepartment()), DepartmentEnum.class));
 			candidate.setMobilePhone(candidateModifyForm.getPersMobile());
 			candidate.setEmail(candidateModifyForm.getPersEmail());
 			candidate.setFax(candidateModifyForm.getPersFax());
 			candidate.setPhone(candidateModifyForm.getPersPhone());
 			candidate.setAccepted(candidateModifyForm.isAdmissibility());
-			candidate.setOtherFormation(candidateModifyForm.isFormation());			
+			candidate.setOtherFormation(candidateModifyForm.isFormation());
 			candidateManager.update(candidate);
 			
 		} catch (EMagineException exception) {
 				addEMagineExceptionError(errors, exception);
 		}
-*/
         // Report back any errors, and exit if any
 		return successIfNoErrors(mapping, request, errors);
 	}

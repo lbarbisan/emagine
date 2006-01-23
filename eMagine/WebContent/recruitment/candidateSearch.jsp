@@ -14,9 +14,9 @@
 			document.candidateSearchForm.submit();
 		}
 	}
-	function passCandidates() {
+	function integrateCandidates() {
 		if(confirm("Souhaitez-vous réellement faire passer les candidats en apprentis ?")) {
-			document.candidateSearchForm.action = "/eMagine/candidatePass.do?action=pass&from=search";
+			document.candidateSearchForm.action = "/eMagine/candidateIntegrate.do?action=integrate&from=search";
 			document.candidateSearchForm.submit();
 		}
 	}
@@ -37,16 +37,20 @@
 			<p>
 				<label for="courseOption"><bean:message key="criteria.search.dieAsked"/></label>
 				<html:select property="idCourseOption">
-					<option value="" selected>Toutes</option>
-					<html:optionsCollection property="courseOptions" value="id" label="name"/>		
+					<logic:notEmpty name="candidateSearchForm" property="courseOptions">
+						<option value="" selected></option>
+						<html:optionsCollection property="courseOptions" value="id" label="name"/>		
+					</logic:notEmpty>
 				</html:select>
 			</p>
 			<p>
 			<p>
 				<label for="center"><bean:message key="criteria.search.center"/></label>
 				<html:select property="idCenter">
-					<option value="" selected>Tous</option>
-					<html:optionsCollection property="centers" value="id" label="name"/>		
+					<logic:notEmpty name="candidateSearchForm" property="centers">
+						<option value="" selected></option>
+						<html:optionsCollection property="centers" value="id" label="name"/>		
+					</logic:notEmpty>
 				</html:select>
 			</p>
 			</div>
@@ -78,8 +82,8 @@
 						<td><html:multibox property="currentSelectedIds" value="<%= candidate.getId().toString() %>"/></td>
 						<td><html:link action="/candidateModify?action=show" paramId="id" paramName="candidate" paramProperty="id"><bean:write name="candidate" property="lastName"/>&nbsp;</html:link></td>
 						<td><bean:write name="candidate" property="firstName"/>&nbsp;</td>
-						<td><bean:write name="candidate" property="courseOption.name"/>&nbsp;</td>
-						<td><bean:write name="candidate" property="formationCenter.name"/>&nbsp;</td>
+						<td><logic:notEmpty name="candidate" property="formationCenter.name"><bean:write name="candidate" property="formationCenter.name"/>&nbsp;</logic:notEmpty></td>
+						<td><logic:notEmpty name="candidate" property="courseOption.name"><bean:write name="candidate" property="courseOption.name"/>&nbsp;</logic:notEmpty></td>
 						<td><bean:write name="candidate" property="phone" />&nbsp;</td>
 						<td><bean:write name="candidate" property="email" />&nbsp;</td>
 						<td><bean:write name="candidate" property="accepted" />&nbsp;</td>
@@ -99,8 +103,8 @@
 		</ul>
 		<h2>&nbsp;</h2>
 		<ul>
-			<li><html:link href="javascript:passCandidates();"><html:img src="/eMagine/common/images/icones/passage.png" titleKey="button.title.pass" /></html:link></li>
-			<li><html:link href="javascript:deleteCandidates();"><html:img src="/eMagine/common/images/icones/virer.png" titleKey="button.title.out" /></html:link></li>
+			<li><html:link href="javascript:integrateCandidates();"><html:img src="/eMagine/common/images/icones/passage.png" titleKey="button.title.passage" /></html:link></li>
+			<li><html:link href="javascript:deleteCandidates();"><html:img src="/eMagine/common/images/icones/virer.png" titleKey="button.title.exclude" /></html:link></li>
 			<li><html:link action="/candidateMailingListCreate"><img src="/eMagine/common/images/icones/creer_mailing_list.png" title="Cr&eacute;er une maling list"/></html:link></li>
 			<li><html:link action="/candidateEmailDo"><img src="/eMagine/common/images/icones/mailing.png" title="Effectuer un mailing"/></html:link></li>
 			<li><html:link action="/candidateMailDo"><img src="/eMagine/common/images/icones/publipostage.png" title="Effectuer un publipostage"/></html:link></li>
