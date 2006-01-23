@@ -1,7 +1,7 @@
 /**
  *
  */
-package fr.umlv.ir3.emagine.teachertutor;
+package fr.umlv.ir3.emagine.apprentice.candidate.room;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,10 +16,10 @@ import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.ManagerManager;
 import fr.umlv.ir3.emagine.util.base.BaseAction;
 
-public class TeacherDeleteAction extends BaseAction {
+public class RoomDeleteAction extends BaseAction {
 
 	/**
-	 * The administrator wants to delete several teachers.
+	 * The administrator wants to delete several rooms.
 	 * 
 	 * @param mapping The ActionMapping used to select this instance
 	 * @param form The optional ActionForm bean for this request (if any)
@@ -30,17 +30,17 @@ public class TeacherDeleteAction extends BaseAction {
 	 */
 	public ActionForward delete(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionMessages errors = new ActionMessages();
-		TeacherTutorManager teacherManager = ManagerManager.getInstance().getTeacherTutorManager();
+		RoomManager roomManager = ManagerManager.getInstance().getRoomManager();
 		
-		// Delete the teachers
+		// Delete the rooms
 		DAOManager.beginTransaction();
 		String [] ids = request.getParameterValues("currentSelectedIds");
 		
 		if(ids != null && ids.length > 0) {
-			for (String idUser : ids) {
+			for (String idRoom : ids) {
 				try {
-					TeacherTutor tutor = teacherManager.retrieve(Long.parseLong(idUser));
-					teacherManager.delete(tutor); // TODO A faire pour le forcage
+					Room room = roomManager.retrieve(Long.parseLong(idRoom));
+					roomManager.delete(room); // TODO A faire pour le forcage
 				} catch (EMagineException exception) {
 					addEMagineExceptionError(errors, exception);
 				}

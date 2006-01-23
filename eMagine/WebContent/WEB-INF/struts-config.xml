@@ -24,7 +24,8 @@
 		<form-bean name="teacherTutorSearchForm" type="fr.umlv.ir3.emagine.teachertutor.TeacherTutorSearchForm" />
 		<form-bean name="formationCenterListForm" type="fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenterListForm" />
 		<form-bean name="formationCenterModifyForm" type="fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenterModifyForm" />
-		<form-bean name="bringingTogetherForm" type="fr.umlv.ir3.emagine.apprentice.candidate.BringingTogetherForm" />		
+		<form-bean name="bringingTogetherForm" type="fr.umlv.ir3.emagine.apprentice.candidate.BringingTogetherForm" />	
+		<form-bean name="roomModifyForm" type="fr.umlv.ir3.emagine.apprentice.candidate.room.RoomModifyForm" />	
 	</form-beans>
 
 	<!-- ========== Action Mapping Definitions =============================== -->
@@ -125,14 +126,7 @@
 		<action path="/teacherDelete" type="fr.umlv.ir3.emagine.teachertutor.TeacherDeleteAction" parameter="action">
 			<forward name="_default_target_" path="/teacherSearch.do?action=search" redirect="true" />
 		</action>
-		
-		<!--
-		<action path="/teacherSearch" forward="teacher.teacherSearch" />
-		<action path="/teacherCreate" forward="teacher.teacherCreate" />
-		<action path="/teacherVisuInfo"
-			forward="teacher.teacherVisuInfo" />
-		<action path="/teacherOnglet" forward="teacher.teacherOnglet" />
-		-->
+
 		<action path="/teacherApprenticeAdd"
 			forward="teacher.teacherApprenticeAdd" />
 		<action path="/teacherVisuEvent"
@@ -211,8 +205,6 @@
 		<action path="/candidateVisuInfo" forward="recruitment.candidateVisuInfo" scope="session"/>
 		<action path="/candidateOnglet"
 			forward="recruitment.candidateOnglet" />
-		<action path="/roomDetail" 
-			forward="recruitment.roomDetail" />
 		<action path="/roomAdd" 
 			forward="recruitment.roomAdd" />
 		<action path="/candidateVisuEvent"
@@ -234,6 +226,12 @@
 
 		<action path="/formationCenterList" type="fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenterListAction" name="formationCenterListForm" parameter="action" scope="session">
 			<forward name="_default_target_" path="recruitment.centerList" />
+		</action>
+		<action path="/roomDelete" type="fr.umlv.ir3.emagine.apprentice.candidate.room.RoomDeleteAction" parameter="action">
+			<forward name="_default_target_" path="/centerDetail.do?action=show" redirect="true" />
+		</action>
+		<action path="/roomDetail" type="fr.umlv.ir3.emagine.apprentice.candidate.room.RoomModifyAction" name="roomModifyForm" parameter="action">
+			<forward name="_default_target_" path="recruitment.roomDetail" />
 		</action>
 
 		<!-- mail -->

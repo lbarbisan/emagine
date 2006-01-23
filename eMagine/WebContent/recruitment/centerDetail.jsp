@@ -2,6 +2,22 @@
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic"%>
 
+<script type="text/javascript">
+<!--
+	function setAction(value) {
+		document.formationCenterModifyForm.action.value = value;
+	}
+
+	function deleteRooms() {
+		if(confirm("Souhaitez-vous réellement supprimer ces salles ?")) {
+			document.formationCenterModifyForm.action = "/eMagine/roomDelete.do?action=delete&from=search";
+			document.formationCenterModifyForm.submit();
+		}
+	}
+-->
+</script>
+
+
 <h2><bean:message key="center.detail.title"/></h2>
 <br/>
 
@@ -11,12 +27,10 @@
 		<p><label for="address"><bean:message key="form.adress"/><font color="red">*</font> </label><input type="text" id="address.street" size="20"/></p>
 		<p><label for="postalCode"><bean:message key="form.postalCode"/><font color="red">*</font> </label><input type="text" id="address.postalCode" size="20" /></p>
 			<p><label for="city"><bean:message key="form.city"/><font color="red">*</font> </label><input type="text" id="address.city" size="20" /></p>
-			<p><label for="department"><bean:message key="form.department"/><font color="red">*</font> </label><select name="address.department">
-					<!-- à mettre en base -->
-					<option value="93">93</option>
-					<option value="77">77</option>
-					<option value="78">78</option>
-				</select> </p>		
+			<p><label for="department"><bean:message key="form.department"/><font color="red">*</font></label>
+			<select>
+			</select>
+		</p>	
 		<p><label for="phone"><bean:message key="form.phone"/></label><input type="text" id="phone" size="20"/></p>	
 	</div>
 	<br/>
@@ -28,25 +42,27 @@
 				<th><bean:message key="table.header.capacity"/></th>
 				<th><bean:message key="table.header.nbAvailable"/></th>
 			</tr>
-			<tr>
-				<td><input type="checkbox" name="all_none" value="ON" /></td>
-				<td><html:link action="/roomDetail">A10</html:link></td>
-				<td>16</td>
-				<td>57</td>
-			</tr>
-			<tr>
-				<td><input type="checkbox" name="all_none" value="ON" /></td>
-				<td><html:link action="/roomDetail">A12</html:link></td>
-				<td>40</td>
-				<td>12</td>
-			</tr>
+		  	<logic:notEmpty name="formationCenterModifyForm" property="room">
+				<logic:iterate id="currentRoom" name="formationCenterModifyForm" property="room" type="fr.umlv.ir3.emagine.apprentice.candidate.room.Room">
+					<tr>
+						<td>&nbsp;</td>
+						<td><html:link action="/roomDetail?action=show" paramId="id" paramName="currentRoom" paramProperty="id"><bean:write name="currentRoom" property="name" />&nbsp;</html:link></td>
+						<td><bean:write name="currentRoom" property="capacity" />&nbsp;</td>
+						<td><bean:write name="currentRoom" property="numberOfFreeSits" />&nbsp;</td>
+					</tr>
+				</logic:iterate>
+			</logic:notEmpty>	
+
+			<logic:empty name="formationCenterModifyForm" property="room">
+				<tr><td colspan="3">Aucune salle d'examen</td></tr>
+			</logic:empty>	
 		</table>
 	</div>
 	<html:errors />
 	<div id="actions">
 		<ul>
-			<li><a href="javascript:checkAll('results','all_none');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
-			<li><a href="javascript:checkNothing('results','all_none');"><bean:message key="all_none.none"/></a></li>
+			<li><a href="javascript:checkAll('formationCenterModifyForm','currentSelectedIds');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
+			<li><a href="javascript:checkNothing('formationCenterModifyForm','currentSelectedIds');"><bean:message key="all_none.none"/></a></li>
 		</ul>
 		<h2>&nbsp;</h2>
 		<ul>
