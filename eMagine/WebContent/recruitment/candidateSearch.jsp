@@ -62,8 +62,10 @@
 	<h3><bean:message key="title.results"/></h3>
 	<div align=center>
 		<div id="statSearch">
-			<p><label for="result"><bean:message key="statSearch.results"/></label><input type="text" id="result" size="5"/>&nbsp;&nbsp;&nbsp;
-			<label for="pageNb"><bean:message key="statSearch.numberByPage"/></label><input type="text" id="pageNb" size="5" /></p>
+			<p>
+				<label for="result"><bean:message key="statSearch.results"/></label><html:text property="nbResults" size="5" disabled="true"/>&nbsp;&nbsp;&nbsp;
+				<label for="pageNb"><bean:message key="statSearch.numberByPage"/></label><input type="text" id="pageNb" size="5" />
+			</p>
 		</div>
 		<table cellpadding="0" cellspacing="0">
 			<tr>
@@ -92,7 +94,7 @@
 			</logic:notEmpty>	
 
 			<logic:empty name="candidateSearchForm" property="results">
-				<tr><td colspan="8">Pas de résultats</td></tr>
+				<tr><td colspan="8">Pas de r&eacute;sultats</td></tr>
 			</logic:empty>
 		</table>
 	</div>
