@@ -49,7 +49,7 @@ public class FormationCenterModifyForm extends ActionForm {
 	public void reset() {
 		idDepartment = "";
 		action = "";
-		address = null;
+		address = new Address();
 		departments = null;
 		idDepartment = "";
 		idFormationCenterToModify = "";
