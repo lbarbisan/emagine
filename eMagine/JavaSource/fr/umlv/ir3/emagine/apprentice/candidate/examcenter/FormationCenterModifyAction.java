@@ -33,18 +33,17 @@ public class FormationCenterModifyAction extends BaseAction {
 		ActionMessages errors = new ActionMessages();
 		ManagerManager managerManager = ManagerManager.getInstance();
 		FormationCenterModifyForm centerModifyForm = (FormationCenterModifyForm) form;
-		
 		try {
 			// Retrieve the user we want to see (if he exists) 
 			String idUser = request.getParameter("id");			
 			if(idUser != null && !"".equals(idUser)) {
 				FormationCenter center = managerManager.getFormationCenterManager().retrieve(Long.parseLong(idUser));
 				centerModifyForm.setIdFormationCenterToModify(idUser);
-				//centerModifyForm.setAddress(center.getAddress().getStreet());
-				//centerModifyForm.setCity(center.getCity());
-				//centerModifyForm.setIdDepartment(center.getAddress().getDepartment().getId().toString());
+				centerModifyForm.setCity(center.getAddress().getCity());
+				centerModifyForm.setAddress(center.getAddress().getStreet());
+				centerModifyForm.setPostalCode(center.getAddress().getPostalCode());
+				centerModifyForm.setIdDepartment(center.getAddress().getDepartment().getId().toString());
 				centerModifyForm.setName(center.getName());
-				//centerModifyForm.setPostalCode(center.getAddress().getPostalCode());
 				centerModifyForm.setTelephone(center.getPhone());
 			}
 			
@@ -76,7 +75,6 @@ public class FormationCenterModifyAction extends BaseAction {
 		// Update the center
 		try {
 			FormationCenter center = centerManager.retrieve(Long.parseLong(centerModifyForm.getIdFormationCenterToModify()));
-			center.setCity(centerModifyForm.getCity());
 			Address address = new Address();
 			address.setCity(centerModifyForm.getCity());
 			address.setDepartment((DepartmentEnum)managerManager.getEmagineEnumManager().retrieve(Long.parseLong(centerModifyForm.getIdDepartment()),DepartmentEnum.class));
