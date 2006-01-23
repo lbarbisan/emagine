@@ -7,6 +7,8 @@ import fr.umlv.ir3.emagine.apprentice.candidate.CandidateManager;
 import fr.umlv.ir3.emagine.apprentice.candidate.CandidateManagerImpl;
 import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenterManager;
 import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenterManagerImpl;
+import fr.umlv.ir3.emagine.apprentice.candidate.room.RoomManager;
+import fr.umlv.ir3.emagine.apprentice.candidate.room.RoomManagerImpl;
 import fr.umlv.ir3.emagine.event.EventManager;
 import fr.umlv.ir3.emagine.event.EventManagerImpl;
 import fr.umlv.ir3.emagine.extraction.ExtractionManager;
@@ -50,6 +52,7 @@ public class ManagerManager {
 	private AbsenceManager absenceManager;
 	private FormationCenterManager formationCenterManager;
 	private RightManager rightManager;
+	private RoomManager roomManager;
 	private EmagineEnumManager emagineEnumManager;
 	
 	/**
@@ -102,6 +105,7 @@ public class ManagerManager {
 		apprenticeManager = SecurityProxyFactory.createProxy(new ApprenticeManagerImpl());
 		formationCenterManager = SecurityProxyFactory.createProxy(new FormationCenterManagerImpl());
 		rightManager = SecurityProxyFactory.createProxy(new RightManagerImpl());
+		roomManager = SecurityProxyFactory.createProxy(new RoomManagerImpl());
 		emagineEnumManager = new EmagineEnumManagerImpl();	// No rights on that manager
 
 		editableManager = new EditableManagerImpl();
@@ -170,7 +174,6 @@ public class ManagerManager {
 	public AbsenceManager getAbsenceManager() {
 		return absenceManager;
 	}
-
 	/**
 	 * @return Returns the formationCenterManager.
 	 */
@@ -185,9 +188,9 @@ public class ManagerManager {
 	public EmagineEnumManager getEmagineEnumManager() {
 		return emagineEnumManager;
 	}
-
-	public void setEmagineEnumManager(EmagineEnumManager emagineEnumManager) {
-		this.emagineEnumManager = emagineEnumManager;
+	
+	public RoomManager getRoomManager() {
+		return roomManager;
 	}
 	
 }
