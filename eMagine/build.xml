@@ -39,7 +39,7 @@
 
 	<target name="CreateSchemaDB" description="Export le schema et créer la base de donneés en fonction des classes java">
 		<hibernatetool destdir="${classes}" classpath="${classes}">
-			<annotationconfiguration configurationfile="${ressourceDir}/hibernate.cfg.xml" />
+			<annotationconfiguration configurationfile="${ressourceDir}/hibernate.cfg.xml" propertyfile="${ressourceDir}/eMagine.properties" />
 			<hbm2ddl export="true" console="true" drop="false" create="true" outputfilename="hibernate.ddl" delimiter=";" />
 		</hibernatetool>
 	</target>

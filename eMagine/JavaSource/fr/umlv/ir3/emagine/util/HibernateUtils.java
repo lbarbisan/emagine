@@ -1,6 +1,10 @@
 package fr.umlv.ir3.emagine.util;
 
 
+import java.util.Enumeration;
+import java.util.Properties;
+import java.util.ResourceBundle;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.HibernateException;
@@ -29,11 +33,23 @@ public class HibernateUtils {
 	 
     static {
         try {            
+        	//Initialize Hibernate configuration
+        	ResourceBundle bundle = Bundles.getConfigBundle();
         	
+        	String cfgHibernate = bundle.getString("hibernate.configurationFile");
+        	
+        	Properties properties =  new Properties();
+        	Enumeration enums = bundle.getKeys();
+        	while(enums.hasMoreElements())
+        			{
+        			String name = (String) enums.nextElement();
+        			properties.put(name, bundle.getObject(name));
+        			}
+  
         	Configuration cfg = new AnnotationConfiguration();
-
-            //TODO : Hibernate - Trouver un moyen pour mettre le nom de fichier dans un fichier poroperties ou autre.
-        	cfg.configure("fr/umlv/ir3/emagine/ressource/hibernate.cfg.xml")
+        	
+        	cfg.configure(cfgHibernate)
+        	.addProperties(properties)
         	.setInterceptor(editableInterceptor);
 
         	sessionFactory = cfg.buildSessionFactory(); 
