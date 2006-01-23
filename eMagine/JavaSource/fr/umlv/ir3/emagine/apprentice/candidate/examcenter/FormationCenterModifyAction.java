@@ -39,10 +39,13 @@ public class FormationCenterModifyAction extends BaseAction {
 			if(idUser != null && !"".equals(idUser)) {
 				FormationCenter center = managerManager.getFormationCenterManager().retrieve(Long.parseLong(idUser));
 				centerModifyForm.setIdFormationCenterToModify(idUser);
+				centerModifyForm.setCompleteAdress(center.getAddress());
+				/*
 				centerModifyForm.setCity(center.getAddress().getCity());
 				centerModifyForm.setAddress(center.getAddress().getStreet());
 				centerModifyForm.setPostalCode(center.getAddress().getPostalCode());
 				centerModifyForm.setIdDepartment(center.getAddress().getDepartment().getId().toString());
+				*/
 				centerModifyForm.setName(center.getName());
 				centerModifyForm.setTelephone(center.getPhone());
 			}

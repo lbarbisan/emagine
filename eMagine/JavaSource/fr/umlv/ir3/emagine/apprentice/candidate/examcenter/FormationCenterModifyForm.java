@@ -179,6 +179,10 @@ public class FormationCenterModifyForm extends ActionForm {
 	public void setCity(String city){
 		address.setCity(city);
 	}
+	
+	public void setCompleteAdress(Address address) {
+		this.address = address;
+	}
 }
 
 	
