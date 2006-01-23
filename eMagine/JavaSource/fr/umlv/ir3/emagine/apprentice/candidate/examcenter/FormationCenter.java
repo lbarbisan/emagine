@@ -103,12 +103,16 @@ public class FormationCenter extends EditableEntity {
 		this.rooms = rooms;
 	}
 	
-	public String getCity(){
-		return "aaa";
-	}
-	
-	public void setCity(String city){
-		this.address.setCity(city);
+	public String getAddressString(){
+		String address;
+		if(this.address==null){
+			address="&nbsp;";
+		}
+		else{
+			address = this.address.getStreet()+ " " + this.address.getPostalCode()+ " " +this.address.getCity()+ " ";
+		}
+		
+		return address;
 	}
 	
 	public int getNbRooms(){
