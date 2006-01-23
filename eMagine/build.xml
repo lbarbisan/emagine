@@ -10,6 +10,7 @@
 	<property name="junit" value="./TestSource" />
 	<property name="outTest" value="${junit}/result" />
 
+	<property environment='env'/>
 	<property name="tomcat.lib" value="${env.CATALINA_HOME}/common/lib" />
 	<property name="db.url" value="${db.connectionURLPrefix}${db.hostname}:${db.port}/${db.name}" />
 	<property name="db.url.admin" value="${db.connectionURLPrefix}${db.hostname}:${db.port}/template1" />
@@ -140,6 +141,9 @@
 	<target name="DynamicInitDB" description="Initialise les données dynamique de la base de données (Nom d'utilisateur etc...)">
 		<java classname="fr.umlv.ir3.emagine.ressource.InitDB">
 			<classpath>
+				<fileset dir="${tomcat.lib}">
+					<include name="**/*.jar" />
+				</fileset>
 				<fileset dir="${lib}">
 					<include name="**/*.jar" />
 				</fileset>
@@ -157,8 +161,8 @@
 					<include name="**/*.jar" />
 				</fileset>
 			</classpath>
-		DROP DATABASE "eMagine";
-		CREATE DATABASE "eMagine" WITH OWNER = "eMagine" ENCODING = 'UNICODE' TABLESPACE = pg_default;
+			DROP DATABASE "eMagine";
+			CREATE DATABASE "eMagine" WITH OWNER = "eMagine" ENCODING = 'UNICODE' TABLESPACE = pg_default;
 		</sql>
 	</target>
 
@@ -255,9 +259,9 @@
 	  </target>
 
 	  <target name="junittest" depends="junitcompile">
-	    <junit>
+	    <junit printsummary="yes">
 	      <classpath refid="classpath.test" />
-	      <formatter type="brief" usefile="false" />
+	      <formatter type="brief" />
 			<batchtest fork="yes" todir="${outTest}">
 				<fileset dir="${junit}" includes="**/*Test.java" />
 			</batchtest>
