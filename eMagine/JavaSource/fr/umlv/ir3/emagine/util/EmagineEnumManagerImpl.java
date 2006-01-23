@@ -46,4 +46,14 @@ public class EmagineEnumManagerImpl implements EmagineEnumManager {
 	public List<? extends EmagineEnum> findAll(Class<? extends EmagineEnum> clazz) throws EMagineException {
 		return DAOManager.getInstance().getEmagineEnumDAO().findAll(clazz);
 	}
+
+	/**
+	 * Retrieves the database data for the specified id
+	 * @param id id of the object to retrieve
+	 * @return the object which is associated to id, null if not found
+	 * @throws EMagineException throw this exception if an SQLException occures
+	 */
+	public EmagineEnum find(String name, Class<? extends EmagineEnum> clazz) throws EMagineException {
+		return DAOManager.getInstance().getEmagineEnumDAO().find(name, clazz);
+	}
 }

@@ -3,9 +3,11 @@ package fr.umlv.ir3.emagine.util;
 import java.util.List;
 
 import fr.umlv.ir3.emagine.security.MustHaveRights;
+import fr.umlv.ir3.emagine.util.search.SearchParams;
 
 @MustHaveRights("Enum")
 public interface EmagineEnumManager{
+	
 	/**
 	 * Creates the database data for the specified object
 	 * 
@@ -16,6 +18,14 @@ public interface EmagineEnumManager{
 	 *             SQLException occures
 	 */
 	public void create(EmagineEnum object) throws EMagineException;
+	
+	/**
+	 * Retrieves the database data for the specified id
+	 * @param id id of the object to retrieve
+	 * @return the object which is associated to id, null if not found
+	 * @throws EMagineException throw this exception if an SQLException occures
+	 */
+	public EmagineEnum find(String name, Class<? extends EmagineEnum> clazz) throws EMagineException;
 	
 	/**
 	 * Retrieves the database data for the specified id

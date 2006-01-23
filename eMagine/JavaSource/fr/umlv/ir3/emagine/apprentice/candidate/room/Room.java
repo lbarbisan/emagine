@@ -1,15 +1,18 @@
 package fr.umlv.ir3.emagine.apprentice.candidate.room;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.AccessType;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import fr.umlv.ir3.emagine.apprentice.candidate.Candidate;
 import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenter;
@@ -32,12 +35,13 @@ public class Room extends EditableEntity {
 	private String  name;
 	private Integer capacity;
 	
-	@OneToMany(cascade = {CascadeType.ALL},
-			mappedBy = "room")
-	private List<Candidate> candidates;
+	@OneToMany(	mappedBy = "room")
+	@Cascade(CascadeType.ALL)
+	private List<Candidate> candidates = new ArrayList<Candidate>();
 	
-	@ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
-	@JoinColumn(name="formationCenter_id")
+	@ManyToOne()
+	@Cascade(CascadeType.ALL)
+	@JoinColumn(name="formationcenter_id")
 	private FormationCenter formationCenter;
 
 	

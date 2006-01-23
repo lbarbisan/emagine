@@ -89,4 +89,27 @@ public class EmagineEnumDAO
 		}
 		return (List<? extends EmagineEnum>) foundResults;
 	}
+
+	/**
+	 * Retrieves the database data for the specified id
+	 * @param id id of the object to retrieve
+	 * @return the object which is associated to id, null if not found
+	 * @throws EMagineException throw this exception if an SQLException occures
+	 */
+	public EmagineEnum find(String name, Class<? extends EmagineEnum> clazz) {
+		StringBuilder queryString = new StringBuilder()
+			.append("from ")
+			.append(clazz.getSimpleName())
+			.append(" where name like :name");
+			
+		log.debug("find with '" + queryString + "'");
+		System.out.println(queryString);
+		EmagineEnum enums = (EmagineEnum) HibernateUtils
+				.getSession()
+				.createQuery(queryString.toString())
+				.setParameter("name", name)
+				.uniqueResult();
+		
+		return enums;
+	}
 }

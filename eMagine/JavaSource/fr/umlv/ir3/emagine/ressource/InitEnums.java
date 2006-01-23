@@ -184,11 +184,11 @@ public class InitEnums {
 	}
 	
 	
-	static final EmagineEnum getEmagineEnum(Class clazz) throws EMagineException
+	static final EmagineEnum getEmagineEnum(String name, Class clazz) throws EMagineException
 	{
 		EmagineEnumDAO emagineEnumDAO =  DAOManager.getInstance().getEmagineEnumDAO();
 		
-		return  emagineEnumDAO.findAll(clazz).get(0);
+		return  emagineEnumDAO.find(name, clazz);
 		
 	}
 }

@@ -204,16 +204,16 @@ public class InitDB {
 				teacher.setAddressPersonnal(createAddress(index * 2));
 				teacher.setAddressProfessional(createAddress(index));
 				teacher.setBirthdayCity("Paris" + index);
-				teacher.setBirthdayCountry((CountryEnum) InitEnums.getEmagineEnum(CountryEnum.class));
+				teacher.setBirthdayCountry((CountryEnum) InitEnums.getEmagineEnum("Pays 1", CountryEnum.class));
 				teacher.setBirthdayDate(Calendar.getInstance().getTime());
-				teacher.setBirthdayDepartment((DepartmentEnum) InitEnums.getEmagineEnum(DepartmentEnum.class));
+				teacher.setBirthdayDepartment((DepartmentEnum) InitEnums.getEmagineEnum("Department 1", DepartmentEnum.class));
 				teacher.setEmail("mail" + index + "@gmail.com");
 				teacher.setFax("9" + index * 100);
 				teacher.setFirstName("LastName" + index);
 				teacher.setLastName("FirstName" + index);
 				teacher.setMobilePhone("709870");
 				teacher.setPhone("12003" + index);
-				teacher.setSex((SexEnum) InitEnums.getEmagineEnum(SexEnum.class));
+				teacher.setSex((SexEnum) InitEnums.getEmagineEnum("Male",  SexEnum.class));
 				teacherTutorDAO.create(teacher);
 			}
 
@@ -228,8 +228,8 @@ public class InitDB {
 	private static Address createAddress(int index) throws EMagineException {
 		Address address = new Address();
 		address.setCity("City" + index);
-		address.setCountry((CountryEnum) InitEnums.getEmagineEnum(CountryEnum.class));
-		address.setDepartment((DepartmentEnum) InitEnums.getEmagineEnum(DepartmentEnum.class));
+		address.setCountry((CountryEnum) InitEnums.getEmagineEnum("Pays 1", CountryEnum.class));
+		address.setDepartment((DepartmentEnum) InitEnums.getEmagineEnum("Department 1", DepartmentEnum.class));
 		address.setPostalCode("99" + index);
 		address.setStreet(index + "rue de la java");
 
@@ -242,32 +242,33 @@ public class InitDB {
 		DAOManager.beginTransaction();
 		try {
 
-			ArrayList<Room> list = new ArrayList<Room>();
-
-			Room room = new Room();
-			room.setCapacity(100);
-			room.setName("10DC10");
-
-			list.add(room);
-
-			room = new Room();
-			room.setCapacity(102);
-			room.setName("10DC11");
-
-			list.add(room);
-
-			room = new Room();
-			room.setCapacity(101);
-			room.setName("10DC11");
-
-			list.add(room);
+			
 
 			FormationCenter formationCenter = new FormationCenter();
 			formationCenter.setAddress(createAddress(1));
 			formationCenter.setName("Lyon");
 			formationCenter.setPhone("0180808080");
-			formationCenter.setRooms(list);
 
+			Room room = new Room();
+			room.setFormationCenter(formationCenter);
+			room.setCapacity(100);
+			room.setName("10DC10");
+			
+			Room room1 = new Room();
+			room1.setFormationCenter(formationCenter);
+			room1.setCapacity(102);
+			room1.setName("10DC12");
+
+			Room room2 = new Room();
+			room2.setFormationCenter(formationCenter);
+			room2.setCapacity(101);
+			room2.setName("10DC11");
+			
+			formationCenter.getRooms().add(room);
+			formationCenter.getRooms().add(room1);
+			formationCenter.getRooms().add(room2);
+			
+			
 			formationCenterDAO.create(formationCenter);
 
 			DAOManager.commitTransaction();

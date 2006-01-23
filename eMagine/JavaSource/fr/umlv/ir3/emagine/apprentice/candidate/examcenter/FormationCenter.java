@@ -3,14 +3,17 @@
  */
 package fr.umlv.ir3.emagine.apprentice.candidate.examcenter;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 import javax.persistence.AccessType;
-import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import fr.umlv.ir3.emagine.apprentice.candidate.Candidate;
 import fr.umlv.ir3.emagine.apprentice.candidate.room.Room;
@@ -32,11 +35,11 @@ public class FormationCenter extends EditableEntity {
 	//FIXME : lbarbisan - Contrainte Unique sur l'addresse de la salle
 	private Address address;
 	private String phone;
-	@OneToMany(cascade = {CascadeType.ALL},
-			mappedBy = "formationCenter")
-	private List<Room> rooms;
-	@OneToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE, CascadeType.REFRESH },
-			mappedBy = "formationCenter")
+	@OneToMany(mappedBy = "formationCenter")
+	@Cascade(CascadeType.ALL )
+	private List<Room> rooms = new ArrayList<Room>();
+	@OneToMany(mappedBy = "formationCenter")
+	@Cascade(CascadeType.ALL)
 	private List<Candidate> candidates;
 	
 	/**
