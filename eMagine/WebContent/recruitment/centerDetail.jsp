@@ -8,10 +8,10 @@
 <html:form action="/centerDetail" method="POST" focus="name">
 	<div class="form">
 		<p><label for="name"><bean:message key="form.name"/><font color="red">*</font> </label><html:text property="name" size="20" /></p>
-		<p><label for="adress"><bean:message key="form.adress"/><font color="red">*</font> </label><input type="text" id="adress" size="20"/></p>
-		<p><label for="postalCode"><bean:message key="form.postalCode"/><font color="red">*</font> </label><input type="text" id="postalCode" size="20" /></p>
-			<p><label for="city"><bean:message key="form.city"/><font color="red">*</font> </label><input type="text" id="city" size="20" /></p>
-			<p><label for="department"><bean:message key="form.department"/><font color="red">*</font> </label><select name="department">
+		<p><label for="address"><bean:message key="form.adress"/><font color="red">*</font> </label><input type="text" id="address.street" size="20"/></p>
+		<p><label for="postalCode"><bean:message key="form.postalCode"/><font color="red">*</font> </label><input type="text" id="address.postalCode" size="20" /></p>
+			<p><label for="city"><bean:message key="form.city"/><font color="red">*</font> </label><input type="text" id="address.city" size="20" /></p>
+			<p><label for="department"><bean:message key="form.department"/><font color="red">*</font> </label><select name="address.department">
 					<!-- à mettre en base -->
 					<option value="93">93</option>
 					<option value="77">77</option>

@@ -156,33 +156,14 @@ public class FormationCenterModifyForm extends ActionForm {
 		this.telephone = telephone;
 	}
 
-	public String getAddress(){
-		return address.getStreet();
+	public Address getAddress(){
+		return address;
 	}
 	
-	public void setAddress(String street){
-		address.setStreet(street);
-	}
-	
-	public String getPostalCode(){
-		return address.getPostalCode();
-	}
-	
-	public void setPostalCode(String postalCode){
-		address.setPostalCode(postalCode);
-	}
-	
-	public String getCity(){
-		return address.getCity();
-	}
-	
-	public void setCity(String city){
-		address.setCity(city);
-	}
-	
-	public void setCompleteAdress(Address address) {
+	public void setAdress(Address address) {
 		this.address = address;
 	}
+	
 }
 
 	

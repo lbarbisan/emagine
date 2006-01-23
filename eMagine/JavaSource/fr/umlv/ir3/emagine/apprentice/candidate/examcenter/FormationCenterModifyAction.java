@@ -11,8 +11,6 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessages;
 
-import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
-import fr.umlv.ir3.emagine.util.Address;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.ManagerManager;
 import fr.umlv.ir3.emagine.util.base.BaseAction;
@@ -34,18 +32,12 @@ public class FormationCenterModifyAction extends BaseAction {
 		ManagerManager managerManager = ManagerManager.getInstance();
 		FormationCenterModifyForm centerModifyForm = (FormationCenterModifyForm) form;
 		try {
-			// Retrieve the user we want to see (if he exists) 
-			String idUser = request.getParameter("id");			
-			if(idUser != null && !"".equals(idUser)) {
-				FormationCenter center = managerManager.getFormationCenterManager().retrieve(Long.parseLong(idUser));
-				centerModifyForm.setIdFormationCenterToModify(idUser);
-				centerModifyForm.setCompleteAdress(center.getAddress());
-				/*
-				centerModifyForm.setCity(center.getAddress().getCity());
-				centerModifyForm.setAddress(center.getAddress().getStreet());
-				centerModifyForm.setPostalCode(center.getAddress().getPostalCode());
-				centerModifyForm.setIdDepartment(center.getAddress().getDepartment().getId().toString());
-				*/
+			// Retrieve the center we want to see (if he exists) 
+			String idCenter = request.getParameter("id");			
+			if(idCenter != null && !"".equals(idCenter)) {
+				FormationCenter center = managerManager.getFormationCenterManager().retrieve(Long.parseLong(idCenter));
+				centerModifyForm.setIdFormationCenterToModify(idCenter);
+				centerModifyForm.setAdress(center.getAddress());
 				centerModifyForm.setName(center.getName());
 				centerModifyForm.setTelephone(center.getPhone());
 			}
@@ -57,6 +49,7 @@ public class FormationCenterModifyAction extends BaseAction {
 		
         // Report back any errors, and exit if any
 		return viewFormIfNoErrors(mapping, request, errors);
+		
 	}
 
 	/**
@@ -78,12 +71,7 @@ public class FormationCenterModifyAction extends BaseAction {
 		// Update the center
 		try {
 			FormationCenter center = centerManager.retrieve(Long.parseLong(centerModifyForm.getIdFormationCenterToModify()));
-			Address address = new Address();
-			address.setCity(centerModifyForm.getCity());
-			address.setDepartment((DepartmentEnum)managerManager.getEmagineEnumManager().retrieve(Long.parseLong(centerModifyForm.getIdDepartment()),DepartmentEnum.class));
-			address.setPostalCode(centerModifyForm.getPostalCode());
-			address.setStreet(centerModifyForm.getAddress());
-			center.setAddress(address);
+			center.setAddress(center.getAddress());
 			center.setName(centerModifyForm.getName());
 			center.setPhone(centerModifyForm.getTelephone());
 		} catch (EMagineException exception) {
