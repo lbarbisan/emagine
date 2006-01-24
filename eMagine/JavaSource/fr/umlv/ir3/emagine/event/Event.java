@@ -27,8 +27,9 @@ public class Event extends BaseEntity {
 	@Basic(temporalType = TemporalType.TIMESTAMP)
 	private Date date = new Date();
 	private ArrayList<BaseEntity> sources = new ArrayList<BaseEntity>();
-	private String Title;
+	private String title;
 	private String comment;
+	private String description;
 	private EventTypeEnum type;
 	
 	/**
@@ -63,22 +64,16 @@ public class Event extends BaseEntity {
 		return sources;
 	}
 	/**
-	 * @param sources The sources to set.
-	 */
-	public void setSources(ArrayList<BaseEntity> sources) {
-		this.sources = sources;
-	}
-	/**
 	 * @return Returns the title.
 	 */
 	public String getTitle() {
-		return Title;
+		return title;
 	}
 	/**
 	 * @param title The title to set.
 	 */
 	public void setTitle(String title) {
-		Title = title;
+		this.title = title;
 	}
 	/**
 	 * @return Returns the type.
@@ -91,5 +86,17 @@ public class Event extends BaseEntity {
 	 */
 	public void setType(EventTypeEnum type) {
 		this.type = type;
+	}
+	/**
+	 * @return Returns the description.
+	 */
+	public String getDescription() {
+		return description;
+	}
+	/**
+	 * @param description The description to set.
+	 */
+	public void setDescription(String description) {
+		this.description = description;
 	}
 }

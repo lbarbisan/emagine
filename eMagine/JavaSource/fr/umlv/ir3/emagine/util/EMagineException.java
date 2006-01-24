@@ -1,5 +1,6 @@
 package fr.umlv.ir3.emagine.util;
 
+
 public class EMagineException extends Exception {
 	protected String messageId;
 	protected String[] params;

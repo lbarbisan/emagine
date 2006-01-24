@@ -27,5 +27,17 @@ public class Bundles {
 	public static MessageResources getMessageResources() {
 		return messageResources;
 	}
+	
+	public static String fillRessource(String resourceName, String... replacment)
+	{
+		ResourceBundle bundle = Bundles.getConfigBundle();
+    	String resource = bundle.getString(resourceName);
+    	
+    	for(int index=0; index < replacment.length; index++)
+    	{
+    		resource = resource.replace("{" + index  + "}" , replacment[index]);
+    	}
+		return resource;
+	}
 
 }

@@ -13,6 +13,14 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.event.EventListeners;
+import org.hibernate.event.LoadEventListener;
+import org.hibernate.event.PostDeleteEvent;
+import org.hibernate.event.PostDeleteEventListener;
+import org.hibernate.event.PostInsertEventListener;
+import org.hibernate.event.PostUpdateEventListener;
+import org.hibernate.event.def.DefaultLoadEventListener;
+import org.hibernate.event.def.DefaultPostLoadEventListener;
 
 import fr.umlv.ir3.emagine.modification.EditableInterceptor;
 /**
@@ -52,6 +60,8 @@ public class HibernateUtils {
         	.addProperties(properties)
         	.setInterceptor(editableInterceptor);
 
+        	//loadListeners(cfg);
+        	
         	sessionFactory = cfg.buildSessionFactory(); 
         	editableInterceptor.setSessionFactory(sessionFactory);
         	
@@ -59,6 +69,18 @@ public class HibernateUtils {
             log.error("Initial SessionFactory creation failed.", ex);
             throw new ExceptionInInitializerError(ex);
         }
+    }
+    
+    private static void loadListeners(Configuration cfg)
+    {
+    	
+    	PostDeleteEventListener[] stackDelete = { new EMaginePostDeleteEventListener()};
+    	PostUpdateEventListener[] stackUpdate = { new EMaginePostUpdateEventListener()};
+    	PostInsertEventListener[] stackInsert = { new EMaginePostInsertEventListener()};
+    	
+    	cfg.getEventListeners().setPostDeleteEventListeners(stackDelete);
+    	cfg.getEventListeners().setPostUpdateEventListeners(stackUpdate);
+    	cfg.getEventListeners().setPostInsertEventListeners(stackInsert);
     }
     
     /**
