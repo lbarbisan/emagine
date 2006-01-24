@@ -4,13 +4,19 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashSet;
 
+import fr.umlv.ir3.emagine.apprentice.Contact;
 import fr.umlv.ir3.emagine.apprentice.CountryEnum;
 import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
+import fr.umlv.ir3.emagine.apprentice.LevelEntryEnum;
+import fr.umlv.ir3.emagine.apprentice.NationalityEnum;
 import fr.umlv.ir3.emagine.apprentice.SexEnum;
+import fr.umlv.ir3.emagine.apprentice.candidate.Candidate;
+import fr.umlv.ir3.emagine.apprentice.candidate.CandidateDAO;
+import fr.umlv.ir3.emagine.apprentice.candidate.CourseOptionEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenter;
 import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenterDAO;
 import fr.umlv.ir3.emagine.apprentice.candidate.room.Room;
@@ -51,6 +57,62 @@ public class InitDB {
 		createUsers(1, 40);
 		createTeachers(1, 40);
 		InitializeFormationCenter();
+		InitializeCandidate(1,40);
+	}
+
+	private static final void InitializeCandidate(int start, int end) throws EMagineException
+	{
+		
+		CandidateDAO candidateDAO = DAOManager.getInstance().getCandidateDAO();
+		DAOManager.beginTransaction();
+		
+		for(int index=start; index < end; index++)
+		{
+		
+		Contact contact = new Contact();
+		contact.setAddressPersonnal(createAddress(index));
+		contact.setBirthdayCity("Ville" + index);
+		contact.setBirthdayCountry((CountryEnum) InitEnums.getEmagineEnum("Country " + index, CountryEnum.class));
+		contact.setBirthdayDate(new Date());
+		contact.setBirthdayDepartment((DepartmentEnum) InitEnums.getEmagineEnum("Department " + index, DepartmentEnum.class));
+		contact.setEmail("contact" + index + "@gmail.com");
+		contact.setFirstName("LastName" + index);
+		contact.setLastName("FirstName" + index);
+		contact.setFax("01012" + index);
+		contact.setMobilePhone("32902930" + index);
+		contact.setNationality((NationalityEnum) InitEnums.getEmagineEnum("Nationality " + index, NationalityEnum.class));
+		contact.setPhone("8798798" + index);
+		contact.setSex((SexEnum) InitEnums.getEmagineEnum("Male", SexEnum.class));
+		
+		Candidate candidate = new Candidate();
+		candidate.setAccepted(false);
+		candidate.setAddressPersonnal(createAddress(index));
+		candidate.setBirthdayCity("Ville" + index);
+		candidate.setBirthdayCountry((CountryEnum) InitEnums.getEmagineEnum("Country " + index, CountryEnum.class));
+		candidate.setBirthdayDate(new Date());
+		candidate.setBirthdayDepartment((DepartmentEnum) InitEnums.getEmagineEnum("Department " + index, DepartmentEnum.class));
+		candidate.setContactOriginIG2K(contact);
+		candidate.setCourseOption((CourseOptionEnum) InitEnums.getEmagineEnum("CourseOption " + index, CourseOptionEnum.class));
+		candidate.setEmail(contact.getEmail());
+		candidate.setEntryLevel((LevelEntryEnum) InitEnums.getEmagineEnum("Level " + index, LevelEntryEnum.class));
+		candidate.setFax("70987987" + index);
+		candidate.setFirstName(contact.getFirstName() + "Candidate");
+//		candidate.setFormationCenter()
+//		candidate.setLastDiploma()
+		candidate.setLastName(contact.getLastName());
+//		candidate.setLastSection()
+		candidate.setMobilePhone("87695468" + index);
+		candidate.setNationality(contact.getNationality());
+//		candidate.setOtherFormation()
+		candidate.setPhone("098098" + index);
+//		candidate.setProfessionFather()
+//		candidate.setProfessionMother()
+		candidateDAO.create(candidate);
+
+		candidate.setSex(contact.getSex());
+		}
+		
+		DAOManager.commitTransaction();
 	}
 
 	public static void InitializeUser() {
@@ -204,7 +266,7 @@ public class InitDB {
 				teacher.setAddressPersonnal(createAddress(index * 2));
 				teacher.setAddressProfessional(createAddress(index));
 				teacher.setBirthdayCity("Paris" + index);
-				teacher.setBirthdayCountry((CountryEnum) InitEnums.getEmagineEnum("Pays 1", CountryEnum.class));
+				teacher.setBirthdayCountry((CountryEnum) InitEnums.getEmagineEnum("Country 1", CountryEnum.class));
 				teacher.setBirthdayDate(Calendar.getInstance().getTime());
 				teacher.setBirthdayDepartment((DepartmentEnum) InitEnums.getEmagineEnum("Department 1", DepartmentEnum.class));
 				teacher.setEmail("mail" + index + "@gmail.com");
@@ -228,7 +290,7 @@ public class InitDB {
 	private static Address createAddress(int index) throws EMagineException {
 		Address address = new Address();
 		address.setCity("City" + index);
-		address.setCountry((CountryEnum) InitEnums.getEmagineEnum("Pays 1", CountryEnum.class));
+		address.setCountry((CountryEnum) InitEnums.getEmagineEnum("Country 1", CountryEnum.class));
 		address.setDepartment((DepartmentEnum) InitEnums.getEmagineEnum("Department 1", DepartmentEnum.class));
 		address.setPostalCode("99" + index);
 		address.setStreet(index + "rue de la java");

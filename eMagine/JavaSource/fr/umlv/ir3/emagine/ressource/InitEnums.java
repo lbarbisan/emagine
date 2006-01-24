@@ -48,7 +48,7 @@ public class InitEnums {
 		EmagineEnumDAO emagineEnumDAO =  DAOManager.getInstance().getEmagineEnumDAO();
 		for(int index=start;index<length; index++)
 		{
-			CountryEnum countryEnum =  new CountryEnum("Pays " + index);
+			CountryEnum countryEnum =  new CountryEnum("Country " + index);
 			emagineEnumDAO.create(countryEnum);
 		}
 	}
@@ -88,7 +88,7 @@ public class InitEnums {
 		EmagineEnumDAO emagineEnumDAO =  DAOManager.getInstance().getEmagineEnumDAO();
 		for(int index=start;index<length; index++)
 		{
-			LevelEntryEnum enums =  new LevelEntryEnum("Niveau " + index);
+			LevelEntryEnum enums =  new LevelEntryEnum("Level " + index);
 			emagineEnumDAO.create(enums);
 		}
 	}
@@ -158,7 +158,7 @@ public class InitEnums {
 		EmagineEnumDAO emagineEnumDAO =  DAOManager.getInstance().getEmagineEnumDAO();
 		for(int index=start;index<length; index++)
 		{
-			DiplomaEnum enums =  new DiplomaEnum("Diplome " + index);
+			DiplomaEnum enums =  new DiplomaEnum("Diploma " + index);
 			emagineEnumDAO.create(enums);
 		}
 	}

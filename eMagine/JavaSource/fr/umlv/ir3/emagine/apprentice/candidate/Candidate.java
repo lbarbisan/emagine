@@ -32,14 +32,14 @@ public class Candidate extends Person {
 
 	private static final long serialVersionUID = 2131901427590143640L;
 
-	@ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+	@ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name="contact_id")
 	private Contact contactOriginIG2K;
-	@ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+	@ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name="formationcenter_id")
 	private FormationCenter formationCenter;
 	//TODO : Hibernate Créer une table d'association avec => ROOM FORMATIONCENTER ET COndidate
-	@ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+	@ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name="room_id")
 	private Room room;
 	private boolean otherFormation;
