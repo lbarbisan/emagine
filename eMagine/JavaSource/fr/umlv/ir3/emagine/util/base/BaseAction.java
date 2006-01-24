@@ -15,6 +15,7 @@ import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
 import org.apache.struts.actions.DispatchAction;
 
+import fr.umlv.ir3.emagine.security.SecurityFilterNotCorrectlyInitializedException;
 import fr.umlv.ir3.emagine.security.SessionManager;
 import fr.umlv.ir3.emagine.util.Constants;
 import fr.umlv.ir3.emagine.util.EMagineException;
@@ -42,6 +43,7 @@ public class BaseAction extends DispatchAction {
      * @param response The HTTP response we are creating
      *
      * @exception Exception if an exception occurs
+	 * @throws SecurityFilterNotCorrectlyInitializedException if the current Principal is not an EmaginePrincipal (the realm used is not correct)
      */
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {

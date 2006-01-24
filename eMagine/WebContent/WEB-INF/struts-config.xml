@@ -134,6 +134,8 @@
 		<action path="/teacherEventDetail"
 			forward="teacher.teacherEventDetail" />
 		<action path="/teacherExtract" forward="teacher.teacherExtract" />
+		<action path="/teacherExtractFile" type="fr.umlv.ir3.emagine.teachertutor.TeacherExtractAction" name="teacherTutorSearchForm" parameter="action" scope="session">
+		</action>
 		<action path="/teacherEventExtract"
 			forward="teacher.teacherEventExtract" />
 		<action path="/teacherMailingListCreate"

@@ -4,22 +4,16 @@
 package fr.umlv.ir3.emagine.security;
 
 import java.security.Principal;
-import java.util.ResourceBundle;
 import java.util.concurrent.ConcurrentHashMap;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.apache.catalina.realm.JDBCRealm;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.securityfilter.realm.SecurityRealmInterface;
-import org.securityfilter.realm.catalina.CatalinaRealmAdapter;
 
 import fr.umlv.ir3.emagine.user.User;
-import fr.umlv.ir3.emagine.util.Bundles;
-import fr.umlv.ir3.emagine.util.Constants;
-import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 
 /**
@@ -36,7 +30,7 @@ public class SessionManager {
 
 	private ConcurrentHashMap<String, HttpSession> loginSessions = new ConcurrentHashMap<String, HttpSession>();
 
-	private ConcurrentHashMap<String, Principal> loginPrincipal = new ConcurrentHashMap<String, Principal>();
+	private ConcurrentHashMap<String, EmaginePrincipal> loginPrincipals = new ConcurrentHashMap<String, EmaginePrincipal>();
 
 	private ThreadLocal<User> currentUser = new ThreadLocal<User>();
 
@@ -52,76 +46,24 @@ public class SessionManager {
 	 *             "properties"
 	 */
 	private SessionManager() throws SecurityFilterNotInitializedException {
-		// If we don't want the securityFilter, for test for example,
-		// instanciate a JDBCRealm instead.
-		ResourceBundle bundle = Bundles.getConfigBundle();
-		String securityRealm = bundle
-				.getString("security.SecurityProxy.securityFilterRealm");
-
-		if ("properties".equals(securityRealm)) {
-			JDBCRealm realm = new JDBCRealm();
-			realm.setDriverName(bundle.getString("db.driver"));
-			realm.setConnectionURL(bundle.getString("db.connectionURLPrefix")
-					+ bundle.getString("db.hostname") + ":"
-					+ bundle.getString("db.port") + "/"
-					+ bundle.getString("db.name"));
-			realm.setConnectionName(bundle.getString("db.username"));
-			realm.setConnectionPassword(bundle.getString("db.password"));
-			realm.setUserTable(bundle
-					.getString("security.SecurityProxy.userTable"));
-			realm.setUserNameCol(bundle
-					.getString("security.SecurityProxy.userNameCol"));
-			realm.setUserCredCol(bundle
-					.getString("security.SecurityProxy.userCredCol"));
-			realm.setUserRoleTable(bundle
-					.getString("security.SecurityProxy.userRoleTable"));
-			realm.setRoleNameCol(bundle
-					.getString("security.SecurityProxy.roleNameCol"));
-
-			CatalinaRealmAdapter realmAdapter = new CatalinaRealmAdapter();
-			realmAdapter.setRealm(realm);
-			this.realm = realmAdapter;
-
-		} else if ("none".equals(securityRealm)) {
-			this.realm = new SecurityRealmInterface() {
-				final class StringPrincipal implements Principal {
-					String name;
-
-					public StringPrincipal(String name) {
-						this.name = name;
-					}
-
-					public String getName() {
-						return name;
-					}
-				};
-
-				public Principal authenticate(String username, String password) {
-					log.debug("authenticate : " + username + " / " + password);
-					return new StringPrincipal(username);
-				}
-
-				public boolean isUserInRole(Principal principal, String rolename) {
-					log.debug("isUserInRole : "
-							+ (principal != null ? principal.getName()
-									: "[principal_null]") + " / " + rolename);
-					return true;
-				}
-			};
-		} else {
-			this.realm = EmagineSecurityFilter.getInstance().getRealm();
-		}
+		this.realm = EmagineSecurityFilter.getInstance().getRealm();
 	}
 	
 	/**
 	 * Initialize the thread local parameters for the specified HttpServletRequest.
 	 * @param request
+	 * @throws SecurityFilterNotCorrectlyInitializedException if the current Principal is not an EmaginePrincipal (the realm used is not correct)
 	 */
-	public void initThreadLocal(HttpServletRequest request) {
-		User currentUser = (User)request.getSession().getAttribute(Constants.LOGGED_IN_USER_KEY);
-		if (currentUser != null) {
-			setCurrentUser(currentUser);
+	public void initThreadLocal(HttpServletRequest request) throws SecurityFilterNotCorrectlyInitializedException {
+		if (!(request.getUserPrincipal() instanceof EmaginePrincipal)) {
+			throw new SecurityFilterNotCorrectlyInitializedException();
 		}
+		final EmaginePrincipal principal = (EmaginePrincipal)request.getUserPrincipal();
+		User currentUser = principal.getUser();
+		if (!isLoggedIn(currentUser.getLogin())) {
+			login(principal, request.getSession());
+		}
+		setCurrentUser(currentUser);
 	}
 
 	/**
@@ -163,8 +105,9 @@ public class SessionManager {
 	 *             if specified user is null
 	 */
 	public void killUserSession(User user) throws EMagineException {
-		synchronized (user.getId()) {
+		synchronized (loginSessions) {
 			HttpSession session = loginSessions.remove(user.getLogin());
+			loginPrincipals.remove(user.getLogin());
 			if (session != null) {
 				try {
 					session.invalidate();
@@ -172,7 +115,6 @@ public class SessionManager {
 					throw new EMagineException(
 							"exception.sessionManager.killUserSession.alreadyKilled");
 				}
-				loginPrincipal.remove(user.getLogin());
 			}
 		}
 	}
@@ -190,33 +132,28 @@ public class SessionManager {
 	}
 
 	/**
-	 * Adds the given login and session to the pool of accepted logins. Retreive
-	 * the User with the specified login, and set it into the session.
+	 * Adds the given login and session to the pool of accepted logins.
 	 * 
-	 * @param principal
-	 * @param login
-	 * @param password
+	 * @param user
 	 * @param httpSession
-	 * @throws EMagineException
-	 *             throws if the user cannot be retreived
 	 */
-	protected void login(Principal principal, String login, String password,
-			HttpSession session) throws EMagineException {
-		synchronized (login) {
-			User user = DAOManager.getInstance().getUserDAO().find(login,
-					password);
-			if (user != null) {
-				HttpSession prevSession = loginSessions.put(login, session);
-				if (prevSession != null) {
-					prevSession.invalidate();
-				}
-				session.setAttribute(Constants.LOGGED_IN_USER_KEY, user);
-				loginPrincipal.put(login, principal);
-				setCurrentUser(user);
-			}
+	protected void login(EmaginePrincipal principal,  HttpSession session) {
+		String login = principal.getUser().getLogin();
+		synchronized (loginSessions) {
+			loginSessions.put(login, session);
+			loginPrincipals.put(login, principal);
 		}
 	}
 
+	/**
+	 * Tells if the given login is logged in or not
+	 * @param login
+	 * @return <code>true</code> if he / she is logged in, <code>false</code> otherwise
+	 */
+	protected boolean isLoggedIn(String login) {
+		return loginSessions.contains(login);
+	}
+	
 	/**
 	 * Gets the principal associated with the current thread, or
 	 * <code>null</code> if no user is currently connected
@@ -226,7 +163,7 @@ public class SessionManager {
 	private Principal getCurrentPrincipal() {
 		User user = currentUser.get();
 		if (user != null) {
-			return loginPrincipal.get(user.getLogin());
+			return loginPrincipals.get(user.getLogin());
 		}
 		return null;
 	}

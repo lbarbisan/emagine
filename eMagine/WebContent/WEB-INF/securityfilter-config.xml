@@ -27,13 +27,17 @@
 	
 	<!-- start with a Catalina realm adapter to wrap the Catalina realm defined below -->
 	<realm
+		className="fr.umlv.ir3.emagine.security.EmagineRealmProxy" />
+	<!-- 
+	<realm
 		className="org.securityfilter.realm.catalina.CatalinaRealmAdapter" />
-
+	 -->
 	<!-- this is a Catalina realm that will be adapted to the securityfilter by the realm defined above -->
+	<!-- 
 	<realm className="org.apache.catalina.realm.JDBCRealm">
 		<realm-param name="driverName" value="org.postgresql.Driver" />
 		<realm-param name="connectionURL"
-			value="jdbc:postgresql://server.srv-net.com:54321/eMagine" />
+			value="jdbc:postgresql://localhost:5432/eMagine" />
 		<realm-param name="connectionName" value="eMagine" />
 		<realm-param name="connectionPassword"
 			value="eMagine" />
@@ -43,4 +47,5 @@
 		<realm-param name="userRoleTable" value="userroleview" />
 		<realm-param name="roleNameCol" value="right_name" />
 	</realm>
+	 -->
 </securityfilter-config>
