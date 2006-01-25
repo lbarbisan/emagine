@@ -46,7 +46,7 @@ public class InitDB {
 			EMagineException, IllegalArgumentException, IllegalAccessException,
 			InvocationTargetException {
 		// Initialize Enum
-		Object[] objects = { 1, 20 };
+		Object[] objects = { 1, 60 };
 		for (Method method : InitEnums.class.getDeclaredMethods()) {
 			if (method.getName().startsWith("create")) {
 				method.invoke(null, objects);

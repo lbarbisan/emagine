@@ -3,18 +3,12 @@
  */
 package fr.umlv.ir3.emagine.util;
 
-import java.lang.reflect.ParameterizedType;
-import java.util.Collection;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.HibernateException;
-import org.hibernate.Query;
 import org.hibernate.Session;
-
-import fr.umlv.ir3.emagine.util.base.BaseDAO;
-import fr.umlv.ir3.emagine.util.search.SearchParams;
 
 /**
  * This class implement the core of DAO design pattern, each DAO class must
@@ -100,16 +94,16 @@ public class EmagineEnumDAO
 		StringBuilder queryString = new StringBuilder()
 			.append("from ")
 			.append(clazz.getSimpleName())
-			.append(" where name like :name");
+			.append(" where lower(name) like lower(:name)");
 			
 		log.debug("find with '" + queryString + "'");
-		System.out.println(queryString);
 		EmagineEnum enums = (EmagineEnum) HibernateUtils
 				.getSession()
 				.createQuery(queryString.toString())
 				.setParameter("name", name)
 				.uniqueResult();
-		
+		log.debug("set parameter : 'name' to '"+name + "'" );
+		log.debug("result :" + enums);
 		return enums;
 	}
 }
