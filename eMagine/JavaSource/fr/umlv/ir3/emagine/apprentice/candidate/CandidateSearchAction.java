@@ -69,6 +69,7 @@ public class CandidateSearchAction extends SearchAction {
 		try {
 			candidateSearchForm.setResults(manager.getCandidateManager().find(candidateSearchForm));
 		} catch (EMagineException exception) {
+			exception.printStackTrace();
 			addEMagineExceptionError(errors, exception);
 		}
 		

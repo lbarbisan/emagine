@@ -56,26 +56,9 @@ public class CandidateModifyAction extends BaseAction {
 			String idCandidate = request.getParameter("id");			
 			if(idCandidate != null && !"".equals(idCandidate)) {
 				Candidate candidate = managerManager.getCandidateManager().retrieve(Long.parseLong(idCandidate));
+
 				candidateModifyForm.setLastName(candidateModifyForm.getLastName());
-				candidateModifyForm.setIdSex(Long.toString(candidate.getSex().getId()));
-				//TODO mettre au bon format la date!!
-				candidateModifyForm.setBirth(candidate.getBirthdayDate().toString());		
-				candidateModifyForm.setIdCountry(Long.toString(candidate.getBirthdayCountry().getId()));
-				candidateModifyForm.setIdNationality(Long.toString(candidate.getNationality().getId()));
-				candidateModifyForm.setIdDepartment(Long.toString(candidate.getBirthdayDepartment().getId()));
-				candidateModifyForm.setIdCourseOption(Long.toString(candidate.getCourseOption().getId()));
-				candidateModifyForm.setIdMother(Long.toString(candidate.getProfessionMother().getId()));
-				candidateModifyForm.setIdFather(Long.toString(candidate.getProfessionFather().getId()));
-				candidateModifyForm.setIdCenter(Long.toString(candidate.getFormationCenter().getId()));
-				//TODO candidateModifyForm.setContactOriginIG2K(ContactEnum.valueOf(candidateModifyForm.getIdContact()));
-				candidateModifyForm.setIdDiploma(Long.toString(candidate.getLastDiploma().getId()));
-				candidateModifyForm.setIdSection(Long.toString(candidate.getLastSection().getId()));
-				candidateModifyForm.setIdLevel(Long.toString(candidate.getEntryLevel().getId()));
 				candidateModifyForm.setCity(candidate.getBirthdayCity());
-				/*TODO candidateModifyForm.getPersAdress(candidate.getAddressPersonnal().getStreet().toString());
-				candidateModifyForm.getIdPersDepartment(Long.toString(candidate.getAddressPersonnal().getDepartment().getId()));
-				candidateModifyForm.getPersPostalCode(candidate.getAddressPersonnal().getPostalCode());
-				candidateModifyForm.getPersCity(candidate.getAddressPersonnal().getCity());*/
 				candidateModifyForm.setPersMobile(candidate.getMobilePhone());
 				candidateModifyForm.setPersEmail(candidate.getEmail());
 				candidateModifyForm.setPersFax(candidateModifyForm.getPersFax());
@@ -83,6 +66,80 @@ public class CandidateModifyAction extends BaseAction {
 				candidateModifyForm.setAdmissibility(candidate.isAccepted());
 				candidateModifyForm.setFormation(candidate.isOtherFormation());
 				
+				// Sex
+				if(candidate.getSex() != null) {
+					candidateModifyForm.setIdSex(Long.toString(candidate.getSex().getId()));
+				}
+				// Birthday
+				//TODO mettre au bon format la date!!
+				if(candidate.getBirthdayDate() != null) {
+					candidateModifyForm.setBirth(candidate.getBirthdayDate().toString());		
+				}
+				//country of birth
+				if(candidate.getBirthdayCountry() != null) {
+					candidateModifyForm.setIdCountry(Long.toString(candidate.getBirthdayCountry().getId()));
+				}
+				//nationality
+				if(candidate.getNationality() != null) {
+					candidateModifyForm.setIdNationality(Long.toString(candidate.getNationality().getId()));
+				}
+				//department of birth
+				if(candidate.getBirthdayDepartment() != null) {
+					candidateModifyForm.setIdDepartment(Long.toString(candidate.getBirthdayDepartment().getId()));
+				}
+				//course option of the candidate
+				if(candidate.getCourseOption() != null) {
+					candidateModifyForm.setIdCourseOption(Long.toString(candidate.getCourseOption().getId()));	
+				}
+				//profession of the mother of candidate
+				if(candidate.getProfessionMother() != null) {
+					candidateModifyForm.setIdMother(Long.toString(candidate.getProfessionMother().getId()));
+				}
+				//profession of the father of candidate
+				if(candidate.getProfessionFather() != null) {
+					candidateModifyForm.setIdFather(Long.toString(candidate.getProfessionFather().getId()));
+				}
+				//center of formation
+				if(candidate.getFormationCenter() != null) {
+					candidateModifyForm.setIdCenter(Long.toString(candidate.getFormationCenter().getId()));	
+				}
+				//origin of the contact
+				if(candidate.getContactOriginIG2K() != null) {
+					//TODO candidateModifyForm.setContactOriginIG2K(candidate.getContactOriginIG2K().getId());
+				}
+				//last diploma
+				if(candidate.getLastDiploma() != null) {
+					candidateModifyForm.setIdDiploma(Long.toString(candidate.getLastDiploma().getId()));
+				}
+				//Last section of last diploma  
+				if(candidate.getLastSection() != null) {
+					candidateModifyForm.setIdSection(Long.toString(candidate.getLastSection().getId()));
+				}
+				//Level of entry
+				if(candidate.getEntryLevel() != null) {
+					candidateModifyForm.setIdLevel(Long.toString(candidate.getEntryLevel().getId()));					
+				}
+				if(candidate.getAddressPersonnal() != null) {
+					if(candidate.getAddressPersonnal().getStreet() != null) {
+					candidateModifyForm.setPersAdress(candidate.getAddressPersonnal().getStreet().toString());
+					}
+				}
+				if(candidate.getAddressPersonnal() != null) {
+					if(candidate.getAddressPersonnal().getDepartment() != null) {
+					candidateModifyForm.setIdPersDepartment(Long.toString(candidate.getAddressPersonnal().getDepartment().getId()));
+					}
+				}
+				if(candidate.getAddressPersonnal() != null) {
+					if(candidate.getAddressPersonnal().getPostalCode() != null) {
+						candidateModifyForm.setPersPostalCode(candidate.getAddressPersonnal().getPostalCode());
+					}
+				}
+				if(candidate.getAddressPersonnal() != null) {
+					if(candidate.getAddressPersonnal().getCity() != null) {
+						candidateModifyForm.setPersCity(candidate.getAddressPersonnal().getCity().toString());
+					}
+				}
+								
 				//Retrieve all formation centers and set them in the form
 				candidateModifyForm.setCenters(ManagerManager.getInstance().getFormationCenterManager().findAll());
 

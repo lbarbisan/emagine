@@ -59,8 +59,8 @@ public class CandidateManagerImpl extends EditableManagerImpl<Candidate, Candida
 	/**
 	 * @see fr.umlv.ir3.emagine.apprentice.candidate.CandidateManager#find(fr.umlv.ir3.emagine.apprentice.candidate.CandidateSearchParams)
 	 */
-	public List<Candidate> find(CandidateSearchParam candidateSearchParams) throws EMagineException {
-		return super.find(candidateSearchParams);
+	public List<Candidate> find(CandidateSearchParam candidateSearchParam) throws EMagineException {
+		return super.find(candidateSearchParam);
 	}
 	
 	public @Override CandidateDAO getDAO() {

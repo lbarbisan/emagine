@@ -35,16 +35,18 @@ public class CandidateDeleteAction extends BaseAction {
 		// Delete the candidates
 		DAOManager.beginTransaction();
 		String [] ids = request.getParameterValues("currentSelectedIds");
-		
+		System.out.println(ids.length);
 		if(ids != null && ids.length > 0) {
 			for (String idCandidate : ids) {
 				try {
+					
 					Candidate candidate = candidateManager.retrieve(Long.parseLong(idCandidate));
 					candidateManager.delete(candidate);
 				} catch (EMagineException exception) {
 					addEMagineExceptionError(errors, exception);
 				}
 			}
+			
 		}
 		
         // Report back any errors, and exit if any

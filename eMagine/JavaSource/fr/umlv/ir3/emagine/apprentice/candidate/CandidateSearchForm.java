@@ -141,7 +141,7 @@ public class CandidateSearchForm extends SelectSearchForm<Candidate> implements 
 	/**
 	 * @return Returns the idCenter.
 	 */
-	@IsASearchParam("candidate.center.id")
+	@IsASearchParam(value="candidate.formationCenter.id",type=Long.class)
 	public String getIdCenter() {
 		return idCenter;
 	}
@@ -158,7 +158,7 @@ public class CandidateSearchForm extends SelectSearchForm<Candidate> implements 
 	/**
 	 * @return Returns the idOptionCourse.
 	 */
-	@IsASearchParam("candidate.courseOption.id")
+	@IsASearchParam(value="candidate.courseOption.id",type=Long.class)
 	public String getIdCourseOption() {
 		return idCourseOption;
 	}

@@ -64,7 +64,7 @@
 		<div id="statSearch">
 			<p>
 				<label for="result"><bean:message key="statSearch.results"/></label><html:text property="nbResults" size="5" disabled="true"/>&nbsp;&nbsp;&nbsp;
-				<label for="pageNb"><bean:message key="statSearch.numberByPage"/></label><input type="text" id="pageNb" size="5" />
+			<label for="pageNb"><bean:message key="statSearch.numberByPage"/></label><html:text property="nbResults" size="5" disabled="true"/></p>
 			</p>
 		</div>
 		<table cellpadding="0" cellspacing="0">
@@ -84,8 +84,16 @@
 						<td><html:multibox property="currentSelectedIds" value="<%= candidate.getId().toString() %>"/></td>
 						<td><html:link action="/candidateModify?action=show" paramId="id" paramName="candidate" paramProperty="id"><bean:write name="candidate" property="lastName"/>&nbsp;</html:link></td>
 						<td><bean:write name="candidate" property="firstName"/>&nbsp;</td>
-						<td><logic:notEmpty name="candidate" property="formationCenter.name"><bean:write name="candidate" property="formationCenter.name"/>&nbsp;</logic:notEmpty></td>
-						<td><logic:notEmpty name="candidate" property="courseOption.name"><bean:write name="candidate" property="courseOption.name"/>&nbsp;</logic:notEmpty></td>
+						<td>
+							<logic:present name="candidate" property="courseOption">
+								<bean:write name="candidate" property="courseOption.name"/>
+							</logic:present>&nbsp;
+						</td>
+						<td>
+							<logic:present name="candidate" property="formationCenter">
+								<bean:write name="candidate" property="formationCenter.name"/>&nbsp;
+							</logic:present>&nbsp;
+						</td>
 						<td><bean:write name="candidate" property="phone" />&nbsp;</td>
 						<td><bean:write name="candidate" property="email" />&nbsp;</td>
 						<td><bean:write name="candidate" property="accepted" />&nbsp;</td>
