@@ -42,14 +42,27 @@ public class Candidate extends Person {
 	@ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name="room_id")
 	private Room room;
+	@ManyToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name="entrylevel_id")
+	private LevelEntryEnum entryLevel;
+	@ManyToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name="professionmother_id")
+	private ProfessionEnum professionMother;
+	@ManyToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name="professionfather_id")
+	private ProfessionEnum professionFather;
+	@ManyToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name="courseoption_id")
+	private CourseOptionEnum courseOption;
+	@ManyToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name="lastdiploma_id")
+	private DiplomaEnum lastDiploma;
+	@ManyToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name="lastsection_id")
+	private SectionEnum lastSection;
 	private boolean otherFormation;
 	private boolean accepted;
-	private LevelEntryEnum entryLevel;
-	private ProfessionEnum professionMother;
-	private ProfessionEnum professionFather;
-	private CourseOptionEnum courseOption;
-	private DiplomaEnum lastDiploma;
-	private SectionEnum lastSection;
+	
 	
 
 	/**
