@@ -28,7 +28,6 @@ public class Contact extends Person {
 	@OneToMany(cascade = {CascadeType.PERSIST , CascadeType.MERGE},
 				mappedBy = "contactOriginIG2K")
 	private List<Candidate> candidates;
-	
 	public List<Candidate> getCandidates() {
 		return candidates;
 	}

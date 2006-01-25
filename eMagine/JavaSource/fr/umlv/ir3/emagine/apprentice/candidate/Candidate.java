@@ -60,6 +60,7 @@ public class Candidate extends Person {
 	@ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name="lastsection_id")
 	private SectionEnum lastSection;
+	
 	private boolean otherFormation;
 	private boolean accepted;
 	

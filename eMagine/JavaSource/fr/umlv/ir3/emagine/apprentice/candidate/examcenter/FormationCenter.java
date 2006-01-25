@@ -8,6 +8,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import javax.persistence.AccessType;
+import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -30,17 +31,18 @@ public class FormationCenter extends EditableEntity {
 	
 	private static final long serialVersionUID = 4966355951897961036L;
 	
-	private String name;
-	@Embedded
-	//FIXME : lbarbisan - Contrainte Unique sur l'addresse de la salle
-	private Address address;
-	private String phone;
 	@OneToMany(mappedBy = "formationCenter")
 	@Cascade(CascadeType.ALL )
 	private List<Room> rooms = new ArrayList<Room>();
 	@OneToMany(mappedBy = "formationCenter")
 	@Cascade(CascadeType.ALL)
 	private List<Candidate> candidates;
+	@Embedded
+	//FIXME : lbarbisan - Contrainte Unique sur l'addresse de la salle
+	private Address address;
+	private String name;
+	private String phone;
+	
 	
 	/**
 	 * @return Returns the address.

@@ -4,7 +4,13 @@
 package fr.umlv.ir3.emagine.util;
 
 import javax.persistence.AccessType;
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import fr.umlv.ir3.emagine.apprentice.CountryEnum;
 import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
@@ -18,7 +24,13 @@ public class Address {
 
 	private static final long serialVersionUID = 7027284397861275888L;
 	
+	@ManyToOne()
+	@Cascade(CascadeType.ALL)
+	@JoinColumn(insertable=false, updatable=false, name="department_id")
 	private DepartmentEnum department;
+	@ManyToOne()
+	@Cascade(CascadeType.ALL)
+	@JoinColumn(insertable=false, updatable=false, name="country_id")
 	private CountryEnum country;
 	private String street;
 	private String postalCode;

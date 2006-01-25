@@ -14,9 +14,14 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import fr.umlv.ir3.emagine.apprentice.CountryEnum;
 import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
@@ -54,9 +59,21 @@ public class Person extends EventableEntity {
 	@Basic(temporalType = TemporalType.TIMESTAMP)
 	private Date birthdayDate;
 	private String birthdayCity;
+	@ManyToOne()
+	@Cascade(CascadeType.ALL)
+	@JoinColumn(name="birthdayCountry_id")
 	private CountryEnum birthdayCountry;
+	@ManyToOne()
+	@Cascade(CascadeType.ALL)
+	@JoinColumn(name="birthdayDepartment_id")
 	private DepartmentEnum birthdayDepartment;
+	@ManyToOne()
+	@Cascade(CascadeType.ALL)
+	@JoinColumn(name="nationality_id")
 	private NationalityEnum nationality;
+	@ManyToOne()
+	@Cascade(CascadeType.ALL)
+	@JoinColumn(name="sex_id")
 	private SexEnum sex;
 	private String lastName;
 	private String firstName;

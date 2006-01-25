@@ -42,7 +42,6 @@ public class Apprentice extends Candidate {
 	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
 	@JoinColumn(name="firm_id")
 	private Firm firm;
-
 	@Embedded()
 	@AttributeOverrides( {
         @AttributeOverride(name="department", column = @Column(name="professionaldepartment")),
@@ -50,22 +49,31 @@ public class Apprentice extends Candidate {
         @AttributeOverride(name="street", column = @Column(name="professionalstreet")),
         @AttributeOverride(name="postalCode", column = @Column(name="professionalpostalCode")),
         @AttributeOverride(name="city", column = @Column(name="professionalcity"))})
+        
 	private Address addressProfessional = new Address();
+	@Embedded()
 	@AttributeOverrides( {
         @AttributeOverride(name="department", column = @Column(name="academicdepartment")),
         @AttributeOverride(name="country", column = @Column(name="academiccountry")),
         @AttributeOverride(name="street", column = @Column(name="academicstreet")),
         @AttributeOverride(name="postalCode", column = @Column(name="academicpostalCode")),
         @AttributeOverride(name="city", column = @Column(name="academiccity"))})
-	@Embedded()
 	private Address addressAcademic = new Address();
+	@ManyToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name="defaultadress_id")
+	private DefaultAddressEnum defaultAdress;
+	@ManyToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name="firstlanguage_id")
+	private LanguageEnum firstLanguage;
+	@ManyToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name="secondlanguage_id")
+	private LanguageEnum secondLanguage;
 	
+	//FIXME: lbarbisan - Passer les tableau en table Hibernate
 	private ArrayList<Integer> examsMark;
 	private ArrayList<String> diplomas;
 	private ArrayList<String> schooling;
-	private DefaultAddressEnum defaultAdress;
-	private LanguageEnum firstLanguage;
-	private LanguageEnum secondLanguage;
+	
 	private Integer year;
 	private Boolean excluded;
 	

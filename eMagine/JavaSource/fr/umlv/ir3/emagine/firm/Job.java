@@ -7,6 +7,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import fr.umlv.ir3.emagine.apprentice.candidate.CourseOptionEnum;
+import fr.umlv.ir3.emagine.event.EventTypeEnum;
 import fr.umlv.ir3.emagine.modification.EditableEntity;
 
 @Entity(access = AccessType.FIELD)
@@ -18,6 +19,8 @@ public class Job extends EditableEntity {
 	@JoinColumn(name = "firm_id")
 	private Firm firm;
 	
+	@ManyToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name="cursus_id")
 	private CourseOptionEnum cursus;
 	private String name;
 	private String title;

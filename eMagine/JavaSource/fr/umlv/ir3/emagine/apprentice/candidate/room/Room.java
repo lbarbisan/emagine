@@ -28,21 +28,18 @@ import fr.umlv.ir3.emagine.modification.EditableEntity;
 @Inheritance(strategy=InheritanceType.JOINED)
 public class Room extends EditableEntity {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 2288855718464048519L;
-	private String  name;
-	private Integer capacity;
 	
 	@OneToMany(	mappedBy = "room")
 	@Cascade(CascadeType.ALL)
 	private List<Candidate> candidates = new ArrayList<Candidate>();
-	
 	@ManyToOne()
 	@Cascade(CascadeType.ALL)
 	@JoinColumn(name="formationcenter_id")
 	private FormationCenter formationCenter;
+	
+	private String  name;
+	private Integer capacity;
 
 	
 	public Integer getNumberOfFreeSits() {

@@ -8,7 +8,10 @@ import java.util.Date;
 
 import javax.persistence.AccessType;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.TemporalType;
 
 import fr.umlv.ir3.emagine.util.base.BaseEntity;
@@ -24,13 +27,16 @@ public class Event extends BaseEntity {
 
 	private static final long serialVersionUID = 4144109134646449620L;
 	
+	@ManyToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name="type_id")
+	private EventTypeEnum type;
 	@Basic(temporalType = TemporalType.TIMESTAMP)
 	private Date date = new Date();
 	private ArrayList<BaseEntity> sources = new ArrayList<BaseEntity>();
 	private String title;
 	private String comment;
+	private String connectedUser;
 	private String description;
-	private EventTypeEnum type;
 	
 	/**
 	 * @return Returns the comment.
@@ -98,5 +104,17 @@ public class Event extends BaseEntity {
 	 */
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	/**
+	 * @return Returns the connectedUser.
+	 */
+	public String getConnectedUser() {
+		return connectedUser;
+	}
+	/**
+	 * @param connectedUser The connectedUser to set.
+	 */
+	public void setConnectedUser(String connectedUser) {
+		this.connectedUser = connectedUser;
 	}
 }
