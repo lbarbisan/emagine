@@ -97,7 +97,7 @@ public abstract class SearchForm<BaseType> extends ActionForm implements SearchP
 		
 		for (Method m : this.getClass().getDeclaredMethods()) {
 			if (m.getAnnotation(IsASearchParam.class) != null) {
-					log.debug("Add field " + m.getAnnotation(IsASearchParam.class).value());
+					log.debug("Add field " + m.getAnnotation(IsASearchParam.class).value() + " typed with " + m.getAnnotation(IsASearchParam.class).type());
 
 					ParameterInfo parameterInfo = new ParameterInfo(
 							m.getAnnotation(IsASearchParam.class).value(),
