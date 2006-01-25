@@ -51,6 +51,7 @@ public class EmagineRealmProxy implements SecurityRealmInterface  {
 			CatalinaRealmAdapter realmAdapter = new CatalinaRealmAdapter();
 			realmAdapter.setRealm(realm);
 			this.realm = realmAdapter;
+			realm.setDebug(1);
 
 		} else {
 			this.realm = new SecurityRealmInterface() {
@@ -67,14 +68,10 @@ public class EmagineRealmProxy implements SecurityRealmInterface  {
 				};
 
 				public Principal authenticate(String username, String password) {
-					log.debug("authenticate : " + username + " / " + password);
 					return new StringPrincipal(username);
 				}
 
 				public boolean isUserInRole(Principal principal, String rolename) {
-					log.debug("isUserInRole : "
-							+ (principal != null ? principal.getName()
-									: "[principal_null]") + " / " + rolename);
 					return true;
 				}
 			};
@@ -82,6 +79,7 @@ public class EmagineRealmProxy implements SecurityRealmInterface  {
 	}
 	
 	public Principal authenticate(String username, String password) {
+		log.debug("authenticate : " + username + " / " + password);
 		final Principal principal = realm.authenticate(username, password);
 		if (principal != null) {
 			final User user = DAOManager.getInstance().getUserDAO().find(username,
@@ -106,6 +104,9 @@ public class EmagineRealmProxy implements SecurityRealmInterface  {
 	}
 
 	public boolean isUserInRole(Principal principal, String rolename) {
+		log.debug("isUserInRole : "
+				+ (principal != null ? principal.getName()
+						: "[principal_null]") + " / " + rolename);
         if ((principal == null) || (rolename == null) ||
                 !(principal instanceof EmaginePrincipal))
                 return (false);

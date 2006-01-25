@@ -3,13 +3,13 @@
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic"%>
 <h2><bean:message key="form.administration"/></h2>
 <ul>
-	<logic:present role="user.search">
+	<logic:present role="user.find">
 		<li><html:link action="/userSearch?action=show"><bean:message key="user.search.title"/></html:link></li>
 	</logic:present>
 	<logic:present role="user.retrieve">
 		<li><html:link action="/userCreate?action=show"><bean:message key="user.create.title"/></html:link></li>
 	</logic:present>
-	<logic:present role="profile.search">
+	<logic:present role="profile.find">
 		<li><html:link action="/profileList?action=list"><bean:message key="profil.list.title"/></html:link></li>
 	</logic:present>
 	<logic:present role="profile.create">
