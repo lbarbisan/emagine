@@ -125,20 +125,15 @@ public class InitDB {
 			Profile administrateur = new Profile();
 			administrateur.setDescription("Droit des utilisateurs");
 			administrateur.setName("Administrateur");
-			administrateur.addRights(new Right("user.create"));
-			administrateur.addRights(new Right("user.update"));
-			administrateur.addRights(new Right("user.delete"));
 
 			// Init Rights
 			HashSet<String> rightSet = new HashSet<String>();
 
-			rightSet.add("user.create");
-			rightSet.add("user.update");
-			rightSet.add("user.delete");
-
 			File rootFolder = new File("JavaSource/fr");
 			initFolderManager(rootFolder, "fr", rightSet);
-
+			
+			administrateur.setRights(DAOManager.getInstance().getRightDAO().findAll());
+			
 			Profile visitor = new Profile();
 			visitor.setDescription("Droit des utilisateurs");
 			visitor.setName("Utilisateur");
