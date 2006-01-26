@@ -3,6 +3,8 @@
  */
 package fr.umlv.ir3.emagine.apprentice.candidate.examcenter;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -11,6 +13,8 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessages;
 
+import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
+import fr.umlv.ir3.emagine.apprentice.candidate.room.Room;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.ManagerManager;
 import fr.umlv.ir3.emagine.util.base.BaseAction;
@@ -40,6 +44,8 @@ public class FormationCenterModifyAction extends BaseAction {
 				centerModifyForm.setAdress(center.getAddress());
 				centerModifyForm.setName(center.getName());
 				centerModifyForm.setTelephone(center.getPhone());
+				centerModifyForm.setRoom(center.getRooms());
+				//centerModifyForm.setIdDepartment(center.getAddress().getDepartment().getId().toString());
 			}
 			
 		} catch (EMagineException exception) {
@@ -71,9 +77,11 @@ public class FormationCenterModifyAction extends BaseAction {
 		// Update the center
 		try {
 			FormationCenter center = centerManager.retrieve(Long.parseLong(centerModifyForm.getIdFormationCenterToModify()));
+			/*center.getAddress().setDepartment((DepartmentEnum)managerManager.getEmagineEnumManager().retrieve(Long.parseLong(centerModifyForm.getIdDepartment()),DepartmentEnum.class));*/
 			center.setAddress(center.getAddress());
 			center.setName(centerModifyForm.getName());
 			center.setPhone(centerModifyForm.getTelephone());
+			center.setRooms(new ArrayList<Room>(centerModifyForm.getRoom()));
 		} catch (EMagineException exception) {
 			addEMagineExceptionError(errors, exception);
 		}

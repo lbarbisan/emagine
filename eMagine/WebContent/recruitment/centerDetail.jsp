@@ -13,6 +13,10 @@
 			document.formationCenterModifyForm.action = "/eMagine/roomDelete.do?action=delete&from=search";
 			document.formationCenterModifyForm.submit();
 		}
+	}	
+	function modifyCenter() {
+		setAction('modify');
+		document.formationCenterModifyForm.submit();
 	}
 -->
 </script>
@@ -66,6 +70,7 @@
 		</ul>
 		<h2>&nbsp;</h2>
 		<ul>
+			<li><html:link href="javascript:modifyCenter();"><html:img src="/eMagine/common/images/icones/modif.png" titleKey="button.title.update" /></html:link></li>
 			<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" title="<bean:message key="button.title.remove"/>"/></a></li>
 			<li><html:link action="roomAdd"><img src="/eMagine/common/images/icones/ajouter.png" title="<bean:message key="button.title.add"/>"/></html:link></li>
 		</ul>

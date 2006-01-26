@@ -41,6 +41,7 @@ public class RoomDeleteAction extends BaseAction {
 				try {
 					Room room = roomManager.retrieve(Long.parseLong(idRoom));
 					roomManager.delete(room); // TODO A faire pour le forcage
+					System.out.println("delete de la room");
 				} catch (EMagineException exception) {
 					addEMagineExceptionError(errors, exception);
 				}

@@ -202,7 +202,7 @@
 		</action>
 		<action path="/centerDetail" type="fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenterModifyAction" name="formationCenterModifyForm" input="recruitment.centerDetail" parameter="action" scope="session" validate="true">
 			<forward name="_default_target_" path="recruitment.centerDetail" redirect="true" />
-			<forward name="success" path="/formationCenterList.do?action=list" redirect="true" />
+			<forward name="success" path="recruitment.centerList" redirect="true" />
 		</action>		
 		<action path="/candidateVisuInfo" forward="recruitment.candidateVisuInfo" scope="session"/>
 		<action path="/candidateOnglet"

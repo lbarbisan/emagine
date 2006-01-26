@@ -2,6 +2,30 @@
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic"%>
 
+<script type="text/javascript">
+<!--
+	function setAction(value) {
+		document.roomModifyForm.action.value = value;
+	}
+	
+	function deleteRoom() {
+		if(confirm("Souhaitez-vous réellement supprimer cette salle ?")) {
+			open("/eMagine/roomDelete.do?action=delete&from=modify&currentSelectedIds=" + document.roomModifyForm.elements['idRoomToModify'].value, "_self");
+		}
+	}
+	
+	function modifyRoom() {
+		setAction('modify');
+		document.roomModifyForm.submit();
+	}
+
+	function resetForm() {
+		document.roomModifyForm.reset();
+	}
+-->
+</script>
+
+
 <h2><bean:message key="room.detail.title"/><html:link action="/centerDetail?action=show"><img src="/eMagine/common/images/icones/retour.png" title="<bean:message key="button.title.return"/>"/></html:link></h2>
 <br/>
 <div class="form">
@@ -19,8 +43,9 @@
 <div id="actions">
 	<h2>&nbsp;</h2>
 	<ul>
-		<li><a href="#"><img src="/eMagine/common/images/icones/modif.png" title="<bean:message key="button.title.update"/>"/></a></li>
-		<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" title="<bean:message key="button.title.remove"/>"/></a></li>
+		<li><html:link href="javascript:modifyRoom();"><html:img src="/eMagine/common/images/icones/modif.png" titleKey="button.title.update" /></html:link></li>
+		<li><html:link href="javascript:resetForm();"><html:img src="/eMagine/common/images/icones/reinit.png" titleKey="button.title.reinitialize" /></html:link></li>
+		<li><html:link href="javascript:deleteRoom();"><html:img src="/eMagine/common/images/icones/supprimer.png" titleKey="button.title.remove" /></html:link></li>
 	</ul>
 </div>
 <div align="right"><font color="red" size="1"><bean:message key="form.msg.obligation.star"/></font></div>
