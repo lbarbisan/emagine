@@ -13,7 +13,7 @@ import fr.umlv.ir3.emagine.util.EMagineException;
  * @author eMagine Team
  *
  */
-@MustHaveRights("formationCenterManager")
+@MustHaveRights("formationCenter")
 public interface FormationCenterManager extends EditableManager<FormationCenter, FormationCenterDAO> {
 
 	/**
@@ -22,7 +22,7 @@ public interface FormationCenterManager extends EditableManager<FormationCenter,
 	 * @param room
 	 * @throws EMagineException throws if an SQLException occures
 	 */
-	@MustHaveRights("formationCenterManager.update")
+	@MustHaveRights("formationCenter.update")
 	public abstract void addRoom(FormationCenter formationCenter, Room room)
 			throws EMagineException;
 
@@ -32,7 +32,7 @@ public interface FormationCenterManager extends EditableManager<FormationCenter,
 	 * @param room
 	 * @throws EMagineException throws if an SQLException occures
 	 */
-	@MustHaveRights("formationCenterManager.update")
+	@MustHaveRights("formationCenter.update")
 	public abstract void removeRoom(FormationCenter formationCenter, Room room)
 			throws EMagineException;
 
@@ -42,7 +42,7 @@ public interface FormationCenterManager extends EditableManager<FormationCenter,
 	 * @param rooms 
 	 * @throws EMagineException throws if an SQLException occures
 	 */
-	@MustHaveRights("formationCenterManager.update")
+	@MustHaveRights("formationCenter.update")
 	public abstract void removeRooms(FormationCenter formationCenter,
 			Collection<Room> rooms) throws EMagineException;
 
