@@ -80,9 +80,6 @@ public class CandidateCreateAction extends BaseAction {
 			//Retrieve all department and set them in the form
 			candidateModifyForm.setContacts((List<ContactEnum>)emagineEnumManager.findAll(ContactEnum.class));
 		
-
-
-
 		}catch (EMagineException exception) {
 			//log.error(exception);
 			addEMagineExceptionError(errors, exception);
@@ -113,7 +110,7 @@ public class CandidateCreateAction extends BaseAction {
 		candidate.setFirstName(candidateForm.getFirstName());
 		candidate.setLastName(candidateForm.getLastName());
 		candidate.setSex((SexEnum) emagineEnumManager.retrieve(Long.parseLong(candidateForm.getIdSex()), SexEnum.class));
-		candidate.setBirthdayDate(StringToDate(candidateForm.getBirth()));	
+		candidate.setBirthdayDate(stringToDate(candidateForm.getBirth()));	
 		candidate.setBirthdayCountry((CountryEnum) emagineEnumManager.retrieve(Long.parseLong(candidateForm.getIdCountry()), CountryEnum.class));
 		candidate.setNationality((NationalityEnum) emagineEnumManager.retrieve(Long.parseLong(candidateForm.getIdNationality()), NationalityEnum.class));
 		candidate.setBirthdayDepartment((DepartmentEnum) emagineEnumManager.retrieve(Long.parseLong(candidateForm.getIdDepartment()), DepartmentEnum.class));
@@ -150,16 +147,19 @@ public class CandidateCreateAction extends BaseAction {
 		return successIfNoErrors(mapping, request, errors);
 	}
 
-	private Date StringToDate(String stringDate)
-	{
-	    
-	    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
-	    Date date = Calendar.getInstance().getTime();
-	    
-	    try{
-	        date = simpleDateFormat.parse(stringDate);
-	    }catch(ParseException e){}     
-	  
-	    return date;
+	private Date stringToDate(String stringDate) {
+		Date date = null;
+		System.err.println(stringDate);
+		if (stringDate != "") {
+			SimpleDateFormat simpleDateFormat = new SimpleDateFormat(
+					"yy-MM-dd hh:mm:ss:nn");
+			date = Calendar.getInstance().getTime();
+			try {
+				date = simpleDateFormat.parse(stringDate);
+				System.err.println(date);
+			} catch (ParseException e) {
+			}
+		}
+		return date;
 	}
 }

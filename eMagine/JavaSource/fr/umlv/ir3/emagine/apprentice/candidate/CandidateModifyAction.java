@@ -5,7 +5,6 @@ package fr.umlv.ir3.emagine.apprentice.candidate;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -16,7 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
 
 import fr.umlv.ir3.emagine.apprentice.CountryEnum;
@@ -24,9 +22,7 @@ import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
 import fr.umlv.ir3.emagine.apprentice.LevelEntryEnum;
 import fr.umlv.ir3.emagine.apprentice.NationalityEnum;
 import fr.umlv.ir3.emagine.apprentice.SexEnum;
-import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenter;
 import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenterManager;
-import fr.umlv.ir3.emagine.user.profile.ProfileManager;
 import fr.umlv.ir3.emagine.util.Address;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.EmagineEnumManager;
@@ -56,13 +52,14 @@ public class CandidateModifyAction extends BaseAction {
 			String idCandidate = request.getParameter("id");			
 			if(idCandidate != null && !"".equals(idCandidate)) {
 				Candidate candidate = managerManager.getCandidateManager().retrieve(Long.parseLong(idCandidate));
-
-				candidateModifyForm.setLastName(candidateModifyForm.getLastName());
+				candidateModifyForm.setIdCandidateToModify(idCandidate);
+				candidateModifyForm.setFirstName(candidate.getFirstName());
+				candidateModifyForm.setLastName(candidate.getLastName());
 				candidateModifyForm.setCity(candidate.getBirthdayCity());
 				candidateModifyForm.setPersMobile(candidate.getMobilePhone());
 				candidateModifyForm.setPersEmail(candidate.getEmail());
-				candidateModifyForm.setPersFax(candidateModifyForm.getPersFax());
-				candidateModifyForm.setPersPhone(candidateModifyForm.getPersPhone());
+				candidateModifyForm.setPersFax(candidate.getFax());
+				candidateModifyForm.setPersPhone(candidate.getPhone());
 				candidateModifyForm.setAdmissibility(candidate.isAccepted());
 				candidateModifyForm.setFormation(candidate.isOtherFormation());
 				
@@ -71,9 +68,8 @@ public class CandidateModifyAction extends BaseAction {
 					candidateModifyForm.setIdSex(Long.toString(candidate.getSex().getId()));
 				}
 				// Birthday
-				//TODO mettre au bon format la date!!
 				if(candidate.getBirthdayDate() != null) {
-					candidateModifyForm.setBirth(candidate.getBirthdayDate().toString());		
+					candidateModifyForm.setBirth(dateToShow(candidate.getBirthdayDate()));		
 				}
 				//country of birth
 				if(candidate.getBirthdayCountry() != null) {
@@ -203,13 +199,13 @@ public class CandidateModifyAction extends BaseAction {
 		CandidateModifyForm candidateModifyForm = (CandidateModifyForm) form;
 		EmagineEnumManager emagineEnumManager = managerManager.getEmagineEnumManager();
 		
-		// TODO !!! Update the Candidate
+		//Update the Candidate
 		try {
 			Candidate candidate = candidateManager.retrieve(Long.parseLong(candidateModifyForm.getIdCandidateToModify()));
 			candidate.setFirstName(candidateModifyForm.getFirstName());
 			candidate.setLastName(candidateModifyForm.getLastName());
 			candidate.setSex((SexEnum) emagineEnumManager.retrieve(Long.parseLong(candidateModifyForm.getIdSex()), SexEnum.class));
-			candidate.setBirthdayDate(StringToDate(candidateModifyForm.getBirth()));	
+			candidate.setBirthdayDate(stringToDate(candidateModifyForm.getBirth()));	
 			candidate.setBirthdayCountry((CountryEnum) emagineEnumManager.retrieve(Long.parseLong(candidateModifyForm.getIdCountry()), CountryEnum.class));
 			candidate.setNationality((NationalityEnum) emagineEnumManager.retrieve(Long.parseLong(candidateModifyForm.getIdNationality()), NationalityEnum.class));
 			candidate.setBirthdayDepartment((DepartmentEnum) emagineEnumManager.retrieve(Long.parseLong(candidateModifyForm.getIdDepartment()), DepartmentEnum.class));
@@ -241,16 +237,28 @@ public class CandidateModifyAction extends BaseAction {
         // Report back any errors, and exit if any
 		return successIfNoErrors(mapping, request, errors);
 	}
-	private Date StringToDate(String stringDate)
-	{
-	    
-	    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
-	    Date date = Calendar.getInstance().getTime();
-	    
-	    try{
-	        date = simpleDateFormat.parse(stringDate);
-	    }catch(ParseException e){}     
-	  
-	    return date;
+	private Date stringToDate(String stringDate) {
+		Date date = null;
+		System.err.println(stringDate);
+		if (stringDate != "") {
+			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yy-MM-dd hh:mm:ss:SSS");
+			date = Calendar.getInstance().getTime();
+			try {
+				date = simpleDateFormat.parse(stringDate);
+				System.err.println(date);
+			} catch (ParseException e) {
+			}
+		}
+		return date;
+	}
+
+	private String dateToShow(Date date) {
+		String stringDate = "";
+		if (date != null) {
+			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yy");
+			stringDate = simpleDateFormat.format(date);
+		}
+		System.err.println(stringDate);
+		return stringDate;
 	}
 }

@@ -3,6 +3,10 @@
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic"%>
 <%@ taglib uri="/WEB-INF/tld/struts-layout.tld" prefix="layout"%>
 
+<script src="/eMagine/common/js/strutsLayout.js"></script>
+<script>
+	imgsrc="/eMagine/common/images/icones/";
+</script>
 <script type="text/javascript">
 <!--
 	function setAction(value) {
