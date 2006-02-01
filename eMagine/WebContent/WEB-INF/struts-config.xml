@@ -26,6 +26,7 @@
 		<form-bean name="formationCenterModifyForm" type="fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenterModifyForm" />
 		<form-bean name="bringingTogetherForm" type="fr.umlv.ir3.emagine.apprentice.candidate.BringingTogetherForm" />	
 		<form-bean name="roomModifyForm" type="fr.umlv.ir3.emagine.apprentice.candidate.room.RoomModifyForm" />	
+		<form-bean name="apprenticeSearchForm" type="fr.umlv.ir3.emagine.apprentice.ApprenticeSearchForm" />	
 	</form-beans>
 
 	<!-- ========== Action Mapping Definitions =============================== -->
@@ -58,8 +59,9 @@
 		<!-- apprentice -->
 		<action path="/apprenticeVisuAdress"
 			forward="apprentice.apprenticeVisuAdress" />
-		<action path="/apprenticeSearch"
-			forward="apprentice.apprenticeSearch" />
+		<action path="/apprenticeSearch" type="fr.umlv.ir3.emagine.apprentice.ApprenticeSearchAction" name="apprenticeSearchForm" parameter="action" scope="session">
+			<forward name="_default_target_" path="apprentice.apprenticeSearch" />
+		</action>
 		<action path="/apprenticeVisuSituation"
 			forward="apprentice.apprenticeVisuSituation" />
 		<action path="/apprenticeVisuStatus"

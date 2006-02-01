@@ -4,6 +4,6 @@
 <h2><bean:message key="form.apprentice"/></h2>
 <ul>
 	<logic:present role="apprentice.find">
-		<li><html:link action="/apprenticeSearch"><bean:message key="apprentice.search.title"/></html:link></li>
+		<li><html:link action="/apprenticeSearch?action=show"><bean:message key="apprentice.search.title"/></html:link></li>
 	</logic:present>
 </ul>

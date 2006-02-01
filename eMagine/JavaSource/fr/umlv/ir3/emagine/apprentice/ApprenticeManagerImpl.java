@@ -138,7 +138,7 @@ public class ApprenticeManagerImpl extends EventableManagerImpl<Apprentice, Appr
 	/**
 	 * @see fr.umlv.ir3.emagine.apprentice.ApprenticeManager#find(fr.umlv.ir3.emagine.apprentice.ApprenticeSearchParams)
 	 */
-	public List<Apprentice> find(ApprenticeSearchParams apprenticeSearchParams) throws EMagineException {
+	public List<Apprentice> find(ApprenticeSearchParam apprenticeSearchParams) throws EMagineException {
 		return super.find(apprenticeSearchParams);
 	}
 	

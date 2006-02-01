@@ -121,6 +121,5 @@
 			<li><html:link action="/candidateExtract"><img src="/eMagine/common/images/icones/extraire.png" title="Extraire un candidat"/></html:link></li>
 		</ul>
 	</div>
-	
 <html:hidden property="action" />	
 </html:form>

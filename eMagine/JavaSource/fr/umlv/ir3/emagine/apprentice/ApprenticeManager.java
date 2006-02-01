@@ -61,7 +61,7 @@ public interface ApprenticeManager extends EventableManager<Apprentice, Apprenti
 	 * @throws EMagineException 
 	 */
 	public abstract List<Apprentice> find(
-			ApprenticeSearchParams apprenticeSearchParams)
+			ApprenticeSearchParam apprenticeSearchParams)
 			throws EMagineException;
 
 }

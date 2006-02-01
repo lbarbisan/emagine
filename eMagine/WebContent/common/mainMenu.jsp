@@ -4,7 +4,7 @@
 <div id="bloc_menu1">
 	<ul id="menu">
 		<logic:present role="apprentice.retrieve,apprentice.find">
-			<li><html:link action="/apprenticeSearch"><bean:message key="form.apprentice"/></html:link>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;</li>
+			<li><html:link action="/apprenticeSearch?action=show"><bean:message key="form.apprentice"/></html:link>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;</li>
 		</logic:present>
 		<logic:present role="firm.retrieve,firm.find">
 			<li><html:link action="/companySearch"><bean:message key="form.company"/></html:link>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;</li>
