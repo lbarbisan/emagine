@@ -11,7 +11,9 @@ import javax.persistence.AccessType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
@@ -37,8 +39,10 @@ public class FormationCenter extends EditableEntity {
 	@OneToMany(mappedBy = "formationCenter")
 	@Cascade(CascadeType.ALL)
 	private List<Candidate> candidates;
-	@Embedded
-	//FIXME : lbarbisan - Contrainte Unique sur l'addresse de la salle
+	@OneToOne()
+	@Cascade(CascadeType.ALL)
+	@JoinColumn(name = "address_id")
+	@Column(unique = true)
 	private Address address;
 	private String name;
 	private String phone;

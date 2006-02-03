@@ -8,14 +8,12 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.AccessType;
-import javax.persistence.AttributeOverride;
-import javax.persistence.AttributeOverrides;
 import javax.persistence.Basic;
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
@@ -47,13 +45,10 @@ public class Person extends EventableEntity {
 
 	private static final long serialVersionUID = 4072133161366106454L;
 		
-    @Embedded
-    @AttributeOverrides( {
-        @AttributeOverride(name="department", column = @Column(name="personnaldepartment")),
-        @AttributeOverride(name="country", column = @Column(name="personnalcountry")),
-        @AttributeOverride(name="street", column = @Column(name="personnalstreet")),
-        @AttributeOverride(name="postalCode", column = @Column(name="personnalpostalCode")),
-        @AttributeOverride(name="city", column = @Column(name="personnalcity"))})
+	@OneToOne()
+	@Cascade(CascadeType.ALL)
+	@JoinColumn(name = "addressPersonnal_id")
+	@Column(unique = true)
 	private Address addressPersonnal = new Address();
 
 	@Basic(temporalType = TemporalType.TIMESTAMP)

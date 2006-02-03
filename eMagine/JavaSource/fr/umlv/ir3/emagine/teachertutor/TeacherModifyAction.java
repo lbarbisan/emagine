@@ -45,6 +45,10 @@ public class TeacherModifyAction extends BaseAction {
 				teacherModifyForm.setCellular(teacher.getMobilePhone());
 				teacherModifyForm.setCity(teacher.getAddressProfessional().getCity());
 				teacherModifyForm.setFax(teacher.getFax());
+				System.out.println(teacher.getAddressProfessional());
+				System.out.println(teacher.getAddressProfessional().getDepartment());
+				System.out.println(teacher.getAddressProfessional().getDepartment().getId());
+				System.out.println(teacher.getAddressProfessional().getDepartment().getId().toString());
 				teacherModifyForm.setIdDepartment(teacher.getAddressProfessional().getDepartment().getId().toString());
 				teacherModifyForm.setMail(teacher.getEmail());
 				teacherModifyForm.setPhone(teacher.getPhone());

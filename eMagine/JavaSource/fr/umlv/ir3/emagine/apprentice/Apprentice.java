@@ -9,10 +9,13 @@ import javax.persistence.AttributeOverrides;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.Columns;
 
 import fr.umlv.ir3.emagine.apprentice.absence.Absence;
 import fr.umlv.ir3.emagine.apprentice.candidate.Candidate;
@@ -44,7 +47,9 @@ public class Apprentice extends Candidate {
 	private Firm firm;
 	@Embedded()
 	@AttributeOverrides( {
-        @AttributeOverride(name="department", column = @Column(name="professionaldepartment")),
+		//@AttributeOverride(name="department_id", column = @Column(name="professionaldepartment_id")),
+        //@AttributeOverride(name="country_id", column = @Column(name="professionalcountry_id")),
+		@AttributeOverride(name="department", column = @Column(name="professionaldepartment")),
         @AttributeOverride(name="country", column = @Column(name="professionalcountry")),
         @AttributeOverride(name="street", column = @Column(name="professionalstreet")),
         @AttributeOverride(name="postalCode", column = @Column(name="professionalpostalCode")),
@@ -53,7 +58,9 @@ public class Apprentice extends Candidate {
 	private Address addressProfessional = new Address();
 	@Embedded()
 	@AttributeOverrides( {
-        @AttributeOverride(name="department", column = @Column(name="academicdepartment")),
+		//@AttributeOverride(name="department_id", column = @Column(name="academicdepartment_id")),
+        //@AttributeOverride(name="country_id", column = @Column(name="academiccountry_id")),
+		@AttributeOverride(name="department", column = @Column(name="academicdepartment")),
         @AttributeOverride(name="country", column = @Column(name="academiccountry")),
         @AttributeOverride(name="street", column = @Column(name="academicstreet")),
         @AttributeOverride(name="postalCode", column = @Column(name="academicpostalCode")),

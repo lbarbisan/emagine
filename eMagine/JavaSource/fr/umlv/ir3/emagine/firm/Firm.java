@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.persistence.AccessType;
 import javax.persistence.CascadeType;
-import javax.persistence.Embedded;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -40,7 +40,10 @@ public class Firm extends EventableEntity {
 	@OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},
 			mappedBy = "firm")
 	private List<Apprentice> apprentices;
-	@Embedded
+	
+	@OneToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+	@JoinColumn(name = "address_id")
+	@Column(unique = true)
 	private Address address;
 	
 	private String name;

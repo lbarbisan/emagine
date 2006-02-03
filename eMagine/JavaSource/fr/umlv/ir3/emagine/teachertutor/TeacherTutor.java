@@ -3,11 +3,14 @@ package fr.umlv.ir3.emagine.teachertutor;
 import java.util.List;
 
 import javax.persistence.AccessType;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import fr.umlv.ir3.emagine.apprentice.Apprentice;
 import fr.umlv.ir3.emagine.util.Address;
@@ -22,11 +25,15 @@ public class TeacherTutor extends Person {
 
 	private static final long serialVersionUID = 3578189435879585726L;
 
-	@OneToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "teacherTutor")
+	@OneToMany(mappedBy = "teacherTutor")
+	@Cascade(CascadeType.ALL)
 	@Column(unique = true)
 	private List<Apprentice> apprentice;
 
-	@Embedded
+	@OneToOne()
+	@Cascade(CascadeType.ALL)
+	@JoinColumn(name = "addressProfessional_id")
+	@Column(unique = true)
 	private Address addressProfessional = new Address();
 
 	/**
