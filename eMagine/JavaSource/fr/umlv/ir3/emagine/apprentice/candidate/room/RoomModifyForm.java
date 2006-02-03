@@ -22,6 +22,7 @@ public class RoomModifyForm extends ActionForm {
 	private String name;
 	private String capacity;
 	private String nbDispo;
+	private String idCenter;
 	
 
 	@Override
@@ -43,6 +44,7 @@ public class RoomModifyForm extends ActionForm {
 		idRoomToModify = "";
 		capacity = "";
 		nbDispo = "";
+		idCenter = "";
 	}
 
 	/**
@@ -113,6 +115,20 @@ public class RoomModifyForm extends ActionForm {
 	 */
 	public void setNbDispo(String nbDispo) {
 		this.nbDispo = nbDispo;
+	}
+
+	/**
+	 * @return Returns the idCenter.
+	 */
+	public String getIdCenter() {
+		return idCenter;
+	}
+
+	/**
+	 * @param idCenter The idCenter to set.
+	 */
+	public void setIdCenter(String idCenter) {
+		this.idCenter = idCenter;
 	}
 }
 

@@ -18,24 +18,25 @@
 		setAction('modify');
 		document.formationCenterModifyForm.submit();
 	}
+	
 -->
 </script>
 
-
+<bean:parameter name="id" id="examCenterId"/>
 <h2><bean:message key="center.detail.title"/></h2>
 <br/>
 
 <html:form action="/centerDetail" method="POST" focus="name">
 	<div class="form">
 		<p><label for="name"><bean:message key="form.name"/><font color="red">*</font> </label><html:text property="name" size="20" /></p>
-		<p><label for="address"><bean:message key="form.adress"/><font color="red">*</font> </label><input type="text" id="address.street" size="20"/></p>
-		<p><label for="postalCode"><bean:message key="form.postalCode"/><font color="red">*</font> </label><input type="text" id="address.postalCode" size="20" /></p>
-			<p><label for="city"><bean:message key="form.city"/><font color="red">*</font> </label><input type="text" id="address.city" size="20" /></p>
+		<p><label for="street"><bean:message key="form.adress"/><font color="red">*</font> </label><html:text property="street" size="20"/></p>
+		<p><label for="postalCode"><bean:message key="form.postalCode"/><font color="red">*</font> </label><html:text property="postalCode" size="20" /></p>
+			<p><label for="city"><bean:message key="form.city"/><font color="red">*</font> </label><html:text property="city" size="20" /></p>
 			<p><label for="department"><bean:message key="form.department"/><font color="red">*</font></label>
 			<select>
 			</select>
 		</p>	
-		<p><label for="phone"><bean:message key="form.phone"/></label><input type="text" id="phone" size="20"/></p>	
+		<p><label for="phone"><bean:message key="form.phone"/></label><html:text property="phone" size="20" /></p>	
 	</div>
 	<br/>
 	<div align=center>
@@ -49,7 +50,7 @@
 		  	<logic:notEmpty name="formationCenterModifyForm" property="room">
 				<logic:iterate id="currentRoom" name="formationCenterModifyForm" property="room" type="fr.umlv.ir3.emagine.apprentice.candidate.room.Room">
 					<tr>
-						<td>&nbsp;</td>
+						<td><html:multibox property="currentSelectedIds" value="<%= currentRoom.getId().toString() %>" /></td>
 						<td><html:link action="/roomDetail?action=show" paramId="id" paramName="currentRoom" paramProperty="id"><bean:write name="currentRoom" property="name" />&nbsp;</html:link></td>
 						<td><bean:write name="currentRoom" property="capacity" />&nbsp;</td>
 						<td><bean:write name="currentRoom" property="numberOfFreeSits" />&nbsp;</td>
@@ -72,7 +73,7 @@
 		<ul>
 			<li><html:link href="javascript:modifyCenter();"><html:img src="/eMagine/common/images/icones/modif.png" titleKey="button.title.update" /></html:link></li>
 			<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" title="<bean:message key="button.title.remove"/>"/></a></li>
-			<li><html:link action="roomAdd"><img src="/eMagine/common/images/icones/ajouter.png" title="<bean:message key="button.title.add"/>"/></html:link></li>
+			<li><html:link action="<%= "/roomAdd?action=show&id="+examCenterId %>"><img src="/eMagine/common/images/icones/ajouter.png" title="<bean:message key="button.title.add"/>"/></html:link></li>
 		</ul>
 	</div>
 	<html:hidden property="idFormationCenterToModify" />

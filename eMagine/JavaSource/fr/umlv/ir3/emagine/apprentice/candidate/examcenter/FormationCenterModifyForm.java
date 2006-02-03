@@ -1,6 +1,7 @@
 package fr.umlv.ir3.emagine.apprentice.candidate.examcenter;
 
 import java.util.Collection;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -11,7 +12,6 @@ import org.apache.struts.action.ActionMessage;
 
 import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.room.Room;
-import fr.umlv.ir3.emagine.util.Address;
 
 
 /**
@@ -24,20 +24,24 @@ public class FormationCenterModifyForm extends ActionForm {
 	private static final long serialVersionUID = -2405706291327109100L;
 
 	private String name;
-	private Address address;
-	private String telephone;
+	private String street;
+	private String postalCode;
+	private String city;
+	private String phone;
 	private Collection <Room> room;
 	private String action;
 	private String idFormationCenterToModify;
 	private String idDepartment;
 	private Collection <DepartmentEnum> departments;
+	protected Set<String> selectedIds;
+	protected String currentSelectedIds[];
 	
 
 	@Override
 	public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
 		ActionErrors errors = new ActionErrors();
 		if("create".equals(action) || "show".equals(action) ) {
-			if("".equals(name) || "".equals(idDepartment) || "".equals(address))
+			if("".equals(name) || "".equals(idDepartment) || "".equals(street))
 				errors.add("allRequiredFieldIsNotfillin", new ActionMessage("user.error.allRequiredFieldIsNotfillin"));
 		}			
 		return errors;
@@ -49,13 +53,16 @@ public class FormationCenterModifyForm extends ActionForm {
 	public void reset() {
 		idDepartment = "";
 		action = "";
-		address = new Address();
+		street = "";
+		postalCode = "";
+		city = "";
 		departments = null;
 		idDepartment = "";
 		idFormationCenterToModify = "";
 		name = "";
 		room = null;
-		telephone = "";
+		phone = "";
+		currentSelectedIds = new String[0];
 	}
 
 	/**
@@ -145,25 +152,86 @@ public class FormationCenterModifyForm extends ActionForm {
 	/**
 	 * @return Returns the telephone.
 	 */
-	public String getTelephone() {
-		return telephone;
+	public String getPhone() {
+		return phone;
 	}
 
 	/**
 	 * @param telephone The telephone to set.
 	 */
-	public void setTelephone(String telephone) {
-		this.telephone = telephone;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
-	public Address getAddress(){
-		return address;
+	/**
+	 * @return Returns the address.
+	 */
+	public String getStreet() {
+		return street;
 	}
-	
-	public void setAdress(Address address) {
-		this.address = address;
+
+	/**
+	 * @param address The address to set.
+	 */
+	public void setStreet(String address) {
+		this.street = address;
 	}
-	
+
+	/**
+	 * @return Returns the city.
+	 */
+	public String getCity() {
+		return city;
+	}
+
+	/**
+	 * @param city The city to set.
+	 */
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	/**
+	 * @return Returns the postalCode.
+	 */
+	public String getPostalCode() {
+		return postalCode;
+	}
+
+	/**
+	 * @param postalCode The postalCode to set.
+	 */
+	public void setPostalCode(String postalCode) {
+		this.postalCode = postalCode;
+	}
+
+	/**
+	 * @return Returns the currentSelectedIds.
+	 */
+	public String[] getCurrentSelectedIds() {
+		return currentSelectedIds;
+	}
+
+	/**
+	 * @param currentSelectedIds The currentSelectedIds to set.
+	 */
+	public void setCurrentSelectedIds(String[] currentSelectedIds) {
+		this.currentSelectedIds = currentSelectedIds;
+	}
+
+	/**
+	 * @return Returns the selectedIds.
+	 */
+	public Set<String> getSelectedIds() {
+		return selectedIds;
+	}
+
+	/**
+	 * @param selectedIds The selectedIds to set.
+	 */
+	public void setSelectedIds(Set<String> selectedIds) {
+		this.selectedIds = selectedIds;
+	}
 }
 
 	

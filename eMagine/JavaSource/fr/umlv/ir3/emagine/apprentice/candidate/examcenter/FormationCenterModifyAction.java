@@ -13,8 +13,8 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessages;
 
-import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.room.Room;
+import fr.umlv.ir3.emagine.util.Address;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.ManagerManager;
 import fr.umlv.ir3.emagine.util.base.BaseAction;
@@ -41,11 +41,12 @@ public class FormationCenterModifyAction extends BaseAction {
 			if(idCenter != null && !"".equals(idCenter)) {
 				FormationCenter center = managerManager.getFormationCenterManager().retrieve(Long.parseLong(idCenter));
 				centerModifyForm.setIdFormationCenterToModify(idCenter);
-				centerModifyForm.setAdress(center.getAddress());
+				centerModifyForm.setStreet(center.getAddress().getStreet());
+				centerModifyForm.setCity(center.getAddress().getCity());
+				centerModifyForm.setPostalCode(center.getAddress().getPostalCode());
 				centerModifyForm.setName(center.getName());
-				centerModifyForm.setTelephone(center.getPhone());
+				centerModifyForm.setPhone(center.getPhone());
 				centerModifyForm.setRoom(center.getRooms());
-				//centerModifyForm.setIdDepartment(center.getAddress().getDepartment().getId().toString());
 			}
 			
 		} catch (EMagineException exception) {
@@ -78,10 +79,14 @@ public class FormationCenterModifyAction extends BaseAction {
 		try {
 			FormationCenter center = centerManager.retrieve(Long.parseLong(centerModifyForm.getIdFormationCenterToModify()));
 			/*center.getAddress().setDepartment((DepartmentEnum)managerManager.getEmagineEnumManager().retrieve(Long.parseLong(centerModifyForm.getIdDepartment()),DepartmentEnum.class));*/
-			center.setAddress(center.getAddress());
+			Address address = new Address();
+			address.setCity(centerModifyForm.getCity());
+			address.setPostalCode(centerModifyForm.getPostalCode());
+			address.setStreet(centerModifyForm.getStreet());
 			center.setName(centerModifyForm.getName());
-			center.setPhone(centerModifyForm.getTelephone());
+			center.setPhone(centerModifyForm.getPhone());
 			center.setRooms(new ArrayList<Room>(centerModifyForm.getRoom()));
+			centerManager.update(center);
 		} catch (EMagineException exception) {
 			addEMagineExceptionError(errors, exception);
 		}
