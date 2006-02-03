@@ -209,8 +209,6 @@
 		<action path="/candidateVisuInfo" forward="recruitment.candidateVisuInfo" scope="session"/>
 		<action path="/candidateOnglet"
 			forward="recruitment.candidateOnglet" />
-		<action path="/roomAdd" 
-			forward="recruitment.roomAdd" />
 		<action path="/candidateVisuEvent"
 			forward="recruitment.candidateVisuEvent" />
 		<action path="/candidateEventDetail"
@@ -236,6 +234,10 @@
 		</action>
 		<action path="/roomDetail" type="fr.umlv.ir3.emagine.apprentice.candidate.room.RoomModifyAction" name="roomModifyForm" parameter="action">
 			<forward name="_default_target_" path="recruitment.roomDetail" />
+		</action>
+		
+		<action path="/roomAdd" type="fr.umlv.ir3.emagine.apprentice.candidate.room.RoomCreateAction" name="roomModifyForm" input="recruitment.roomAdd" parameter="action" scope="session" validate="true">
+			<forward name="_default_target_" path="recruitment.centerList" redirect="true" />
 		</action>
 
 		<!-- mail -->
