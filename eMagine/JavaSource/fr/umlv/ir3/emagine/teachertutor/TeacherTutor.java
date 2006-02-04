@@ -17,7 +17,7 @@ import fr.umlv.ir3.emagine.util.Address;
 import fr.umlv.ir3.emagine.util.person.Person;
 
 /**
- * This class represent a teacher tutor for a apprentice
+ * This class represents a teacher tutor for an apprentice
  * @author eMagine
  */
 @Entity(access = AccessType.FIELD)

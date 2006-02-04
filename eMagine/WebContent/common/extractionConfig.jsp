@@ -1,10 +1,18 @@
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 
-<h2><bean:message key="teacher.extract.title"/><html:link action="/teacherSearch"><img src="/eMagine/common/images/icones/retour.png" title="<bean:message key="button.title.return"/>"/></html:link></h2>
+<bean:page id="formBean" property="extractionForm" />
+
+<html><body>
+<h2><bean:message name="extractionForm" property="extractionTitleKey" /></h2>
 <br/>
+<html:form>
 <div class="form">
-	<p><label for="type"><bean:message key="form.type"/></label><input type="radio" name="type" value="csv" checked>csv<input type="radio" name="type" value="xls">xls</p>
+	<p>
+		<label for="extractionType"><bean:message key="form.type"/></label>
+		<html:radio name="extractionType" value="CSV">csv
+		<html:radio name="extractionType" value="XLS">xls
+	</p>
 	<br/>
 		<fieldset>
 		<p><label for="name"><bean:message key="form.name"/></label>
@@ -38,4 +46,6 @@
 		<li><html:link action="teacherExtractFile.do?action=generate"><img src="/eMagine/common/images/icones/generate.png" title="<bean:message key="button.title.generate"/>"/></html:link></li>
 	</ul>
 </div>
+</html:form>
 <br/>
+</body></html>

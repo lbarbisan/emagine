@@ -1,5 +1,8 @@
 package fr.umlv.ir3.emagine.util;
 
+import java.util.Hashtable;
+import java.util.Map;
+
 import fr.umlv.ir3.emagine.apprentice.ApprenticeManager;
 import fr.umlv.ir3.emagine.apprentice.ApprenticeManagerImpl;
 import fr.umlv.ir3.emagine.apprentice.absence.AbsenceManager;
@@ -32,10 +35,15 @@ import fr.umlv.ir3.emagine.user.profile.ProfileManager;
 import fr.umlv.ir3.emagine.user.profile.ProfileManagerImpl;
 import fr.umlv.ir3.emagine.user.profile.RightManager;
 import fr.umlv.ir3.emagine.user.profile.RightManagerImpl;
+import fr.umlv.ir3.emagine.util.base.BaseDAO;
+import fr.umlv.ir3.emagine.util.base.BaseEntity;
+import fr.umlv.ir3.emagine.util.base.BaseManager;
 
 
 public class ManagerManager {
 	private static ManagerManager instance;
+	
+	private Map<String, BaseManager> managers = new Hashtable<String, BaseManager>();
 	
 	private UserManager userManager;
 	private ProfileManager profileManager;
@@ -68,12 +76,17 @@ public class ManagerManager {
 	public void setEditableManager(EditableManager editableManager) {
 		this.editableManager = editableManager;
 	}
+	
+	private <E extends BaseEntity, D extends BaseDAO<E>, M extends BaseManager<E, D>> M addManager(M manager) {
+		managers.put(manager.getClass().getName(), manager);
+		return SecurityProxyFactory.createProxy(manager);
+	}
+	
+	public BaseManager getManager(String className) {
+		return managers.get(className);
+	}
 
-	/**
-	 * 
-	 * @throws EMagineException if the security filter has not been initialized
-	 */
-	public ManagerManager() throws EMagineException {
+	public ManagerManager() {
 		
 		//FIXME: remetre la ligne commenttée
 		//userManager = SecurityProxyFactory.getProxy(new UserManagerImpl());
@@ -91,21 +104,21 @@ public class ManagerManager {
 //		apprenticeManager = new ApprenticeManagerImpl();
 //		editableManager = new EditableManagerImpl();
 
-		userManager = SecurityProxyFactory.createProxy(new UserManagerImpl());
+		userManager = addManager(new UserManagerImpl());
 		
-		profileManager = SecurityProxyFactory.createProxy(new ProfileManagerImpl());
-		extractionManager = SecurityProxyFactory.createProxy(new ExtractionManagerImpl());
-		teacherTutorManager = SecurityProxyFactory.createProxy(new TeacherTutorManagerImpl());
-		firmManager = SecurityProxyFactory.createProxy(new FirmManagerImpl());
-		eventManager = SecurityProxyFactory.createProxy(new EventManagerImpl());
-		mailingListManager = SecurityProxyFactory.createProxy(new MailingListManagerImpl());
-		mailingTypeManager = SecurityProxyFactory.createProxy(new MailingTypeManagerImpl());
-		massMailingManager = SecurityProxyFactory.createProxy(new MassMailingManagerImpl());
-		candidateManager = SecurityProxyFactory.createProxy(new CandidateManagerImpl());
-		apprenticeManager = SecurityProxyFactory.createProxy(new ApprenticeManagerImpl());
-		formationCenterManager = SecurityProxyFactory.createProxy(new FormationCenterManagerImpl());
-		rightManager = SecurityProxyFactory.createProxy(new RightManagerImpl());
-		roomManager = SecurityProxyFactory.createProxy(new RoomManagerImpl());
+		profileManager = addManager(new ProfileManagerImpl());
+		extractionManager = addManager(new ExtractionManagerImpl());
+		teacherTutorManager = addManager(new TeacherTutorManagerImpl());
+		firmManager = addManager(new FirmManagerImpl());
+		eventManager = addManager(new EventManagerImpl());
+		mailingListManager = addManager(new MailingListManagerImpl());
+		mailingTypeManager = addManager(new MailingTypeManagerImpl());
+		massMailingManager = addManager(new MassMailingManagerImpl());
+		candidateManager = addManager(new CandidateManagerImpl());
+		apprenticeManager = addManager(new ApprenticeManagerImpl());
+		formationCenterManager = addManager(new FormationCenterManagerImpl());
+		rightManager = addManager(new RightManagerImpl());
+		roomManager = addManager(new RoomManagerImpl());
 		emagineEnumManager = new EmagineEnumManagerImpl();	// No rights on that manager
 
 		editableManager = new EditableManagerImpl();
@@ -117,9 +130,8 @@ public class ManagerManager {
 	/**
 	 * Gets the singleton of the ManagerManager.
 	 * @return the singleton of the ManagerManager
-	 * @throws EMagineException if the security filter has not been initialized
 	 */
-	public static ManagerManager getInstance() throws EMagineException {
+	public static ManagerManager getInstance() {
 		if (instance == null) {
 			instance = new ManagerManager();
 		}

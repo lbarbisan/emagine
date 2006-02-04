@@ -1,14 +1,11 @@
 package fr.umlv.ir3.emagine.util.search;
 
-import java.util.Arrays;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionMapping;
 
-import fr.umlv.ir3.emagine.extraction.Extractable;
-import fr.umlv.ir3.emagine.extraction.ObjectListExtractable;
 import fr.umlv.ir3.emagine.util.base.BaseEntity;
 
 public abstract class SelectSearchForm<EntityType extends BaseEntity> extends SearchForm<EntityType> {
@@ -36,10 +33,5 @@ public abstract class SelectSearchForm<EntityType extends BaseEntity> extends Se
 
 	public void setSelectedIds(Set<String> selectedId) {
 		this.selectedIds = selectedId;
-	}
-	
-	@Override
-	public Extractable getExtractable() {
-		return new ObjectListExtractable<EntityType>(results, Arrays.asList(currentSelectedIds));
 	}
 }

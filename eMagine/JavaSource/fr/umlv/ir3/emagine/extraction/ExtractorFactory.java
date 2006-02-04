@@ -2,7 +2,7 @@ package fr.umlv.ir3.emagine.extraction;
 
 import fr.umlv.ir3.emagine.util.EMagineException;
 
-public class ExtractionTypeFactory {
+public class ExtractorFactory {
 	private static CSVExtractor csvExtractor = new CSVExtractor();
 	private static XLSExtractor xlsExtractor = new XLSExtractor();
 	

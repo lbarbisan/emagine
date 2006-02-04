@@ -1,8 +1,7 @@
 package fr.umlv.ir3.emagine.extraction;
 
-import java.util.List;
-
 import fr.umlv.ir3.emagine.security.MustHaveRights;
+import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.base.BaseManager;
 
 @MustHaveRights("extraction")
@@ -10,12 +9,18 @@ import fr.umlv.ir3.emagine.util.base.BaseManager;
 public interface ExtractionManager extends BaseManager<Extraction, ExtractionDAO> {
 
 	/**
-	 * Return Selected Columns for specified User and specified View
+	 * Saves the specified extraction config for the current user
+	 * @param extractionForm
 	 */
-	//TODO : Use case « Configurer l'extraction d'une liste »
-	public abstract List<String> getSelectedColumns(
-			ExtractionParams extractionParams);
+	public abstract void saveConfig(ExtractionConfig config) throws EMagineException;
 
-	public abstract void setColumns(Extraction extraction, List<String> columns);
+	/**
+	 * Retrieves the extraction config for the given extraction entity (in the config).
+	 * If the given extraction entity doesn't exists in database, creates and saves it.
+	 * If there is no config for the current user, creates and saves the given config for the user. 
+	 * @param config
+	 * @return the saved extraction config for the current user.
+	 */
+	public abstract ExtractionConfig retrieveCurrentUserConfig(ExtractionConfig config) throws EMagineException;
 
 }

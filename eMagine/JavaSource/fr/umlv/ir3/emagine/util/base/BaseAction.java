@@ -60,7 +60,7 @@ public class BaseAction extends DispatchAction {
 
 		StringWriter writer = new StringWriter();
 		exception.printStackTrace(new PrintWriter(writer));
-		log.info(writer.getBuffer().toString());
+		log.error(writer.getBuffer().toString());
 	}
 
 	
@@ -111,31 +111,4 @@ public class BaseAction extends DispatchAction {
 		
 		return actionForward;
 	}
-		
-	/**
-	 * Extracts the selected list, with selected columns (fields) into the selected file format
-	 */
-	//FIXME:Faire les extractions pour chaque Form
-	/*public Extractable extract(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
-		ActionMessages errors = new ActionMessages();
-		
-		// Retrieve the extraction's properties values
-		ExtractionForm extractionForm = (ExtractionForm)form;
-
-		try {
-			response.setContentType(extractionForm.getExtractionType().mimeType());
-			ManagerManager.getInstance().getExtractionManager().extract(extractionForm, response.getOutputStream());
-		} catch (EMagineException exception) {
-			// save the error
-			addEMagineExceptionError(errors, exception);
-		}
-		
-        if (!errors.isEmpty()) {
-            this.saveErrors(request, errors);
-            return (mapping.getInputForward());
-        }
-        return null;
-	}*/	
-
-
 }

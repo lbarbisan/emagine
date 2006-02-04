@@ -6,17 +6,16 @@ import java.util.Iterator;
 import java.util.List;
 
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.base.BaseEntity;
 
-public class ObjectListExtractable<Entity extends BaseEntity> implements Extractable {
-	private final List<Entity> objectList;
+public class ObjectListExtractable<O> implements Extractable {
+	private final List<O> objectList;
 	private final Collection<String> selectedColumns;
 
 	/**
 	 * @param objectList
 	 * @param selectedColumns constructor
 	 */
-	public ObjectListExtractable(List<Entity> objectList, Collection<String> selectedColumns) {
+	public ObjectListExtractable(List<O> objectList, Collection<String> selectedColumns) {
 		this.objectList = objectList;
 		this.selectedColumns = selectedColumns;
 	}
@@ -34,8 +33,8 @@ public class ObjectListExtractable<Entity extends BaseEntity> implements Extract
 	}
 	
 	private class ObjectListExtractableRowIterator implements Iterator<ExtractableRow> {
-		private Iterator<Entity> iterator;
-		public ObjectListExtractableRowIterator(Iterator<Entity> iterator) {
+		private Iterator<O> iterator;
+		public ObjectListExtractableRowIterator(Iterator<O> iterator) {
 			this.iterator = iterator;
 		}
 		public boolean hasNext() {
@@ -52,8 +51,8 @@ public class ObjectListExtractable<Entity extends BaseEntity> implements Extract
 	}
 	
 	private class ObjectListExtractableRow implements ExtractableRow {
-		private final Entity entity;
-		public ObjectListExtractableRow(Entity entity) {
+		private final O entity;
+		public ObjectListExtractableRow(O entity) {
 			this.entity = entity;
 		}
 

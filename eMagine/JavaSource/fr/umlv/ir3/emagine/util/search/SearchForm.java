@@ -10,7 +10,6 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.struts.action.ActionForm;
 
-import fr.umlv.ir3.emagine.extraction.Extractable;
 import fr.umlv.ir3.emagine.util.IsASearchParam;
 
 public abstract class SearchForm<BaseType> extends ActionForm implements SearchParams {
@@ -82,7 +81,7 @@ public abstract class SearchForm<BaseType> extends ActionForm implements SearchP
 	 */
 	public String getField(String field) {
 		try {
-			return this.getClass().getMethod(methods.get(field).getMethodName(), null).invoke(this, null).toString();
+			return this.getClass().getMethod(methods.get(field).getMethodName(), (Class[])null).invoke(this, (Object[])null).toString();
 		} catch (Exception exception) {
 			log.error("can't retrieve value for field " + field, exception);
 			return null;
@@ -115,8 +114,6 @@ public abstract class SearchForm<BaseType> extends ActionForm implements SearchP
 		return "TODO SearchForm.getPropertyNameForColumn()";
 	}
 	
-	public abstract Extractable getExtractable();
-
 	public ParameterInfo getParameterInfo(String field) {
 		return methods.get(field);
 	}

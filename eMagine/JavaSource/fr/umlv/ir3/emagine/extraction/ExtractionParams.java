@@ -1,12 +1,12 @@
 package fr.umlv.ir3.emagine.extraction;
 
-import fr.umlv.ir3.emagine.user.User;
-import fr.umlv.ir3.emagine.util.IsASearchParam;
-import fr.umlv.ir3.emagine.util.search.SearchParams;
-
-public interface ExtractionParams extends SearchParams {
-	@IsASearchParam("user.id")
-	public User getUser();
-	@IsASearchParam("view")
-	public ViewEnum getView();
+/**
+ * Parameters of an extraction. It's an extraction config with an extra method to know if the user wants to save that config or not.
+ * @author aogier
+ */
+public interface ExtractionParams extends ExtractionConfig {
+	/**
+	 * @return <code>true</code> if the user wants to save the configuration, <code>false</code> otherwise.
+	 */
+	public boolean isSaveConfig();
 }

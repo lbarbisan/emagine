@@ -17,11 +17,16 @@ import org.apache.struts.util.MessageResources;
  */
 public class Bundles {
 	private static ResourceBundle resourceBundle = ResourceBundle.getBundle("fr.umlv.ir3.emagine.ressource.eMagine");
+	private static ResourceBundle extractionBundle = ResourceBundle.getBundle("fr.umlv.ir3.emagine.ressource.extraction");
 	private static MessageResources messageResources = MessageResources.getMessageResources("fr.umlv.ir3.emagine.ressource.ressources");
 	
 	
 	public static ResourceBundle getConfigBundle() {
 		return resourceBundle;
+	}
+	
+	public static ResourceBundle getExtractionBundle() {
+		return extractionBundle;
 	}
 	
 	public static MessageResources getMessageResources() {

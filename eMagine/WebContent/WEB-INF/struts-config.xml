@@ -13,6 +13,7 @@
 
 	<!-- ========== Form Mapping Definitions =============================== -->
 	<form-beans>
+		<form-bean name="extractionForm" type="fr.umlv.ir3.emagine.extraction.PropertiesExtractionForm" /> 
 		<form-bean name="apprenticeAbsenceAddForm" type="fr.umlv.ir3.emagine.apprentice.absence.ApprenticeAbsenceAddForm" /> 
 		<form-bean name="userSearchForm" type="fr.umlv.ir3.emagine.user.UserSearchForm" />
 		<form-bean name="userModifyForm" type="fr.umlv.ir3.emagine.user.UserModifyForm" />
@@ -54,6 +55,20 @@
 		
 		<action path="/logout" type="fr.umlv.ir3.emagine.security.LogoutAction" parameter="action">
 			<forward name="success" redirect="true" path="/index.jsp" />
+		</action>
+		
+		<action path="/showExtraction"
+			type="fr.umlv.ir3.emagine.extraction.ExtractAction"
+			parameter="action"
+			name="extractionForm">
+			<forward name="_default_target_" path="/common.extract"/>
+		</action>
+
+		<action path="/extract"
+			type="fr.umlv.ir3.emagine.extraction.ExtractAction"
+			parameter="action"
+			name="extractionForm">
+			<forward name="_default_target_" path="/common.extract"/>
 		</action>
 
 		<!-- apprentice -->

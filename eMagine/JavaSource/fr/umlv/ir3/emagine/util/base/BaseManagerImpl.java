@@ -1,8 +1,13 @@
 package fr.umlv.ir3.emagine.util.base;
 
+import java.io.OutputStream;
 import java.util.Collection;
 import java.util.List;
 
+import fr.umlv.ir3.emagine.extraction.Extractable;
+import fr.umlv.ir3.emagine.extraction.ExtractionParams;
+import fr.umlv.ir3.emagine.extraction.Extractor;
+import fr.umlv.ir3.emagine.extraction.ExtractorFactory;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.search.SearchParams;
@@ -90,6 +95,15 @@ public abstract class BaseManagerImpl
 			DAOManager.rollBackTransaction();
 			throw exception;
 		}
+	}
+	
+	/**
+	 * Implementation of a default extraction. For specific implementation, check that the params.getExtractionListName() corresponds to your extraction. 
+	 * @see fr.umlv.ir3.emagine.util.base.BaseManager#extract(fr.umlv.ir3.emagine.extraction.Extractable, fr.umlv.ir3.emagine.extraction.ExtractionForm, java.io.OutputStream)
+	 */
+	public void extract(Extractable extractable, ExtractionParams params, OutputStream stream) throws EMagineException {
+		Extractor extractor = ExtractorFactory.getExtractor(params.getExtractionType());
+		extractor.extract(extractable, stream);
 	}
 
 	protected abstract EntityDAO getDAO();

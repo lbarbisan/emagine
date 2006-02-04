@@ -1,8 +1,11 @@
 package fr.umlv.ir3.emagine.util.base;
 
+import java.io.OutputStream;
 import java.util.Collection;
 import java.util.List;
 
+import fr.umlv.ir3.emagine.extraction.Extractable;
+import fr.umlv.ir3.emagine.extraction.ExtractionParams;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.search.SearchParams;
 
@@ -59,5 +62,14 @@ public interface BaseManager
 	 * @throws EMagineException throw this excepion if the deletation failed or if an SQLException occures
 	 */
 	public void delete(Collection<EntityType> entities) throws EMagineException;
+
+	/**
+	 * Extracts the specified extractable, with the specified extraction options (extractionForm) to the specified outputStream.
+	 * @param extractable extractable to extract
+	 * @param params parameters of the extraction
+	 * @param stream output for the extraction
+	 * @throws EMagineException if the extraction failed.
+	 */
+	public void extract(Extractable extractable, ExtractionParams params, OutputStream stream) throws EMagineException;
 
 }

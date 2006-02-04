@@ -29,6 +29,10 @@
 		<put name="modif" value="/common/modif.jsp" />
 		<put name="footer" value="/common/footer.jsp" />
 	</definition>
+	
+	<!-- Common -->
+	<definition name="common.extractConfig" path="/common/extractionConfig.jsp">
+	</definition>
 
 	<!-- Apprentice -->
 	<definition name="apprentice" extends="mainLayout">
