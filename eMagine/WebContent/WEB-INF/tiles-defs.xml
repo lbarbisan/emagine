@@ -31,7 +31,7 @@
 	</definition>
 	
 	<!-- Common -->
-	<definition name="common.extractConfig" path="/common/extractionConfig.jsp">
+	<definition name="common.extract" path="/common/extractionConfig.jsp">
 	</definition>
 
 	<!-- Apprentice -->

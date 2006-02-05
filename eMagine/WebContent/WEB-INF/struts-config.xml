@@ -57,18 +57,11 @@
 			<forward name="success" redirect="true" path="/index.jsp" />
 		</action>
 		
-		<action path="/showExtraction"
-			type="fr.umlv.ir3.emagine.extraction.ExtractAction"
-			parameter="action"
-			name="extractionForm">
-			<forward name="_default_target_" path="/common.extract"/>
-		</action>
-
 		<action path="/extract"
-			type="fr.umlv.ir3.emagine.extraction.ExtractAction"
+			type="fr.umlv.ir3.emagine.extraction.PropertiesExtractAction"
 			parameter="action"
 			name="extractionForm">
-			<forward name="_default_target_" path="/common.extract"/>
+			<forward name="_default_target_" path="common.extract"/>
 		</action>
 
 		<!-- apprentice -->

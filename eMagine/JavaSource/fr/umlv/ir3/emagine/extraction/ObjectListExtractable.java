@@ -1,27 +1,37 @@
 package fr.umlv.ir3.emagine.extraction;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
+import fr.umlv.ir3.emagine.util.Bundles;
 import fr.umlv.ir3.emagine.util.EMagineException;
 
 public class ObjectListExtractable<O> implements Extractable {
 	private final List<O> objectList;
-	private final Collection<String> selectedColumns;
+	private final List<String> columns;
+	private final List<String> columnTitles;
 
 	/**
 	 * @param objectList
-	 * @param selectedColumns constructor
+	 * @param columns constructor
 	 */
 	public ObjectListExtractable(List<O> objectList, Collection<String> selectedColumns) {
+		this.columnTitles = new ArrayList<String>();
+		// The titles have not been retreived. Retreive them from the message bundle
+		// Save an array of the keys we retreive in order to iterate on the columns in the same order as the column titles will be iterated
+		this.columns = new ArrayList<String>();
+		for (String columnKey : selectedColumns) {
+			columnTitles.add(Bundles.getMessageResources().getMessage("form."+columnKey));
+			columns.add(columnKey);
+		}
 		this.objectList = objectList;
-		this.selectedColumns = selectedColumns;
 	}
 
-	public Collection<String> getColumnTitles() {
-		return selectedColumns;	// TODO : aller récupérer les noms des colonnes dans le properties
+	public List<String> getColumnTitles() {
+		return columnTitles;
 	}
 
 	public Iterable<ExtractableRow> getRows() {
@@ -59,26 +69,26 @@ public class ObjectListExtractable<O> implements Extractable {
 		public Iterable<ExtractableCell> getCells() {
 			return new Iterable<ExtractableCell>() {
 				public Iterator<ExtractableCell> iterator() {
-					return new ObjectListExtractableCellIterator(selectedColumns.iterator());
+					return new ObjectListExtractableCellIterator(columns.iterator());
 				}
 			};
 		}
 		
 		private class ObjectListExtractableCellIterator implements Iterator<ExtractableCell> {
-			private Iterator<String> selectedColumnsIterator;
+			private Iterator<String> columnsIterator;
 			public ObjectListExtractableCellIterator(Iterator<String> selectedColumnsIterator) {
-				this.selectedColumnsIterator = selectedColumnsIterator;
+				this.columnsIterator = selectedColumnsIterator;
 			}
 			public boolean hasNext() {
-				return selectedColumnsIterator.hasNext();
+				return columnsIterator.hasNext();
 			}
 
 			public ExtractableCell next() {
-				return new ObjectListExtractableCell(selectedColumnsIterator.next());
+				return new ObjectListExtractableCell(columnsIterator.next());
 			}
 
 			public void remove() {
-				selectedColumnsIterator.remove();
+				columnsIterator.remove();
 			}
 			
 			private class ObjectListExtractableCell implements ExtractableCell {

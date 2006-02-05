@@ -27,18 +27,18 @@ public abstract class ExtractAction<O, E extends BaseEntity, D extends BaseDAO<E
 
 		ExtractionShowForm showForm = (ExtractionShowForm)form;
 		
-		try {
-			// Retrieve the last user preferences for the given extraction entity, using the manager
-			ExtractionManager manager = ManagerManager.getInstance().getExtractionManager();
-			ExtractionConfig savedConfig = manager.retrieveCurrentUserConfig((ExtractionConfig)showForm);
-			
-			// Sets the old values of the config
-			showForm.setExtractionType(savedConfig.getExtractionType());
-			showForm.setSelectedEntityProperties(savedConfig.getSelectedEntityProperties());
-		} catch (EMagineException e) {
-			// save the error
-			addEMagineExceptionError(errors, e);
-		}
+//		try {
+//			// Retrieve the last user preferences for the given extraction entity, using the manager
+//			ExtractionManager manager = ManagerManager.getInstance().getExtractionManager();
+//			//ExtractionConfig savedConfig = manager.retrieveCurrentUserConfig((ExtractionConfig)showForm);
+//			
+//			// Sets the old values of the config
+//			showForm.setExtractionType(savedConfig.getExtractionType());
+//			showForm.setSelectedEntityProperties(savedConfig.getSelectedEntityProperties());
+//		} catch (EMagineException e) {
+//			// save the error
+//			addEMagineExceptionError(errors, e);
+//		}
 		
 		return successIfNoErrors(mapping, request, errors);
 	}
@@ -60,14 +60,14 @@ public abstract class ExtractAction<O, E extends BaseEntity, D extends BaseDAO<E
 			// Create the extractable to pass to the manager for extraction
 			Extractable extractable = new ObjectListExtractable<O>(extractionList, Arrays.asList(extractionForm.getSelectedEntityProperties()));
 			
-			// Extract
-			getManager(extractionForm).extract(extractable, extractionForm, response.getOutputStream());
-			
 			// Set the response headers
 			response.setContentType(extractionForm.getExtractionType().mimeType());
 			response.setHeader("Pragma", "no-cache");
 			response.setHeader("Content-Disposition", "attachment; filename=\""+extractionForm.getExtractionEntityName()+"."+extractionForm.getExtractionType().fileExtension()+"\"");
 
+			// Extract
+			getManager(extractionForm).extract(extractable, extractionForm, response.getOutputStream());
+			
 			return null;
 		} catch (EMagineException e) {
 			// save the error

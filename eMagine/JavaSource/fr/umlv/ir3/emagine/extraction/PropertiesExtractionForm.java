@@ -49,11 +49,4 @@ public class PropertiesExtractionForm extends AbstractExtractionForm {
 	public String getExtractionTitleKey() {
 		return "extraction."+extractionEntityName+".title";
 	}
-	
-	/**
-	 * @see fr.umlv.ir3.emagine.extraction.ExtractionShowForm#setExtractionType(java.lang.String)
-	 */
-	public void setExtractionType(String extractionType) {
-		this.extractionType = ExtractionType.valueOf(extractionType);
-	}
 }

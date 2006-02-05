@@ -1,51 +1,61 @@
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
+<%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic"%>
 
-<bean:page id="formBean" property="extractionForm" />
-
-<html><body>
-<h2><bean:message name="extractionForm" property="extractionTitleKey" /></h2>
-<br/>
-<html:form>
-<div class="form">
-	<p>
-		<label for="extractionType"><bean:message key="form.type"/></label>
-		<html:radio name="extractionType" value="CSV">csv
-		<html:radio name="extractionType" value="XLS">xls
-	</p>
-	<br/>
-		<fieldset>
-		<p><label for="name"><bean:message key="form.name"/></label>
-		<input type="checkbox" value="ON" name="name" /></p>
-		<p><label for="firstName"><bean:message key="form.firstName"/></label>
-		<input type="checkbox" value="ON" name="firstName" /></p>
-		<p><label for="function"><bean:message key="form.function"/></label>
-		<input type="checkbox" value="ON" name="function" /></p>
-		<p><label for="adress"><bean:message key="form.adress"/></label>
-		<input type="checkbox" value="ON" name="adress" /></p>
-		<p><label for="postalCode"><bean:message key="form.postalCode"/></label>
-		<input type="checkbox" value="ON" name="postalCode" /></p>
-		<p><label for="city"><bean:message key="form.country"/></label>
-		<input type="checkbox" value="ON" name="city" /></p>
-		<p><label for="department"><bean:message key="form.department"/></label>
-		<input type="checkbox" value="ON" name="department" /></p>
-		<p><label for="phone"><bean:message key="form.phone"/></label>
-		<input type="checkbox" value="ON" name="phone" /></p>
-		<p><label for="mobile"><bean:message key="form.mobile"/></label>
-		<input type="checkbox" value="ON" name="mobile" /></p>
-		<p><label for="fax"><bean:message key="form.fax"/></label>
-		<input type="checkbox" value="ON" name="fax" /></p>
-		<p><label for="email"><bean:message key="form.email"/></label>
-		<input type="checkbox" value="ON" name="email" /></p>
-	</fieldset>
-</div>
-<div id="actions">
-	<h2>&nbsp;</h2>
-	<ul>
-		<li><a href="#"><img src="/eMagine/common/images/icones/save.png" title="<bean:message key="button.title.save"/>"/></a></li>
-		<li><html:link action="teacherExtractFile.do?action=generate"><img src="/eMagine/common/images/icones/generate.png" title="<bean:message key="button.title.generate"/>"/></html:link></li>
-	</ul>
-</div>
-</html:form>
-<br/>
-</body></html>
+<html>
+	<head>
+		<link rel="stylesheet" href="/eMagine/common/style/style1.css" type="text/css">
+		<script type="text/javascript" src="/eMagine/common/js/checkboxTools.js"></script>
+		<title><bean:message key="app.title" /></title>
+		<script type="text/javascript">
+		<!--
+			function extract() {
+				document.extractionForm.action.value = "extract";
+				document.extractionForm.submit();
+				return false;
+			}
+		-->
+		</script>
+	</head>
+	<body>
+		<h2><bean:message name="extractionForm" property="extractionTitleKey" /></h2>
+		<br/>
+		<html:form action="/extract" method="POST">
+			<div class="form">
+				<p>
+					<label for="extractionTypeName"><bean:message key="form.type"/></label>
+					<html:radio property="extractionTypeName" value="CSV"/><bean:message key="form.type.csv"/>
+					<html:radio property="extractionTypeName" value="XLS"/><bean:message key="form.type.xls"/>
+				</p>
+				<br/>
+				<fieldset>
+					<logic:iterate id="property" name="extractionForm" property="entityProperties">
+						<p>
+							<label for="<bean:write name="property"/>"><bean:message key="<%= "form."+property %>"/></label>
+							<html:multibox property="selectedEntityProperties" value="<%= (String)property %>"/>
+						</p>
+					</logic:iterate>
+				</fieldset>
+			</div>
+			<div id="actions">
+				<ul>
+					<li><a href="javascript:checkAll('extractionForm','selectedEntityProperties');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
+					<li><a href="javascript:checkNothing('extractionForm','selectedEntityProperties');"><bean:message key="all_none.none"/></a></li>
+				</ul>
+				<h2>&nbsp;</h2>
+				<ul>
+					<li><a href="#"><img src="/eMagine/common/images/icones/save.png" title="<bean:message key="button.title.save"/>"/></a></li>
+					<li>
+						<html:img
+							onclick="javascript:extract();"
+							src="/eMagine/common/images/icones/generate.png"
+							titleKey="button.title.generate"/>
+					</li>
+				</ul>
+			</div>
+			<html:hidden property="extractionEntityName"/>
+			<input type="hidden" name="action"/>
+		</html:form>
+		<br/>
+	</body>
+</html>

@@ -47,6 +47,22 @@ public abstract class AbstractExtractionForm<O> extends ActionForm implements Ex
 	public void setExtractionType(ExtractionType extractionType) {
 		this.extractionType = extractionType;
 	}
+	
+	
+	/**
+	 * @see fr.umlv.ir3.emagine.extraction.ExtractionShowForm#setExtractionType(java.lang.String)
+	 */
+	public void setExtractionTypeName(String extractionTypeName) {
+		this.extractionType = ExtractionType.valueOf(extractionTypeName);
+	}
+	
+	/**
+	 * @see fr.umlv.ir3.emagine.extraction.ExtractionShowForm#getExtractionTypeName()
+	 */
+	public String getExtractionTypeName() {
+		return extractionType != null ? extractionType.toString() : null;
+	}
+
 
 	/**
 	 * @return Returns the saveConfig.
@@ -105,7 +121,7 @@ public abstract class AbstractExtractionForm<O> extends ActionForm implements Ex
 	/**
 	 * @see fr.umlv.ir3.emagine.extraction.ExtractionShowForm#setSelectedEntityProperties(java.lang.String[])
 	 */
-	public void setSelectedEntityProperties(String[] selectedEntityProperties) {
+	public void setSelectedEntityProperties(String... selectedEntityProperties) {
 		this.selectedEntityProperties = selectedEntityProperties;
 	}
 
