@@ -22,7 +22,7 @@ public class BaseEntity implements Serializable {
 	
 	@Id(generate = GeneratorType.AUTO )
 	private Long id;
-    @Version
+    //@Version
     private Long version;
     private String humanName;
 
