@@ -19,12 +19,6 @@ public class UserDAO extends BaseDAO<User> {
 	public List<User> find(SearchParams searchParams) throws EMagineException {
 		List<User> list = super.find(searchParams);
 		
-		for(User user : list)
-		{
-			log.debug(user.getProfile().getName());
-			log.debug("find User with : " + user.getFirstName());
-		}
-		
 		return list;
 		
 	}
@@ -49,41 +43,6 @@ public class UserDAO extends BaseDAO<User> {
 				.setParameter("loginParam", login, Hibernate.STRING)
 				.setParameter("passwordParam", password, Hibernate.STRING)
 				.uniqueResult();
-		if(user!=null)
-		{
-			log.debug("find User with " +  user.getFirstName());
-		}
 		return user;
-	}
-
-	/**
-	 * @see fr.umlv.ir3.emagine.util.base.BaseDAO#retrieve(long)
-	 */
-	@Override
-	public User retrieve(long id) throws EMagineException {		
-		User user = super.retrieve(id);
-		if(user!=null)
-		{
-			log.debug("update User with " +  user.getFirstName());
-		}
-		return user;
-	}
-
-	/**
-	 * @see fr.umlv.ir3.emagine.util.base.BaseDAO#update(EntityType)
-	 */
-	@Override
-	public void update(User newEntity) throws EMagineException {
-		log.debug("update User with " +  newEntity.getFirstName());
-		super.update(newEntity);
-	}
-
-	/**
-	 * @see fr.umlv.ir3.emagine.util.base.BaseDAO#create(EntityType)
-	 */
-	@Override
-	public void create(User object) throws EMagineException {
-		log.debug("create User with " +  object.getFirstName());
-		super.create(object);
 	}
 }

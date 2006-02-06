@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.List;
 
 import fr.umlv.ir3.emagine.apprentice.absence.Absence;
+import fr.umlv.ir3.emagine.apprentice.candidate.Candidate;
 import fr.umlv.ir3.emagine.security.MustHaveRights;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.base.EventableManager;
@@ -62,6 +63,15 @@ public interface ApprenticeManager extends EventableManager<Apprentice, Apprenti
 	 */
 	public abstract List<Apprentice> find(
 			ApprenticeSearchParam apprenticeSearchParams)
+			throws EMagineException;
+	/**
+	 * Pass an apprentice
+	 * @param candidate
+	 * @return
+	 * @throws EMagineException
+	 */
+	public abstract Apprentice Integrate(
+			Candidate candidate) 
 			throws EMagineException;
 
 }

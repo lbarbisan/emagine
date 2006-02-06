@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.hibernate.EntityMode;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -49,6 +50,7 @@ public class BaseDAO<EntityType extends BaseEntity> {
 	public void create(EntityType object) throws EMagineException {
 		try {
 			Session session = HibernateUtils.getSession();
+			log.info("create in " + Thread.currentThread().getName());
 			session.save(object);
 		} catch (HibernateException exception) {
 			throw new EMagineException("exception.baseDAO.create", exception);
@@ -67,6 +69,8 @@ public class BaseDAO<EntityType extends BaseEntity> {
 	public void update(EntityType newEntity) throws EMagineException {
 		try {
 			Session session = HibernateUtils.getSession();
+			logEntity("update" , newEntity);
+			log.info("update in " + Thread.currentThread().getName());
 			session.update(newEntity);
 		} catch (HibernateException exception) {
 			throw new EMagineException("exception.baseDAO.update", exception);
@@ -85,7 +89,13 @@ public class BaseDAO<EntityType extends BaseEntity> {
 	public EntityType retrieve(long id) throws EMagineException {
 		try {
 			Session session = HibernateUtils.getSession();
-			return (EntityType) session.load(getEntityClass(), id);
+			EntityType entityType =  (EntityType) session.load(getEntityClass(), id);
+			if(log.isDebugEnabled()==true)
+			{
+				logEntity("retrieve" , entityType);
+			}
+			log.info("retrieve in " + Thread.currentThread().getName());
+			return entityType;
 		} catch (HibernateException exception) {
 			throw new EMagineException("exception.baseDAO.update", exception);
 		}
@@ -185,7 +195,20 @@ public class BaseDAO<EntityType extends BaseEntity> {
 		}
 		//ParameterTranslationsImpl parameterTranslationsImpl = new ParameterTranslationsImpl(Arrays.asList(query.getNamedParameters()));
 		log.debug("Search for " + queryString);		
-		return query.list();
+		
+		List<EntityType> list = query.list();
+		
+		if(log.isDebugEnabled()==true && list!=null)
+		{
+			for(EntityType entityType: list)
+			{
+				logEntity("find", entityType);
+			}
+		}
+		
+		log.info("find in " + Thread.currentThread().getName());
+		
+		return list;
 	}
 
 	//FIXME : Passer en Factory
@@ -214,6 +237,7 @@ public class BaseDAO<EntityType extends BaseEntity> {
 		
 		StringBuilder queryString = new StringBuilder().append("from ").append(getEntityClass().getSimpleName());
 		
+		log.info("findall in " + Thread.currentThread().getName());
 		log.debug("findall() with '" + queryString + "'");
 		
 		List<EntityType> foundResults = (List<EntityType>) HibernateUtils
@@ -221,7 +245,33 @@ public class BaseDAO<EntityType extends BaseEntity> {
 		if (foundResults.size() <= 0) {
 			return null;
 		}
+		
+		if(log.isDebugEnabled()==true)
+		{
+			for(EntityType entityType: foundResults)
+			{
+				logEntity("findAll", entityType);
+			}
+		}
+		
 		return foundResults;
+	}
+	
+	private void logEntity(String method, EntityType newEntity)
+	{
+		if(newEntity!=null && log.isDebugEnabled()==true)
+		{
+			log.debug(method + " entity :" + newEntity);
+			for(String name : HibernateUtils.getSession()
+								.getSessionFactory()
+								.getClassMetadata(newEntity.getClass()).getPropertyNames())
+			{
+				log.debug("\t update property POJO '" + name  + "' :" + 
+						HibernateUtils.getSession()
+						.getSessionFactory()
+						.getClassMetadata(newEntity.getClass()).getPropertyValue(newEntity, name, EntityMode.POJO));
+			}
+		}
 	}
 
 }

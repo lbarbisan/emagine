@@ -3,7 +3,11 @@ package fr.umlv.ir3.emagine.apprentice;
 import java.util.Collection;
 import java.util.List;
 
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+
 import fr.umlv.ir3.emagine.apprentice.absence.Absence;
+import fr.umlv.ir3.emagine.apprentice.candidate.Candidate;
 import fr.umlv.ir3.emagine.event.Event;
 import fr.umlv.ir3.emagine.firm.Firm;
 import fr.umlv.ir3.emagine.firm.actor.EngineerTutor;
@@ -11,6 +15,7 @@ import fr.umlv.ir3.emagine.teachertutor.TeacherTutor;
 import fr.umlv.ir3.emagine.util.Bundles;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
+import fr.umlv.ir3.emagine.util.HibernateUtils;
 import fr.umlv.ir3.emagine.util.base.EventableManagerImpl;
 
 public class ApprenticeManagerImpl extends EventableManagerImpl<Apprentice, ApprenticeDAO> implements ApprenticeManager {
@@ -64,6 +69,23 @@ public class ApprenticeManagerImpl extends EventableManagerImpl<Apprentice, Appr
 			DAOManager.rollBackTransaction();
 			throw exception;
 		}
+	}
+	
+	public Apprentice Integrate(Candidate candidate) throws EMagineException
+	{	
+		DAOManager.beginTransaction();
+		
+		Apprentice apprentice ;
+		
+		
+		try {
+			DAOManager.getInstance().getCandidateDAO().delete(candidate);
+			apprentice = DAOManager.getInstance().getApprenticeDAO().Integrate(candidate);
+		} catch (HibernateException exception) {
+			throw new EMagineException("exception.ApprenticeDAO.create", exception);
+		}
+		return apprentice;
+		
 	}
 
 	/**

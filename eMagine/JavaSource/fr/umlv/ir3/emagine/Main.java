@@ -7,7 +7,6 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
 import fr.umlv.ir3.emagine.extraction.CSVExtractor;
 import fr.umlv.ir3.emagine.extraction.Extractable;
 import fr.umlv.ir3.emagine.extraction.Extractor;
@@ -17,7 +16,6 @@ import fr.umlv.ir3.emagine.user.User;
 import fr.umlv.ir3.emagine.user.UserDAO;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.search.SearchParamsImpl;
 
 /**
  * This class is used to  do temp tests.
@@ -36,22 +34,6 @@ public class Main {
 	 * @throws FileNotFoundException 
 	 */
 	public static void main(String[] args) throws FileNotFoundException, EMagineException {
-
-			SearchParamsImpl searchParams = new SearchParamsImpl();
-			userDao = DAOManager.getInstance().getUserDAO();
-			
-			searchParams.setField("FirstName", "Laurent");
-			List<User> lists= userDao.find(searchParams);	
-			user = lists.get(0);
-			user.setPassword(args[0]);
-			
-			DAOManager.beginTransaction();
-			userDao.update(user);
-			DAOManager.commitTransaction();
-
-/*		for (DepartmentEnum departmentEnum : DepartmentEnum.values()) {
-			System.out.println(departmentEnum.getId()+" / "+departmentEnum.getName()+" / "+departmentEnum.ordinal()+" / "+departmentEnum.name());
-		}*/
 	}
 	
 	/**

@@ -90,8 +90,6 @@ public class HibernateUtils {
         // Open a new Session, if this Thread has none yet
         if (session == null) {
         	session = sessionFactory.openSession();
-            session.setCacheMode(CacheMode.REFRESH);
-            session.setFlushMode(FlushMode.COMMIT);
         	threadSession.set(session);
         }
         return session;
