@@ -760,6 +760,7 @@ public class CandidateModifyForm extends ActionForm {
 	 * @return Returns the birth.
 	 */
 	public String getBirth() {
+		System.out.println("c'est la date :"+birth);
 		return birth;
 	}
 

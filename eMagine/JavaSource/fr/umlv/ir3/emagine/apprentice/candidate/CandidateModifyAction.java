@@ -101,7 +101,7 @@ public class CandidateModifyAction extends BaseAction {
 				}
 				//origin of the contact
 				if(candidate.getContactOriginIG2K() != null) {
-					//TODO candidateModifyForm.setContactOriginIG2K(candidate.getContactOriginIG2K().getId());
+					candidateModifyForm.setIdContact(Long.toString(candidate.getContactOriginIG2K().getId()));
 				}
 				//last diploma
 				if(candidate.getLastDiploma() != null) {
@@ -212,8 +212,8 @@ public class CandidateModifyAction extends BaseAction {
 			candidate.setCourseOption((CourseOptionEnum) emagineEnumManager.retrieve(Long.parseLong(candidateModifyForm.getIdCourseOption()), CourseOptionEnum.class));
 			candidate.setProfessionMother((ProfessionEnum) emagineEnumManager.retrieve(Long.parseLong(candidateModifyForm.getIdMother()), ProfessionEnum.class));
 			candidate.setProfessionFather((ProfessionEnum) emagineEnumManager.retrieve(Long.parseLong(candidateModifyForm.getIdFather()), ProfessionEnum.class));
-			//TODO candidate.setFormationCenter(centerManager.retrieve(Long.parseLong(candidateModifyForm.getIdCenter())), ProfessionEnum.class);
-			//TODO candidate.setContactOriginIG2K(new Contact((ContactEnum) emagineEnumManager.retrieve(Long.parseLong(candidateModifyForm.getIdContact()), ContactEnum.class)));
+			candidate.setFormationCenter(centerManager.retrieve(Long.parseLong(candidateModifyForm.getIdCenter())));
+			//TODO candidate.setContactOriginIG2K(contactManager.retrieve(Long.parseLong(candidateModifyForm.getIdContact())));
 			candidate.setLastDiploma((DiplomaEnum) emagineEnumManager.retrieve(Long.parseLong(candidateModifyForm.getIdDiploma()), DiplomaEnum.class));
 			candidate.setLastSection((SectionEnum) emagineEnumManager.retrieve(Long.parseLong(candidateModifyForm.getIdSection()), SectionEnum.class));
 			candidate.setEntryLevel((LevelEntryEnum) emagineEnumManager.retrieve(Long.parseLong(candidateModifyForm.getIdLevel()), LevelEntryEnum.class));
@@ -253,12 +253,13 @@ public class CandidateModifyAction extends BaseAction {
 	}
 
 	private String dateToShow(Date date) {
+		System.out.println("date de date to show avant :"+date);
 		String stringDate = "";
 		if (date != null) {
 			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yy");
 			stringDate = simpleDateFormat.format(date);
 		}
-		System.err.println(stringDate);
+		System.err.println("date de date to show apres :"+date);
 		return stringDate;
 	}
 }
