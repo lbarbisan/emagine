@@ -6,7 +6,6 @@ package fr.umlv.ir3.emagine.security;
 import java.security.Principal;
 import java.util.concurrent.ConcurrentHashMap;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.logging.Log;
@@ -54,14 +53,11 @@ public class SessionManager {
 	 * @param request
 	 * @throws SecurityFilterNotCorrectlyInitializedException if the current Principal is not an EmaginePrincipal (the realm used is not correct)
 	 */
-	public void initThreadLocal(HttpServletRequest request) throws SecurityFilterNotCorrectlyInitializedException {
-		if (!(request.getUserPrincipal() instanceof EmaginePrincipal)) {
-			throw new SecurityFilterNotCorrectlyInitializedException();
-		}
-		final EmaginePrincipal principal = (EmaginePrincipal)request.getUserPrincipal();
+	public void initThreadLocal(SessionManagerConfig config) throws SecurityFilterNotCorrectlyInitializedException {
+		final EmaginePrincipal principal = config.getUserPrincipal();
 		User currentUser = principal.getUser();
 		if (!isLoggedIn(currentUser.getLogin())) {
-			login(principal, request.getSession());
+			login(principal, config.getSession());
 		}
 		setCurrentUser(currentUser);
 	}

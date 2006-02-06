@@ -11,7 +11,7 @@ public class EmagineAuthenticator extends FormAuthenticator {
 	public boolean processLogin(SecurityRequestWrapper request, HttpServletResponse response) throws Exception {
 		final boolean abort = super.processLogin(request, response);
 		if (request.getUserPrincipal() != null && request.getUserPrincipal() instanceof EmaginePrincipal) {
-			SessionManager.getInstance().initThreadLocal(request);
+			SessionManager.getInstance().initThreadLocal(new HttpServletRequestAdapter(request));
 		}
 		return abort;
 	}

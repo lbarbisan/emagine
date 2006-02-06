@@ -15,6 +15,7 @@ import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
 import org.apache.struts.actions.DispatchAction;
 
+import fr.umlv.ir3.emagine.security.HttpServletRequestAdapter;
 import fr.umlv.ir3.emagine.security.SecurityFilterNotCorrectlyInitializedException;
 import fr.umlv.ir3.emagine.security.SessionManager;
 import fr.umlv.ir3.emagine.util.Constants;
@@ -47,7 +48,7 @@ public class BaseAction extends DispatchAction {
      */
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
-		SessionManager.getInstance().initThreadLocal(request);
+		SessionManager.getInstance().initThreadLocal(new HttpServletRequestAdapter(request));
 		return super.execute(mapping, form, request, response);
 	}
 
