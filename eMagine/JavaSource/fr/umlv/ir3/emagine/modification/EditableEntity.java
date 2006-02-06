@@ -41,7 +41,7 @@ public abstract class EditableEntity extends BaseEntity implements Serializable 
 	 * @return the current modification, or null if no modification exist
 	 */
 	public Modification getCurrentModification() {
-		if(modifications.size()==0) {
+		if(modifications.isEmpty()) {
 			return null;
 		}
 		else {
