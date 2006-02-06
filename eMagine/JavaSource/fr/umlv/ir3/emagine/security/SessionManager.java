@@ -38,15 +38,15 @@ public class SessionManager {
 
 	/**
 	 * Instanciate the only instance of SessionManager singleton.
-	 * 
-	 * @throws SecurityFilterNotInitializedException
-	 *             if the security filter has not been initialized and
-	 *             "security.SecurityProxy.securityFilterRealm" key of
-	 *             eMagine.properties file has not been set to "none" nor
-	 *             "properties"
 	 */
-	private SessionManager() throws SecurityFilterNotInitializedException {
-		this.realm = EmagineSecurityFilter.getInstance().getRealm();
+	private SessionManager() {
+		SecurityRealmInterface realm = null;
+		try {
+			realm = EmagineSecurityFilter.getInstance().getRealm();
+		} catch (SecurityFilterNotInitializedException e) {
+			realm = new EmagineRealmProxy();
+		}
+		this.realm = realm;
 	}
 	
 	/**
