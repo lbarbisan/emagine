@@ -1,32 +1,51 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
+<%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic"%>
+
+<script type="text/javascript">
+<!--
+	function setAction(value) {
+		document.companySearchForm.action.value = value;
+	}
+
+	function deleteCompanies() {
+		if(confirm("Souhaitez-vous réellement supprimer ces entreprises ?")) {
+			document.companySearchForm.action = "/eMagine/companyDelete.do?action=delete&from=search";
+			document.companySearchForm.submit();
+		}
+	}
+-->
+</script>
+
 <h2><bean:message key="company.search.title"/></h2>
-<form name="results">
+
+<html:form action="/companySearch" method="POST" focus="lastName">
 	<br/>
 	<div align="center">
 		<div class="search">
 			<fieldset>
 				<div class="search_b1">
-					<p><label for="name"><bean:message key="criteria.search.name"/></label> <input type="text" id="name" size="20" /> </p>
+					<p><label for="name"><bean:message key="criteria.search.name"/></label><html:text property="name" size="20" /></p>
 				</div>
 				<div class="search_b2">
-					<p><label for="department"><bean:message key="criteria.search.department"/></label><select name="persDepartment">
-						<!-- à mettre en base -->
-						<option value="93">93</option>
-						<option value="77">77</option>
-						<option value="78">78</option>
-					</select></p>
+					<p><label for="department"><bean:message key="criteria.search.department"/></label>
+						<html:select property="idDepartment">
+							<option value="" ></option>
+							<logic:notEmpty name="companySearchForm" property="departments">
+								<html:optionsCollection property="departments" value="id" label="name"/>		
+							</logic:notEmpty>
+						</html:select>
 				</div>
 			</fieldset>
 		</div>
 		<br/>
-		<div class="buttons"><a href="#"><input type="button" value="<bean:message key="button.title.search"/>"/></a></div>
+		<div class="buttons"><html:submit onclick="javascript:setAction('search');" titleKey="button.title.search"><bean:message key="form.search" /></html:submit></div>
 	</div>
 	<h3><bean:message key="title.results"/></h3>
 	<div align="center">
 		<div id="statSearch">
-			<p><label for="result"><bean:message key="statSearch.results"/></label><input type="text" id="result" size="5"/>&nbsp;&nbsp;&nbsp;
-			<label for="pageNb"><bean:message key="statSearch.numberByPage"/></label><input type="text" id="pageNb" size="5" /></p>
+			<p><label for="result"><bean:message key="statSearch.results"/></label><html:text property="nbResults" size="5" disabled="true"/>&nbsp;&nbsp;&nbsp;
+			<label for="pageNb"><bean:message key="statSearch.numberByPage"/></label><html:text property="nbResults" size="5" disabled="true"/></p>
 		</div>
 		<table cellpadding="0" cellspacing="0">
 			<tr>
@@ -34,27 +53,40 @@
 				<th><bean:message key="table.header.name"/></th>
 				<th><bean:message key="table.header.department"/></th>
 			</tr>
-			<tr>
-				<td><input type="checkbox" value="ON" name="all_none"/></td>
-				<td><html:link action="/companyVisuInfo">Keops</html:link></td>
-				<td>77</td>
-			</tr>
-			<tr>
-				<td><input type="checkbox" value="ON" name="all_none"/></td>
-				<td><html:link action="/companyVisuInfo">Nestle</html:link></td>
-				<td>93</td>
-			</tr>
+
+			<logic:notEmpty name="companySearchForm" property="results">
+				<logic:iterate id="company" name="companySearchForm" property="results" type="fr.umlv.ir3.emagine.firm.Firm">
+					<tr>
+						<td><html:multibox property="currentSelectedIds" value="<%= company.getId().toString() %>" />&nbsp;</td>
+						<td><html:link action="/companyModify?action=show" paramId="id" paramName="company" paramProperty="id"><bean:write name="company" property="name" />&nbsp;</html:link></td>
+						<td>
+							<logic:notEmpty name="company" property="address">
+								<logic:notEmpty name="company" property="address.department">
+									<bean:write name="company" property="address.department.name" />
+								</logic:notEmpty>&nbsp;
+							</logic:notEmpty>&nbsp;
+						</td>
+					</tr>
+				</logic:iterate>
+			</logic:notEmpty>	
+
+			<logic:empty name="companySearchForm" property="results">
+				<tr><td colspan="5">Pas de résultats</td></tr>
+			</logic:empty>
+
 		</table>
 	</div>
 	<div id="actions">
 		<ul>
-			<li><a href="javascript:checkAll('results','all_none');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
-			<li><a href="javascript:checkNothing('results','all_none');"><bean:message key="all_none.none"/></a></li>
+			<li><a href="javascript:checkAll('companySearchForm','currentSelectedIds');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
+			<li><a href="javascript:checkNothing('companySearchForm','currentSelectedIds');"><bean:message key="all_none.none"/></a></li>
 		</ul>
 		<h2>&nbsp;</h2>
 		<ul>
-			<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" title="<bean:message key="button.title.remove"/>"/></a></li>
+			<li><html:link href="javascript:deleteCompanies();"><html:img src="/eMagine/common/images/icones/supprimer.png" titleKey="button.title.remove" /></html:link></li>
 			<li><html:link action="/companyExtract"><img src="/eMagine/common/images/icones/extraire.png" title="<bean:message key="button.title.extract"/>"/></html:link></li>
 		</ul>
-	</div>
-</form>
+	</div>	
+	
+	<html:hidden property="action" />
+</html:form>

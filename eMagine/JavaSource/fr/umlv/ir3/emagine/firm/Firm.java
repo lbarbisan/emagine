@@ -75,7 +75,7 @@ public class Firm extends EventableEntity {
 	public List<FirmActor> getFirmActors() {
 		return firmActor;
 	}
-	public void setfirmActor(List<FirmActor> firmActor) {
+	public void setFirmActor(List<FirmActor> firmActor) {
 		this.firmActor = firmActor;
 	}
 	public String getFax() {

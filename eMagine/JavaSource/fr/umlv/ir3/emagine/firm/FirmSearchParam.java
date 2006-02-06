@@ -8,6 +8,6 @@ public interface FirmSearchParam extends SearchParams {
 	@RequestParam("firm.name")
 	public String getName();
 
-	@RequestParam("user.department.id")
+	@RequestParam("firm.address.department.id")
 	public String getIdDepartment();
 }

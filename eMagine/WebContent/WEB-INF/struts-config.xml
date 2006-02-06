@@ -28,6 +28,8 @@
 		<form-bean name="bringingTogetherForm" type="fr.umlv.ir3.emagine.apprentice.candidate.BringingTogetherForm" />	
 		<form-bean name="roomModifyForm" type="fr.umlv.ir3.emagine.apprentice.candidate.room.RoomModifyForm" />	
 		<form-bean name="apprenticeSearchForm" type="fr.umlv.ir3.emagine.apprentice.ApprenticeSearchForm" />	
+		<form-bean name="companySearchForm" type="fr.umlv.ir3.emagine.firm.FirmSearchForm" />
+		<form-bean name="companyModifyForm" type="fr.umlv.ir3.emagine.firm.FirmModifyForm" />
 	</form-beans>
 
 	<!-- ========== Action Mapping Definitions =============================== -->
@@ -154,7 +156,27 @@
 		<action path="/teacherMailDo" forward="teacher.teacherMailDo" />
 
 		<!-- company -->
-		<action path="/companySearch" forward="company.companySearch" />
+		<action path="/companySearch" type="fr.umlv.ir3.emagine.firm.FirmSearchAction" name="companySearchForm" parameter="action" scope="session">
+			<forward name="_default_target_" path="company.companySearch" />
+		</action>
+		<action path="/companyCreate" type="fr.umlv.ir3.emagine.firm.FirmCreateAction" name="companyModifyForm" input="company.companyCreate" parameter="action" scope="session" validate="true">
+			<forward name="_default_target_" path="company.companyCreate" />
+		</action>
+		<action path="/companyModify" type="fr.umlv.ir3.emagine.firm.FirmModifyAction" name="companyModifyForm" input="company.companyModify" parameter="action" scope="session" validate="true">
+			<forward name="_default_target_" path="/companyVisuInfo.do" redirect="true" />
+			<forward name="success" path="/companySearch.do?action=search" redirect="true" />
+		</action>
+		<action path="/companyDelete" type="fr.umlv.ir3.emagine.company.CompanyDeleteAction" parameter="action">
+			<forward name="_default_target_" path="/companySearch.do?action=search" redirect="true" />
+		</action>
+
+		<action path="/companyVisuInfo" forward="company.companyVisuInfo" name="companyModifyForm" scope="session" />
+		<action path="/companyVisuEvent" forward="company.companyVisuEvent" name="companyModifyForm" scope="session" />
+		<action path="/companyDelete" type="fr.umlv.ir3.emagine.firm.FirmDeleteAction" parameter="action">
+			<forward name="_default_target_" path="/companySearch.do?action=search" redirect="true" />
+		</action>
+
+<!-- 
 		<action path="/actorApprenticeAdd"
 			forward="company.actorApprenticeAdd" />
 		<action path="/companyCreate" forward="company.companyCreate" />
@@ -189,7 +211,8 @@
 		<action path="/actorEmailDo" forward="company.actorEmailDo" />
 		<action path="/actorMailDo" forward="company.actorMailDo" />
 		<action path="/actorOnglet" forward="company.actorOnglet" />
-
+-->
+ 
 		<!-- recruitment -->
 		<action path="/candidateSearch" type="fr.umlv.ir3.emagine.apprentice.candidate.CandidateSearchAction" name="candidateSearchForm" parameter="action" scope="session">
 			<forward name="_default_target_" path="recruitment.candidateSearch" />

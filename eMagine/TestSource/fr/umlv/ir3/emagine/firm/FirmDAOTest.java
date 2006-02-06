@@ -59,7 +59,7 @@ public class FirmDAOTest extends BaseDAOTest<Firm> {
 		firm.setEmail("email");
 		firm.setEvents(new ArrayList<Event>());
 		firm.setFax("fac");
-		firm.setfirmActor(new ArrayList<FirmActor>());
+		firm.setFirmActor(new ArrayList<FirmActor>());
 		firm.setJobs(new ArrayList<Job>());
 		firm.setMotherfirm(mother);
 		firm.setName("name");
@@ -93,7 +93,7 @@ public class FirmDAOTest extends BaseDAOTest<Firm> {
 		firm1.setEmail("email1");
 		firm1.setEvents(new ArrayList<Event>());
 		firm1.setFax("fac1");
-		firm1.setfirmActor(new ArrayList<FirmActor>());
+		firm1.setFirmActor(new ArrayList<FirmActor>());
 		firm1.setJobs(new ArrayList<Job>());
 		firm1.setMotherfirm(mother);
 		firm1.setName("name1");
@@ -107,7 +107,7 @@ public class FirmDAOTest extends BaseDAOTest<Firm> {
 		firm2.setEmail("email2");
 		firm2.setEvents(new ArrayList<Event>());
 		firm2.setFax("fac2");
-		firm2.setfirmActor(new ArrayList<FirmActor>());
+		firm2.setFirmActor(new ArrayList<FirmActor>());
 		firm2.setJobs(new ArrayList<Job>());
 		firm2.setMotherfirm(mother);
 		firm2.setName("name2");
@@ -121,7 +121,7 @@ public class FirmDAOTest extends BaseDAOTest<Firm> {
 		firm3.setEmail("email3");
 		firm3.setEvents(new ArrayList<Event>());
 		firm3.setFax("fac3");
-		firm3.setfirmActor(new ArrayList<FirmActor>());
+		firm3.setFirmActor(new ArrayList<FirmActor>());
 		firm3.setJobs(new ArrayList<Job>());
 		firm3.setMotherfirm(mother);
 		firm3.setName("name3");

@@ -7,7 +7,7 @@
 			<li><html:link action="/apprenticeSearch?action=show"><bean:message key="form.apprentice"/></html:link>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;</li>
 		</logic:present>
 		<logic:present role="firm.retrieve,firm.find">
-			<li><html:link action="/companySearch"><bean:message key="form.company"/></html:link>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;</li>
+			<li><html:link action="/companySearch?action=show"><bean:message key="form.company"/></html:link>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;</li>
 		</logic:present>
 		<logic:present role="teacherTutor.retrieve,teacherTutor.find">
 			<li><html:link action="/teacherSearch?action=show"><bean:message key="form.teacher"/></html:link>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;</li>
