@@ -4,7 +4,9 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.AccessType;
-import javax.persistence.CascadeType;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -32,32 +34,41 @@ public class Candidate extends Person {
 
 	private static final long serialVersionUID = 2131901427590143640L;
 
-	@ManyToOne(cascade = {CascadeType.ALL})
+	@ManyToOne()
+	@Cascade(CascadeType.SAVE_UPDATE)
     @JoinColumn(name="contact_id")
 	private Contact contactOriginIG2K;
-	@ManyToOne(cascade = {CascadeType.ALL})
+	@ManyToOne()
+	@Cascade(CascadeType.SAVE_UPDATE)
     @JoinColumn(name="formationcenter_id")
 	private FormationCenter formationCenter;
 	//TODO : Hibernate Créer une table d'association avec => ROOM FORMATIONCENTER ET COndidate
-	@ManyToOne(cascade = {CascadeType.ALL})
+	@ManyToOne()
+	@Cascade(CascadeType.SAVE_UPDATE)
     @JoinColumn(name="room_id")
 	private Room room;
-	@ManyToOne(cascade = {CascadeType.ALL})
+	@ManyToOne()
+	@Cascade(CascadeType.SAVE_UPDATE)
     @JoinColumn(name="entrylevel_id")
 	private LevelEntryEnum entryLevel;
-	@ManyToOne(cascade = {CascadeType.ALL})
+	@ManyToOne()
+	@Cascade(CascadeType.SAVE_UPDATE)
     @JoinColumn(name="professionmother_id")
 	private ProfessionEnum professionMother;
-	@ManyToOne(cascade = {CascadeType.ALL})
+	@ManyToOne()
+	@Cascade(CascadeType.SAVE_UPDATE)
     @JoinColumn(name="professionfather_id")
 	private ProfessionEnum professionFather;
-	@ManyToOne(cascade = {CascadeType.ALL})
+	@ManyToOne()
+	@Cascade(CascadeType.SAVE_UPDATE)
     @JoinColumn(name="courseoption_id")
 	private CourseOptionEnum courseOption;
-	@ManyToOne(cascade = {CascadeType.ALL})
+	@ManyToOne()
+	@Cascade(CascadeType.SAVE_UPDATE)
     @JoinColumn(name="lastdiploma_id")
 	private DiplomaEnum lastDiploma;
-	@ManyToOne(cascade = {CascadeType.ALL})
+	@ManyToOne()
+	@Cascade(CascadeType.SAVE_UPDATE)
     @JoinColumn(name="lastsection_id")
 	private SectionEnum lastSection;
 	

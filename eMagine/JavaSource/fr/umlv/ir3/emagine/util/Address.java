@@ -25,11 +25,11 @@ public class Address extends BaseEntity {
 	private static final long serialVersionUID = 7027284397861275888L;
 	
 	@ManyToOne()
-	@Cascade(CascadeType.ALL)
+	@Cascade(CascadeType.SAVE_UPDATE)
 	@JoinColumn(name="department_id")
 	private DepartmentEnum department;
 	@ManyToOne()
-	@Cascade(CascadeType.ALL)
+	@Cascade(CascadeType.SAVE_UPDATE)
 	@JoinColumn(name="country_id")
 	private CountryEnum country;
 	private String street;

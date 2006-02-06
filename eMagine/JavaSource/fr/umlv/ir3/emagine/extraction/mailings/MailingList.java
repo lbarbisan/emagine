@@ -6,9 +6,11 @@ package fr.umlv.ir3.emagine.extraction.mailings;
 import java.util.List;
 
 import javax.persistence.AccessType;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import fr.umlv.ir3.emagine.modification.EditableEntity;
 import fr.umlv.ir3.emagine.util.person.Person;
@@ -25,8 +27,8 @@ public class MailingList<ObjectType extends Person> extends EditableEntity{
 	private String Title;
 	private String comment;
 	/* Ici il n'y a pas besoin d'une liaison bi-driectionnelle */
-	@OneToMany(cascade= {CascadeType.PERSIST,CascadeType.MERGE},
-			targetEntity = Person.class)
+	@OneToMany(targetEntity = Person.class)
+	@Cascade(CascadeType.SAVE_UPDATE)
 	private List<ObjectType> persons;
 	public String getComment() {
 		return comment;

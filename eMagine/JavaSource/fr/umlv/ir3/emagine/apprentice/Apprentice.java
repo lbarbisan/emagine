@@ -6,16 +6,16 @@ import java.util.List;
 import javax.persistence.AccessType;
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
-import org.hibernate.annotations.Columns;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import fr.umlv.ir3.emagine.apprentice.absence.Absence;
 import fr.umlv.ir3.emagine.apprentice.candidate.Candidate;
@@ -33,46 +33,39 @@ public class Apprentice extends Candidate {
 
 	private static final long serialVersionUID = 3998703814616710370L;
 
-	@OneToMany(cascade = {CascadeType.ALL},
-			mappedBy = "apprentice")
+	@OneToMany(mappedBy = "apprentice")
+	@Cascade(CascadeType.SAVE_UPDATE)
 	private List<Absence> absences = new ArrayList<Absence>();
-	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+	@ManyToOne()
+	@Cascade(CascadeType.SAVE_UPDATE)
 	@JoinColumn(name="teachingtutor_id")
 	private TeacherTutor teacherTutor; 
-	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+	@ManyToOne()
+	@Cascade(CascadeType.SAVE_UPDATE)
 	@JoinColumn(name="engineertutor_id")
 	private EngineerTutor engineerTutor;
-	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+	@ManyToOne()
+	@Cascade(CascadeType.SAVE_UPDATE)
 	@JoinColumn(name="firm_id")
 	private Firm firm;
-	@Embedded()
-	@AttributeOverrides( {
-		//@AttributeOverride(name="department_id", column = @Column(name="professionaldepartment_id")),
-        //@AttributeOverride(name="country_id", column = @Column(name="professionalcountry_id")),
-		@AttributeOverride(name="department", column = @Column(name="professionaldepartment")),
-        @AttributeOverride(name="country", column = @Column(name="professionalcountry")),
-        @AttributeOverride(name="street", column = @Column(name="professionalstreet")),
-        @AttributeOverride(name="postalCode", column = @Column(name="professionalpostalCode")),
-        @AttributeOverride(name="city", column = @Column(name="professionalcity"))})
-        
+	@OneToOne()
+	@Cascade(CascadeType.SAVE_UPDATE)
+	@JoinColumn(name = "addresspersonnal_id")
 	private Address addressProfessional = new Address();
-	@Embedded()
-	@AttributeOverrides( {
-		//@AttributeOverride(name="department_id", column = @Column(name="academicdepartment_id")),
-        //@AttributeOverride(name="country_id", column = @Column(name="academiccountry_id")),
-		@AttributeOverride(name="department", column = @Column(name="academicdepartment")),
-        @AttributeOverride(name="country", column = @Column(name="academiccountry")),
-        @AttributeOverride(name="street", column = @Column(name="academicstreet")),
-        @AttributeOverride(name="postalCode", column = @Column(name="academicpostalCode")),
-        @AttributeOverride(name="city", column = @Column(name="academiccity"))})
+	@OneToOne()
+	@Cascade(CascadeType.SAVE_UPDATE)
+	@JoinColumn(name = "addressacademic_id")
 	private Address addressAcademic = new Address();
-	@ManyToOne(cascade = {CascadeType.ALL})
+	@ManyToOne()
+	@Cascade(CascadeType.SAVE_UPDATE)
     @JoinColumn(name="defaultadress_id")
 	private DefaultAddressEnum defaultAdress;
-	@ManyToOne(cascade = {CascadeType.ALL})
+	@ManyToOne()
+	@Cascade(CascadeType.SAVE_UPDATE)
     @JoinColumn(name="firstlanguage_id")
 	private LanguageEnum firstLanguage;
-	@ManyToOne(cascade = {CascadeType.ALL})
+	@ManyToOne()
+	@Cascade(CascadeType.SAVE_UPDATE)
     @JoinColumn(name="secondlanguage_id")
 	private LanguageEnum secondLanguage;
 	

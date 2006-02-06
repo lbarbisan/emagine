@@ -26,12 +26,12 @@ public class TeacherTutor extends Person {
 	private static final long serialVersionUID = 3578189435879585726L;
 
 	@OneToMany(mappedBy = "teacherTutor")
-	@Cascade(CascadeType.ALL)
+	@Cascade(CascadeType.SAVE_UPDATE)
 	@Column(unique = true)
 	private List<Apprentice> apprentice;
 
 	@OneToOne()
-	@Cascade(CascadeType.ALL)
+	@Cascade(CascadeType.SAVE_UPDATE)
 	@JoinColumn(name = "addressProfessional_id")
 	@Column(unique = true)
 	private Address addressProfessional = new Address();

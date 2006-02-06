@@ -4,10 +4,12 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.AccessType;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.OrderBy;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import fr.umlv.ir3.emagine.event.Event;
 import fr.umlv.ir3.emagine.modification.EditableEntity;
@@ -22,7 +24,8 @@ public abstract class EventableEntity extends EditableEntity implements Serializ
 	
 	private static final long serialVersionUID = 15466724567987L;
 	
-    @ManyToMany(cascade={CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @ManyToMany()
+    @Cascade(CascadeType.SAVE_UPDATE)
     @OrderBy("date")
     private List<Event> events;
  

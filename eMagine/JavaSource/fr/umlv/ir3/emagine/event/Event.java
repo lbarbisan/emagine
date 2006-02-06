@@ -8,11 +8,13 @@ import java.util.Date;
 
 import javax.persistence.AccessType;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import fr.umlv.ir3.emagine.util.base.BaseEntity;
 
@@ -27,7 +29,8 @@ public class Event extends BaseEntity {
 
 	private static final long serialVersionUID = 4144109134646449620L;
 	
-	@ManyToOne(cascade = {CascadeType.ALL})
+	@ManyToOne()
+	@Cascade(CascadeType.SAVE_UPDATE)
     @JoinColumn(name="type_id")
 	private EventTypeEnum type;
 	@Basic(temporalType = TemporalType.TIMESTAMP)

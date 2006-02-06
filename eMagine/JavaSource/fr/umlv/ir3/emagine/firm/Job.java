@@ -1,13 +1,14 @@
 package fr.umlv.ir3.emagine.firm;
 
 import javax.persistence.AccessType;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 import fr.umlv.ir3.emagine.apprentice.candidate.CourseOptionEnum;
-import fr.umlv.ir3.emagine.event.EventTypeEnum;
 import fr.umlv.ir3.emagine.modification.EditableEntity;
 
 @Entity(access = AccessType.FIELD)
@@ -15,12 +16,14 @@ public class Job extends EditableEntity {
 
 	private static final long serialVersionUID = 1711695127749986129L;
 
-	@ManyToOne(cascade= {CascadeType.PERSIST,CascadeType.MERGE})
+	@ManyToOne()
+	@Cascade(CascadeType.SAVE_UPDATE)
 	@JoinColumn(name = "firm_id")
 	private Firm firm;
 	
-	@ManyToOne(cascade = {CascadeType.ALL})
+	@ManyToOne()
     @JoinColumn(name="cursus_id")
+    @Cascade(CascadeType.SAVE_UPDATE)
 	private CourseOptionEnum cursus;
 	private String name;
 	private String title;

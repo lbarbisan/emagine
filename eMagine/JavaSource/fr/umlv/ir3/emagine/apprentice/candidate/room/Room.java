@@ -31,10 +31,10 @@ public class Room extends EditableEntity {
 	private static final long serialVersionUID = 2288855718464048519L;
 	
 	@OneToMany(	mappedBy = "room")
-	@Cascade(CascadeType.ALL)
+	@Cascade(CascadeType.SAVE_UPDATE)
 	private List<Candidate> candidates = new ArrayList<Candidate>();
 	@ManyToOne()
-	@Cascade(CascadeType.ALL)
+	@Cascade(CascadeType.SAVE_UPDATE)
 	@JoinColumn(name="formationcenter_id")
 	private FormationCenter formationCenter;
 	

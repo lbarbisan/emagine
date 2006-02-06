@@ -46,7 +46,7 @@ public class Person extends EventableEntity {
 	private static final long serialVersionUID = 4072133161366106454L;
 		
 	@OneToOne()
-	@Cascade(CascadeType.ALL)
+	@Cascade(CascadeType.SAVE_UPDATE)
 	@JoinColumn(name = "addressPersonnal_id")
 	@Column(unique = true)
 	private Address addressPersonnal = new Address();
@@ -55,19 +55,19 @@ public class Person extends EventableEntity {
 	private Date birthdayDate;
 	private String birthdayCity;
 	@ManyToOne()
-	@Cascade(CascadeType.ALL)
+	@Cascade(CascadeType.SAVE_UPDATE)
 	@JoinColumn(name="birthdayCountry_id")
 	private CountryEnum birthdayCountry;
 	@ManyToOne()
-	@Cascade(CascadeType.ALL)
+	@Cascade(CascadeType.SAVE_UPDATE)
 	@JoinColumn(name="birthdayDepartment_id")
 	private DepartmentEnum birthdayDepartment;
 	@ManyToOne()
-	@Cascade(CascadeType.ALL)
+	@Cascade(CascadeType.SAVE_UPDATE)
 	@JoinColumn(name="nationality_id")
 	private NationalityEnum nationality;
 	@ManyToOne()
-	@Cascade(CascadeType.ALL)
+	@Cascade(CascadeType.SAVE_UPDATE)
 	@JoinColumn(name="sex_id")
 	private SexEnum sex;
 	private String lastName;

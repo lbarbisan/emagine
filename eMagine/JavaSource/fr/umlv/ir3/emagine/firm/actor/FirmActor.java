@@ -1,11 +1,13 @@
 package fr.umlv.ir3.emagine.firm.actor;
 
 import javax.persistence.AccessType;
-import javax.persistence.CascadeType;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import fr.umlv.ir3.emagine.firm.Firm;
 import fr.umlv.ir3.emagine.util.Address;
@@ -14,10 +16,13 @@ import fr.umlv.ir3.emagine.util.person.Person;
 public class FirmActor extends Person {
 	
 	private static final long serialVersionUID = 6962218814666233077L;
-	@ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+	@ManyToOne()
+	@Cascade(CascadeType.SAVE_UPDATE)
 	@JoinColumn(name = "firm_id")
 	private Firm firm;
-	@Embedded
+	@OneToOne()
+	@Cascade(CascadeType.SAVE_UPDATE)
+	@JoinColumn(name = "addressPersonnal_id")
 	private Address addressProfessional;
 	private String Function;
 	public Address getAddressProfessional() {

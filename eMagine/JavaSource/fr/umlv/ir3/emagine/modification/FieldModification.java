@@ -3,10 +3,12 @@ package fr.umlv.ir3.emagine.modification;
 import java.io.Serializable;
 
 import javax.persistence.AccessType;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import fr.umlv.ir3.emagine.util.base.BaseEntity;
 
@@ -18,7 +20,8 @@ public class FieldModification<ObjectType> extends BaseEntity {
 	 */
 	private static final long serialVersionUID = 8847825872307086136L;
 	
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne()
+	@Cascade(CascadeType.SAVE_UPDATE)
 	@JoinColumn(name = "modification_fk")
 	private Modification modification;
 	private String propertyName;

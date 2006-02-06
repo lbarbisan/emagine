@@ -3,9 +3,11 @@ package fr.umlv.ir3.emagine.firm.actor;
 import java.util.List;
 
 import javax.persistence.AccessType;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import fr.umlv.ir3.emagine.apprentice.Apprentice;
 
@@ -19,8 +21,8 @@ public class EngineerTutor extends FirmActor {
 	
 	private static final long serialVersionUID = 3857030644896914550L;
 
-	@OneToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE},
-			mappedBy = "engineerTutor")
+	@OneToMany(	mappedBy = "engineerTutor")
+	@Cascade(CascadeType.SAVE_UPDATE)
 			private List<Apprentice> apprentice;
 	
 	public List<Apprentice> getApprentice() {

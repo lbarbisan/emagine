@@ -7,7 +7,6 @@ import java.util.Date;
 
 import javax.persistence.AccessType;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -15,6 +14,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import fr.umlv.ir3.emagine.apprentice.Apprentice;
 import fr.umlv.ir3.emagine.modification.EditableEntity;
@@ -30,7 +32,8 @@ public class Absence extends EditableEntity {
 	
 	private static final long serialVersionUID = -2760061716558049781L;
 	
-	@ManyToOne(cascade= {CascadeType.ALL})
+	@ManyToOne()
+	@Cascade(CascadeType.SAVE_UPDATE)
 	@JoinColumn(name = "apprentice_id") //FIXME : remetre le contrainte null, nullable = false)
 	private Apprentice apprentice;
 	@Basic(temporalType = TemporalType.TIMESTAMP) 

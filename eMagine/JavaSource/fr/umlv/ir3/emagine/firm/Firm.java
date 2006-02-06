@@ -3,7 +3,6 @@ package fr.umlv.ir3.emagine.firm;
 import java.util.List;
 
 import javax.persistence.AccessType;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -11,6 +10,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import fr.umlv.ir3.emagine.apprentice.Apprentice;
 import fr.umlv.ir3.emagine.firm.actor.FirmActor;
@@ -31,18 +33,18 @@ public class Firm extends EventableEntity {
 	@OneToOne
 	@JoinColumn(name="motherfirm_id")
 	private Firm motherFirm;
-	@OneToMany(cascade= {CascadeType.PERSIST,CascadeType.MERGE},
-			mappedBy = "firm")
+	@OneToMany(mappedBy = "firm")
+	@Cascade(CascadeType.SAVE_UPDATE)
 	private List<Job> jobs;
-	@OneToMany(cascade= {CascadeType.PERSIST,CascadeType.MERGE},
-			mappedBy = "firm")
+	@OneToMany(mappedBy = "firm")
+	@Cascade(CascadeType.SAVE_UPDATE)
 	private List<FirmActor> firmActor;
-	@OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE},
-			mappedBy = "firm")
-	private List<Apprentice> apprentices;
-	
-	@OneToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-	@JoinColumn(name = "address_id")
+	@OneToMany(mappedBy = "firm")
+	@Cascade(CascadeType.SAVE_UPDATE)
+	private List<Apprentice> apprentices;	
+	@OneToOne()
+	@Cascade(CascadeType.SAVE_UPDATE)
+	@JoinColumn(name = "addresspersonnal_id")
 	@Column(unique = true)
 	private Address address;
 	

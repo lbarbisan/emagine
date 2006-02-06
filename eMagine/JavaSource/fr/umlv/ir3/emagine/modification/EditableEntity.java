@@ -5,9 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.AccessType;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import fr.umlv.ir3.emagine.util.base.BaseEntity;
 
@@ -20,8 +22,8 @@ public abstract class EditableEntity extends BaseEntity implements Serializable 
 	
 	private static final long serialVersionUID = 15466724567987L;
 	
-    @OneToMany(cascade=CascadeType.ALL,
-    			mappedBy = "editableEntity")
+    @OneToMany(mappedBy = "editableEntity")
+    @Cascade(CascadeType.SAVE_UPDATE)
 	private List<Modification> modifications = new ArrayList<Modification>();
 
     /**

@@ -34,13 +34,13 @@ public class FormationCenter extends EditableEntity {
 	private static final long serialVersionUID = 4966355951897961036L;
 	
 	@OneToMany(mappedBy = "formationCenter")
-	@Cascade(CascadeType.ALL )
+	@Cascade(CascadeType.SAVE_UPDATE )
 	private List<Room> rooms = new ArrayList<Room>();
 	@OneToMany(mappedBy = "formationCenter")
-	@Cascade(CascadeType.ALL)
+	@Cascade(CascadeType.SAVE_UPDATE)
 	private List<Candidate> candidates;
 	@OneToOne()
-	@Cascade(CascadeType.ALL)
+	@Cascade(CascadeType.SAVE_UPDATE)
 	@JoinColumn(name = "address_id")
 	@Column(unique = true)
 	private Address address;

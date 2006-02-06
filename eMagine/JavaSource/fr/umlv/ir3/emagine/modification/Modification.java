@@ -4,12 +4,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.persistence.AccessType;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapKey;
 import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import fr.umlv.ir3.emagine.user.User;
 import fr.umlv.ir3.emagine.util.base.BaseEntity;
@@ -20,16 +22,20 @@ public class Modification<ObjectType extends EventableEntity> extends BaseEntity
 	
 	private static final long serialVersionUID = -985619438827774992L;
 	
-	@ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+	@ManyToOne()
+	@Cascade(CascadeType.SAVE_UPDATE)
 	@JoinColumn(name = "sourceuser_id")
 	private User userSource;
-	@ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+	@ManyToOne()
+	@Cascade(CascadeType.SAVE_UPDATE)
 	@JoinColumn(name = "destinationuser_id")
 	private User userDestination;
-	@ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+	@ManyToOne()
+	@Cascade(CascadeType.SAVE_UPDATE)
 	@JoinColumn(name = "entity_id")
 	private EditableEntity editableEntity;
-	@OneToMany(mappedBy = "modification", cascade=CascadeType.ALL)
+	@OneToMany(mappedBy = "modification")
+	@Cascade(CascadeType.SAVE_UPDATE)
 	@MapKey(name = "propertyName")
 	private Map<String, FieldModification> fieldsModifications = new HashMap<String, FieldModification>();
 	//private ModificationStateEnum modificationState;
