@@ -8,7 +8,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashSet;
 
-import fr.umlv.ir3.emagine.apprentice.Contact;
 import fr.umlv.ir3.emagine.apprentice.CountryEnum;
 import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
 import fr.umlv.ir3.emagine.apprentice.LevelEntryEnum;
@@ -16,6 +15,7 @@ import fr.umlv.ir3.emagine.apprentice.NationalityEnum;
 import fr.umlv.ir3.emagine.apprentice.SexEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.Candidate;
 import fr.umlv.ir3.emagine.apprentice.candidate.CandidateDAO;
+import fr.umlv.ir3.emagine.apprentice.candidate.ContactEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.CourseOptionEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenter;
 import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenterDAO;
@@ -68,7 +68,7 @@ public class InitDB {
 		
 		for(int index=start; index < end; index++)
 		{
-		
+		/*
 		Contact contact = new Contact();
 		contact.setAddressPersonnal(createAddress(index));
 		contact.setBirthdayCity("Ville" + index);
@@ -83,7 +83,7 @@ public class InitDB {
 		contact.setNationality((NationalityEnum) InitEnums.getEmagineEnum("Nationality " + index, NationalityEnum.class));
 		contact.setPhone("8798798" + index);
 		contact.setSex((SexEnum) InitEnums.getEmagineEnum("Male", SexEnum.class));
-		
+		*/
 		Candidate candidate = new Candidate();
 		candidate.setAccepted(false);
 		candidate.setAddressPersonnal(createAddress(index));
@@ -91,25 +91,32 @@ public class InitDB {
 		candidate.setBirthdayCountry((CountryEnum) InitEnums.getEmagineEnum("Country " + index, CountryEnum.class));
 		candidate.setBirthdayDate(new Date());
 		candidate.setBirthdayDepartment((DepartmentEnum) InitEnums.getEmagineEnum("Department " + index, DepartmentEnum.class));
-		candidate.setContactOriginIG2K(contact);
+		//candidate.setContactOriginIG2K(contact);
+		candidate.setContactOriginIG2K((ContactEnum) InitEnums.getEmagineEnum("jpo", ContactEnum.class));
 		candidate.setCourseOption((CourseOptionEnum) InitEnums.getEmagineEnum("CourseOption " + index, CourseOptionEnum.class));
-		candidate.setEmail(contact.getEmail());
+		//candidate.setEmail(contact.getEmail());
+		candidate.setEmail("contact" + index + "@gmail.com");
 		candidate.setEntryLevel((LevelEntryEnum) InitEnums.getEmagineEnum("Level " + index, LevelEntryEnum.class));
 		candidate.setFax("70987987" + index);
-		candidate.setFirstName(contact.getFirstName() + "Candidate");
+		candidate.setFirstName("FirstNameContact" + index);
+		//candidate.setFirstName(contact.getFirstName() + "Candidate");
 //		candidate.setFormationCenter()
 //		candidate.setLastDiploma()
-		candidate.setLastName(contact.getLastName() + "Candiate");
+		candidate.setLastName("LastNameContact" + index);
+		//candidate.setLastName(contact.getLastName() + "Candiate");
 //		candidate.setLastSection()
 		candidate.setMobilePhone("87695468" + index);
-		candidate.setNationality(contact.getNationality());
+		candidate.setNationality((NationalityEnum) InitEnums.getEmagineEnum("Nationality " + index, NationalityEnum.class));
+		//candidate.setNationality(contact.getNationality());
 //		candidate.setOtherFormation()
 		candidate.setPhone("098098" + index);
 //		candidate.setProfessionFather()
 //		candidate.setProfessionMother()
 		candidateDAO.create(candidate);
 
-		candidate.setSex(contact.getSex());
+		//candidate.setSex(contact.getSex());
+		candidate.setSex((SexEnum) InitEnums.getEmagineEnum("Male", SexEnum.class));
+		
 		}
 		
 		DAOManager.commitTransaction();

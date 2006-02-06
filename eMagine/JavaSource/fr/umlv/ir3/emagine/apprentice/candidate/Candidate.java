@@ -4,14 +4,13 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.AccessType;
-
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import fr.umlv.ir3.emagine.apprentice.Contact;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 import fr.umlv.ir3.emagine.apprentice.CountryEnum;
 import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
 import fr.umlv.ir3.emagine.apprentice.LevelEntryEnum;
@@ -37,7 +36,7 @@ public class Candidate extends Person {
 	@ManyToOne()
 	@Cascade(CascadeType.SAVE_UPDATE)
     @JoinColumn(name="contact_id")
-	private Contact contactOriginIG2K;
+	private ContactEnum contactOriginIG2K;
 	@ManyToOne()
 	@Cascade(CascadeType.SAVE_UPDATE)
     @JoinColumn(name="formationcenter_id")
@@ -106,7 +105,7 @@ public class Candidate extends Person {
 	 * @param professionFather
 	 * @param courseOption constructor
 	 */
-	public Candidate(List<Modification> modifications, List<Event> events, Address addressPersonnal, Date birthdayDate, String birthdayCity, CountryEnum birthdayCountry, DepartmentEnum birthdayDepartment, NationalityEnum nationality, SexEnum sex, String lastName, String firstName, String email, String phone, String mobilePhone, String fax, Contact contactOriginIG2K, FormationCenter formationCenter, Room room, boolean otherFormation, boolean accepted, LevelEntryEnum entryLevel, ProfessionEnum professionMother, ProfessionEnum professionFather, CourseOptionEnum courseOption) {
+	public Candidate(List<Modification> modifications, List<Event> events, Address addressPersonnal, Date birthdayDate, String birthdayCity, CountryEnum birthdayCountry, DepartmentEnum birthdayDepartment, NationalityEnum nationality, SexEnum sex, String lastName, String firstName, String email, String phone, String mobilePhone, String fax, ContactEnum contactOriginIG2K, FormationCenter formationCenter, Room room, boolean otherFormation, boolean accepted, LevelEntryEnum entryLevel, ProfessionEnum professionMother, ProfessionEnum professionFather, CourseOptionEnum courseOption) {
 		super(null, null, modifications, events, addressPersonnal, birthdayDate,
 				birthdayCity, birthdayCountry, birthdayDepartment, nationality, sex,
 				lastName, firstName, email, phone, mobilePhone, fax);
@@ -127,17 +126,16 @@ public class Candidate extends Person {
 		// TODO Candidate() Not Implemented
 	}
 
-
 	public boolean isAccepted() {
 		return accepted;
 	}
 	public void setAccepted(boolean accepted) {
 		this.accepted = accepted;
 	}
-	public Contact getContactOriginIG2K() {
+	public ContactEnum getContactOriginIG2K() {
 		return contactOriginIG2K;
 	}
-	public void setContactOriginIG2K(Contact contactOriginIG2K) {
+	public void setContactOriginIG2K(ContactEnum contactOriginIG2K) {
 		this.contactOriginIG2K = contactOriginIG2K;
 	}
 	public LevelEntryEnum getEntryLevel() {

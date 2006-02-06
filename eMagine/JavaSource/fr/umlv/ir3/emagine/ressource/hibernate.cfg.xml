@@ -39,7 +39,6 @@
 		
 		<mapping package="fr.umlv.ir3.emagine.apprentice"/> 
 		<mapping class="fr.umlv.ir3.emagine.apprentice.Apprentice"/> 
-		<mapping class="fr.umlv.ir3.emagine.apprentice.Contact"/>
 		<mapping class="fr.umlv.ir3.emagine.apprentice.CountryEnum"/>
 		<mapping class="fr.umlv.ir3.emagine.apprentice.DefaultAddressEnum"/> 
 		<mapping class="fr.umlv.ir3.emagine.apprentice.DepartmentEnum"/>
