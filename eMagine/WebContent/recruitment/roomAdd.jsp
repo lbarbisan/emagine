@@ -17,7 +17,6 @@
 	}
 -->
 </script>
-<bean:parameter name="id" id="examCenterId"/>
 <h2><bean:message key="room.add.title"/><html:link action="/centerDetail?action=show"><img src="/eMagine/common/images/icones/retour.png" title="<bean:message key="button.title.return"/>"/></html:link></h2>
 <br/>
 <html:form action="/roomAdd" method="POST" focus="name">
@@ -34,7 +33,7 @@
 	</ul>
 </div>
 <br/>
-<input type="hidden" id="idCenter" value="<%= examCenterId %>">
+<html:hidden property="idCenter" />
 <html:hidden property="action" />
 </html:form>
 <div align="right"><font color="red" size="1"><bean:message key="form.msg.obligation.star"/></font></div>

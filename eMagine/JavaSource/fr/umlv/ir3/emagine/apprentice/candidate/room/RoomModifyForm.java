@@ -121,6 +121,7 @@ public class RoomModifyForm extends ActionForm {
 	 * @return Returns the idCenter.
 	 */
 	public String getIdCenter() {
+		System.out.println("dans le centre " + idCenter );
 		return idCenter;
 	}
 
@@ -128,6 +129,7 @@ public class RoomModifyForm extends ActionForm {
 	 * @param idCenter The idCenter to set.
 	 */
 	public void setIdCenter(String idCenter) {
+		System.out.println("Le nouveau centre est : " + idCenter);
 		this.idCenter = idCenter;
 	}
 }

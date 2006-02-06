@@ -73,7 +73,7 @@
 		<ul>
 			<li><html:link href="javascript:modifyCenter();"><html:img src="/eMagine/common/images/icones/modif.png" titleKey="button.title.update" /></html:link></li>
 			<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" title="<bean:message key="button.title.remove"/>"/></a></li>
-			<li><html:link action="<%= "/roomAdd?action=show&id="+examCenterId %>"><img src="/eMagine/common/images/icones/ajouter.png" title="<bean:message key="button.title.add"/>"/></html:link></li>
+			<li><html:link action="<%= "/roomAdd?action=show&idCenter="+examCenterId %>"><img src="/eMagine/common/images/icones/ajouter.png" title="<bean:message key="button.title.add"/>"/></html:link></li>
 		</ul>
 	</div>
 	<html:hidden property="idFormationCenterToModify" />

@@ -244,8 +244,8 @@
 			<forward name="_default_target_" path="recruitment.roomDetail" />
 		</action>
 		
-		<action path="/roomAdd" type="fr.umlv.ir3.emagine.apprentice.candidate.room.RoomCreateAction" name="roomModifyForm" input="recruitment.roomAdd" parameter="action" scope="session" validate="true">
-			<forward name="_default_target_" path="recruitment.centerList" redirect="true" />
+		<action path="/roomAdd" type="fr.umlv.ir3.emagine.apprentice.candidate.room.RoomCreateAction" name="roomModifyForm" parameter="action" scope="session" validate="true">
+			<forward name="_default_target_" path="recruitment.roomAdd" redirect="true" />
 		</action>
 
 		<!-- mail -->

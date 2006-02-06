@@ -51,20 +51,16 @@ public class RoomCreateAction extends BaseAction {
 		ManagerManager managerManager = ManagerManager.getInstance();
 		RoomManager roomManager = managerManager.getRoomManager();
 		
-		System.out.println(roomModifyForm.getIdCenter());
 		try {
-			String idCenter = request.getParameter("idCenter");
-			System.out.println("le centre: " + idCenter);
-			if(idCenter != null && !"".equals(idCenter)) {
 				// Init room
 				Room room = new Room();
 				room.setCapacity(new Integer(roomModifyForm.getCapacity()));
-				room.setFormationCenter(managerManager.getFormationCenterManager().retrieve(Long.parseLong(idCenter)));
+				room.setFormationCenter(managerManager.getFormationCenterManager().retrieve(Long.parseLong(roomModifyForm.getIdCenter())));
 				room.setName(roomModifyForm.getName());
 				// Create a room
 				roomManager.create(room);
 				errors.add("confirm", new ActionMessage("room.create.confirm")); // TODO A revoir
-			}
+//			}
 		} catch (EMagineException exception) {
 				addEMagineExceptionError(errors, exception);
 		}
