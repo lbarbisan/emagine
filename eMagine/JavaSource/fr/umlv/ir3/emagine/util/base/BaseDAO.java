@@ -10,7 +10,6 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.HibernateException;
-import org.hibernate.LockMode;
 import org.hibernate.Query;
 import org.hibernate.Session;
 

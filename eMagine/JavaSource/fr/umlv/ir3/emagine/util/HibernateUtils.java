@@ -7,6 +7,8 @@ import java.util.ResourceBundle;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.hibernate.CacheMode;
+import org.hibernate.FlushMode;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -88,7 +90,9 @@ public class HibernateUtils {
         // Open a new Session, if this Thread has none yet
         if (session == null) {
         	session = sessionFactory.openSession();
-            threadSession.set(session);
+            session.setCacheMode(CacheMode.REFRESH);
+            session.setFlushMode(FlushMode.COMMIT);
+        	threadSession.set(session);
         }
         return session;
     }

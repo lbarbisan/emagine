@@ -46,7 +46,7 @@ public class InitDB {
 			EMagineException, IllegalArgumentException, IllegalAccessException,
 			InvocationTargetException {
 		// Initialize Enum
-		Object[] objects = { 1, 60 };
+		Object[] objects = { 1,4 };
 		for (Method method : InitEnums.class.getDeclaredMethods()) {
 			if (method.getName().startsWith("create")) {
 				method.invoke(null, objects);
@@ -54,10 +54,10 @@ public class InitDB {
 		}
 
 		InitializeUser();
-		createUsers(1, 40);
-		createTeachers(1, 40);
+		createUsers(1, 4);
+		createTeachers(1, 4);
 		InitializeFormationCenter();
-		InitializeCandidate(1,40);
+		InitializeCandidate(1,4);
 	}
 
 	private static final void InitializeCandidate(int start, int end) throws EMagineException
@@ -76,8 +76,8 @@ public class InitDB {
 		contact.setBirthdayDate(new Date());
 		contact.setBirthdayDepartment((DepartmentEnum) InitEnums.getEmagineEnum("Department " + index, DepartmentEnum.class));
 		contact.setEmail("contact" + index + "@gmail.com");
-		contact.setFirstName("LastName" + index);
-		contact.setLastName("FirstName" + index);
+		contact.setFirstName("LastNameContact" + index);
+		contact.setLastName("FirstNameContact" + index);
 		contact.setFax("01012" + index);
 		contact.setMobilePhone("32902930" + index);
 		contact.setNationality((NationalityEnum) InitEnums.getEmagineEnum("Nationality " + index, NationalityEnum.class));
@@ -99,7 +99,7 @@ public class InitDB {
 		candidate.setFirstName(contact.getFirstName() + "Candidate");
 //		candidate.setFormationCenter()
 //		candidate.setLastDiploma()
-		candidate.setLastName(contact.getLastName());
+		candidate.setLastName(contact.getLastName() + "Candiate");
 //		candidate.setLastSection()
 		candidate.setMobilePhone("87695468" + index);
 		candidate.setNationality(contact.getNationality());
@@ -232,8 +232,8 @@ public class InitDB {
 			for (int index = start; index < length; index++) {
 				User user = new User();
 				user.setEmail("user" + index + "@gmail.com");
-				user.setFirstName("LastName" + index);
-				user.setLastName("FirstName" + index);
+				user.setFirstName("LastNameUser" + index);
+				user.setLastName("FirstNameUser" + index);
 				user.setLogin("login" + index);
 				user.setPassword("password" + index);
 				user.setProfile(CFA);
@@ -266,8 +266,8 @@ public class InitDB {
 				teacher.setBirthdayDepartment((DepartmentEnum) InitEnums.getEmagineEnum("Department 1", DepartmentEnum.class));
 				teacher.setEmail("mail" + index + "@gmail.com");
 				teacher.setFax("9" + index * 100);
-				teacher.setFirstName("LastName" + index);
-				teacher.setLastName("FirstName" + index);
+				teacher.setFirstName("LastNameTeachers" + index);
+				teacher.setLastName("FirstNameTeachers" + index);
 				teacher.setMobilePhone("709870");
 				teacher.setPhone("12003" + index);
 				teacher.setSex((SexEnum) InitEnums.getEmagineEnum("Male",  SexEnum.class));

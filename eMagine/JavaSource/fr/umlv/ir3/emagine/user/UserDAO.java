@@ -61,7 +61,7 @@ public class UserDAO extends BaseDAO<User> {
 	 */
 	@Override
 	public User retrieve(long id) throws EMagineException {		
-		User user = retrieve(id);
+		User user = super.retrieve(id);
 		if(user!=null)
 		{
 			log.debug("update User with " +  user.getFirstName());
