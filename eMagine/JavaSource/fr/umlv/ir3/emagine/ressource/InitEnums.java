@@ -14,7 +14,6 @@ import fr.umlv.ir3.emagine.apprentice.candidate.DiplomaEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.ProfessionEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.SectionEnum;
 import fr.umlv.ir3.emagine.event.EventTypeEnum;
-import fr.umlv.ir3.emagine.extraction.ViewEnum;
 import fr.umlv.ir3.emagine.modification.EditableStateEnum;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
@@ -132,16 +131,6 @@ public class InitEnums {
 		}
 	}
 	
-	static final void createViewEnum(int start, int length) throws EMagineException
-	{
-		EmagineEnumDAO emagineEnumDAO =  DAOManager.getInstance().getEmagineEnumDAO();
-		for(int index=start;index<length; index++)
-		{
-			ViewEnum enums =  new ViewEnum("View " + index);
-			emagineEnumDAO.create(enums);
-		}
-	}
-	
 	static final void createEditableStateEnum(int start, int length) throws EMagineException
 	{
 		EmagineEnumDAO emagineEnumDAO =  DAOManager.getInstance().getEmagineEnumDAO();
@@ -184,7 +173,7 @@ public class InitEnums {
 	}
 	
 	
-	static final EmagineEnum getEmagineEnum(String name, Class clazz) throws EMagineException
+	static final EmagineEnum getEmagineEnum(String name, Class<? extends EmagineEnum> clazz) throws EMagineException
 	{
 		EmagineEnumDAO emagineEnumDAO =  DAOManager.getInstance().getEmagineEnumDAO();
 		
