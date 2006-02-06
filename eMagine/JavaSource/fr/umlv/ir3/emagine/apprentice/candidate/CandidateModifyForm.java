@@ -9,12 +9,12 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 
-import fr.umlv.ir3.emagine.apprentice.CountryEnum;
-import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
-import fr.umlv.ir3.emagine.apprentice.LevelEntryEnum;
-import fr.umlv.ir3.emagine.apprentice.NationalityEnum;
-import fr.umlv.ir3.emagine.apprentice.SexEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenter;
+import fr.umlv.ir3.emagine.apprentice.tools.CountryEnum;
+import fr.umlv.ir3.emagine.apprentice.tools.DepartmentEnum;
+import fr.umlv.ir3.emagine.apprentice.tools.LevelEntryEnum;
+import fr.umlv.ir3.emagine.apprentice.tools.NationalityEnum;
+import fr.umlv.ir3.emagine.apprentice.tools.SexEnum;
 
 public class CandidateModifyForm extends ActionForm {
 
