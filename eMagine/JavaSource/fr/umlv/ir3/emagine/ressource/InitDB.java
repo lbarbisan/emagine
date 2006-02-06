@@ -8,6 +8,13 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashSet;
 
+<<<<<<< .mine
+import fr.umlv.ir3.emagine.apprentice.Apprentice;
+import fr.umlv.ir3.emagine.apprentice.ApprenticeDAO;
+import fr.umlv.ir3.emagine.apprentice.ApprenticeManager;
+import fr.umlv.ir3.emagine.apprentice.Contact;
+=======
+>>>>>>> .r585
 import fr.umlv.ir3.emagine.apprentice.CountryEnum;
 import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
 import fr.umlv.ir3.emagine.apprentice.LevelEntryEnum;
@@ -20,6 +27,8 @@ import fr.umlv.ir3.emagine.apprentice.candidate.CourseOptionEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenter;
 import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenterDAO;
 import fr.umlv.ir3.emagine.apprentice.candidate.room.Room;
+import fr.umlv.ir3.emagine.firm.Firm;
+import fr.umlv.ir3.emagine.firm.FirmDAO;
 import fr.umlv.ir3.emagine.security.MustHaveRights;
 import fr.umlv.ir3.emagine.teachertutor.TeacherTutor;
 import fr.umlv.ir3.emagine.teachertutor.TeacherTutorDAO;
@@ -31,6 +40,7 @@ import fr.umlv.ir3.emagine.user.profile.RightDAO;
 import fr.umlv.ir3.emagine.util.Address;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
+import fr.umlv.ir3.emagine.util.ManagerManager;
 
 public class InitDB {
 
@@ -58,6 +68,8 @@ public class InitDB {
 		createTeachers(1, 4);
 		InitializeFormationCenter();
 		InitializeCandidate(1,4);
+		InitializeFirm(1,4);
+		InitializeApprentice(1,4);
 	}
 
 	private static final void InitializeCandidate(int start, int end) throws EMagineException
@@ -117,6 +129,25 @@ public class InitDB {
 		//candidate.setSex(contact.getSex());
 		candidate.setSex((SexEnum) InitEnums.getEmagineEnum("Male", SexEnum.class));
 		
+		}
+		
+		DAOManager.commitTransaction();
+	}
+	
+	
+	private static final void InitializeApprentice(int start, int end) throws EMagineException
+	{
+		
+		ApprenticeManager apprenticeManager =  ManagerManager.getInstance().getApprenticeManager();
+		CandidateDAO candidateDAO = DAOManager.getInstance().getCandidateDAO();
+		
+		DAOManager.beginTransaction();
+		
+		for(int index=start; index < end; index++)
+		{
+			Candidate candidate =  candidateDAO.findAll().get(0);
+			System.out.println("te" + apprenticeManager);
+			apprenticeManager.Integrate(candidate);
 		}
 		
 		DAOManager.commitTransaction();
@@ -298,6 +329,31 @@ public class InitDB {
 		address.setStreet(index + "rue de la java");
 
 		return address;
+	}
+	
+	private static void InitializeFirm(int start, int length) {
+		
+		FirmDAO firmDAO = DAOManager.getInstance().getFirmDAO();
+				
+		DAOManager.beginTransaction();
+		try {
+			for (int index = start; index < length; index++)
+			{
+				Firm firm = new Firm();
+				firm.setAddress(createAddress(index));
+				firm.setEmail("FirmMail@domain" +  index + ".com");
+				firm.setFax("87987987" + index);
+				firm.setName("Firm" + index);
+				firm.setPhone("9879879" + index);
+				firm.setWebSite("http://www" + index + "domain.com");
+				firmDAO.create(firm);
+			}
+
+			DAOManager.commitTransaction();
+		} catch (EMagineException emagine) {
+			// TODO EMagineException.e1 Not Implemented
+			emagine.printStackTrace();
+		}
 	}
 
 	private static void InitializeFormationCenter() {
