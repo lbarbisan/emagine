@@ -4,7 +4,7 @@ import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.base.BaseManagerImpl;
 
-public class ExtractionManagerImpl extends BaseManagerImpl<Extraction, ExtractionDAO> implements ExtractionManager {
+public class ExtractionManagerImpl extends BaseManagerImpl<ExtractionEntity, ExtractionDAO> implements ExtractionManager {
 
 
 	/**

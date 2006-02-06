@@ -6,7 +6,7 @@ import fr.umlv.ir3.emagine.util.base.BaseManager;
 
 @MustHaveRights("extraction")
 // FIXME : rappeler l'utilité de cette classe ?!
-public interface ExtractionManager extends BaseManager<Extraction, ExtractionDAO> {
+public interface ExtractionManager extends BaseManager<ExtractionEntity, ExtractionDAO> {
 
 	/**
 	 * Saves the specified extraction config for the current user

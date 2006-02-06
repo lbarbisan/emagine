@@ -4,6 +4,21 @@
 "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
+    
+    	<!--  Configuration de la base de données, à mettre dans un environement managé -->
+        <property name="hibernate.cglib.use_reflection_optimizer">false</property>
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.password">eMagine</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://server.srv-net.com:54321/eMagine</property>
+        <property name="hibernate.connection.username">eMagine</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <property name="hibernate.connection.autocommit">false</property>
+        
+        <!--  
+        <property name="hibernate.connection.showsql">true</property>
+       	<property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
+        -->
+         
  		<mapping package="fr.umlv.ir3.emagine.base"/> 
 		<mapping class="fr.umlv.ir3.emagine.util.base.BaseEntity"/>
 		<mapping class="fr.umlv.ir3.emagine.util.base.EventableEntity"/>
@@ -14,7 +29,6 @@
 		<mapping class="fr.umlv.ir3.emagine.util.EmagineEnum"/>
 		
 		<mapping package="fr.umlv.ir3.emagine.extraction"/> 
-		<mapping class="fr.umlv.ir3.emagine.extraction.ViewEnum"/> 
 
 		<mapping package="fr.umlv.ir3.emagine.event"/> 
 		<mapping class="fr.umlv.ir3.emagine.event.Event"/>
