@@ -14,7 +14,7 @@
 		</ul>
 	</div>
 	<div class="tabs_div">
-<!-- Un formulaire de modification -->
+	<!-- Un formulaire de modification -->
 	<h2><bean:message key="apprentice.absence.search.title"/></h2>
 	<br/>
 	<div align="center">

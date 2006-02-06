@@ -17,12 +17,12 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessages;
 
+import fr.umlv.ir3.emagine.apprentice.CountryEnum;
+import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
+import fr.umlv.ir3.emagine.apprentice.LevelEntryEnum;
+import fr.umlv.ir3.emagine.apprentice.NationalityEnum;
+import fr.umlv.ir3.emagine.apprentice.SexEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenterManager;
-import fr.umlv.ir3.emagine.apprentice.tools.CountryEnum;
-import fr.umlv.ir3.emagine.apprentice.tools.DepartmentEnum;
-import fr.umlv.ir3.emagine.apprentice.tools.LevelEntryEnum;
-import fr.umlv.ir3.emagine.apprentice.tools.NationalityEnum;
-import fr.umlv.ir3.emagine.apprentice.tools.SexEnum;
 import fr.umlv.ir3.emagine.util.Address;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.EmagineEnumManager;
