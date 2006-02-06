@@ -107,7 +107,7 @@ public class BaseAction extends DispatchAction {
 		if (actionForward == null)
 			actionForward = mapping.findForward(Constants.DEFAULT_TARGET);		
 		
-		log.info("Forward name : " + (actionForward != null ? actionForward.getName() : null));
+		log.info("Forward action '"+getClass().getName()+"' -> '" + (actionForward != null ? actionForward.getName() : null) + "'");
 		
 		return actionForward;
 	}
