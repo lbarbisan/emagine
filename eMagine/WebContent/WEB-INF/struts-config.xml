@@ -166,51 +166,38 @@
 			<forward name="_default_target_" path="/companyVisuInfo.do" redirect="true" />
 			<forward name="success" path="/companySearch.do?action=search" redirect="true" />
 		</action>
-		<action path="/companyDelete" type="fr.umlv.ir3.emagine.company.CompanyDeleteAction" parameter="action">
-			<forward name="_default_target_" path="/companySearch.do?action=search" redirect="true" />
-		</action>
-
-		<action path="/companyVisuInfo" forward="company.companyVisuInfo" name="companyModifyForm" scope="session" />
-		<action path="/companyVisuEvent" forward="company.companyVisuEvent" name="companyModifyForm" scope="session" />
 		<action path="/companyDelete" type="fr.umlv.ir3.emagine.firm.FirmDeleteAction" parameter="action">
 			<forward name="_default_target_" path="/companySearch.do?action=search" redirect="true" />
 		</action>
+		<action path="/companyVisuInfo" forward="company.companyVisuInfo" name="companyModifyForm" scope="session" />
+		<action path="/companyVisuEvent" forward="company.companyVisuEvent" name="companyModifyForm" scope="session" />
+		<action path="/companyVisuActor" forward="company.companyVisuActor" name="companyModifyForm" scope="session" />
+		<action path="/companyVisuEvent" forward="company.companyVisuEvent" name="companyModifyForm" scope="session" />
+		<action path="/companyVisuInfo" forward="company.companyVisuInfo" name="companyModifyForm" scope="session" />
+		<action path="/companyVisuPost" forward="company.companyVisuPost" name="companyModifyForm" scope="session" />
 
 <!-- 
-		<action path="/actorApprenticeAdd"
-			forward="company.actorApprenticeAdd" />
-		<action path="/companyCreate" forward="company.companyCreate" />
-		<action path="/actorVisuInfo" forward="company.actorVisuInfo" />
-		<action path="/companyVisuActor"
-			forward="company.companyVisuActor" />
-		<action path="/companyVisuEvent"
-			forward="company.companyVisuEvent" />
-		<action path="/companyVisuInfo"
-			forward="company.companyVisuInfo" />
-		<action path="/companyVisuPost"
-			forward="company.companyVisuPost" />
+		<action path="/actorApprenticeAdd" forward="company.actorApprenticeAdd" />
+		<action path="/actorCreate" forward="company.actorCreate" />
+		<action path="/actorEmailDo" forward="company.actorEmailDo" />
+		<action path="/actorEventDetail" forward="company.actorEventDetail" />
+		<action path="/actorEventExtract" forward="company.actorEventExtract" />
+		<action path="/actorExtract" forward="company.actorExtract" />
+		<action path="/actorMailingListCreate" forward="company.actorMailingListCreate" />
+		<action path="/actorMailDo" forward="company.actorMailDo" />
+		<action path="/actorOnglet" forward="company.actorOnglet" />
+		<action path="/actorVisuEvent" forward="company.actorVisuEvent" />
+x		<action path="/actorVisuInfo" forward="company.actorVisuInfo" />
+		<action path="/companyEventDetail" forward="company.companyEventDetail" />
+		<action path="/companyEventExtract" forward="company.companyEventExtract" />
+		<action path="/companyExtract" forward="company.companyExtract" />
+		<action path="/companyVisuActor" forward="company.companyVisuActor" />
+		<action path="/companyVisuEvent" forward="company.companyVisuEvent" />
+		<action path="/companyVisuInfo" forward="company.companyVisuInfo" />
+		<action path="/companyVisuPost" forward="company.companyVisuPost" />
 		<action path="/companyOnglet" forward="company.companyOnglet" />
 		<action path="/postCreate" forward="company.postCreate" />
 		<action path="/postDetail" forward="company.postDetail" />
-		<action path="/actorCreate" forward="company.actorCreate" />
-		<action path="/companyVisuEvent"
-			forward="company.companyVisuEvent" />
-		<action path="/companyEventDetail"
-			forward="company.companyEventDetail" />
-		<action path="/actorVisuEvent" forward="company.actorVisuEvent" />
-		<action path="/actorEventDetail"
-			forward="company.actorEventDetail" />
-		<action path="/actorExtract" forward="company.actorExtract" />
-		<action path="/companyExtract" forward="company.companyExtract" />
-		<action path="/companyEventExtract"
-			forward="company.companyEventExtract" />
-		<action path="/actorEventExtract"
-			forward="company.actorEventExtract" />
-		<action path="/actorMailingListCreate"
-			forward="company.actorMailingListCreate" />
-		<action path="/actorEmailDo" forward="company.actorEmailDo" />
-		<action path="/actorMailDo" forward="company.actorMailDo" />
-		<action path="/actorOnglet" forward="company.actorOnglet" />
 -->
  
 		<!-- recruitment -->
