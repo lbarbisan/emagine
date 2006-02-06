@@ -187,7 +187,7 @@
 		<action path="/actorMailDo" forward="company.actorMailDo" />
 		<action path="/actorOnglet" forward="company.actorOnglet" />
 		<action path="/actorVisuEvent" forward="company.actorVisuEvent" />
-x		<action path="/actorVisuInfo" forward="company.actorVisuInfo" />
+		<action path="/actorVisuInfo" forward="company.actorVisuInfo" />
 		<action path="/companyEventDetail" forward="company.companyEventDetail" />
 		<action path="/companyEventExtract" forward="company.companyEventExtract" />
 		<action path="/companyExtract" forward="company.companyExtract" />

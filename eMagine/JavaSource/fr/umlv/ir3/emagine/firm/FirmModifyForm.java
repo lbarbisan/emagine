@@ -69,10 +69,12 @@ public class FirmModifyForm extends ActionForm {
 	public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
 		ActionErrors errors = new ActionErrors();
 
+		/*
 		if("create".equals(action) || "modify".equals(action)) {
 			if("".equals(name) || "".equals(address) || "".equals(fixe) || "".equals(postalCode) || "".equals(city) || "".equals(web))
 				errors.add("allRequiredFieldIsNotfillin", new ActionMessage("user.error.allRequiredFieldIsNotfillin"));
-		}			
+		}
+		*/			
 
 		return errors;
 	}

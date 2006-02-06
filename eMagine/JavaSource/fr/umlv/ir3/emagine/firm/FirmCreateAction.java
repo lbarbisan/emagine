@@ -70,20 +70,29 @@ public class FirmCreateAction extends BaseAction {
 			
 			
 			// Create an address
-			if(	firmModifyForm.getIdDepartment() != null || !"".equals(firmModifyForm.getIdDepartment()) ||
-					firmModifyForm.getCity() != null || !"".equals(firmModifyForm.getCity()) ||
-					firmModifyForm.getPostalCode() != null || !"".equals(firmModifyForm.getPostalCode()) ||
-					firmModifyForm.getAddress() != null || !"".equals(firmModifyForm.getAddress())) {
+			if(	(firmModifyForm.getIdDepartment() != null && !"".equals(firmModifyForm.getIdDepartment())) ||
+					(firmModifyForm.getCity() != null && !"".equals(firmModifyForm.getCity())) ||
+					(firmModifyForm.getPostalCode() != null && !"".equals(firmModifyForm.getPostalCode())) ||
+					(firmModifyForm.getAddress() != null && !"".equals(firmModifyForm.getAddress()))) {
 				Address address = new Address();
-				address.setCity(firmModifyForm.getCity());
-				address.setPostalCode(firmModifyForm.getPostalCode());
-				address.setStreet(firmModifyForm.getAddress());
-				address.setDepartment((DepartmentEnum) ManagerManager.getInstance().getEmagineEnumManager().retrieve(Long.parseLong(firmModifyForm.getIdDepartment()),DepartmentEnum.class));
+
+				if(	firmModifyForm.getCity() != null && !"".equals(firmModifyForm.getCity()))
+					address.setCity(firmModifyForm.getCity());
+				
+				if(	firmModifyForm.getPostalCode() != null && !"".equals(firmModifyForm.getPostalCode()))
+					address.setPostalCode(firmModifyForm.getPostalCode());
+				
+				if(	firmModifyForm.getAddress() != null && !"".equals(firmModifyForm.getAddress()))
+					address.setStreet(firmModifyForm.getAddress());
+				
+				if(	firmModifyForm.getIdDepartment() != null && !"".equals(firmModifyForm.getIdDepartment()))
+					address.setDepartment((DepartmentEnum) ManagerManager.getInstance().getEmagineEnumManager().retrieve(Long.parseLong(firmModifyForm.getIdDepartment()),DepartmentEnum.class));
+				
 				firm.setAddress(address);
 			}
 
 			// Set parent firm
-			if(	firmModifyForm.getIdParent() != null || !"".equals(firmModifyForm.getIdParent()))
+			if(	firmModifyForm.getIdParent() != null && !"".equals(firmModifyForm.getIdParent()))
 				firm.setMotherfirm(firmManager.retrieve(Long.parseLong(firmModifyForm.getIdParent())));
 			
 			firm.setName(firmModifyForm.getName());
