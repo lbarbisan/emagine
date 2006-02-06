@@ -8,13 +8,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashSet;
 
-<<<<<<< .mine
-import fr.umlv.ir3.emagine.apprentice.Apprentice;
-import fr.umlv.ir3.emagine.apprentice.ApprenticeDAO;
 import fr.umlv.ir3.emagine.apprentice.ApprenticeManager;
-import fr.umlv.ir3.emagine.apprentice.Contact;
-=======
->>>>>>> .r585
 import fr.umlv.ir3.emagine.apprentice.CountryEnum;
 import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
 import fr.umlv.ir3.emagine.apprentice.LevelEntryEnum;
@@ -69,7 +63,7 @@ public class InitDB {
 		InitializeFormationCenter();
 		InitializeCandidate(1,4);
 		InitializeFirm(1,4);
-		InitializeApprentice(1,4);
+		//InitializeApprentice(1,4);
 	}
 
 	private static final void InitializeCandidate(int start, int end) throws EMagineException
