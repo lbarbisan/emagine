@@ -28,6 +28,7 @@
 		<form-bean name="bringingTogetherForm" type="fr.umlv.ir3.emagine.apprentice.candidate.BringingTogetherForm" />	
 		<form-bean name="roomModifyForm" type="fr.umlv.ir3.emagine.apprentice.candidate.room.RoomModifyForm" />	
 		<form-bean name="apprenticeSearchForm" type="fr.umlv.ir3.emagine.apprentice.ApprenticeSearchForm" />	
+		<form-bean name="apprenticeModifyForm" type="fr.umlv.ir3.emagine.apprentice.ApprenticeModifiyForm" />	
 		<form-bean name="companySearchForm" type="fr.umlv.ir3.emagine.firm.FirmSearchForm" />
 		<form-bean name="companyModifyForm" type="fr.umlv.ir3.emagine.firm.FirmModifyForm" />
 	</form-beans>

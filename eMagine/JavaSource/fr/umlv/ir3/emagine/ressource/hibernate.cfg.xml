@@ -32,6 +32,7 @@
 		<mapping class="fr.umlv.ir3.emagine.apprentice.NationalityEnum"/>
 		<mapping class="fr.umlv.ir3.emagine.apprentice.SexEnum"/>
 		<mapping class="fr.umlv.ir3.emagine.apprentice.YearEnum"/>
+		<mapping class="fr.umlv.ir3.emagine.apprentice.JustificationEnum"/>
 		
 		<mapping package="fr.umlv.ir3.emagine.apprentice.candidate"/> 
 		<mapping class="fr.umlv.ir3.emagine.apprentice.candidate.Candidate"/>

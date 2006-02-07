@@ -1,5 +1,7 @@
 package fr.umlv.ir3.emagine.apprentice;
 
+import java.util.Collection;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionErrors;
@@ -47,6 +49,12 @@ public class ApprenticeModifyForm extends ActionForm {
 	/** Identifier of candidate to modify **/
 	private String idApprenticeToModify;
 	
+	/** List of all of possibilities default adresses **/
+	private Collection <DefaultAddressEnum> defaultAddresses;
+	
+	/** Identifier of selected adress **/
+	private String idDefaultAddress;
+
 	/** personnal adress **/
 	private String persAdress;
 	
@@ -57,7 +65,7 @@ public class ApprenticeModifyForm extends ActionForm {
 	private String persCity;
 	
 	/** personnal department **/
-	private String persDepartment;
+	private String idPersDepartment;
 
 	/** personnal phone **/
 	private String persPhone;
@@ -81,7 +89,7 @@ public class ApprenticeModifyForm extends ActionForm {
 	private String profCity;
 	
 	/** professional department **/
-	private String profDepartment;
+	private String idProfDepartment;
 
 	/** professional phone **/
 	private String profPhone;
@@ -105,7 +113,7 @@ public class ApprenticeModifyForm extends ActionForm {
 	private String acaCity;
 	
 	/** academic department **/
-	private String acaDepartment;
+	private String idAcaDepartment;
 
 	/** academic phone **/
 	private String acaPhone;
@@ -119,6 +127,9 @@ public class ApprenticeModifyForm extends ActionForm {
 	/** academic eMail **/
 	private String acaEmail;
 
+	/** all the departments **/
+	private Collection <DepartmentEnum> departments;
+	
 	/** Use to action **/
 	private String action;
 
@@ -158,7 +169,7 @@ public class ApprenticeModifyForm extends ActionForm {
 		comment = "";
 		persAdress = "";
 		persCity = "";
-		persDepartment = "";
+		idPersDepartment = "";
 		persEmail ="";
 		persFax = "";
 		persMobile = "";
@@ -166,7 +177,7 @@ public class ApprenticeModifyForm extends ActionForm {
 		persPostalCode = "";
 		profAdress = "";
 		profCity = "";
-		profDepartment = "";
+		idProfDepartment = "";
 		profEmail ="";
 		profFax = "";
 		profMobile = "";
@@ -174,7 +185,7 @@ public class ApprenticeModifyForm extends ActionForm {
 		profPostalCode = "";
 		acaAdress = "";
 		acaCity = "";
-		acaDepartment = "";
+		idAcaDepartment = "";
 		acaEmail ="";
 		acaFax = "";
 		acaMobile = "";
@@ -183,104 +194,6 @@ public class ApprenticeModifyForm extends ActionForm {
 		action = "";
 		idAbsenceToModify = "";
 		idApprenticeToModify = "";
-	}
-
-	/**
-	 * @return Returns the action.
-	 */
-	public String getAction() {
-		return action;
-	}
-
-	/**
-	 * @param action The action to set.
-	 */
-	public void setAction(String action) {
-		this.action = action;
-	}
-
-	/**
-	 * @return Returns the comment.
-	 */
-	public String getComment() {
-		return comment;
-	}
-
-	/**
-	 * @param comment The comment to set.
-	 */
-	public void setComment(String comment) {
-		this.comment = comment;
-	}
-
-	/**
-	 * @return Returns the endDate.
-	 */
-	public String getEndDate() {
-		return endDate;
-	}
-
-	/**
-	 * @param endDate The endDate to set.
-	 */
-	public void setEndDate(String endDate) {
-		this.endDate = endDate;
-	}
-
-	/**
-	 * @return Returns the idAbsenceToModify.
-	 */
-	public String getIdAbsenceToModify() {
-		return idAbsenceToModify;
-	}
-
-	/**
-	 * @param idAbsenceToModify The idAbsenceToModify to set.
-	 */
-	public void setIdAbsenceToModify(String idAbsenceToModify) {
-		this.idAbsenceToModify = idAbsenceToModify;
-	}
-
-	/**
-	 * @return Returns the idJustification.
-	 */
-	public String getIdJustification() {
-		return idJustification;
-	}
-
-	/**
-	 * @param idJustification The idJustification to set.
-	 */
-	public void setIdJustification(String idJustification) {
-		this.idJustification = idJustification;
-	}
-
-	/**
-	 * @return Returns the initDate.
-	 */
-	public String getInitDate() {
-		return initDate;
-	}
-
-	/**
-	 * @param initDate The initDate to set.
-	 */
-	public void setInitDate(String initDate) {
-		this.initDate = initDate;
-	}
-
-	/**
-	 * @return Returns the nbDays.
-	 */
-	public String getNbDays() {
-		return nbDays;
-	}
-
-	/**
-	 * @param nbDays The nbDays to set.
-	 */
-	public void setNbDays(String nbDays) {
-		this.nbDays = nbDays;
 	}
 
 	/**
@@ -309,20 +222,6 @@ public class ApprenticeModifyForm extends ActionForm {
 	 */
 	public void setAcaCity(String acaCity) {
 		this.acaCity = acaCity;
-	}
-
-	/**
-	 * @return Returns the acaDepartment.
-	 */
-	public String getAcaDepartment() {
-		return acaDepartment;
-	}
-
-	/**
-	 * @param acaDepartment The acaDepartment to set.
-	 */
-	public void setAcaDepartment(String acaDepartment) {
-		this.acaDepartment = acaDepartment;
 	}
 
 	/**
@@ -396,6 +295,90 @@ public class ApprenticeModifyForm extends ActionForm {
 	}
 
 	/**
+	 * @return Returns the action.
+	 */
+	public String getAction() {
+		return action;
+	}
+
+	/**
+	 * @param action The action to set.
+	 */
+	public void setAction(String action) {
+		this.action = action;
+	}
+
+	/**
+	 * @return Returns the comment.
+	 */
+	public String getComment() {
+		return comment;
+	}
+
+	/**
+	 * @param comment The comment to set.
+	 */
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+
+	/**
+	 * @return Returns the departments.
+	 */
+	public Collection<DepartmentEnum> getDepartments() {
+		return departments;
+	}
+
+	/**
+	 * @param departments The departments to set.
+	 */
+	public void setDepartments(Collection<DepartmentEnum> departments) {
+		this.departments = departments;
+	}
+
+	/**
+	 * @return Returns the endDate.
+	 */
+	public String getEndDate() {
+		return endDate;
+	}
+
+	/**
+	 * @param endDate The endDate to set.
+	 */
+	public void setEndDate(String endDate) {
+		this.endDate = endDate;
+	}
+
+	/**
+	 * @return Returns the idAbsenceToModify.
+	 */
+	public String getIdAbsenceToModify() {
+		return idAbsenceToModify;
+	}
+
+	/**
+	 * @param idAbsenceToModify The idAbsenceToModify to set.
+	 */
+	public void setIdAbsenceToModify(String idAbsenceToModify) {
+		this.idAbsenceToModify = idAbsenceToModify;
+	}
+
+	/**
+	 * @return Returns the idAcaDepartment.
+	 */
+	public String getIdAcaDepartment() {
+		return idAcaDepartment;
+	}
+
+	/**
+	 * @param idAcaDepartment The idAcaDepartment to set.
+	 */
+	public void setIdAcaDepartment(String idAcaDepartment) {
+		this.idAcaDepartment = idAcaDepartment;
+	}
+
+	/**
 	 * @return Returns the idApprenticeToModify.
 	 */
 	public String getIdApprenticeToModify() {
@@ -407,6 +390,76 @@ public class ApprenticeModifyForm extends ActionForm {
 	 */
 	public void setIdApprenticeToModify(String idApprenticeToModify) {
 		this.idApprenticeToModify = idApprenticeToModify;
+	}
+
+	/**
+	 * @return Returns the idJustification.
+	 */
+	public String getIdJustification() {
+		return idJustification;
+	}
+
+	/**
+	 * @param idJustification The idJustification to set.
+	 */
+	public void setIdJustification(String idJustification) {
+		this.idJustification = idJustification;
+	}
+
+	/**
+	 * @return Returns the idPersDepartment.
+	 */
+	public String getIdPersDepartment() {
+		return idPersDepartment;
+	}
+
+	/**
+	 * @param idPersDepartment The idPersDepartment to set.
+	 */
+	public void setIdPersDepartment(String idPersDepartment) {
+		this.idPersDepartment = idPersDepartment;
+	}
+
+	/**
+	 * @return Returns the idProfDepartment.
+	 */
+	public String getIdProfDepartment() {
+		return idProfDepartment;
+	}
+
+	/**
+	 * @param idProfDepartment The idProfDepartment to set.
+	 */
+	public void setIdProfDepartment(String idProfDepartment) {
+		this.idProfDepartment = idProfDepartment;
+	}
+
+	/**
+	 * @return Returns the initDate.
+	 */
+	public String getInitDate() {
+		return initDate;
+	}
+
+	/**
+	 * @param initDate The initDate to set.
+	 */
+	public void setInitDate(String initDate) {
+		this.initDate = initDate;
+	}
+
+	/**
+	 * @return Returns the nbDays.
+	 */
+	public String getNbDays() {
+		return nbDays;
+	}
+
+	/**
+	 * @param nbDays The nbDays to set.
+	 */
+	public void setNbDays(String nbDays) {
+		this.nbDays = nbDays;
 	}
 
 	/**
@@ -435,20 +488,6 @@ public class ApprenticeModifyForm extends ActionForm {
 	 */
 	public void setPersCity(String persCity) {
 		this.persCity = persCity;
-	}
-
-	/**
-	 * @return Returns the persDepartment.
-	 */
-	public String getPersDepartment() {
-		return persDepartment;
-	}
-
-	/**
-	 * @param persDepartment The persDepartment to set.
-	 */
-	public void setPersDepartment(String persDepartment) {
-		this.persDepartment = persDepartment;
 	}
 
 	/**
@@ -550,20 +589,6 @@ public class ApprenticeModifyForm extends ActionForm {
 	}
 
 	/**
-	 * @return Returns the profDepartment.
-	 */
-	public String getProfDepartment() {
-		return profDepartment;
-	}
-
-	/**
-	 * @param profDepartment The profDepartment to set.
-	 */
-	public void setProfDepartment(String profDepartment) {
-		this.profDepartment = profDepartment;
-	}
-
-	/**
 	 * @return Returns the profEmail.
 	 */
 	public String getProfEmail() {
@@ -631,6 +656,34 @@ public class ApprenticeModifyForm extends ActionForm {
 	 */
 	public void setProfPostalCode(String profPostalCode) {
 		this.profPostalCode = profPostalCode;
+	}
+
+	/**
+	 * @return Returns the defaultAddresses.
+	 */
+	public Collection<DefaultAddressEnum> getDefaultAddresses() {
+		return defaultAddresses;
+	}
+
+	/**
+	 * @param defaultAddresses The defaultAddresses to set.
+	 */
+	public void setDefaultAddresses(Collection<DefaultAddressEnum> defaultAddresses) {
+		this.defaultAddresses = defaultAddresses;
+	}
+
+	/**
+	 * @return Returns the idDefaultAddress.
+	 */
+	public String getIdDefaultAddress() {
+		return idDefaultAddress;
+	}
+
+	/**
+	 * @param idDefaultAddress The idDefaultAddress to set.
+	 */
+	public void setIdDefaultAddress(String idDefaultAddress) {
+		this.idDefaultAddress = idDefaultAddress;
 	}
 
 }

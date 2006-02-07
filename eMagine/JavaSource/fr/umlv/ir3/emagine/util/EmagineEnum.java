@@ -18,7 +18,7 @@ public class EmagineEnum extends BaseEntity{
 
 	private static final long serialVersionUID = 41873052571735056L;
 	 
-	@Column(unique = true, nullable = false)
+	@Column(nullable = false)
 	private String name;
 	
 	public EmagineEnum(){super();}

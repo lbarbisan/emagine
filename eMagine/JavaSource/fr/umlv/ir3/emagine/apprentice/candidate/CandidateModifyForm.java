@@ -38,7 +38,6 @@ public class CandidateModifyForm extends ActionForm {
 	
 	/** Identifier of selected department **/
 	private String idDepartment;
-	//private DepartmentEnum idDepartment;
 	
 	/** Identifier of selected personal department **/
 	private String idPersDepartment;

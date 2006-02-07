@@ -35,7 +35,7 @@
 				</div>
 				<div class="search_b2">
 					<p>
-						<label for="courseOption"><bean:message key="criteria.search.dieAsked"/></label>
+						<label for="courseOption"><bean:message key="criteria.search.die"/></label>
 						<html:select property="idCourseOption">
 							<logic:notEmpty name="apprenticeSearchForm" property="courseOptions">
 								<option value="" selected></option>

@@ -119,18 +119,15 @@ public class CandidateModifyAction extends BaseAction {
 					if(candidate.getAddressPersonnal().getStreet() != null) {
 					candidateModifyForm.setPersAdress(candidate.getAddressPersonnal().getStreet().toString());
 					}
-				}
-				if(candidate.getAddressPersonnal() != null) {
+
 					if(candidate.getAddressPersonnal().getDepartment() != null) {
 					candidateModifyForm.setIdPersDepartment(Long.toString(candidate.getAddressPersonnal().getDepartment().getId()));
 					}
-				}
-				if(candidate.getAddressPersonnal() != null) {
+
 					if(candidate.getAddressPersonnal().getPostalCode() != null) {
 						candidateModifyForm.setPersPostalCode(candidate.getAddressPersonnal().getPostalCode());
 					}
-				}
-				if(candidate.getAddressPersonnal() != null) {
+
 					if(candidate.getAddressPersonnal().getCity() != null) {
 						candidateModifyForm.setPersCity(candidate.getAddressPersonnal().getCity().toString());
 					}
@@ -213,7 +210,7 @@ public class CandidateModifyAction extends BaseAction {
 			candidate.setProfessionMother((ProfessionEnum) emagineEnumManager.retrieve(Long.parseLong(candidateModifyForm.getIdMother()), ProfessionEnum.class));
 			candidate.setProfessionFather((ProfessionEnum) emagineEnumManager.retrieve(Long.parseLong(candidateModifyForm.getIdFather()), ProfessionEnum.class));
 			candidate.setFormationCenter(centerManager.retrieve(Long.parseLong(candidateModifyForm.getIdCenter())));
-			//TODO candidate.setContactOriginIG2K(contactManager.retrieve(Long.parseLong(candidateModifyForm.getIdContact())));
+			candidate.setContactOriginIG2K((ContactEnum) emagineEnumManager.retrieve(Long.parseLong(candidateModifyForm.getIdContact()), ContactEnum.class));
 			candidate.setLastDiploma((DiplomaEnum) emagineEnumManager.retrieve(Long.parseLong(candidateModifyForm.getIdDiploma()), DiplomaEnum.class));
 			candidate.setLastSection((SectionEnum) emagineEnumManager.retrieve(Long.parseLong(candidateModifyForm.getIdSection()), SectionEnum.class));
 			candidate.setEntryLevel((LevelEntryEnum) emagineEnumManager.retrieve(Long.parseLong(candidateModifyForm.getIdLevel()), LevelEntryEnum.class));

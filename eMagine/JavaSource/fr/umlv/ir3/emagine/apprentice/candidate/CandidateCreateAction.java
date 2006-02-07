@@ -2,9 +2,7 @@ package fr.umlv.ir3.emagine.apprentice.candidate;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -22,10 +20,7 @@ import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
 import fr.umlv.ir3.emagine.apprentice.LevelEntryEnum;
 import fr.umlv.ir3.emagine.apprentice.NationalityEnum;
 import fr.umlv.ir3.emagine.apprentice.SexEnum;
-import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenter;
 import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenterManager;
-import fr.umlv.ir3.emagine.user.UserManager;
-import fr.umlv.ir3.emagine.user.profile.ProfileManager;
 import fr.umlv.ir3.emagine.util.Address;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.EmagineEnumManager;
@@ -101,7 +96,6 @@ public class CandidateCreateAction extends BaseAction {
 		ManagerManager managerManager = ManagerManager.getInstance();
 		CandidateManager candidateManager = managerManager.getCandidateManager();
 		FormationCenterManager centerManager = managerManager.getFormationCenterManager();
-		//TODO ContactManager contactManager = managerManager.getContactManager();
 		EmagineEnumManager emagineEnumManager = managerManager.getEmagineEnumManager();
 
 		// Init candidate
@@ -117,7 +111,7 @@ public class CandidateCreateAction extends BaseAction {
 		candidate.setProfessionMother((ProfessionEnum) emagineEnumManager.retrieve(Long.parseLong(candidateForm.getIdMother()), ProfessionEnum.class));
 		candidate.setProfessionFather((ProfessionEnum) emagineEnumManager.retrieve(Long.parseLong(candidateForm.getIdFather()), ProfessionEnum.class));
 		candidate.setFormationCenter(centerManager.retrieve(Long.parseLong(candidateForm.getIdCenter())));
-		//TODO candidate.setContactOriginIG2K(contactManager.retrieve(Long.parseLong(candidateForm.getIdContact())));		
+		candidate.setContactOriginIG2K((ContactEnum) emagineEnumManager.retrieve(Long.parseLong(candidateForm.getIdContact()), ContactEnum.class));
 		candidate.setLastDiploma((DiplomaEnum) emagineEnumManager.retrieve(Long.parseLong(candidateForm.getIdDiploma()), DiplomaEnum.class));
 		candidate.setLastSection((SectionEnum) emagineEnumManager.retrieve(Long.parseLong(candidateForm.getIdSection()), SectionEnum.class));
 		candidate.setEntryLevel((LevelEntryEnum) emagineEnumManager.retrieve(Long.parseLong(candidateForm.getIdLevel()), LevelEntryEnum.class));

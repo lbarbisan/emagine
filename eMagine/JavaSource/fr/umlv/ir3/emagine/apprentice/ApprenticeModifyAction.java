@@ -24,7 +24,7 @@ import fr.umlv.ir3.emagine.util.EmagineEnumManager;
 import fr.umlv.ir3.emagine.util.ManagerManager;
 import fr.umlv.ir3.emagine.util.base.BaseAction;
 
-public class ApprenticeModifyAbsenceAction extends BaseAction {
+public class ApprenticeModifyAction extends BaseAction {
 
 	/**
 	 * The user wants to show the details of apprentice absence.
@@ -39,11 +39,15 @@ public class ApprenticeModifyAbsenceAction extends BaseAction {
 	public ActionForward show(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionMessages errors = new ActionMessages();
 		ManagerManager managerManager = ManagerManager.getInstance();
-		ApprenticeModifyForm apprenticeModifyAbsenceForm = (ApprenticeModifyForm) form;
-		EmagineEnumManager emagineEnumManager = managerManager.getEmagineEnumManager();
+		// TODO ApprenticeModifyForm apprenticeModifyAbsenceForm = (ApprenticeModifyForm) form;
+		ApprenticeModifyForm apprenticeModifyForm = (ApprenticeModifyForm) form;
 		
 		try {
-			// Retrieve the candidate we want to see (if he exists) 
+			
+			/**
+			 * Datas concerning the absences of an apprentice
+			 */
+			/*//Retrieve the absence we want to see (if it exists) 
 			String idAbsence = request.getParameter("id");			
 			if(idAbsence != null && !"".equals(idAbsence)) {
 				Absence absence = managerManager.getAbsenceManager().retrieve(Long.parseLong(idAbsence));
@@ -58,6 +62,76 @@ public class ApprenticeModifyAbsenceAction extends BaseAction {
 				if(absence.getJustificationComment() != null) {
 					//apprenticeModifyAbsenceForm.setIdJustification(Long.toString(absence.getJustification().getId()));
 				}
+			}*/
+			String idApprentice = request.getParameter("id");			
+			if(idApprentice != null && !"".equals(idApprentice)) {
+				Apprentice apprentice = managerManager.getApprenticeManager().retrieve(Long.parseLong(idApprentice));
+				apprenticeModifyForm.setIdApprenticeToModify(idApprentice);
+				
+				if(apprentice.getAddressPersonnal() != null) {
+					if(apprentice.getAddressPersonnal().getStreet() != null) {
+					apprenticeModifyForm.setPersAdress(apprentice.getAddressPersonnal().getStreet().toString());
+					}
+					
+					if(apprentice.getAddressPersonnal().getDepartment() != null) {
+						apprenticeModifyForm.setIdPersDepartment(Long.toString(apprentice.getAddressPersonnal().getDepartment().getId()));
+					}
+					
+					if(apprentice.getAddressPersonnal().getPostalCode() != null) {
+						apprenticeModifyForm.setPersPostalCode(apprentice.getAddressPersonnal().getPostalCode());
+					}
+					if(apprentice.getAddressPersonnal().getCity() != null) {
+						apprenticeModifyForm.setPersCity(apprentice.getAddressPersonnal().getCity().toString());
+					}
+				}
+				/*
+				 * apprenticeModifyForm.setPersEmail(apprentice.getPersEmail);
+				 * apprenticeModifyForm.setPersPhone(apprentice.getPersPhone);
+				 * apprenticeModifyForm.setPersMobile(apprentice.getPersMobile);
+				 * apprenticeModifyForm.setPersFax(apprentice.getPersFax);*/
+
+				if(apprentice.getAddressProfessional() != null) {
+					if(apprentice.getAddressProfessional().getStreet() != null) {
+					apprenticeModifyForm.setProfAdress(apprentice.getAddressProfessional().getStreet().toString());
+					}
+					
+					if(apprentice.getAddressProfessional().getDepartment() != null) {
+						apprenticeModifyForm.setIdProfDepartment(Long.toString(apprentice.getAddressProfessional().getDepartment().getId()));
+					}
+					
+					if(apprentice.getAddressProfessional().getPostalCode() != null) {
+						apprenticeModifyForm.setProfPostalCode(apprentice.getAddressProfessional().getPostalCode());
+					}
+					if(apprentice.getAddressProfessional().getCity() != null) {
+						apprenticeModifyForm.setProfCity(apprentice.getAddressProfessional().getCity().toString());
+					}
+				}
+				/* apprenticeModifyForm.setProfEmail(apprentice.getProfEmail);
+				 * apprenticeModifyForm.setProfPhone(apprentice.getProfPhone);
+				 * apprenticeModifyForm.setProfMobile(apprentice.getProfMobile);
+				 * apprenticeModifyForm.setProfFax(apprentice.getProfFax);*/
+				
+				if(apprentice.getAddressAcademic() != null) {
+					if(apprentice.getAddressAcademic().getStreet() != null) {
+					apprenticeModifyForm.setAcaAdress(apprentice.getAddressAcademic().getStreet().toString());
+					}
+					
+					if(apprentice.getAddressAcademic().getDepartment() != null) {
+						apprenticeModifyForm.setIdAcaDepartment(Long.toString(apprentice.getAddressAcademic().getDepartment().getId()));
+					}
+					
+					if(apprentice.getAddressAcademic().getPostalCode() != null) {
+						apprenticeModifyForm.setAcaPostalCode(apprentice.getAddressAcademic().getPostalCode());
+					}
+					if(apprentice.getAddressAcademic().getCity() != null) {
+						apprenticeModifyForm.setProfCity(apprentice.getAddressAcademic().getCity().toString());
+					}
+				}
+				 /* apprenticeModifyForm.setAcaEmail(apprentice.getAcaEmail);
+				 * apprenticeModifyForm.setAcaPhone(apprentice.getAcaPhone);
+				 * apprenticeModifyForm.setAcaMobile(apprentice.getAcaMobile);
+				 * apprenticeModifyForm.setAcaFax(apprentice.getAcaFax);
+				 */
 			}
 			
 		} catch (EMagineException exception) {
