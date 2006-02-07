@@ -71,7 +71,7 @@ public class ApprenticeManagerImpl extends EventableManagerImpl<Apprentice, Appr
 		}
 	}
 	
-	public Apprentice Integrate(Candidate candidate) throws EMagineException
+	public Apprentice integrate(Candidate candidate) throws EMagineException
 	{	
 		DAOManager.beginTransaction();
 		Apprentice apprentice ;

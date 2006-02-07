@@ -93,16 +93,16 @@ public class InitDB {
 			
 		});
 		
-		InitializeUser();
+		initializeUser();
 		createUsers(1, 4);
 		createTeachers(1, 4);
-		InitializeFormationCenter();
-		InitializeCandidate(1,4);
-		InitializeFirm(1,4);
-		InitializeApprentice(1,4);
+		initializeFormationCenter();
+		initializeCandidate(1,4);
+		initializeFirm(1,4);
+		initializeApprentice(1,4);
 	}
 
-	private static final void InitializeCandidate(int start, int end) throws EMagineException
+	private static final void initializeCandidate(int start, int end) throws EMagineException
 	{
 		
 		CandidateDAO candidateDAO = DAOManager.getInstance().getCandidateDAO();
@@ -165,7 +165,7 @@ public class InitDB {
 	}
 	
 	
-	private static final void InitializeApprentice(int start, int end) throws EMagineException
+	private static final void initializeApprentice(int start, int end) throws EMagineException
 	{
 		
 		ApprenticeManager apprenticeManager =  ManagerManager.getInstance().getApprenticeManager();
@@ -176,13 +176,13 @@ public class InitDB {
 		for(int index=start; index < end; index++)
 		{
 			Candidate candidate =  candidateDAO.findAll().get(index-start);
-			apprenticeManager.Integrate(candidate);
+			apprenticeManager.integrate(candidate);
 		}
 		
 		DAOManager.commitTransaction();
 	}
 
-	public static void InitializeUser() {
+	public static void initializeUser() {
 
 		UserDAO userDAO = DAOManager.getInstance().getUserDAO();
 		DAOManager.beginTransaction();
@@ -360,7 +360,7 @@ public class InitDB {
 		return address;
 	}
 	
-	private static void InitializeFirm(int start, int length) {
+	private static void initializeFirm(int start, int length) {
 		
 		FirmDAO firmDAO = DAOManager.getInstance().getFirmDAO();
 				
@@ -385,7 +385,7 @@ public class InitDB {
 		}
 	}
 
-	private static void InitializeFormationCenter() {
+	private static void initializeFormationCenter() {
 		FormationCenterDAO formationCenterDAO = DAOManager.getInstance()
 				.getFormationCenterDAO();
 		DAOManager.beginTransaction();

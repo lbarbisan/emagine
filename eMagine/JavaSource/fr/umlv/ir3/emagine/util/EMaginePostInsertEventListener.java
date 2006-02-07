@@ -46,14 +46,14 @@ public class EMaginePostInsertEventListener implements PostInsertEventListener {
 				DAOManager.getInstance().getEventDAO().create(eMagineEvent);
 			} catch (EMagineException e) {
 				//TODO : #46 - lbarbisan - Remonter et transmettre l'exeption en cas de problème
-				log.error("Error when tracing event of creation'" + event.getEntity() + "'", e);
+				log.error("Error when tracing event of creation '" + event.getEntity() + "'", e);
 			}
 		}
 		try {
 			DAOManager.commitTransaction();
 		} catch (EMagineException e) {
 			// TODO EMagineException.e Not Implemented
-			log.error("Error when tracing event of creation'" + event.getEntity() + "'", e);
+			log.error("Error when tracing event of creation '" + event.getEntity() + "'", e);
 		}
 	}
 }

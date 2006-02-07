@@ -70,7 +70,7 @@ public interface ApprenticeManager extends EventableManager<Apprentice, Apprenti
 	 * @return
 	 * @throws EMagineException
 	 */
-	public abstract Apprentice Integrate(
+	public abstract Apprentice integrate(
 			Candidate candidate) 
 			throws EMagineException;
 
