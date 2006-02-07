@@ -1,3 +1,4 @@
+
 package fr.umlv.ir3.emagine.apprentice.absence;
 
 import java.util.Collection;
@@ -35,10 +36,11 @@ public class AbsenceDAO extends BaseDAO<Absence> {
 
 		Query query = HibernateUtils.getSession().createQuery(queryString.toString());
 		
-		for (String field : absenceSearchParams.getFields()) {
-			Object value = absenceSearchParams.getField(field);
-			query.setParameter(field, value);
-		}
+		//FIXME: lbarbisan - Mise à jour des champ
+//		for (String field : absenceSearchParams.getFields()) {
+//			Object value = absenceSearchParams.getField(field);
+//			query.setParameter(field, value);
+//		}
 		return query.list();
 	}
 }
