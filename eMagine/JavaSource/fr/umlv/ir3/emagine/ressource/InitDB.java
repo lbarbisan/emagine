@@ -99,7 +99,7 @@ public class InitDB {
 		InitializeFormationCenter();
 		InitializeCandidate(1,4);
 		InitializeFirm(1,4);
-		//InitializeApprentice(1,4);
+		InitializeApprentice(1,4);
 	}
 
 	private static final void InitializeCandidate(int start, int end) throws EMagineException

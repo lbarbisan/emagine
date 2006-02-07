@@ -78,6 +78,8 @@ public class ApprenticeManagerImpl extends EventableManagerImpl<Apprentice, Appr
 		
 		try {
 			DAOManager.getInstance().getCandidateDAO().delete(candidate);
+			DAOManager.commitTransaction();
+			DAOManager.beginTransaction();
 			apprentice = DAOManager.getInstance().getApprenticeDAO().Integrate(candidate);
 			DAOManager.commitTransaction();
 		} catch (HibernateException exception) {

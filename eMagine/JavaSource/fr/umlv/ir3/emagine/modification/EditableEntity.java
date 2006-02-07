@@ -31,6 +31,10 @@ public abstract class EditableEntity extends BaseEntity implements Serializable 
      */
 	protected EditableEntity() {super();}
 
+	public EditableEntity(List<Modification> modifications)
+	{
+		super();
+	}
 	/**
 	 * @return the list of modifications for this class
 	 */

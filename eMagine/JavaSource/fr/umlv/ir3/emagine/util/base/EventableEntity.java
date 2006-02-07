@@ -1,6 +1,7 @@
 package fr.umlv.ir3.emagine.util.base;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.AccessType;
@@ -27,10 +28,10 @@ public abstract class EventableEntity extends EditableEntity implements Serializ
     @ManyToMany()
     @Cascade(CascadeType.SAVE_UPDATE)
     @OrderBy("date")
-    private List<Event> events;
+    private List<Event> events = new ArrayList<Event>();
  
 	protected EventableEntity(List<Modification> modifications, List<Event> events) {
-		this.events = events;
+		super(modifications);
 	}
 	
 	protected EventableEntity() {};

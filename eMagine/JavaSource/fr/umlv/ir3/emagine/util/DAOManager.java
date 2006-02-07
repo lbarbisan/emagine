@@ -225,5 +225,22 @@ public class DAOManager {
 			throw new EMagineException("closeSession failed", hibernateException);
 		}
 	}
+	
+	/**
+	 * Flush the hibernate cache
+	 *
+	 */
+	public static void flushSession() throws EMagineException{
+		try {
+			HibernateUtils.getSession().flush();
+			HibernateUtils.getSession().clear();
+		} catch (HibernateException hibernateException) {
+			throw new EMagineException("closeSession failed", hibernateException);
+		}
+	}
+	
+	
+	
+	
 
 }

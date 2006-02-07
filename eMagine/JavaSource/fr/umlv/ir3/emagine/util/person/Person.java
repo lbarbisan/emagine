@@ -79,7 +79,7 @@ public class Person extends EventableEntity {
 	
 	
 	
-	protected Person(Long id, Long version, List<Modification> modifications, List<Event> events, Address addressPersonnal, Date birthdayDate, String birthdayCity, CountryEnum birthdayCountry, DepartmentEnum birthdayDepartment, NationalityEnum nationality, SexEnum sex, String lastName, String firstName, String email, String phone, String mobilePhone, String fax) {
+	protected Person(Long id, Long version, List<Modification> modifications, List<Event> events, Address addressPersonnal, Date birthdayDate, String birthdayCity, CountryEnum birthdayCountry, DepartmentEnum birthdayDepartment, NationalityEnum nationality, SexEnum sex, String lastName, String firstName, String email, String phone, String mobilePhone, String fax) {	
 		super(modifications, events);
 		this.addressPersonnal = addressPersonnal;
 		this.birthdayDate = birthdayDate;
@@ -97,7 +97,6 @@ public class Person extends EventableEntity {
 	}
 	
 	protected Person() {};
-	
 	
 	public Address getAddressPersonnal() {
 		return addressPersonnal;

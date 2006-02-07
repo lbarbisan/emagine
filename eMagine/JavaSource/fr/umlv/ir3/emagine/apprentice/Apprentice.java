@@ -4,10 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.AccessType;
-import javax.persistence.AttributeOverride;
-import javax.persistence.AttributeOverrides;
-import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -26,7 +22,6 @@ import fr.umlv.ir3.emagine.util.Address;
 /**
  * This class represent an apprentice
  * @author Laurent
- *
  */
 @Entity(access = AccessType.FIELD)
 public class Apprentice extends Candidate {
@@ -70,10 +65,10 @@ public class Apprentice extends Candidate {
 	private LanguageEnum secondLanguage;
 	
 	//FIXME: lbarbisan - Passer les tableau en table Hibernate
-	private ArrayList<Integer> examsMark;
-	private ArrayList<String> diplomas;
-	private ArrayList<String> schooling;
-	
+//	private List<Integer> examsMark = new ArrayList<Integer>();
+//	private List<String> diplomas = new ArrayList<String>();
+//	private List<String> schooling = new ArrayList<String>();
+
 	private Integer year;
 	private Boolean excluded;
 	
@@ -152,20 +147,6 @@ public class Apprentice extends Candidate {
 	}
 
 	/**
-	 * @return Returns the diplomas.
-	 */
-	public ArrayList<String> getDiplomas() {
-		return diplomas;
-	}
-
-	/**
-	 * @param diplomas The diplomas to set.
-	 */
-	public void setDiplomas(ArrayList<String> diplomas) {
-		this.diplomas = diplomas;
-	}
-
-	/**
 	 * @return Returns the engineerTutor.
 	 */
 	public EngineerTutor getEngineerTutor() {
@@ -177,20 +158,6 @@ public class Apprentice extends Candidate {
 	 */
 	public void setEngineerTutor(EngineerTutor engineerTutor) {
 		this.engineerTutor = engineerTutor;
-	}
-
-	/**
-	 * @return Returns the examsMark.
-	 */
-	public ArrayList<Integer> getExamsMark() {
-		return examsMark;
-	}
-
-	/**
-	 * @param examsMark The examsMark to set.
-	 */
-	public void setExamsMark(ArrayList<Integer> examsMark) {
-		this.examsMark = examsMark;
 	}
 
 	/**
@@ -233,20 +200,6 @@ public class Apprentice extends Candidate {
 	 */
 	public void setFirstLanguage(LanguageEnum firstLanguage) {
 		this.firstLanguage = firstLanguage;
-	}
-
-	/**
-	 * @return Returns the schooling.
-	 */
-	public ArrayList<String> getSchooling() {
-		return schooling;
-	}
-
-	/**
-	 * @param schooling The schooling to set.
-	 */
-	public void setSchooling(ArrayList<String> schooling) {
-		this.schooling = schooling;
 	}
 
 	/**
