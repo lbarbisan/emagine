@@ -165,8 +165,8 @@ public class BaseDAO<EntityType extends BaseEntity> {
 			.append(getEntityClass().getSimpleName().toLowerCase());
 		
 		for (String field : searchParams.getFields()) {
-			if(	searchParams.getField(field)!= null &&
-				!searchParams.getField(field).equals(""))
+			if(	searchParams.getValue(field)!= null &&
+				!searchParams.getValue(field).equals(""))
 				
 			{
 				log.trace("create parameter '"+ field +"'");
@@ -184,12 +184,12 @@ public class BaseDAO<EntityType extends BaseEntity> {
 
 		Query query = HibernateUtils.getSession().createQuery(queryString.toString());
 		for (String field : searchParams.getFields()) {
-			log.trace("get value for '" + field + "' : '" + searchParams.getField(field)+ "'");
-			if(	searchParams.getField(field)!= null &&
-				!searchParams.getField(field).equals(""))
+			log.trace("get value for '" + field + "' : '" + searchParams.getValue(field)+ "'");
+			if(	searchParams.getValue(field)!= null &&
+				!searchParams.getValue(field).equals(""))
 				{
-					Object value = searchParams.getField(field);
-					query.setParameter(field.replace(".", "_"), convertToRightType(value.toString(), searchParams.getParameterInfo(field).getType()));
+					Object value = searchParams.getValue(field);
+					query.setParameter(field.replace(".", "_"), convertToRightType(value.toString(), searchParams.getType(field)));
 					log.trace("setparameter '" + field.replace(".", "_") + "' for '" + value.toString() + "'");
 				}
 		}

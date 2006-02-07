@@ -10,6 +10,7 @@ import fr.umlv.ir3.emagine.apprentice.candidate.CandidateDAO;
 import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenterDAO;
 import fr.umlv.ir3.emagine.apprentice.candidate.room.RoomDAO;
 import fr.umlv.ir3.emagine.event.EventDAO;
+import fr.umlv.ir3.emagine.extraction.ExtractionConfigEntityDAO;
 import fr.umlv.ir3.emagine.extraction.ExtractionDAO;
 import fr.umlv.ir3.emagine.extraction.mailings.MailingListDAO;
 import fr.umlv.ir3.emagine.extraction.mailstype.MailingTypeDAO;
@@ -72,6 +73,8 @@ public class DAOManager {
 	private MassMailingDAO massMailingDAO = new MassMailingDAO();
 
 	private EmagineEnumDAO emagineEnumDAO = new EmagineEnumDAO();
+	
+	private ExtractionConfigEntityDAO extractionConfigEntityDAO = new ExtractionConfigEntityDAO();
 
 	private BaseDAO<BaseEntity> baseDAO = new BaseDAO<BaseEntity>();
 
@@ -163,6 +166,13 @@ public class DAOManager {
 		return emagineEnumDAO;
 	}
 
+	/**
+	 * @return Returns the extractionConfigEntityDAO.
+	 */
+	public ExtractionConfigEntityDAO getExtractionConfigEntityDAO() {
+		return extractionConfigEntityDAO;
+	}
+
 	public static DAOManager getInstance() {
 		if (instance == null) {
 			instance = new DAOManager();
@@ -180,7 +190,7 @@ public class DAOManager {
 			log.error("beginTransaction failed", hibernateException);
 		}
 	}
-
+	
 	/**
 	 * @see fr.umlv.ir3.emagine.util.DAOManager#commitTransaction()
 	 */

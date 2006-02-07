@@ -77,11 +77,11 @@ public abstract class SearchForm<BaseType> extends ActionForm implements SearchP
 	}
 	
 	/**
-	 * @see fr.umlv.ir3.emagine.util.search.SearchParams#getField(java.lang.String)
+	 * @see fr.umlv.ir3.emagine.util.search.SearchParams#getValue(java.lang.String)
 	 */
-	public String getField(String field) {
+	public Object getValue(String field) {
 		try {
-			return this.getClass().getMethod(methods.get(field).getMethodName(), (Class[])null).invoke(this, (Object[])null).toString();
+			return methods.get(field).getMethod().invoke(this, (Object[])null);
 		} catch (Exception exception) {
 			log.error("can't retrieve value for field " + field, exception);
 			return null;
@@ -101,7 +101,7 @@ public abstract class SearchForm<BaseType> extends ActionForm implements SearchP
 					ParameterInfo parameterInfo = new ParameterInfo(
 							m.getAnnotation(IsASearchParam.class).value(),
 							m.getAnnotation(IsASearchParam.class).type(),
-							m.getName()
+							m
 					);
 					methods.put(parameterInfo.getName(), parameterInfo);
 			}
@@ -116,5 +116,9 @@ public abstract class SearchForm<BaseType> extends ActionForm implements SearchP
 	
 	public ParameterInfo getParameterInfo(String field) {
 		return methods.get(field);
+	}
+	
+	public Class getType(String field) {
+		return methods.get(field).getType();
 	}
 }
