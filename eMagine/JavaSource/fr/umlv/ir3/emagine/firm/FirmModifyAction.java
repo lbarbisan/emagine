@@ -105,7 +105,7 @@ public class FirmModifyAction extends BaseAction {
 
 			// Set parent firm
 			if(	firmModifyForm.getIdParent() != null || !"".equals(firmModifyForm.getIdParent()))
-				firm.setMotherfirm(firmManager.retrieve(Long.parseLong(firmModifyForm.getIdParent())));
+				firm.setMotherFirm(firmManager.retrieve(Long.parseLong(firmModifyForm.getIdParent())));
 			
 			firm.setName(firmModifyForm.getName());
 			//firm.setFax();

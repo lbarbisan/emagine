@@ -74,18 +74,16 @@ public class ApprenticeManagerImpl extends EventableManagerImpl<Apprentice, Appr
 	public Apprentice Integrate(Candidate candidate) throws EMagineException
 	{	
 		DAOManager.beginTransaction();
-		
 		Apprentice apprentice ;
-		
 		
 		try {
 			DAOManager.getInstance().getCandidateDAO().delete(candidate);
 			apprentice = DAOManager.getInstance().getApprenticeDAO().Integrate(candidate);
+			DAOManager.commitTransaction();
 		} catch (HibernateException exception) {
 			throw new EMagineException("exception.ApprenticeDAO.create", exception);
 		}
-		return apprentice;
-		
+		return apprentice;	
 	}
 
 	/**

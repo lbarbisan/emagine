@@ -67,29 +67,31 @@ public class InitDB {
 			}
 		}
 
-//		SessionManager.getInstance().initThreadLocal(new SessionManagerConfig() {
-//			public javax.servlet.http.HttpSession getSession() {
-//				return new HttpSessionSimulator(new ServletContextSimulator());
-//			};
-//			public fr.umlv.ir3.emagine.security.EmaginePrincipal getUserPrincipal() throws fr.umlv.ir3.emagine.security.SecurityFilterNotCorrectlyInitializedException {
-//				return new EmaginePrincipal() {
-//					public String getName() {
-//						return "InitDB";
-//					};
-//					public java.security.Principal getPrincipal() {
-//						return new Principal() {
-//							public String getName() {
-//								return "InitDB";
-//							};
-//						};
-//					};
-//					public User getUser() {
-//						return new User();
-//					};
-//				};
-//			};
-//			
-//		});
+		SessionManager.getInstance().initThreadLocal(new SessionManagerConfig() {
+			public javax.servlet.http.HttpSession getSession() {
+				return new HttpSessionSimulator(new ServletContextSimulator());
+			};
+			public fr.umlv.ir3.emagine.security.EmaginePrincipal getUserPrincipal() throws fr.umlv.ir3.emagine.security.SecurityFilterNotCorrectlyInitializedException {
+				return new EmaginePrincipal() {
+					public String getName() {
+						return "InitDB";
+					};
+					public java.security.Principal getPrincipal() {
+						return new Principal() {
+							public String getName() {
+								return "InitDB";
+							};
+						};
+					};
+					public User getUser() {
+						User user = new User();
+						user.setLogin("InitDB");
+						return user;
+					};
+				};
+			};
+			
+		});
 		
 		InitializeUser();
 		createUsers(1, 4);
@@ -173,8 +175,7 @@ public class InitDB {
 		
 		for(int index=start; index < end; index++)
 		{
-			Candidate candidate =  candidateDAO.findAll().get(0);
-			System.out.println("te" + apprenticeManager);
+			Candidate candidate =  candidateDAO.findAll().get(index-start);
 			apprenticeManager.Integrate(candidate);
 		}
 		
