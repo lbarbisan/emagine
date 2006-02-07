@@ -4,9 +4,16 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.security.Principal;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashSet;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequestWrapper;
+
+import servletunit.HttpSessionSimulator;
+import servletunit.ServletContextSimulator;
 
 import fr.umlv.ir3.emagine.apprentice.ApprenticeManager;
 import fr.umlv.ir3.emagine.apprentice.CountryEnum;
@@ -23,7 +30,10 @@ import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenterDAO;
 import fr.umlv.ir3.emagine.apprentice.candidate.room.Room;
 import fr.umlv.ir3.emagine.firm.Firm;
 import fr.umlv.ir3.emagine.firm.FirmDAO;
+import fr.umlv.ir3.emagine.security.EmaginePrincipal;
 import fr.umlv.ir3.emagine.security.MustHaveRights;
+import fr.umlv.ir3.emagine.security.SessionManager;
+import fr.umlv.ir3.emagine.security.SessionManagerConfig;
 import fr.umlv.ir3.emagine.teachertutor.TeacherTutor;
 import fr.umlv.ir3.emagine.teachertutor.TeacherTutorDAO;
 import fr.umlv.ir3.emagine.user.User;
@@ -57,6 +67,30 @@ public class InitDB {
 			}
 		}
 
+//		SessionManager.getInstance().initThreadLocal(new SessionManagerConfig() {
+//			public javax.servlet.http.HttpSession getSession() {
+//				return new HttpSessionSimulator(new ServletContextSimulator());
+//			};
+//			public fr.umlv.ir3.emagine.security.EmaginePrincipal getUserPrincipal() throws fr.umlv.ir3.emagine.security.SecurityFilterNotCorrectlyInitializedException {
+//				return new EmaginePrincipal() {
+//					public String getName() {
+//						return "InitDB";
+//					};
+//					public java.security.Principal getPrincipal() {
+//						return new Principal() {
+//							public String getName() {
+//								return "InitDB";
+//							};
+//						};
+//					};
+//					public User getUser() {
+//						return new User();
+//					};
+//				};
+//			};
+//			
+//		});
+		
 		InitializeUser();
 		createUsers(1, 4);
 		createTeachers(1, 4);
