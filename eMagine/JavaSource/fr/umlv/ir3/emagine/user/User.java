@@ -31,10 +31,9 @@ public class User extends EditableEntity{
 	@JoinColumn(name = "profile_id")
 	private Profile profile;
 	@OneToMany(mappedBy = "userDestination")
-	
 	private List<Modification> modificationsInWait;
 	@OneToMany(mappedBy = "userSource")
-	@Cascade({CascadeType.SAVE_UPDATE})
+	@Cascade(CascadeType.SAVE_UPDATE)
 	private List<Modification> modificationsRequest;
 	
 	@Column(unique = true)
