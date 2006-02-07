@@ -18,9 +18,9 @@ public interface ExtractionManager extends BaseManager<ExtractionEntity, Extract
 	 * Retrieves the extraction config for the given extraction entity (in the config).
 	 * If the given extraction entity doesn't exists in database, creates and saves it.
 	 * If there is no config for the current user, creates and saves the given config for the user. 
-	 * @param config
+	 * @param extractionEntityName name of the extraction entity
 	 * @return the saved extraction config for the current user.
 	 */
-	public abstract ExtractionConfig retrieveCurrentUserConfig(ExtractionConfig config) throws EMagineException;
+	public abstract ExtractionConfig retrieveCurrentUserConfig(String extractionEntityName) throws EMagineException;
 
 }

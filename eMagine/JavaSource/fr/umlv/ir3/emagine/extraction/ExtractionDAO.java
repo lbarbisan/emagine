@@ -6,4 +6,5 @@ import fr.umlv.ir3.emagine.util.base.BaseDAO;
  * @author eMagine
  */
 public class ExtractionDAO extends BaseDAO<ExtractionEntity> {
+	
 }

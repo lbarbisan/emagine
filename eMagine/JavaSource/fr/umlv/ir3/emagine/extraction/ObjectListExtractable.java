@@ -116,7 +116,7 @@ public class ObjectListExtractable<O> implements Extractable {
 						} catch (NoSuchMethodException e) {
 							throw new EMagineException("exception.objectListExtractable.cellValueError", e);
 						}
-					}
+					}//TODO : avec un booléen ça plante
 					// On se retrouve avec la propriété finale demandée
 					return currentObject;
 				}
