@@ -3,6 +3,7 @@ package fr.umlv.ir3.emagine.ressource;
 import fr.umlv.ir3.emagine.apprentice.CountryEnum;
 import fr.umlv.ir3.emagine.apprentice.DefaultAddressEnum;
 import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
+import fr.umlv.ir3.emagine.apprentice.JustificationEnum;
 import fr.umlv.ir3.emagine.apprentice.LanguageEnum;
 import fr.umlv.ir3.emagine.apprentice.LevelEntryEnum;
 import fr.umlv.ir3.emagine.apprentice.NationalityEnum;
@@ -25,11 +26,33 @@ public class InitEnums {
 	static final void createDefaultAddressEnum(int start, int length) throws EMagineException
 	{
 		EmagineEnumDAO emagineEnumDAO =  DAOManager.getInstance().getEmagineEnumDAO();
-		for(int index=start;index<length; index++)
-		{
-			DefaultAddressEnum defaultAddressEnum =  new DefaultAddressEnum("DefaultAddressEnum" + index);
-			emagineEnumDAO.create(defaultAddressEnum);
-		}
+		DefaultAddressEnum enums =  new DefaultAddressEnum("Académique");
+		emagineEnumDAO.create(enums);
+		enums =  new DefaultAddressEnum("Professionnelle");
+		emagineEnumDAO.create(enums);
+		enums =  new DefaultAddressEnum("Personnelle");
+		emagineEnumDAO.create(enums);
+	}
+	
+	static final void createJustificationEnum(int start, int length) throws EMagineException
+	{
+		EmagineEnumDAO emagineEnumDAO =  DAOManager.getInstance().getEmagineEnumDAO();
+
+			//Maladie	
+			JustificationEnum enums =  new JustificationEnum("M");
+			emagineEnumDAO.create(enums);
+			//RDV entreprise
+			enums =  new JustificationEnum("E");
+			emagineEnumDAO.create(enums);
+			//Justifiée			
+			enums =  new JustificationEnum("J");
+			emagineEnumDAO.create(enums);
+			//Accident
+			enums =  new JustificationEnum("A");
+			emagineEnumDAO.create(enums);
+			//Non justifiée
+			enums =  new JustificationEnum("NJ");
+			emagineEnumDAO.create(enums);
 	}
 	
 	static final void createDepartmentEnum(int start, int length) throws EMagineException
@@ -55,41 +78,62 @@ public class InitEnums {
 	static final void createCourseOptionEnum(int start, int length) throws EMagineException
 	{
 		EmagineEnumDAO emagineEnumDAO =  DAOManager.getInstance().getEmagineEnumDAO();
-		for(int index=start;index<length; index++)
-		{
-			CourseOptionEnum courseOptionEnum =  new CourseOptionEnum("CourseOption " + index);
-			emagineEnumDAO.create(courseOptionEnum);
-		}
+			
+			CourseOptionEnum enums =  new CourseOptionEnum("GEII");	
+			emagineEnumDAO.create(enums);
+			enums =  new CourseOptionEnum("MFPI");
+			emagineEnumDAO.create(enums);		
+			enums =  new CourseOptionEnum("IR");
+			emagineEnumDAO.create(enums);						
+			enums =  new CourseOptionEnum("GM");
+			emagineEnumDAO.create(enums);			
+			enums =  new CourseOptionEnum("EI");
+			emagineEnumDAO.create(enums);
+			enums =  new CourseOptionEnum("GMU");
+			emagineEnumDAO.create(enums);
 	}
 	
 	static final void createProfessionEnum(int start, int length) throws EMagineException
 	{
 		EmagineEnumDAO emagineEnumDAO =  DAOManager.getInstance().getEmagineEnumDAO();
-		for(int index=start;index<length; index++)
-		{
-			ProfessionEnum professionEnum =  new ProfessionEnum("Profession " + index);
-			emagineEnumDAO.create(professionEnum);
-		}
+		ProfessionEnum enums =  new ProfessionEnum("Cadre");	
+		emagineEnumDAO.create(enums);
+		enums =  new ProfessionEnum("Enseignant");
+		emagineEnumDAO.create(enums);		
+		enums =  new ProfessionEnum("Technicien");
+		emagineEnumDAO.create(enums);						
+		enums =  new ProfessionEnum("Secrétaire");
+		emagineEnumDAO.create(enums);			
+		enums =  new ProfessionEnum("Artisan");
+		emagineEnumDAO.create(enums);
 	}
 	
 	static final void createLanguageEnum(int start, int length) throws EMagineException
 	{
 		EmagineEnumDAO emagineEnumDAO =  DAOManager.getInstance().getEmagineEnumDAO();
-		for(int index=start;index<length; index++)
-		{
-			LanguageEnum languageEnum =  new LanguageEnum("Language " + index);
-			emagineEnumDAO.create(languageEnum);
-		}
+		LanguageEnum enums =  new LanguageEnum("Anglais");	
+		emagineEnumDAO.create(enums);
+		enums =  new LanguageEnum("Allemand");
+		emagineEnumDAO.create(enums);		
+		enums =  new LanguageEnum("Espagnol");
+		emagineEnumDAO.create(enums);
 	}
 	
 	static final void createLevelEntryEnum(int start, int length) throws EMagineException
 	{
 		EmagineEnumDAO emagineEnumDAO =  DAOManager.getInstance().getEmagineEnumDAO();
-		for(int index=start;index<length; index++)
-		{
-			LevelEntryEnum enums =  new LevelEntryEnum("Level " + index);
-			emagineEnumDAO.create(enums);
-		}
+		LevelEntryEnum enums =  new LevelEntryEnum("Bac");
+		emagineEnumDAO.create(enums);
+		enums =  new LevelEntryEnum("+1");
+		emagineEnumDAO.create(enums);
+		enums =  new LevelEntryEnum("+2");
+		emagineEnumDAO.create(enums);
+		enums =  new LevelEntryEnum("+3");
+		emagineEnumDAO.create(enums);
+		enums =  new LevelEntryEnum("+4");
+		emagineEnumDAO.create(enums);
+		enums =  new LevelEntryEnum("+5");
+		emagineEnumDAO.create(enums);
 	}
 	
 	static final void createNationalityEnum(int start, int length) throws EMagineException
@@ -105,9 +149,9 @@ public class InitEnums {
 	static final void createSexEnum(int start, int length) throws EMagineException
 	{
 		EmagineEnumDAO emagineEnumDAO =  DAOManager.getInstance().getEmagineEnumDAO();
-			SexEnum enums =  new SexEnum("Male");
+			SexEnum enums =  new SexEnum("Homme");
 			emagineEnumDAO.create(enums);
-			enums =  new SexEnum("Female");
+			enums =  new SexEnum("Femme");
 			emagineEnumDAO.create(enums);
 	}
 	
@@ -116,7 +160,7 @@ public class InitEnums {
 		EmagineEnumDAO emagineEnumDAO =  DAOManager.getInstance().getEmagineEnumDAO();
 		for(int index=start;index<length; index++)
 		{
-			YearEnum enums =  new YearEnum(new Integer(2000 * index).toString());
+			YearEnum enums =  new YearEnum(new Integer(2000 + index).toString());
 			emagineEnumDAO.create(enums);
 		}
 	}
@@ -124,11 +168,16 @@ public class InitEnums {
 	static final void createEventTypeEnum(int start, int length) throws EMagineException
 	{
 		EmagineEnumDAO emagineEnumDAO =  DAOManager.getInstance().getEmagineEnumDAO();
-		for(int index=start;index<length; index++)
-		{
-			EventTypeEnum enums =  new EventTypeEnum("Type" + index);
-			emagineEnumDAO.create(enums);
-		}
+		EventTypeEnum enums =  new EventTypeEnum("Changement adresse");
+		emagineEnumDAO.create(enums);
+		enums =  new EventTypeEnum("Changement de Tuteur Enseignant");
+		emagineEnumDAO.create(enums);
+		enums =  new EventTypeEnum("Changement de Tuteur Ingénieur");
+		emagineEnumDAO.create(enums);
+		enums =  new EventTypeEnum("Envoi mail");
+		emagineEnumDAO.create(enums);
+		enums =  new EventTypeEnum("Envoi courrier");
+		emagineEnumDAO.create(enums);
 	}
 	
 	static final void createEditableStateEnum(int start, int length) throws EMagineException
@@ -140,44 +189,54 @@ public class InitEnums {
 			emagineEnumDAO.create(enums);
 		}
 	}
-	
+		
+	static final void createContactEnum(int start, int length) throws EMagineException
+	{
+		EmagineEnumDAO emagineEnumDAO =  DAOManager.getInstance().getEmagineEnumDAO();
+		ContactEnum enums =  new ContactEnum("JPO");
+		emagineEnumDAO.create(enums);
+		enums =  new ContactEnum("Internet");
+		emagineEnumDAO.create(enums);
+		enums =  new ContactEnum("Amis");
+		emagineEnumDAO.create(enums);
+		enums =  new ContactEnum("Autres");
+		emagineEnumDAO.create(enums);
+	}
 	
 	static final void createDiplomaEnum(int start, int length) throws EMagineException
 	{
 		EmagineEnumDAO emagineEnumDAO =  DAOManager.getInstance().getEmagineEnumDAO();
-		for(int index=start;index<length; index++)
-		{
-			DiplomaEnum enums =  new DiplomaEnum("Diploma " + index);
-			emagineEnumDAO.create(enums);
-		}
-	}
-	
-	static final void createContactEnum(int start, int length) throws EMagineException
-	{
-		EmagineEnumDAO emagineEnumDAO =  DAOManager.getInstance().getEmagineEnumDAO();
-		for(int index=start;index<length; index++)
-		{
-			ContactEnum enums =  new ContactEnum("Contact " + index);
-			emagineEnumDAO.create(enums);
-		}
+		DiplomaEnum enums =  new DiplomaEnum("Baccalauréat");
+		emagineEnumDAO.create(enums);
+		enums =  new DiplomaEnum("Licence");
+		emagineEnumDAO.create(enums);
+		enums =  new DiplomaEnum("Master");
+		emagineEnumDAO.create(enums);
+		enums =  new DiplomaEnum("Doctorat");
+		emagineEnumDAO.create(enums);
+		enums =  new DiplomaEnum("DUT");
+		emagineEnumDAO.create(enums);
+		enums =  new DiplomaEnum("BTS");
+		emagineEnumDAO.create(enums);
+		enums =  new DiplomaEnum("Licence Pro");
+		emagineEnumDAO.create(enums);
 	}
 	
 	static final void createSectionEnum(int start, int length) throws EMagineException
 	{
 		EmagineEnumDAO emagineEnumDAO =  DAOManager.getInstance().getEmagineEnumDAO();
-		for(int index=start;index<length; index++)
-		{
-			SectionEnum enums =  new SectionEnum("Section " + index);
-			emagineEnumDAO.create(enums);
-		}
+		SectionEnum enums =  new SectionEnum("Informatique");
+		emagineEnumDAO.create(enums);
+		enums =  new SectionEnum("GEII");
+		emagineEnumDAO.create(enums);
+		enums =  new SectionEnum("MIAS");
+		emagineEnumDAO.create(enums);
 	}
-	
 	
 	static final EmagineEnum getEmagineEnum(String name, Class<? extends EmagineEnum> clazz) throws EMagineException
 	{
 		EmagineEnumDAO emagineEnumDAO =  DAOManager.getInstance().getEmagineEnumDAO();
 		
-		return  emagineEnumDAO.find(name, clazz);
-		
+		return  emagineEnumDAO.find(name, clazz);		
 	}
 }
