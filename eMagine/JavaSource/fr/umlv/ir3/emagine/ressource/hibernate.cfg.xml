@@ -14,6 +14,9 @@
 		<mapping class="fr.umlv.ir3.emagine.util.EmagineEnum"/>
 		
 		<mapping package="fr.umlv.ir3.emagine.extraction"/> 
+		<mapping class="fr.umlv.ir3.emagine.extraction.ExtractionEntity"/> 
+		<mapping class="fr.umlv.ir3.emagine.extraction.ExtractionConfigEntity"/> 
+		<mapping class="fr.umlv.ir3.emagine.extraction.ExtractionProperty"/> 
 
 		<mapping package="fr.umlv.ir3.emagine.event"/> 
 		<mapping class="fr.umlv.ir3.emagine.event.Event"/>

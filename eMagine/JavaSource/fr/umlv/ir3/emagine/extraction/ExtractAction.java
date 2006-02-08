@@ -30,11 +30,11 @@ public abstract class ExtractAction<O, E extends BaseEntity, D extends BaseDAO<E
 		try {
 			// Retrieve the last user preferences for the given extraction entity, using the manager
 			ExtractionManager manager = ManagerManager.getInstance().getExtractionManager();
-			ExtractionConfig savedConfig = manager.retrieveCurrentUserConfig(showForm.getExtractionEntityName());
+			ExtractionConfig savedConfig = manager.retrieveCurrentUserConfig(showForm);
 			
 			// Sets the old values of the config
-			//showForm.setExtractionType(savedConfig.getExtractionType());
-			//showForm.setSelectedEntityProperties(savedConfig.getSelectedEntityProperties());
+			showForm.setExtractionType(savedConfig.getExtractionType());
+			showForm.setSelectedEntityProperties(savedConfig.getSelectedEntityProperties());
 		} catch (EMagineException e) {
 			// save the error
 			addEMagineExceptionError(errors, e);

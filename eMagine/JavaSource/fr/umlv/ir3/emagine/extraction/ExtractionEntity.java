@@ -1,5 +1,6 @@
 package fr.umlv.ir3.emagine.extraction;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.AccessType;
@@ -21,10 +22,10 @@ public class ExtractionEntity extends BaseEntity {
 
 	private static final long serialVersionUID = 2662004301602604497L;
 
-	@OneToMany(mappedBy = "property")
-	@Cascade(CascadeType.ALL)
+	@OneToMany(mappedBy = "extractionEntity")
+	@Cascade(CascadeType.SAVE_UPDATE)
 	@Column(unique = true)
-	private List<ExtractionProperty> properties;
+	private List<ExtractionProperty> properties = new ArrayList<ExtractionProperty>();
 	
 	private String name;
 

@@ -6,7 +6,6 @@ import java.util.List;
 
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
@@ -33,14 +32,13 @@ public class ExtractionConfigEntity extends BaseEntity implements
 	
 	@ManyToOne()
 	@Cascade(CascadeType.SAVE_UPDATE)
-	@JoinColumn(name = "extractionconfig_id")
 	private User user;
 
 	private ExtractionType extractionType;
 
 	@ManyToMany()
 	@Cascade(CascadeType.SAVE_UPDATE)
-	private List<ExtractionProperty> selectedExtractionProperties;
+	private List<ExtractionProperty> selectedExtractionProperties = new ArrayList<ExtractionProperty>();
 
 
 	/**
@@ -86,4 +84,48 @@ public class ExtractionConfigEntity extends BaseEntity implements
 		return user;
 	}
 
+	/**
+	 * @return Returns the extractionEntity.
+	 */
+	public ExtractionEntity getExtractionEntity() {
+		return extractionEntity;
+	}
+
+	/**
+	 * @param extractionEntity The extractionEntity to set.
+	 */
+	public void setExtractionEntity(ExtractionEntity extractionEntity) {
+		this.extractionEntity = extractionEntity;
+	}
+
+	/**
+	 * @return Returns the selectedExtractionProperties.
+	 */
+	public List<ExtractionProperty> getSelectedExtractionProperties() {
+		return selectedExtractionProperties;
+	}
+
+	/**
+	 * @param selectedExtractionProperties The selectedExtractionProperties to set.
+	 */
+	public void setSelectedExtractionProperties(
+			List<ExtractionProperty> selectedExtractionProperties) {
+		this.selectedExtractionProperties = selectedExtractionProperties;
+	}
+
+	/**
+	 * @param extractionType The extractionType to set.
+	 */
+	public void setExtractionType(ExtractionType extractionType) {
+		this.extractionType = extractionType;
+	}
+
+	/**
+	 * @param user The user to set.
+	 */
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	
 }

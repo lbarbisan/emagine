@@ -1,30 +1,37 @@
 package fr.umlv.ir3.emagine.extraction;
 
-import java.util.List;
-
 import javax.persistence.AccessType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
-import fr.umlv.ir3.emagine.user.User;
+import fr.umlv.ir3.emagine.util.base.BaseEntity;
 
 /**
  * This class represents a property of an extraction type. It contains all the users that have chosen this property the last time they exported that extraction entity.
  * @author eMagine
  */
 @Entity(access = AccessType.FIELD)
-public class ExtractionProperty {
+public class ExtractionProperty extends BaseEntity {
 
-	@OneToMany(mappedBy = "user")
-	@Cascade(CascadeType.ALL)
-	@Column(unique = true)
-	private List<User> users;
-	
+	private static final long serialVersionUID = 3409810203639153702L;
+
 	private String name;
+	
+	@ManyToOne()
+	@Cascade(CascadeType.SAVE_UPDATE)
+	@JoinColumn(name = "extractionEntity_id")
+	private ExtractionEntity extractionEntity;
+
+	protected ExtractionProperty() {
+	}
+	
+	public ExtractionProperty(String name) {
+		this.name = name;
+	}
 
 	/**
 	 * @return Returns the name.
@@ -41,18 +48,17 @@ public class ExtractionProperty {
 	}
 
 	/**
-	 * @return Returns the users. Can be an empty list.
+	 * @return Returns the extractionEntity.
 	 */
-	public List<User> getUsers() {
-		return users;
+	public ExtractionEntity getExtractionEntity() {
+		return extractionEntity;
 	}
 
 	/**
-	 * @param users The users to set. Can be an empty list.
+	 * @param extractionEntity The extractionEntity to set.
 	 */
-	public void setUsers(List<User> users) {
-		this.users = users;
+	public void setExtractionEntity(ExtractionEntity extractionEntity) {
+		this.extractionEntity = extractionEntity;
 	}
-
 
 }

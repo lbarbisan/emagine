@@ -7,14 +7,12 @@ import java.lang.reflect.Method;
 import java.security.Principal;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.HashSet;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletRequestWrapper;
+import java.util.ResourceBundle;
 
 import servletunit.HttpSessionSimulator;
 import servletunit.ServletContextSimulator;
-
 import fr.umlv.ir3.emagine.apprentice.ApprenticeManager;
 import fr.umlv.ir3.emagine.apprentice.CountryEnum;
 import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
@@ -28,6 +26,8 @@ import fr.umlv.ir3.emagine.apprentice.candidate.CourseOptionEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenter;
 import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenterDAO;
 import fr.umlv.ir3.emagine.apprentice.candidate.room.Room;
+import fr.umlv.ir3.emagine.extraction.ExtractionEntity;
+import fr.umlv.ir3.emagine.extraction.ExtractionProperty;
 import fr.umlv.ir3.emagine.firm.Firm;
 import fr.umlv.ir3.emagine.firm.FirmDAO;
 import fr.umlv.ir3.emagine.security.EmaginePrincipal;
@@ -42,6 +42,7 @@ import fr.umlv.ir3.emagine.user.profile.Profile;
 import fr.umlv.ir3.emagine.user.profile.Right;
 import fr.umlv.ir3.emagine.user.profile.RightDAO;
 import fr.umlv.ir3.emagine.util.Address;
+import fr.umlv.ir3.emagine.util.Bundles;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.ManagerManager;
@@ -96,10 +97,39 @@ public class InitDB {
 		initializeUser();
 		createUsers(1, 4);
 		createTeachers(1, 4);
+
 		initializeFormationCenter();
 		initializeCandidate(1,4);
 		initializeFirm(1,4);
 		initializeApprentice(1,4);
+		initializeExtractionEntities();
+	}
+
+	private static final void initializeExtractionEntities() throws EMagineException {
+		DAOManager.beginTransaction();
+
+		HashSet<String> uniqKeys = new HashSet<String>();
+		final ResourceBundle extractionBundle = Bundles.getExtractionBundle();
+		for (final Enumeration<String> keys = extractionBundle.getKeys() ; keys.hasMoreElements() ;) {
+			// Get the name of the extraction entity
+			String extractionEntityName = keys.nextElement().split("\\.")[1];
+			if (!uniqKeys.contains(extractionEntityName)) {
+				uniqKeys.add(extractionEntityName);
+				// Get the properties of that extraction entity
+				String[] properties = extractionBundle.getString("extraction."+extractionEntityName+".properties").split(",");
+				ExtractionEntity extractionEntity = new ExtractionEntity();
+				extractionEntity.setName(extractionEntityName);
+				for (String property : properties) {
+					// Create the extraction properties
+					final ExtractionProperty extractionProperty = new ExtractionProperty(property);
+					extractionProperty.setExtractionEntity(extractionEntity);
+					extractionEntity.getProperties().add(extractionProperty);
+				}
+				// Create the extraction entity
+				DAOManager.getInstance().getExtractionEntityDAO().create(extractionEntity);
+			}
+		}
+		DAOManager.commitTransaction();
 	}
 
 	private static final void initializeCandidate(int start, int end) throws EMagineException
@@ -392,7 +422,6 @@ public class InitDB {
 		try {
 
 			
-
 			FormationCenter formationCenter = new FormationCenter();
 			formationCenter.setAddress(createAddress(1));
 			formationCenter.setName("Lyon");

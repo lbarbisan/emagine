@@ -11,7 +11,7 @@ import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenterDAO;
 import fr.umlv.ir3.emagine.apprentice.candidate.room.RoomDAO;
 import fr.umlv.ir3.emagine.event.EventDAO;
 import fr.umlv.ir3.emagine.extraction.ExtractionConfigEntityDAO;
-import fr.umlv.ir3.emagine.extraction.ExtractionDAO;
+import fr.umlv.ir3.emagine.extraction.ExtractionEntityDAO;
 import fr.umlv.ir3.emagine.extraction.mailings.MailingListDAO;
 import fr.umlv.ir3.emagine.extraction.mailstype.MailingTypeDAO;
 import fr.umlv.ir3.emagine.extraction.massmailing.MassMailingDAO;
@@ -58,7 +58,7 @@ public class DAOManager {
 
 	private CandidateDAO candidateDAO = new CandidateDAO();
 
-	private ExtractionDAO extractionDAO = new ExtractionDAO();
+	private ExtractionEntityDAO extractionEntityDAO = new ExtractionEntityDAO();
 
 	private FormationCenterDAO formationCenterDAO = new FormationCenterDAO();
 
@@ -138,8 +138,8 @@ public class DAOManager {
 		return candidateDAO;
 	}
 
-	public ExtractionDAO getExtractionDAO() {
-		return extractionDAO;
+	public ExtractionEntityDAO getExtractionEntityDAO() {
+		return extractionEntityDAO;
 	}
 
 	public FormationCenterDAO getFormationCenterDAO() {
