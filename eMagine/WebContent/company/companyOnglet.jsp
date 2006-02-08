@@ -1,5 +1,6 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <h2>Onglets Entreprise</h2>
+
 <ul>
 	<li><html:link action="/companyVisuInfo">Informations&nbsp;g&eacute;n&eacute;rales&nbsp;</html:link></li>
 </ul>

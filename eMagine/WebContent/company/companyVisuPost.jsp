@@ -1,13 +1,28 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 
+<script type="text/javascript">
+<!--
+
+	function setAction(value) {
+		document.companyModifyForm.action.value = value;
+	}
+
+	function change(action) {
+		document.companyModifyForm.action = "/eMagine/" + action + ".do";
+		document.companyModifyForm.submit();
+	}
+		
+-->
+
+</script>
 <div class="tabs">
 	<ul>
-		<li><html:link action="/companyVisuInfo">Informations&nbsp;g&eacute;n&eacute;rales&nbsp;</html:link></li>
-		<li><html:link action="/companyVisuActor">Acteur</html:link></li>
-		<span class="tab_clicked"><li><html:link action="/companyVisuPost">Poste</html:link></li></span>
-		<li><html:link action="/companyVisuEvent">Ev&eacute;nement</html:link></li>
-</ul>
+			<li><html:link href="javascript:change('companyVisuInfo');">Informations&nbsp;g&eacute;n&eacute;rales&nbsp;</html:link></li>
+			<li><html:link href="javascript:change('companyVisuActor');">Acteur</html:link></li>
+			<span class="tab_clicked"><li><html:link href="javascript:change('companyVisuPost');">Poste</html:link></li></span>
+			<li><html:link href="javascript:change('companyVisuEvent');">Ev&eacute;nement</html:link></li>
+	</ul>
 </div>
 <div class="tabs_div">
 

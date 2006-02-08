@@ -11,11 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
 
 import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
-import fr.umlv.ir3.emagine.user.profile.ProfileManager;
 import fr.umlv.ir3.emagine.util.Address;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.ManagerManager;
@@ -42,20 +40,48 @@ public class FirmModifyAction extends BaseAction {
 			// Retrieve the firm we want to see (if he exists) 
 			String idFirm = request.getParameter("id");			
 			if(idFirm != null && !"".equals(idFirm)) {
+
+				// Retrieve the firm to modify
 				Firm firm = managerManager.getFirmManager().retrieve(Long.parseLong(idFirm));
 
+				// Reset all form
+				firmModifyForm.reset();
+
+				// Set infos
 				firmModifyForm.setIdFirmToModify(idFirm);
 				firmModifyForm.setName(firm.getName());
+				firmModifyForm.setEmail(firm.getEmail());
+				firmModifyForm.setFax(firm.getFax());
+				firmModifyForm.setPhone(firm.getPhone());
+				firmModifyForm.setWeb(firm.getWebSite());
+				firmModifyForm.setChildFirms(firm.getChildfirm());
+				firmModifyForm.setEvents(firm.getEvents());
 
-				if(firmModifyForm.getAddress() != null) {
-					firmModifyForm.setPostalCode(firm.getAddress().getPostalCode());
+				// Parent firm
+				if(firm.getMotherFirm() != null) {
+					firmModifyForm.setIdParentFirm(Long.toString(firm.getMotherFirm().getId()));
+					firmModifyForm.setNameParentFirm(firm.getMotherFirm().getName());
+				}
+				
+				/*** Set address component ***/
+				if(firm.getAddress() != null) {
+
+					// Number of street and street
 					firmModifyForm.setAddress(firm.getAddress().getStreet());
-					firmModifyForm.setCity(firm.getAddress().getCity());
+
+					// Postal code
+					firmModifyForm.setPostalCode(firm.getAddress().getPostalCode());
+
+					// Department
 					if(firm.getAddress().getDepartment() != null)
 						firmModifyForm.setIdDepartment(Long.toString(firm.getAddress().getDepartment().getId()));
-				}
 
-				//firmModifyForm.setFixe(firm.getFixe());
+					// City
+					firmModifyForm.setCity(firm.getAddress().getCity());
+
+					// Country
+					firmModifyForm.setCountry("");
+				}
 			}
 			
 			// Retrieve all departments and set them in the form
@@ -84,40 +110,33 @@ public class FirmModifyAction extends BaseAction {
 		ActionMessages errors = new ActionMessages();
 		ManagerManager managerManager = ManagerManager.getInstance();
 		FirmManager firmManager = managerManager.getFirmManager();
-		ProfileManager profileManager = managerManager.getProfileManager();
 		FirmModifyForm firmModifyForm = (FirmModifyForm) form;
 
-		// Update the User
+		// Update the firm
 		try {
 			Firm firm = firmManager.retrieve(Long.parseLong(firmModifyForm.getIdFirmToModify()));
+			
 			// Create an address
-			if(	firmModifyForm.getIdDepartment() != null || !"".equals(firmModifyForm.getIdDepartment()) ||
-					firmModifyForm.getCity() != null || !"".equals(firmModifyForm.getCity()) ||
-					firmModifyForm.getPostalCode() != null || !"".equals(firmModifyForm.getPostalCode()) ||
-					firmModifyForm.getAddress() != null || !"".equals(firmModifyForm.getAddress())) {
-				Address address = (firm.getAddress() == null ? new Address() : firm.getAddress());
+			Address address = null;
+			if(	(firmModifyForm.getIdDepartment() != null && !"".equals(firmModifyForm.getIdDepartment()))
+					|| (firmModifyForm.getCity() != null && !"".equals(firmModifyForm.getCity()))
+					|| (firmModifyForm.getPostalCode() != null && !"".equals(firmModifyForm.getPostalCode()))
+					|| (firmModifyForm.getAddress() != null && !"".equals(firmModifyForm.getAddress()))) {
+				
+				address = (firm.getAddress() == null ? new Address() : firm.getAddress());
 				address.setCity(firmModifyForm.getCity());
 				address.setPostalCode(firmModifyForm.getPostalCode());
 				address.setStreet(firmModifyForm.getAddress());
-				address.setDepartment((DepartmentEnum) ManagerManager.getInstance().getEmagineEnumManager().retrieve(Long.parseLong(firmModifyForm.getIdDepartment()),DepartmentEnum.class));
-				firm.setAddress(address);
+				address.setDepartment(firmModifyForm.getIdDepartment() != null && !"".equals(firmModifyForm.getIdDepartment()) ? (DepartmentEnum) ManagerManager.getInstance().getEmagineEnumManager().retrieve(Long.parseLong(firmModifyForm.getIdDepartment()),DepartmentEnum.class) : null);
 			}
-
-			// Set parent firm
-			if(	firmModifyForm.getIdParent() != null || !"".equals(firmModifyForm.getIdParent()))
-				firm.setMotherFirm(firmManager.retrieve(Long.parseLong(firmModifyForm.getIdParent())));
 			
+			firm.setAddress(address);
+			firm.setMotherFirm(firmModifyForm.getIdParentFirm() != null && !"".equals(firmModifyForm.getIdParentFirm()) ? firmManager.retrieve(Long.parseLong(firmModifyForm.getIdParentFirm())) : null);
 			firm.setName(firmModifyForm.getName());
-			//firm.setFax();
-			//firm.setFirmActor();
-			//firm.setHumanName();
-			//firm.setJobs();
-			//firm.setWebSite();
-			//firm.setApprentices();
-			//firm.setPhone(firmModifyForm.getF);
-			//firm.setEmail();
-			//firm.setChildfirm();
-			//firm.setEvents();
+			firm.setEmail(firmModifyForm.getEmail());
+			firm.setFax(firmModifyForm.getFax());
+			firm.setPhone(firmModifyForm.getPhone());
+			firm.setWebSite(firmModifyForm.getWeb());
 						
 			firmManager.update(firm);
 		} catch (EMagineException exception) {

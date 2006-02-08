@@ -14,7 +14,7 @@
 <tiles-definitions>
 
 	<!-- =======================================================  -->
-	<!-- Master definition  									    -->
+	<!-- Master definition  									  -->
 	<!-- =======================================================  -->
 
 	<!-- Doc index page description  -->
@@ -28,6 +28,10 @@
 		<put name="subMainMenu" value="/common/subMenu.jsp" />
 		<put name="modif" value="/common/modif.jsp" />
 		<put name="footer" value="/common/footer.jsp" />
+	</definition>
+
+	<definition name="popupLayout"
+		path="/common/layout/popupLayout.jsp">
 	</definition>
 	
 	<!-- Common -->
@@ -223,6 +227,10 @@
 	<!-- Company -->
 	<definition name="company" extends="mainLayout">
 		<put name="subMenu" value="/company/companyMenu.jsp" />
+	</definition>
+	<definition name="company.companyPopup" extends="popupLayout">
+		<put name="title" value="Choix d'une entreprise" />
+		<put name="list" value="/company/companyList.jsp" />
 	</definition>
 	<definition name="company.actorCreate" extends="company">
 		<put name="body" value="/company/actorCreate.jsp" />

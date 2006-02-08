@@ -34,9 +34,6 @@ public class FirmManagerImpl extends EventableManagerImpl<Firm, FirmDAO> impleme
 			
 			DAOManager.commitTransaction();
 
-			// TODO fr.umlv.ir3.emagine.firm.FirmManagerImpl.update(firm)
-			throw new EMagineException("exception.unimplementedMethod",
-					"fr.umlv.ir3.emagine.firm.FirmManagerImpl.update(firm)");
 		} catch (EMagineException e) {
 			DAOManager.rollBackTransaction();
 			throw e;

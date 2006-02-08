@@ -1,6 +1,5 @@
 package fr.umlv.ir3.emagine.firm;
 
-import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,7 +12,6 @@ import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
 
 import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
-import fr.umlv.ir3.emagine.user.profile.ProfileManager;
 import fr.umlv.ir3.emagine.util.Address;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.ManagerManager;
@@ -38,7 +36,6 @@ public class FirmCreateAction extends BaseAction {
 		// Retrieve all profiles and set them in the form
 		try {
 			FirmModifyForm.reset();
-			FirmModifyForm.setFirms(ManagerManager.getInstance().getFirmManager().findAll());
 			FirmModifyForm.setDepartments((List <DepartmentEnum>)ManagerManager.getInstance().getEmagineEnumManager().findAll(DepartmentEnum.class));
 		} catch (EMagineException exception) {
 			addEMagineExceptionError(errors, exception);
@@ -68,6 +65,12 @@ public class FirmCreateAction extends BaseAction {
 			// Init firm
 			Firm firm = new Firm();
 			
+			firm.setName(firmModifyForm.getName());
+			firm.setFax(firmModifyForm.getFax());
+			firm.setWebSite(firmModifyForm.getWeb());
+			firm.setEmail(firmModifyForm.getEmail());
+			firm.setEmail(firmModifyForm.getEmail());
+			firm.setPhone(firmModifyForm.getPhone());
 			
 			// Create an address
 			if(	(firmModifyForm.getIdDepartment() != null && !"".equals(firmModifyForm.getIdDepartment())) ||
@@ -92,25 +95,13 @@ public class FirmCreateAction extends BaseAction {
 			}
 
 			// Set parent firm
-			if(	firmModifyForm.getIdParent() != null && !"".equals(firmModifyForm.getIdParent()))
-				firm.setMotherFirm(firmManager.retrieve(Long.parseLong(firmModifyForm.getIdParent())));
-			
-			firm.setName(firmModifyForm.getName());
-			//firm.setFax();
-			//firm.setFirmActor();
-			//firm.setHumanName();
-			//firm.setJobs();
-			//firm.setWebSite();
-			//firm.setApprentices();
-			//firm.setPhone(firmModifyForm.getF);
-			//firm.setEmail();
-			//firm.setChildfirm();
-			//firm.setEvents();
+			if(	firmModifyForm.getIdParentFirm() != null && !"".equals(firmModifyForm.getIdParentFirm()))
+				firm.setMotherFirm(firmManager.retrieve(Long.parseLong(firmModifyForm.getIdParentFirm())));
 			
 			// Create a firm
 			firmManager.create(firm);
 
-			errors.add("confirm", new ActionMessage("firm.create.confirm")); // TODO A revoir
+			errors.add("confirm", new ActionMessage("firm.create.confirm"));
 		} catch (EMagineException exception) {
 				addEMagineExceptionError(errors, exception);
 		}

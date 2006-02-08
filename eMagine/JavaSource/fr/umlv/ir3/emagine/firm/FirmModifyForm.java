@@ -10,6 +10,7 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 
 import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
+import fr.umlv.ir3.emagine.event.Event;
 
 
 /**
@@ -29,9 +30,6 @@ public class FirmModifyForm extends ActionForm {
 	private String name;
 
 	/** Firm address **/
-	private String street;
-
-	/** Firm address **/
 	private String address;
 
 	/** Firm postal code **/
@@ -40,26 +38,41 @@ public class FirmModifyForm extends ActionForm {
 	/** Firm city **/
 	private String city;
 	
-	/** Firm portable phone **/
-	private String portable;
-		
+	/** Firm country **/
+	private String country;
+	
 	/** Firm fixe phone **/
-	private String fixe;
+	private String phone;
 
 	/** Firm web site **/
 	private String web;
 
-	/** Identifier of selected firm parent **/
-	private String idParent;
+	/** Firm mail **/
+	private String email;
 
-	/** List of all firms **/
-	private Collection <Firm> firms;
+	/** Firm fax **/
+	private String fax;
+
+	/** Identifier of selected firm parent **/
+	private String idParentFirm;
+
+	/** Identifier of selected firm parent **/
+	private String nameParentFirm;
+
+	/** List of child firms **/
+	private Collection <Firm> childFirms;
 
 	/** Identifier of selected department **/
 	private String idDepartment;
 
 	/** List of all departments **/
 	private Collection <DepartmentEnum> departments;
+
+	/** List of all events **/
+	private Collection <Event> events;
+
+	/** List of all jobs **/
+	private Collection <Job> jobs;
 
 	/** Use to DispacthAction **/
 	private String action;
@@ -69,12 +82,10 @@ public class FirmModifyForm extends ActionForm {
 	public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
 		ActionErrors errors = new ActionErrors();
 
-		/*
 		if("create".equals(action) || "modify".equals(action)) {
-			if("".equals(name) || "".equals(address) || "".equals(fixe) || "".equals(postalCode) || "".equals(city) || "".equals(web))
+			if("".equals(name) || "".equals(address) || "".equals(postalCode) || "".equals(postalCode) || "".equals(city) || "".equals(web))
 				errors.add("allRequiredFieldIsNotfillin", new ActionMessage("user.error.allRequiredFieldIsNotfillin"));
-		}
-		*/			
+		}			
 
 		return errors;
 	}
@@ -88,114 +99,19 @@ public class FirmModifyForm extends ActionForm {
 		address = "";
 		postalCode = "";
 		city = "";
-		portable = "";
-		fixe = "";
+		country = "";
+		phone = "";
 		web = "";
-		idParent = "";
-		firms = null;
+		email = "";
+		fax = "";
+		idParentFirm = "";
+		nameParentFirm = "";
+		childFirms = null;
 		idDepartment = "";
 		departments = null;
+		events = null;
+		jobs = null;
 		action = "";
-	}
-	
-	
-	/**
-	 * @return Returns the fixe.
-	 */
-	public String getFixe() {
-		return fixe;
-	}
-
-	/**
-	 * @param fixe The fixe to set.
-	 */
-	public void setFixe(String fixe) {
-		this.fixe = fixe;
-	}
-
-	/**
-	 * @return Returns the name.
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * @param name The name to set.
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	/**
-	 * @return Returns the idDepartment.
-	 */
-	public String getIdDepartment() {
-		return idDepartment;
-	}
-
-	/**
-	 * @param idDepartment The idDepartment to set.
-	 */
-	public void setIdDepartment(String idDepartment) {
-		this.idDepartment = idDepartment;
-	}
-
-	/**
-	 * @return Returns the address.
-	 */
-	public String getAddress() {
-		return address;
-	}
-
-	/**
-	 * @param address The address to set.
-	 */
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	/**
-	 * @return Returns the postalCode.
-	 */
-	public String getPostalCode() {
-		return postalCode;
-	}
-
-	/**
-	 * @param postalCode The postalCode to set.
-	 */
-	public void setPostalCode(String login) {
-		this.postalCode = login;
-	}
-
-	/**
-	 * @return Returns the city.
-	 */
-	public String getCity() {
-		return city;
-	}
-
-	/**
-	 * @param city The city to set.
-	 */
-	public void setCity(String password) {
-		this.city = password;
-	}
-
-
-	/**
-	 * @return Returns the portable.
-	 */
-	public String getPortable() {
-		return portable;
-	}
-
-	/**
-	 * @param portable The portable to set.
-	 */
-	public void setPortable(String repassword) {
-		this.portable = repassword;
 	}
 
 	/**
@@ -213,17 +129,45 @@ public class FirmModifyForm extends ActionForm {
 	}
 
 	/**
-	 * @return Returns the idFirmToModify.
+	 * @return Returns the address.
 	 */
-	public String getIdFirmToModify() {
-		return idFirmToModify;
+	public String getAddress() {
+		return address;
 	}
 
 	/**
-	 * @param idFirmToModify The idFirmToModify to set.
+	 * @param address The address to set.
 	 */
-	public void setIdFirmToModify(String idFirmToModify) {
-		this.idFirmToModify = idFirmToModify;
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	/**
+	 * @return Returns the childFirms.
+	 */
+	public Collection<Firm> getChildFirms() {
+		return childFirms;
+	}
+
+	/**
+	 * @param childFirms The childFirms to set.
+	 */
+	public void setChildFirms(Collection<Firm> childFirms) {
+		this.childFirms = childFirms;
+	}
+
+	/**
+	 * @return Returns the city.
+	 */
+	public String getCity() {
+		return city;
+	}
+
+	/**
+	 * @param city The city to set.
+	 */
+	public void setCity(String city) {
+		this.city = city;
 	}
 
 	/**
@@ -241,31 +185,143 @@ public class FirmModifyForm extends ActionForm {
 	}
 
 	/**
-	 * @return Returns the firms.
+	 * @return Returns the email.
 	 */
-	public Collection<Firm> getFirms() {
-		return firms;
+	public String getEmail() {
+		return email;
 	}
 
 	/**
-	 * @param firms The firms to set.
+	 * @param email The email to set.
 	 */
-	public void setFirms(Collection<Firm> firms) {
-		this.firms = firms;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	/**
-	 * @return Returns the idParent.
+	 * @return Returns the events.
 	 */
-	public String getIdParent() {
-		return idParent;
+	public Collection<Event> getEvents() {
+		return events;
 	}
 
 	/**
-	 * @param idParent The idParent to set.
+	 * @param events The events to set.
 	 */
-	public void setIdParent(String idParent) {
-		this.idParent = idParent;
+	public void setEvents(Collection<Event> events) {
+		this.events = events;
+	}
+
+	/**
+	 * @return Returns the fax.
+	 */
+	public String getFax() {
+		return fax;
+	}
+
+	/**
+	 * @param fax The fax to set.
+	 */
+	public void setFax(String fax) {
+		this.fax = fax;
+	}
+
+	/**
+	 * @return Returns the idDepartment.
+	 */
+	public String getIdDepartment() {
+		return idDepartment;
+	}
+
+	/**
+	 * @param idDepartment The idDepartment to set.
+	 */
+	public void setIdDepartment(String idDepartment) {
+		this.idDepartment = idDepartment;
+	}
+
+	/**
+	 * @return Returns the idFirmToModify.
+	 */
+	public String getIdFirmToModify() {
+		return idFirmToModify;
+	}
+
+	/**
+	 * @param idFirmToModify The idFirmToModify to set.
+	 */
+	public void setIdFirmToModify(String idFirmToModify) {
+		this.idFirmToModify = idFirmToModify;
+	}
+
+	/**
+	 * @return Returns the idParentFirm.
+	 */
+	public String getIdParentFirm() {
+		return idParentFirm;
+	}
+
+	/**
+	 * @param idParentFirm The idParentFirm to set.
+	 */
+	public void setIdParentFirm(String idParentFirm) {
+		this.idParentFirm = idParentFirm;
+	}
+
+	/**
+	 * @return Returns the jobs.
+	 */
+	public Collection<Job> getJobs() {
+		return jobs;
+	}
+
+	/**
+	 * @param jobs The jobs to set.
+	 */
+	public void setJobs(Collection<Job> jobs) {
+		this.jobs = jobs;
+	}
+
+	/**
+	 * @return Returns the name.
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * @param name The name to set.
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	/**
+	 * @return Returns the phone.
+	 */
+	public String getPhone() {
+		return phone;
+	}
+
+	/**
+	 * @param phone The phone to set.
+	 */
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	/**
+	 * @return Returns the postalCode.
+	 */
+	public String getPostalCode() {
+		return postalCode;
+	}
+
+	/**
+	 * @param postalCode The postalCode to set.
+	 */
+	public void setPostalCode(String postalCode) {
+		this.postalCode = postalCode;
 	}
 
 	/**
@@ -280,5 +336,33 @@ public class FirmModifyForm extends ActionForm {
 	 */
 	public void setWeb(String web) {
 		this.web = web;
+	}
+
+	/**
+	 * @return Returns the country.
+	 */
+	public String getCountry() {
+		return country;
+	}
+
+	/**
+	 * @param country The country to set.
+	 */
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	/**
+	 * @return Returns the nameParentFirm.
+	 */
+	public String getNameParentFirm() {
+		return nameParentFirm;
+	}
+
+	/**
+	 * @param nameParentFirm The nameParentFirm to set.
+	 */
+	public void setNameParentFirm(String nameParentFirm) {
+		this.nameParentFirm = nameParentFirm;
 	}
 }

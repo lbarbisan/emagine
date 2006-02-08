@@ -31,6 +31,7 @@
 		<form-bean name="apprenticeModifyForm" type="fr.umlv.ir3.emagine.apprentice.ApprenticeModifiyForm" />	
 		<form-bean name="companySearchForm" type="fr.umlv.ir3.emagine.firm.FirmSearchForm" />
 		<form-bean name="companyModifyForm" type="fr.umlv.ir3.emagine.firm.FirmModifyForm" />
+		<form-bean name="companyListForm" type="fr.umlv.ir3.emagine.firm.FirmListForm" />
 	</form-beans>
 
 	<!-- ========== Action Mapping Definitions =============================== -->
@@ -169,6 +170,9 @@
 		</action>
 		<action path="/companyDelete" type="fr.umlv.ir3.emagine.firm.FirmDeleteAction" parameter="action">
 			<forward name="_default_target_" path="/companySearch.do?action=search" redirect="true" />
+		</action>
+		<action path="/companyList" type="fr.umlv.ir3.emagine.firm.FirmListAction" name="companyListForm" scope="session">
+			<forward name="_default_target_" path="company.companyPopup" />
 		</action>
 		<action path="/companyVisuInfo" forward="company.companyVisuInfo" name="companyModifyForm" scope="session" />
 		<action path="/companyVisuEvent" forward="company.companyVisuEvent" name="companyModifyForm" scope="session" />
