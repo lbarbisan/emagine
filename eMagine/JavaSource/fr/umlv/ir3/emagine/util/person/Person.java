@@ -53,31 +53,35 @@ public class Person extends EventableEntity {
 
 	@Basic(temporalType = TemporalType.TIMESTAMP)
 	private Date birthdayDate;
+	
 	private String birthdayCity;
+	
 	@ManyToOne()
 	@Cascade(CascadeType.SAVE_UPDATE)
 	@JoinColumn(name="birthdayCountry_id")
 	private CountryEnum birthdayCountry;
+	
 	@ManyToOne()
 	@Cascade(CascadeType.SAVE_UPDATE)
 	@JoinColumn(name="birthdayDepartment_id")
 	private DepartmentEnum birthdayDepartment;
+	
 	@ManyToOne()
 	@Cascade(CascadeType.SAVE_UPDATE)
 	@JoinColumn(name="nationality_id")
 	private NationalityEnum nationality;
+	
 	@ManyToOne()
 	@Cascade(CascadeType.SAVE_UPDATE)
 	@JoinColumn(name="sex_id")
 	private SexEnum sex;
+	
 	private String lastName;
 	private String firstName;
 	private String email;
 	private String phone;
 	private String mobilePhone;
 	private String fax;
-	
-	
 	
 	protected Person(Long id, Long version, List<Modification> modifications, List<Event> events, Address addressPersonnal, Date birthdayDate, String birthdayCity, CountryEnum birthdayCountry, DepartmentEnum birthdayDepartment, NationalityEnum nationality, SexEnum sex, String lastName, String firstName, String email, String phone, String mobilePhone, String fax) {	
 		super(modifications, events);

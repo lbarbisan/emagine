@@ -1,5 +1,6 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
+<%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic"%>
 
 <script type="text/javascript">
 <!--
@@ -23,8 +24,10 @@
 			<li><html:link href="javascript:change('companyVisuEvent');">Ev&eacute;nement</html:link></li>
 	</ul>
 </div>
+
+<html:form action="companyModify" method="POST">
+
 <div class="tabs_div">
-<form name="results">
 	<h2><bean:message key="actor.list.title"/></h2>
 	<br/>
 	<div align=center>
@@ -37,22 +40,24 @@
 				<th><bean:message key="table.header.phone"/></th>
 				<th><bean:message key="table.header.email"/></th>
 			</tr>
-			<tr>
-				<td><input type="checkbox" value="ON" name="all_none"/></td>
-				<td><html:link action="/actorVisuInfo">Bariton</html:link></td>
-				<td>José</td>
-				<td>PDG</td>
-				<td>0134658900</td>
-				<td>pdg@siemens.fr</td>
-			</tr>
-			<tr>
-				<td><input type="checkbox" value="ON" name="all_none"/></td>
-				<td><html:link action="/actorVisuInfo">Manille</html:link></td>
-				<td>Patricia</td>
-				<td>DRH</td>
-				<td>0134658902</td>
-				<td>rh@siemens.fr</td>
-			</tr>
+
+			<logic:notEmpty name="companyModifyForm" property="actors">
+				<logic:iterate id="actor" name="companyModifyForm" property="actors" type="fr.umlv.ir3.emagine.firm.actor.FirmActor">
+					<tr>
+						<td>&nbsp;</td>
+						<td><html:link action="/actorVisuInfo?action=show" paramId="id" paramName="actor" paramProperty="id"><bean:write name="actor" property="lastname" />&nbsp;</html:link></td>
+						<td><bean:write name="actor" property="firstname" />&nbsp;</td>
+						<td><bean:write name="actor" property="function" />&nbsp;</td>
+						<td><bean:write name="actor" property="phone" />&nbsp;</td>
+						<td><bean:write name="actor" property="email" />&nbsp;</td>
+					</tr>
+				</logic:iterate>
+			</logic:notEmpty>	
+
+			<logic:empty name="companyModifyForm" property="actors">
+				<tr><td colspan="6">Pas de résultats</td></tr>
+			</logic:empty>
+
 		</table>
 	</div>
 	<div id="actions">
@@ -70,5 +75,6 @@
 			<li><html:link action="/actorCreate"><img src="/eMagine/common/images/icones/ajouter.png" title="<bean:message key="button.title.add"/>"/></html:link></li>
 		</ul>
 	</div>
-	</div>
-</form>
+</div>
+
+</html:form>

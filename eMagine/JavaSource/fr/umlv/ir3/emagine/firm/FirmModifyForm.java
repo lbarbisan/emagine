@@ -11,6 +11,7 @@ import org.apache.struts.action.ActionMessage;
 
 import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
 import fr.umlv.ir3.emagine.event.Event;
+import fr.umlv.ir3.emagine.firm.actor.FirmActor;
 
 
 /**
@@ -74,6 +75,9 @@ public class FirmModifyForm extends ActionForm {
 	/** List of all jobs **/
 	private Collection <Job> jobs;
 
+	/** List of all jobs **/
+	private Collection <FirmActor> actors;
+
 	/** Use to DispacthAction **/
 	private String action;
 
@@ -111,6 +115,7 @@ public class FirmModifyForm extends ActionForm {
 		departments = null;
 		events = null;
 		jobs = null;
+		actors = null;
 		action = "";
 	}
 
@@ -364,5 +369,19 @@ public class FirmModifyForm extends ActionForm {
 	 */
 	public void setNameParentFirm(String nameParentFirm) {
 		this.nameParentFirm = nameParentFirm;
+	}
+
+	/**
+	 * @return Returns the actors.
+	 */
+	public Collection<FirmActor> getActors() {
+		return actors;
+	}
+
+	/**
+	 * @param actors The actors to set.
+	 */
+	public void setActors(Collection<FirmActor> actors) {
+		this.actors = actors;
 	}
 }

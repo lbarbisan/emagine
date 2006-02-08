@@ -9,23 +9,27 @@ import javax.persistence.OneToOne;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
-import fr.umlv.ir3.emagine.apprentice.Apprentice;
 import fr.umlv.ir3.emagine.firm.Firm;
 import fr.umlv.ir3.emagine.util.Address;
 import fr.umlv.ir3.emagine.util.person.Person;
+
 @Entity(access = AccessType.FIELD)
 public class FirmActor extends Person {
 	
 	private static final long serialVersionUID = 6962218814666233077L;
+
 	@ManyToOne()
 	@Cascade(CascadeType.SAVE_UPDATE)
 	@JoinColumn(name = "firm_id")
 	private Firm firm;
+	
 	@OneToOne()
 	@Cascade(CascadeType.SAVE_UPDATE)
 	@JoinColumn(name = "addressPersonnal_id")
 	private Address addressProfessional;
-	private String Function;
+	
+	private String function;
+	
 	public Address getAddressProfessional() {
 		return addressProfessional;
 	}
@@ -39,9 +43,9 @@ public class FirmActor extends Person {
 		this.firm = firm;
 	}
 	public String getFunction() {
-		return Function;
+		return function;
 	}
 	public void setFunction(String function) {
-		Function = function;
+		this.function = function;
 	}
 }

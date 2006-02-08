@@ -12,12 +12,12 @@ import fr.umlv.ir3.emagine.modification.EditableEntity;
 @Entity(access = AccessType.FIELD)
 public class MailingType extends EditableEntity {
 
-	//TODO Title et Comment sont en majuscule
+	//TODO title et comment sont en majuscule
 	private static final long serialVersionUID = 5127008085508457457L;
 	@OneToMany
 	private List<Attachment> attachments;
-	private String Title;
-	private String Comment;
+	private String title;
+	private String comment;
 	private String mailObject;
 	private String mailCore;
 	
@@ -28,10 +28,10 @@ public class MailingType extends EditableEntity {
 		this.attachments = attachments;
 	}
 	public String getComment() {
-		return Comment;
+		return comment;
 	}
 	public void setComment(String comment) {
-		Comment = comment;
+		this.comment = comment;
 	}
 	public String getMailCore() {
 		return mailCore;
@@ -46,10 +46,10 @@ public class MailingType extends EditableEntity {
 		this.mailObject = mailObject;
 	}
 	public String getTitle() {
-		return Title;
+		return title;
 	}
 	public void setTitle(String title) {
-		Title = title;
+		this.title = title;
 	}
 	
 }
