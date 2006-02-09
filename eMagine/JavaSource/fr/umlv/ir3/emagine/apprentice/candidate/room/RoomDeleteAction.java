@@ -35,13 +35,12 @@ public class RoomDeleteAction extends BaseAction {
 		// Delete the rooms
 		DAOManager.beginTransaction();
 		String [] ids = request.getParameterValues("currentSelectedIds");
-		
+		System.out.println("nombre de salles à delete : " + ids.length);
 		if(ids != null && ids.length > 0) {
 			for (String idRoom : ids) {
 				try {
 					Room room = roomManager.retrieve(Long.parseLong(idRoom));
 					roomManager.delete(room); // TODO A faire pour le forcage
-					System.out.println("delete de la room");
 				} catch (EMagineException exception) {
 					addEMagineExceptionError(errors, exception);
 				}
