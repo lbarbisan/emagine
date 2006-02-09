@@ -30,6 +30,8 @@ import fr.umlv.ir3.emagine.extraction.ExtractionEntity;
 import fr.umlv.ir3.emagine.extraction.ExtractionProperty;
 import fr.umlv.ir3.emagine.firm.Firm;
 import fr.umlv.ir3.emagine.firm.FirmDAO;
+import fr.umlv.ir3.emagine.firm.actor.FirmActor;
+import fr.umlv.ir3.emagine.firm.actor.FirmActorDAO;
 import fr.umlv.ir3.emagine.security.EmaginePrincipal;
 import fr.umlv.ir3.emagine.security.MustHaveRights;
 import fr.umlv.ir3.emagine.security.SessionManager;
@@ -102,8 +104,39 @@ public class InitDB {
 		initializeCandidate(1,4);
 		initializeFirm(1,4);
 		initializeApprentice(1,4);
+		initializeEntrepriseActor(1,4);
 		initializeExtractionEntities();
 	}
+
+	private static void initializeEntrepriseActor(int start, int length) {
+		FirmActorDAO firmActorDAO = DAOManager.getInstance().getFirmActorDAO();
+		DAOManager.beginTransaction();
+		 try {
+			for (int index = start; index < length; index++) {
+				 FirmActor firmActor = new FirmActor();
+				 firmActor.setAddressPersonnal(createAddress(index*2));
+				 firmActor.setAddressProfessional(createAddress(index*2+1));
+				 firmActor.setBirthdayCity("BirthdayCity"+ index);
+				 firmActor.setBirthdayCountry((CountryEnum) InitEnums.getEmagineEnum("Country " + index, CountryEnum.class));
+				 firmActor.setBirthdayDate(new Date());
+				 firmActor.setBirthdayDepartment((DepartmentEnum) InitEnums.getEmagineEnum("Department " + index, DepartmentEnum.class));
+				 firmActor.setEmail("mail@domain.com");
+				 firmActor.setFax("07987870"+ index );
+				 firmActor.setFirstName("FirstNameActorFirm" + index);
+				 firmActor.setLastName("LastNameActorFirm" + index);
+				 firmActor.setFunction("fonction" + index);
+				 firmActor.setMobilePhone("8687576587" + index);
+				 firmActor.setNationality((NationalityEnum) InitEnums.getEmagineEnum("Nationality " + index, NationalityEnum.class));
+				 firmActor.setPhone("765457456" + index);
+				 firmActor.setSex((SexEnum) InitEnums.getEmagineEnum("Homme", SexEnum.class));
+				 firmActorDAO.create(firmActor);	 
+			}
+		 } catch (EMagineException e) {
+				// TODO EMagineException.e Not Implemented
+				e.printStackTrace();
+			}
+	}
+
 
 	private static final void initializeExtractionEntities() throws EMagineException {
 		DAOManager.beginTransaction();
@@ -187,7 +220,7 @@ public class InitDB {
 		candidateDAO.create(candidate);
 
 		//candidate.setSex(contact.getSex());
-		candidate.setSex((SexEnum) InitEnums.getEmagineEnum("Male", SexEnum.class));
+		candidate.setSex((SexEnum) InitEnums.getEmagineEnum("Homme", SexEnum.class));
 		
 		}
 		

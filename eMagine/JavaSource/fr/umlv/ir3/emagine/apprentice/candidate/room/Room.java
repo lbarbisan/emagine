@@ -34,7 +34,6 @@ public class Room extends EditableEntity {
 	@Cascade(CascadeType.SAVE_UPDATE)
 	private List<Candidate> candidates = new ArrayList<Candidate>();
 	@ManyToOne()
-	@Cascade(CascadeType.SAVE_UPDATE)
 	@JoinColumn(name="formationcenter_id")
 	private FormationCenter formationCenter;
 	
