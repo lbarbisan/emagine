@@ -46,7 +46,8 @@ public class RoomDeleteAction extends BaseAction {
 				}
 			}
 		}
-        // Report back any errors, and exit if any
+		
+		// Report back any errors, and exit if any
 		return successIfNoErrors(mapping, request, errors);
 	}	
 }

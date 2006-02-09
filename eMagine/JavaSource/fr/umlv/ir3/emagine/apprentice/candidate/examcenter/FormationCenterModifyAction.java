@@ -41,7 +41,11 @@ public class FormationCenterModifyAction extends BaseAction {
 		EmagineEnumManager emagineEnumManager = managerManager.getEmagineEnumManager();
 		try {
 			// Retrieve the center we want to see (if he exists) 
-			String idCenter = request.getParameter("id");			
+			String idCenter = request.getParameter("id");
+			
+			if(idCenter == null || "".equals(idCenter))
+				idCenter = centerModifyForm.getIdFormationCenterToModify();
+			
 			if(idCenter != null && !"".equals(idCenter)) {
 				FormationCenter center = managerManager.getFormationCenterManager().retrieve(Long.parseLong(idCenter));
 				centerModifyForm.setIdFormationCenterToModify(idCenter);

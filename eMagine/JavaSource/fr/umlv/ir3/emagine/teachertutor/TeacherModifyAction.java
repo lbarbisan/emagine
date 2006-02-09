@@ -3,6 +3,8 @@
  */
 package fr.umlv.ir3.emagine.teachertutor;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -13,6 +15,7 @@ import org.apache.struts.action.ActionMessages;
 
 import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
 import fr.umlv.ir3.emagine.util.EMagineException;
+import fr.umlv.ir3.emagine.util.EmagineEnumManager;
 import fr.umlv.ir3.emagine.util.ManagerManager;
 import fr.umlv.ir3.emagine.util.base.BaseAction;
 
@@ -32,6 +35,7 @@ public class TeacherModifyAction extends BaseAction {
 		ActionMessages errors = new ActionMessages();
 		ManagerManager managerManager = ManagerManager.getInstance();
 		TeacherTutorModifyForm teacherModifyForm = (TeacherTutorModifyForm) form;
+		EmagineEnumManager emagineEnumManager = managerManager.getEmagineEnumManager();
 		
 		try {
 			// Retrieve the user we want to see (if he exists) 
@@ -45,16 +49,13 @@ public class TeacherModifyAction extends BaseAction {
 				teacherModifyForm.setCellular(teacher.getMobilePhone());
 				teacherModifyForm.setCity(teacher.getAddressProfessional().getCity());
 				teacherModifyForm.setFax(teacher.getFax());
-				System.out.println(teacher.getAddressProfessional());
-				System.out.println(teacher.getAddressProfessional().getDepartment());
-				System.out.println(teacher.getAddressProfessional().getDepartment().getId());
-				System.out.println(teacher.getAddressProfessional().getDepartment().getId().toString());
 				teacherModifyForm.setIdDepartment(teacher.getAddressProfessional().getDepartment().getId().toString());
 				teacherModifyForm.setMail(teacher.getEmail());
 				teacherModifyForm.setPhone(teacher.getPhone());
 				teacherModifyForm.setPostalCode(teacher.getAddressProfessional().getPostalCode());
-				// FIXME remplir la liste des pupilles
-				//teacherModifyForm.setPupils();
+				// FIXME remplir la liste des pupille
+				teacherModifyForm.setDepartments((List<DepartmentEnum>)emagineEnumManager.findAll(DepartmentEnum.class));
+				teacherModifyForm.setIdDepartment(Long.toString(teacher.getAddressProfessional().getDepartment().getId()));
 			}
 			
 		} catch (EMagineException exception) {
@@ -81,13 +82,14 @@ public class TeacherModifyAction extends BaseAction {
 		ManagerManager managerManager = ManagerManager.getInstance();
 		TeacherTutorManager teacherManager = managerManager.getTeacherTutorManager();
 		TeacherTutorModifyForm teacherModifyForm = (TeacherTutorModifyForm) form;
-
+		EmagineEnumManager emagineEnumManager = managerManager.getEmagineEnumManager();
+		
 		// Update the Teacher
 		try {
 			TeacherTutor tutor = teacherManager.retrieve(Long.parseLong(teacherModifyForm.getIdTeacherTutorToModify()));
 			tutor.getAddressProfessional().setCity(teacherModifyForm.getCity());
 			//tutor.getAddressProfessional().setCountry();
-			tutor.getAddressProfessional().setDepartment((DepartmentEnum)managerManager.getEmagineEnumManager().retrieve(Long.parseLong(teacherModifyForm.getIdDepartment()),DepartmentEnum.class));
+			tutor.getAddressProfessional().setDepartment((DepartmentEnum) emagineEnumManager.retrieve(Long.parseLong(teacherModifyForm.getIdDepartment()), DepartmentEnum.class));
 			tutor.getAddressProfessional().setPostalCode(teacherModifyForm.getPostalCode());
 			tutor.getAddressProfessional().setStreet(teacherModifyForm.getAddress());
 			tutor.setEmail(teacherModifyForm.getMail());

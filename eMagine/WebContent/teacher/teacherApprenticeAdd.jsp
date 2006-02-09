@@ -110,4 +110,4 @@
 			<li><a href="#"><img src="/eMagine/common/images/icones/ok.png" title="<bean:message key="button.title.ok"/>"/></a></li>
 		</ul>
 	</div>
-</form>
+</html:form>

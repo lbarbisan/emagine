@@ -10,7 +10,7 @@
 
 	function deleteRooms() {
 		if(confirm("Souhaitez-vous réellement supprimer ces salles ?")) {
-			document.formationCenterModifyForm.action = "/eMagine/roomDelete.do?action=delete&from=search";
+			document.formationCenterModifyForm.action = "/eMagine/roomDelete.do?action=delete&from=search" ;
 			document.formationCenterModifyForm.submit();
 		}
 	}	
@@ -22,7 +22,6 @@
 -->
 </script>
 
-<bean:parameter name="id" id="examCenterId"/>
 <h2><bean:message key="center.detail.title"/></h2>
 <br/>
 
@@ -52,7 +51,7 @@
 				<logic:iterate id="currentRoom" name="formationCenterModifyForm" property="room" type="fr.umlv.ir3.emagine.apprentice.candidate.room.Room">
 					<tr>
 						<td><html:multibox property="currentSelectedIds" value="<%= currentRoom.getId().toString() %>" /></td>
-						<td><html:link action="<%= "/roomDetail?action=show&idCenter="+examCenterId %>" paramId="id" paramName="currentRoom" paramProperty="id"><bean:write name="currentRoom" property="name" />&nbsp;</html:link></td>
+						<td><html:link action="<%= "/roomDetail.do?action=show&id="+ currentRoom.getId()%>" paramId="idCenter" paramName="formationCenterModifyForm" paramProperty="idFormationCenterToModify"><bean:write name="currentRoom" property="name" />&nbsp;</html:link></td>
 						<td><bean:write name="currentRoom" property="capacity" />&nbsp;</td>
 						<td><bean:write name="currentRoom" property="numberOfFreeSits" />&nbsp;</td>
 					</tr>
@@ -73,8 +72,8 @@
 		<h2>&nbsp;</h2>
 		<ul>
 			<li><html:link href="javascript:modifyCenter();"><html:img src="/eMagine/common/images/icones/modif.png" titleKey="button.title.update" /></html:link></li>
-			<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" title="<bean:message key="button.title.remove"/>"/></a></li>
-			<li><html:link action="<%= "/roomAdd?action=show&idCenter="+examCenterId %>"><img src="/eMagine/common/images/icones/ajouter.png" title="<bean:message key="button.title.add"/>"/></html:link></li>
+			<li><html:link href="javascript:deleteRooms();"><img src="/eMagine/common/images/icones/supprimer.png" title="<bean:message key="button.title.remove"/>"/></html:link></li>
+			<li><html:link action="/roomAdd.do?action=show" paramId="idCenter" paramName="formationCenterModifyForm" paramProperty="idFormationCenterToModify"><img src="/eMagine/common/images/icones/ajouter.png" title="<bean:message key="button.title.add"/>"/></html:link></li>
 		</ul>
 	</div>
 	<html:hidden property="idFormationCenterToModify" />
