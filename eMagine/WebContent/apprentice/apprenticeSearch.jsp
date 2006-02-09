@@ -37,10 +37,10 @@
 					<p>
 						<label for="courseOption"><bean:message key="criteria.search.die"/></label>
 						<html:select property="idCourseOption">
-							<logic:notEmpty name="apprenticeSearchForm" property="courseOptions">
+							<!-- <logic:notEmpty name="apprenticeSearchForm" property="courseOptions">-->
 								<option value="" selected></option>
 								<html:optionsCollection property="courseOptions" value="id" label="name"/>		
-							</logic:notEmpty>
+							<!--</logic:notEmpty>-->
 						</html:select>
 					</p>
 					<p><label for="year"><bean:message key="criteria.search.year"/></label>
@@ -57,7 +57,7 @@
 			</fieldset>
 		</div>
 		<br/>
-		<div class="buttons"><input type="button" value="<bean:message key="button.title.search"/>"/></div>
+		<div class="buttons"><html:submit onclick="javascript:setAction('search');" titleKey="button.title.search"><bean:message key="form.search" /></html:submit></div>
 	</div>
 	<h3><bean:message key="title.results"/></h3>
 	<div align=center>
@@ -108,7 +108,7 @@
 		</ul>
 		<h2>&nbsp;</h2>
 		<ul>
-		<li><html:link href="javascript:passApprentices();"><html:img src="/eMagine/common/images/icones/passage.png" titleKey="button.title.passage" /></html:link></li>
+			<li><html:link href="javascript:passApprentices();"><html:img src="/eMagine/common/images/icones/passage.png" titleKey="button.title.passage" /></html:link></li>
 			<li><html:link href="javascript:excludeApprentices();"><html:img src="/eMagine/common/images/icones/virer.png" titleKey="button.title.exclude" /></html:link></li>
 			<li><html:link action="/apprenticeMailingListCreate"><img src="/eMagine/common/images/icones/creer_mailing_list.png" title="<bean:message key="button.title.mailingListCreate"/>"/></html:link></li>
 			<li><html:link action="/apprenticeEmailDo"><img src="/eMagine/common/images/icones/mailing.png" title="<bean:message key="button.title.email"/>"/></html:link></li>
@@ -116,5 +116,5 @@
 			<li><html:link action="/apprenticeExtract"><img src="/eMagine/common/images/icones/extraire.png" title="<bean:message key="button.title.extract"/>"/></html:link></li>
 		</ul>
 	</div>
-<html:hidden property="action" />	
+<html:hidden property="action" />
 </html:form>

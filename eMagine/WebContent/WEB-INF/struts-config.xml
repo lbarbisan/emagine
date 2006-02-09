@@ -28,7 +28,7 @@
 		<form-bean name="bringingTogetherForm" type="fr.umlv.ir3.emagine.apprentice.candidate.BringingTogetherForm" />	
 		<form-bean name="roomModifyForm" type="fr.umlv.ir3.emagine.apprentice.candidate.room.RoomModifyForm" />	
 		<form-bean name="apprenticeSearchForm" type="fr.umlv.ir3.emagine.apprentice.ApprenticeSearchForm" />	
-		<form-bean name="apprenticeModifyForm" type="fr.umlv.ir3.emagine.apprentice.ApprenticeModifiyForm" />	
+		<form-bean name="apprenticeModifyForm" type="fr.umlv.ir3.emagine.apprentice.ApprenticeModifyForm" />	
 		<form-bean name="companySearchForm" type="fr.umlv.ir3.emagine.firm.FirmSearchForm" />
 		<form-bean name="companyModifyForm" type="fr.umlv.ir3.emagine.firm.FirmModifyForm" />
 		<form-bean name="companyListForm" type="fr.umlv.ir3.emagine.firm.FirmListForm" />
@@ -69,21 +69,34 @@
 		</action>
 
 		<!-- apprentice -->
-		<action path="/apprenticeVisuAdress"
-			forward="apprentice.apprenticeVisuAdress" />
 		<action path="/apprenticeSearch" type="fr.umlv.ir3.emagine.apprentice.ApprenticeSearchAction" name="apprenticeSearchForm" parameter="action" scope="session">
 			<forward name="_default_target_" path="apprentice.apprenticeSearch" />
 		</action>
+		<action path="/apprenticeModify" type="fr.umlv.ir3.emagine.apprentice.ApprenticeModifyAction" name="apprenticeModifyForm" input="apprentice.apprenticeModify" parameter="action" scope="session" validate="true">
+			<forward name="_default_target_" path="/apprenticeVisuAdress.do" redirect="true" />
+			<forward name="success" path="/apprenticeSearch.do?action=search" redirect="true" />
+		</action>
+		
+		<!-- <action path="/apprenticeExclude" type="fr.umlv.ir3.emagine.apprentice.ApprenticeExcludeAction" parameter="action">
+			<forward name="_default_target_" path="/apprenticeSearch.do?action=search" redirect="true" />
+		</action>
+		<action path="/apprenticePass" type="fr.umlv.ir3.emagine.apprentice.ApprenticePassAction" parameter="action">
+			<forward name="_default_target_" path="/apprenticeSearch.do?action=search" redirect="true" />
+		</action> -->
+		<action path="/apprenticeVisuAdress" forward="apprentice.apprenticeVisuAdress" name="apprenticeModifyForm" scope="session" />
+		<action path="/apprenticeVisuSituation" forward="apprentice.apprenticeVisuSituation" name="apprenticeModifyForm" scope="session" />
+		<action path="/apprenticeVisuStatus" forward="apprentice.apprenticeVisuStatus" name="apprenticeModifyForm" scope="session" />
+		<action path="/apprenticeVisuSituation" forward="apprentice.apprenticeVisuSchooling" name="apprenticeModifyForm" scope="session" />
+		<action path="/apprenticeVisuSchooling" forward="apprentice.apprenticeVisuEvent" name="apprenticeModifyForm" scope="session" />
+		<action path="/apprenticeEventDetail" forward="apprentice.apprenticeEventDetail" name="apprenticeModifyForm" scope="session" />
+		<action path="/apprenticeVisuAbsence" forward="apprentice.apprenticeVisuAbsence" name="apprenticeModifyForm" scope="session" />
+	
+		<!-- <action path="/apprenticeVisuAdress"
+			forward="apprentice.apprenticeVisuAdress" /> 
 		<action path="/apprenticeVisuSituation"
 			forward="apprentice.apprenticeVisuSituation" />
 		<action path="/apprenticeVisuStatus"
 			forward="apprentice.apprenticeVisuStatus" />
-		<action path="/apprenticeTutorAdd"
-			forward="apprentice.apprenticeTutorAdd" />
-		<action path="/apprenticeCompanyAdd"
-			forward="apprentice.apprenticeCompanyAdd" />
-		<action path="/apprenticeOnglet"
-			forward="apprentice.apprenticeOnglet" />
 		<action path="/apprenticeVisuSchooling"
 			forward="apprentice.apprenticeVisuSchooling" />
 		<action path="/apprenticeVisuEvent"
@@ -91,13 +104,18 @@
 		<action path="/apprenticeEventDetail"
 			forward="apprentice.apprenticeEventDetail" />
 		<action path="/apprenticeVisuAbsence"
-			forward="apprentice.apprenticeVisuAbsence" />
+			forward="apprentice.apprenticeVisuAbsence" />-->
+			
 		<action path="/apprenticeAbsenceDetail"
 			forward="apprentice.apprenticeAbsenceDetail" />
-		
+		<action path="/apprenticeTutorAdd"
+			forward="apprentice.apprenticeTutorAdd" />
+		<action path="/apprenticeOnglet"
+			forward="apprentice.apprenticeOnglet" />
+		<action path="/apprenticeCompanyAdd"
+			forward="apprentice.apprenticeCompanyAdd" />
 		<action path="/apprenticeAbsenceAdd"
-			forward="apprentice.apprenticeAbsenceAdd" />
-		
+			forward="apprentice.apprenticeAbsenceAdd" />		
 		<action path="/apprenticeAbsenceAddAction" 
 			type="fr.umlv.ir3.emagine.apprentice.absence.ApprenticeAbsenceAddAction" 
 			name="apprenticeAbsenceAddForm" 

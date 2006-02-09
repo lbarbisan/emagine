@@ -9,6 +9,14 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 
+import fr.umlv.ir3.emagine.apprentice.candidate.CourseOptionEnum;
+import fr.umlv.ir3.emagine.apprentice.candidate.DiplomaEnum;
+import fr.umlv.ir3.emagine.apprentice.candidate.ProfessionEnum;
+import fr.umlv.ir3.emagine.apprentice.candidate.SectionEnum;
+import fr.umlv.ir3.emagine.firm.Firm;
+import fr.umlv.ir3.emagine.firm.actor.EngineerTutor;
+import fr.umlv.ir3.emagine.teachertutor.TeacherTutor;
+
 public class ApprenticeModifyForm extends ActionForm {
 
 	private static final long serialVersionUID = -1120295787399332929L;
@@ -130,6 +138,119 @@ public class ApprenticeModifyForm extends ActionForm {
 	/** all the departments **/
 	private Collection <DepartmentEnum> departments;
 	
+	/*****************************************
+	 *
+	 * Part of the form for the schooling tab :
+	 * 
+	******************************************/
+	
+	/** List of all of levels **/
+	private Collection <LevelEntryEnum> levels;
+	
+	/** Identifier of selected level **/
+	private String idLevel;
+	
+	/** List of all of languages **/
+	private Collection <LanguageEnum> languages;
+	
+	/** Identifier of selected language **/
+	private String idLanguage;
+	
+	/** List of all of diplomas **/
+	private Collection <DiplomaEnum> diplomas;
+	
+	/** Identifier of selected diploma **/
+	private String idDiploma;
+	
+	/** List of all of sections **/
+	private Collection <SectionEnum> sections;
+	
+	/** Identifier of selected section **/
+	private String idSection;
+	
+	//TODO : comprendre l'interface graphique 
+	
+	/*****************************************
+	 *
+	 * Part of the form for the situation tab :
+	 * 
+	******************************************/
+	
+	/** List of all of course options **/
+	private Collection <CourseOptionEnum> courseOptions;
+	
+	/** Identifier of selected course option **/
+	private String idCourseOption;
+
+	/** Identifier of selected year **/
+	private String idYear;
+	
+	/** Identifier of selected groupe **/
+	private String idGroup;
+	
+	/** List of all of firms **/
+	private Collection <Firm> firms;
+	
+	/** Identifier of selected firm **/
+	private String idFirm;
+	
+	/** List of all of engineer tutors **/
+	private Collection <EngineerTutor> engineerTutors;
+	
+	/** Identifier of selected engineer tutors **/
+	private String idEngineerTutor;
+	
+	/** List of all of teacher tutors **/
+	private Collection <TeacherTutor> teacherTutors;
+	
+	/** Identifier of selected teacher tutors **/
+	private String idTeacherTutor;	
+	
+	/*****************************************
+	 *
+	 * Part of the form for the status tab :
+	 * 
+	******************************************/
+	
+	/** apprentice firstname **/
+	private String firstName;
+	
+	/** apprentice lastname **/
+	private String lastName;
+
+	/** apprentice date of birth **/
+	private String birth;
+	
+	/** Identifier of selected department **/
+	private String idDepartment;
+	
+	/** List of all sexes **/
+	private Collection <SexEnum> sexes;
+	
+	/** Identifier of selected sexe **/
+	private String idSex;
+	
+	/** List of all professions **/
+	private Collection <ProfessionEnum> professions;
+	
+	/** Identifier of selected profession of the mother **/
+	private String idMother;
+
+	/** Identifier of selected profession of the father **/
+	private String idFather;
+	
+	/** List of all countries **/
+	private Collection <CountryEnum> countries;
+	
+	/** Identifier of selected country **/
+	private String idCountry;
+	
+	/** List of all nationalities **/
+	private Collection <NationalityEnum> nationalities;
+	
+	/** Identifier of selected nationality **/
+	private String idNationality;
+
 	/** Use to action **/
 	private String action;
 
@@ -684,6 +805,440 @@ public class ApprenticeModifyForm extends ActionForm {
 	 */
 	public void setIdDefaultAddress(String idDefaultAddress) {
 		this.idDefaultAddress = idDefaultAddress;
+	}
+
+	/**
+	 * @return Returns the birth.
+	 */
+	public String getBirth() {
+		return birth;
+	}
+
+	/**
+	 * @param birth The birth to set.
+	 */
+	public void setBirth(String birth) {
+		this.birth = birth;
+	}
+
+	/**
+	 * @return Returns the countries.
+	 */
+	public Collection<CountryEnum> getCountries() {
+		return countries;
+	}
+
+	/**
+	 * @param countries The countries to set.
+	 */
+	public void setCountries(Collection<CountryEnum> countries) {
+		this.countries = countries;
+	}
+
+	/**
+	 * @return Returns the courseOptions.
+	 */
+	public Collection<CourseOptionEnum> getCourseOptions() {
+		return courseOptions;
+	}
+
+	/**
+	 * @param courseOptions The courseOptions to set.
+	 */
+	public void setCourseOptions(Collection<CourseOptionEnum> courseOptions) {
+		this.courseOptions = courseOptions;
+	}
+
+	/**
+	 * @return Returns the diplomas.
+	 */
+	public Collection<DiplomaEnum> getDiplomas() {
+		return diplomas;
+	}
+
+	/**
+	 * @param diplomas The diplomas to set.
+	 */
+	public void setDiplomas(Collection<DiplomaEnum> diplomas) {
+		this.diplomas = diplomas;
+	}
+
+	/**
+	 * @return Returns the engineerTutors.
+	 */
+	public Collection<EngineerTutor> getEngineerTutors() {
+		return engineerTutors;
+	}
+
+	/**
+	 * @param engineerTutors The engineerTutors to set.
+	 */
+	public void setEngineerTutors(Collection<EngineerTutor> engineerTutors) {
+		this.engineerTutors = engineerTutors;
+	}
+
+	/**
+	 * @return Returns the firms.
+	 */
+	public Collection<Firm> getFirms() {
+		return firms;
+	}
+
+	/**
+	 * @param firms The firms to set.
+	 */
+	public void setFirms(Collection<Firm> firms) {
+		this.firms = firms;
+	}
+
+	/**
+	 * @return Returns the firstName.
+	 */
+	public String getFirstName() {
+		return firstName;
+	}
+
+	/**
+	 * @param firstName The firstName to set.
+	 */
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	/**
+	 * @return Returns the idCountry.
+	 */
+	public String getIdCountry() {
+		return idCountry;
+	}
+
+	/**
+	 * @param idCountry The idCountry to set.
+	 */
+	public void setIdCountry(String idCountry) {
+		this.idCountry = idCountry;
+	}
+
+	/**
+	 * @return Returns the idCourseOption.
+	 */
+	public String getIdCourseOption() {
+		return idCourseOption;
+	}
+
+	/**
+	 * @param idCourseOption The idCourseOption to set.
+	 */
+	public void setIdCourseOption(String idCourseOption) {
+		this.idCourseOption = idCourseOption;
+	}
+
+	/**
+	 * @return Returns the idDepartment.
+	 */
+	public String getIdDepartment() {
+		return idDepartment;
+	}
+
+	/**
+	 * @param idDepartment The idDepartment to set.
+	 */
+	public void setIdDepartment(String idDepartment) {
+		this.idDepartment = idDepartment;
+	}
+
+	/**
+	 * @return Returns the idDiploma.
+	 */
+	public String getIdDiploma() {
+		return idDiploma;
+	}
+
+	/**
+	 * @param idDiploma The idDiploma to set.
+	 */
+	public void setIdDiploma(String idDiploma) {
+		this.idDiploma = idDiploma;
+	}
+
+	/**
+	 * @return Returns the idEngineerTutor.
+	 */
+	public String getIdEngineerTutor() {
+		return idEngineerTutor;
+	}
+
+	/**
+	 * @param idEngineerTutor The idEngineerTutor to set.
+	 */
+	public void setIdEngineerTutor(String idEngineerTutor) {
+		this.idEngineerTutor = idEngineerTutor;
+	}
+
+	/**
+	 * @return Returns the idFather.
+	 */
+	public String getIdFather() {
+		return idFather;
+	}
+
+	/**
+	 * @param idFather The idFather to set.
+	 */
+	public void setIdFather(String idFather) {
+		this.idFather = idFather;
+	}
+
+	/**
+	 * @return Returns the idFirm.
+	 */
+	public String getIdFirm() {
+		return idFirm;
+	}
+
+	/**
+	 * @param idFirm The idFirm to set.
+	 */
+	public void setIdFirm(String idFirm) {
+		this.idFirm = idFirm;
+	}
+
+	/**
+	 * @return Returns the idGroup.
+	 */
+	public String getIdGroup() {
+		return idGroup;
+	}
+
+	/**
+	 * @param idGroup The idGroup to set.
+	 */
+	public void setIdGroup(String idGroup) {
+		this.idGroup = idGroup;
+	}
+
+	/**
+	 * @return Returns the idLanguage.
+	 */
+	public String getIdLanguage() {
+		return idLanguage;
+	}
+
+	/**
+	 * @param idLanguage The idLanguage to set.
+	 */
+	public void setIdLanguage(String idLanguage) {
+		this.idLanguage = idLanguage;
+	}
+
+	/**
+	 * @return Returns the idLevel.
+	 */
+	public String getIdLevel() {
+		return idLevel;
+	}
+
+	/**
+	 * @param idLevel The idLevel to set.
+	 */
+	public void setIdLevel(String idLevel) {
+		this.idLevel = idLevel;
+	}
+
+	/**
+	 * @return Returns the idMother.
+	 */
+	public String getIdMother() {
+		return idMother;
+	}
+
+	/**
+	 * @param idMother The idMother to set.
+	 */
+	public void setIdMother(String idMother) {
+		this.idMother = idMother;
+	}
+
+	/**
+	 * @return Returns the idNationality.
+	 */
+	public String getIdNationality() {
+		return idNationality;
+	}
+
+	/**
+	 * @param idNationality The idNationality to set.
+	 */
+	public void setIdNationality(String idNationality) {
+		this.idNationality = idNationality;
+	}
+
+	/**
+	 * @return Returns the idSection.
+	 */
+	public String getIdSection() {
+		return idSection;
+	}
+
+	/**
+	 * @param idSection The idSection to set.
+	 */
+	public void setIdSection(String idSection) {
+		this.idSection = idSection;
+	}
+
+	/**
+	 * @return Returns the idSex.
+	 */
+	public String getIdSex() {
+		return idSex;
+	}
+
+	/**
+	 * @param idSex The idSex to set.
+	 */
+	public void setIdSex(String idSex) {
+		this.idSex = idSex;
+	}
+
+	/**
+	 * @return Returns the idTeacherTutor.
+	 */
+	public String getIdTeacherTutor() {
+		return idTeacherTutor;
+	}
+
+	/**
+	 * @param idTeacherTutor The idTeacherTutor to set.
+	 */
+	public void setIdTeacherTutor(String idTeacherTutor) {
+		this.idTeacherTutor = idTeacherTutor;
+	}
+
+	/**
+	 * @return Returns the idYear.
+	 */
+	public String getIdYear() {
+		return idYear;
+	}
+
+	/**
+	 * @param idYear The idYear to set.
+	 */
+	public void setIdYear(String idYear) {
+		this.idYear = idYear;
+	}
+
+	/**
+	 * @return Returns the languages.
+	 */
+	public Collection<LanguageEnum> getLanguages() {
+		return languages;
+	}
+
+	/**
+	 * @param languages The languages to set.
+	 */
+	public void setLanguages(Collection<LanguageEnum> languages) {
+		this.languages = languages;
+	}
+
+	/**
+	 * @return Returns the lastName.
+	 */
+	public String getLastName() {
+		return lastName;
+	}
+
+	/**
+	 * @param lastName The lastName to set.
+	 */
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	/**
+	 * @return Returns the levels.
+	 */
+	public Collection<LevelEntryEnum> getLevels() {
+		return levels;
+	}
+
+	/**
+	 * @param levels The levels to set.
+	 */
+	public void setLevels(Collection<LevelEntryEnum> levels) {
+		this.levels = levels;
+	}
+
+	/**
+	 * @return Returns the nationalities.
+	 */
+	public Collection<NationalityEnum> getNationalities() {
+		return nationalities;
+	}
+
+	/**
+	 * @param nationalities The nationalities to set.
+	 */
+	public void setNationalities(Collection<NationalityEnum> nationalities) {
+		this.nationalities = nationalities;
+	}
+
+	/**
+	 * @return Returns the professions.
+	 */
+	public Collection<ProfessionEnum> getProfessions() {
+		return professions;
+	}
+
+	/**
+	 * @param professions The professions to set.
+	 */
+	public void setProfessions(Collection<ProfessionEnum> professions) {
+		this.professions = professions;
+	}
+
+	/**
+	 * @return Returns the sections.
+	 */
+	public Collection<SectionEnum> getSections() {
+		return sections;
+	}
+
+	/**
+	 * @param sections The sections to set.
+	 */
+	public void setSections(Collection<SectionEnum> sections) {
+		this.sections = sections;
+	}
+
+	/**
+	 * @return Returns the sexes.
+	 */
+	public Collection<SexEnum> getSexes() {
+		return sexes;
+	}
+
+	/**
+	 * @param sexes The sexes to set.
+	 */
+	public void setSexes(Collection<SexEnum> sexes) {
+		this.sexes = sexes;
+	}
+
+	/**
+	 * @return Returns the teacherTutors.
+	 */
+	public Collection<TeacherTutor> getTeacherTutors() {
+		return teacherTutors;
+	}
+
+	/**
+	 * @param teacherTutors The teacherTutors to set.
+	 */
+	public void setTeacherTutors(Collection<TeacherTutor> teacherTutors) {
+		this.teacherTutors = teacherTutors;
 	}
 
 }

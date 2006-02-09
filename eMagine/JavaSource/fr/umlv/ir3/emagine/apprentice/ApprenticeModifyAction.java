@@ -18,6 +18,7 @@ import org.apache.struts.action.ActionMessages;
 
 import fr.umlv.ir3.emagine.apprentice.absence.Absence;
 import fr.umlv.ir3.emagine.apprentice.absence.AbsenceManager;
+import fr.umlv.ir3.emagine.apprentice.candidate.Candidate;
 import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenterManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.EmagineEnumManager;
@@ -156,25 +157,65 @@ public class ApprenticeModifyAction extends BaseAction {
 	public ActionForward modify(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception  {
 		ActionMessages errors = new ActionMessages();
 		ManagerManager managerManager = ManagerManager.getInstance();
-		AbsenceManager absenceManager = managerManager.getAbsenceManager();
-		FormationCenterManager centerManager = managerManager.getFormationCenterManager();
-		ApprenticeModifyForm candidateModifyForm = (ApprenticeModifyForm) form;
+		//AbsenceManager absenceManager = managerManager.getAbsenceManager();
+		ApprenticeManager apprenticeManager = managerManager.getApprenticeManager();
+		ApprenticeModifyForm apprenticeModifyForm = (ApprenticeModifyForm) form;
 		EmagineEnumManager emagineEnumManager = managerManager.getEmagineEnumManager();
 		
-		//Update the Candidate
+		//Update the apprentice
 		try {
-			Absence absence = absenceManager.retrieve(Long.parseLong(candidateModifyForm.getIdAbsenceToModify()));
+			/*Absence absence = absenceManager.retrieve(Long.parseLong(candidateModifyForm.getIdAbsenceToModify()));
 			absence.setStartDate(stringToDate(candidateModifyForm.getInitDate()));
 			absence.setEndDate(stringToDate(candidateModifyForm.getEndDate()));
 			//TODO c'est calculé: comment faire ? absence.setNumber...(candidateModifyForm.getNbDays());
 			//TODO justification a repasser en enum et pas en boolean : il y a plus que 2 valeurs!!!
-			//absence.setJustification(candidateModifyForm.getIdJustification());
-			absence.setJustificationComment(candidateModifyForm.getComment());
+			absence.setJustification(candidateModifyForm.getIdJustification());
+			absence.setJustificationComment(candidateModifyForm.getComment());*/
+			
+			
+			Apprentice apprentice = apprenticeManager.retrieve(Long.parseLong(apprenticeModifyForm.getIdApprenticeToModify()));
+			
+			/* Datas concerning the address tab*/
+			//apprentice.setDefaultAdress((DefaultAddressEnum) emagineEnumManager.retrieve(Long.parseLong(apprenticeModifyForm.getIdDefaultAddress()), DefaultAddressEnum.class));
+			
+			apprentice.getAddressPersonnal().setStreet(apprenticeModifyForm.getPersAdress());
+			apprentice.getAddressPersonnal().setPostalCode(apprenticeModifyForm.getPersPostalCode());
+			apprentice.getAddressPersonnal().setCity(apprenticeModifyForm.getPersCity());
+			apprentice.getAddressPersonnal().setDepartment((DepartmentEnum) emagineEnumManager.retrieve(Long.parseLong(apprenticeModifyForm.getIdPersDepartment()), DepartmentEnum.class));
+			apprentice.setMobilePhone(apprenticeModifyForm.getPersMobile());
+			apprentice.setEmail(apprenticeModifyForm.getPersEmail());
+			apprentice.setFax(apprenticeModifyForm.getPersFax());
+			apprentice.setPhone(apprenticeModifyForm.getPersPhone());
+			
+			apprentice.getAddressProfessional().setStreet(apprenticeModifyForm.getProfAdress());
+			apprentice.getAddressProfessional().setPostalCode(apprenticeModifyForm.getProfPostalCode());
+			apprentice.getAddressProfessional().setCity(apprenticeModifyForm.getProfCity());
+			apprentice.getAddressProfessional().setDepartment((DepartmentEnum) emagineEnumManager.retrieve(Long.parseLong(apprenticeModifyForm.getIdProfDepartment()), DepartmentEnum.class));
+			apprentice.setMobilePhone(apprenticeModifyForm.getProfMobile());
+			apprentice.setEmail(apprenticeModifyForm.getProfEmail());
+			apprentice.setFax(apprenticeModifyForm.getProfFax());
+			apprentice.setPhone(apprenticeModifyForm.getProfPhone());
+
+			apprentice.getAddressAcademic().setStreet(apprenticeModifyForm.getAcaAdress());
+			apprentice.getAddressAcademic().setPostalCode(apprenticeModifyForm.getAcaPostalCode());
+			apprentice.getAddressAcademic().setCity(apprenticeModifyForm.getAcaCity());
+			apprentice.getAddressAcademic().setDepartment((DepartmentEnum) emagineEnumManager.retrieve(Long.parseLong(apprenticeModifyForm.getIdAcaDepartment()), DepartmentEnum.class));
+			apprentice.setMobilePhone(apprenticeModifyForm.getAcaMobile());
+			apprentice.setEmail(apprenticeModifyForm.getAcaEmail());
+			apprentice.setFax(apprenticeModifyForm.getAcaFax());
+			apprentice.setPhone(apprenticeModifyForm.getAcaPhone());
+		
+			/* Datas concerning the schooling tab*/
+			
+			
+			
+			
 			
 		} catch (EMagineException exception) {
 				addEMagineExceptionError(errors, exception);
 		}
         // Report back any errors, and exit if any
+		
 		return successIfNoErrors(mapping, request, errors);
 	}
 	private Date stringToDate(String stringDate) {

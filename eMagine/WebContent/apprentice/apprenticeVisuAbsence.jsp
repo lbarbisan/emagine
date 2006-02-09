@@ -101,6 +101,8 @@
 <div id="actions">
 	<h2>&nbsp;</h2>
 	<ul>
-		<li><a href="#"><img src="/eMagine/common/images/icones/modif.png" title="<bean:message key="button.title.update"/>"/></a></li>
+		<li><html:link href="javascript:modifyAbsence();"><html:img src="/eMagine/common/images/icones/modif.png" titleKey="button.title.update" /></html:link></li>
+		<li><html:link href="javascript:resetForm();"><html:img src="/eMagine/common/images/icones/reinit.png" titleKey="button.title.reinitialize" /></html:link></li>
+		<li><html:link href="javascript:deleteAbsence();"><html:img src="/eMagine/common/images/icones/supprimer.png" titleKey="button.title.remove" /></html:link></li>
 	</ul>
 </div>

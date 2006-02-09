@@ -1,6 +1,23 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
-<form name="results">
+
+<script type="text/javascript">
+<!--
+	function setAction(value) {
+		document.apprenticeModifyForm.action.value = value;
+	}
+	
+	function modifyApprentice() {
+		setAction('modify');
+		document.apprenticeModifyForm.submit();
+	}
+
+	function resetForm() {
+		document.apprenticeModifyForm.reset();
+	}
+-->
+</script>
+<html:form action="/apprenticeModify" method="POST" focus="">form name="results">
 	<div class="tabs">
 		<ul>
 			<li><html:link action="/apprenticeVisuAdress"><bean:message key="onglet.adress"/></html:link></li>
@@ -15,11 +32,18 @@
 <!-- Un formulaire de modification -->
 <div class="form">
 		<br/>
-		<p><label for="level"><bean:message key="form.level"/></label>
+		<html:errors />
+		<p>
+			<label for="levels"><bean:message key="form.level"/></label>
+			<html:select property="idLevel">
+				<html:optionsCollection property="levels" value="id" label="name"/>		
+			</html:select>
+		</p>
+		<!-- <p><label for="level"><bean:message key="form.level"/></label>
 			<input type="radio" name="level" checked/>bac 
 			<input type="radio" name="level" />+2
 			<input type="radio" name="level" />+3
-		</p>
+		</p> -->
 		<br/>
 		<fieldset>
 			<legend><bean:message key="form.fieldset.marksExam"/></legend>
@@ -166,6 +190,7 @@
 <div id="actions">
 	<h2>&nbsp;</h2>
 	<ul>
-		<li><a href="#"><img src="/eMagine/common/images/icones/modif.png" title="<bean:message key="button.title.update"/>"/></a></li>
+		<li><html:link href="javascript:modifyApprentice();"><html:img src="/eMagine/common/images/icones/modif.png" titleKey="button.title.update" /></html:link></li>
+		<li><html:link href="javascript:resetForm();"><html:img src="/eMagine/common/images/icones/reinit.png" titleKey="button.title.reinitialize" /></html:link></li>
 	</ul>
 </div>

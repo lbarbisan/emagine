@@ -3,6 +3,7 @@ package fr.umlv.ir3.emagine.apprentice;
 import java.util.Collection;
 
 import fr.umlv.ir3.emagine.apprentice.candidate.CourseOptionEnum;
+import fr.umlv.ir3.emagine.util.IsASearchParam;
 import fr.umlv.ir3.emagine.util.search.SelectSearchForm;
 
 public class ApprenticeSearchForm extends SelectSearchForm<Apprentice> implements ApprenticeSearchParam {
@@ -95,6 +96,7 @@ public class ApprenticeSearchForm extends SelectSearchForm<Apprentice> implement
 	/**
 	 * @return Returns the firstName.
 	 */
+	@IsASearchParam(value = "apprentice.firstName")
 	public String getFirstName() {
 		return firstName;
 	}
@@ -109,6 +111,7 @@ public class ApprenticeSearchForm extends SelectSearchForm<Apprentice> implement
 	/**
 	 * @return Returns the idCourseOption.
 	 */
+	@IsASearchParam(value = "apprentice.courseOption.id", type = Long.class)
 	public String getIdCourseOption() {
 		return idCourseOption;
 	}
@@ -123,6 +126,7 @@ public class ApprenticeSearchForm extends SelectSearchForm<Apprentice> implement
 	/**
 	 * @return Returns the idYear.
 	 */
+	@IsASearchParam(value = "apprentice.year.id", type = Long.class)
 	public String getIdYear() {
 		return idYear;
 	}
@@ -137,6 +141,7 @@ public class ApprenticeSearchForm extends SelectSearchForm<Apprentice> implement
 	/**
 	 * @return Returns the lastName.
 	 */
+	@IsASearchParam(value = "apprentice.lastName")
 	public String getLastName() {
 		return lastName;
 	}

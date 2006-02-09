@@ -10,17 +10,12 @@ public class UserSearchForm extends SelectSearchForm<User> implements UserSearch
 	
 	private static final long serialVersionUID = -2405706291327109100L;
 
-	
-	//@IsASearchParam
 	private String firstName;
 
-	//@IsASearchParam
 	private String lastName;
 
-	//@IsASearchParam
 	private String login;
 
-	//@IsASearchParam
 	private String idProfile;
 	
 	/** Decide if you must force the deleted of entity **/
