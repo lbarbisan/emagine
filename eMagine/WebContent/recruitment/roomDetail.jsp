@@ -24,9 +24,8 @@
 	}
 -->
 </script>
-
-
-<h2><bean:message key="room.detail.title"/><html:link action="/centerDetail?action=show"><img src="/eMagine/common/images/icones/retour.png" title="<bean:message key="button.title.return"/>"/></html:link></h2>
+<bean:parameter name="idCenter" id="idCenter"/>
+<h2><bean:message key="room.detail.title"/><html:link action="<%= "/centerDetail?action=show&id="+idCenter %>"><img src="/eMagine/common/images/icones/retour.png" title="<bean:message key="button.title.return"/>"/></html:link></h2>
 <br/>
 <div class="form">
 
@@ -37,6 +36,7 @@
 </div>
 
 <html:errors />
+<html:hidden property="idCenter"/>
 <html:hidden property="idRoomToModify" />
 <html:hidden property="action" />
 </html:form>

@@ -33,8 +33,9 @@
 		<p><label for="postalCode"><bean:message key="form.postalCode"/><font color="red">*</font> </label><html:text property="postalCode" size="20" /></p>
 			<p><label for="city"><bean:message key="form.city"/><font color="red">*</font> </label><html:text property="city" size="20" /></p>
 			<p><label for="department"><bean:message key="form.department"/><font color="red">*</font></label>
-			<select>
-			</select>
+			<html:select property="idDepartment">
+				<html:optionsCollection property="departments" value="id" label="name"/>		
+			</html:select>
 		</p>	
 		<p><label for="phone"><bean:message key="form.phone"/></label><html:text property="phone" size="20" /></p>	
 	</div>
@@ -51,7 +52,7 @@
 				<logic:iterate id="currentRoom" name="formationCenterModifyForm" property="room" type="fr.umlv.ir3.emagine.apprentice.candidate.room.Room">
 					<tr>
 						<td><html:multibox property="currentSelectedIds" value="<%= currentRoom.getId().toString() %>" /></td>
-						<td><html:link action="/roomDetail?action=show" paramId="id" paramName="currentRoom" paramProperty="id"><bean:write name="currentRoom" property="name" />&nbsp;</html:link></td>
+						<td><html:link action="<%= "/roomDetail?action=show&idCenter="+examCenterId %>" paramId="id" paramName="currentRoom" paramProperty="id"><bean:write name="currentRoom" property="name" />&nbsp;</html:link></td>
 						<td><bean:write name="currentRoom" property="capacity" />&nbsp;</td>
 						<td><bean:write name="currentRoom" property="numberOfFreeSits" />&nbsp;</td>
 					</tr>

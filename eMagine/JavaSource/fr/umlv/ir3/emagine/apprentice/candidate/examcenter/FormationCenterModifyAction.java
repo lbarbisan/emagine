@@ -4,6 +4,7 @@
 package fr.umlv.ir3.emagine.apprentice.candidate.examcenter;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,9 +14,11 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessages;
 
+import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.room.Room;
 import fr.umlv.ir3.emagine.util.Address;
 import fr.umlv.ir3.emagine.util.EMagineException;
+import fr.umlv.ir3.emagine.util.EmagineEnumManager;
 import fr.umlv.ir3.emagine.util.ManagerManager;
 import fr.umlv.ir3.emagine.util.base.BaseAction;
 
@@ -35,6 +38,7 @@ public class FormationCenterModifyAction extends BaseAction {
 		ActionMessages errors = new ActionMessages();
 		ManagerManager managerManager = ManagerManager.getInstance();
 		FormationCenterModifyForm centerModifyForm = (FormationCenterModifyForm) form;
+		EmagineEnumManager emagineEnumManager = managerManager.getEmagineEnumManager();
 		try {
 			// Retrieve the center we want to see (if he exists) 
 			String idCenter = request.getParameter("id");			
@@ -47,6 +51,8 @@ public class FormationCenterModifyAction extends BaseAction {
 				centerModifyForm.setName(center.getName());
 				centerModifyForm.setPhone(center.getPhone());
 				centerModifyForm.setRoom(center.getRooms());
+				centerModifyForm.setDepartments((List<DepartmentEnum>)emagineEnumManager.findAll(DepartmentEnum.class));
+				centerModifyForm.setIdDepartment(Long.toString(center.getAddress().getId()));
 			}
 			
 		} catch (EMagineException exception) {
@@ -74,14 +80,15 @@ public class FormationCenterModifyAction extends BaseAction {
 		ManagerManager managerManager = ManagerManager.getInstance();
 		FormationCenterManager centerManager = managerManager.getFormationCenterManager();
 		FormationCenterModifyForm centerModifyForm = (FormationCenterModifyForm) form;
+		EmagineEnumManager emagineEnumManager = managerManager.getEmagineEnumManager();
 
 		// Update the center
 		try {
 			FormationCenter center = centerManager.retrieve(Long.parseLong(centerModifyForm.getIdFormationCenterToModify()));
-			/*center.getAddress().setDepartment((DepartmentEnum)managerManager.getEmagineEnumManager().retrieve(Long.parseLong(centerModifyForm.getIdDepartment()),DepartmentEnum.class));*/
 			Address address = new Address();
 			address.setCity(centerModifyForm.getCity());
 			address.setPostalCode(centerModifyForm.getPostalCode());
+			address.setDepartment((DepartmentEnum) emagineEnumManager.retrieve(Long.parseLong(centerModifyForm.getIdDepartment()), DepartmentEnum.class));
 			address.setStreet(centerModifyForm.getStreet());
 			center.setName(centerModifyForm.getName());
 			center.setPhone(centerModifyForm.getPhone());

@@ -253,7 +253,7 @@
 			<forward name="_default_target_" path="recruitment.centerList" />
 		</action>
 		<action path="/roomDelete" type="fr.umlv.ir3.emagine.apprentice.candidate.room.RoomDeleteAction" parameter="action">
-			<forward name="_default_target_" path="/centerDetail.do?action=show" redirect="true" />
+			<forward name="_default_target_" path="/centerDetail?action=show" redirect="true" />
 		</action>
 		<action path="/roomDetail" type="fr.umlv.ir3.emagine.apprentice.candidate.room.RoomModifyAction" name="roomModifyForm" parameter="action">
 			<forward name="_default_target_" path="recruitment.roomDetail" />

@@ -17,7 +17,8 @@
 	}
 -->
 </script>
-<h2><bean:message key="room.add.title"/><html:link action="/centerDetail?action=show"><img src="/eMagine/common/images/icones/retour.png" title="<bean:message key="button.title.return"/>"/></html:link></h2>
+<bean:parameter name="idCenter" id="idCenter"/>
+<h2><bean:message key="room.add.title"/><html:link action="<%= "/centerDetail?action=show&id="+idCenter %>"><img src="/eMagine/common/images/icones/retour.png" title="<bean:message key="button.title.return"/>"/></html:link></h2>
 <br/>
 <html:form action="/roomAdd" method="POST" focus="name">
 <div class="form">
