@@ -38,12 +38,10 @@ public class Candidate extends Person {
     @JoinColumn(name="contact_id")
 	private ContactEnum contactOriginIG2K;
 	@ManyToOne()
-	@Cascade(CascadeType.SAVE_UPDATE)
     @JoinColumn(name="formationcenter_id")
 	private FormationCenter formationCenter;
 	//TODO : Hibernate Créer une table d'association avec => ROOM FORMATIONCENTER ET COndidate
 	@ManyToOne()
-	@Cascade(CascadeType.SAVE_UPDATE)
     @JoinColumn(name="room_id")
 	private Room room;
 	@ManyToOne()

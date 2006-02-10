@@ -7,6 +7,8 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import fr.umlv.ir3.emagine.apprentice.candidate.room.Room;
+import fr.umlv.ir3.emagine.apprentice.candidate.room.RoomManager;
 import fr.umlv.ir3.emagine.extraction.CSVExtractor;
 import fr.umlv.ir3.emagine.extraction.Extractable;
 import fr.umlv.ir3.emagine.extraction.Extractor;
@@ -16,6 +18,7 @@ import fr.umlv.ir3.emagine.user.User;
 import fr.umlv.ir3.emagine.user.UserDAO;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
+import fr.umlv.ir3.emagine.util.ManagerManager;
 
 /**
  * This class is used to  do temp tests.
@@ -34,7 +37,19 @@ public class Main {
 	 * @throws FileNotFoundException 
 	 */
 	public static void main(String[] args) throws FileNotFoundException, EMagineException {
-	}
+
+		
+		// Delete the rooms
+		DAOManager.beginTransaction();
+		
+				try {
+					Room room = DAOManager.getInstance().getRoomDAO().retrieve(287);
+					DAOManager.getInstance().getRoomDAO().delete(room); // TODO A faire pour le forcage
+				} catch (EMagineException exception) {
+					exception.printStackTrace();
+				}
+		DAOManager.commitTransaction();
+		}
 	
 	/**
 	 * 

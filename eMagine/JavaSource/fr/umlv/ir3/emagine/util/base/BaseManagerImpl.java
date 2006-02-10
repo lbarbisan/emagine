@@ -48,7 +48,8 @@ public abstract class BaseManagerImpl
 	 */
 	public EntityType retrieve(long id) throws EMagineException
 	{
-		return getDAO().retrieve(id);
+		EntityType entityType = getDAO().retrieve(id);	
+		return entityType;
 	}
 	
 

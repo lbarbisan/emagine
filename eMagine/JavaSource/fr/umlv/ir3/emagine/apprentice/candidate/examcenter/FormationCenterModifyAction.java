@@ -96,7 +96,9 @@ public class FormationCenterModifyAction extends BaseAction {
 			address.setStreet(centerModifyForm.getStreet());
 			center.setName(centerModifyForm.getName());
 			center.setPhone(centerModifyForm.getPhone());
-			center.setRooms(new ArrayList<Room>(centerModifyForm.getRoom()));
+			
+			center.getRooms().retainAll(centerModifyForm.getRoom());
+			
 			centerManager.update(center);
 		} catch (EMagineException exception) {
 			addEMagineExceptionError(errors, exception);

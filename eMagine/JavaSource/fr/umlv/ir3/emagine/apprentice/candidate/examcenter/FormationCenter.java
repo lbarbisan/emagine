@@ -9,7 +9,6 @@ import java.util.List;
 
 import javax.persistence.AccessType;
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -34,13 +33,13 @@ public class FormationCenter extends EditableEntity {
 	private static final long serialVersionUID = 4966355951897961036L;
 	
 	@OneToMany(mappedBy = "formationCenter")
-	@Cascade(CascadeType.SAVE_UPDATE )
+	@Cascade({CascadeType.ALL, CascadeType.DELETE_ORPHAN} )
 	private List<Room> rooms = new ArrayList<Room>();
 	@OneToMany(mappedBy = "formationCenter")
-	@Cascade(CascadeType.SAVE_UPDATE)
+	@Cascade({CascadeType.ALL, CascadeType.DELETE_ORPHAN} )
 	private List<Candidate> candidates;
 	@OneToOne()
-	@Cascade(CascadeType.SAVE_UPDATE)
+	@Cascade({CascadeType.ALL, CascadeType.DELETE_ORPHAN})
 	@JoinColumn(name = "address_id")
 	@Column(unique = true)
 	private Address address;

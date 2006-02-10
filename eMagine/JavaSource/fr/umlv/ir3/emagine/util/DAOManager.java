@@ -213,34 +213,4 @@ public class DAOManager {
 		}
 
 	}
-
-	/**
-	 * Close the session, flush the hibernate cache, commit the last uncommited objects
-	 *
-	 */
-	public static void closeSession() throws EMagineException{
-		try {
-			HibernateUtils.closeSession();
-		} catch (HibernateException hibernateException) {
-			throw new EMagineException("closeSession failed", hibernateException);
-		}
-	}
-	
-	/**
-	 * Flush the hibernate cache
-	 *
-	 */
-	public static void flushSession() throws EMagineException{
-		try {
-			HibernateUtils.getSession().flush();
-			HibernateUtils.getSession().clear();
-		} catch (HibernateException hibernateException) {
-			throw new EMagineException("closeSession failed", hibernateException);
-		}
-	}
-	
-	
-	
-	
-
 }

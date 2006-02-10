@@ -8,6 +8,7 @@ import javax.persistence.GeneratorType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.Version;
 
 /**
  * 
@@ -21,7 +22,7 @@ public class BaseEntity implements Serializable {
 	
 	@Id(generate = GeneratorType.AUTO )
 	private Long id;
-    //@Version
+    @Version
     private Long version;
     private String humanName;
 
@@ -37,10 +38,19 @@ public class BaseEntity implements Serializable {
 	 */
 	//FIXME : Hibernate - method equals de base doit �tre chang�, deplus la method hashCode doit �tre surchar� 
     @Override
-	public boolean equals(Object obj) {
-		return id == ((BaseEntity)obj).getId();
-	}
-    
+    public boolean equals(Object that) throws IllegalStateException {
+       if (this == that) return true;
+       //if (!(getEntityClass().isInstance(that))) return false;
+       if (id == null) throw new IllegalStateException("id not set; use generation instead of creation to obtain an entity with a valid id");
+       return id.equals(((BaseEntity) that).getId());
+    }
+
+    @Override
+    public int hashCode() throws IllegalStateException {
+       if (id == null) throw new IllegalStateException("id not set; use generation instead of creation to obtain an entity with a valid id");
+       return id.hashCode();
+    }
+        
 	/**
 	 * @return Returns the id.
 	 */

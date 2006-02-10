@@ -90,6 +90,7 @@ public class HibernateUtils {
         // Open a new Session, if this Thread has none yet
         if (session == null) {
         	session = sessionFactory.openSession();
+        	//session.setFlushMode(FlushMode.COMMIT);
         	threadSession.set(session);
         }
         return session;
@@ -149,7 +150,7 @@ public class HibernateUtils {
             {
                 tx.commit();
                 threadTransaction.set(null);
-               closeSession();
+                closeSession();
             }
         }
         catch (HibernateException exception) {
