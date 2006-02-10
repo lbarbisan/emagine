@@ -337,8 +337,8 @@
 	<!-- your request processor should extend the org.apache.struts.tiles.TilesRequestProcessor -->
 	<!-- and be declared here -->
 	<!--  <controller processorClass="your.RequestProcessor"  />  -->
-	<controller
-		processorClass="fr.improve.struts.taglib.layout.workflow.LayoutRequestProcessor" />
+	<controller 
+		processorClass="fr.umlv.ir3.emagine.util.HibernateSessionRequestProcessor"/>
 
 	<!-- ========== Associated Messages Ressource settings =================== -->
 	<!-- Uncomment the following if your webserver complains about a missing resources. -->
