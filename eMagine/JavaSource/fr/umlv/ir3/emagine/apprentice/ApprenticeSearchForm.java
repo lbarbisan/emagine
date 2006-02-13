@@ -96,7 +96,7 @@ public class ApprenticeSearchForm extends SelectSearchForm<Apprentice> implement
 	/**
 	 * @return Returns the firstName.
 	 */
-	@IsASearchParam(value = "apprentice.firstName")
+	@IsASearchParam("apprentice.firstName")
 	public String getFirstName() {
 		return firstName;
 	}
@@ -141,7 +141,7 @@ public class ApprenticeSearchForm extends SelectSearchForm<Apprentice> implement
 	/**
 	 * @return Returns the lastName.
 	 */
-	@IsASearchParam(value = "apprentice.lastName")
+	@IsASearchParam("apprentice.lastName")
 	public String getLastName() {
 		return lastName;
 	}

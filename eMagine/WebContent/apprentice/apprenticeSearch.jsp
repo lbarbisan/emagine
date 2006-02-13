@@ -30,8 +30,8 @@
 		<div class="search">
 			<fieldset>
 				<div class="search_b1">
-					<p><label for="lastName"><bean:message key="criteria.search.name"/></label><input type="text" id="name" size="20"/></p>
-					<p><label for="firstName"><bean:message key="criteria.search.firstName"/></label><input type="text" id="firstName" size="20"/></p>
+				<p><label for="lastName"><bean:message key="criteria.search.name"/></label><html:text property="lastName" size="20" />  </p>
+				<p><label for="firstName"><bean:message key="criteria.search.firstName"/></label><html:text property="firstName" size="20" /> </p>
 				</div>
 				<div class="search_b2">
 					<p>
