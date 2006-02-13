@@ -78,30 +78,28 @@
 			<p><label for="sex"><bean:message key="radio.sex"/></label>
 				<logic:notEmpty name="candidateModifyForm" property="sexes">
 					<logic:iterate id="sex" name="candidateModifyForm" property="sexes" type="fr.umlv.ir3.emagine.apprentice.SexEnum">
-						 
   						<bean:write name="sex" property="name"/>
 					</logic:iterate>	   	
 				</logic:notEmpty>
 			</p>
 
 
-			<logic:notEmpty name="apprenticeSearchForm" property="results">
-				<logic:iterate id="user" name="userSearchForm" property="results" type="fr.umlv.ir3.emagine.user.User">
+<!-- 			<logic:notEmpty name="apprenticeSearchForm" property="results">
+				<logic:iterate id="apprentice" name="apprenticeSearchForm" property="results" type="fr.umlv.ir3.emagine.user.User">
 					<tr>
-					<html:radio property="idSex" value="id" idName="sex"/>
-						<td><html:radio property="currentSelectedIds" value="<%= user.getId().toString() %>" />&nbsp;</td>
+						<td><html:radio property="currentSelectedIds" value="<%/*= apprentice.getId().toString() */%>" />&nbsp;</td>
 						<td><html:link action="/userModify?action=show" paramId="id" paramName="user" paramProperty="id"><bean:write name="user" property="lastName" />&nbsp;</html:link></td>
-						<td><bean:write name="user" property="firstName" />&nbsp;</td>
-						<td><bean:write name="user" property="login" />&nbsp;</td>
-						<td><bean:write name="user" property="profile.name" />&nbsp;</td>
+						<td><bean:write name="apprentice" property="firstName.name" />&nbsp;</td>
+						<td><bean:write name="apprentice" property="courseOption.name" />&nbsp;</td>
+						<td><bean:write name="apprentice" property="year.name" />&nbsp;</td>
 					</tr>
 				</logic:iterate>
 			</logic:notEmpty>	
 
-			<logic:empty name="userSearchForm" property="results">
+			<logic:empty name="apprenticeSearchForm" property="results">
 				<tr><td colspan="5">Pas de résultats</td></tr>
 			</logic:empty>
-
+ -->
 	</table>
 </div>
 	<div id="actions">
