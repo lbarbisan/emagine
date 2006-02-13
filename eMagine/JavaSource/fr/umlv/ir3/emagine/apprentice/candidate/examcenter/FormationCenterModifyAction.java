@@ -56,7 +56,7 @@ public class FormationCenterModifyAction extends BaseAction {
 				centerModifyForm.setPhone(center.getPhone());
 				centerModifyForm.setRoom(center.getRooms());
 				centerModifyForm.setDepartments((List<DepartmentEnum>)emagineEnumManager.findAll(DepartmentEnum.class));
-				centerModifyForm.setIdDepartment(Long.toString(center.getAddress().getId()));
+				centerModifyForm.setIdDepartment(Long.toString(center.getAddress().getDepartment().getId()));
 			}
 			
 		} catch (EMagineException exception) {
@@ -95,10 +95,9 @@ public class FormationCenterModifyAction extends BaseAction {
 			address.setDepartment((DepartmentEnum) emagineEnumManager.retrieve(Long.parseLong(centerModifyForm.getIdDepartment()), DepartmentEnum.class));
 			address.setStreet(centerModifyForm.getStreet());
 			center.setName(centerModifyForm.getName());
+			center.setAddress(address);
 			center.setPhone(centerModifyForm.getPhone());
-			
 			center.getRooms().retainAll(centerModifyForm.getRoom());
-			
 			centerManager.update(center);
 		} catch (EMagineException exception) {
 			addEMagineExceptionError(errors, exception);

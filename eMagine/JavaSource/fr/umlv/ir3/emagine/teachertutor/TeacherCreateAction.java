@@ -64,6 +64,7 @@ public class TeacherCreateAction extends BaseAction {
 			tutor.setFax(teacherModifyForm.getFax());
 			tutor.setAddressProfessional(new Address());
 			tutor.getAddressProfessional().setCity(teacherModifyForm.getCity());
+			
 			//tutor.getAddressProfessional().setCountry(CountryEnum.France);
 			tutor.getAddressProfessional().setDepartment((DepartmentEnum)managerManager.getEmagineEnumManager().retrieve(Long.parseLong(teacherModifyForm.getIdDepartment()), DepartmentEnum.class));
 			tutor.getAddressProfessional().setPostalCode(teacherModifyForm.getPostalCode());
@@ -80,7 +81,6 @@ public class TeacherCreateAction extends BaseAction {
 		} catch (EMagineException exception) {
 				addEMagineExceptionError(errors, exception);
 		}
-
         // Report back any errors, and exit if any
 		return successIfNoErrors(mapping, request, errors);
 	}

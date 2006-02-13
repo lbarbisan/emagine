@@ -8,9 +8,11 @@
 		document.teacherTutorModifyForm.action.value = value;
 	}
 	
+	
 	function deleteTeacher() {
 		if(confirm("Souhaitez-vous réellement supprimer cet enseignant ?")) {
-			open("/eMagine/teacherDelete.do?action=delete&from=modify&currentSelectedIds=" + document.teacherModifyForm.elements['idTeacherTutorToModify'].value, "_self");
+			document.teacherTutorModifyForm.action = "/eMagine/teacherDelete.do?action=delete&from=modify&currentSelectedIds=" + document.teacherTutorModifyForm.elements['idTeacherTutorToModify'].value;
+			document.teacherTutorModifyForm.submit();
 		}
 	}
 	
