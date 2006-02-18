@@ -29,7 +29,10 @@ public class BaseEntity implements Serializable {
 	/**
      * This constructor is necessary for Hibernate, it's used for lazy load
      */
-	protected BaseEntity() {super();}
+	protected BaseEntity() {
+		super();
+		humanName = this.toString();
+	}
 
 	/**
 	 * This method compare id of each object, if id are equals it return true
