@@ -43,14 +43,13 @@ public class BaseEntity implements Serializable {
     @Override
     public boolean equals(Object that) throws IllegalStateException {
        if (this == that) return true;
-       //if (!(getEntityClass().isInstance(that))) return false;
-       if (id == null) throw new IllegalStateException("id not set; use generation instead of creation to obtain an entity with a valid id");
-       return id.equals(((BaseEntity) that).getId());
+       //if (id == null) throw new IllegalStateException("id not set; use generation instead of creation to obtain an entity with a valid id");
+       return id == ((BaseEntity) that).getId();
     }
 
     @Override
     public int hashCode() throws IllegalStateException {
-       if (id == null) throw new IllegalStateException("id not set; use generation instead of creation to obtain an entity with a valid id");
+       //if (id == null) throw new IllegalStateException("id not set; use generation instead of creation to obtain an entity with a valid id");
        return id.hashCode();
     }
         
