@@ -26,9 +26,9 @@ public class FirmManagerImpl extends EventableManagerImpl<Firm, FirmDAO> impleme
 		DAOManager.beginTransaction();
 		try {
 			// Creates an event and associates it to this
-			Event event = new Event();
+			//Event event = new Event();
 			// TODO FirmManagerImpl.update Initialiser le event
-			addEvent(firm, event);
+			//addEvent(firm, event);
 			
 			super.update(firm);
 			
