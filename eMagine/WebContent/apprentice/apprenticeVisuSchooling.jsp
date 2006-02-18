@@ -15,17 +15,22 @@
 	function resetForm() {
 		document.apprenticeModifyForm.reset();
 	}
+		
+	function change(action) {
+		document.companyModifyForm.action = "/eMagine/" + action + ".do";
+		document.companyModifyForm.submit();
+	}
 -->
 </script>
-<html:form action="/apprenticeModify" method="POST" focus="">form name="results">
+<html:form action="/apprenticeModify" method="POST" focus="">
 	<div class="tabs">
 		<ul>
-			<li><html:link action="/apprenticeVisuAdress"><bean:message key="onglet.adress"/></html:link></li>
-			<li><html:link action="/apprenticeVisuStatus"><bean:message key="onglet.status"/></html:link></li>
-			<li><html:link action="/apprenticeVisuSituation"><bean:message key="onglet.situation"/></html:link></li>
-			<span class="tab_clicked"><li><bean:message key="onglet.schooling"/></li></span>
-			<li><html:link action="/apprenticeVisuEvent"><bean:message key="onglet.event"/></html:link></li>
-			<li><html:link action="/apprenticeVisuAbsence"><bean:message key="onglet.absence"/></html:link></li>
+			<li><html:link href="javascript:change('apprenticeVisuAdress');"><bean:message key="onglet.adress"/></html:link></li>
+			<li><html:link href="javascript:change('apprenticeVisuStatus');"><bean:message key="onglet.status"/></html:link></li>
+			<li><html:link href="javascript:change('apprenticeVisuSituation');"><bean:message key="onglet.situation"/></html:link></li>
+			<span class="tab_clicked"><li><html:link href="javascript:change('apprenticeVisuSchooling');"><bean:message key="onglet.schooling"/></html:link></li></span>
+			<li><html:link href="javascript:change('apprenticeVisuEvent');"><bean:message key="onglet.event"/></html:link></li>
+			<li><html:link href="javascript:change('apprenticeVisuAbsence');"><bean:message key="onglet.absence"/></html:link></li>
 		</ul>
 	</div>
 	<div class="tabs_div">
@@ -34,10 +39,10 @@
 		<br/>
 		<html:errors />
 		<p>
-			<label for="levels"><bean:message key="form.level"/></label>
+			<!--<label for="levels"><bean:message key="form.level"/></label>
 			<html:select property="idLevel">
 				<html:optionsCollection property="levels" value="id" label="name"/>		
-			</html:select>
+			</html:select>-->
 		</p>
 		<!-- <p><label for="level"><bean:message key="form.level"/></label>
 			<input type="radio" name="level" checked/>bac 
@@ -183,7 +188,7 @@
 		</fieldset>
 		<br/>
 	</div>
-</form>
+</html:form>
 <div align="right"><font color="red" size="1"><bean:message key="form.msg.obligation.star"/></font></div>
 </div>
 

@@ -16,16 +16,21 @@
 	function resetForm() {
 		document.apprenticeModifyForm.reset();
 	}
+	
+	function change(action) {
+		document.apprenticeModifyForm.action = "/eMagine/" + action + ".do";
+		document.apprenticeModifyForm.submit();
+	}
 -->
 </script>
 	<div class="tabs">
 		<ul>
-			<span class="tab_clicked"><li><bean:message key="onglet.adress"/></li></span>
-			<li><html:link action="/apprenticeVisuStatus"><bean:message key="onglet.status"/></html:link></li>
-			<li><html:link action="/apprenticeVisuSituation"><bean:message key="onglet.situation"/></html:link></li>
-			<li><html:link action="/apprenticeVisuSchooling"><bean:message key="onglet.schooling"/></html:link></li>
-			<li><html:link action="/apprenticeVisuEvent"><bean:message key="onglet.event"/></html:link></li>
-			<li><html:link action="/apprenticeVisuAbsence"><bean:message key="onglet.absence"/></html:link></li>
+			<span class="tab_clicked"><li><html:link href="javascript:change('apprenticeVisuAdress');"><bean:message key="onglet.adress"/></html:link></li></span>
+			<li><html:link href="javascript:change('apprenticeVisuStatus');"><bean:message key="onglet.status"/></html:link></li>
+			<li><html:link href="javascript:change('apprenticeVisuSituation');"><bean:message key="onglet.situation"/></html:link></li>
+			<li><html:link href="javascript:change('apprenticeVisuSchooling');"><bean:message key="onglet.schooling"/></html:link></li>
+			<li><html:link href="javascript:change('apprenticeVisuEvent');"><bean:message key="onglet.event"/></html:link></li>
+			<li><html:link href="javascript:change('apprenticeVisuAbsence');"><bean:message key="onglet.absence"/></html:link></li>
 		</ul>
 	</div>
 	<div class="tabs_div">
@@ -51,7 +56,7 @@
 				<p><label for="persPostalCode"><bean:message key="form.postalCode"/><font color="red">*</font></label><html:text property="persPostalCode" size="20" /></p>
 				<p><label for="persCity"><bean:message key="form.city"/><font color="red">*</font></label><html:text property="persCity" size="20" /></p>
 				<p>
-					<label for="persDepartments"><bean:message key="form.department"/></label>
+					<label for="persDepartments"><bean:message key="form.department"/><font color="red">*</font></label>
 					<html:select property="idPersDepartment">
 						<logic:notEmpty name="apprenticeModifyForm" property="departments">
 							<option value="" selected></option>
@@ -71,7 +76,7 @@
 				<p><label for="profPostalCode"><bean:message key="form.postalCode"/><font color="red">*</font></label><html:text property="profPostalCode" size="20" /></p>
 				<p><label for="profCity"><bean:message key="form.city"/><font color="red">*</font></label><html:text property="profCity" size="20" /></p>
 				<p>
-					<label for="profDepartments"><bean:message key="form.department"/></label>
+					<label for="profDepartments"><bean:message key="form.department"/><font color="red">*</font></label>
 					<html:select property="idProfDepartment">
 						<option value="" selected></option>
 						<logic:notEmpty name="apprenticeModifyForm" property="departments">
@@ -91,7 +96,7 @@
 				<p><label for="acaPostalCode"><bean:message key="form.postalCode"/><font color="red">*</font></label><html:text property="acaPostalCode" size="20" /></p>
 				<p><label for="acaCity"><bean:message key="form.city"/><font color="red">*</font></label><html:text property="acaCity" size="20" /></p>
 				<p>
-					<label for="acaDepartments"><bean:message key="form.department"/></label>
+					<label for="acaDepartments"><bean:message key="form.department"/><font color="red">*</font></label>
 					<html:select property="idAcaDepartment">
 						<logic:notEmpty name="apprenticeModifyForm" property="departments">
 							<option value="" selected></option>

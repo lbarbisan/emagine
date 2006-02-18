@@ -1,14 +1,35 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
+<script type="text/javascript">
+<!--
+	function setAction(value) {
+		document.apprenticeModifyForm.action.value = value;
+	}
+	
+	function modifyApprentice() {
+		setAction('modify');
+		document.apprenticeModifyForm.submit();
+	}
+
+	function resetForm() {
+		document.apprenticeModifyForm.reset();
+	}
+	
+	function change(action) {
+		document.apprenticeModifyForm.action = "/eMagine/" + action + ".do";
+		document.apprenticeModifyForm.submit();
+	}
+-->
+</script>
 <form name="results">
 	<div class="tabs">
 		<ul>
-			<li><html:link action="/apprenticeVisuAdress"><bean:message key="onglet.adress"/></html:link></li>
-			<span class="tab_clicked"><li><bean:message key="onglet.status"/></li></span>
-			<li><html:link action="/apprenticeVisuSituation"><bean:message key="onglet.situation"/></html:link></li>
-			<li><html:link action="/apprenticeVisuSchooling"><bean:message key="onglet.schooling"/></html:link></li>
-			<li><html:link action="/apprenticeVisuEvent"><bean:message key="onglet.event"/></html:link></li>
-			<li><html:link action="/apprenticeVisuAbsence"><bean:message key="onglet.absence"/></html:link></li>
+			<li><html:link href="javascript:change('apprenticeVisuAdress');"><bean:message key="onglet.adress"/></html:link></li>
+			<span class="tab_clicked"><li><html:link href="javascript:change('apprenticeVisuStatus');"><bean:message key="onglet.status"/></html:link></li></span>
+			<li><html:link href="javascript:change('apprenticeVisuSituation');"><bean:message key="onglet.situation"/></html:link></li>
+			<li><html:link href="javascript:change('apprenticeVisuSchooling');"><bean:message key="onglet.schooling"/></html:link></li>
+			<li><html:link href="javascript:change('apprenticeVisuEvent');"><bean:message key="onglet.event"/></html:link></li>
+			<li><html:link href="javascript:change('apprenticeVisuAbsence');"><bean:message key="onglet.absence"/></html:link></li>
 		</ul>
 	</div>
 	<div class="tabs_div">

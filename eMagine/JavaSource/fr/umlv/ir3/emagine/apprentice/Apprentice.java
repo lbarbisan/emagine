@@ -53,8 +53,8 @@ public class Apprentice extends Candidate {
 	private Address addressAcademic = new Address();
 	@ManyToOne()
 	@Cascade(CascadeType.SAVE_UPDATE)
-    @JoinColumn(name="defaultadress_id")
-	private DefaultAddressEnum defaultAdress;
+    @JoinColumn(name="defaultaddress_id")
+	private DefaultAddressEnum defaultAddress;
 	@ManyToOne()
 	@Cascade(CascadeType.SAVE_UPDATE)
     @JoinColumn(name="firstlanguage_id")
@@ -142,17 +142,17 @@ public class Apprentice extends Candidate {
 	}
 
 	/**
-	 * @return Returns the defaultAdress.
+	 * @return Returns the defaultAddress.
 	 */
-	public DefaultAddressEnum getDefaultAdress() {
-		return defaultAdress;
+	public DefaultAddressEnum getDefaultAddress() {
+		return defaultAddress;
 	}
 
 	/**
-	 * @param defaultAdress The defaultAdress to set.
+	 * @param defaultAddress The defaultAddress to set.
 	 */
-	public void setDefaultAdress(DefaultAddressEnum defaultAdress) {
-		this.defaultAdress = defaultAdress;
+	public void setDefaultAddress(DefaultAddressEnum defaultAddress) {
+		this.defaultAddress = defaultAddress;
 	}
 
 	/**

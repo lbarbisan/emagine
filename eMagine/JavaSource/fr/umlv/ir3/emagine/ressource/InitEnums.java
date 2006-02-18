@@ -15,6 +15,7 @@ import fr.umlv.ir3.emagine.apprentice.candidate.DiplomaEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.ProfessionEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.SectionEnum;
 import fr.umlv.ir3.emagine.event.EventTypeEnum;
+import fr.umlv.ir3.emagine.firm.actor.FunctionEnum;
 import fr.umlv.ir3.emagine.modification.EditableStateEnum;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
@@ -31,6 +32,21 @@ public class InitEnums {
 		enums =  new DefaultAddressEnum("Professionnelle");
 		emagineEnumDAO.create(enums);
 		enums =  new DefaultAddressEnum("Académique");
+		emagineEnumDAO.create(enums);
+	}
+	
+	static final void createFunctionEnum(int start, int length) throws EMagineException
+	{
+		EmagineEnumDAO emagineEnumDAO =  DAOManager.getInstance().getEmagineEnumDAO();
+		FunctionEnum enums =  new FunctionEnum("DRH");
+		emagineEnumDAO.create(enums);
+		enums =  new FunctionEnum("PDG");
+		emagineEnumDAO.create(enums);
+		enums =  new FunctionEnum("Chef de projet");
+		emagineEnumDAO.create(enums);
+		enums =  new FunctionEnum("Développeur");
+		emagineEnumDAO.create(enums);
+		enums =  new FunctionEnum("Comptable");
 		emagineEnumDAO.create(enums);
 	}
 	
