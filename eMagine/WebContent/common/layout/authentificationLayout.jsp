@@ -11,7 +11,7 @@
 	<!--  <img src="/eMagine/common/images/auth.png"/><br/><br/>-->
 
 			<div class="login">
-				<form id="post" action="j_security_check">
+				<form id="post" name="auth" action="j_security_check">
 					<html:img src="/eMagine/common/images/logo.gif"/>
 					<h2>Authentification</h2>
 					<br/>
@@ -23,5 +23,16 @@
 					<html:errors/>
 				</form>
 			</div>
+
+<script type="text/javascript" language="JavaScript">
+  <!--
+  var focusControl = document.forms["auth"].elements["j_username"];
+
+  if (focusControl.type != "hidden" && !focusControl.disabled) {
+     focusControl.focus();
+  }
+  // -->
+</script>
+
 	</body>
 </html>
