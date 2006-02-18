@@ -22,7 +22,6 @@ import fr.umlv.ir3.emagine.util.base.BaseEntity;
  * Represent an Event. An event is used to inform action in the system
  * This is linked to one or more sources (BaseEntity)
  * @author Laurent
- * @Persitence Enum
  */
 @Entity(access = AccessType.FIELD)
 public class Event extends BaseEntity {
