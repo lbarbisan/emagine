@@ -17,6 +17,7 @@ import org.hibernate.event.PostDeleteEventListener;
 import org.hibernate.event.PostInsertEventListener;
 import org.hibernate.event.PostUpdateEventListener;
 
+import fr.umlv.ir3.emagine.event.EMaginePostEventListener;
 import fr.umlv.ir3.emagine.modification.EditableInterceptor;
 /**
  * This class is a tool to access to Hibernate Function.
