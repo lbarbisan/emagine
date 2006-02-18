@@ -46,7 +46,7 @@ public class EMaginePostEventListener implements PostInsertEventListener, PostDe
 			
 			eMagineEvent.setDescription("Création de :" + eventableEntity.toString());
 			eMagineEvent.setDate(new Date());
-			eMagineEvent.getSources().add((BaseEntity) event.getEntity());
+			//eMagineEvent.getSources().add((BaseEntity) event.getEntity());
 			eMagineEvent.setTitle("création");
 				
 			createEvent(eMagineEvent);
@@ -66,7 +66,7 @@ public class EMaginePostEventListener implements PostInsertEventListener, PostDe
 				
 				eMagineEvent.setDescription("Suppression de :" + eventableEntity.toString());
 				eMagineEvent.setDate(new Date());
-				eMagineEvent.getSources().add((BaseEntity) event.getEntity());
+				//eMagineEvent.getSources().add((BaseEntity) event.getEntity());
 				eMagineEvent.setTitle("Suppression");
 					
 				createEvent(eMagineEvent);
@@ -82,7 +82,7 @@ public class EMaginePostEventListener implements PostInsertEventListener, PostDe
 			
 			eMagineEvent.setDescription("Mise à jour de :" + eventableEntity.toString());
 			eMagineEvent.setDate(new Date());
-			eMagineEvent.getSources().add((BaseEntity) event.getEntity());
+			//eMagineEvent.getSources().add((BaseEntity) event.getEntity());
 			eMagineEvent.setTitle("Mise à jour");
 				
 			createEvent(eMagineEvent);
@@ -95,7 +95,7 @@ public class EMaginePostEventListener implements PostInsertEventListener, PostDe
 	 */
 	private void createEvent(Event eMagineEvent) {
 
-		Session session =  HibernateUtils.getSessionFactory().openSession();
+		Session session =  HibernateUtils.getSession(); //getSessionFactory().getCurrentSession();
 		Transaction transaction = session.beginTransaction();
 		try {
 				session.save(eMagineEvent);
@@ -104,7 +104,7 @@ public class EMaginePostEventListener implements PostInsertEventListener, PostDe
 				//TODO : #46 - lbarbisan - Remonter et transmettre l'exeption en cas de problème
 				log.error("Error when tracing event of creation '" + eMagineEvent.getDescription() + "'", e);
 			}
-		session.close();
+		//session.close();
 	}
 	
 	
