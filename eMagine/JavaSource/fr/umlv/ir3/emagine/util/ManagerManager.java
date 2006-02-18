@@ -26,6 +26,8 @@ import fr.umlv.ir3.emagine.firm.FirmManager;
 import fr.umlv.ir3.emagine.firm.FirmManagerImpl;
 import fr.umlv.ir3.emagine.firm.JobManager;
 import fr.umlv.ir3.emagine.firm.JobManagerImpl;
+import fr.umlv.ir3.emagine.firm.actor.FirmActorManager;
+import fr.umlv.ir3.emagine.firm.actor.FirmActorManagerImpl;
 import fr.umlv.ir3.emagine.modification.EditableManager;
 import fr.umlv.ir3.emagine.modification.EditableManagerImpl;
 import fr.umlv.ir3.emagine.security.SecurityProxyFactory;
@@ -64,6 +66,7 @@ public class ManagerManager {
 	private FormationCenterManager formationCenterManager;
 	private RightManager rightManager;
 	private RoomManager roomManager;
+	private FirmActorManager firmActorManager;
 	private EmagineEnumManager emagineEnumManager;
 	
 	/**
@@ -124,6 +127,7 @@ public class ManagerManager {
 		emagineEnumManager = new EmagineEnumManagerImpl();	// No rights on that manager
 		editableManager = new EditableManagerImpl();
 		jobManager = new JobManagerImpl();
+		firmActorManager = new FirmActorManagerImpl();
 		
 		//FIXME: remetre la ligne commenttée
 		//absenceManager = SecurityProxyFactory.getProxy(new AbsenceManagerImpl());
@@ -207,5 +211,9 @@ public class ManagerManager {
 	
 	public JobManager getJobManager() {
 		return jobManager;
+	}
+
+	public FirmActorManager getFirmActorManager() {
+		return firmActorManager;
 	}
 }
