@@ -124,7 +124,6 @@ public class InitDB {
 				 firmActor.setFax("07987870"+ index );
 				 firmActor.setFirstName("FirstNameActorFirm" + index);
 				 firmActor.setLastName("LastNameActorFirm" + index);
-				 firmActor.setFunction("fonction" + index);
 				 firmActor.setMobilePhone("8687576587" + index);
 				 firmActor.setNationality((NationalityEnum) InitEnums.getEmagineEnum("Nationality " + index, NationalityEnum.class));
 				 firmActor.setPhone("765457456" + index);

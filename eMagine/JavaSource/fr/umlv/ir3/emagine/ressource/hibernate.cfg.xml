@@ -36,6 +36,7 @@
 		<mapping class="fr.umlv.ir3.emagine.apprentice.SexEnum"/>
 		<mapping class="fr.umlv.ir3.emagine.apprentice.YearEnum"/>
 		<mapping class="fr.umlv.ir3.emagine.apprentice.JustificationEnum"/>
+		<mapping class="fr.umlv.ir3.emagine.apprentice.FunctionEnum"/>
 		
 		<mapping package="fr.umlv.ir3.emagine.apprentice.candidate"/> 
 		<mapping class="fr.umlv.ir3.emagine.apprentice.candidate.Candidate"/>

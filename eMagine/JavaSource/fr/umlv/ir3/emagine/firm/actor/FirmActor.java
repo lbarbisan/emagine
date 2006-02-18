@@ -9,6 +9,7 @@ import javax.persistence.OneToOne;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
+import fr.umlv.ir3.emagine.apprentice.DefaultAddressEnum;
 import fr.umlv.ir3.emagine.firm.Firm;
 import fr.umlv.ir3.emagine.util.Address;
 import fr.umlv.ir3.emagine.util.person.Person;
@@ -28,24 +29,47 @@ public class FirmActor extends Person {
 	@JoinColumn(name = "addressPersonnal_id")
 	private Address addressProfessional;
 	
-	private String function;
+	@ManyToOne()
+	@Cascade(CascadeType.SAVE_UPDATE)
+    @JoinColumn(name="function_id")
+	private FunctionEnum function;
 	
+
+	/**
+	 * @return Returns the function.
+	 */
+	public FunctionEnum getFunction() {
+		return function;
+	}
+	/**
+	 * @param function The function to set.
+	 */
+	public void setFunction(FunctionEnum function) {
+		this.function = function;
+	}
+	/**
+	 * @return Returns the addressProfessional.
+	 */
 	public Address getAddressProfessional() {
 		return addressProfessional;
 	}
+	/**
+	 * @param addressProfessional The addressProfessional to set.
+	 */
 	public void setAddressProfessional(Address addressProfessional) {
 		this.addressProfessional = addressProfessional;
 	}
+	/**
+	 * @return Returns the firm.
+	 */
 	public Firm getFirm() {
 		return firm;
 	}
+	/**
+	 * @param firm The firm to set.
+	 */
 	public void setFirm(Firm firm) {
 		this.firm = firm;
 	}
-	public String getFunction() {
-		return function;
-	}
-	public void setFunction(String function) {
-		this.function = function;
-	}
+
 }
