@@ -24,6 +24,8 @@ import fr.umlv.ir3.emagine.extraction.massmailing.MassMailingManager;
 import fr.umlv.ir3.emagine.extraction.massmailing.MassMailingManagerImpl;
 import fr.umlv.ir3.emagine.firm.FirmManager;
 import fr.umlv.ir3.emagine.firm.FirmManagerImpl;
+import fr.umlv.ir3.emagine.firm.JobManager;
+import fr.umlv.ir3.emagine.firm.JobManagerImpl;
 import fr.umlv.ir3.emagine.modification.EditableManager;
 import fr.umlv.ir3.emagine.modification.EditableManagerImpl;
 import fr.umlv.ir3.emagine.security.SecurityProxyFactory;
@@ -50,6 +52,7 @@ public class ManagerManager {
 	private ExtractionManager extractionManager;
 	private TeacherTutorManager teacherTutorManager;
 	private FirmManager firmManager;
+	private JobManager jobManager;
 	private EventManager eventManager;
 	private MailingListManager mailingListManager;
 	private MailingTypeManager mailingTypeManager;
@@ -105,7 +108,6 @@ public class ManagerManager {
 //		editableManager = new EditableManagerImpl();
 
 		userManager = addManager(new UserManagerImpl());
-		
 		profileManager = addManager(new ProfileManagerImpl());
 		extractionManager = addManager(new ExtractionManagerImpl());
 		teacherTutorManager = addManager(new TeacherTutorManagerImpl());
@@ -120,9 +122,9 @@ public class ManagerManager {
 		rightManager = addManager(new RightManagerImpl());
 		roomManager = addManager(new RoomManagerImpl());
 		emagineEnumManager = new EmagineEnumManagerImpl();	// No rights on that manager
-
 		editableManager = new EditableManagerImpl();
-
+		jobManager = new JobManagerImpl();
+		
 		//FIXME: remetre la ligne commenttée
 		//absenceManager = SecurityProxyFactory.getProxy(new AbsenceManagerImpl());
 	}
@@ -186,9 +188,7 @@ public class ManagerManager {
 	public AbsenceManager getAbsenceManager() {
 		return absenceManager;
 	}
-	/**
-	 * @return Returns the formationCenterManager.
-	 */
+
 	public FormationCenterManager getFormationCenterManager() {
 		return formationCenterManager;
 	}
@@ -205,4 +205,7 @@ public class ManagerManager {
 		return roomManager;
 	}
 	
+	public JobManager getJobManager() {
+		return jobManager;
+	}
 }
