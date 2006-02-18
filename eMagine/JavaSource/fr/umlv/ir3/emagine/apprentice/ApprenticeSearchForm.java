@@ -16,19 +16,18 @@ public class ApprenticeSearchForm extends SelectSearchForm<Apprentice> implement
 
 	//@IsASearchParam
 	private String lastName;
-
-	/** List of all years **/
-	//TODO il faut une collection de 5 ans/entiers
-	//private Collection <Year> years;
-	
-	//@IsASearchParam
-	private String idYear;
 	
 	/** List of all option courses **/
 	private Collection <CourseOptionEnum> courseOptions;
 
 	//@IsASearchParam
 	private String idCourseOption;
+	
+	/** List of all years **/
+	private Collection <YearEnum> years;
+
+	//@IsASearchParam
+	private String idYear;
 
 	/** Use to DispacthAction **/
 	private String action;
@@ -44,7 +43,7 @@ public class ApprenticeSearchForm extends SelectSearchForm<Apprentice> implement
 		lastName = "";
 		courseOptions = null;
 		idCourseOption = "";
-		//years = null;
+		years = null;
 		idYear = "";
 		deletionForced = false;
 		action = "";
@@ -151,5 +150,19 @@ public class ApprenticeSearchForm extends SelectSearchForm<Apprentice> implement
 	 */
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+
+	/**
+	 * @return Returns the years.
+	 */
+	public Collection<YearEnum> getYears() {
+		return years;
+	}
+
+	/**
+	 * @param years The years to set.
+	 */
+	public void setYears(Collection<YearEnum> years) {
+		this.years = years;
 	}
 }

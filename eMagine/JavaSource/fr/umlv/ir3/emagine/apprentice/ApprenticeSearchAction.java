@@ -37,8 +37,8 @@ public class ApprenticeSearchAction extends SearchAction {
 		try {
 			apprenticeSearchForm.reset();
 			
-			//TODO Retrieve all years of formation and set them in the form
-			//apprenticeSearchForm.setYears(ManagerManager.getInstance().getFormationCenterManager().findAll());
+			//Retrieve all years of formation and set them in the form
+			apprenticeSearchForm.setYears((List<YearEnum>)emagineEnumManager.findAll(YearEnum.class));
 			
 			//Retrieve all courseOptions and set them in the form
 			apprenticeSearchForm.setCourseOptions((List<CourseOptionEnum>)emagineEnumManager.findAll(CourseOptionEnum.class));

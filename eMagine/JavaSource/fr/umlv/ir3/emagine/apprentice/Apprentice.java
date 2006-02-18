@@ -69,6 +69,15 @@ public class Apprentice extends Candidate {
 //	private List<String> diplomas = new ArrayList<String>();
 //	private List<String> schooling = new ArrayList<String>();
 
+	private String profEmail;
+	private String profPhone;
+	private String profMobile;
+	private String profFax;
+	private String acaEmail;
+	private String acaPhone;
+	private String acaMobile;
+	private String acaFax;
+
 	private Integer year;
 	private Boolean excluded;
 	
@@ -242,6 +251,118 @@ public class Apprentice extends Candidate {
 	 */
 	public void setYear(Integer year) {
 		this.year = year;
+	}
+
+	/**
+	 * @return Returns the acaEmail.
+	 */
+	public String getAcaEmail() {
+		return acaEmail;
+	}
+
+	/**
+	 * @param acaEmail The acaEmail to set.
+	 */
+	public void setAcaEmail(String acaEmail) {
+		this.acaEmail = acaEmail;
+	}
+
+	/**
+	 * @return Returns the acaFax.
+	 */
+	public String getAcaFax() {
+		return acaFax;
+	}
+
+	/**
+	 * @param acaFax The acaFax to set.
+	 */
+	public void setAcaFax(String acaFax) {
+		this.acaFax = acaFax;
+	}
+
+	/**
+	 * @return Returns the acaMobile.
+	 */
+	public String getAcaMobile() {
+		return acaMobile;
+	}
+
+	/**
+	 * @param acaMobile The acaMobile to set.
+	 */
+	public void setAcaMobile(String acaMobile) {
+		this.acaMobile = acaMobile;
+	}
+
+	/**
+	 * @return Returns the profEmail.
+	 */
+	public String getProfEmail() {
+		return profEmail;
+	}
+
+	/**
+	 * @param profEmail The profEmail to set.
+	 */
+	public void setProfEmail(String profEmail) {
+		this.profEmail = profEmail;
+	}
+
+	/**
+	 * @return Returns the profFax.
+	 */
+	public String getProfFax() {
+		return profFax;
+	}
+
+	/**
+	 * @param profFax The profFax to set.
+	 */
+	public void setProfFax(String profFax) {
+		this.profFax = profFax;
+	}
+
+	/**
+	 * @return Returns the profMobile.
+	 */
+	public String getProfMobile() {
+		return profMobile;
+	}
+
+	/**
+	 * @param profMobile The profMobile to set.
+	 */
+	public void setProfMobile(String profMobile) {
+		this.profMobile = profMobile;
+	}
+
+	/**
+	 * @return Returns the profPhone.
+	 */
+	public String getProfPhone() {
+		return profPhone;
+	}
+
+	/**
+	 * @param profPhone The profPhone to set.
+	 */
+	public void setProfPhone(String profPhone) {
+		this.profPhone = profPhone;
+	}
+
+	/**
+	 * @return Returns the acaPhone.
+	 */
+	public String getAcaPhone() {
+		return acaPhone;
+	}
+
+	/**
+	 * @param acaPhone The acaPhone to set.
+	 */
+	public void setAcaPhone(String acaPhone) {
+		this.acaPhone = acaPhone;
 	}
 
 

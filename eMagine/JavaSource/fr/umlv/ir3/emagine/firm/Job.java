@@ -25,8 +25,6 @@ public class Job extends EditableEntity {
     @JoinColumn(name="cursus_id")
     @Cascade(CascadeType.SAVE_UPDATE)
 	private CourseOptionEnum cursus;
-	private String name;
-	private String title;
 	private Integer nbPlace;
 	
 	public CourseOptionEnum getCursus() {
@@ -41,23 +39,10 @@ public class Job extends EditableEntity {
 	public void setFirm(Firm firm) {
 		this.firm = firm;
 	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
 	public Integer getNbPlace() {
 		return nbPlace;
 	}
 	public void setNbPlace(Integer nbPlace) {
 		this.nbPlace = nbPlace;
 	}
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	
 }

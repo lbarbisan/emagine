@@ -40,7 +40,7 @@ public class ApprenticeModifyForm extends ActionForm {
 	private String nbDays;
 	
 	/** List of all justifications **/
-	//TODO private Collection <JustificationEnum> justifications;
+	private Collection <JustificationEnum> justifications;
 	
 	/** Identifier of selected justification **/
 	private String idJustification;
@@ -1239,6 +1239,20 @@ public class ApprenticeModifyForm extends ActionForm {
 	 */
 	public void setTeacherTutors(Collection<TeacherTutor> teacherTutors) {
 		this.teacherTutors = teacherTutors;
+	}
+
+	/**
+	 * @return Returns the justifications.
+	 */
+	public Collection<JustificationEnum> getJustifications() {
+		return justifications;
+	}
+
+	/**
+	 * @param justifications The justifications to set.
+	 */
+	public void setJustifications(Collection<JustificationEnum> justifications) {
+		this.justifications = justifications;
 	}
 
 }

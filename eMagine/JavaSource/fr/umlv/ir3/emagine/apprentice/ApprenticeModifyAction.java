@@ -37,6 +37,14 @@ public class ApprenticeModifyAction extends BaseAction {
 	 * @return an ActionForward instance describing where and how control should be forwarded, or null if the response has already been completed.
 	 * @throws Exception if an exception occurs
 	 */
+	/**
+	 * @param mapping
+	 * @param form
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
 	public ActionForward show(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionMessages errors = new ActionMessages();
 		ManagerManager managerManager = ManagerManager.getInstance();
@@ -85,11 +93,10 @@ public class ApprenticeModifyAction extends BaseAction {
 						apprenticeModifyForm.setPersCity(apprentice.getAddressPersonnal().getCity().toString());
 					}
 				}
-				/*
-				 * apprenticeModifyForm.setPersEmail(apprentice.getPersEmail);
-				 * apprenticeModifyForm.setPersPhone(apprentice.getPersPhone);
-				 * apprenticeModifyForm.setPersMobile(apprentice.getPersMobile);
-				 * apprenticeModifyForm.setPersFax(apprentice.getPersFax);*/
+				apprenticeModifyForm.setPersEmail(apprentice.getEmail());
+				apprenticeModifyForm.setPersPhone(apprentice.getPhone());
+				apprenticeModifyForm.setPersMobile(apprentice.getMobilePhone());
+				apprenticeModifyForm.setPersFax(apprentice.getFax());
 
 				if(apprentice.getAddressProfessional() != null) {
 					if(apprentice.getAddressProfessional().getStreet() != null) {
@@ -107,10 +114,10 @@ public class ApprenticeModifyAction extends BaseAction {
 						apprenticeModifyForm.setProfCity(apprentice.getAddressProfessional().getCity().toString());
 					}
 				}
-				/* apprenticeModifyForm.setProfEmail(apprentice.getProfEmail);
-				 * apprenticeModifyForm.setProfPhone(apprentice.getProfPhone);
-				 * apprenticeModifyForm.setProfMobile(apprentice.getProfMobile);
-				 * apprenticeModifyForm.setProfFax(apprentice.getProfFax);*/
+				apprenticeModifyForm.setProfEmail(apprentice.getProfEmail());
+				apprenticeModifyForm.setProfPhone(apprentice.getProfPhone());
+				apprenticeModifyForm.setProfMobile(apprentice.getProfMobile());
+				apprenticeModifyForm.setProfFax(apprentice.getProfFax());
 				
 				if(apprentice.getAddressAcademic() != null) {
 					if(apprentice.getAddressAcademic().getStreet() != null) {
@@ -128,11 +135,10 @@ public class ApprenticeModifyAction extends BaseAction {
 						apprenticeModifyForm.setProfCity(apprentice.getAddressAcademic().getCity().toString());
 					}
 				}
-				 /* apprenticeModifyForm.setAcaEmail(apprentice.getAcaEmail);
-				 * apprenticeModifyForm.setAcaPhone(apprentice.getAcaPhone);
-				 * apprenticeModifyForm.setAcaMobile(apprentice.getAcaMobile);
-				 * apprenticeModifyForm.setAcaFax(apprentice.getAcaFax);
-				 */
+				apprenticeModifyForm.setAcaEmail(apprentice.getAcaEmail());
+				apprenticeModifyForm.setAcaPhone(apprentice.getAcaPhone());
+				apprenticeModifyForm.setAcaMobile(apprentice.getAcaMobile());
+				apprenticeModifyForm.setAcaFax(apprentice.getAcaFax());
 			}
 			
 		} catch (EMagineException exception) {
