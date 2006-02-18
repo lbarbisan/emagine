@@ -26,11 +26,11 @@ public class InitEnums {
 	static final void createDefaultAddressEnum(int start, int length) throws EMagineException
 	{
 		EmagineEnumDAO emagineEnumDAO =  DAOManager.getInstance().getEmagineEnumDAO();
-		DefaultAddressEnum enums =  new DefaultAddressEnum("Académique");
+		DefaultAddressEnum enums =  new DefaultAddressEnum("Personnelle");
 		emagineEnumDAO.create(enums);
 		enums =  new DefaultAddressEnum("Professionnelle");
 		emagineEnumDAO.create(enums);
-		enums =  new DefaultAddressEnum("Personnelle");
+		enums =  new DefaultAddressEnum("Académique");
 		emagineEnumDAO.create(enums);
 	}
 	

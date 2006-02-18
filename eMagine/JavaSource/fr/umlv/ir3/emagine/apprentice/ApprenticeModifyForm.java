@@ -64,7 +64,7 @@ public class ApprenticeModifyForm extends ActionForm {
 	private String idDefaultAddress;
 
 	/** personnal adress **/
-	private String persAdress;
+	private String persAddress;
 	
 	/** personnal postal code **/
 	private String persPostalCode;
@@ -88,7 +88,7 @@ public class ApprenticeModifyForm extends ActionForm {
 	private String persEmail;
 	
 	/** professional adress **/
-	private String profAdress;
+	private String profAddress;
 	
 	/** professional postal code **/
 	private String profPostalCode;
@@ -112,7 +112,7 @@ public class ApprenticeModifyForm extends ActionForm {
 	private String profEmail;
 
 	/** academic adress **/
-	private String acaAdress;
+	private String acaAddress;
 	
 	/** academic postal code **/
 	private String acaPostalCode;
@@ -220,10 +220,7 @@ public class ApprenticeModifyForm extends ActionForm {
 
 	/** apprentice date of birth **/
 	private String birth;
-	
-	/** Identifier of selected department **/
-	private String idDepartment;
-	
+
 	/** List of all sexes **/
 	private Collection <SexEnum> sexes;
 	
@@ -288,7 +285,7 @@ public class ApprenticeModifyForm extends ActionForm {
 		//justifications = null;
 		idJustification = "";
 		comment = "";
-		persAdress = "";
+		persAddress = "";
 		persCity = "";
 		idPersDepartment = "";
 		persEmail ="";
@@ -296,7 +293,7 @@ public class ApprenticeModifyForm extends ActionForm {
 		persMobile = "";
 		persPhone ="";
 		persPostalCode = "";
-		profAdress = "";
+		profAddress = "";
 		profCity = "";
 		idProfDepartment = "";
 		profEmail ="";
@@ -304,7 +301,7 @@ public class ApprenticeModifyForm extends ActionForm {
 		profMobile = "";
 		profPhone ="";
 		profPostalCode = "";
-		acaAdress = "";
+		acaAddress = "";
 		acaCity = "";
 		idAcaDepartment = "";
 		acaEmail ="";
@@ -320,15 +317,15 @@ public class ApprenticeModifyForm extends ActionForm {
 	/**
 	 * @return Returns the acaAdress.
 	 */
-	public String getAcaAdress() {
-		return acaAdress;
+	public String getAcaAddress() {
+		return acaAddress;
 	}
 
 	/**
 	 * @param acaAdress The acaAdress to set.
 	 */
-	public void setAcaAdress(String acaAdress) {
-		this.acaAdress = acaAdress;
+	public void setAcaAddress(String acaAddress) {
+		this.acaAddress = acaAddress;
 	}
 
 	/**
@@ -586,15 +583,15 @@ public class ApprenticeModifyForm extends ActionForm {
 	/**
 	 * @return Returns the persAdress.
 	 */
-	public String getPersAdress() {
-		return persAdress;
+	public String getPersAddress() {
+		return persAddress;
 	}
 
 	/**
 	 * @param persAdress The persAdress to set.
 	 */
-	public void setPersAdress(String persAdress) {
-		this.persAdress = persAdress;
+	public void setPersAddress(String persAddress) {
+		this.persAddress = persAddress;
 	}
 
 	/**
@@ -684,15 +681,15 @@ public class ApprenticeModifyForm extends ActionForm {
 	/**
 	 * @return Returns the profAdress.
 	 */
-	public String getProfAdress() {
-		return profAdress;
+	public String getProfAddress() {
+		return profAddress;
 	}
 
 	/**
 	 * @param profAdress The profAdress to set.
 	 */
-	public void setProfAdress(String profAdress) {
-		this.profAdress = profAdress;
+	public void setProfAddress(String profAddress) {
+		this.profAddress = profAddress;
 	}
 
 	/**
@@ -931,20 +928,6 @@ public class ApprenticeModifyForm extends ActionForm {
 	 */
 	public void setIdCourseOption(String idCourseOption) {
 		this.idCourseOption = idCourseOption;
-	}
-
-	/**
-	 * @return Returns the idDepartment.
-	 */
-	public String getIdDepartment() {
-		return idDepartment;
-	}
-
-	/**
-	 * @param idDepartment The idDepartment to set.
-	 */
-	public void setIdDepartment(String idDepartment) {
-		this.idDepartment = idDepartment;
 	}
 
 	/**

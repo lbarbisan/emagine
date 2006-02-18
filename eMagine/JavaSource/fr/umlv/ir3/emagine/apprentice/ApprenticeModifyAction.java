@@ -7,6 +7,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -48,8 +49,8 @@ public class ApprenticeModifyAction extends BaseAction {
 	public ActionForward show(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionMessages errors = new ActionMessages();
 		ManagerManager managerManager = ManagerManager.getInstance();
-		// TODO ApprenticeModifyForm apprenticeModifyAbsenceForm = (ApprenticeModifyForm) form;
 		ApprenticeModifyForm apprenticeModifyForm = (ApprenticeModifyForm) form;
+		EmagineEnumManager emagineEnumManager = managerManager.getEmagineEnumManager();
 		
 		try {
 			
@@ -79,7 +80,7 @@ public class ApprenticeModifyAction extends BaseAction {
 				
 				if(apprentice.getAddressPersonnal() != null) {
 					if(apprentice.getAddressPersonnal().getStreet() != null) {
-					apprenticeModifyForm.setPersAdress(apprentice.getAddressPersonnal().getStreet().toString());
+					apprenticeModifyForm.setPersAddress(apprentice.getAddressPersonnal().getStreet().toString());
 					}
 					
 					if(apprentice.getAddressPersonnal().getDepartment() != null) {
@@ -100,7 +101,7 @@ public class ApprenticeModifyAction extends BaseAction {
 
 				if(apprentice.getAddressProfessional() != null) {
 					if(apprentice.getAddressProfessional().getStreet() != null) {
-					apprenticeModifyForm.setProfAdress(apprentice.getAddressProfessional().getStreet().toString());
+					apprenticeModifyForm.setProfAddress(apprentice.getAddressProfessional().getStreet().toString());
 					}
 					
 					if(apprentice.getAddressProfessional().getDepartment() != null) {
@@ -121,7 +122,7 @@ public class ApprenticeModifyAction extends BaseAction {
 				
 				if(apprentice.getAddressAcademic() != null) {
 					if(apprentice.getAddressAcademic().getStreet() != null) {
-					apprenticeModifyForm.setAcaAdress(apprentice.getAddressAcademic().getStreet().toString());
+					apprenticeModifyForm.setAcaAddress(apprentice.getAddressAcademic().getStreet().toString());
 					}
 					
 					if(apprentice.getAddressAcademic().getDepartment() != null) {
@@ -140,6 +141,12 @@ public class ApprenticeModifyAction extends BaseAction {
 				apprenticeModifyForm.setAcaMobile(apprentice.getAcaMobile());
 				apprenticeModifyForm.setAcaFax(apprentice.getAcaFax());
 			}
+			//Retrieve all department and set them in the form
+			apprenticeModifyForm.setDepartments((List<DepartmentEnum>)emagineEnumManager.findAll(DepartmentEnum.class));
+			
+			//Retrieve all address types and set them in the form
+			apprenticeModifyForm.setDefaultAddresses((List<DefaultAddressEnum>)emagineEnumManager.findAll(DefaultAddressEnum.class));
+
 			
 		} catch (EMagineException exception) {
 			exception.printStackTrace();
@@ -182,9 +189,9 @@ public class ApprenticeModifyAction extends BaseAction {
 			Apprentice apprentice = apprenticeManager.retrieve(Long.parseLong(apprenticeModifyForm.getIdApprenticeToModify()));
 			
 			/* Datas concerning the address tab*/
-			//apprentice.setDefaultAdress((DefaultAddressEnum) emagineEnumManager.retrieve(Long.parseLong(apprenticeModifyForm.getIdDefaultAddress()), DefaultAddressEnum.class));
+			apprentice.setDefaultAdress((DefaultAddressEnum) emagineEnumManager.retrieve(Long.parseLong(apprenticeModifyForm.getIdDefaultAddress()), DefaultAddressEnum.class));
 			
-			apprentice.getAddressPersonnal().setStreet(apprenticeModifyForm.getPersAdress());
+			apprentice.getAddressPersonnal().setStreet(apprenticeModifyForm.getPersAddress());
 			apprentice.getAddressPersonnal().setPostalCode(apprenticeModifyForm.getPersPostalCode());
 			apprentice.getAddressPersonnal().setCity(apprenticeModifyForm.getPersCity());
 			apprentice.getAddressPersonnal().setDepartment((DepartmentEnum) emagineEnumManager.retrieve(Long.parseLong(apprenticeModifyForm.getIdPersDepartment()), DepartmentEnum.class));
@@ -193,16 +200,18 @@ public class ApprenticeModifyAction extends BaseAction {
 			apprentice.setFax(apprenticeModifyForm.getPersFax());
 			apprentice.setPhone(apprenticeModifyForm.getPersPhone());
 			
-			apprentice.getAddressProfessional().setStreet(apprenticeModifyForm.getProfAdress());
+			apprentice.getAddressProfessional().setStreet(apprenticeModifyForm.getProfAddress());
 			apprentice.getAddressProfessional().setPostalCode(apprenticeModifyForm.getProfPostalCode());
 			apprentice.getAddressProfessional().setCity(apprenticeModifyForm.getProfCity());
-			apprentice.getAddressProfessional().setDepartment((DepartmentEnum) emagineEnumManager.retrieve(Long.parseLong(apprenticeModifyForm.getIdProfDepartment()), DepartmentEnum.class));
+			if ("".equals(apprenticeModifyForm.getIdProfDepartment())){
+					apprentice.getAddressProfessional().setDepartment((DepartmentEnum) emagineEnumManager.retrieve(Long.parseLong(apprenticeModifyForm.getIdProfDepartment()), DepartmentEnum.class));
+			}
 			apprentice.setMobilePhone(apprenticeModifyForm.getProfMobile());
 			apprentice.setEmail(apprenticeModifyForm.getProfEmail());
 			apprentice.setFax(apprenticeModifyForm.getProfFax());
 			apprentice.setPhone(apprenticeModifyForm.getProfPhone());
 
-			apprentice.getAddressAcademic().setStreet(apprenticeModifyForm.getAcaAdress());
+			apprentice.getAddressAcademic().setStreet(apprenticeModifyForm.getAcaAddress());
 			apprentice.getAddressAcademic().setPostalCode(apprenticeModifyForm.getAcaPostalCode());
 			apprentice.getAddressAcademic().setCity(apprenticeModifyForm.getAcaCity());
 			apprentice.getAddressAcademic().setDepartment((DepartmentEnum) emagineEnumManager.retrieve(Long.parseLong(apprenticeModifyForm.getIdAcaDepartment()), DepartmentEnum.class));
