@@ -104,6 +104,7 @@ public class EMaginePostEventListener implements PostInsertEventListener, PostDe
 				//TODO : #46 - lbarbisan - Remonter et transmettre l'exeption en cas de problème
 				log.error("Error when tracing event of creation '" + eMagineEvent.getDescription() + "'", e);
 			}
+		session.close();
 	}
 	
 	
