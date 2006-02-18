@@ -1,5 +1,10 @@
 package fr.umlv.ir3.emagine.ressource;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
+import java.util.ArrayList;
+import java.util.List;
+
 import fr.umlv.ir3.emagine.apprentice.CountryEnum;
 import fr.umlv.ir3.emagine.apprentice.DefaultAddressEnum;
 import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
@@ -176,7 +181,6 @@ public class InitEnums {
 		EmagineEnumDAO emagineEnumDAO =  DAOManager.getInstance().getEmagineEnumDAO();
 		YearEnum enums =  new YearEnum("1");
 		emagineEnumDAO.create(enums);
-		enums =  new YearEnum("2");
 		emagineEnumDAO.create(enums);
 		enums =  new YearEnum("3");
 		emagineEnumDAO.create(enums);
@@ -195,16 +199,30 @@ public class InitEnums {
 	static final void createEventTypeEnum(int start, int length) throws EMagineException
 	{
 		EmagineEnumDAO emagineEnumDAO =  DAOManager.getInstance().getEmagineEnumDAO();
-		EventTypeEnum enums =  new EventTypeEnum("Changement adresse");
-		emagineEnumDAO.create(enums);
-		enums =  new EventTypeEnum("Changement de Tuteur Enseignant");
-		emagineEnumDAO.create(enums);
-		enums =  new EventTypeEnum("Changement de Tuteur Ingénieur");
-		emagineEnumDAO.create(enums);
-		enums =  new EventTypeEnum("Envoi mail");
-		emagineEnumDAO.create(enums);
-		enums =  new EventTypeEnum("Envoi courrier");
-		emagineEnumDAO.create(enums);
+		
+		List<Field> fields = new ArrayList<Field>();
+		
+		for(Field field :EventTypeEnum.class.getFields())
+		{
+			int modifiers =  field.getModifiers();
+			if(Modifier.isFinal(modifiers) 
+				&& Modifier.isPublic(modifiers)
+				&& Modifier.isStatic(modifiers))
+			{
+				fields.add(field);
+				try {
+					String value =  (String) field.get(null);
+					emagineEnumDAO.create(new EventTypeEnum(value));
+				} catch (IllegalArgumentException e) {
+					// TODO IllegalArgumentException.e Not Implemented
+					e.printStackTrace();
+				} catch (IllegalAccessException e) {
+					// TODO IllegalAccessException.e Not Implemented
+					e.printStackTrace();
+				}
+			}
+			
+		}
 	}
 	
 	static final void createEditableStateEnum(int start, int length) throws EMagineException

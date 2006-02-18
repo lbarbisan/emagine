@@ -55,7 +55,7 @@ public class HibernateUtils {
         	.addProperties(properties)
         	.setInterceptor(editableInterceptor);
 
-        	//loadListeners(cfg);
+        	loadListeners(cfg);
         	
         	sessionFactory = cfg.buildSessionFactory(); 
         	editableInterceptor.setSessionFactory(sessionFactory);

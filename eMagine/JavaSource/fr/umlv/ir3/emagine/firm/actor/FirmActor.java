@@ -9,7 +9,6 @@ import javax.persistence.OneToOne;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
-import fr.umlv.ir3.emagine.apprentice.DefaultAddressEnum;
 import fr.umlv.ir3.emagine.firm.Firm;
 import fr.umlv.ir3.emagine.util.Address;
 import fr.umlv.ir3.emagine.util.person.Person;
@@ -23,7 +22,7 @@ public class FirmActor extends Person {
 	@JoinColumn(name = "firm_id")
 	private Firm firm;
 	
-	@OneToOne()
+	@OneToOne()	
 	@Cascade(CascadeType.SAVE_UPDATE)
 	@JoinColumn(name = "addressPersonnal_id")
 	private Address addressProfessional;

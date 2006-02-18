@@ -45,7 +45,7 @@ public class EventDAOTest extends BaseDAOTest<Event> {
 		user.setPassword("password");
 		sources.add(user);
 		Event entity = new Event();
-		entity.setComment("comment");
+		entity.setUserComment("comment");
 		entity.setDate(GregorianCalendar.getInstance().getTime());
 		//entity.setSources(sources);
 		entity.setTitle("title");
@@ -66,14 +66,14 @@ public class EventDAOTest extends BaseDAOTest<Event> {
 		sources.add(user);
 		
 		Event entity1 = new Event();
-		entity1.setComment("comment1");
+		entity1.setUserComment("comment1");
 		entity1.setDate(GregorianCalendar.getInstance().getTime());
 		//entity1.setSources(sources);
 		entity1.setTitle("title1");
 		//entity1.setType(EventTypeEnum.INFO);
 		
 		Event entity2 = new Event();
-		entity2.setComment("comment2");
+		entity2.setUserComment("comment2");
 		entity2.setDate(GregorianCalendar.getInstance().getTime());
 		//entity2.setSources(sources);
 		entity2.setTitle("title2");
@@ -87,7 +87,7 @@ public class EventDAOTest extends BaseDAOTest<Event> {
 
 	@Override
 	protected void updateEntity(Event entity) {
-		entity.setComment("new comment");
+		entity.setUserComment("new comment");
 		entity.setDate(GregorianCalendar.getInstance().getTime());
 		entity.setTitle("new title");
 		//entity.setType(EventTypeEnum.INFO);
@@ -103,7 +103,7 @@ public class EventDAOTest extends BaseDAOTest<Event> {
 
 	@Override
 	protected void compareEntity(Event entity1, Event entity2) {
-		assertTrue(conditionCheck(entity1.getComment(), entity2.getComment()));
+		assertTrue(conditionCheck(entity1.getUserComment(), entity2.getUserComment()));
 		assertTrue(conditionCheck(entity1.getDate(), entity2.getDate()));
 		assertTrue(conditionCheck(entity1.getId(), entity2.getId()));
 		assertTrue(conditionCheck(entity1.getSources(), entity2.getSources()));

@@ -119,7 +119,7 @@ public class ApprenticeManagerImpl extends EventableManagerImpl<Apprentice, Appr
 				Event event = new Event();
 				//event.setType(EventTypeEnum.MODIFICATION); // TODO : event.setType (EventTypeEnum)
 				event.setTitle(Bundles.getMessageResources().getMessage("event.apprentice.update.teacherTutor.title"));
-				event.setComment(Bundles.getMessageResources().getMessage("event.apprentice.update.teacherTutor.comment", oldTeacherTutor.getFirstName(), oldTeacherTutor.getLastName()));
+				event.setUserComment(Bundles.getMessageResources().getMessage("event.apprentice.update.teacherTutor.comment", oldTeacherTutor.getFirstName(), oldTeacherTutor.getLastName()));
 				event.getSources().add(apprentice);
 				addEvent(apprentice, event);
 			}
@@ -131,7 +131,7 @@ public class ApprenticeManagerImpl extends EventableManagerImpl<Apprentice, Appr
 				Event event = new Event();
 				//event.setType(EventTypeEnum.MODIFICATION); // TODO : event.setType (EventTypeEnum)
 				event.setTitle(Bundles.getMessageResources().getMessage("event.apprentice.update.engineerTutor.title"));
-				event.setComment(Bundles.getMessageResources().getMessage("event.apprentice.update.engineerTutor.comment", oldEngineerTutor.getFirstName(), oldEngineerTutor.getLastName()));
+				event.setUserComment(Bundles.getMessageResources().getMessage("event.apprentice.update.engineerTutor.comment", oldEngineerTutor.getFirstName(), oldEngineerTutor.getLastName()));
 				event.getSources().add(apprentice);
 				addEvent(apprentice, event);
 			}
@@ -143,7 +143,7 @@ public class ApprenticeManagerImpl extends EventableManagerImpl<Apprentice, Appr
 				Event event = new Event();
 				//event.setType(EventTypeEnum.MODIFICATION); // TODO : event.setType (EventTypeEnum)
 				event.setTitle(Bundles.getMessageResources().getMessage("event.apprentice.update.firm.title"));
-				event.setComment(Bundles.getMessageResources().getMessage("event.apprentice.update.firm.comment", oldFirm.getName(), oldFirm.getAddress()));
+				event.setUserComment(Bundles.getMessageResources().getMessage("event.apprentice.update.firm.comment", oldFirm.getName(), oldFirm.getAddress()));
 				event.getSources().add(apprentice);
 				addEvent(apprentice, event);
 			}

@@ -68,23 +68,9 @@ public class BaseEntity implements Serializable {
 	}
 
 	/**
-	 * @param version The version to set.
-	 */
-	public void setVersion(Long version) {
-		this.version = version;
-	}
-
-	/**
 	 * @return Returns the humanName.
 	 */
 	public String getHumanName() {
 		return humanName;
-	}
-
-	/**
-	 * @param humanName The humanName to set.
-	 */
-	public void setHumanName(String humanName) {
-		this.humanName = humanName;
 	}
 }

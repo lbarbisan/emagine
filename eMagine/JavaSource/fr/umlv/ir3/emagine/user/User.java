@@ -146,5 +146,13 @@ public class User extends EditableEntity{
 	 */
 	public void setProfile(Profile profile) {
 		this.profile = profile;
+	}
+
+	/**
+	 * @see fr.umlv.ir3.emagine.util.base.BaseEntity#getHumanName()
+	 */
+	@Override
+	public String getHumanName() {
+		return this.getFirstName()+ " " + this.getLastName();
 	}	
 }

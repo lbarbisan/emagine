@@ -3,6 +3,7 @@
  */
 package fr.umlv.ir3.emagine.event;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -36,22 +37,25 @@ public class Event extends BaseEntity {
 	private Date date = new Date();
 	private ArrayList<BaseEntity> sources = new ArrayList<BaseEntity>();
 	private String title;
-	private String comment;
+	private String userComment;
 	private String connectedUser;
+	private String oldValue;
+	private String newValue;
+	private String property;
 	private String description;
 	
 	/**
 	 * @return Returns the comment.
 	 */
-	public String getComment() {
+	public String getUserComment() {
 
-		return comment;
+		return userComment;
 	}
 	/**
 	 * @param comment The comment to set.
 	 */
-	public void setComment(String comment) {
-		this.comment = comment;
+	public void setUserComment(String comment) {
+		this.userComment = comment;
 	}
 	/**
 	 * @return Returns the date.
@@ -118,5 +122,41 @@ public class Event extends BaseEntity {
 	 */
 	public void setConnectedUser(String connectedUser) {
 		this.connectedUser = connectedUser;
+	}
+	/**
+	 * @return Returns the newValue.
+	 */
+	public String getNewValue() {
+		return newValue;
+	}
+	/**
+	 * @param newValue The newValue to set.
+	 */
+	public void setNewValue(String newValue) {
+		this.newValue = newValue;
+	}
+	/**
+	 * @return Returns the oldValue.
+	 */
+	public String getOldValue() {
+		return oldValue;
+	}
+	/**
+	 * @param oldValue The oldValue to set.
+	 */
+	public void setOldValue(String oldValue) {
+		this.oldValue = oldValue;
+	}
+	/**
+	 * @return Returns the property.
+	 */
+	public String getProperty() {
+		return property;
+	}
+	/**
+	 * @param property The property to set.
+	 */
+	public void setProperty(String property) {
+		this.property = property;
 	}
 }
