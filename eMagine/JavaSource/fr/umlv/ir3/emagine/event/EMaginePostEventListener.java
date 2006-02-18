@@ -34,7 +34,7 @@ public class EMaginePostEventListener implements PostInsertEventListener, PostDe
 	//TODO : #45 - lbarbisan - Spécifier l'utilisateur dans l'évènement
 	//TODO : #52 - lbarbisan - Mettre en place la gestion des evènements avec annotations
 	//TODO : #44 - lbarbisan - Utiliser fillResource de la classe  Bundle
-	//TODO : #53 - lbarbisan - Regarder les propriétés modifiées
+	//TODO : #54 - lbarbisan - Regarder les propriétés modifiées
 	/**
 	 * @see org.hibernate.event.PostInsertEventListener#onPostInsert(org.hibernate.event.PostInsertEvent)
 	 */
