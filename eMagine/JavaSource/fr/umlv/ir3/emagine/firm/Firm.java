@@ -39,7 +39,7 @@ public class Firm extends EventableEntity {
 	@Cascade({CascadeType.ALL, CascadeType.DELETE_ORPHAN})
 	private List<Job> jobs = new ArrayList<Job>();
 	@OneToMany(mappedBy = "firm")
-	@Cascade(CascadeType.SAVE_UPDATE)
+	@Cascade({CascadeType.ALL,  CascadeType.DELETE_ORPHAN})
 	private List<FirmActor> firmActors = new ArrayList<FirmActor>();
 	@OneToOne()
 	@Cascade(CascadeType.SAVE_UPDATE)

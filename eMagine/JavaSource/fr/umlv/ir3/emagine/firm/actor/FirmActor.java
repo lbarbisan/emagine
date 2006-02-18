@@ -20,7 +20,6 @@ public class FirmActor extends Person {
 	private static final long serialVersionUID = 6962218814666233077L;
 
 	@ManyToOne()
-	@Cascade(CascadeType.SAVE_UPDATE)
 	@JoinColumn(name = "firm_id")
 	private Firm firm;
 	
