@@ -1,7 +1,27 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
+
+<script type="text/javascript">
+<!--
+	function setAction(value) {
+		document.userModifyForm.action.value = value;
+	}
+
+	function createUser() {
+		setAction('create');
+		document.userModifyForm.submit();
+	}
+
+	function resetForm() {
+		document.userModifyForm.reset();
+	}
+-->
+</script>
+
+
 <form name="results">
 	<h2><bean:message key="actor.create.title"/><html:link action="/actorVisuInfo"><img src="/eMagine/common/images/icones/retour.png" title="<bean:message key="button.title.return"/>"/></html:link></h2>
+	<br/>
 	<div class="form">
 		<br/>
 		<p><label for="name"><bean:message key="form.name"/><font color="red">*</font> </label><input type="text" id="name" size="20" /></p>

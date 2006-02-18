@@ -1,21 +1,33 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
+<%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic"%>
 
 <script type="text/javascript">
 <!--
 
 	function setAction(value) {
-		document.companyModifyForm.action.value = value;
+		document.jobListForm.action.value = value;
 	}
 
 	function change(action) {
-		document.companyModifyForm.action = "/eMagine/" + action + ".do";
-		document.companyModifyForm.submit();
+		document.jobListForm.action = "/eMagine/" + action + ".do";
+		document.jobListForm.submit();
+	}
+
+	function setAction(value) {
+		document.jobListForm.action.value = value;
+	}
+
+	function deletes() {
+		if(confirm("Souhaitez-vous réellement supprimer ses propositions de postes ?")) {
+			document.jobListForm.action = "/eMagine/jobDelete.do?action=delete&from=list";
+			document.jobListForm.submit();
+		}
 	}
 		
 -->
-
 </script>
+
 <div class="tabs">
 	<ul>
 			<li><html:link href="javascript:change('companyVisuInfo');">Informations&nbsp;g&eacute;n&eacute;rales&nbsp;</html:link></li>
@@ -28,7 +40,11 @@
 
 <h2><bean:message key="post.list.title"/></h2>
 <br/>
-<form name="results">
+
+
+<html:form action="/companyVisuPost" method="POST">
+<br/>
+	
 	<div align=center>
 		<table cellpadding="0" cellspacing="0">
 			<tr>
@@ -36,29 +52,34 @@
 				<th><bean:message key="table.header.die"/></th>
 				<th><bean:message key="table.header.numberAsked"/></th>
 			</tr>
-			<tr>
-				<td><input type="checkbox" name="all_none" value="ON" /></td>
-				<td><html:link action="/postDetail">IR</html:link></td>
-				<td>1</td>
-			</tr>
-			<tr>
-				<td><input type="checkbox" name="all_none" value="ON" /></td>
-				<td><html:link action="/postDetail">MFPI</html:link></td>
-				<td>3</td>
-			</tr>
+			
+			<logic:notEmpty name="jobListForm" property="results">
+				<logic:iterate id="job" name="jobListForm" property="results" type="fr.umlv.ir3.emagine.firm.Job">
+					<tr>
+						<td><html:multibox property="currentSelectedIds" value="<%= job.getId().toString() %>" />&nbsp;</td>
+						<td><html:link action="/jobModify?action=show" paramId="id" paramName="job" paramProperty="id"><bean:write name="job" property="cursus.name" />&nbsp;</html:link></td>
+						<td><bean:write name="job" property="nbPlace" />&nbsp;</td>
+					</tr>
+				</logic:iterate>
+			</logic:notEmpty>	
+
+			<logic:empty name="jobListForm" property="results">
+				<tr><td colspan="5">Pas de poste</td></tr>
+			</logic:empty>
 		</table>
 	</div>
-	<!-- Les actions propres a la selection -->
+	
 	<div id="actions">
 		<ul>
-			<li><a href="javascript:checkAll('results','all_none');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
-			<li><a href="javascript:checkNothing('results','all_none');"><bean:message key="all_none.none"/></a></li>
+			<li><a href="javascript:checkAll('jobListForm','currentSelectedIds');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
+			<li><a href="javascript:checkNothing('jobListForm','currentSelectedIds');"><bean:message key="all_none.none"/></a></li>
 		</ul>
 		<h2>&nbsp;</h2>
 		<ul>
-			<li><html:link action="/postCreate"><img src="/eMagine/common/images/icones/ajouter.png" title="<bean:message key="button.title.add"/>"/></html:link></li>
-			<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" title="<bean:message key="button.title.remove"/>"/></a></li>
-		</ul>
+			<li><html:link action="/jobCreate?action=show"><img src="/eMagine/common/images/icones/ajouter.png" title="<bean:message key="button.title.add"/>"/></html:link></li>
+			<li><html:link href="javascript:deletes();"><html:img src="/eMagine/common/images/icones/supprimer.png" titleKey="button.title.remove" /></html:link></li>
+		</ul>	
 	</div>
-	</div>
-</form>
+	
+<html:hidden property="action" />	
+</html:form>
