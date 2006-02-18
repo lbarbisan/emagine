@@ -11,9 +11,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
-
 import fr.umlv.ir3.emagine.apprentice.candidate.Candidate;
 import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenter;
 import fr.umlv.ir3.emagine.modification.EditableEntity;

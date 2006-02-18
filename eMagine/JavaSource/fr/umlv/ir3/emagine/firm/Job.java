@@ -17,7 +17,6 @@ public class Job extends EditableEntity {
 	private static final long serialVersionUID = 1711695127749986129L;
 
 	@ManyToOne()
-	@Cascade(CascadeType.SAVE_UPDATE)
 	@JoinColumn(name = "firm_id")
 	private Firm firm;
 	

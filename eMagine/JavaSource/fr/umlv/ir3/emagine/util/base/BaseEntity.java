@@ -31,7 +31,7 @@ public class BaseEntity implements Serializable {
      */
 	protected BaseEntity() {
 		super();
-		humanName = this.toString();
+		humanName = this.getClass().getSimpleName();
 	}
 
 	/**
@@ -43,13 +43,13 @@ public class BaseEntity implements Serializable {
     @Override
     public boolean equals(Object that) throws IllegalStateException {
        if (this == that) return true;
-       //if (id == null) throw new IllegalStateException("id not set; use generation instead of creation to obtain an entity with a valid id");
+       if (id == null) throw new IllegalStateException("id not set; use generation instead of creation to obtain an entity with a valid id");
        return id == ((BaseEntity) that).getId();
     }
 
     @Override
     public int hashCode() throws IllegalStateException {
-       //if (id == null) throw new IllegalStateException("id not set; use generation instead of creation to obtain an entity with a valid id");
+       if (id == null) throw new IllegalStateException("id not set; use generation instead of creation to obtain an entity with a valid id");
        return id.hashCode();
     }
         
