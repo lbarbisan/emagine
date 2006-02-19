@@ -77,7 +77,7 @@
 			<forward name="_default_target_" path="apprentice.apprenticeSearch" />
 		</action>
 		<action path="/apprenticeModify" type="fr.umlv.ir3.emagine.apprentice.ApprenticeModifyAction" name="apprenticeModifyForm" input="apprentice.apprenticeModify" parameter="action" scope="session" validate="true">
-			<forward name="_default_target_" path="/apprenticeVisuAdress.do" redirect="true" />
+			<forward name="_default_target_" path="/apprenticeVisuSituation.do" redirect="true" />
 			<forward name="success" path="/apprenticeSearch.do?action=search" redirect="true" />
 		</action>
 		
@@ -88,38 +88,18 @@
 			<forward name="_default_target_" path="/apprenticeSearch.do?action=search" redirect="true" />
 		</action> -->
 		<action path="/apprenticeVisuAdress" forward="apprentice.apprenticeVisuAdress" name="apprenticeModifyForm" scope="session" />
-		<action path="/apprenticeVisuSituation" forward="apprentice.apprenticeVisuSituation" name="apprenticeModifyForm" scope="session" />
 		<action path="/apprenticeVisuStatus" forward="apprentice.apprenticeVisuStatus" name="apprenticeModifyForm" scope="session" />
-		<action path="/apprenticeVisuSituation" forward="apprenticeVisuSituation" name="apprenticeModifyForm" scope="session" />
-		<action path="/apprenticeVisuSchooling" forward="apprenticeVisuSchooling" name="apprenticeModifyForm" scope="session" />
-		<action path="/apprenticeEventDetail" forward="apprentice.apprenticeEventDetail" name="apprenticeModifyForm" scope="session" />
+		<action path="/apprenticeVisuSituation" forward="apprentice.apprenticeVisuSituation" name="apprenticeModifyForm" scope="session" />
+		<action path="/apprenticeVisuSchooling" forward="apprentice.apprenticeVisuSchooling" name="apprenticeModifyForm" scope="session" />
+		<action path="/apprenticeVisuEvent" forward="apprentice.apprenticeVisuEvent" name="apprenticeModifyForm" scope="session" />
 		<action path="/apprenticeVisuAbsence" forward="apprentice.apprenticeVisuAbsence" name="apprenticeModifyForm" scope="session" />
-	
-		<!-- <action path="/apprenticeVisuAdress"
-			forward="apprentice.apprenticeVisuAdress" /> 
-		<action path="/apprenticeVisuSituation"
-			forward="apprentice.apprenticeVisuSituation" />
-		<action path="/apprenticeVisuStatus"
-			forward="apprentice.apprenticeVisuStatus" />
-		<action path="/apprenticeVisuSchooling"
-			forward="apprentice.apprenticeVisuSchooling" />
-		<action path="/apprenticeVisuEvent"
-			forward="apprentice.apprenticeVisuEvent" />
-		<action path="/apprenticeEventDetail"
-			forward="apprentice.apprenticeEventDetail" />
-		<action path="/apprenticeVisuAbsence"
-			forward="apprentice.apprenticeVisuAbsence" />-->
-			
 		<action path="/apprenticeAbsenceDetail"
 			forward="apprentice.apprenticeAbsenceDetail" />
-		<action path="/apprenticeTutorAdd"
-			forward="apprentice.apprenticeTutorAdd" />
-		<action path="/apprenticeOnglet"
-			forward="apprentice.apprenticeOnglet" />
-		<action path="/apprenticeCompanyAdd"
-			forward="apprentice.apprenticeCompanyAdd" />
-		<action path="/apprenticeAbsenceAdd"
-			forward="apprentice.apprenticeAbsenceAdd" />		
+		<action path="/apprenticeTutorAdd" forward="apprentice.apprenticeTutorAdd" />
+		<action path="/apprenticeOnglet" forward="apprentice.apprenticeOnglet" />
+		<action path="/apprenticeCompanyAdd" forward="apprentice.apprenticeCompanyAdd" />
+		<action path="/apprenticeAbsenceAdd" forward="apprentice.apprenticeAbsenceAdd" />		
+		<action path="/apprenticeEventDetail" forward="apprentice.apprenticeEventDetail" name="apprenticeModifyForm" scope="session" />
 		<action path="/apprenticeAbsenceAddAction" 
 			type="fr.umlv.ir3.emagine.apprentice.absence.ApprenticeAbsenceAddAction" 
 			name="apprenticeAbsenceAddForm" 
