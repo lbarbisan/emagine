@@ -63,11 +63,11 @@ public class FirmActorModifyAction extends BaseAction {
 					if(address.getCity() != null)
 						firmActorModifyForm.setCity(address.getCity());
 					if(address.getDepartment() != null)
-						firmActorModifyForm.setIdDepartment(address.getDepartment().getId().toString());
+						firmActorModifyForm.setIdDepartment(Long.toString(address.getDepartment().getId()));
 				}
 				
 				if(actor.getFunction() != null)
-					firmActorModifyForm.setIdFunction(actor.getFunction().getId().toString());
+					firmActorModifyForm.setIdFunction(Long.toString(actor.getFunction().getId()));
 
 				if(actor instanceof EngineerTutor)
 					firmActorModifyForm.setPupilles(((EngineerTutor)actor).getApprentice());
@@ -103,7 +103,7 @@ public class FirmActorModifyAction extends BaseAction {
 		// Update the firmActor
 		try {
 			FirmActor actor = firmActorManager.retrieve(Long.parseLong(firmActorModifyForm.getIdFirmActorToModify()));
-
+			
 			// Set values
 			// Create an address
 			Address address = null;

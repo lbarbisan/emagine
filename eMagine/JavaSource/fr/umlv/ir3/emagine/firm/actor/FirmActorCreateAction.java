@@ -96,6 +96,7 @@ public class FirmActorCreateAction extends BaseAction {
 			actor.setMobilePhone(firmActorModifyForm.getPortPhone());
 			actor.setFax(firmActorModifyForm.getFax());
 			actor.setEmail(firmActorModifyForm.getMail());
+			actor.setFirm(firm);
 			
 			if(firmActorModifyForm.getIdFunction() != null && !"".equals(firmActorModifyForm.getIdFunction()))
 				actor.setFunction((FunctionEnum)managerManager.getEmagineEnumManager().find(firmActorModifyForm.getIdFunction(), FunctionEnum.class) );			
@@ -103,7 +104,7 @@ public class FirmActorCreateAction extends BaseAction {
 			firm.getFirmActors().add(actor);
 			firmManager.update(firm);
 			
-			errors.add("confirm", new ActionMessage("job.create.confirm"));
+			errors.add("confirm", new ActionMessage("firmActor.create.confirm"));
 		} catch (EMagineException exception) {
 			addEMagineExceptionError(errors, exception);
 		}			
