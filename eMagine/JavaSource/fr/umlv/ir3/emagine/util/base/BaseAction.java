@@ -50,7 +50,7 @@ public class BaseAction extends DispatchAction {
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		SessionManager.getInstance().initThreadLocal(new HttpServletRequestAdapter(request));
 		// Check if the action parameter is present, if not, redirect to the main page
-		if (request.getParameter("action") == null) {
+		if (mapping.getParameter() != null && request.getParameter("action") == null) {
 			log.info("No action parameter, redirecting to /");
 			return new ActionForward("/", true);
 		}
