@@ -22,7 +22,7 @@ import fr.umlv.ir3.emagine.apprentice.Apprentice;
 import fr.umlv.ir3.emagine.modification.EditableEntity;
 
 /**
- * This class represent an abscence. 
+ * This  class represent an abscence. 
  * @author Administrateur
  *
  */
