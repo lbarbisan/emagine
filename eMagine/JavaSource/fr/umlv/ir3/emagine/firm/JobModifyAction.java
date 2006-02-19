@@ -52,7 +52,7 @@ public class JobModifyAction extends BaseAction {
 				jobModifyForm.setIdJobToModify(job.getId().toString());
 				
 				if(job.getCursus() != null)
-					jobModifyForm.setIdCourseOption(job.getCursus().getId().toString());
+					jobModifyForm.setIdCourseOption(((Long)job.getCursus().getId()).toString());
 
 				if(job.getNbPlace() != null)
 					jobModifyForm.setNbPostes(job.getNbPlace().toString());

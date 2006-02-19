@@ -49,7 +49,7 @@ public class TeacherModifyAction extends BaseAction {
 				teacherModifyForm.setCellular(teacher.getMobilePhone());
 				teacherModifyForm.setCity(teacher.getAddressProfessional().getCity());
 				teacherModifyForm.setFax(teacher.getFax());
-				teacherModifyForm.setIdDepartment(teacher.getAddressProfessional().getDepartment().getId().toString());
+				teacherModifyForm.setIdDepartment(((Long)teacher.getAddressProfessional().getDepartment().getId()).toString());
 				teacherModifyForm.setMail(teacher.getEmail());
 				teacherModifyForm.setPhone(teacher.getPhone());
 				teacherModifyForm.setPostalCode(teacher.getAddressProfessional().getPostalCode());
