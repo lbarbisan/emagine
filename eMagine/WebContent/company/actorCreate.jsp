@@ -1,50 +1,51 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
+<%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic"%>
 
 <script type="text/javascript">
 <!--
 	function setAction(value) {
-		document.userModifyForm.action.value = value;
+		document.firmActorModifyForm.action.value = value;
 	}
 
-	function createUser() {
+	function createActor() {
 		setAction('create');
-		document.userModifyForm.submit();
+		document.firmActorModifyForm.submit();
 	}
 
 	function resetForm() {
-		document.userModifyForm.reset();
+		document.firmActorModifyForm.reset();
 	}
 -->
 </script>
 
 
-<form name="results">
-	<h2><bean:message key="actor.create.title"/><html:link action="/actorVisuInfo"><img src="/eMagine/common/images/icones/retour.png" title="<bean:message key="button.title.return"/>"/></html:link></h2>
-	<br/>
-	<div class="form">
+<html:form action="/actorCreate" method="POST" focus="lastname">
+
+<h2><bean:message key="actor.create.title"/><html:link action="/actorVisuInfo"><img src="/eMagine/common/images/icones/retour.png" title="<bean:message key="button.title.return"/>"/></html:link></h2>
+<br/>
+
+<div class="form">
 		<br/>
-		<p><label for="name"><bean:message key="form.name"/><font color="red">*</font> </label><input type="text" id="name" size="20" /></p>
-		<p><label for="firstName"><bean:message key="form.firstName"/><font color="red">*</font> </label><input type="text" id="firstName" size="20" /></p>
-		<p><label for="function"><bean:message key="form.function"/></label><select name="department">
-			<!-- à mettre en base -->
-			<option value="drh">DRH</option>
-			<option value="pdg">PDG</option>
-			<option value="ti">Tuteur&nbsp;Ingénieur</option>
-		</select> </p>
-		<p><label for="adress"><bean:message key="form.adress"/><font color="red">*</font> </label><input type="text" id="adress" size="20" /></p>
-		<p><label for="postalCode"><bean:message key="form.postalCode"/><font color="red">*</font> </label><input type="text" id="postalCode" size="20" /></p>
-		<p><label for="city"><bean:message key="form.city"/><font color="red">*</font> </label><input type="text" id="city" size="20" /></p>
-		<p><label for="department"><bean:message key="form.department"/><font color="red">*</font> </label><select name="department">
-				<!-- à mettre en base -->
-				<option value="93">93</option>
-				<option value="77">77</option>
-				<option value="78">78</option>
-			</select> </p>
-		<p><label for="phone"><bean:message key="form.phone"/></label><input type="text" id="phone" size="20" /></p>	
-		<p><label for="mobile"><bean:message key="form.mobile"/></label><input type="text" id="mobile" size="20" /></p>
-		<p><label for="fax"><bean:message key="form.fax"/></label><input type="text" id="fax" size="20" /></p>
-		<p><label for="email"><bean:message key="form.email"/><font color="red">*</font> </label><input type="text" id="email" size="20" /></p>
+		<p><label for="lastname"><bean:message key="form.name"/><font color="red">*</font> </label><html:text property="lastname" size="20" /></p>
+		<p><label for="firstname"><bean:message key="form.firstName"/><font color="red">*</font> </label><html:text property="firstname" size="20" /></p>
+		<p>
+			<label for="idFunction"><bean:message key="form.function"/></label>
+			<html:select property="idFunction">
+				<html:optionsCollection property="functions" value="id" label="name"/>		
+			</html:select>
+		</p>
+		<p><label for="adress"><bean:message key="form.adress"/><font color="red">*</font> </label><html:text property="adress" size="20" /></p>
+		<p><label for="postalCode"><bean:message key="form.postalCode"/><font color="red">*</font> </label><html:text property="postalCode" size="20" /></p>
+		<p><label for="city"><bean:message key="form.city"/><font color="red">*</font> </label><html:text property="city" size="20" /></p>
+		<p><label for="idDepartment"><bean:message key="form.department"/><font color="red">*</font> </label>
+			<html:select property="idDepartment">
+				<html:optionsCollection property="departments" value="id" label="name"/>		
+			</html:select>
+		<p><label for="phone"><bean:message key="form.phone"/></label><html:text property="fixPhone" size="20" /></p>	
+		<p><label for="mobile"><bean:message key="form.mobile"/></label><html:text property="portPhone" size="20" /></p>
+		<p><label for="fax"><bean:message key="form.fax"/></label><html:text property="fax" size="20" /></p>
+		<p><label for="mail"><bean:message key="form.email"/><font color="red">*</font> </label><html:text property="mail" size="20" /></p>
 	</div>
 	<br/>
 	<h3><bean:message key="title.pupils"/></h3>
@@ -60,38 +61,47 @@
 				<th><bean:message key="table.header.initDate"/></th>
 				<th><bean:message key="table.header.endDate"/></th>
 			</tr>
-			<tr>
-				<td><input type="checkbox" value="ON" /></td>
-				<td><html:link action="/apprenticeVisuAdress">Renaudin</html:link></td>
-				<td>Jean-Baptiste</td>
-				<td>IR3</td>
-				<td>2</td>
-				<td>20.09.2003</td>
-				<td>&nbsp;</td>
-			</tr>
-			<tr>
-				<td><input type="checkbox" value="ON" /></td>
-				<td><html:link action="/apprenticeVisuAdress">Mancel</html:link></td>
-				<td>Matthieu</td>
-				<td>IR3</td>
-				<td>2</td>
-				<td>20.09.2003</td>
-				<td>&nbsp;</td>
-			</tr>
+			
+			<logic:notEmpty name="firmActorModifyForm" property="pupilles">
+				<logic:iterate id="pupille" name="firmActorModifyForm" property="pupilles" type="fr.umlv.ir3.emagine.apprentice.Apprentice">
+					<tr>
+						<td><html:multibox property="currentSelectedIds" value="<%= pupille.getId().toString() %>" />&nbsp;</td>
+						<td><html:link action="/actorModify?action=show" paramId="id" paramName="pupille" paramProperty="id"><bean:write name="pupille" property="lastname" />&nbsp;</html:link></td>
+						<td><bean:write name="pupille" property="firstname" />&nbsp;</td>
+						<td><bean:write name="pupille" property="firstname" />&nbsp;</td>
+						<td><bean:write name="pupille" property="firstname" />&nbsp;</td>
+						<td><bean:write name="pupille" property="firstname" />&nbsp;</td>
+						<td><bean:write name="pupille" property="firstname" />&nbsp;</td>
+					</tr>
+				</logic:iterate>
+			</logic:notEmpty>	
+
+			<logic:empty name="firmActorModifyForm" property="pupilles">
+				<tr><td colspan="8">Pas de pupille</td></tr>
+			</logic:empty>
+
 		</table>
 	</div>
-	<br/>
-	<div id="actions">
-		<ul>
-			<li><a href="javascript:checkAll('results','all_none');">Tous</a>&nbsp;&nbsp;/</li>
-			<li><a href="javascript:checkNothing('results','all_none');">Aucun</a></li>
-		</ul>
-		<h2>&nbsp;</h2>
-		<ul>
-			<li><a href="#"><img src="/eMagine/common/images/icones/ok.png" title="<bean:message key="button.title.ok"/>"/></a></li>
-			<li><a href="#"><img src="/eMagine/common/images/icones/reinit.png" title="<bean:message key="button.title.reinitialize"/>"/></a></li>
-			<li><html:link action="/actorApprenticeAdd"><img src="/eMagine/common/images/icones/ajouter.png" title="<bean:message key="button.title.add"/>"/></html:link></li>
-		</ul>
-	</div>
-</form>
+
+<br/>
+
+<div id="actions">
+	<ul>
+		<li><a href="javascript:checkAll('currentSelectedIds','firmActorModifyForm');">Tous</a>&nbsp;&nbsp;/</li>
+		<li><a href="javascript:checkNothing('currentSelectedIds','firmActorModifyForm');">Aucun</a></li>
+	</ul>
+<br />
+<html:errors />
+	<h2>&nbsp;</h2>
+	<ul>
+		<li><html:link href="javascript:createActor();"><html:img src="/eMagine/common/images/icones/ok.png" titleKey="button.title.ok" /></html:link></li>
+		<li><html:link href="javascript:resetForm();"><html:img src="/eMagine/common/images/icones/reinit.png" titleKey="button.title.reinitialize" /></html:link></li>
+		<li><html:link action="/actorApprenticeAdd"><img src="/eMagine/common/images/icones/ajouter.png" title="<bean:message key="button.title.add"/>"/></html:link></li>
+	</ul>
+</div>
+
+<html:hidden property="action" />
+</html:form>
+
+
 <div align="right"><font color="red" size="1"><bean:message key="form.msg.obligation.star"/></font></div>

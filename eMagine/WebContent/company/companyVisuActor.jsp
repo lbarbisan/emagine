@@ -73,7 +73,7 @@
 			<li><a href="javascript:checkAll('firmActorListForm','currentSelectedIds');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
 			<li><a href="javascript:checkNothing('firmActorListForm','currentSelectedIds');"><bean:message key="all_none.none"/></a></li>
 		</ul>
-		<h2>&nbsp;</h2>	
+		<h2>&nbsp; </h2>	
 		<ul>
 			<li><html:link href="javascript:deletes();"><html:img src="/eMagine/common/images/icones/supprimer.png" titleKey="button.title.remove" /></html:link></li>
 			<li><html:link action="/actorMailingListCreate"><img src="/eMagine/common/images/icones/creer_mailing_list.png" title="<bean:message key="button.title.mailingListCreate"/>"/></html:link></li>
