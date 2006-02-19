@@ -86,36 +86,15 @@
 		<action path="/apprenticeVisuAdress" forward="apprentice.apprenticeVisuAdress" name="apprenticeModifyForm" scope="session" />
 		<action path="/apprenticeVisuSituation" forward="apprentice.apprenticeVisuSituation" name="apprenticeModifyForm" scope="session" />
 		<action path="/apprenticeVisuStatus" forward="apprentice.apprenticeVisuStatus" name="apprenticeModifyForm" scope="session" />
-		<action path="/apprenticeVisuSituation" forward="apprentice.apprenticeVisuSchooling" name="apprenticeModifyForm" scope="session" />
-		<action path="/apprenticeVisuSchooling" forward="apprentice.apprenticeVisuEvent" name="apprenticeModifyForm" scope="session" />
+		<action path="/apprenticeVisuSituation" forward="apprentice.apprenticeVisuSituation" name="apprenticeModifyForm" scope="session" />
+		<action path="/apprenticeVisuSchooling" forward="apprentice.apprenticeVisuSchooling" name="apprenticeModifyForm" scope="session" />
 		<action path="/apprenticeEventDetail" forward="apprentice.apprenticeEventDetail" name="apprenticeModifyForm" scope="session" />
 		<action path="/apprenticeVisuAbsence" forward="apprentice.apprenticeVisuAbsence" name="apprenticeModifyForm" scope="session" />
-	
-		<!-- <action path="/apprenticeVisuAdress"
-			forward="apprentice.apprenticeVisuAdress" /> 
-		<action path="/apprenticeVisuSituation"
-			forward="apprentice.apprenticeVisuSituation" />
-		<action path="/apprenticeVisuStatus"
-			forward="apprentice.apprenticeVisuStatus" />
-		<action path="/apprenticeVisuSchooling"
-			forward="apprentice.apprenticeVisuSchooling" />
-		<action path="/apprenticeVisuEvent"
-			forward="apprentice.apprenticeVisuEvent" />
-		<action path="/apprenticeEventDetail"
-			forward="apprentice.apprenticeEventDetail" />
-		<action path="/apprenticeVisuAbsence"
-			forward="apprentice.apprenticeVisuAbsence" />-->
-			
-		<action path="/apprenticeAbsenceDetail"
-			forward="apprentice.apprenticeAbsenceDetail" />
-		<action path="/apprenticeTutorAdd"
-			forward="apprentice.apprenticeTutorAdd" />
-		<action path="/apprenticeOnglet"
-			forward="apprentice.apprenticeOnglet" />
-		<action path="/apprenticeCompanyAdd"
-			forward="apprentice.apprenticeCompanyAdd" />
-		<action path="/apprenticeAbsenceAdd"
-			forward="apprentice.apprenticeAbsenceAdd" />		
+		<action path="/apprenticeAbsenceDetail" forward="apprentice.apprenticeAbsenceDetail" />
+		<action path="/apprenticeTutorAdd" forward="apprentice.apprenticeTutorAdd" />
+		<action path="/apprenticeOnglet" forward="apprentice.apprenticeOnglet" />
+		<action path="/apprenticeCompanyAdd" forward="apprentice.apprenticeCompanyAdd" />
+		<action path="/apprenticeAbsenceAdd" forward="apprentice.apprenticeAbsenceAdd" />
 		<action path="/apprenticeAbsenceAddAction" 
 			type="fr.umlv.ir3.emagine.apprentice.absence.ApprenticeAbsenceAddAction" 
 			name="apprenticeAbsenceAddForm" 
