@@ -86,7 +86,7 @@ public class FirmActorCreateAction extends BaseAction {
 				address.setPostalCode(firmActorModifyForm.getPostalCode());
 				address.setStreet(firmActorModifyForm.getAdress());
 				address.setDepartment(firmActorModifyForm.getIdDepartment() != null && !"".equals(firmActorModifyForm.getIdDepartment())
-						? (DepartmentEnum) ManagerManager.getInstance().getEmagineEnumManager().retrieve(Long.parseLong(firmActorModifyForm.getIdDepartment()),DepartmentEnum.class) : null);
+					? (DepartmentEnum) ManagerManager.getInstance().getEmagineEnumManager().retrieve(Long.parseLong(firmActorModifyForm.getIdDepartment()),DepartmentEnum.class) : null);
 			}
 			
 			actor.setAddressPersonnal(address);

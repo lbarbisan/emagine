@@ -8,7 +8,17 @@
 		document.firmActorModifyForm.action.value = value;
 	}
 
-
+	function deleteActor() {
+		if(confirm("Souhaitez-vous réellement supprimer cet acteur ?")) {
+			open("/eMagine/actorDelete.do?action=delete&from=modify&currentSelectedIds=" + document.firmActorModifyForm.elements['idFirmActorToModify'].value, "_self");
+		}
+	}
+	
+	function modifyActor() {
+		setAction('modify');
+		document.firmActorModifyForm.submit();
+	}
+	
 	function resetForm() {
 		document.firmActorModifyForm.reset();
 	}
@@ -21,7 +31,6 @@
 		<li><html:link action="/actorVisuEvent">Ev&eacute;nement</html:link></li>
 	</ul>
 </div>
-
 
 <html:form action="/actorModify" method="POST" focus="lastname">
 
@@ -98,13 +107,16 @@
 
 		<h2>&nbsp;</h2>	
 		<ul>
-			<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" title="<bean:message key="button.title.remove"/>"/></a></li>
+			<li><html:link href="javascript:modifyActor();"><html:img src="/eMagine/common/images/icones/modif.png" titleKey="button.title.update" /></html:link></li>
+			<li><html:link href="javascript:resetForm();"><html:img src="/eMagine/common/images/icones/reinit.png" titleKey="button.title.reinitialize" /></html:link></li>
+			<li><html:link href="javascript:deleteActor();"><html:img src="/eMagine/common/images/icones/supprimer.png" titleKey="button.title.remove" /></html:link></li>
 			<li><html:link action="/actorApprenticeAdd"><img src="/eMagine/common/images/icones/ajouter.png" title="<bean:message key="button.title.add"/>"/></html:link></li>
 		</ul>
 	</div>
 	</div>
 
 <html:hidden property="action"/>
+<html:hidden property="idFirmActorToModify"/>
 </html:form>
 
 <div align="right"><font color="red" size="1"><bean:message key="form.msg.obligation.star"/></font></div>
