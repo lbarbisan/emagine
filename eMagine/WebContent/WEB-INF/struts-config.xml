@@ -32,8 +32,6 @@
 		<form-bean name="companySearchForm" type="fr.umlv.ir3.emagine.firm.FirmSearchForm" />
 		<form-bean name="companyModifyForm" type="fr.umlv.ir3.emagine.firm.FirmModifyForm" />
 		<form-bean name="companyListForm" type="fr.umlv.ir3.emagine.firm.FirmListForm" />
-		<form-bean name="jobModifyForm" type="fr.umlv.ir3.emagine.firm.JobModifyForm" />
-		<form-bean name="jobListForm" type="fr.umlv.ir3.emagine.firm.JobListForm" />
 	</form-beans>
 
 	<!-- ========== Action Mapping Definitions =============================== -->
@@ -88,8 +86,8 @@
 		<action path="/apprenticeVisuAdress" forward="apprentice.apprenticeVisuAdress" name="apprenticeModifyForm" scope="session" />
 		<action path="/apprenticeVisuSituation" forward="apprentice.apprenticeVisuSituation" name="apprenticeModifyForm" scope="session" />
 		<action path="/apprenticeVisuStatus" forward="apprentice.apprenticeVisuStatus" name="apprenticeModifyForm" scope="session" />
-		<action path="/apprenticeVisuSchooling" forward="apprentice.apprenticeVisuSchooling" name="apprenticeModifyForm" scope="session" />
-		<action path="/apprenticeVisuEvent" forward="apprentice.apprenticeVisuEvent" name="apprenticeModifyForm" scope="session" />
+		<action path="/apprenticeVisuSituation" forward="apprentice.apprenticeVisuSchooling" name="apprenticeModifyForm" scope="session" />
+		<action path="/apprenticeVisuSchooling" forward="apprentice.apprenticeVisuEvent" name="apprenticeModifyForm" scope="session" />
 		<action path="/apprenticeEventDetail" forward="apprentice.apprenticeEventDetail" name="apprenticeModifyForm" scope="session" />
 		<action path="/apprenticeVisuAbsence" forward="apprentice.apprenticeVisuAbsence" name="apprenticeModifyForm" scope="session" />
 	
@@ -199,12 +197,9 @@
 		<action path="/companyVisuActor" forward="company.companyVisuActor" name="companyModifyForm" scope="session" />
 		<action path="/companyVisuEvent" forward="company.companyVisuEvent" name="companyModifyForm" scope="session" />
 		<action path="/companyVisuInfo" forward="company.companyVisuInfo" name="companyModifyForm" scope="session" />
-		<action path="/companyVisuPost" type="fr.umlv.ir3.emagine.firm.JobListAction" name="jobListForm" scope="session">
-			<forward name="_default_target_" path="company.companyVisuPost" />
-		</action>
+		<action path="/companyVisuPost" forward="company.companyVisuPost" name="companyModifyForm" scope="session" />
 
-		<!-- comapny actor -->
-		<action path="/actorCreate" forward="company.actorCreate" />
+<!-- 
 		<action path="/actorApprenticeAdd" forward="company.actorApprenticeAdd" />
 		<action path="/actorCreate" forward="company.actorCreate" />
 		<action path="/actorEmailDo" forward="company.actorEmailDo" />
@@ -216,25 +211,6 @@
 		<action path="/actorOnglet" forward="company.actorOnglet" />
 		<action path="/actorVisuEvent" forward="company.actorVisuEvent" />
 		<action path="/actorVisuInfo" forward="company.actorVisuInfo" />
-
-		<!-- comapny job -->
-		<action path="/jobCreate" type="fr.umlv.ir3.emagine.firm.JobCreateAction" name="jobModifyForm" input="company.postCreate" parameter="action" scope="session" validate="true">
-			<forward name="_default_target_" path="company.postCreate" />
-			<forward name="success" path="/companyVisuPost.do" redirect="true" />
-		</action>
-		<action path="/jobModify" type="fr.umlv.ir3.emagine.firm.JobModifyAction" name="jobModifyForm" input="company.postDetail" parameter="action" scope="session" validate="true">
-			<forward name="_default_target_" path="/companyVisuPost.do" redirect="true" />
-			<forward name="success" path="/companyVisuPost.do" redirect="true" />
-		</action>
-		<action path="/jobDelete" type="fr.umlv.ir3.emagine.firm.JobDeleteAction" parameter="action">
-			<forward name="_default_target_" path="/companyVisuPost.do" redirect="true" />
-		</action>
-		<action path="/jobModify" type="fr.umlv.ir3.emagine.firm.JobModifyAction" name="jobModifyForm" input="company.postDetail" parameter="action" scope="session" validate="true">
-			<forward name="_default_target_" path="company.postDetail" redirect="true" />
-			<forward name="success" path="/companyVisuPost.do" redirect="true" />
-		</action>
-
-<!-- 
 		<action path="/companyEventDetail" forward="company.companyEventDetail" />
 		<action path="/companyEventExtract" forward="company.companyEventExtract" />
 		<action path="/companyExtract" forward="company.companyExtract" />

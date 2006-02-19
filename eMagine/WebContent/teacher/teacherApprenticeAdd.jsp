@@ -78,6 +78,7 @@
 			<p><label for="sex"><bean:message key="radio.sex"/></label>
 				<logic:notEmpty name="candidateModifyForm" property="sexes">
 					<logic:iterate id="sex" name="candidateModifyForm" property="sexes" type="fr.umlv.ir3.emagine.apprentice.SexEnum">
+						 
   						<bean:write name="sex" property="name"/>
 					</logic:iterate>	   	
 				</logic:notEmpty>

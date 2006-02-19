@@ -71,6 +71,10 @@ public class CandidateModifyAction extends BaseAction {
 				if(candidate.getBirthdayDate() != null) {
 					candidateModifyForm.setBirth(dateToShow(candidate.getBirthdayDate()));		
 				}
+				//department of birth
+				if(candidate.getBirthdayDepartment() != null) {
+					candidateModifyForm.setIdDepartment(Long.toString(candidate.getBirthdayDepartment().getId()));
+				}
 				//country of birth
 				if(candidate.getBirthdayCountry() != null) {
 					candidateModifyForm.setIdCountry(Long.toString(candidate.getBirthdayCountry().getId()));
@@ -78,10 +82,6 @@ public class CandidateModifyAction extends BaseAction {
 				//nationality
 				if(candidate.getNationality() != null) {
 					candidateModifyForm.setIdNationality(Long.toString(candidate.getNationality().getId()));
-				}
-				//department of birth
-				if(candidate.getBirthdayDepartment() != null) {
-					candidateModifyForm.setIdDepartment(Long.toString(candidate.getBirthdayDepartment().getId()));
 				}
 				//course option of the candidate
 				if(candidate.getCourseOption() != null) {

@@ -96,7 +96,6 @@ public class Apprentice extends Candidate {
 				candidate.getLastName(), candidate.getFirstName(), candidate.getEmail(), candidate.getPhone(), candidate.getMobilePhone(), candidate.getFax(), candidate.getContactOriginIG2K(),
 				candidate.getFormationCenter(), candidate.getRoom(), candidate.isOtherFormation(), candidate.isAccepted(), candidate.getEntryLevel(),
 				candidate.getProfessionMother(), candidate.getProfessionFather(), candidate.getCourseOption());
-		
 	}
 
 	/**

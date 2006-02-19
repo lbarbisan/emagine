@@ -105,7 +105,7 @@ public class CandidateModifyForm extends ActionForm {
 	/** Identifier of selected sexe **/
 	private String idLevel;
 	
-	/** candidate city **/
+	/** candidate city of birth **/
 	private String city;
 	
 	/** Use to action **/

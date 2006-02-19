@@ -37,19 +37,19 @@
 					<p>
 						<label for="courseOption"><bean:message key="criteria.search.die"/></label>
 						<html:select property="idCourseOption">
-							<logic:notEmpty name="apprenticeSearchForm" property="courseOptions">
+							<!-- <logic:notEmpty name="apprenticeSearchForm" property="courseOptions">-->
 								<option value="" selected></option>
 								<html:optionsCollection property="courseOptions" value="id" label="name"/>		
-							</logic:notEmpty>
+							<!--</logic:notEmpty>-->
 						</html:select>
 					</p>
 					<p>
 						<label for="year"><bean:message key="criteria.search.year"/></label>
 						<html:select property="idYear">
-							<logic:notEmpty name="apprenticeSearchForm" property="years">
+							<!-- <logic:notEmpty name="apprenticeSearchForm" property="years">-->
 								<option value="" selected></option>
 								<html:optionsCollection property="years" value="id" label="name"/>		
-							</logic:notEmpty>
+							<!--</logic:notEmpty>-->
 						</html:select>
 					</p>
 				</div>

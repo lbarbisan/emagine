@@ -1,8 +1,8 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
+<%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic"%>
 <script type="text/javascript">
 <!--
-
 	function setAction(value) {
 		document.apprenticeModifyForm.action.value = value;
 	}
@@ -20,10 +20,17 @@
 		document.apprenticeModifyForm.action = "/eMagine/" + action + ".do";
 		document.apprenticeModifyForm.submit();
 	}
+	function affectCompany() {
+		document.apprenticeModifyForm.action = "/eMagine/apprenticeCompanyAdd.do";
+		document.apprenticeModifyForm.submit();
+	}
+	function affectTeacherTutor() {
+		document.apprenticeModifyForm.action = "/eMagine/apprenticeTutorAdd.do";
+		document.apprenticeModifyForm.submit();
+	}
 -->
 </script>
-
-<form name="results">
+<html:form action="/apprenticeModify" method="POST" focus="courseOptions">
 	<div class="tabs">
 		<ul>
 			<li><html:link href="javascript:change('apprenticeVisuAdress');"><bean:message key="onglet.adress"/></html:link></li>
@@ -40,48 +47,65 @@
 	<br/>
 	<fieldset>
 		<legend><bean:message key="form.fieldset.promotion"/></legend>
-		<p><label for="die"><bean:message key="form.die"/></label>
-			<select name="die">
-				<option value="ir">IR</option>
-				<option value="mfpi">MFPI</option>
-				<option value="gmu">GMU</option>
-			</select></p>
+		<p>
+			<label for="courseOptions"><bean:message key="form.die"/></label>
+			<html:select property="idCourseOption">
+				<logic:notEmpty name="apprenticeModifyForm" property="courseOptions">
+					<html:optionsCollection property="courseOptions" value="id" label="name"/>
+				</logic:notEmpty>
+			</html:select>
+		</p>
 		<p><label for="year"><bean:message key="form.year"/></label>
-			<select name="year">
-				<!-- mettre en base, pas de valeur par défaut, elle sera sélectionnée selon l'apprenti concerné -->
-				<option value="1">1</option>
-				<option value="2">2</option>
-				<option value="3">3</option>
-				<option value="4">4</option>
-				<option value="5">5</option>
-			</select></p>
+			<html:select property="idYear">
+				<logic:notEmpty name="apprenticeModifyForm" property="years">
+					<html:optionsCollection property="years" value="id" label="name"/>
+				</logic:notEmpty>
+			</html:select>
+		</p>
 		<p><label for="group"><bean:message key="form.group"/></label>
-			<select name="group">
-				<!-- mettre en base, pas de valeur par défaut, elle sera sélectionnée selon l'apprenti concerné -->
-				<option value="1"><bean:message key="form.group1"/></option>
-				<option value="2"><bean:message key="form.group2"/></option>
-			</select></p>
+			<html:select property="idYear">
+				<logic:notEmpty name="apprenticeModifyForm" property="groups">
+					<html:optionsCollection property="groups" value="id" label="name"/>
+				</logic:notEmpty>
+			</html:select>
+		</p>
 	</fieldset>
 	<br/>
 	<fieldset>
 		<legend><bean:message key="form.fieldset.company"/></legend>
-		<p><label for="companyName"><bean:message key="form.name"/><font color="red">*</font>&nbsp;</label><input type="text" id="companyName" size="20" />
-			<html:link action="/apprenticeCompanyAdd"><span class="buttons"><input type="button" value="<bean:message key="button.title.affect"/>" /></span></html:link></p>
+		<p><label for="companyName"><bean:message key="form.name"/><font color="red">*</font>&nbsp;</label><html:text property="companyName" size="20" />
+			<div class="buttons">
+				<html:submit onclick="javascript:setAction('affectCompany');" titleKey="button.title.affect"><bean:message key="form.affect"/></html:submit>
+			</div>
+		</p>
 	</fieldset>
 	<br/>
 	<fieldset>
 		<legend><bean:message key="form.fieldset.tutelage"/></legend>
-		<p><label for="engineTutor"><bean:message key="form.company.tutor"/><font color="red">*</font> </label>
-			<select name="engineTutor">
-				<!--données de la mettre en base selon l'entreprise concernée -->
-				<option value="1">Mr&nbsp;tuteur&nbsp;1</option>
-				<option value="2">Mr&nbsp;tuteur&nbsp;2</option>
-			</select></p>
-		<p><label for="teacherTutor"><bean:message key="form.teacher.tutor"/><font color="red">*</font>&nbsp;</label><input type="text" id="teacherTutor" size="20" />
-		<html:link action="/apprenticeTutorAdd"><span class="buttons"><input type="button" value="<bean:message key="button.title.affect"/>" /></span></html:link></p>
+		<p><label for="engineTutor"><bean:message key="form.company.tutor"/><font color="red">*</font></label>
+			<html:select property="idEngineerTutor">
+				<logic:notEmpty name="apprenticeModifyForm" property="engineerTutors">
+					<html:optionsCollection property="engineerTutor" value="id" label="name"/>
+				</logic:notEmpty>
+			</html:select>
+		</p>
+		<p><label for="teacherTutor"><bean:message key="form.teacher.tutor"/><font color="red">*</font>&nbsp;</label>
+		<html:select property="idTeacherTutor">
+				<logic:notEmpty name="apprenticeModifyForm" property="teacherTutors">
+					<html:optionsCollection property="teacherTutor" value="id" label="name"/>
+				</logic:notEmpty>
+			</html:select>
+			<div class="buttons">
+				<html:submit onclick="javascript:setAction('affectTeacherTutor');" titleKey="button.title.affect"><bean:message key="form.affect"/></html:submit>
+			</div>
+		</p>
+			<!-- <html:link action="/apprenticeTutorAdd"><span class="buttons"><input type="button" value="<bean:message key="button.title.affect"/>" /></span></html:link></p>-->
 	</fieldset> 
 <br/>           
 </div>
+<html:errors />
+<html:hidden property="idApprenticeToModify" />
+<html:hidden property="action" />
 <div align="right"><font color="red" size="1"><bean:message key="form.msg.obligation.star"/></font></div>
 </div>
 <div id="actions">
@@ -91,3 +115,4 @@
 		<li><html:link href="javascript:resetForm();"><html:img src="/eMagine/common/images/icones/reinit.png" titleKey="button.title.reinitialize" /></html:link></li>
 	</ul>
 </div>
+</html:form>

@@ -15,7 +15,9 @@ import fr.umlv.ir3.emagine.teachertutor.TeacherTutor;
 import fr.umlv.ir3.emagine.util.Bundles;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
+import fr.umlv.ir3.emagine.util.EmagineEnumManager;
 import fr.umlv.ir3.emagine.util.HibernateUtils;
+import fr.umlv.ir3.emagine.util.ManagerManager;
 import fr.umlv.ir3.emagine.util.base.EventableManagerImpl;
 
 public class ApprenticeManagerImpl extends EventableManagerImpl<Apprentice, ApprenticeDAO> implements ApprenticeManager {
@@ -81,6 +83,9 @@ public class ApprenticeManagerImpl extends EventableManagerImpl<Apprentice, Appr
 			DAOManager.commitTransaction();
 			DAOManager.beginTransaction();
 			apprentice = DAOManager.getInstance().getApprenticeDAO().Integrate(candidate);
+			DefaultAddressEnum defaultAddressEnum= (DefaultAddressEnum) ManagerManager.getInstance().getEmagineEnumManager().find("Personnelle", DefaultAddressEnum.class);
+			apprentice.setDefaultAddress(defaultAddressEnum);
+			getDAO().update(apprentice);
 			DAOManager.commitTransaction();
 		} catch (HibernateException exception) {
 			throw new EMagineException("exception.ApprenticeDAO.create", exception);

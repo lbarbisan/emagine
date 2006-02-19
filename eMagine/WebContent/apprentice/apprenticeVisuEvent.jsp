@@ -5,19 +5,14 @@
 	function setAction(value) {
 		document.apprenticeModifyForm.action.value = value;
 	}
-	
-	function modifyApprentice() {
-		setAction('modify');
-		document.apprenticeModifyForm.submit();
-	}
 
 	function resetForm() {
 		document.apprenticeModifyForm.reset();
 	}
-	
+		
 	function change(action) {
-		document.apprenticeModifyForm.action = "/eMagine/" + action + ".do";
-		document.apprenticeModifyForm.submit();
+		document.companyModifyForm.action = "/eMagine/" + action + ".do";
+		document.companyModifyForm.submit();
 	}
 -->
 </script>

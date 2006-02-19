@@ -9,13 +9,12 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 
+import fr.umlv.ir3.emagine.apprentice.candidate.ContactEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.CourseOptionEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.DiplomaEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.ProfessionEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.SectionEnum;
-import fr.umlv.ir3.emagine.firm.Firm;
 import fr.umlv.ir3.emagine.firm.actor.EngineerTutor;
-import fr.umlv.ir3.emagine.teachertutor.TeacherTutor;
 
 public class ApprenticeModifyForm extends ActionForm {
 
@@ -140,6 +139,53 @@ public class ApprenticeModifyForm extends ActionForm {
 	
 	/*****************************************
 	 *
+	 * Part of the form for the situation tab :
+	 * 
+	******************************************/
+	
+	/** List of all of course options **/
+	private Collection <CourseOptionEnum> courseOptions;
+	
+	/** Identifier of selected course option **/
+	private String idCourseOption;
+
+	/** List of all of course options **/
+	private Collection <YearEnum> years;
+
+	/** Identifier of selected year **/
+	private String idYear;
+	
+	/** List of all of course options **/
+	private Collection <GroupEnum> groups;
+	
+	/** Identifier of selected groupe **/
+	private String idGroup;
+	
+	/** List of all of firms **/
+	//private Collection <Firm> firms;
+	
+	/** Identifier of selected firm **/
+	//private String idFirm;
+	
+	//TODO liste déroulante de firms ou champ texte??
+	private String companyName;
+	
+	/** List of all of engineer tutors **/
+	private Collection <EngineerTutor> engineerTutors;
+	
+	/** Identifier of selected engineer tutors **/
+	private String idEngineerTutor;
+	
+	/** List of all of teacher tutors **/
+	//private Collection <TeacherTutor> teacherTutors;
+	
+	/** Identifier of selected teacher tutors **/
+	//private String idTeacherTutor;
+
+	private String teacherTutor;
+	
+	/*****************************************
+	 *
 	 * Part of the form for the schooling tab :
 	 * 
 	******************************************/
@@ -168,44 +214,7 @@ public class ApprenticeModifyForm extends ActionForm {
 	/** Identifier of selected section **/
 	private String idSection;
 	
-	//TODO : comprendre l'interface graphique 
-	
-	/*****************************************
-	 *
-	 * Part of the form for the situation tab :
-	 * 
-	******************************************/
-	
-	/** List of all of course options **/
-	private Collection <CourseOptionEnum> courseOptions;
-	
-	/** Identifier of selected course option **/
-	private String idCourseOption;
-
-	/** Identifier of selected year **/
-	private String idYear;
-	
-	/** Identifier of selected groupe **/
-	private String idGroup;
-	
-	/** List of all of firms **/
-	private Collection <Firm> firms;
-	
-	/** Identifier of selected firm **/
-	private String idFirm;
-	
-	/** List of all of engineer tutors **/
-	private Collection <EngineerTutor> engineerTutors;
-	
-	/** Identifier of selected engineer tutors **/
-	private String idEngineerTutor;
-	
-	/** List of all of teacher tutors **/
-	private Collection <TeacherTutor> teacherTutors;
-	
-	/** Identifier of selected teacher tutors **/
-	private String idTeacherTutor;	
-	
+		
 	/*****************************************
 	 *
 	 * Part of the form for the status tab :
@@ -218,23 +227,20 @@ public class ApprenticeModifyForm extends ActionForm {
 	/** apprentice lastname **/
 	private String lastName;
 
-	/** apprentice date of birth **/
-	private String birth;
-
 	/** List of all sexes **/
 	private Collection <SexEnum> sexes;
 	
-	/** Identifier of selected sexe **/
+	/** Identifier of selected sex **/
 	private String idSex;
-	
-	/** List of all professions **/
-	private Collection <ProfessionEnum> professions;
-	
-	/** Identifier of selected profession of the mother **/
-	private String idMother;
 
-	/** Identifier of selected profession of the father **/
-	private String idFather;
+	/** apprentice date of birth **/
+	private String birth;
+	
+	/** Identifier of selected department birth **/
+	private String idDepartmentBirth;
+	
+	/** candidate city of birth **/
+	private String city;
 	
 	/** List of all countries **/
 	private Collection <CountryEnum> countries;
@@ -247,7 +253,23 @@ public class ApprenticeModifyForm extends ActionForm {
 	
 	/** Identifier of selected nationality **/
 	private String idNationality;
+	
+	/** List of all professions **/
+	private Collection <ProfessionEnum> professions;
+	
+	/** Identifier of selected profession of the mother **/
+	private String idMother;
 
+	/** Identifier of selected profession of the father **/
+	private String idFather;
+
+	/** List of all contacts **/
+	private Collection <ContactEnum> contacts;
+	
+	/** Identifier of selected contact **/
+	private String idContact;
+	
+	
 	/** Use to action **/
 	private String action;
 
@@ -310,6 +332,25 @@ public class ApprenticeModifyForm extends ActionForm {
 		acaPhone ="";
 		acaPostalCode = "";
 		action = "";
+		firstName="";
+		lastName="";
+		sexes = null;
+		idSex="";
+		birth="";
+		idDepartmentBirth="";
+		city="";
+		countries=null;
+		idCountry="";
+		nationalities=null;
+		idNationality="";
+		professions=null;
+		idMother="";
+		idFather="";
+		contacts=null;
+		idContact="";
+		
+		
+		
 		idAbsenceToModify = "";
 		idApprenticeToModify = "";
 	}
@@ -875,20 +916,6 @@ public class ApprenticeModifyForm extends ActionForm {
 	}
 
 	/**
-	 * @return Returns the firms.
-	 */
-	public Collection<Firm> getFirms() {
-		return firms;
-	}
-
-	/**
-	 * @param firms The firms to set.
-	 */
-	public void setFirms(Collection<Firm> firms) {
-		this.firms = firms;
-	}
-
-	/**
 	 * @return Returns the firstName.
 	 */
 	public String getFirstName() {
@@ -970,20 +997,6 @@ public class ApprenticeModifyForm extends ActionForm {
 	 */
 	public void setIdFather(String idFather) {
 		this.idFather = idFather;
-	}
-
-	/**
-	 * @return Returns the idFirm.
-	 */
-	public String getIdFirm() {
-		return idFirm;
-	}
-
-	/**
-	 * @param idFirm The idFirm to set.
-	 */
-	public void setIdFirm(String idFirm) {
-		this.idFirm = idFirm;
 	}
 
 	/**
@@ -1082,20 +1095,6 @@ public class ApprenticeModifyForm extends ActionForm {
 	 */
 	public void setIdSex(String idSex) {
 		this.idSex = idSex;
-	}
-
-	/**
-	 * @return Returns the idTeacherTutor.
-	 */
-	public String getIdTeacherTutor() {
-		return idTeacherTutor;
-	}
-
-	/**
-	 * @param idTeacherTutor The idTeacherTutor to set.
-	 */
-	public void setIdTeacherTutor(String idTeacherTutor) {
-		this.idTeacherTutor = idTeacherTutor;
 	}
 
 	/**
@@ -1209,21 +1208,6 @@ public class ApprenticeModifyForm extends ActionForm {
 	public void setSexes(Collection<SexEnum> sexes) {
 		this.sexes = sexes;
 	}
-
-	/**
-	 * @return Returns the teacherTutors.
-	 */
-	public Collection<TeacherTutor> getTeacherTutors() {
-		return teacherTutors;
-	}
-
-	/**
-	 * @param teacherTutors The teacherTutors to set.
-	 */
-	public void setTeacherTutors(Collection<TeacherTutor> teacherTutors) {
-		this.teacherTutors = teacherTutors;
-	}
-
 	/**
 	 * @return Returns the justifications.
 	 */
@@ -1236,6 +1220,118 @@ public class ApprenticeModifyForm extends ActionForm {
 	 */
 	public void setJustifications(Collection<JustificationEnum> justifications) {
 		this.justifications = justifications;
+	}
+
+	/**
+	 * @return Returns the city.
+	 */
+	public String getCity() {
+		return city;
+	}
+
+	/**
+	 * @param city The city to set.
+	 */
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	/**
+	 * @return Returns the idDepartmentBirth.
+	 */
+	public String getIdDepartmentBirth() {
+		return idDepartmentBirth;
+	}
+
+	/**
+	 * @param idDepartmentBirth The idDepartmentBirth to set.
+	 */
+	public void setIdDepartmentBirth(String idDepartmentBirth) {
+		this.idDepartmentBirth = idDepartmentBirth;
+	}
+
+	/**
+	 * @return Returns the contacts.
+	 */
+	public Collection<ContactEnum> getContacts() {
+		return contacts;
+	}
+
+	/**
+	 * @param contacts The contacts to set.
+	 */
+	public void setContacts(Collection<ContactEnum> contacts) {
+		this.contacts = contacts;
+	}
+
+	/**
+	 * @return Returns the idContact.
+	 */
+	public String getIdContact() {
+		return idContact;
+	}
+
+	/**
+	 * @param idContact The idContact to set.
+	 */
+	public void setIdContact(String idContact) {
+		this.idContact = idContact;
+	}
+
+	/**
+	 * @return Returns the groups.
+	 */
+	public Collection<GroupEnum> getGroups() {
+		return groups;
+	}
+
+	/**
+	 * @param groups The groups to set.
+	 */
+	public void setGroups(Collection<GroupEnum> groups) {
+		this.groups = groups;
+	}
+
+	/**
+	 * @return Returns the years.
+	 */
+	public Collection<YearEnum> getYears() {
+		return years;
+	}
+
+	/**
+	 * @param years The years to set.
+	 */
+	public void setYears(Collection<YearEnum> years) {
+		this.years = years;
+	}
+
+	/**
+	 * @return Returns the companyName.
+	 */
+	public String getCompanyName() {
+		return companyName;
+	}
+
+	/**
+	 * @param companyName The companyName to set.
+	 */
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
+
+	/**
+	 * @return Returns the teacherTutor.
+	 */
+	public String getTeacherTutor() {
+		return teacherTutor;
+	}
+
+	/**
+	 * @param teacherTutor The teacherTutor to set.
+	 */
+	public void setTeacherTutor(String teacherTutor) {
+		this.teacherTutor = teacherTutor;
 	}
 
 }

@@ -8,6 +8,7 @@ import java.util.List;
 import fr.umlv.ir3.emagine.apprentice.CountryEnum;
 import fr.umlv.ir3.emagine.apprentice.DefaultAddressEnum;
 import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
+import fr.umlv.ir3.emagine.apprentice.GroupEnum;
 import fr.umlv.ir3.emagine.apprentice.JustificationEnum;
 import fr.umlv.ir3.emagine.apprentice.LanguageEnum;
 import fr.umlv.ir3.emagine.apprentice.LevelEntryEnum;
@@ -37,6 +38,19 @@ public class InitEnums {
 		enums =  new DefaultAddressEnum("Professionnelle");
 		emagineEnumDAO.create(enums);
 		enums =  new DefaultAddressEnum("Académique");
+		emagineEnumDAO.create(enums);
+	}
+	
+	static final void createGroupEnum(int start, int length) throws EMagineException
+	{
+		EmagineEnumDAO emagineEnumDAO =  DAOManager.getInstance().getEmagineEnumDAO();
+		GroupEnum enums =  new GroupEnum("1A");
+		emagineEnumDAO.create(enums);
+		enums =  new GroupEnum("1B");
+		emagineEnumDAO.create(enums);
+		enums =  new GroupEnum("2A");
+		emagineEnumDAO.create(enums);
+		enums =  new GroupEnum("2B");
 		emagineEnumDAO.create(enums);
 	}
 	

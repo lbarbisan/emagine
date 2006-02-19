@@ -35,14 +35,14 @@
 		<mapping class="fr.umlv.ir3.emagine.apprentice.NationalityEnum"/>
 		<mapping class="fr.umlv.ir3.emagine.apprentice.SexEnum"/>
 		<mapping class="fr.umlv.ir3.emagine.apprentice.YearEnum"/>
-		<mapping class="fr.umlv.ir3.emagine.apprentice.JustificationEnum"/>
+		<mapping class="fr.umlv.ir3.emagine.apprentice.GroupEnum"/>
+		<mapping class="fr.umlv.ir3.emagine.apprentice.JustificationEnum"/>		
 		
-		
-		<mapping package="fr.umlv.ir3.emagine.apprentice.candidate"/> 
+		<mapping package="fr.umlv.ir3.emagine.apprentice.candidate"/>
 		<mapping class="fr.umlv.ir3.emagine.apprentice.candidate.Candidate"/>
 		<mapping class="fr.umlv.ir3.emagine.apprentice.candidate.CourseOptionEnum"/>
 		<mapping class="fr.umlv.ir3.emagine.apprentice.candidate.ProfessionEnum"/>
- 				
+ 		
 		<mapping package="fr.umlv.ir3.emagine.apprentice.candidate.examcenter"/>
 		<mapping class="fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenter"/>
  		

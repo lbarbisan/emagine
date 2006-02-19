@@ -8,19 +8,14 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessages;
-
-import fr.umlv.ir3.emagine.apprentice.absence.Absence;
-import fr.umlv.ir3.emagine.apprentice.absence.AbsenceManager;
-import fr.umlv.ir3.emagine.apprentice.candidate.Candidate;
-import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenterManager;
+import fr.umlv.ir3.emagine.apprentice.candidate.ContactEnum;
+import fr.umlv.ir3.emagine.apprentice.candidate.ProfessionEnum;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.EmagineEnumManager;
 import fr.umlv.ir3.emagine.util.ManagerManager;
@@ -73,11 +68,25 @@ public class ApprenticeModifyAction extends BaseAction {
 					//apprenticeModifyAbsenceForm.setIdJustification(Long.toString(absence.getJustification().getId()));
 				}
 			}*/
+			
+			/**
+			 * Commons datas for the apprentice
+			 */		
+			
 			String idApprentice = request.getParameter("id");			
 			if(idApprentice != null && !"".equals(idApprentice)) {
 				Apprentice apprentice = managerManager.getApprenticeManager().retrieve(Long.parseLong(idApprentice));
 				apprenticeModifyForm.setIdApprenticeToModify(idApprentice);
 				
+				/**
+				 * Datas concerning the Addresses of the apprentice
+				 */
+				// default address
+				if(apprentice.getDefaultAddress() != null) {
+					apprenticeModifyForm.setIdDefaultAddress(Long.toString(apprentice.getDefaultAddress().getId()));
+				}
+				
+				//personnal address
 				if(apprentice.getAddressPersonnal() != null) {
 					if(apprentice.getAddressPersonnal().getStreet() != null) {
 					apprenticeModifyForm.setPersAddress(apprentice.getAddressPersonnal().getStreet().toString());
@@ -99,6 +108,7 @@ public class ApprenticeModifyAction extends BaseAction {
 				apprenticeModifyForm.setPersMobile(apprentice.getMobilePhone());
 				apprenticeModifyForm.setPersFax(apprentice.getFax());
 
+				//professionnal address
 				if(apprentice.getAddressProfessional() != null) {
 					if(apprentice.getAddressProfessional().getStreet() != null) {
 					apprenticeModifyForm.setProfAddress(apprentice.getAddressProfessional().getStreet().toString());
@@ -120,6 +130,7 @@ public class ApprenticeModifyAction extends BaseAction {
 				apprenticeModifyForm.setProfMobile(apprentice.getProfMobile());
 				apprenticeModifyForm.setProfFax(apprentice.getProfFax());
 				
+				//Academic address
 				if(apprentice.getAddressAcademic() != null) {
 					if(apprentice.getAddressAcademic().getStreet() != null) {
 					apprenticeModifyForm.setAcaAddress(apprentice.getAddressAcademic().getStreet().toString());
@@ -141,16 +152,75 @@ public class ApprenticeModifyAction extends BaseAction {
 				apprenticeModifyForm.setAcaMobile(apprentice.getAcaMobile());
 				apprenticeModifyForm.setAcaFax(apprentice.getAcaFax());
 			
-				//Retrieve all department and set them in the form
+				
+				/**
+				 * Datas concerning the Addresses of the apprentice
+				 */
+				//first name
+				apprenticeModifyForm.setFirstName(apprentice.getFirstName());
+				//last name
+				apprenticeModifyForm.setLastName(apprentice.getLastName());				
+				//Sex
+				if(apprentice.getSex() != null) {
+					apprenticeModifyForm.setIdSex(Long.toString(apprentice.getSex().getId()));
+				}
+				// Birthday date
+				if(apprentice.getBirthdayDate() != null) {
+					apprenticeModifyForm.setBirth(dateToShow(apprentice.getBirthdayDate()));		
+				}
+				// city of birth
+				apprenticeModifyForm.setCity(apprentice.getBirthdayCity());
+	
+				// country of birth
+				if(apprentice.getBirthdayCountry() != null) {
+					apprenticeModifyForm.setIdCountry(Long.toString(apprentice.getBirthdayCountry().getId()));
+				}
+				//nationality
+				if(apprentice.getNationality() != null) {
+					apprenticeModifyForm.setIdNationality(Long.toString(apprentice.getNationality().getId()));
+				}
+				//department of birth
+				if(apprentice.getBirthdayDepartment() != null) {
+					apprenticeModifyForm.setIdDepartmentBirth(Long.toString(apprentice.getBirthdayDepartment().getId()));
+				}
+				//profession of the mother of apprentice
+				if(apprentice.getProfessionMother() != null) {
+					apprenticeModifyForm.setIdMother(Long.toString(apprentice.getProfessionMother().getId()));
+				}
+				//profession of the father of apprentice
+				if(apprentice.getProfessionFather() != null) {
+					apprenticeModifyForm.setIdFather(Long.toString(apprentice.getProfessionFather().getId()));
+				}
+				
+				//origin of the contact
+				if(apprentice.getContactOriginIG2K() != null) {
+					apprenticeModifyForm.setIdContact(Long.toString(apprentice.getContactOriginIG2K().getId()));
+				}
+				
+				/** Commons lists : **/
+				
+				//Retrieve all departments and set them in the form
 				apprenticeModifyForm.setDepartments((List<DepartmentEnum>)emagineEnumManager.findAll(DepartmentEnum.class));
 				
-				//Retrieve all address types and set them in the form
+				//Retrieve all addresses types and set them in the form
 				apprenticeModifyForm.setDefaultAddresses((List<DefaultAddressEnum>)emagineEnumManager.findAll(DefaultAddressEnum.class));
 				
-				// default address
-				if(apprentice.getDefaultAddress() != null) {
-					apprenticeModifyForm.setIdDefaultAddress(Long.toString(apprentice.getDefaultAddress().getId()));
-				}
+				//Retrieve all countries and set them in the form
+				apprenticeModifyForm.setCountries((List<CountryEnum>)emagineEnumManager.findAll(CountryEnum.class));
+				
+				//Retrieve all sexes and set them in the form
+				apprenticeModifyForm.setSexes((List<SexEnum>)emagineEnumManager.findAll(SexEnum.class));
+				
+				//Retrieve all professions and set them in the form
+				apprenticeModifyForm.setProfessions((List<ProfessionEnum>)emagineEnumManager.findAll(ProfessionEnum.class));
+
+				//Retrieve all nationalities and set them in the form
+				apprenticeModifyForm.setNationalities((List<NationalityEnum>)emagineEnumManager.findAll(NationalityEnum.class));
+
+				//Retrieve all contacts and set them in the form
+				apprenticeModifyForm.setContacts((List<ContactEnum>)emagineEnumManager.findAll(ContactEnum.class));
+
+				
 			}
 			
 		} catch (EMagineException exception) {
@@ -227,8 +297,23 @@ public class ApprenticeModifyAction extends BaseAction {
 			apprentice.setFax(apprenticeModifyForm.getAcaFax());
 			apprentice.setPhone(apprenticeModifyForm.getAcaPhone());
 		
-			/* Datas concerning the schooling tab*/
+			/* Datas concerning the status tab*/
+			apprentice.setFirstName(apprenticeModifyForm.getFirstName());
+			apprentice.setLastName(apprenticeModifyForm.getLastName());
+			apprentice.setSex((SexEnum) emagineEnumManager.retrieve(Long.parseLong(apprenticeModifyForm.getIdSex()), SexEnum.class));
+			apprentice.setBirthdayDate(stringToDate(apprenticeModifyForm.getBirth()));	
+			apprentice.setBirthdayCountry((CountryEnum) emagineEnumManager.retrieve(Long.parseLong(apprenticeModifyForm.getIdCountry()), CountryEnum.class));
+			apprentice.setNationality((NationalityEnum) emagineEnumManager.retrieve(Long.parseLong(apprenticeModifyForm.getIdNationality()), NationalityEnum.class));
+			apprentice.setBirthdayDepartment((DepartmentEnum) emagineEnumManager.retrieve(Long.parseLong(apprenticeModifyForm.getIdDepartmentBirth()), DepartmentEnum.class));
+			apprentice.setProfessionMother((ProfessionEnum) emagineEnumManager.retrieve(Long.parseLong(apprenticeModifyForm.getIdMother()), ProfessionEnum.class));
+			apprentice.setProfessionFather((ProfessionEnum) emagineEnumManager.retrieve(Long.parseLong(apprenticeModifyForm.getIdFather()), ProfessionEnum.class));
+			apprentice.setContactOriginIG2K((ContactEnum) emagineEnumManager.retrieve(Long.parseLong(apprenticeModifyForm.getIdContact()), ContactEnum.class));
+
+			/* Datas concerning the situation tab*/
 			
+			
+			
+			/* Datas concerning the schooling tab*/
 			
 			
 			

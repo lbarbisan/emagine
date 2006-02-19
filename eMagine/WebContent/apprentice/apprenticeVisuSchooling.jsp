@@ -22,7 +22,7 @@
 	}
 -->
 </script>
-<html:form action="/apprenticeModify" method="POST" focus="">
+<html:form action="/apprenticeModify" method="POST" focus="">form name="results">
 	<div class="tabs">
 		<ul>
 			<li><html:link href="javascript:change('apprenticeVisuAdress');"><bean:message key="onglet.adress"/></html:link></li>
