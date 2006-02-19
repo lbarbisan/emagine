@@ -90,8 +90,8 @@
 		<action path="/apprenticeVisuAdress" forward="apprentice.apprenticeVisuAdress" name="apprenticeModifyForm" scope="session" />
 		<action path="/apprenticeVisuSituation" forward="apprentice.apprenticeVisuSituation" name="apprenticeModifyForm" scope="session" />
 		<action path="/apprenticeVisuStatus" forward="apprentice.apprenticeVisuStatus" name="apprenticeModifyForm" scope="session" />
-		<action path="/apprenticeVisuSituation" forward="/apprenticeVisuSituation" name="apprenticeModifyForm" scope="session" />
-		<action path="/apprenticeVisuSchooling" forward="/apprenticeVisuSchooling" name="apprenticeModifyForm" scope="session" />
+		<action path="/apprenticeVisuSituation" forward="apprenticeVisuSituation" name="apprenticeModifyForm" scope="session" />
+		<action path="/apprenticeVisuSchooling" forward="apprenticeVisuSchooling" name="apprenticeModifyForm" scope="session" />
 		<action path="/apprenticeEventDetail" forward="apprentice.apprenticeEventDetail" name="apprenticeModifyForm" scope="session" />
 		<action path="/apprenticeVisuAbsence" forward="apprentice.apprenticeVisuAbsence" name="apprenticeModifyForm" scope="session" />
 	
