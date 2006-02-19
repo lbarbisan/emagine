@@ -53,7 +53,7 @@
 				<logic:iterate id="actor" name="firmActorListForm" property="results" type="fr.umlv.ir3.emagine.firm.actor.FirmActor">
 					<tr>
 						<td><html:multibox property="currentSelectedIds" value="<%= actor.getId().toString() %>" />&nbsp;</td>
-						<td><html:link action="/actorVisuInfo?action=show" paramId="id" paramName="actor" paramProperty="id"><bean:write name="actor" property="lastName" />&nbsp;</html:link></td>
+						<td><html:link action="/actorModify?action=show" paramId="id" paramName="actor" paramProperty="id"><bean:write name="actor" property="lastName" />&nbsp;</html:link></td>
 						<td><bean:write name="actor" property="firstName" />&nbsp;</td>
 						<td><bean:write name="actor" property="function" />&nbsp;</td>
 						<td><bean:write name="actor" property="phone" />&nbsp;</td>

@@ -411,10 +411,9 @@ public class InitDB {
 	private static Address createAddress(int index) throws EMagineException {
 		Address address = new Address();
 		address.setCity("City " + index);
-		address.setCountry((CountryEnum) InitEnums.getEmagineEnum("Country 1",
-				CountryEnum.class));
-		address.setDepartment((DepartmentEnum) InitEnums.getEmagineEnum(
-				"Department 1", DepartmentEnum.class));
+		address.setPostalCode("77178");
+		address.setCountry((CountryEnum) InitEnums.getEmagineEnum("Country 1", CountryEnum.class));
+		address.setDepartment((DepartmentEnum) InitEnums.getEmagineEnum("Department 1", DepartmentEnum.class));
 		address.setPostalCode("9310" + index);
 		address.setStreet(index + " rue de la java");
 

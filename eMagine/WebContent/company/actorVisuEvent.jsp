@@ -3,7 +3,7 @@
 
 <div class="tabs">
 	<ul>
-		<li><html:link action="/companyVisuInfo">Informations&nbsp;g&eacute;n&eacute;rales&nbsp;</html:link></li>
+		<li><html:link action="/actorVisuInfo">Informations&nbsp;g&eacute;n&eacute;rales&nbsp;</html:link></li>
 		<span class="tab_clicked"><li><html:link action="/actorVisuEvent">Ev&eacute;nement</html:link></li></span>
 	</ul>
 </div>

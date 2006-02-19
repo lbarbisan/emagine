@@ -1,4 +1,6 @@
-package fr.umlv.ir3.emagine.extraction.mailstype;
+package fr.umlv.ir3.emagine.extraction.mailings;
+
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -7,28 +9,30 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 
+import fr.umlv.ir3.emagine.util.person.Person;
+
 
 /**
  * Use to Use Create Form
  * @author jrenaudi
  *
  */
-public class MailingTypeModifyForm extends ActionForm {
+public class MailingListModifyForm extends ActionForm {
 	
 	private static final long serialVersionUID = -2405706291327109100L;
 
 	
 	/** Firm to modify **/
-	private String idMailingTypeToModify;
+	private String idMailingListToModify;
 	
 	/** Title **/
 	private String title;
-
-	/** Joined File **/
-	private String attachment;
 	
 	/** Comment **/
 	private String comment;
+
+	/** Joined File **/
+	private List <Person> personns;
 
 	/** Use to DispacthAction **/
 	private String action;
@@ -39,7 +43,7 @@ public class MailingTypeModifyForm extends ActionForm {
 		ActionErrors errors = new ActionErrors();
 
 		if("create".equals(action) || "modify".equals(action)) {
-			if("".equals(title) || "".equals(attachment))
+			if("".equals(title))
 				errors.add("allRequiredFieldIsNotfillin", new ActionMessage("user.error.allRequiredFieldIsNotfillin"));
 		}			
 
@@ -50,9 +54,9 @@ public class MailingTypeModifyForm extends ActionForm {
 	 * Reset information
 	 */
 	public void reset() {
-		idMailingTypeToModify = "";
+		idMailingListToModify = "";
 		title = "";
-		attachment = "";
+		personns = null;
 		comment = "";
 		action = "";
 	}
@@ -72,20 +76,6 @@ public class MailingTypeModifyForm extends ActionForm {
 	}
 
 	/**
-	 * @return Returns the attachment.
-	 */
-	public String getAttachment() {
-		return attachment;
-	}
-
-	/**
-	 * @param attachment The attachment to set.
-	 */
-	public void setAttachment(String attachment) {
-		this.attachment = attachment;
-	}
-
-	/**
 	 * @return Returns the comment.
 	 */
 	public String getComment() {
@@ -100,17 +90,31 @@ public class MailingTypeModifyForm extends ActionForm {
 	}
 
 	/**
-	 * @return Returns the idMailingTypeToModify.
+	 * @return Returns the idMailingListToModify.
 	 */
-	public String getIdMailingTypeToModify() {
-		return idMailingTypeToModify;
+	public String getIdMailingListToModify() {
+		return idMailingListToModify;
 	}
 
 	/**
-	 * @param idMailingTypeToModify The idMailingTypeToModify to set.
+	 * @param idMailingListToModify The idMailingListToModify to set.
 	 */
-	public void setIdMailingTypeToModify(String idMailingTypeToModify) {
-		this.idMailingTypeToModify = idMailingTypeToModify;
+	public void setIdMailingListToModify(String idMailingListToModify) {
+		this.idMailingListToModify = idMailingListToModify;
+	}
+
+	/**
+	 * @return Returns the personns.
+	 */
+	public List<Person> getPersonns() {
+		return personns;
+	}
+
+	/**
+	 * @param personns The personns to set.
+	 */
+	public void setPersonns(List<Person> personns) {
+		this.personns = personns;
 	}
 
 	/**
@@ -126,4 +130,6 @@ public class MailingTypeModifyForm extends ActionForm {
 	public void setTitle(String title) {
 		this.title = title;
 	}
+
+
 }

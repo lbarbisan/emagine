@@ -1,7 +1,7 @@
 /**
  *
  */
-package fr.umlv.ir3.emagine.extraction.mailstype;
+package fr.umlv.ir3.emagine.extraction.mailings;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,7 +15,7 @@ import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.ManagerManager;
 import fr.umlv.ir3.emagine.util.base.BaseAction;
 
-public class MailingTypeModifyAction extends BaseAction {
+public class MailingListModifyAction extends BaseAction {
 
 	/**
 	 * The administrator wants to show the details of mailing type.
@@ -29,33 +29,32 @@ public class MailingTypeModifyAction extends BaseAction {
 	 */
 	public ActionForward show(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionMessages errors = new ActionMessages();
-		MailingTypeManager mailingTypeManager = ManagerManager.getInstance().getMailingTypeManager();
-		MailingTypeModifyForm mailingTypeModifyForm = (MailingTypeModifyForm) form;
+		MailingListManager mailingListManager = ManagerManager.getInstance().getMailingListManager();
+		MailingListModifyForm mailingListModifyForm = (MailingListModifyForm) form;
 		
 		try {
 			// Retrieve the firm we want to see (if he exists) 
-			String idMailingType = request.getParameter("id");			
-			if(idMailingType != null && !"".equals(idMailingType)) {
+			String idMailingList = request.getParameter("id");			
+			if(idMailingList != null && !"".equals(idMailingList)) {
 
 				// Retrieve the firm to modify
-				MailingType mailingType = mailingTypeManager.retrieve(Long.parseLong(idMailingType));
+				MailingList mailingList = mailingListManager.retrieve(Long.parseLong(idMailingList));
 
 				// Reset all form
-				mailingTypeModifyForm.reset();
+				mailingListModifyForm.reset();
 
 				// Set infos
-				mailingTypeModifyForm.setIdMailingTypeToModify(idMailingType);
-				mailingTypeModifyForm.setAttachment(mailingType.getFilePath());
-				mailingTypeModifyForm.setComment(mailingType.getComment());
-				mailingTypeModifyForm.setTitle(mailingType.getTitle());
+				mailingListModifyForm.setIdMailingListToModify(idMailingList);
+				mailingListModifyForm.setPersonns(mailingList.getPersons());
+				mailingListModifyForm.setComment(mailingList.getComment());
+				mailingListModifyForm.setTitle(mailingList.getTitle());
 				
 				// Create a mailing type
-				mailingTypeManager.create(mailingType);
-
+				mailingListManager.create(mailingList);
 			}
 			
 			// Retrieve all sections and set them in the form
-			// TODO mailingTypeModifyForm.setSections();
+			// TODO mailingListModifyForm.setSections();
 
 		} catch (EMagineException exception) {
 			exception.printStackTrace();
@@ -78,18 +77,18 @@ public class MailingTypeModifyAction extends BaseAction {
 	 */	
 	public ActionForward modify(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception  {
 		ActionMessages errors = new ActionMessages();
-		MailingTypeManager mailingTypeManager = ManagerManager.getInstance().getMailingTypeManager();
-		MailingTypeModifyForm mailingTypeModifyForm = (MailingTypeModifyForm) form;
+		MailingListManager mailingListManager = ManagerManager.getInstance().getMailingListManager();
+		MailingListModifyForm mailingListModifyForm = (MailingListModifyForm) form;
 
 		// Update the firm
 		try {
-			MailingType mailingType = mailingTypeManager.retrieve(Long.parseLong(mailingTypeModifyForm.getIdMailingTypeToModify()));
+			MailingList mailingList = mailingListManager.retrieve(Long.parseLong(mailingListModifyForm.getIdMailingListToModify()));
 			
-			mailingType.setFilePath(mailingTypeModifyForm.getAttachment());
-			mailingType.setComment(mailingTypeModifyForm.getComment());
-			mailingType.setTitle(mailingTypeModifyForm.getTitle());
+			mailingList.setPersons(mailingListModifyForm.getPersonns());
+			mailingList.setComment(mailingListModifyForm.getComment());
+			mailingList.setTitle(mailingListModifyForm.getTitle());
 						
-			mailingTypeManager.update(mailingType);
+			mailingListManager.update(mailingList);
 		} catch (EMagineException exception) {
 				addEMagineExceptionError(errors, exception);
 		}

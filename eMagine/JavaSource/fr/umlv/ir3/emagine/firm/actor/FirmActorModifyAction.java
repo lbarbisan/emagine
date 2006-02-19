@@ -62,6 +62,8 @@ public class FirmActorModifyAction extends BaseAction {
 						firmActorModifyForm.setAdress(address.getStreet());
 					if(address.getCity() != null)
 						firmActorModifyForm.setCity(address.getCity());
+					if(address.getPostalCode() != null)
+						firmActorModifyForm.setPostalCode(address.getPostalCode());
 					if(address.getDepartment() != null)
 						firmActorModifyForm.setIdDepartment(Long.toString(address.getDepartment().getId()));
 				}
@@ -74,7 +76,10 @@ public class FirmActorModifyAction extends BaseAction {
 			}
 
 			firmActorModifyForm.setDepartments((List<DepartmentEnum>)managerManager.getEmagineEnumManager().findAll(DepartmentEnum.class));
+			System.out.println((List<DepartmentEnum>)managerManager.getEmagineEnumManager().findAll(DepartmentEnum.class));
+			
 			firmActorModifyForm.setFunctions((List<FunctionEnum>)managerManager.getEmagineEnumManager().findAll(FunctionEnum.class));
+			System.out.println((List<FunctionEnum>)managerManager.getEmagineEnumManager().findAll(FunctionEnum.class));
 			
 		} catch (EMagineException exception) {
 			addEMagineExceptionError(errors, exception);
@@ -113,6 +118,7 @@ public class FirmActorModifyAction extends BaseAction {
 				
 				address = (actor.getAddressPersonnal() == null ? new Address() : actor.getAddressPersonnal());
 				address.setCity(firmActorModifyForm.getCity());
+				address.setPostalCode(firmActorModifyForm.getPostalCode());
 				address.setStreet(firmActorModifyForm.getAdress());
 				address.setDepartment(firmActorModifyForm.getIdDepartment() != null && !"".equals(firmActorModifyForm.getIdDepartment())
 						? (DepartmentEnum) ManagerManager.getInstance().getEmagineEnumManager().retrieve(Long.parseLong(firmActorModifyForm.getIdDepartment()),DepartmentEnum.class) : null);

@@ -22,7 +22,7 @@
 
 <html:form action="/actorCreate" method="POST" focus="lastname">
 
-<h2><bean:message key="actor.create.title"/><html:link action="/actorVisuInfo"><img src="/eMagine/common/images/icones/retour.png" title="<bean:message key="button.title.return"/>"/></html:link></h2>
+<h2><bean:message key="actor.create.title"/><html:link action="/companyVisuActor"><img src="/eMagine/common/images/icones/retour.png" title="<bean:message key="button.title.return"/>"/></html:link></h2>
 <br/>
 
 <div class="form">
@@ -48,51 +48,12 @@
 		<p><label for="mail"><bean:message key="form.email"/><font color="red">*</font> </label><html:text property="mail" size="20" /></p>
 	</div>
 	<br/>
-	<h3><bean:message key="title.pupils"/></h3>
-	<br/>
-	<div align=center>
-		<table cellpadding="0" cellspacing="0">
-			<tr>
-				<th>&nbsp;</th>
-				<th><bean:message key="table.header.name"/></th>
-				<th><bean:message key="table.header.firstName"/></th>
-				<th><bean:message key="table.header.class"/></th>
-				<th><bean:message key="table.header.group"/></th>
-				<th><bean:message key="table.header.initDate"/></th>
-				<th><bean:message key="table.header.endDate"/></th>
-			</tr>
-			
-			<logic:notEmpty name="firmActorModifyForm" property="pupilles">
-				<logic:iterate id="pupille" name="firmActorModifyForm" property="pupilles" type="fr.umlv.ir3.emagine.apprentice.Apprentice">
-					<tr>
-						<td><html:multibox property="currentSelectedIds" value="<%= pupille.getId().toString() %>" />&nbsp;</td>
-						<td><html:link action="/actorModify?action=show" paramId="id" paramName="pupille" paramProperty="id"><bean:write name="pupille" property="lastname" />&nbsp;</html:link></td>
-						<td><bean:write name="pupille" property="firstname" />&nbsp;</td>
-						<td><bean:write name="pupille" property="firstname" />&nbsp;</td>
-						<td><bean:write name="pupille" property="firstname" />&nbsp;</td>
-						<td><bean:write name="pupille" property="firstname" />&nbsp;</td>
-						<td><bean:write name="pupille" property="firstname" />&nbsp;</td>
-					</tr>
-				</logic:iterate>
-			</logic:notEmpty>	
 
-			<logic:empty name="firmActorModifyForm" property="pupilles">
-				<tr><td colspan="8">Pas de pupille</td></tr>
-			</logic:empty>
-
-		</table>
-	</div>
-
+<br/>
+<html:errors />
 <br/>
 
 <div id="actions">
-	<ul>
-		<li><a href="javascript:checkAll('currentSelectedIds','firmActorModifyForm');">Tous</a>&nbsp;&nbsp;/</li>
-		<li><a href="javascript:checkNothing('currentSelectedIds','firmActorModifyForm');">Aucun</a></li>
-	</ul>
-<br />
-<html:errors />
-	<h2>&nbsp;</h2>
 	<ul>
 		<li><html:link href="javascript:createActor();"><html:img src="/eMagine/common/images/icones/ok.png" titleKey="button.title.ok" /></html:link></li>
 		<li><html:link href="javascript:resetForm();"><html:img src="/eMagine/common/images/icones/reinit.png" titleKey="button.title.reinitialize" /></html:link></li>

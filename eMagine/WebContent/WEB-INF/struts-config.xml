@@ -42,23 +42,13 @@
 	<!-- The standard administrative actions available with Tiles -->
 	<!-- These would be either omitted or protected by security constraints -->
 	<!-- in a real application deployment -->
+	
+	<global-forwards>
+    	<forward name="welcome" path="/apprenticeSearch.do?action=show" redirect="true"/>
+	</global-forwards>
 
 	<action-mappings>
 	
-<!-- Struts layout en test -->	
-<action path="/sort"
-	type="fr.improve.struts.taglib.layout.sort.SortAction"
-	scope="request"
-	validate="false">
-</action>
-    
-<action path="/treeview"
-	type="fr.improve.struts.taglib.layout.treeview.TreeviewAction"
-	scope="request"
-	validate="false">
-</action>
-<!-- Struts layout en test -->	
-
 		<action path="/authentification" forward="authentification" />
 		
 		<action path="/logout" type="fr.umlv.ir3.emagine.security.LogoutAction" parameter="action">

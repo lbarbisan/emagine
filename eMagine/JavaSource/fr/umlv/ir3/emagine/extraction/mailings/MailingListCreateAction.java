@@ -1,4 +1,4 @@
-package fr.umlv.ir3.emagine.extraction.mailstype;
+package fr.umlv.ir3.emagine.extraction.mailings;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,7 +13,7 @@ import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.ManagerManager;
 import fr.umlv.ir3.emagine.util.base.BaseAction;
 
-public class MailingTypeCreateAction extends BaseAction {
+public class MailingListCreateAction extends BaseAction {
 
 	/**
 	 * The administrator wants to show a new create form.
@@ -27,10 +27,10 @@ public class MailingTypeCreateAction extends BaseAction {
 	 */
 	public ActionForward show(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionMessages errors = new ActionMessages();
-		MailingTypeModifyForm mailingTypeModifyForm = (MailingTypeModifyForm) form;
+		MailingListModifyForm mailingListModifyForm = (MailingListModifyForm) form;
 		
 		// Retrieve all profiles and set them in the form
-		mailingTypeModifyForm.reset();
+		mailingListModifyForm.reset();
 
 		// Report back any errors, and exit if any
 		return viewFormIfNoErrors(mapping, request, errors);
@@ -49,25 +49,21 @@ public class MailingTypeCreateAction extends BaseAction {
 	 */
 	public ActionForward create(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionMessages errors = new ActionMessages();
-		MailingTypeModifyForm mailingTypeModifyForm = (MailingTypeModifyForm) form;
-		MailingTypeManager mailingTypeManager = ManagerManager.getInstance().getMailingTypeManager();
+		MailingListModifyForm mailingListModifyForm = (MailingListModifyForm) form;
+		MailingListManager mailingListManager = ManagerManager.getInstance().getMailingListManager();
 		
 		try {
 			// Init firm
-			MailingType mailingType = new MailingType();
+			MailingList mailingList = new MailingList();
 			
-			mailingType.setComment(mailingTypeModifyForm.getComment());
-			mailingType.setTitle(mailingTypeModifyForm.getTitle());
+			mailingList.setComment(mailingListModifyForm.getComment());
+			mailingList.setTitle(mailingListModifyForm.getTitle());
+			mailingList.setPersons(mailingListModifyForm.getPersonns());
 
-			if(mailingTypeModifyForm.getAttachment() != null && !"".equals(mailingTypeModifyForm.getAttachment())) {
-				mailingType.setFilePath(mailingTypeModifyForm.getAttachment());
-				mailingType.setFileName(mailingTypeModifyForm.getAttachment());
-			}
-			
 			// Create a mailing type
-			mailingTypeManager.create(mailingType);
+			mailingListManager.create(mailingList);
 
-			errors.add("confirm", new ActionMessage("mailingType.create.confirm"));
+			errors.add("confirm", new ActionMessage("mailingList.create.confirm"));
 		} catch (EMagineException exception) {
 			addEMagineExceptionError(errors, exception);
 		}
