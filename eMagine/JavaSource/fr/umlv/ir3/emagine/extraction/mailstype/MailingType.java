@@ -13,6 +13,7 @@ public class MailingType extends EditableEntity {
 	private String title;
 	private String comment;
 	private String filePath;
+	private String fileName;
 	
 	/**
 	 * @return Returns the comment.
@@ -49,5 +50,17 @@ public class MailingType extends EditableEntity {
 	 */
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	/**
+	 * @return Returns the fileName.
+	 */
+	public String getFileName() {
+		return fileName;
+	}
+	/**
+	 * @param fileName The fileName to set.
+	 */
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 }
