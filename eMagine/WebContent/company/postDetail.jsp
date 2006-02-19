@@ -9,7 +9,7 @@
 	
 	function deleteJob() {
 		if(confirm("Souhaitez-vous réellement supprimer ce poste ?")) {
-			open("/eMagine/posteDelete.do?action=delete&from=modify&currentSelectedIds=" + document.jobModifyForm.elements['idJobToModify'].value, "_self");
+			open("/eMagine/jobDelete.do?action=delete&from=modify&currentSelectedIds=" + document.jobModifyForm.elements['idJobToModify'].value, "_self");
 		}
 		
 	}
