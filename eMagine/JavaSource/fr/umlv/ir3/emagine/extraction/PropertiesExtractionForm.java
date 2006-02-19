@@ -71,7 +71,13 @@ public class PropertiesExtractionForm extends AbstractExtractionForm {
 	 * @param extractionEntityName The extractionEntityName to set.
 	 */
 	public void setExtractionEntityName(String extractionEntityName) {
-		this.extractionEntityName = extractionEntityName;
+		if(!extractionEntityName.equals(this.extractionEntityName)) {
+			// The new extraction entity name is different.
+			// Deleting the cached properties and root group
+			rootGroup = null;
+			entityProperties = null;
+			this.extractionEntityName = extractionEntityName;
+		}
 	}
 	
 	public String getExtractionTitleKey() {

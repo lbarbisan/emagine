@@ -8,11 +8,11 @@ function open_extract_win(extractionEntityName) {
 	if (url.indexOf('?') == -1) glue = '?';
 	else glue = '&';
 	var now = new Date();
-	var name = "extract_windows_" + now.getTime();
+	var name = "extract_windows_" + extractionEntityName;
 	if (extractionEntityName != "") {
-        url = url + glue + 'extractionEntityName=' + extractionEntityName + '&' + 'uniq=' + now.getTime();
+        url = url + glue + 'extractionEntityName=' + extractionEntityName;// + '&' + 'uniq=' + now.getTime();
     } else {
-        url = url + glue + 'uniq=' + now.getTime();
+        url = url + glue;// + 'uniq=' + now.getTime();
     }
 	
 	var Width = screen.width;

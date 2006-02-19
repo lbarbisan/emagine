@@ -10,7 +10,7 @@ public class PropertiesExtractionGroup implements ExtractionGroup {
 	private String groupType;
 	private String parentsPathName;
 	private Collection<ExtractionGroup> groups;
-	private Collection<String> properties = new ArrayList<String>();
+	private Collection<String> properties;
 	public PropertiesExtractionGroup(String groupName, String groupType, String parentsPathName) {
 		this.groupName = groupName;
 		this.groupType = groupType;
@@ -30,6 +30,7 @@ public class PropertiesExtractionGroup implements ExtractionGroup {
 	}
 	private void parse() {
 		groups = new ArrayList<ExtractionGroup>();
+		properties = new ArrayList<String>();
 		for (String property : Bundles.getExtractionBundle().getString("extraction."+groupType+".properties").split(",")) {
 			String groupSliced[] = property.split(":");
 			if (groupSliced.length > 1) {
@@ -51,7 +52,7 @@ public class PropertiesExtractionGroup implements ExtractionGroup {
 		}
 	}
 	public String getGroupName() {
-		return groupName;
+		return "".equals(groupName)?groupType:groupName;
 	}
 	/**
 	 * @param property

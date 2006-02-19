@@ -16,9 +16,9 @@ import org.apache.struts.util.MessageResources;
  * @version $Rev: $ $Date: $ $User: $
  */
 public class Bundles {
-	private static ResourceBundle resourceBundle = ResourceBundle.getBundle("fr.umlv.ir3.emagine.ressource.eMagine");
-	private static ResourceBundle extractionBundle = ResourceBundle.getBundle("fr.umlv.ir3.emagine.ressource.extraction");
-	private static MessageResources messageResources = MessageResources.getMessageResources("fr.umlv.ir3.emagine.ressource.ressources");
+	private static final ResourceBundle resourceBundle = ResourceBundle.getBundle("fr.umlv.ir3.emagine.ressource.eMagine");
+	private static final ResourceBundle extractionBundle = ResourceBundle.getBundle("fr.umlv.ir3.emagine.ressource.extraction");
+	private static final MessageResources messageResources = MessageResources.getMessageResources("fr.umlv.ir3.emagine.ressource.ressources");
 	
 	
 	public static ResourceBundle getConfigBundle() {

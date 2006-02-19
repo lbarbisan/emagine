@@ -7,7 +7,7 @@
 	<head>
 		<link rel="stylesheet" href="/eMagine/common/style/style1.css" type="text/css">
 		<script type="text/javascript" src="/eMagine/common/js/checkboxTools.js"></script>
-		<title><bean:message key="app.title" /></title>
+		<title><bean:message key="app.title" /> : <bean:message name="extractionForm" property="extractionTitleKey" /></title>
 		<script type="text/javascript">
 		<!--
 			function extract() {
@@ -65,7 +65,6 @@
 					<li><a href="javascript:checkAll('extractionForm','selectedEntityProperties');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
 					<li><a href="javascript:checkNothing('extractionForm','selectedEntityProperties');"><bean:message key="all_none.none"/></a></li>
 				</ul>
-				<h2>&nbsp;</h2>
 				<ul>
 					<li>
 						<html:img
