@@ -21,6 +21,7 @@
 <html:form action="/jobCreate" method="POST" focus="idCourseOption">
 
 <h2><bean:message key="post.create.title"/><html:link action="/companyVisuPost"><img src="/eMagine/common/images/icones/retour.png" title="<bean:message key="button.title.return"/>"/></html:link></h2>
+
 <div class="form">
 	<p>
 		<label for="idCourseOption"><bean:message key="form.die"/></label>

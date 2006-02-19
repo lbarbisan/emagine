@@ -6,12 +6,20 @@
 <!--
 
 	function setAction(value) {
-		document.companyModifyForm.action.value = value;
+		document.firmActorListForm.action.value = value;
 	}
 
 	function change(action) {
-		document.companyModifyForm.action = "/eMagine/" + action + ".do";
-		document.companyModifyForm.submit();
+		document.firmActorListForm.action = "/eMagine/" + action + ".do";
+		document.firmActorListForm.submit();
+	}
+	
+	
+	function deletes() {
+		if(confirm("Souhaitez-vous réellement supprimer ces acteurs ?")) {
+			document.firmActorListForm.action = "/eMagine/actorDelete.do?action=delete&from=search";
+			document.firmActorListForm.submit();
+		}
 	}
 		
 -->
@@ -25,7 +33,7 @@
 	</ul>
 </div>
 
-<html:form action="companyModify" method="POST">
+<html:form action="/companyVisuActor" method="POST">
 
 <div class="tabs_div">
 	<h2><bean:message key="actor.list.title"/></h2>
@@ -41,12 +49,12 @@
 				<th><bean:message key="table.header.email"/></th>
 			</tr>
 
-			<logic:notEmpty name="companyModifyForm" property="actors">
-				<logic:iterate id="actor" name="companyModifyForm" property="actors" type="fr.umlv.ir3.emagine.firm.actor.FirmActor">
+			<logic:notEmpty name="firmActorListForm" property="results">
+				<logic:iterate id="actor" name="firmActorListForm" property="results" type="fr.umlv.ir3.emagine.firm.actor.FirmActor">
 					<tr>
-						<td>&nbsp;</td>
-						<td><html:link action="/actorVisuInfo?action=show" paramId="id" paramName="actor" paramProperty="id"><bean:write name="actor" property="lastname" />&nbsp;</html:link></td>
-						<td><bean:write name="actor" property="firstname" />&nbsp;</td>
+						<td><html:multibox property="currentSelectedIds" value="<%= actor.getId().toString() %>" />&nbsp;</td>
+						<td><html:link action="/actorVisuInfo?action=show" paramId="id" paramName="actor" paramProperty="id"><bean:write name="actor" property="lastName" />&nbsp;</html:link></td>
+						<td><bean:write name="actor" property="firstName" />&nbsp;</td>
 						<td><bean:write name="actor" property="function" />&nbsp;</td>
 						<td><bean:write name="actor" property="phone" />&nbsp;</td>
 						<td><bean:write name="actor" property="email" />&nbsp;</td>
@@ -54,7 +62,7 @@
 				</logic:iterate>
 			</logic:notEmpty>	
 
-			<logic:empty name="companyModifyForm" property="actors">
+			<logic:empty name="firmActorListForm" property="results">
 				<tr><td colspan="6">Pas de résultats</td></tr>
 			</logic:empty>
 
@@ -62,19 +70,20 @@
 	</div>
 	<div id="actions">
 		<ul>
-			<li><a href="javascript:checkAll('results','all_none');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
-			<li><a href="javascript:checkNothing('results','all_none');"><bean:message key="all_none.none"/></a></li>
+			<li><a href="javascript:checkAll('firmActorListForm','currentSelectedIds');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
+			<li><a href="javascript:checkNothing('firmActorListForm','currentSelectedIds');"><bean:message key="all_none.none"/></a></li>
 		</ul>
 		<h2>&nbsp;</h2>	
 		<ul>
-			<li><a href="#"><img src="/eMagine/common/images/icones/supprimer.png" title="<bean:message key="button.title.remove"/>"/></a></li>
+			<li><html:link href="javascript:deletes();"><html:img src="/eMagine/common/images/icones/supprimer.png" titleKey="button.title.remove" /></html:link></li>
 			<li><html:link action="/actorMailingListCreate"><img src="/eMagine/common/images/icones/creer_mailing_list.png" title="<bean:message key="button.title.mailingListCreate"/>"/></html:link></li>
 			<li><html:link action="/actorEmailDo"><img src="/eMagine/common/images/icones/mailing.png" title="<bean:message key="button.title.email"/>"/></html:link></li>
 			<li><html:link action="/actorMailDo"><img src="/eMagine/common/images/icones/publipostage.png" title="<bean:message key="button.title.mailing"/>"/></html:link></li>
 			<li><html:link action="/actorExtract"><img src="/eMagine/common/images/icones/extraire.png" title="<bean:message key="button.title.extract"/>"/></html:link></li>
-			<li><html:link action="/actorCreate"><img src="/eMagine/common/images/icones/ajouter.png" title="<bean:message key="button.title.add"/>"/></html:link></li>
+			<li><html:link action="/actorCreate?action=show"><img src="/eMagine/common/images/icones/ajouter.png" title="<bean:message key="button.title.add"/>"/></html:link></li>
 		</ul>
 	</div>
 </div>
 
+<html:hidden property="action" />
 </html:form>
