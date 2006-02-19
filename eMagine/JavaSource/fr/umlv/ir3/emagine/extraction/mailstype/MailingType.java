@@ -1,12 +1,8 @@
 package fr.umlv.ir3.emagine.extraction.mailstype;
 
-import java.util.List;
-
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
 
-import fr.umlv.ir3.emagine.extraction.mailings.Attachment;
 import fr.umlv.ir3.emagine.modification.EditableEntity;
 
 @Entity(access = AccessType.FIELD)
@@ -14,42 +10,44 @@ public class MailingType extends EditableEntity {
 
 	//TODO title et comment sont en majuscule
 	private static final long serialVersionUID = 5127008085508457457L;
-	@OneToMany
-	private List<Attachment> attachments;
 	private String title;
 	private String comment;
-	private String mailObject;
-	private String mailCore;
+	private String filePath;
 	
-	public List<Attachment> getAttachments() {
-		return attachments;
-	}
-	public void setAttachments(List<Attachment> attachments) {
-		this.attachments = attachments;
-	}
+	/**
+	 * @return Returns the comment.
+	 */
 	public String getComment() {
 		return comment;
 	}
+	/**
+	 * @param comment The comment to set.
+	 */
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
-	public String getMailCore() {
-		return mailCore;
+	/**
+	 * @return Returns the filePath.
+	 */
+	public String getFilePath() {
+		return filePath;
 	}
-	public void setMailCore(String mailCore) {
-		this.mailCore = mailCore;
+	/**
+	 * @param filePath The filePath to set.
+	 */
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
 	}
-	public String getMailObject() {
-		return mailObject;
-	}
-	public void setMailObject(String mailObject) {
-		this.mailObject = mailObject;
-	}
+	/**
+	 * @return Returns the title.
+	 */
 	public String getTitle() {
 		return title;
 	}
+	/**
+	 * @param title The title to set.
+	 */
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	
 }

@@ -86,12 +86,13 @@ public class MailingListManagerImpl extends EditableManagerImpl<MailingList, Mai
 	 * @throws EMagineException 
 	 * @see fr.umlv.ir3.emagine.extraction.mailings.MailingListManager#generateMailing(fr.umlv.ir3.emagine.extraction.mailings.MailingList, java.lang.String, java.lang.String, java.util.Collection)
 	 */
-	public void generateMailing(MailingList<? extends Person> mailingList, String object, String body, Collection<Attachment> attachments) throws EMagineException
+	public void generateMailing(MailingList<? extends Person> mailingList, String object, String body) throws EMagineException
 	{
 		// TODO : voir que faire en cas de l'envoie de la moitié des mails ...
 		for(Person user : mailingList.getPersons() )
 		{
-			MailManager.sendMail(user.getEmail(), object, body, attachments);
+			//FIXME : Pièce jointe
+			MailManager.sendMail(user.getEmail(), object, body, null);
 		}
 	}
 }

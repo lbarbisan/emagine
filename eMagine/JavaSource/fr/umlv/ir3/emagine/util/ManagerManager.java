@@ -20,8 +20,6 @@ import fr.umlv.ir3.emagine.extraction.mailings.MailingListManager;
 import fr.umlv.ir3.emagine.extraction.mailings.MailingListManagerImpl;
 import fr.umlv.ir3.emagine.extraction.mailstype.MailingTypeManager;
 import fr.umlv.ir3.emagine.extraction.mailstype.MailingTypeManagerImpl;
-import fr.umlv.ir3.emagine.extraction.massmailing.MassMailingManager;
-import fr.umlv.ir3.emagine.extraction.massmailing.MassMailingManagerImpl;
 import fr.umlv.ir3.emagine.firm.FirmManager;
 import fr.umlv.ir3.emagine.firm.FirmManagerImpl;
 import fr.umlv.ir3.emagine.firm.JobManager;
@@ -58,7 +56,6 @@ public class ManagerManager {
 	private EventManager eventManager;
 	private MailingListManager mailingListManager;
 	private MailingTypeManager mailingTypeManager;
-	private MassMailingManager massMailingManager;
 	private CandidateManager candidateManager;
 	private ApprenticeManager apprenticeManager;
 	private EditableManager editableManager;
@@ -118,7 +115,6 @@ public class ManagerManager {
 		eventManager = addManager(new EventManagerImpl());
 		mailingListManager = addManager(new MailingListManagerImpl());
 		mailingTypeManager = addManager(new MailingTypeManagerImpl());
-		massMailingManager = addManager(new MassMailingManagerImpl());
 		candidateManager = addManager(new CandidateManagerImpl());
 		apprenticeManager = addManager(new ApprenticeManagerImpl());
 		formationCenterManager = addManager(new FormationCenterManagerImpl());
@@ -179,11 +175,6 @@ public class ManagerManager {
 	public MailingTypeManager getMailingTypeManager()
 	{
 		return mailingTypeManager;
-	}
-	
-	public MassMailingManager getMassMailingManager()
-	{
-		return massMailingManager;	
 	}
 	public ApprenticeManager getApprenticeManager() {
 		return apprenticeManager;

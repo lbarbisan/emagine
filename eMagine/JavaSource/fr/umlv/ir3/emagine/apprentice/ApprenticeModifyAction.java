@@ -159,7 +159,7 @@ public class ApprenticeModifyAction extends BaseAction {
 				//first name
 				apprenticeModifyForm.setFirstName(apprentice.getFirstName());
 				//last name
-				apprenticeModifyForm.setLastName(apprentice.getLastName());				
+				apprenticeModifyForm.setLastName(apprentice.getLastName());
 				//Sex
 				if(apprentice.getSex() != null) {
 					apprenticeModifyForm.setIdSex(Long.toString(apprentice.getSex().getId()));
@@ -301,9 +301,12 @@ public class ApprenticeModifyAction extends BaseAction {
 			apprentice.setFirstName(apprenticeModifyForm.getFirstName());
 			apprentice.setLastName(apprenticeModifyForm.getLastName());
 			apprentice.setSex((SexEnum) emagineEnumManager.retrieve(Long.parseLong(apprenticeModifyForm.getIdSex()), SexEnum.class));
-			apprentice.setBirthdayDate(stringToDate(apprenticeModifyForm.getBirth()));	
+			System.out.println("avant formatage :"+apprenticeModifyForm.getBirth());
+			apprentice.setBirthdayDate(stringToDate(apprenticeModifyForm.getBirth()));
+			System.out.println("apres formatage :"+stringToDate(apprenticeModifyForm.getBirth()));
 			apprentice.setBirthdayCountry((CountryEnum) emagineEnumManager.retrieve(Long.parseLong(apprenticeModifyForm.getIdCountry()), CountryEnum.class));
 			apprentice.setNationality((NationalityEnum) emagineEnumManager.retrieve(Long.parseLong(apprenticeModifyForm.getIdNationality()), NationalityEnum.class));
+			apprentice.setBirthdayCity(apprenticeModifyForm.getCity());
 			apprentice.setBirthdayDepartment((DepartmentEnum) emagineEnumManager.retrieve(Long.parseLong(apprenticeModifyForm.getIdDepartmentBirth()), DepartmentEnum.class));
 			apprentice.setProfessionMother((ProfessionEnum) emagineEnumManager.retrieve(Long.parseLong(apprenticeModifyForm.getIdMother()), ProfessionEnum.class));
 			apprentice.setProfessionFather((ProfessionEnum) emagineEnumManager.retrieve(Long.parseLong(apprenticeModifyForm.getIdFather()), ProfessionEnum.class));

@@ -30,23 +30,40 @@ public class MailingList<ObjectType extends Person> extends EditableEntity{
 	@OneToMany(targetEntity = Person.class)
 	@Cascade(CascadeType.SAVE_UPDATE)
 	private List<ObjectType> persons;
+	/**
+	 * @return Returns the comment.
+	 */
 	public String getComment() {
 		return comment;
 	}
+	/**
+	 * @param comment The comment to set.
+	 */
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
+	/**
+	 * @return Returns the persons.
+	 */
 	public List<ObjectType> getPersons() {
 		return persons;
 	}
+	/**
+	 * @param persons The persons to set.
+	 */
 	public void setPersons(List<ObjectType> persons) {
 		this.persons = persons;
 	}
+	/**
+	 * @return Returns the title.
+	 */
 	public String getTitle() {
 		return Title;
 	}
+	/**
+	 * @param title The title to set.
+	 */
 	public void setTitle(String title) {
 		Title = title;
 	}
-
 }

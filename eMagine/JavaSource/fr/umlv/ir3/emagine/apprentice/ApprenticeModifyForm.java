@@ -277,17 +277,17 @@ public class ApprenticeModifyForm extends ActionForm {
 	public ActionErrors validate(ActionMapping arg0, HttpServletRequest arg1) {
 		ActionErrors errors = new ActionErrors();
 
-		if("create".equals(action) || "modify".equals(action)) {
+		/*if("create".equals(action) || "modify".equals(action)) {
 			if("".equals(initDate) || "".equals(endDate) || "".equals(idJustification)){
 				errors.add("allRequiredFieldIsNotfillin", new ActionMessage("user.error.allRequiredFieldIsNotfillin"));
-			}
-			else {
+			}*/
+			//else {
 			/* TODO if (!isValide(initDate) || !isValide(endDate) ){
 				errors.add("wrongDateFormat", new ActionMessage("candidate.error.wrongDateFormat"));
 				}
 			*/
-			}
-		}
+			//}
+		//}
 
 		return errors;
 	}

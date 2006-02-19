@@ -14,7 +14,6 @@ import fr.umlv.ir3.emagine.extraction.ExtractionConfigEntityDAO;
 import fr.umlv.ir3.emagine.extraction.ExtractionEntityDAO;
 import fr.umlv.ir3.emagine.extraction.mailings.MailingListDAO;
 import fr.umlv.ir3.emagine.extraction.mailstype.MailingTypeDAO;
-import fr.umlv.ir3.emagine.extraction.massmailing.MassMailingDAO;
 import fr.umlv.ir3.emagine.firm.FirmDAO;
 import fr.umlv.ir3.emagine.firm.JobDAO;
 import fr.umlv.ir3.emagine.firm.actor.EngineerTutorDAO;
@@ -69,8 +68,6 @@ public class DAOManager {
 	private MailingListDAO mailingListDAO = new MailingListDAO();
 
 	private MailingTypeDAO mailingTypeDAO = new MailingTypeDAO();
-
-	private MassMailingDAO massMailingDAO = new MassMailingDAO();
 
 	private EmagineEnumDAO emagineEnumDAO = new EmagineEnumDAO();
 	
@@ -156,10 +153,6 @@ public class DAOManager {
 
 	public MailingTypeDAO getMailingTypeDAO() {
 		return mailingTypeDAO;
-	}
-
-	public MassMailingDAO getMassMailingDAO() {
-		return massMailingDAO;
 	}
 
 	public EmagineEnumDAO getEmagineEnumDAO() {

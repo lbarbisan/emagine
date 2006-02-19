@@ -63,14 +63,9 @@
  	
 		<mapping package="fr.umlv.ir3.emagine.extraction.mailings"/>
 		<mapping class="fr.umlv.ir3.emagine.extraction.mailings.MailingList"/>
-		<mapping class="fr.umlv.ir3.emagine.extraction.mailings.Attachment"/>
 		
 		<mapping package="fr.umlv.ir3.emagine.extraction.mailstype"/>
 		<mapping class="fr.umlv.ir3.emagine.extraction.mailstype.MailingType"/>
- 		
-		<mapping package="fr.umlv.ir3.emagine.extraction.massmailing"/>
-		<mapping class="fr.umlv.ir3.emagine.extraction.massmailing.MassMailing"/>
-		<mapping class="fr.umlv.ir3.emagine.extraction.massmailing.Model"/>
  		
 		<mapping package="fr.umlv.ir3.emagine.modification"/>
 		<mapping class="fr.umlv.ir3.emagine.modification.Modification"/>

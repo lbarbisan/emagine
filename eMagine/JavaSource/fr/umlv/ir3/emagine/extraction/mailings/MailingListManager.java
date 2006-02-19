@@ -33,6 +33,6 @@ public interface MailingListManager extends EditableManager<MailingList, Mailing
 	//TODO : Use case « Générer mailing »
 	public abstract void generateMailing(
 			MailingList<? extends Person> mailingList, String object,
-			String body, Collection<Attachment> attachments) throws EMagineException;
+			String body) throws EMagineException;
 
 }

@@ -1,5 +1,6 @@
 package fr.umlv.ir3.emagine.util;
 
+import java.io.File;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Properties;
@@ -17,8 +18,6 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
-import fr.umlv.ir3.emagine.extraction.mailings.Attachment;
-
 public class MailManager {
 
 	/**
@@ -30,11 +29,12 @@ public class MailManager {
 	 * @param attachments
 	 * @throws EMagineException
 	 */
-	public static void  sendMail(String to, String subject, String body, Collection<Attachment> attachments) throws EMagineException
+	public static void  sendMail(String to, String subject, String body, Collection<String> attachments) throws EMagineException
 	{
 		// Thanks to http://www.infini-fr.com/Sciences/Informatique/Langages/Imperatifs/Java/javamail.html
 		try {
 			ResourceBundle config = Bundles.getConfigBundle();
+		
 			
 			// Target smtp server
 			Properties props = System.getProperties();
@@ -56,13 +56,14 @@ public class MailManager {
 			mp.addBodyPart(mbp);
 			
 			if (attachments != null) {
-				for (Attachment attachment : attachments) {
+				for (String attachment : attachments) {
 					// Adds an attachment
+					File file =  new File(attachment);
 					MimeBodyPart mbpFile = new MimeBodyPart();
-					mbpFile.setText("Attachement " + attachment.getName());
-					FileDataSource fds = new FileDataSource(attachment.getPath());
+					mbpFile.setText("Attachement " + file.getName());
+					FileDataSource fds = new FileDataSource(file);
 					mbpFile.setDataHandler(new DataHandler(fds));
-					mbpFile.setFileName(attachment.getName());
+					mbpFile.setFileName(file.getName());
 					mp.addBodyPart(mbpFile);
 				}
 			}

@@ -57,7 +57,7 @@
 			<fieldset>
 				<legend><bean:message key="form.fieldset.birth"/></legend>
 				<p><layout:date key="form.birth" styleClass="form_calendar" property="birth" startYear="1980" endYear="2030"/></p>
-				<p><label for="city"><bean:message key="form.city"/></label><html:text property="city" size="20" /></p> -->
+				<p><label for="city"><bean:message key="form.city"/></label><html:text property="city" size="20" /></p>
 				<p>
 					<label for="department"><bean:message key="form.department"/></label>
 					<html:select property="idDepartmentBirth">
