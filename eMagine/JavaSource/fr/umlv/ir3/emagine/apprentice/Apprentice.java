@@ -63,6 +63,14 @@ public class Apprentice extends Candidate {
 	@Cascade(CascadeType.SAVE_UPDATE)
     @JoinColumn(name="secondlanguage_id")
 	private LanguageEnum secondLanguage;
+	@ManyToOne()
+	@Cascade(CascadeType.SAVE_UPDATE)
+    @JoinColumn(name="year_id")
+	private YearEnum year;	
+	@ManyToOne()
+	@Cascade(CascadeType.SAVE_UPDATE)
+    @JoinColumn(name="group_id")
+    private GroupEnum group;
 	
 	//FIXME: lbarbisan - Passer les tableau en table Hibernate
 //	private List<Integer> examsMark = new ArrayList<Integer>();
@@ -78,7 +86,6 @@ public class Apprentice extends Candidate {
 	private String acaMobile;
 	private String acaFax;
 
-	private Integer year;
 	private Boolean excluded;
 	
 	/**
@@ -239,20 +246,6 @@ public class Apprentice extends Candidate {
 	}
 
 	/**
-	 * @return Returns the year.
-	 */
-	public Integer getYear() {
-		return year;
-	}
-
-	/**
-	 * @param year The year to set.
-	 */
-	public void setYear(Integer year) {
-		this.year = year;
-	}
-
-	/**
 	 * @return Returns the acaEmail.
 	 */
 	public String getAcaEmail() {
@@ -362,6 +355,34 @@ public class Apprentice extends Candidate {
 	 */
 	public void setAcaPhone(String acaPhone) {
 		this.acaPhone = acaPhone;
+	}
+
+	/**
+	 * @return Returns the group.
+	 */
+	public GroupEnum getGroup() {
+		return group;
+	}
+
+	/**
+	 * @param group The group to set.
+	 */
+	public void setGroup(GroupEnum group) {
+		this.group = group;
+	}
+
+	/**
+	 * @return Returns the year.
+	 */
+	public YearEnum getYear() {
+		return year;
+	}
+
+	/**
+	 * @param year The year to set.
+	 */
+	public void setYear(YearEnum year) {
+		this.year = year;
 	}
 
 

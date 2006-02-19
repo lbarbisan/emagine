@@ -48,22 +48,22 @@
 	<fieldset>
 		<legend><bean:message key="form.fieldset.promotion"/></legend>
 		<p>
-			<label for="courseOptions"><bean:message key="form.die"/></label>
+			<label for="courseOptions"><bean:message key="form.die"/><font color="red">*</font></label>
 			<html:select property="idCourseOption">
 				<logic:notEmpty name="apprenticeModifyForm" property="courseOptions">
 					<html:optionsCollection property="courseOptions" value="id" label="name"/>
 				</logic:notEmpty>
 			</html:select>
 		</p>
-		<p><label for="year"><bean:message key="form.year"/></label>
+		<p><label for="year"><bean:message key="form.year"/><font color="red">*</font></label>
 			<html:select property="idYear">
 				<logic:notEmpty name="apprenticeModifyForm" property="years">
 					<html:optionsCollection property="years" value="id" label="name"/>
 				</logic:notEmpty>
 			</html:select>
 		</p>
-		<p><label for="group"><bean:message key="form.group"/></label>
-			<html:select property="idYear">
+		<p><label for="group"><bean:message key="form.group"/><font color="red">*</font></label>
+			<html:select property="idGroup">
 				<logic:notEmpty name="apprenticeModifyForm" property="groups">
 					<html:optionsCollection property="groups" value="id" label="name"/>
 				</logic:notEmpty>
@@ -73,10 +73,17 @@
 	<br/>
 	<fieldset>
 		<legend><bean:message key="form.fieldset.company"/></legend>
-		<p><label for="companyName"><bean:message key="form.name"/><font color="red">*</font>&nbsp;</label><html:text property="companyName" size="20" />
-			<div class="buttons">
+		<p>
+		
+		<label for="firmName"><bean:message key="form.name"/><font color="red">*</font>&nbsp;</label>
+			<html:select property="idFirm">
+				<logic:notEmpty name="apprenticeModifyForm" property="firms">
+					<html:optionsCollection property="firms" value="id" label="name"/>
+				</logic:notEmpty>
+			</html:select>
+			<!-- <div class="buttons">
 				<html:submit onclick="javascript:setAction('affectCompany');" titleKey="button.title.affect"><bean:message key="form.affect"/></html:submit>
-			</div>
+			</div> -->
 		</p>
 	</fieldset>
 	<br/>
@@ -85,21 +92,21 @@
 		<p><label for="engineTutor"><bean:message key="form.company.tutor"/><font color="red">*</font></label>
 			<html:select property="idEngineerTutor">
 				<logic:notEmpty name="apprenticeModifyForm" property="engineerTutors">
-					<html:optionsCollection property="engineerTutor" value="id" label="name"/>
+					<html:optionsCollection property="engineerTutors" value="id" label="name"/>
 				</logic:notEmpty>
 			</html:select>
-		</p>
+		</p> 
 		<p><label for="teacherTutor"><bean:message key="form.teacher.tutor"/><font color="red">*</font>&nbsp;</label>
-		<html:select property="idTeacherTutor">
+			<html:select property="idTeacherTutor">
 				<logic:notEmpty name="apprenticeModifyForm" property="teacherTutors">
-					<html:optionsCollection property="teacherTutor" value="id" label="name"/>
+					<option value="" selected></option>
+					<html:optionsCollection property="teacherTutors" value="id" label="fullName"/>
 				</logic:notEmpty>
 			</html:select>
-			<div class="buttons">
+			<!--<div class="buttons">
 				<html:submit onclick="javascript:setAction('affectTeacherTutor');" titleKey="button.title.affect"><bean:message key="form.affect"/></html:submit>
-			</div>
+			</div>-->
 		</p>
-			<!-- <html:link action="/apprenticeTutorAdd"><span class="buttons"><input type="button" value="<bean:message key="button.title.affect"/>" /></span></html:link></p>-->
 	</fieldset> 
 <br/>           
 </div>

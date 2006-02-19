@@ -24,6 +24,8 @@ import fr.umlv.ir3.emagine.firm.FirmManager;
 import fr.umlv.ir3.emagine.firm.FirmManagerImpl;
 import fr.umlv.ir3.emagine.firm.JobManager;
 import fr.umlv.ir3.emagine.firm.JobManagerImpl;
+import fr.umlv.ir3.emagine.firm.actor.EngineerTutorManager;
+import fr.umlv.ir3.emagine.firm.actor.EngineerTutorManagerImpl;
 import fr.umlv.ir3.emagine.firm.actor.FirmActorManager;
 import fr.umlv.ir3.emagine.firm.actor.FirmActorManagerImpl;
 import fr.umlv.ir3.emagine.modification.EditableManager;
@@ -51,6 +53,7 @@ public class ManagerManager {
 	private ProfileManager profileManager;
 	private ExtractionManager extractionManager;
 	private TeacherTutorManager teacherTutorManager;
+	private EngineerTutorManager engineerTutorManager;
 	private FirmManager firmManager;
 	private JobManager jobManager;
 	private EventManager eventManager;
@@ -111,6 +114,7 @@ public class ManagerManager {
 		profileManager = addManager(new ProfileManagerImpl());
 		extractionManager = addManager(new ExtractionManagerImpl());
 		teacherTutorManager = addManager(new TeacherTutorManagerImpl());
+		engineerTutorManager = addManager(new EngineerTutorManagerImpl());
 		firmManager = addManager(new FirmManagerImpl());
 		eventManager = addManager(new EventManagerImpl());
 		mailingListManager = addManager(new MailingListManagerImpl());
@@ -139,72 +143,148 @@ public class ManagerManager {
 		}
 		return instance;
 	}
-	
-	public CandidateManager getCandidateManager() {
-		return candidateManager;
-	}
 
-	public UserManager getUserManager() {
-		return userManager;
-	}
-
-	public ProfileManager getProfileManager() {
-		return profileManager;
-	}
-
-	public ExtractionManager getExtractionManager() {
-		return extractionManager;
-	}
-	
-	public TeacherTutorManager getTeacherTutorManager() {
-		return teacherTutorManager;
-	}
-
-	public FirmManager getFirmManager() {
-		return firmManager;
-	}
-
-	public EventManager getEventManager() {
-		return eventManager;
-	}
-	
-	public MailingListManager getMailingListManager() {
-		return mailingListManager;
-	}
-	
-	public MailingTypeManager getMailingTypeManager()
-	{
-		return mailingTypeManager;
-	}
-	public ApprenticeManager getApprenticeManager() {
-		return apprenticeManager;
-	}
-
+	/**
+	 * @return Returns the absenceManager.
+	 */
 	public AbsenceManager getAbsenceManager() {
 		return absenceManager;
 	}
 
+	/**
+	 * @return Returns the apprenticeManager.
+	 */
+	public ApprenticeManager getApprenticeManager() {
+		return apprenticeManager;
+	}
+
+	/**
+	 * @return Returns the candidateManager.
+	 */
+	public CandidateManager getCandidateManager() {
+		return candidateManager;
+	}
+
+	/**
+	 * @return Returns the emagineEnumManager.
+	 */
+	public EmagineEnumManager getEmagineEnumManager() {
+		return emagineEnumManager;
+	}
+
+	/**
+	 * @return Returns the engineerTutorManager.
+	 */
+	public EngineerTutorManager getEngineerTutorManager() {
+		return engineerTutorManager;
+	}
+
+	/**
+	 * @return Returns the eventManager.
+	 */
+	public EventManager getEventManager() {
+		return eventManager;
+	}
+
+	/**
+	 * @return Returns the extractionManager.
+	 */
+	public ExtractionManager getExtractionManager() {
+		return extractionManager;
+	}
+
+	/**
+	 * @return Returns the firmActorManager.
+	 */
+	public FirmActorManager getFirmActorManager() {
+		return firmActorManager;
+	}
+
+	/**
+	 * @return Returns the firmManager.
+	 */
+	public FirmManager getFirmManager() {
+		return firmManager;
+	}
+
+	/**
+	 * @return Returns the formationCenterManager.
+	 */
 	public FormationCenterManager getFormationCenterManager() {
 		return formationCenterManager;
 	}
 
-	public RightManager getRightManager() {
-		return rightManager;
-	}
-
-	public EmagineEnumManager getEmagineEnumManager() {
-		return emagineEnumManager;
-	}
-	
-	public RoomManager getRoomManager() {
-		return roomManager;
-	}
-	
+	/**
+	 * @return Returns the jobManager.
+	 */
 	public JobManager getJobManager() {
 		return jobManager;
 	}
 
-	public FirmActorManager getFirmActorManager() {
-		return firmActorManager;
+	/**
+	 * @return Returns the mailingListManager.
+	 */
+	public MailingListManager getMailingListManager() {
+		return mailingListManager;
 	}
+
+	/**
+	 * @return Returns the mailingTypeManager.
+	 */
+	public MailingTypeManager getMailingTypeManager() {
+		return mailingTypeManager;
+	}
+
+	/**
+	 * @return Returns the managers.
+	 */
+	public Map<String, BaseManager> getManagers() {
+		return managers;
+	}
+
+	/**
+	 * @return Returns the profileManager.
+	 */
+	public ProfileManager getProfileManager() {
+		return profileManager;
+	}
+
+	/**
+	 * @return Returns the rightManager.
+	 */
+	public RightManager getRightManager() {
+		return rightManager;
+	}
+
+	/**
+	 * @return Returns the roomManager.
+	 */
+	public RoomManager getRoomManager() {
+		return roomManager;
+	}
+
+	/**
+	 * @return Returns the teacherTutorManager.
+	 */
+	public TeacherTutorManager getTeacherTutorManager() {
+		return teacherTutorManager;
+	}
+
+	/**
+	 * @return Returns the userManager.
+	 */
+	public UserManager getUserManager() {
+		return userManager;
+	}
+
+	/**
+	 * @param instance The instance to set.
+	 */
+	public static void setInstance(ManagerManager instance) {
+		ManagerManager.instance = instance;
+	}
+	
+	
+
+
 }

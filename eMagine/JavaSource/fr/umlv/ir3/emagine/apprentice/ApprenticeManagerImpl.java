@@ -4,7 +4,6 @@ import java.util.Collection;
 import java.util.List;
 
 import org.hibernate.HibernateException;
-import org.hibernate.Session;
 
 import fr.umlv.ir3.emagine.apprentice.absence.Absence;
 import fr.umlv.ir3.emagine.apprentice.candidate.Candidate;
@@ -16,7 +15,6 @@ import fr.umlv.ir3.emagine.util.Bundles;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.EmagineEnumManager;
-import fr.umlv.ir3.emagine.util.HibernateUtils;
 import fr.umlv.ir3.emagine.util.ManagerManager;
 import fr.umlv.ir3.emagine.util.base.EventableManagerImpl;
 
@@ -46,8 +44,12 @@ public class ApprenticeManagerImpl extends EventableManagerImpl<Apprentice, Appr
 			ApprenticeDAO dao = getDAO();
 			for (Apprentice apprentice : apprentices) {
 				// TODO : voir une meilleur implémentation que ce foreach
-				Integer year = apprentice.getYear();
-				apprentice.setYear(year + 1);
+				//Integer year = apprentice.getYear();
+				//apprentice.setYear(year + 1);
+				ManagerManager managerManager = ManagerManager.getInstance();
+				EmagineEnumManager emagineEnumManager = managerManager.getEmagineEnumManager();
+				YearEnum year = (YearEnum)emagineEnumManager.retrieve(apprentice.getYear().getId() + 1, YearEnum.class);
+				apprentice.setYear(year);
 				dao.update(apprentice);
 			}
 			DAOManager.commitTransaction();

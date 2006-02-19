@@ -195,6 +195,7 @@ public class InitEnums {
 		EmagineEnumDAO emagineEnumDAO =  DAOManager.getInstance().getEmagineEnumDAO();
 		YearEnum enums =  new YearEnum("1");
 		emagineEnumDAO.create(enums);
+		enums =  new YearEnum("2");
 		emagineEnumDAO.create(enums);
 		enums =  new YearEnum("3");
 		emagineEnumDAO.create(enums);
@@ -202,12 +203,6 @@ public class InitEnums {
 		emagineEnumDAO.create(enums);
 		enums =  new YearEnum("5");
 		emagineEnumDAO.create(enums);
-		
-		/*for(int index=start;index<length; index++)
-		{
-			YearEnum enums =  new YearEnum(new Integer(2000 + index).toString());
-			emagineEnumDAO.create(enums);
-		}*/
 	}
 	
 	static final void createEventTypeEnum(int start, int length) throws EMagineException

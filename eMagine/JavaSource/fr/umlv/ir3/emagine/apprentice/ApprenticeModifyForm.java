@@ -14,7 +14,9 @@ import fr.umlv.ir3.emagine.apprentice.candidate.CourseOptionEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.DiplomaEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.ProfessionEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.SectionEnum;
+import fr.umlv.ir3.emagine.firm.Firm;
 import fr.umlv.ir3.emagine.firm.actor.EngineerTutor;
+import fr.umlv.ir3.emagine.teachertutor.TeacherTutor;
 
 public class ApprenticeModifyForm extends ActionForm {
 
@@ -162,13 +164,10 @@ public class ApprenticeModifyForm extends ActionForm {
 	private String idGroup;
 	
 	/** List of all of firms **/
-	//private Collection <Firm> firms;
+	private Collection <Firm> firms;
 	
 	/** Identifier of selected firm **/
-	//private String idFirm;
-	
-	//TODO liste déroulante de firms ou champ texte??
-	private String companyName;
+	private String idFirm;
 	
 	/** List of all of engineer tutors **/
 	private Collection <EngineerTutor> engineerTutors;
@@ -177,12 +176,10 @@ public class ApprenticeModifyForm extends ActionForm {
 	private String idEngineerTutor;
 	
 	/** List of all of teacher tutors **/
-	//private Collection <TeacherTutor> teacherTutors;
+	private Collection <TeacherTutor> teacherTutors;
 	
 	/** Identifier of selected teacher tutors **/
-	//private String idTeacherTutor;
-
-	private String teacherTutor;
+	private String idTeacherTutor;
 	
 	/*****************************************
 	 *
@@ -1305,33 +1302,61 @@ public class ApprenticeModifyForm extends ActionForm {
 	public void setYears(Collection<YearEnum> years) {
 		this.years = years;
 	}
-
+	
 	/**
-	 * @return Returns the companyName.
+	 * @return Returns the firms.
 	 */
-	public String getCompanyName() {
-		return companyName;
+	public Collection<Firm> getFirms() {
+		return firms;
 	}
 
 	/**
-	 * @param companyName The companyName to set.
+	 * @param firms The firms to set.
 	 */
-	public void setCompanyName(String companyName) {
-		this.companyName = companyName;
+	public void setFirms(Collection<Firm> firms) {
+		this.firms = firms;
 	}
 
 	/**
-	 * @return Returns the teacherTutor.
+	 * @return Returns the idFirm.
 	 */
-	public String getTeacherTutor() {
-		return teacherTutor;
+	public String getIdFirm() {
+		return idFirm;
 	}
 
 	/**
-	 * @param teacherTutor The teacherTutor to set.
+	 * @param idFirm The idFirm to set.
 	 */
-	public void setTeacherTutor(String teacherTutor) {
-		this.teacherTutor = teacherTutor;
+	public void setIdFirm(String idFirm) {
+		this.idFirm = idFirm;
+	}
+
+	/**
+	 * @return Returns the idTeacherTutor.
+	 */
+	public String getIdTeacherTutor() {
+		return idTeacherTutor;
+	}
+
+	/**
+	 * @param idTeacherTutor The idTeacherTutor to set.
+	 */
+	public void setIdTeacherTutor(String idTeacherTutor) {
+		this.idTeacherTutor = idTeacherTutor;
+	}
+
+	/**
+	 * @return Returns the teacherTutors.
+	 */
+	public Collection<TeacherTutor> getTeacherTutors() {
+		return teacherTutors;
+	}
+
+	/**
+	 * @param teacherTutors The teacherTutors to set.
+	 */
+	public void setTeacherTutors(Collection<TeacherTutor> teacherTutors) {
+		this.teacherTutors = teacherTutors;
 	}
 
 }

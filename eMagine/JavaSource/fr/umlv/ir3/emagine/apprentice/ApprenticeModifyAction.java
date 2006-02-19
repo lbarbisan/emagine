@@ -8,14 +8,21 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessages;
+
 import fr.umlv.ir3.emagine.apprentice.candidate.ContactEnum;
+import fr.umlv.ir3.emagine.apprentice.candidate.CourseOptionEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.ProfessionEnum;
+import fr.umlv.ir3.emagine.firm.FirmManager;
+import fr.umlv.ir3.emagine.firm.actor.EngineerTutorManager;
+import fr.umlv.ir3.emagine.teachertutor.TeacherTutorManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.EmagineEnumManager;
 import fr.umlv.ir3.emagine.util.ManagerManager;
@@ -154,7 +161,7 @@ public class ApprenticeModifyAction extends BaseAction {
 			
 				
 				/**
-				 * Datas concerning the Addresses of the apprentice
+				 * Datas concerning the status of the apprentice
 				 */
 				//first name
 				apprenticeModifyForm.setFirstName(apprentice.getFirstName());
@@ -197,6 +204,10 @@ public class ApprenticeModifyAction extends BaseAction {
 					apprenticeModifyForm.setIdContact(Long.toString(apprentice.getContactOriginIG2K().getId()));
 				}
 				
+				/**
+				 * Datas concerning the Addresses of the apprentice
+				 */
+				
 				/** Commons lists : **/
 				
 				//Retrieve all departments and set them in the form
@@ -219,8 +230,24 @@ public class ApprenticeModifyAction extends BaseAction {
 
 				//Retrieve all contacts and set them in the form
 				apprenticeModifyForm.setContacts((List<ContactEnum>)emagineEnumManager.findAll(ContactEnum.class));
-
 				
+				//Retrieve all groupss and set them in the form
+				apprenticeModifyForm.setYears((List<YearEnum>)emagineEnumManager.findAll(YearEnum.class));
+				
+				//Retrieve all groupss and set them in the form
+				apprenticeModifyForm.setGroups((List<GroupEnum>)emagineEnumManager.findAll(GroupEnum.class));
+
+				//Retrieve all courseOptions and set them in the form
+				apprenticeModifyForm.setCourseOptions((List<CourseOptionEnum>)emagineEnumManager.findAll(CourseOptionEnum.class));
+				
+				//Retrieve all firms and set them in the form
+				apprenticeModifyForm.setFirms(managerManager.getFirmManager().findAll());
+				
+				//Retrieve all firms and set them in the form
+				apprenticeModifyForm.setEngineerTutors(managerManager.getEngineerTutorManager().findAll());
+				
+				//Retrieve all firms and set them in the form
+				apprenticeModifyForm.setTeacherTutors(managerManager.getTeacherTutorManager().findAll());
 			}
 			
 		} catch (EMagineException exception) {
@@ -249,6 +276,9 @@ public class ApprenticeModifyAction extends BaseAction {
 		ApprenticeManager apprenticeManager = managerManager.getApprenticeManager();
 		ApprenticeModifyForm apprenticeModifyForm = (ApprenticeModifyForm) form;
 		EmagineEnumManager emagineEnumManager = managerManager.getEmagineEnumManager();
+		EngineerTutorManager engineerTutorManager = managerManager.getEngineerTutorManager();
+		TeacherTutorManager teacherTutorManager = managerManager.getTeacherTutorManager();
+		FirmManager firmManager = managerManager.getFirmManager();
 		
 		//Update the apprentice
 		try {
@@ -313,8 +343,13 @@ public class ApprenticeModifyAction extends BaseAction {
 			apprentice.setContactOriginIG2K((ContactEnum) emagineEnumManager.retrieve(Long.parseLong(apprenticeModifyForm.getIdContact()), ContactEnum.class));
 
 			/* Datas concerning the situation tab*/
+			apprentice.setCourseOption((CourseOptionEnum) emagineEnumManager.retrieve(Long.parseLong(apprenticeModifyForm.getIdCourseOption()), CourseOptionEnum.class));
+			apprentice.setYear((YearEnum) emagineEnumManager.retrieve(Long.parseLong(apprenticeModifyForm.getIdYear()), YearEnum.class));
+			apprentice.setGroup((GroupEnum) emagineEnumManager.retrieve(Long.parseLong(apprenticeModifyForm.getIdGroup()), GroupEnum.class));
 			
-			
+			apprentice.setFirm(firmManager.retrieve(Long.parseLong(apprenticeModifyForm.getIdFirm())));
+			apprentice.setEngineerTutor(engineerTutorManager.retrieve(Long.parseLong(apprenticeModifyForm.getIdEngineerTutor())));
+			apprentice.setTeacherTutor(teacherTutorManager.retrieve(Long.parseLong(apprenticeModifyForm.getIdTeacherTutor())));
 			
 			/* Datas concerning the schooling tab*/
 			
@@ -336,7 +371,6 @@ public class ApprenticeModifyAction extends BaseAction {
 			date = Calendar.getInstance().getTime();
 			try {
 				date = simpleDateFormat.parse(stringDate);
-				System.err.println(date);
 			} catch (ParseException e) {
 			}
 		}
