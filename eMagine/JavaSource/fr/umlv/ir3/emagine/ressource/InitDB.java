@@ -31,7 +31,6 @@ import fr.umlv.ir3.emagine.extraction.ExtractionProperty;
 import fr.umlv.ir3.emagine.firm.Firm;
 import fr.umlv.ir3.emagine.firm.FirmDAO;
 import fr.umlv.ir3.emagine.firm.actor.FirmActor;
-import fr.umlv.ir3.emagine.firm.actor.FirmActorDAO;
 import fr.umlv.ir3.emagine.security.EmaginePrincipal;
 import fr.umlv.ir3.emagine.security.MustHaveRights;
 import fr.umlv.ir3.emagine.security.SessionManager;
@@ -63,184 +62,179 @@ public class InitDB {
 			EMagineException, IllegalArgumentException, IllegalAccessException,
 			InvocationTargetException {
 		// Initialize Enum
-		Object[] objects = { 1,4 };
+		Object[] objects = { 1, 4 };
 		for (Method method : InitEnums.class.getDeclaredMethods()) {
 			if (method.getName().startsWith("create")) {
 				method.invoke(null, objects);
 			}
 		}
 
-		SessionManager.getInstance().initThreadLocal(new SessionManagerConfig() {
-			public javax.servlet.http.HttpSession getSession() {
-				return new HttpSessionSimulator(new ServletContextSimulator());
-			};
-			public fr.umlv.ir3.emagine.security.EmaginePrincipal getUserPrincipal() throws fr.umlv.ir3.emagine.security.SecurityFilterNotCorrectlyInitializedException {
-				return new EmaginePrincipal() {
-					public String getName() {
-						return "InitDB";
+		SessionManager.getInstance().initThreadLocal(
+				new SessionManagerConfig() {
+					public javax.servlet.http.HttpSession getSession() {
+						return new HttpSessionSimulator(
+								new ServletContextSimulator());
 					};
-					public java.security.Principal getPrincipal() {
-						return new Principal() {
+
+					public fr.umlv.ir3.emagine.security.EmaginePrincipal getUserPrincipal()
+							throws fr.umlv.ir3.emagine.security.SecurityFilterNotCorrectlyInitializedException {
+						return new EmaginePrincipal() {
 							public String getName() {
 								return "InitDB";
 							};
+
+							public java.security.Principal getPrincipal() {
+								return new Principal() {
+									public String getName() {
+										return "InitDB";
+									};
+								};
+							};
+
+							public User getUser() {
+								User user = new User();
+								user.setLogin("InitDB");
+								return user;
+							};
 						};
 					};
-					public User getUser() {
-						User user = new User();
-						user.setLogin("InitDB");
-						return user;
-					};
-				};
-			};
-			
-		});
-		
+
+				});
+
 		initializeUser();
 		createUsers(1, 4);
 		createTeachers(1, 4);
 
 		initializeFormationCenter();
-		initializeCandidate(1,4);
-		initializeFirm(1,4);
-		initializeApprentice(1,4);
-		initializeEntrepriseActor(1,4);
+		initializeCandidate(1, 4);
+		initializeFirm(1, 4);
+		initializeApprentice(1, 4);
 		initializeExtractionEntities();
 	}
 
-	private static void initializeEntrepriseActor(int start, int length) {
-		FirmActorDAO firmActorDAO = DAOManager.getInstance().getFirmActorDAO();
-		DAOManager.beginTransaction();
-		 try {
-			for (int index = start; index < length; index++) {
-				 FirmActor firmActor = new FirmActor();
-				 firmActor.setAddressPersonnal(createAddress(index*2));
-				 firmActor.setAddressProfessional(createAddress(index*2+1));
-				 firmActor.setBirthdayCity("BirthdayCity"+ index);
-				 firmActor.setBirthdayCountry((CountryEnum) InitEnums.getEmagineEnum("Country " + index, CountryEnum.class));
-				 firmActor.setBirthdayDate(new Date());
-				 firmActor.setBirthdayDepartment((DepartmentEnum) InitEnums.getEmagineEnum("Department " + index, DepartmentEnum.class));
-				 firmActor.setEmail("mail@domain.com");
-				 firmActor.setFax("07987870"+ index );
-				 firmActor.setFirstName("FirstNameActorFirm" + index);
-				 firmActor.setLastName("LastNameActorFirm" + index);
-				 firmActor.setMobilePhone("8687576587" + index);
-				 firmActor.setNationality((NationalityEnum) InitEnums.getEmagineEnum("Nationality " + index, NationalityEnum.class));
-				 firmActor.setPhone("765457456" + index);
-				 firmActor.setSex((SexEnum) InitEnums.getEmagineEnum("Homme", SexEnum.class));
-				 firmActorDAO.create(firmActor);	 
-			}
-		 } catch (EMagineException e) {
-				// TODO EMagineException.e Not Implemented
-				e.printStackTrace();
-			}
-	}
-
-
-	private static final void initializeExtractionEntities() throws EMagineException {
+	private static final void initializeExtractionEntities()
+			throws EMagineException {
 		DAOManager.beginTransaction();
 
 		HashSet<String> uniqKeys = new HashSet<String>();
 		final ResourceBundle extractionBundle = Bundles.getExtractionBundle();
-		for (final Enumeration<String> keys = extractionBundle.getKeys() ; keys.hasMoreElements() ;) {
+		for (final Enumeration<String> keys = extractionBundle.getKeys(); keys
+				.hasMoreElements();) {
 			// Get the name of the extraction entity
 			String extractionEntityName = keys.nextElement().split("\\.")[1];
 			if (!uniqKeys.contains(extractionEntityName)) {
 				uniqKeys.add(extractionEntityName);
 				// Get the properties of that extraction entity
-				String[] properties = extractionBundle.getString("extraction."+extractionEntityName+".properties").split(",");
+				String[] properties = extractionBundle.getString(
+						"extraction." + extractionEntityName + ".properties")
+						.split(",");
 				ExtractionEntity extractionEntity = new ExtractionEntity();
 				extractionEntity.setName(extractionEntityName);
 				for (String property : properties) {
 					// Create the extraction properties
-					final ExtractionProperty extractionProperty = new ExtractionProperty(property);
+					final ExtractionProperty extractionProperty = new ExtractionProperty(
+							property);
 					extractionProperty.setExtractionEntity(extractionEntity);
 					extractionEntity.getProperties().add(extractionProperty);
 				}
 				// Create the extraction entity
-				DAOManager.getInstance().getExtractionEntityDAO().create(extractionEntity);
+				DAOManager.getInstance().getExtractionEntityDAO().create(
+						extractionEntity);
 			}
 		}
 		DAOManager.commitTransaction();
 	}
 
-	private static final void initializeCandidate(int start, int end) throws EMagineException
-	{
-		
+	private static final void initializeCandidate(int start, int end)
+			throws EMagineException {
+
 		CandidateDAO candidateDAO = DAOManager.getInstance().getCandidateDAO();
 		DAOManager.beginTransaction();
-		
-		for(int index=start; index < end; index++)
-		{
-		/*
-		Contact contact = new Contact();
-		contact.setAddressPersonnal(createAddress(index));
-		contact.setBirthdayCity("Ville" + index);
-		contact.setBirthdayCountry((CountryEnum) InitEnums.getEmagineEnum("Country " + index, CountryEnum.class));
-		contact.setBirthdayDate(new Date());
-		contact.setBirthdayDepartment((DepartmentEnum) InitEnums.getEmagineEnum("Department " + index, DepartmentEnum.class));
-		contact.setEmail("contact" + index + "@gmail.com");
-		contact.setFirstName("LastNameContact" + index);
-		contact.setLastName("FirstNameContact" + index);
-		contact.setFax("01012" + index);
-		contact.setMobilePhone("32902930" + index);
-		contact.setNationality((NationalityEnum) InitEnums.getEmagineEnum("Nationality " + index, NationalityEnum.class));
-		contact.setPhone("8798798" + index);
-		contact.setSex((SexEnum) InitEnums.getEmagineEnum("Male", SexEnum.class));
-		*/
-		Candidate candidate = new Candidate();
-		candidate.setAccepted(false);
-		candidate.setAddressPersonnal(createAddress(index));
-		candidate.setBirthdayCity("Ville" + index);
-		candidate.setBirthdayCountry((CountryEnum) InitEnums.getEmagineEnum("Country " + index, CountryEnum.class));
-		candidate.setBirthdayDate(new Date());
-		candidate.setBirthdayDepartment((DepartmentEnum) InitEnums.getEmagineEnum("Department " + index, DepartmentEnum.class));
-		//candidate.setContactOriginIG2K(contact);
-		candidate.setContactOriginIG2K((ContactEnum) InitEnums.getEmagineEnum("jpo", ContactEnum.class));
-		candidate.setCourseOption((CourseOptionEnum) InitEnums.getEmagineEnum("CourseOption " + index, CourseOptionEnum.class));
-		//candidate.setEmail(contact.getEmail());
-		candidate.setEmail("contact" + index + "@gmail.com");
-		candidate.setEntryLevel((LevelEntryEnum) InitEnums.getEmagineEnum("Level " + index, LevelEntryEnum.class));
-		candidate.setFax("70987987" + index);
-		candidate.setFirstName("FirstNameContact" + index);
-		//candidate.setFirstName(contact.getFirstName() + "Candidate");
-//		candidate.setFormationCenter()
-//		candidate.setLastDiploma()
-		candidate.setLastName("LastNameContact" + index);
-		//candidate.setLastName(contact.getLastName() + "Candiate");
-//		candidate.setLastSection()
-		candidate.setMobilePhone("87695468" + index);
-		candidate.setNationality((NationalityEnum) InitEnums.getEmagineEnum("Nationality " + index, NationalityEnum.class));
-		//candidate.setNationality(contact.getNationality());
-//		candidate.setOtherFormation()
-		candidate.setPhone("098098" + index);
-//		candidate.setProfessionFather()
-//		candidate.setProfessionMother()
-		candidateDAO.create(candidate);
 
-		//candidate.setSex(contact.getSex());
-		candidate.setSex((SexEnum) InitEnums.getEmagineEnum("Homme", SexEnum.class));
-		
+		for (int index = start; index < end; index++) {
+			/*
+			 * Contact contact = new Contact();
+			 * contact.setAddressPersonnal(createAddress(index));
+			 * contact.setBirthdayCity("Ville" + index);
+			 * contact.setBirthdayCountry((CountryEnum)
+			 * InitEnums.getEmagineEnum("Country " + index, CountryEnum.class));
+			 * contact.setBirthdayDate(new Date());
+			 * contact.setBirthdayDepartment((DepartmentEnum)
+			 * InitEnums.getEmagineEnum("Department " + index,
+			 * DepartmentEnum.class)); contact.setEmail("contact" + index +
+			 * "@gmail.com"); contact.setFirstName("LastNameContact" + index);
+			 * contact.setLastName("FirstNameContact" + index);
+			 * contact.setFax("01012" + index);
+			 * contact.setMobilePhone("32902930" + index);
+			 * contact.setNationality((NationalityEnum)
+			 * InitEnums.getEmagineEnum("Nationality " + index,
+			 * NationalityEnum.class)); contact.setPhone("8798798" + index);
+			 * contact.setSex((SexEnum) InitEnums.getEmagineEnum("Male",
+			 * SexEnum.class));
+			 */
+			Candidate candidate = new Candidate();
+			candidate.setAccepted(false);
+			candidate.setAddressPersonnal(createAddress(index));
+			candidate.setBirthdayCity("Ville" + index);
+			candidate.setBirthdayCountry((CountryEnum) InitEnums
+					.getEmagineEnum("Country " + index, CountryEnum.class));
+			candidate.setBirthdayDate(new Date());
+			candidate
+					.setBirthdayDepartment((DepartmentEnum) InitEnums
+							.getEmagineEnum("Department " + index,
+									DepartmentEnum.class));
+			// candidate.setContactOriginIG2K(contact);
+			candidate.setContactOriginIG2K((ContactEnum) InitEnums
+					.getEmagineEnum("jpo", ContactEnum.class));
+			candidate.setCourseOption((CourseOptionEnum) InitEnums
+					.getEmagineEnum("CourseOption " + index,
+							CourseOptionEnum.class));
+			// candidate.setEmail(contact.getEmail());
+			candidate.setEmail("contact" + index + "@gmail.com");
+			candidate.setEntryLevel((LevelEntryEnum) InitEnums.getEmagineEnum(
+					"Level " + index, LevelEntryEnum.class));
+			candidate.setFax("70987987" + index);
+			candidate.setFirstName("FirstNameContact" + index);
+			// candidate.setFirstName(contact.getFirstName() + "Candidate");
+			// candidate.setFormationCenter()
+			// candidate.setLastDiploma()
+			candidate.setLastName("LastNameContact" + index);
+			// candidate.setLastName(contact.getLastName() + "Candiate");
+			// candidate.setLastSection()
+			candidate.setMobilePhone("87695468" + index);
+			candidate.setNationality((NationalityEnum) InitEnums
+					.getEmagineEnum("Nationality " + index,
+							NationalityEnum.class));
+			// candidate.setNationality(contact.getNationality());
+			// candidate.setOtherFormation()
+			candidate.setPhone("098098" + index);
+			// candidate.setProfessionFather()
+			// candidate.setProfessionMother()
+			candidateDAO.create(candidate);
+
+			// candidate.setSex(contact.getSex());
+			candidate.setSex((SexEnum) InitEnums.getEmagineEnum("Homme",
+					SexEnum.class));
+
 		}
-		
+
 		DAOManager.commitTransaction();
 	}
-	
-	
-	private static final void initializeApprentice(int start, int end) throws EMagineException
-	{
-		
-		ApprenticeManager apprenticeManager =  ManagerManager.getInstance().getApprenticeManager();
+
+	private static final void initializeApprentice(int start, int end)
+			throws EMagineException {
+
+		ApprenticeManager apprenticeManager = ManagerManager.getInstance()
+				.getApprenticeManager();
 		CandidateDAO candidateDAO = DAOManager.getInstance().getCandidateDAO();
-		
+
 		DAOManager.beginTransaction();
-		
-		for(int index=start; index < end; index++)
-		{
-			Candidate candidate =  candidateDAO.findAll().get(index-start);
+
+		for (int index = start; index < end; index++) {
+			Candidate candidate = candidateDAO.findAll().get(index - start);
 			apprenticeManager.integrate(candidate);
 		}
-		
+
 		DAOManager.commitTransaction();
 	}
 
@@ -260,9 +254,10 @@ public class InitDB {
 
 			File rootFolder = new File("JavaSource/fr");
 			initFolderManager(rootFolder, "fr", rightSet);
-			
-			administrateur.setRights(DAOManager.getInstance().getRightDAO().findAll());
-			
+
+			administrateur.setRights(DAOManager.getInstance().getRightDAO()
+					.findAll());
+
 			Profile visitor = new Profile();
 			visitor.setDescription("Droit des utilisateurs");
 			visitor.setName("Utilisateur");
@@ -320,8 +315,7 @@ public class InitDB {
 			user.setPassword("admin");
 			user.setProfile(administrateur);
 			userDAO.create(user);
-			
-			
+
 			user = new User();
 			user.setEmail("a@gmail.com");
 			user.setFirstName("a");
@@ -330,7 +324,7 @@ public class InitDB {
 			user.setPassword("");
 			user.setProfile(visitor);
 			userDAO.create(user);
-			
+
 			user = new User();
 			user.setEmail("user@gmail.com");
 			user.setFirstName("user");
@@ -390,16 +384,19 @@ public class InitDB {
 				teacher.setAddressPersonnal(createAddress(index * 2));
 				teacher.setAddressProfessional(createAddress(index));
 				teacher.setBirthdayCity("Paris" + index);
-				teacher.setBirthdayCountry((CountryEnum) InitEnums.getEmagineEnum("Country 1", CountryEnum.class));
+				teacher.setBirthdayCountry((CountryEnum) InitEnums
+						.getEmagineEnum("Country 1", CountryEnum.class));
 				teacher.setBirthdayDate(Calendar.getInstance().getTime());
-				teacher.setBirthdayDepartment((DepartmentEnum) InitEnums.getEmagineEnum("Department 1", DepartmentEnum.class));
+				teacher.setBirthdayDepartment((DepartmentEnum) InitEnums
+						.getEmagineEnum("Department 1", DepartmentEnum.class));
 				teacher.setEmail("mail" + index + "@gmail.com");
 				teacher.setFax("9" + index * 100);
 				teacher.setFirstName("LastNameTeachers" + index);
 				teacher.setLastName("FirstNameTeachers" + index);
 				teacher.setMobilePhone("709870");
 				teacher.setPhone("12003" + index);
-				teacher.setSex((SexEnum) InitEnums.getEmagineEnum("Male",  SexEnum.class));
+				teacher.setSex((SexEnum) InitEnums.getEmagineEnum("Male",
+						SexEnum.class));
 				teacherTutorDAO.create(teacher);
 			}
 
@@ -413,30 +410,43 @@ public class InitDB {
 
 	private static Address createAddress(int index) throws EMagineException {
 		Address address = new Address();
-		address.setCity("City" + index);
-		address.setCountry((CountryEnum) InitEnums.getEmagineEnum("Country 1", CountryEnum.class));
-		address.setDepartment((DepartmentEnum) InitEnums.getEmagineEnum("Department 1", DepartmentEnum.class));
-		address.setPostalCode("99" + index);
-		address.setStreet(index + "rue de la java");
+		address.setCity("City " + index);
+		address.setCountry((CountryEnum) InitEnums.getEmagineEnum("Country 1",
+				CountryEnum.class));
+		address.setDepartment((DepartmentEnum) InitEnums.getEmagineEnum(
+				"Department 1", DepartmentEnum.class));
+		address.setPostalCode("9310" + index);
+		address.setStreet(index + " rue de la java");
 
 		return address;
 	}
-	
+
 	private static void initializeFirm(int start, int length) {
-		
+
 		FirmDAO firmDAO = DAOManager.getInstance().getFirmDAO();
-				
+
 		DAOManager.beginTransaction();
 		try {
-			for (int index = start; index < length; index++)
-			{
+			for (int index = start; index < length; index++) {
+				FirmActor firmActor = createFrimActor(index*10+1);
+				FirmActor firmActor2= createFrimActor(index*10+2);
+				FirmActor firmActor3 = createFrimActor(index*10+3);
+				
 				Firm firm = new Firm();
 				firm.setAddress(createAddress(index));
-				firm.setEmail("FirmMail@domain" +  index + ".com");
-				firm.setFax("87987987" + index);
-				firm.setName("Firm" + index);
-				firm.setPhone("9879879" + index);
+				firm.setEmail("FirmMail@domain" + index + ".com");
+				firm.setFax("+33123456 " + index);
+				firm.setName("FirmName " + index);
+				firm.setPhone("+33123456" + index);
 				firm.setWebSite("http://www" + index + "domain.com");
+				firm.getFirmActors().add(firmActor);
+				firm.getFirmActors().add(firmActor2);
+				firm.getFirmActors().add(firmActor3);
+				
+				firmActor.setFirm(firm);
+				firmActor2.setFirm(firm);
+				firmActor3.setFirm(firm);
+				
 				firmDAO.create(firm);
 			}
 
@@ -447,13 +457,38 @@ public class InitDB {
 		}
 	}
 
+	private static FirmActor createFrimActor(int index) {
+		FirmActor firmActor = new FirmActor();
+		try {
+			firmActor.setAddressPersonnal(createAddress(index));
+			firmActor.setAddressProfessional(createAddress(index));
+			firmActor.setBirthdayCity("BirthdayCity " + index);
+			firmActor.setBirthdayCountry((CountryEnum) InitEnums.getEmagineEnum("Country " + index, CountryEnum.class));
+			firmActor.setBirthdayDate(new Date());
+			firmActor.setBirthdayDepartment((DepartmentEnum) InitEnums.getEmagineEnum("Department " + index, DepartmentEnum.class));
+			firmActor.setEmail("mail@domain.com");
+			firmActor.setFax("+33123456" + index);
+			firmActor.setFirstName("FirstNameActorFirm" + index);
+			firmActor.setLastName("LastNameActorFirm" + index);
+			firmActor.setMobilePhone("+33123456" + index);
+			firmActor.setNationality((NationalityEnum) InitEnums.getEmagineEnum("Nationality " + index,	NationalityEnum.class));
+			firmActor.setPhone("+33123456" + index);
+			firmActor.setSex((SexEnum) InitEnums.getEmagineEnum("Homme", SexEnum.class));
+
+		} catch (EMagineException e) {
+			// TODO EMagineException.e Not Implemented
+			e.printStackTrace();
+		}
+
+		return firmActor;
+	}
+
 	private static void initializeFormationCenter() {
 		FormationCenterDAO formationCenterDAO = DAOManager.getInstance()
 				.getFormationCenterDAO();
 		DAOManager.beginTransaction();
 		try {
 
-			
 			FormationCenter formationCenter = new FormationCenter();
 			formationCenter.setAddress(createAddress(1));
 			formationCenter.setName("Lyon");
@@ -463,7 +498,7 @@ public class InitDB {
 			room.setFormationCenter(formationCenter);
 			room.setCapacity(100);
 			room.setName("10DC10");
-			
+
 			Room room1 = new Room();
 			room1.setFormationCenter(formationCenter);
 			room1.setCapacity(102);
@@ -473,12 +508,11 @@ public class InitDB {
 			room2.setFormationCenter(formationCenter);
 			room2.setCapacity(101);
 			room2.setName("10DC11");
-			
+
 			formationCenter.getRooms().add(room);
 			formationCenter.getRooms().add(room1);
 			formationCenter.getRooms().add(room2);
-			
-			
+
 			formationCenterDAO.create(formationCenter);
 
 			DAOManager.commitTransaction();
@@ -516,10 +550,13 @@ public class InitDB {
 									.getAnnotation(MustHaveRights.class);
 
 							if (methodRights == null && classRights != null) {
-								// Adds the class rights if no method rights are specified
-								// The checked rights become : [class right].[methode name] for each class right
+								// Adds the class rights if no method rights are
+								// specified
+								// The checked rights become : [class
+								// right].[methode name] for each class right
 								for (String classRight : classRights.value()) {
-									addRight(rightSet, classRight + "." + method.getName(), rightDAO);
+									addRight(rightSet, classRight + "."
+											+ method.getName(), rightDAO);
 								}
 							} else if (methodRights != null) {
 								// Else, we take the rights as they are listed
@@ -536,12 +573,13 @@ public class InitDB {
 			}
 		}
 	}
-	
-	private static final void addRight(HashSet<String> rightSet, String fullRightName, RightDAO rightDAO) throws EMagineException {
+
+	private static final void addRight(HashSet<String> rightSet,
+			String fullRightName, RightDAO rightDAO) throws EMagineException {
 		if (!rightSet.contains(fullRightName)) {
 			rightDAO.create(new Right(fullRightName));
 			rightSet.add(fullRightName);
-			System.out.println(".\t=> "+fullRightName);
+			System.out.println(".\t=> " + fullRightName);
 		}
 	}
 }

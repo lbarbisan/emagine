@@ -66,12 +66,6 @@ public class FormationCenter extends EditableEntity {
 		return candidates;
 	}
 	/**
-	 * @param candidates The candidate to set.
-	 */
-	public void setCandidate(List<Candidate> candidates) {
-		this.candidates = candidates;
-	}
-	/**
 	 * @return Returns the name.
 	 */
 	public String getName() {
@@ -100,12 +94,6 @@ public class FormationCenter extends EditableEntity {
 	 */
 	public List<Room> getRooms() {
 		return rooms;
-	}
-	/**
-	 * @param rooms The rooms to set.
-	 */
-	public void setRooms(List<Room> rooms) {
-		this.rooms = rooms;
 	}
 	
 	public String getAddressString(){

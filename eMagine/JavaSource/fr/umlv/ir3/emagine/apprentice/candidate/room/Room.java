@@ -22,7 +22,6 @@ import fr.umlv.ir3.emagine.modification.EditableEntity;
  * @persistence Terminé - Vérifier Composite et primary
  */
 @Entity(access = AccessType.FIELD)
-@Inheritance(strategy=InheritanceType.JOINED)
 public class Room extends EditableEntity {
 	
 	private static final long serialVersionUID = 2288855718464048519L;

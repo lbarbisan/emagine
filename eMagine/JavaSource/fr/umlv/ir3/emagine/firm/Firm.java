@@ -30,19 +30,23 @@ public class Firm extends EventableEntity {
 	private static final long serialVersionUID = -4439188773689857587L;
 	
 	@OneToMany(mappedBy = "motherFirm")
-	@Cascade(CascadeType.SAVE_UPDATE)
+	@Cascade({CascadeType.SAVE_UPDATE})
 	private List<Firm> childfirm = new ArrayList<Firm>();
+	
 	@ManyToOne
 	@JoinColumn(name="motherfirm_id")
 	private Firm motherFirm;
+	
 	@OneToMany(mappedBy = "firm")
 	@Cascade({CascadeType.ALL, CascadeType.DELETE_ORPHAN})
 	private List<Job> jobs = new ArrayList<Job>();
+	
 	@OneToMany(mappedBy = "firm")
-	@Cascade({CascadeType.ALL,  CascadeType.DELETE_ORPHAN})
+	@Cascade({CascadeType.ALL, CascadeType.DELETE_ORPHAN})
 	private List<FirmActor> firmActors = new ArrayList<FirmActor>();
+	
 	@OneToOne()
-	@Cascade(CascadeType.SAVE_UPDATE)
+	@Cascade({CascadeType.ALL,  CascadeType.DELETE_ORPHAN})
 	@JoinColumn(name = "addresspersonnal_id")
 	@Column(unique = true)
 	private Address address;
@@ -69,12 +73,6 @@ public class Firm extends EventableEntity {
 	 */
 	public List<Firm> getChildfirm() {
 		return childfirm;
-	}
-	/**
-	 * @param childfirm The childfirm to set.
-	 */
-	public void setChildfirm(List<Firm> childfirm) {
-		this.childfirm = childfirm;
 	}
 	/**
 	 * @return Returns the email.
@@ -107,22 +105,10 @@ public class Firm extends EventableEntity {
 		return firmActors;
 	}
 	/**
-	 * @param firmActors The firmActors to set.
-	 */
-	public void setFirmActors(List<FirmActor> firmActors) {
-		this.firmActors = firmActors;
-	}
-	/**
 	 * @return Returns the jobs.
 	 */
 	public List<Job> getJobs() {
 		return jobs;
-	}
-	/**
-	 * @param jobs The jobs to set.
-	 */
-	public void setJobs(List<Job> jobs) {
-		this.jobs = jobs;
 	}
 	/**
 	 * @return Returns the motherFirm.
@@ -171,6 +157,12 @@ public class Firm extends EventableEntity {
 	 */
 	public void setWebSite(String webSite) {
 		this.webSite = webSite;
+	}
+	/**
+	 * @param firmActors The firmActors to set.
+	 */
+	public void setFirmActors(List<FirmActor> firmActors) {
+		this.firmActors = firmActors;
 	}
 	
 }
