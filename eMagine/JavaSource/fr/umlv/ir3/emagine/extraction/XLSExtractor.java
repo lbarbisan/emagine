@@ -46,7 +46,19 @@ public class XLSExtractor implements Extractor {
 					} catch (InvocationTargetException e) {
 						throw new EMagineException("exception.xlsExtractor.extract.error", e);
 					} catch (NoSuchMethodException e) {
-						throw new EMagineException("exception.xlsExtractor.extract.error", e);
+						try {
+							cell.getClass().getMethod("setCellValue", String.class).invoke(cell, value.toString());
+						} catch (IllegalArgumentException e1) {
+							throw new EMagineException("exception.xlsExtractor.extract.error", e1);
+						} catch (SecurityException e1) {
+							throw new EMagineException("exception.xlsExtractor.extract.error", e1);
+						} catch (IllegalAccessException e1) {
+							throw new EMagineException("exception.xlsExtractor.extract.error", e1);
+						} catch (InvocationTargetException e1) {
+							throw new EMagineException("exception.xlsExtractor.extract.error", e1);
+						} catch (NoSuchMethodException e1) {
+							throw new EMagineException("exception.xlsExtractor.extract.error", e1);
+						}
 					}
 				}
 				++j;

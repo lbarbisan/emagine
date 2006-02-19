@@ -1,10 +1,14 @@
 package fr.umlv.ir3.emagine.extraction;
 
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 import fr.umlv.ir3.emagine.util.Bundles;
 import fr.umlv.ir3.emagine.util.EMagineException;
@@ -13,6 +17,7 @@ public class ObjectListExtractable<O> implements Extractable {
 	private final List<O> objectList;
 	private final List<String> columns;
 	private final List<String> columnTitles;
+	protected Log log = LogFactory.getLog(ObjectListExtractable.class);
 
 	/**
 	 * @param objectList
@@ -24,7 +29,16 @@ public class ObjectListExtractable<O> implements Extractable {
 		// Save an array of the keys we retreive in order to iterate on the columns in the same order as the column titles will be iterated
 		this.columns = new ArrayList<String>();
 		for (String columnKey : selectedColumns) {
-			columnTitles.add(Bundles.getMessageResources().getMessage("form."+columnKey));
+			StringBuffer columnTitle = new StringBuffer();
+			boolean first = true;
+			for (String property : columnKey.split("\\.")) {
+				if (!first) {
+					columnTitle.append(".");
+				}
+				first = false;
+				columnTitle.append(Bundles.getMessageResources().getMessage("form."+property));
+			}
+			columnTitles.add(columnTitle.toString());
 			columns.add(columnKey);
 		}
 		this.objectList = objectList;
@@ -98,13 +112,29 @@ public class ObjectListExtractable<O> implements Extractable {
 				}
 				public Object getCellValue() throws EMagineException {
 					String[] properties = columnName.split("\\.");
+					StringBuffer currentAccessedPath = new StringBuffer("");
+					boolean first = true;
 					Object currentObject = entity;
 					// Itération sur chaque champs de la colonne
 					for (String property : properties) {
+						currentAccessedPath.append((first?"":".")+property);
+						if (currentObject == null) {
+							String message = Bundles.getMessageResources().getMessage("exception.objectListExtractable.nullObject", currentAccessedPath.toString());
+							if (message == null) {
+								message = "exception.objectListExtractable.nullObject ["+currentAccessedPath.toString()+"]";
+							}
+							log.debug(message);
+							return null;
+						}
+						first = false;
 						final String getterMethod = "get" + property.substring(0, 1).toUpperCase() + property.substring(1);
 						// Invocation du getter de la propriété de la classe courrante. On garde le sous objet renvoyé.
 						try {
-							currentObject = currentObject.getClass().getMethod(getterMethod, (Class[])null).invoke(currentObject, (Object[])null);
+							final Method method = currentObject.getClass().getMethod(getterMethod, (Class[])null);
+							if (method == null) {
+								throw new EMagineException("exception.objectListExtractable.noGetterForProperty", entity.getClass().getName(), currentAccessedPath.toString());
+							}
+							currentObject = method.invoke(currentObject, (Object[])null);
 						} catch (IllegalArgumentException e) {
 							throw new EMagineException("exception.objectListExtractable.cellValueError", e);
 						} catch (SecurityException e) {
@@ -114,7 +144,7 @@ public class ObjectListExtractable<O> implements Extractable {
 						} catch (InvocationTargetException e) {
 							throw new EMagineException("exception.objectListExtractable.cellValueError", e);
 						} catch (NoSuchMethodException e) {
-							throw new EMagineException("exception.objectListExtractable.cellValueError", e);
+							throw new EMagineException("exception.objectListExtractable.noGetterForProperty", entity.getClass().getName(), currentAccessedPath.toString());
 						}
 					}//TODO : avec un booléen ça plante
 					// On se retrouve avec la propriété finale demandée

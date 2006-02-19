@@ -122,7 +122,8 @@ public class InitDB {
 				.hasMoreElements();) {
 			// Get the name of the extraction entity
 			String extractionEntityName = keys.nextElement().split("\\.")[1];
-			if (!uniqKeys.contains(extractionEntityName)) {
+			// Don't get the groups and already parsed entities
+			if (!"group".equals(extractionEntityName) && !uniqKeys.contains(extractionEntityName)) {
 				uniqKeys.add(extractionEntityName);
 				// Get the properties of that extraction entity
 				String[] properties = extractionBundle.getString(

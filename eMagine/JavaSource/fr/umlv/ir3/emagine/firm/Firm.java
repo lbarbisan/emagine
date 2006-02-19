@@ -54,7 +54,7 @@ public class Firm extends EventableEntity {
 	
 	private String name;
 	private String phone;
-	private String Fax;
+	private String fax;
 	private String email;
 	private String webSite;
 	/**
@@ -91,13 +91,13 @@ public class Firm extends EventableEntity {
 	 * @return Returns the fax.
 	 */
 	public String getFax() {
-		return Fax;
+		return fax;
 	}
 	/**
 	 * @param fax The fax to set.
 	 */
 	public void setFax(String fax) {
-		Fax = fax;
+		this.fax = fax;
 	}
 	/**
 	 * @return Returns the firmActors.

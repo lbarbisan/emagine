@@ -53,18 +53,26 @@ public class EMagineException extends Exception {
 	}
 	
 	@Override
-	public String getLocalizedMessage() {
+	public String getMessage() {
 		try {
-			return Bundles.getMessageResources().getMessage(messageId, params);
-		} catch (Exception e) {
-			StringBuilder builder = new StringBuilder(messageId);
-			if (params != null) {
-				for (String param : params) {
-					builder.append(" ["+param+"]");
-				}
+			final String message = Bundles.getMessageResources().getMessage(messageId, params);
+			if (message == null) {
+				return getBaseMessage();
 			}
-			return builder.toString();
+			return message;
+		} catch (Exception e) {
+			return getBaseMessage();
 		}
+	}
+	
+	public String getBaseMessage() {
+		StringBuilder builder = new StringBuilder(messageId);
+		if (params != null) {
+			for (String param : params) {
+				builder.append(" ["+param+"]");
+			}
+		}
+		return builder.toString();
 	}
 
 	public String getMessageId() {

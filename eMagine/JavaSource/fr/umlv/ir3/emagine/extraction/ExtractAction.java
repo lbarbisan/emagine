@@ -1,5 +1,8 @@
 package fr.umlv.ir3.emagine.extraction;
 
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.List;
 
@@ -66,6 +69,14 @@ public abstract class ExtractAction<O, E extends BaseEntity, D extends BaseDAO<E
 			response.setHeader("Content-Disposition", "attachment; filename=\""+extractionForm.getExtractionEntityName()+"."+extractionForm.getExtractionType().fileExtension()+"\"");
 
 			// Extract
+//			final PrintWriter writer = response.getWriter();
+//			getManager(extractionForm).extract(extractable, extractionForm, new OutputStream() {
+//				@Override
+//				public void write(int b) throws IOException {
+//					writer.write(b);
+//				}
+//			});
+			//FIXME : Pour les extractions, il ne faut pas faire de méthode getOutputStream() car en cas d'erreur, une redirection vers la jsp d'erreur est faite, et le framework struts utilise response.getWriter qui est incompatible et qui renvoie une exception.
 			getManager(extractionForm).extract(extractable, extractionForm, response.getOutputStream());
 			
 			return null;

@@ -17,11 +17,17 @@ public class PropertiesExtractAction extends ExtractAction {
 
 	/**
 	 * @see fr.umlv.ir3.emagine.extraction.ExtractAction#getManager(fr.umlv.ir3.emagine.extraction.ExtractionConfig)
+	 * @throws EMagineException if the config manager 
 	 */
 	@Override
 	public BaseManager getManager(ExtractionConfig config)
 			throws EMagineException {
-		return ManagerManager.getInstance().getManager(Bundles.getExtractionBundle().getString("extraction."+config.getExtractionEntityName()+".manager"));
+		final String managerClass = Bundles.getExtractionBundle().getString("extraction."+config.getExtractionEntityName()+".manager");
+		final BaseManager manager = ManagerManager.getInstance().getManager(managerClass);
+		if (manager == null) {
+			throw new EMagineException("exception.extraction.unknownConfigManager", "extraction."+config.getExtractionEntityName()+".manager", managerClass);
+		}
+		return manager;
 	}
 
 }

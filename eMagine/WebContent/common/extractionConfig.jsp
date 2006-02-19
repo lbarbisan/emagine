@@ -1,6 +1,7 @@
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic"%>
+<%@ taglib uri="/WEB-INF/tld/struts-tiles.tld" prefix="tiles"%>
 
 <html>
 	<head>
@@ -22,19 +23,41 @@
 		<br/>
 		<html:form action="/extract" method="POST">
 			<div class="form">
+				<html:errors/>
 				<p>
 					<label for="extractionTypeName"><bean:message key="form.type"/></label>
 					<html:radio property="extractionTypeName" value="CSV"/><bean:message key="form.type.csv"/>
 					<html:radio property="extractionTypeName" value="XLS"/><bean:message key="form.type.xls"/>
 				</p>
 				<br/>
-				<fieldset>
+					<%--
+					<tiles:insert template="recursiveGroup.jsp"/>
+					<elogic:recursiveIterate id="group" name="extractionForm" property="rootGroup" recursiveProperty="groups">
+						
+					</elogic:recursiveIterate>
+					--%>
+				<logic:iterate id="groupContainer" name="extractionForm" property="extractionGroupIterator">
+					<bean:define id="group" name="groupContainer" property="group" type="fr.umlv.ir3.emagine.extraction.PropertiesExtractionGroup"/>
+					<fieldset>
+						<legend><bean:message key="<%= "form."+group.getGroupName() %>"/></legend>
+						<logic:iterate id="property" name="group" property="properties">
+							<p>
+								<label for="<bean:write name="property"/>"><bean:message key="<%= "form."+property %>"/></label>
+								<html:multibox property="selectedEntityProperties" value="<%= group.getFullNameProperty((String)property) %>"/>
+							</p>
+						</logic:iterate>
+						<logic:iterate id="finshedIterator" name="groupContainer" property="finishedIterator">
+							</fieldset>
+						</logic:iterate>
+				</logic:iterate>
+				<%--
 					<logic:iterate id="property" name="extractionForm" property="entityProperties">
 						<p>
 							<label for="<bean:write name="property"/>"><bean:message key="<%= "form."+property %>"/></label>
 							<html:multibox property="selectedEntityProperties" value="<%= (String)property %>"/>
 						</p>
 					</logic:iterate>
+					--%>
 				</fieldset>
 			</div>
 			<div id="actions">
@@ -44,12 +67,14 @@
 				</ul>
 				<h2>&nbsp;</h2>
 				<ul>
-					<li><a href="#"><img src="/eMagine/common/images/icones/save.png" title="<bean:message key="button.title.save"/>"/></a></li>
 					<li>
 						<html:img
 							onclick="javascript:extract();"
 							src="/eMagine/common/images/icones/generate.png"
 							titleKey="button.title.generate"/>
+					</li>
+					<li>
+						<html:checkbox property="saveConfig"/><bean:message key="form.saveExtractionConfig"/>
 					</li>
 				</ul>
 			</div>

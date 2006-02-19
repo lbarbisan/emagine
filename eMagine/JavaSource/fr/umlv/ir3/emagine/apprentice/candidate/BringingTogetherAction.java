@@ -1,5 +1,6 @@
 package fr.umlv.ir3.emagine.apprentice.candidate;
 
+import java.util.Collection;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,9 +11,11 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessages;
 
+import fr.umlv.ir3.emagine.firm.RapprochementSearchParams;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.EmagineEnumManager;
 import fr.umlv.ir3.emagine.util.ManagerManager;
+import fr.umlv.ir3.emagine.util.search.ParameterInfo;
 import fr.umlv.ir3.emagine.util.search.SearchAction;
 
 public class BringingTogetherAction extends SearchAction {
@@ -62,14 +65,15 @@ public class BringingTogetherAction extends SearchAction {
 		BringingTogetherForm bringingTogetherForm = (BringingTogetherForm)form;
 		ManagerManager manager = ManagerManager.getInstance();
 
-		// Retrieve the searched candidate, and set them in the page 
-		/*try {
+		// Retrieve the searched candidate, and set them in the page
+		/*
+		try {
 			//TODO faire la fonction de rapprochement !!
-			bringingTogetherForm.setResults(manager.getCandidateManager().find(candidateSearchForm));
+			bringingTogetherForm.setResults(manager.getFirmManager().find(bringingTogetherForm));
 		} catch (EMagineException exception) {
 			addEMagineExceptionError(errors, exception);
-		}*/
-		
+		}
+		*/
         // Report back any errors, and exit if any
 		return successIfNoErrors(mapping, request, errors);
 	}

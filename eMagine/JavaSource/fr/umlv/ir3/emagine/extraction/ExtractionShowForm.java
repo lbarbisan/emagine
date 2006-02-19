@@ -1,5 +1,7 @@
 package fr.umlv.ir3.emagine.extraction;
 
+import java.util.Collection;
+
 
 /**
  * Form that represents the selection of the extract properties for an extraction entity.
@@ -30,5 +32,15 @@ public interface ExtractionShowForm extends ExtractionConfig {
 	 * @param selectedEntityProperties
 	 */
 	public void setSelectedEntityProperties(String... selectedEntityProperties);
+	
+	/**
+	 * @return the collection of the extraction groups containing the entity properties
+	 */
+	public Collection<ExtractionGroup> getExtractionGroups();
+	
+	/**
+	 * @return the root group which contains the properties for the main group and the sub-groups of that group.
+	 */
+	public ExtractionGroup getRootGroup();
 	
 }
