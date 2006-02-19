@@ -1,5 +1,7 @@
 package fr.umlv.ir3.emagine.extraction.mailstype;
 
+import java.io.File;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -8,9 +10,11 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
+import org.apache.struts.upload.FormFile;
 
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.ManagerManager;
+import fr.umlv.ir3.emagine.util.UploadUtil;
 import fr.umlv.ir3.emagine.util.base.BaseAction;
 
 public class MailingTypeCreateAction extends BaseAction {
@@ -59,9 +63,13 @@ public class MailingTypeCreateAction extends BaseAction {
 			mailingType.setComment(mailingTypeModifyForm.getComment());
 			mailingType.setTitle(mailingTypeModifyForm.getTitle());
 
-			if(mailingTypeModifyForm.getAttachment() != null && !"".equals(mailingTypeModifyForm.getAttachment())) {
-				mailingType.setFilePath(mailingTypeModifyForm.getAttachment());
-				mailingType.setFileName(mailingTypeModifyForm.getAttachment());
+			FormFile attachement = mailingTypeModifyForm.getAttachment(); 
+			if(attachement != null && attachement.getFileSize() > 0) {
+				File newFile = UploadUtil.saveFileUpload(attachement.getFileData(), attachement.getFileName());
+				mailingType.setFilePath(newFile.getName());
+				mailingType.setContentType(attachement.getContentType());
+				mailingType.setFileSize(attachement.getFileSize());
+				mailingType.setFileName(attachement.getFileName());
 			}
 			
 			// Create a mailing type

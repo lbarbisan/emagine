@@ -1,7 +1,6 @@
 package fr.umlv.ir3.emagine.util;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.security.MessageDigest;
@@ -12,11 +11,20 @@ public class UploadUtil {
 	private static final String uploadPath = "D:/test"; 
 	private static final String tmpExt = "tmp"; 
 	
-	public static void saveFileUpload(byte[] datas, String filename, int filesize) throws IOException, NoSuchAlgorithmException {
-		FileOutputStream out = new FileOutputStream(createUploadFile(uploadPath, filename, tmpExt, datas));
+	public static File saveFileUpload(byte[] datas, String filename) throws IOException, NoSuchAlgorithmException {
+		File file = createUploadFile(uploadPath, filename, tmpExt, datas);
+		
+		FileOutputStream out = new FileOutputStream(file);
 		out.write(datas);
+		out.flush();
 		out.close();
+		
+		return file;
 	}
+	
+	public static File getFileUploaded(String filename) throws NoSuchAlgorithmException, IOException {
+		return new File(createUploadDir(uploadPath), filename);
+	} 
 	
 	private static File createUploadFile(String dirPath, String filename, String ext, byte[] datas) throws NoSuchAlgorithmException, IOException {
 		 MessageDigest algorithm = MessageDigest.getInstance("MD5");
@@ -40,10 +48,5 @@ public class UploadUtil {
 	     if(!file.exists())
 	    	 file.mkdirs();
 	     return file;	
-	}
-
-	public static void main(String[] args) throws FileNotFoundException, IOException, NoSuchAlgorithmException {
-		File f = new File("D:/test/test.txt");
-		saveFileUpload("Trou du cul du monde".getBytes(), f.getName(), 1000);
 	}
 }

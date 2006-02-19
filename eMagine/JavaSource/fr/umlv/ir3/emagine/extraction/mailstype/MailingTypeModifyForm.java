@@ -6,6 +6,7 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
+import org.apache.struts.upload.FormFile;
 
 
 /**
@@ -25,7 +26,7 @@ public class MailingTypeModifyForm extends ActionForm {
 	private String title;
 
 	/** Joined File **/
-	private String attachment;
+	private FormFile attachment;
 	
 	/** Comment **/
 	private String comment;
@@ -39,8 +40,9 @@ public class MailingTypeModifyForm extends ActionForm {
 		ActionErrors errors = new ActionErrors();
 
 		if("create".equals(action) || "modify".equals(action)) {
-			if("".equals(title) || "".equals(attachment))
+			if("".equals(title))
 				errors.add("allRequiredFieldIsNotfillin", new ActionMessage("user.error.allRequiredFieldIsNotfillin"));
+
 		}			
 
 		return errors;
@@ -52,7 +54,7 @@ public class MailingTypeModifyForm extends ActionForm {
 	public void reset() {
 		idMailingTypeToModify = "";
 		title = "";
-		attachment = "";
+		attachment = null;
 		comment = "";
 		action = "";
 	}
@@ -74,14 +76,14 @@ public class MailingTypeModifyForm extends ActionForm {
 	/**
 	 * @return Returns the attachment.
 	 */
-	public String getAttachment() {
+	public FormFile getAttachment() {
 		return attachment;
 	}
 
 	/**
 	 * @param attachment The attachment to set.
 	 */
-	public void setAttachment(String attachment) {
+	public void setAttachment(FormFile attachment) {
 		this.attachment = attachment;
 	}
 

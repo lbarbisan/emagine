@@ -12,7 +12,9 @@ public class MailingType extends EditableEntity {
 	private static final long serialVersionUID = 5127008085508457457L;
 	private String title;
 	private String comment;
+	private String contentType;
 	private String filePath;
+	private int fileSize;
 	private String fileName;
 	
 	/**
@@ -62,5 +64,29 @@ public class MailingType extends EditableEntity {
 	 */
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
+	}
+	/**
+	 * @return Returns the contentType.
+	 */
+	public String getContentType() {
+		return contentType;
+	}
+	/**
+	 * @param contentType The contentType to set.
+	 */
+	public void setContentType(String contentType) {
+		this.contentType = contentType;
+	}
+	/**
+	 * @return Returns the fileSize.
+	 */
+	public int getFileSize() {
+		return fileSize;
+	}
+	/**
+	 * @param fileSize The fileSize to set.
+	 */
+	public void setFileSize(int fileSize) {
+		this.fileSize = fileSize;
 	}
 }

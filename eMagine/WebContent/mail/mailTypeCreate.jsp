@@ -1,34 +1,46 @@
+<%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
+
+<script type="text/javascript">
+<!--
+	function setAction(value) {
+		document.mailingTypeModifyForm.action.value = value;
+	}
+
+	function createMailingType() {
+		setAction('create');
+		document.mailingTypeModifyForm.submit();
+	}
+
+	function resetForm() {
+		document.mailingTypeModifyForm.reset();
+	}
+-->
+</script>
+
 <h2><bean:message key="mailType.create.title"/></h2>
-<br/>
 <div class="form">
-	<p><label for="name"><bean:message key="form.name"/><font color="red">*</font> </label><input type="text" id="name" size="20" /></p>
-	<p><label for="file"><bean:message key="form.file"/><font color="red">*</font> </label><input type="text" id="file" size="20" /><a href="#"><img src="/eMagine/common/images/icones/parcourir.png" title="<bean:message key="button.title.browse"/>"/></a></p>
-	<p><label for="description"><bean:message key="form.description"/></label><textarea type="text" id="description" ></textarea></p>
-	<p><label for="group"><bean:message key="form.section"/><font color="red">*</font>&nbsp;</label>
-		<select name="group">
-			<!-- à mettre en base -->
-			<option value="1"><bean:message key="form.apprentice"/></option>
-			<option value="2"><bean:message key="form.company"/></option>
-			<option value="3"><bean:message key="form.teacher"/></option>
-			<option value="4"><bean:message key="form.recruitment"/></option>
-			<option value="5"><bean:message key="form.mail"/></option>
-		</select></p>
 	<br/>
-	<fieldset>
-		<legend><bean:message key="form.fieldset.wording.extract"/></legend>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-	</fieldset>
+
+<html:form action="/mailingTypeCreate" focus="title" method="post" enctype="multipart/form-data">
+	<p><label for="title"><bean:message key="form.name"/><font color="red">*</font> </label><html:text property="title" size="20" /></p>
+	<p><label for="comment"><bean:message key="form.description"/></label><html:textarea property="comment" /></p>
+	<p><label for="attachment"><bean:message key="form.file"/></label><html:file property="attachment" size="20" /></p>
 </div>
+
+<br/>
+<html:errors />
+
 <div id="actions">
 	<h2>&nbsp;</h2>
 	<ul>
-		<li><a href="#"><img src="/eMagine/common/images/icones/ok.png" title="<bean:message key="button.title.create"/>"/></a></li>
-		<li><a href="#"><img src="/eMagine/common/images/icones/reinit.png" title="<bean:message key="button.title.reinitialize"/>"/></a></li>
+		<li><html:link href="javascript:createMailingType();"><html:img src="/eMagine/common/images/icones/ok.png" titleKey="button.title.ok" /></html:link></li>
+		<li><html:link href="javascript:resetForm();"><html:img src="/eMagine/common/images/icones/reinit.png" titleKey="button.title.reinitialize" /></html:link></li>
 	</ul>
 </div>
+
+<html:hidden property="action" />
+</html:form>
+
 <div align="right"><font color="red" size="1"><bean:message key="form.msg.obligation.star"/></font></div>
 	

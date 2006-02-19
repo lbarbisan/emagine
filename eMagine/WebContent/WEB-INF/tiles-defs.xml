@@ -316,9 +316,6 @@
 	<definition name="mail.mailingListDetail" extends="mail">
 		<put name="body" value="/mail/mailingListDetail.jsp" />
 	</definition>
-	<definition name="mail.mailTypeUpdate" extends="mail">
-		<put name="body" value="/mail/mailTypeUpdate.jsp" />
-	</definition>
 	<definition name="mail.mailTypeCreate" extends="mail">
 		<put name="body" value="/mail/mailTypeCreate.jsp" />
 	</definition>
