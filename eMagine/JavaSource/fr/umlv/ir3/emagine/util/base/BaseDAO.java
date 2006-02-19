@@ -13,6 +13,7 @@ import org.hibernate.EntityMode;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.metadata.ClassMetadata;
 
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.HibernateUtils;
@@ -262,14 +263,15 @@ public class BaseDAO<EntityType extends BaseEntity> {
 		if(newEntity!=null && log.isDebugEnabled()==true)
 		{
 			log.debug(method + " entity :" + newEntity);
-			for(String name : HibernateUtils.getSession()
+			ClassMetadata classMetadata = HibernateUtils.getSession()
 								.getSessionFactory()
-								.getClassMetadata(newEntity.getClass()).getPropertyNames())
-			{
-				log.debug("\t update property POJO '" + name  + "' :" + 
-						HibernateUtils.getSession()
-						.getSessionFactory()
-						.getClassMetadata(newEntity.getClass()).getPropertyValue(newEntity, name, EntityMode.POJO));
+								.getClassMetadata(newEntity.getClass());
+			if (classMetadata != null) {
+				for(String name : classMetadata.getPropertyNames())
+				{
+					log.debug("\t update property POJO '" + name  + "' :" + 
+							classMetadata.getPropertyValue(newEntity, name, EntityMode.POJO));
+				}
 			}
 		}
 	}
