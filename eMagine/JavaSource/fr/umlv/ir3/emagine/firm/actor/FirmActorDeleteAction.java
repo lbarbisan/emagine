@@ -59,9 +59,9 @@ public class FirmActorDeleteAction extends BaseAction {
 			}
 			
 			if(!firmActorsToRemove.isEmpty()) {
-				firm.getFirmActors().removeAll(firmActorsToRemove);
-				firmManager.update(firm);
+				firmManager.removeFirmActors(firm , firmActorsToRemove);
 			}
+			
 		}
 
         // Report back any errors, and exit if any

@@ -34,6 +34,7 @@ public class Firm extends EventableEntity {
 	private List<Firm> childfirm = new ArrayList<Firm>();
 	
 	@ManyToOne
+	@Cascade({CascadeType.SAVE_UPDATE})
 	@JoinColumn(name="motherfirm_id")
 	private Firm motherFirm;
 	

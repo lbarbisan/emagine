@@ -13,6 +13,16 @@ import org.apache.struts.tiles.TilesRequestProcessor;
 public class HibernateSessionRequestProcessor extends TilesRequestProcessor {
 
 	/**
+	 * @see org.apache.struts.action.RequestProcessor#process(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+	 */
+	@Override
+	public void process(HttpServletRequest arg0, HttpServletResponse arg1) throws IOException, ServletException {
+		HibernateUtils.getSession();
+		super.process(arg0, arg1);
+		HibernateUtils.closeSession();
+	}
+
+	/**
 	 * @see org.apache.struts.action.RequestProcessor#destroy()
 	 */
 	@Override

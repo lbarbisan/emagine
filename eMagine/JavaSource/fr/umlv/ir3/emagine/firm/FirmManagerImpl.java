@@ -97,10 +97,13 @@ public class FirmManagerImpl extends EventableManagerImpl<Firm, FirmDAO> impleme
 	public void addFirmActor(Firm firm, FirmActor actor) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
-			Collection<FirmActor> actors = firm.getFirmActors();
-			actors.add(actor);
 			FirmDAO dao = getDAO();
+			
+			//Création des relation
+			firm.getFirmActors().add(actor);
+			actor.setFirm(firm);
 			dao.update(firm);
+			
 			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {
 			DAOManager.rollBackTransaction();
@@ -114,10 +117,12 @@ public class FirmManagerImpl extends EventableManagerImpl<Firm, FirmDAO> impleme
 	public void removeFirmActor(Firm firm, FirmActor actor) throws EMagineException {
 		DAOManager.beginTransaction();
 		try {
-			Collection<FirmActor> actors = firm.getFirmActors();
-			actors.remove(actor);
 			FirmDAO dao = getDAO();
+			
+			firm.getFirmActors().remove(actor);
+			
 			dao.update(firm);
+			
 			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {
 			DAOManager.rollBackTransaction();

@@ -75,7 +75,6 @@ public class FirmActorCreateAction extends BaseAction {
 			FirmActor actor = new FirmActor();
 			Firm firm = firmManager.retrieve(Long.parseLong(((FirmModifyForm) request.getSession().getAttribute("companyModifyForm")).getIdFirmToModify()));
 			
-			// Set values
 			// Create an address
 			Address address = null;
 			if(	(firmActorModifyForm.getIdDepartment() != null && !"".equals(firmActorModifyForm.getIdDepartment()))
@@ -100,9 +99,8 @@ public class FirmActorCreateAction extends BaseAction {
 			
 			if(firmActorModifyForm.getIdFunction() != null && !"".equals(firmActorModifyForm.getIdFunction()))
 				actor.setFunction((FunctionEnum)managerManager.getEmagineEnumManager().find(firmActorModifyForm.getIdFunction(), FunctionEnum.class) );			
-
-			firm.getFirmActors().add(actor);
-			firmManager.update(firm);
+			
+			firmManager.addFirmActor(firm, actor);
 			
 			errors.add("confirm", new ActionMessage("firmActor.create.confirm"));
 		} catch (EMagineException exception) {

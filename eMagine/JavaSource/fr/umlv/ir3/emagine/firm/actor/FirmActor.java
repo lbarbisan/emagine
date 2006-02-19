@@ -18,13 +18,12 @@ public class FirmActor extends Person {
 	
 	private static final long serialVersionUID = 6962218814666233077L;
 
-	@ManyToOne(cascade = {javax.persistence.CascadeType.ALL})
-//	@Cascade({CascadeType.ALL,  CascadeType.DELETE_ORPHAN})
+	@ManyToOne()
 	@JoinColumn(name = "firm_id")
 	private Firm firm;
 	
 	@OneToOne()	
-	@Cascade(CascadeType.SAVE_UPDATE)
+	@Cascade({CascadeType.ALL, CascadeType.DELETE_ORPHAN})
 	@JoinColumn(name = "addressPersonnal_id")
 	private Address addressProfessional;
 	

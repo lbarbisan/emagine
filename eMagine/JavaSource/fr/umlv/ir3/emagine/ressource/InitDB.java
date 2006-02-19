@@ -101,10 +101,10 @@ public class InitDB {
 
 				});
 
+		
 		initializeUser();
 		createUsers(1, 4);
 		createTeachers(1, 4);
-
 		initializeFormationCenter();
 		initializeCandidate(1, 4);
 		initializeFirm(1, 4);

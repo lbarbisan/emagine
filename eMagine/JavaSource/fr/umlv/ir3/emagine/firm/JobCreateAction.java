@@ -76,8 +76,7 @@ public class JobCreateAction extends BaseAction {
 			job.setFirm(firm);
 			
 			// Create a firm
-			firm.getJobs().add(job);
-			firmManager.update(firm);
+			firmManager.addJob(firm, job);
 			
 			errors.add("confirm", new ActionMessage("job.create.confirm"));
 		} catch (EMagineException exception) {
