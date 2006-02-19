@@ -7,13 +7,13 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
-import org.apache.struts.action.ActionMessage;
 
 import fr.umlv.ir3.emagine.apprentice.candidate.ContactEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.CourseOptionEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.DiplomaEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.ProfessionEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.SectionEnum;
+import fr.umlv.ir3.emagine.apprentice.candidate.YearObtentionEnum;
 import fr.umlv.ir3.emagine.firm.Firm;
 import fr.umlv.ir3.emagine.firm.actor.EngineerTutor;
 import fr.umlv.ir3.emagine.teachertutor.TeacherTutor;
@@ -197,20 +197,62 @@ public class ApprenticeModifyForm extends ActionForm {
 	private Collection <LanguageEnum> languages;
 	
 	/** Identifier of selected language **/
-	private String idLanguage;
+	private String idLanguage1;
+	
+	/** Identifier of selected language 2 **/
+	private String idLanguage2;
+
+	//TODO gestion de note
+	/** List of all marks of the apprentice **/
+	//private Collection <Mark> marks;
+	
+	/** Identifier of selected level **/
+	//private String idMark;
+	
+	/** first mark at exams of the candidate become apprentice**/
+	private String firstMarkExam;
+	
+	/** second mark at exams of the candidate become apprentice**/
+	private String secondMarkExam;
+	
+	/** third mark at exams of the candidate become apprentice**/
+	private String thirdMarkExam;
 	
 	/** List of all of diplomas **/
 	private Collection <DiplomaEnum> diplomas;
 	
-	/** Identifier of selected diploma **/
-	private String idDiploma;
+	/** Identifier of selected diploma1 **/
+	private String idDiploma1;
+	
+	/** Identifier of selected diploma2 **/
+	private String idDiploma2;
+	
+	/** Identifier of selected diploma3 **/
+	private String idDiploma3;
+
+	/** List of all of diplomas **/
+	private Collection <YearObtentionEnum> obtentionYears;
+	
+	/** Identifier of selected year of diploma1 **/
+	private String idYearDiploma1;
+	
+	/** Identifier of selected year of diploma2 **/
+	private String idYearDiploma2;
+	
+	/** Identifier of selected year diploma3 **/
+	private String idYearDiploma3;
 	
 	/** List of all of sections **/
 	private Collection <SectionEnum> sections;
 	
 	/** Identifier of selected section **/
-	private String idSection;
+	private String idSection1;
 	
+	/** Identifier of selected section **/
+	private String idSection2;
+	
+	/** Identifier of selected section **/
+	private String idSection3;
 		
 	/*****************************************
 	 *
@@ -955,20 +997,6 @@ public class ApprenticeModifyForm extends ActionForm {
 	}
 
 	/**
-	 * @return Returns the idDiploma.
-	 */
-	public String getIdDiploma() {
-		return idDiploma;
-	}
-
-	/**
-	 * @param idDiploma The idDiploma to set.
-	 */
-	public void setIdDiploma(String idDiploma) {
-		this.idDiploma = idDiploma;
-	}
-
-	/**
 	 * @return Returns the idEngineerTutor.
 	 */
 	public String getIdEngineerTutor() {
@@ -1011,20 +1039,6 @@ public class ApprenticeModifyForm extends ActionForm {
 	}
 
 	/**
-	 * @return Returns the idLanguage.
-	 */
-	public String getIdLanguage() {
-		return idLanguage;
-	}
-
-	/**
-	 * @param idLanguage The idLanguage to set.
-	 */
-	public void setIdLanguage(String idLanguage) {
-		this.idLanguage = idLanguage;
-	}
-
-	/**
 	 * @return Returns the idLevel.
 	 */
 	public String getIdLevel() {
@@ -1064,20 +1078,6 @@ public class ApprenticeModifyForm extends ActionForm {
 	 */
 	public void setIdNationality(String idNationality) {
 		this.idNationality = idNationality;
-	}
-
-	/**
-	 * @return Returns the idSection.
-	 */
-	public String getIdSection() {
-		return idSection;
-	}
-
-	/**
-	 * @param idSection The idSection to set.
-	 */
-	public void setIdSection(String idSection) {
-		this.idSection = idSection;
 	}
 
 	/**
@@ -1357,6 +1357,216 @@ public class ApprenticeModifyForm extends ActionForm {
 	 */
 	public void setTeacherTutors(Collection<TeacherTutor> teacherTutors) {
 		this.teacherTutors = teacherTutors;
+	}
+
+	/**
+	 * @return Returns the idLanguage1.
+	 */
+	public String getIdLanguage1() {
+		return idLanguage1;
+	}
+
+	/**
+	 * @param idLanguage1 The idLanguage1 to set.
+	 */
+	public void setIdLanguage1(String idLanguage1) {
+		this.idLanguage1 = idLanguage1;
+	}
+
+	/**
+	 * @return Returns the idLanguage2.
+	 */
+	public String getIdLanguage2() {
+		return idLanguage2;
+	}
+
+	/**
+	 * @param idLanguage2 The idLanguage2 to set.
+	 */
+	public void setIdLanguage2(String idLanguage2) {
+		this.idLanguage2 = idLanguage2;
+	}
+
+	/**
+	 * @return Returns the firstMarkExam.
+	 */
+	public String getFirstMarkExam() {
+		return firstMarkExam;
+	}
+
+	/**
+	 * @param firstMarkExam The firstMarkExam to set.
+	 */
+	public void setFirstMarkExam(String firstMarkExam) {
+		this.firstMarkExam = firstMarkExam;
+	}
+
+	/**
+	 * @return Returns the secondMarkExam.
+	 */
+	public String getSecondMarkExam() {
+		return secondMarkExam;
+	}
+
+	/**
+	 * @param secondMarkExam The secondMarkExam to set.
+	 */
+	public void setSecondMarkExam(String secondMarkExam) {
+		this.secondMarkExam = secondMarkExam;
+	}
+
+	/**
+	 * @return Returns the thirdMarkExam.
+	 */
+	public String getThirdMarkExam() {
+		return thirdMarkExam;
+	}
+
+	/**
+	 * @param thirdMarkExam The thirdMarkExam to set.
+	 */
+	public void setThirdMarkExam(String thirdMarkExam) {
+		this.thirdMarkExam = thirdMarkExam;
+	}
+
+	/**
+	 * @return Returns the idDiploma1.
+	 */
+	public String getIdDiploma1() {
+		return idDiploma1;
+	}
+
+	/**
+	 * @param idDiploma1 The idDiploma1 to set.
+	 */
+	public void setIdDiploma1(String idDiploma1) {
+		this.idDiploma1 = idDiploma1;
+	}
+
+	/**
+	 * @return Returns the idDiploma2.
+	 */
+	public String getIdDiploma2() {
+		return idDiploma2;
+	}
+
+	/**
+	 * @param idDiploma2 The idDiploma2 to set.
+	 */
+	public void setIdDiploma2(String idDiploma2) {
+		this.idDiploma2 = idDiploma2;
+	}
+
+	/**
+	 * @return Returns the idDiploma3.
+	 */
+	public String getIdDiploma3() {
+		return idDiploma3;
+	}
+
+	/**
+	 * @param idDiploma3 The idDiploma3 to set.
+	 */
+	public void setIdDiploma3(String idDiploma3) {
+		this.idDiploma3 = idDiploma3;
+	}
+
+	/**
+	 * @return Returns the idYearDiploma1.
+	 */
+	public String getIdYearDiploma1() {
+		return idYearDiploma1;
+	}
+
+	/**
+	 * @param idYearDiploma1 The idYearDiploma1 to set.
+	 */
+	public void setIdYearDiploma1(String idYearDiploma1) {
+		this.idYearDiploma1 = idYearDiploma1;
+	}
+
+	/**
+	 * @return Returns the idYearDiploma2.
+	 */
+	public String getIdYearDiploma2() {
+		return idYearDiploma2;
+	}
+
+	/**
+	 * @param idYearDiploma2 The idYearDiploma2 to set.
+	 */
+	public void setIdYearDiploma2(String idYearDiploma2) {
+		this.idYearDiploma2 = idYearDiploma2;
+	}
+
+	/**
+	 * @return Returns the idYearDiploma3.
+	 */
+	public String getIdYearDiploma3() {
+		return idYearDiploma3;
+	}
+
+	/**
+	 * @param idYearDiploma3 The idYearDiploma3 to set.
+	 */
+	public void setIdYearDiploma3(String idYearDiploma3) {
+		this.idYearDiploma3 = idYearDiploma3;
+	}
+
+	/**
+	 * @return Returns the obtentionYears.
+	 */
+	public Collection<YearObtentionEnum> getObtentionYears() {
+		return obtentionYears;
+	}
+
+	/**
+	 * @param obtentionYears The obtentionYears to set.
+	 */
+	public void setObtentionYears(Collection<YearObtentionEnum> obtentionYears) {
+		this.obtentionYears = obtentionYears;
+	}
+
+	/**
+	 * @return Returns the idSection1.
+	 */
+	public String getIdSection1() {
+		return idSection1;
+	}
+
+	/**
+	 * @param idSection1 The idSection1 to set.
+	 */
+	public void setIdSection1(String idSection1) {
+		this.idSection1 = idSection1;
+	}
+
+	/**
+	 * @return Returns the idSection2.
+	 */
+	public String getIdSection2() {
+		return idSection2;
+	}
+
+	/**
+	 * @param idSection2 The idSection2 to set.
+	 */
+	public void setIdSection2(String idSection2) {
+		this.idSection2 = idSection2;
+	}
+
+	/**
+	 * @return Returns the idSection3.
+	 */
+	public String getIdSection3() {
+		return idSection3;
+	}
+
+	/**
+	 * @param idSection3 The idSection3 to set.
+	 */
+	public void setIdSection3(String idSection3) {
+		this.idSection3 = idSection3;
 	}
 
 }

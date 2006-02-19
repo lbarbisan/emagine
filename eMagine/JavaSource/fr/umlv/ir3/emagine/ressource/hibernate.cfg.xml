@@ -51,6 +51,8 @@
 		<mapping class="fr.umlv.ir3.emagine.apprentice.candidate.DiplomaEnum"/>
 		<mapping class="fr.umlv.ir3.emagine.apprentice.candidate.ContactEnum"/>
 		<mapping class="fr.umlv.ir3.emagine.apprentice.candidate.SectionEnum"/>
+		<mapping class="fr.umlv.ir3.emagine.apprentice.candidate.Mark"/>
+		<mapping class="fr.umlv.ir3.emagine.apprentice.candidate.YearObtentionEnum"/>
 		
 		<mapping package="fr.umlv.ir3.emagine.firm"/>
 		<mapping class="fr.umlv.ir3.emagine.firm.Firm"/>

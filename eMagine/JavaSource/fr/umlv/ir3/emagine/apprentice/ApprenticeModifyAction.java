@@ -19,7 +19,10 @@ import org.apache.struts.action.ActionMessages;
 
 import fr.umlv.ir3.emagine.apprentice.candidate.ContactEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.CourseOptionEnum;
+import fr.umlv.ir3.emagine.apprentice.candidate.DiplomaEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.ProfessionEnum;
+import fr.umlv.ir3.emagine.apprentice.candidate.SectionEnum;
+import fr.umlv.ir3.emagine.apprentice.candidate.YearObtentionEnum;
 import fr.umlv.ir3.emagine.firm.FirmManager;
 import fr.umlv.ir3.emagine.firm.actor.EngineerTutorManager;
 import fr.umlv.ir3.emagine.teachertutor.TeacherTutorManager;
@@ -243,11 +246,27 @@ public class ApprenticeModifyAction extends BaseAction {
 				//Retrieve all firms and set them in the form
 				apprenticeModifyForm.setFirms(managerManager.getFirmManager().findAll());
 				
-				//Retrieve all firms and set them in the form
+				//Retrieve all tutors engineers of the firm and set them in the form
 				apprenticeModifyForm.setEngineerTutors(managerManager.getEngineerTutorManager().findAll());
 				
-				//Retrieve all firms and set them in the form
+				//Retrieve all tutors teachers and set them in the form
 				apprenticeModifyForm.setTeacherTutors(managerManager.getTeacherTutorManager().findAll());
+			
+				//Retrieve all diplomas and set them in the form
+				apprenticeModifyForm.setDiplomas((List<DiplomaEnum>)emagineEnumManager.findAll(DiplomaEnum.class));
+
+				//Retrieve all years of obtention diploms and set them in the form
+				apprenticeModifyForm.setObtentionYears((List<YearObtentionEnum>)emagineEnumManager.findAll(YearObtentionEnum.class));
+
+				//Retrieve all sections and set them in the form
+				apprenticeModifyForm.setSections((List<SectionEnum>)emagineEnumManager.findAll(SectionEnum.class));
+
+				//Retrieve all level entry and set them in the form
+				apprenticeModifyForm.setLevels((List<LevelEntryEnum>)emagineEnumManager.findAll(LevelEntryEnum.class));
+				
+				//Retrieve all languages and set them in the form
+				apprenticeModifyForm.setLanguages((List<LanguageEnum>)emagineEnumManager.findAll(LanguageEnum.class));
+
 			}
 			
 		} catch (EMagineException exception) {

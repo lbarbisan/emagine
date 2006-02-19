@@ -20,6 +20,7 @@ import fr.umlv.ir3.emagine.apprentice.candidate.CourseOptionEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.DiplomaEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.ProfessionEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.SectionEnum;
+import fr.umlv.ir3.emagine.apprentice.candidate.YearObtentionEnum;
 import fr.umlv.ir3.emagine.event.EventTypeEnum;
 import fr.umlv.ir3.emagine.firm.actor.FunctionEnum;
 import fr.umlv.ir3.emagine.modification.EditableStateEnum;
@@ -152,6 +153,8 @@ public class InitEnums {
 		emagineEnumDAO.create(enums);		
 		enums =  new LanguageEnum("Espagnol");
 		emagineEnumDAO.create(enums);
+		enums =  new LanguageEnum("Italien");
+		emagineEnumDAO.create(enums);
 	}
 	
 	static final void createLevelEntryEnum(int start, int length) throws EMagineException
@@ -243,7 +246,16 @@ public class InitEnums {
 			emagineEnumDAO.create(enums);
 		}
 	}
-		
+	static final void createYearObtentionEnum(int start, int length) throws EMagineException
+	{
+		EmagineEnumDAO emagineEnumDAO =  DAOManager.getInstance().getEmagineEnumDAO();
+		YearObtentionEnum enums = null;
+		for(int index=start;index<length; index++)
+		{
+			enums =  new YearObtentionEnum(""+(2000 + index));
+			emagineEnumDAO.create(enums);
+		}
+	}		
 	static final void createContactEnum(int start, int length) throws EMagineException
 	{
 		EmagineEnumDAO emagineEnumDAO =  DAOManager.getInstance().getEmagineEnumDAO();

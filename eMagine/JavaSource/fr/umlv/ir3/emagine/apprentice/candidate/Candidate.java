@@ -13,6 +13,7 @@ import org.hibernate.annotations.CascadeType;
 
 import fr.umlv.ir3.emagine.apprentice.CountryEnum;
 import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
+import fr.umlv.ir3.emagine.apprentice.LanguageEnum;
 import fr.umlv.ir3.emagine.apprentice.LevelEntryEnum;
 import fr.umlv.ir3.emagine.apprentice.NationalityEnum;
 import fr.umlv.ir3.emagine.apprentice.SexEnum;
@@ -60,6 +61,14 @@ public class Candidate extends Person {
 	@Cascade(CascadeType.SAVE_UPDATE)
     @JoinColumn(name="courseoption_id")
 	private CourseOptionEnum courseOption;
+	@ManyToOne()
+	@Cascade(CascadeType.SAVE_UPDATE)
+    @JoinColumn(name="firstlanguage_id")
+	private LanguageEnum firstLanguage;
+	@ManyToOne()
+	@Cascade(CascadeType.SAVE_UPDATE)
+    @JoinColumn(name="secondlanguage_id")
+	private LanguageEnum secondLanguage;
 	@ManyToOne()
 	@Cascade(CascadeType.SAVE_UPDATE)
     @JoinColumn(name="lastdiploma_id")
@@ -197,6 +206,38 @@ public class Candidate extends Person {
 
 	public void setLastSection(SectionEnum lastSection) {
 		this.lastSection = lastSection;
+	}
+
+
+	/**
+	 * @return Returns the firstLanguage.
+	 */
+	public LanguageEnum getFirstLanguage() {
+		return firstLanguage;
+	}
+
+
+	/**
+	 * @param firstLanguage The firstLanguage to set.
+	 */
+	public void setFirstLanguage(LanguageEnum firstLanguage) {
+		this.firstLanguage = firstLanguage;
+	}
+
+
+	/**
+	 * @return Returns the secondLanguage.
+	 */
+	public LanguageEnum getSecondLanguage() {
+		return secondLanguage;
+	}
+
+
+	/**
+	 * @param secondLanguage The secondLanguage to set.
+	 */
+	public void setSecondLanguage(LanguageEnum secondLanguage) {
+		this.secondLanguage = secondLanguage;
 	}
 
 }

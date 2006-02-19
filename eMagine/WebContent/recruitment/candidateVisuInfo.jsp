@@ -104,7 +104,6 @@
 				<html:optionsCollection property="levels" value="id" label="name"/>		
 			</html:select>
 		</p>
-		
 		<p>
 			<label for="diploma"><bean:message key="form.lastDiploma"/></label>
 			<html:select property="idDiploma">
