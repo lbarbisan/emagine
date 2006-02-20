@@ -125,9 +125,9 @@ public class ManagerManager {
 		rightManager = addManager(new RightManagerImpl());
 		roomManager = addManager(new RoomManagerImpl());
 		emagineEnumManager = new EmagineEnumManagerImpl();	// No rights on that manager
-		editableManager = new EditableManagerImpl();
-		jobManager = new JobManagerImpl();
-		firmActorManager = new FirmActorManagerImpl();
+		editableManager = new EditableManagerImpl();	// No rights on that manager
+		jobManager = addManager(new JobManagerImpl());
+		firmActorManager = addManager(new FirmActorManagerImpl());
 		
 		//FIXME: remetre la ligne commenttée
 		//absenceManager = SecurityProxyFactory.getProxy(new AbsenceManagerImpl());

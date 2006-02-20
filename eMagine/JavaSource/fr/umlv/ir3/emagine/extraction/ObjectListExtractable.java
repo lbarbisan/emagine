@@ -7,6 +7,9 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
+import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.beanutils.BeanUtilsBean;
+import org.apache.commons.beanutils.NestedNullException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -111,44 +114,77 @@ public class ObjectListExtractable<O> implements Extractable {
 					this.columnName = columnName;
 				}
 				public Object getCellValue() throws EMagineException {
-					String[] properties = columnName.split("\\.");
-					StringBuffer currentAccessedPath = new StringBuffer("");
-					boolean first = true;
-					Object currentObject = entity;
+//					String[] properties = columnName.split("\\.");
+//					StringBuffer currentAccessedPath = new StringBuffer("");
+//					boolean first = true;
+//					Object currentObject = entity;
+					try {
+						return BeanUtils.getNestedProperty(entity, columnName);
+					} catch (IllegalAccessException e) {
+						throw new EMagineException("exception.objectListExtractable.noGetterForProperty", e, entity.getClass().getName(), columnName.toString());
+					} catch (InvocationTargetException e) {
+						throw new EMagineException("exception.objectListExtractable.noGetterForProperty", e, entity.getClass().getName(), columnName.toString());
+					} catch (NoSuchMethodException e) {
+						throw new EMagineException("exception.objectListExtractable.noGetterForProperty", e, entity.getClass().getName(), columnName.toString());
+					} catch (NestedNullException e) {
+						log.debug(entity.getClass().getName()+" ["+columnName+"]", e);
+					}
+					return null;
 					// Itération sur chaque champs de la colonne
-					for (String property : properties) {
-						currentAccessedPath.append((first?"":".")+property);
-						if (currentObject == null) {
-							String message = Bundles.getMessageResources().getMessage("exception.objectListExtractable.nullObject", currentAccessedPath.toString());
-							if (message == null) {
-								message = "exception.objectListExtractable.nullObject ["+currentAccessedPath.toString()+"]";
-							}
-							log.debug(message);
-							return null;
-						}
-						first = false;
-						final String getterMethod = "get" + property.substring(0, 1).toUpperCase() + property.substring(1);
-						// Invocation du getter de la propriété de la classe courrante. On garde le sous objet renvoyé.
-						try {
-							final Method method = currentObject.getClass().getMethod(getterMethod, (Class[])null);
-							if (method == null) {
-								throw new EMagineException("exception.objectListExtractable.noGetterForProperty", entity.getClass().getName(), currentAccessedPath.toString());
-							}
-							currentObject = method.invoke(currentObject, (Object[])null);
-						} catch (IllegalArgumentException e) {
-							throw new EMagineException("exception.objectListExtractable.cellValueError", e);
-						} catch (SecurityException e) {
-							throw new EMagineException("exception.objectListExtractable.cellValueError", e);
-						} catch (IllegalAccessException e) {
-							throw new EMagineException("exception.objectListExtractable.cellValueError", e);
-						} catch (InvocationTargetException e) {
-							throw new EMagineException("exception.objectListExtractable.cellValueError", e);
-						} catch (NoSuchMethodException e) {
-							throw new EMagineException("exception.objectListExtractable.noGetterForProperty", entity.getClass().getName(), currentAccessedPath.toString());
-						}
-					}//TODO : avec un booléen ça plante
-					// On se retrouve avec la propriété finale demandée
-					return currentObject;
+//					for (String property : properties) {
+//						currentAccessedPath.append((first?"":".")+property);
+//						if (currentObject == null) {
+//							String message = Bundles.getMessageResources().getMessage("exception.objectListExtractable.nullObject", currentAccessedPath.toString());
+//							if (message == null) {
+//								message = "exception.objectListExtractable.nullObject ["+currentAccessedPath.toString()+"]";
+//							}
+//							log.debug(message);
+//							return null;
+//						}
+//						first = false;
+//						final String propertyAccessor = property.substring(0, 1).toUpperCase() + property.substring(1);
+//						final String getterMethod = "get" + propertyAccessor;
+//						// Invocation du getter de la propriété de la classe courrante. On garde le sous objet renvoyé.
+//						currentObject = tryInvoke(currentObject, getterMethod);
+//						try {
+//							final Method method = currentObject.getClass().getMethod(getterMethod, (Class[])null);
+//							if (method == null) {
+//								throw new EMagineException("exception.objectListExtractable.noGetterForProperty", entity.getClass().getName(), currentAccessedPath.toString());
+//							}
+//							currentObject = method.invoke(currentObject, (Object[])null);
+//						} catch (IllegalArgumentException e) {
+//							throw new EMagineException("exception.objectListExtractable.cellValueError", e);
+//						} catch (SecurityException e) {
+//							throw new EMagineException("exception.objectListExtractable.cellValueError", e);
+//						} catch (IllegalAccessException e) {
+//							throw new EMagineException("exception.objectListExtractable.cellValueError", e);
+//						} catch (InvocationTargetException e) {
+//							throw new EMagineException("exception.objectListExtractable.cellValueError", e);
+//						} catch (NoSuchMethodException e) {
+//							throw new EMagineException("exception.objectListExtractable.noGetterForProperty", entity.getClass().getName(), currentAccessedPath.toString());
+//						}
+//					}
+//					// On se retrouve avec la propriété finale demandée
+//					return currentObject;
+//				}
+//				private Object tryInvoke(Object currentObject, String getterMethod, String currentAccessedPath) throws EMagineException {
+//					try {
+//						final Method method = currentObject.getClass().getMethod(getterMethod, (Class[])null);
+//						if (method == null) {
+//							throw new EMagineException("exception.objectListExtractable.noGetterForProperty", entity.getClass().getName(), currentAccessedPath.toString());
+//						}
+//						return method.invoke(currentObject, (Object[])null);
+//					} catch (IllegalArgumentException e) {
+//						throw new EMagineException("exception.objectListExtractable.cellValueError", e);
+//					} catch (SecurityException e) {
+//						throw new EMagineException("exception.objectListExtractable.cellValueError", e);
+//					} catch (IllegalAccessException e) {
+//						throw new EMagineException("exception.objectListExtractable.cellValueError", e);
+//					} catch (InvocationTargetException e) {
+//						throw new EMagineException("exception.objectListExtractable.cellValueError", e);
+//					} catch (NoSuchMethodException e) {
+//						throw new EMagineException("exception.objectListExtractable.noGetterForProperty", entity.getClass().getName(), currentAccessedPath.toString());
+//					}
 				}
 				public String getColumnName() {
 					return columnName;
