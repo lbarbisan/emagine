@@ -19,8 +19,8 @@
 		</script>
 	</head>
 	<body>
+	<div class="extract">
 		<h2><bean:message name="extractionForm" property="extractionTitleKey" /></h2>
-		<br/>
 		<html:form action="/extract" method="POST">
 			<div class="form">
 				<html:errors/>
@@ -29,7 +29,6 @@
 					<html:radio property="extractionTypeName" value="CSV"/><bean:message key="form.type.csv"/>
 					<html:radio property="extractionTypeName" value="XLS"/><bean:message key="form.type.xls"/>
 				</p>
-				<br/>
 					<%--
 					<tiles:insert template="recursiveGroup.jsp"/>
 					<elogic:recursiveIterate id="group" name="extractionForm" property="rootGroup" recursiveProperty="groups">
@@ -76,6 +75,7 @@
 						<html:checkbox property="saveConfig"/><bean:message key="form.saveExtractionConfig"/>
 					</li>
 				</ul>
+			</div>
 			</div>
 			<html:hidden property="extractionEntityName"/>
 			<input type="hidden" name="action"/>
