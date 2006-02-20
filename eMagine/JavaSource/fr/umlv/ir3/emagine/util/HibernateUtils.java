@@ -148,7 +148,7 @@ public class HibernateUtils {
             {
                 tx.commit();
                 threadTransaction.set(null);
-                closeSession();
+//                closeSession();
             }
         }
         catch (HibernateException exception) {
