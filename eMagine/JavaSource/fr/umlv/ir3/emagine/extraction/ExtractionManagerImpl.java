@@ -66,7 +66,7 @@ public class ExtractionManagerImpl extends BaseManagerImpl<ExtractionEntity, Ext
 			ExtractionEntity entity = null;
 			if (entities.size() < 1) {
 				// The entity doesn't exist, throws the exception
-				// Create it and save it
+				/** Create the entity and save it **/
 				entity = new ExtractionEntity();
 				entity.setName(config.getExtractionEntityName());
 				for (String property : config.getEntityProperties()) {
@@ -82,7 +82,6 @@ public class ExtractionManagerImpl extends BaseManagerImpl<ExtractionEntity, Ext
 			/** Create the config to associate with the entity for the current user */
 			ExtractionConfigEntity configEntity = new ExtractionConfigEntity();
 			configEntity.setExtractionEntity(entity);
-			configEntity.setExtractionType(config.getExtractionType());
 			configEntity.setUser(SessionManager.getInstance().getCurrentUser());
 			updateSelectedConfigEntity(configEntity, config);
 			
@@ -92,6 +91,7 @@ public class ExtractionManagerImpl extends BaseManagerImpl<ExtractionEntity, Ext
 	}
 
 	private ExtractionConfigEntity updateSelectedConfigEntity(ExtractionConfigEntity configEntity, ExtractionConfig config) throws SecurityFilterNotInitializedException {
+		configEntity.setExtractionType(config.getExtractionType());
 		// Attach the selected entity properties if any
 		if (config.getSelectedEntityProperties() != null) {
 			HashSet selectedProperties = new HashSet(Arrays.asList(config.getSelectedEntityProperties()));

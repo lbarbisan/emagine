@@ -6,9 +6,11 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.security.Principal;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.ResourceBundle;
 
 import servletunit.HttpSessionSimulator;
@@ -27,7 +29,9 @@ import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenter;
 import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenterDAO;
 import fr.umlv.ir3.emagine.apprentice.candidate.room.Room;
 import fr.umlv.ir3.emagine.extraction.ExtractionEntity;
+import fr.umlv.ir3.emagine.extraction.ExtractionGroup;
 import fr.umlv.ir3.emagine.extraction.ExtractionProperty;
+import fr.umlv.ir3.emagine.extraction.PropertiesExtractionGroup;
 import fr.umlv.ir3.emagine.firm.Firm;
 import fr.umlv.ir3.emagine.firm.FirmDAO;
 import fr.umlv.ir3.emagine.firm.actor.FirmActor;
@@ -126,11 +130,11 @@ public class InitDB {
 			if (!"group".equals(extractionEntityName) && !uniqKeys.contains(extractionEntityName)) {
 				uniqKeys.add(extractionEntityName);
 				// Get the properties of that extraction entity
-				String[] properties = extractionBundle.getString(
-						"extraction." + extractionEntityName + ".properties")
-						.split(",");
+				LinkedList<String> properties = new LinkedList<String>();
+				// Create the extraction entity
 				ExtractionEntity extractionEntity = new ExtractionEntity();
 				extractionEntity.setName(extractionEntityName);
+				// Create the extraction properties and attach them to that extraction entity
 				for (String property : properties) {
 					// Create the extraction properties
 					final ExtractionProperty extractionProperty = new ExtractionProperty(
@@ -141,9 +145,19 @@ public class InitDB {
 				// Create the extraction entity
 				DAOManager.getInstance().getExtractionEntityDAO().create(
 						extractionEntity);
+				System.out.println("ExtractionEntity created : "+extractionEntityName);
 			}
 		}
 		DAOManager.commitTransaction();
+	}
+	
+	private static void addRecursiveEntityProperties(ExtractionGroup group, Collection<String> entityProperties) {
+		for (String property : group.getProperties()) {
+			entityProperties.add(property);
+		}
+		for (ExtractionGroup childGroup : group.getGroups()) {
+			addRecursiveEntityProperties(childGroup, entityProperties);
+		}
 	}
 
 	private static final void initializeCandidate(int start, int end)
