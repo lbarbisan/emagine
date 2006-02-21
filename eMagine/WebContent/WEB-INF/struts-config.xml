@@ -29,6 +29,9 @@
 		<form-bean name="roomModifyForm" type="fr.umlv.ir3.emagine.apprentice.candidate.room.RoomModifyForm" />	
 		<form-bean name="apprenticeSearchForm" type="fr.umlv.ir3.emagine.apprentice.ApprenticeSearchForm" />	
 		<form-bean name="apprenticeModifyForm" type="fr.umlv.ir3.emagine.apprentice.ApprenticeModifyForm" />	
+		<form-bean name="absenceSearchForm" type="fr.umlv.ir3.emagine.apprentice.absence.AbsenceSearchForm" />
+		<form-bean name="absenceCreateForm" type="fr.umlv.ir3.emagine.apprentice.absence.AbsenceModifyForm" />
+		<form-bean name="absenceModifyForm" type="fr.umlv.ir3.emagine.apprentice.absence.AbsenceListForm" />
 		<form-bean name="companySearchForm" type="fr.umlv.ir3.emagine.firm.FirmSearchForm" />
 		<form-bean name="companyModifyForm" type="fr.umlv.ir3.emagine.firm.FirmModifyForm" />
 		<form-bean name="companyListForm" type="fr.umlv.ir3.emagine.firm.FirmListForm" />
@@ -86,7 +89,21 @@
 		<action path="/apprenticeVisuSituation" forward="apprentice.apprenticeVisuSituation" name="apprenticeModifyForm" scope="session" />
 		<action path="/apprenticeVisuSchooling" forward="apprentice.apprenticeVisuSchooling" name="apprenticeModifyForm" scope="session" />
 		<action path="/apprenticeVisuEvent" forward="apprentice.apprenticeVisuEvent" name="apprenticeModifyForm" scope="session" />
-		<action path="/apprenticeVisuAbsence" forward="apprentice.apprenticeVisuAbsence" name="apprenticeModifyForm" scope="session" />
+		<action path="/apprenticeVisuAbsence" type="fr.umlv.ir3.emagine.apprentice.absence.AbsenceSearchAction" name="absenceSearchForm" scope="session" parameter="action">
+			<forward name="_default_target_" path="apprentice.apprenticeVisuAbsence" />
+		</action>		
+		<action path="/absenceCreate" type="fr.umlv.ir3.emagine.apprentice.absence.AbsenceCreateAction" name="absenceCreateForm" input="apprentice.apprenticeAbsenceAdd" parameter="action" scope="session" validate="true">
+			<forward name="_default_target_" path="apprentice.apprenticeAbsenceAdd" />
+			<forward name="success" path="/apprenticeVisuAbsence.do" redirect="true" />
+		</action>
+		<action path="/absenceModify" type="fr.umlv.ir3.emagine.apprentice.absence.AbsenceModifyAction" name="absenceModifyForm" input="apprentice.apprenticeAbsenceDetail" parameter="action" scope="session" validate="true">
+			<forward name="_default_target_" path="/apprenticeVisuAbsence.do" redirect="true" />
+			<forward name="success" path="/apprenticeVisuAbsence.do" redirect="true" />
+		</action>
+		<action path="/absenceDelete" type="fr.umlv.ir3.emagine.apprentice.absence.AbsenceDeleteAction" parameter="action">
+			<forward name="_default_target_" path="/apprenticeVisuAbsence.do" redirect="true" />
+		</action>
+		
 		<action path="/apprenticeAbsenceDetail"	forward="apprentice.apprenticeAbsenceDetail" />
 		<action path="/apprenticeTutorAdd" forward="apprentice.apprenticeTutorAdd" />
 		<action path="/apprenticeOnglet" forward="apprentice.apprenticeOnglet" />
