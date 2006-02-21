@@ -2,10 +2,15 @@ package fr.umlv.ir3.emagine.firm.actor;
 
 import java.util.List;
 
+import org.hibernate.HibernateException;
+
 import fr.umlv.ir3.emagine.apprentice.Apprentice;
+import fr.umlv.ir3.emagine.apprentice.DefaultAddressEnum;
+import fr.umlv.ir3.emagine.apprentice.candidate.Candidate;
 import fr.umlv.ir3.emagine.modification.EditableManagerImpl;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
+import fr.umlv.ir3.emagine.util.ManagerManager;
 
 public class EngineerTutorManagerImpl extends EditableManagerImpl<EngineerTutor, EngineerTutorDAO> implements EngineerTutorManager{
 
@@ -56,6 +61,28 @@ public class EngineerTutorManagerImpl extends EditableManagerImpl<EngineerTutor,
 			DAOManager.rollBackTransaction();
 			throw exception;
 		}
+	}
+	
+	public EngineerTutor becomeEngineerTutor(FirmActor firmActor) throws EMagineException
+	{	
+		DAOManager.beginTransaction();
+		EngineerTutor engineerTutor ;
+		
+		try {
+			//Delete Firm
+			firmActor.getFirm().getFirmActors().remove(firmActor);
+			DAOManager.getInstance().getFirmDAO().update(firmActor.getFirm());
+			DAOManager.commitTransaction();
+			
+			//Pass FirmActor to EngeneersTutor
+			DAOManager.beginTransaction();
+			engineerTutor = DAOManager.getInstance().getEngineerTutorDAO().becomeEngineerTutor(firmActor);
+			DAOManager.getInstance().getEngineerTutorDAO().update(engineerTutor);
+			DAOManager.commitTransaction();
+		} catch (HibernateException exception) {
+			throw new EMagineException("exception.ApprenticeDAO.create", exception);
+		}
+		return engineerTutor;	
 	}
 
 	@Override

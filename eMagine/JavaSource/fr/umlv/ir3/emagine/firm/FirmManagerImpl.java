@@ -3,7 +3,6 @@ package fr.umlv.ir3.emagine.firm;
 import java.util.Collection;
 import java.util.List;
 
-import fr.umlv.ir3.emagine.event.Event;
 import fr.umlv.ir3.emagine.firm.actor.FirmActor;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;

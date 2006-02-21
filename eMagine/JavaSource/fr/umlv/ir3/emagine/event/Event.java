@@ -35,7 +35,6 @@ public class Event extends BaseEntity {
 	private EventTypeEnum type;
 	@Basic(temporalType = TemporalType.TIMESTAMP)
 	private Date date = new Date();
-	private ArrayList<BaseEntity> sources = new ArrayList<BaseEntity>();
 	private String title;
 	private String userComment;
 	private String connectedUser;
@@ -68,12 +67,6 @@ public class Event extends BaseEntity {
 	 */
 	public void setDate(Date date) {
 		this.date = date;
-	}
-	/**
-	 * @return Returns the sources.
-	 */
-	public ArrayList<BaseEntity> getSources() {
-		return sources;
 	}
 	/**
 	 * @return Returns the title.

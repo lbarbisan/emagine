@@ -12,6 +12,8 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Version;
 
+import fr.umlv.ir3.emagine.util.base.BaseEntity;
+
 /**
  * @author lbarbisan
  *
@@ -23,9 +25,9 @@ public class EmagineEnum {
 	private static final long serialVersionUID = 41873052571735056L;
 
 	@Id(generate = GeneratorType.AUTO)
-	private long id;
+	private Long id;
 	@Version
-	private long version;
+	private Long version;
 	
 	@Column(nullable = false)
 	private String name;
@@ -45,12 +47,10 @@ public class EmagineEnum {
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object obj) {
-		if(obj.getClass()==this.getClass())
-		{
-			return ((EmagineEnum)obj).getName().equals(this.getName());
-		}
-		return false;
+	public boolean equals(Object that) {
+		if (this == that) return true;
+		if (id == null) throw new IllegalStateException("id not set; use generation instead of creation to obtain an entity with a valid id");
+		return id == ((BaseEntity) that).getId();
 	}
 	/**
 	 * @see java.lang.Object#toString()
@@ -76,5 +76,13 @@ public class EmagineEnum {
 	 */
 	public long getVersion() {
 		return version;
+	}
+	/**
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		if (id == null) throw new IllegalStateException("id not set; use generation instead of creation to obtain an entity with a valid id");
+		return id.hashCode();
 	}
 }

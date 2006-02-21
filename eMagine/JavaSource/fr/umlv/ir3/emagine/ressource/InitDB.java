@@ -31,10 +31,11 @@ import fr.umlv.ir3.emagine.apprentice.candidate.room.Room;
 import fr.umlv.ir3.emagine.extraction.ExtractionEntity;
 import fr.umlv.ir3.emagine.extraction.ExtractionGroup;
 import fr.umlv.ir3.emagine.extraction.ExtractionProperty;
-import fr.umlv.ir3.emagine.extraction.PropertiesExtractionGroup;
 import fr.umlv.ir3.emagine.firm.Firm;
 import fr.umlv.ir3.emagine.firm.FirmDAO;
+import fr.umlv.ir3.emagine.firm.actor.EngineerTutorManager;
 import fr.umlv.ir3.emagine.firm.actor.FirmActor;
+import fr.umlv.ir3.emagine.firm.actor.FirmActorDAO;
 import fr.umlv.ir3.emagine.security.EmaginePrincipal;
 import fr.umlv.ir3.emagine.security.MustHaveRights;
 import fr.umlv.ir3.emagine.security.SessionManager;
@@ -113,6 +114,7 @@ public class InitDB {
 		initializeCandidate(1, 4);
 		initializeFirm(1, 4);
 		initializeApprentice(1, 4);
+		initializeEngineerTutor(1,2);
 		initializeExtractionEntities();
 	}
 
@@ -250,6 +252,21 @@ public class InitDB {
 			apprenticeManager.integrate(candidate);
 		}
 
+		DAOManager.commitTransaction();
+	}
+	
+	private static final void initializeEngineerTutor(int start, int end) throws EMagineException {
+		
+		EngineerTutorManager engineerTutorManager = ManagerManager.getInstance().getEngineerTutorManager();
+		
+		FirmActorDAO firmActorDAO = DAOManager.getInstance().getFirmActorDAO();
+		
+		DAOManager.beginTransaction();
+		
+		for (int index = start; index < end; index++) {
+			FirmActor candidate = firmActorDAO.findAll().get(index - start);
+			engineerTutorManager.becomeEngineerTutor(candidate);
+		}		
 		DAOManager.commitTransaction();
 	}
 
@@ -471,6 +488,11 @@ public class InitDB {
 		}
 	}
 
+	/**
+	 * Create FirmActor
+	 * @param index
+	 * @return
+	 */
 	private static FirmActor createFrimActor(int index) {
 		FirmActor firmActor = new FirmActor();
 		try {
@@ -496,6 +518,8 @@ public class InitDB {
 
 		return firmActor;
 	}
+	
+	
 
 	private static void initializeFormationCenter() {
 		FormationCenterDAO formationCenterDAO = DAOManager.getInstance()

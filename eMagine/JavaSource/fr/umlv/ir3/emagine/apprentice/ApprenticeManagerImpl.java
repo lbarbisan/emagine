@@ -127,7 +127,7 @@ public class ApprenticeManagerImpl extends EventableManagerImpl<Apprentice, Appr
 				//event.setType(EventTypeEnum.MODIFICATION); // TODO : event.setType (EventTypeEnum)
 				event.setTitle(Bundles.getMessageResources().getMessage("event.apprentice.update.teacherTutor.title"));
 				event.setUserComment(Bundles.getMessageResources().getMessage("event.apprentice.update.teacherTutor.comment", oldTeacherTutor.getFirstName(), oldTeacherTutor.getLastName()));
-				event.getSources().add(apprentice);
+				//event.getSources().add(apprentice);
 				addEvent(apprentice, event);
 			}
 			
@@ -139,7 +139,7 @@ public class ApprenticeManagerImpl extends EventableManagerImpl<Apprentice, Appr
 				//event.setType(EventTypeEnum.MODIFICATION); // TODO : event.setType (EventTypeEnum)
 				event.setTitle(Bundles.getMessageResources().getMessage("event.apprentice.update.engineerTutor.title"));
 				event.setUserComment(Bundles.getMessageResources().getMessage("event.apprentice.update.engineerTutor.comment", oldEngineerTutor.getFirstName(), oldEngineerTutor.getLastName()));
-				event.getSources().add(apprentice);
+				//event.getSources().add(apprentice);
 				addEvent(apprentice, event);
 			}
 			
@@ -151,7 +151,7 @@ public class ApprenticeManagerImpl extends EventableManagerImpl<Apprentice, Appr
 				//event.setType(EventTypeEnum.MODIFICATION); // TODO : event.setType (EventTypeEnum)
 				event.setTitle(Bundles.getMessageResources().getMessage("event.apprentice.update.firm.title"));
 				event.setUserComment(Bundles.getMessageResources().getMessage("event.apprentice.update.firm.comment", oldFirm.getName(), oldFirm.getAddress()));
-				event.getSources().add(apprentice);
+				//event.getSources().add(apprentice);
 				addEvent(apprentice, event);
 			}
 			

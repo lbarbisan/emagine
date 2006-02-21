@@ -29,5 +29,8 @@ public interface EngineerTutorManager extends EditableManager<EngineerTutor, Eng
 	@MustHaveRights("engineerTutor.update")
 	public abstract void addApprentice(Apprentice apprentice,
 			EngineerTutor engineerTutor) throws EMagineException;
+	
+	@MustHaveRights("engineerTutor.becomeEngineerTutor")
+	public EngineerTutor becomeEngineerTutor(FirmActor firmActor) throws EMagineException;
 
 }

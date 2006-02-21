@@ -5,8 +5,6 @@ package fr.umlv.ir3.emagine.event;
 
 import java.util.Date;
 
-import javax.print.attribute.standard.Fidelity;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.HibernateException;
@@ -20,10 +18,10 @@ import org.hibernate.event.PostUpdateEvent;
 import org.hibernate.event.PostUpdateEventListener;
 import org.hibernate.type.Type;
 
+import fr.umlv.ir3.emagine.security.SecurityFilterNotInitializedException;
 import fr.umlv.ir3.emagine.security.SessionManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.HibernateUtils;
-import fr.umlv.ir3.emagine.util.ManagerManager;
 import fr.umlv.ir3.emagine.util.base.EventableEntity;
 
 /**
@@ -71,12 +69,18 @@ public class EMaginePostEventListener implements PostInsertEventListener,
 				EventableEntity eventableEntity = (EventableEntity) event
 						.getEntity();
 				Event eMagineEvent = new Event();
-
+				eMagineEvent = new Event();
+				eMagineEvent.setUserComment("no comment");
+				try {
+					eMagineEvent.setConnectedUser(SessionManager.getInstance().getCurrentUser().getHumanName());
+				} catch (SecurityFilterNotInitializedException e) {
+					// TODO SecurityFilterNotInitializedException.e Not Implemented
+					e.printStackTrace();
+				}
+				eMagineEvent.setDate(new Date());
 				eMagineEvent.setDescription("Suppression de :"
 						+ eventableEntity.toString());
 				eMagineEvent.setDate(new Date());
-				// eMagineEvent.getSources().add((BaseEntity)
-				// event.getEntity());
 				eMagineEvent.setTitle("Suppression");
 			}
 		}
@@ -84,27 +88,14 @@ public class EMaginePostEventListener implements PostInsertEventListener,
 
 	public void onPostUpdate(PostUpdateEvent event) {
 		if (event.getEntity() instanceof EventableEntity) {
-			EventableEntity eventableEntity = (EventableEntity) event
-					.getEntity();
-			Event eMagineEvent = new Event();
-			Date date = new Date();
-
-			eMagineEvent.setDescription("Mise à jour de :"
-					+ eventableEntity.toString());
-			eMagineEvent.setDate(date);
-			// eMagineEvent.getSources().add((BaseEntity) event.getEntity());
-			eMagineEvent.setTitle("Mise à jour");
-
 			try {
 				logChanges(event);
 			} catch (EMagineException e) {
-				// FIXME : SecurityFilterNotInitializedException.e Not
-				// Implemented
+				// FIXME : Remonter les exceptions
 				e.printStackTrace();
 			}
-
-			createEvent(eMagineEvent);
 		}
+			
 	}
 
 	private void logChanges(PostUpdateEvent postUpdateEvent)
@@ -116,65 +107,28 @@ public class EMaginePostEventListener implements PostInsertEventListener,
 		Object[] oldStates = postUpdateEvent.getOldState();
 		String[] name = postUpdateEvent.getPersister().getPropertyNames();
 		Type[] types = postUpdateEvent.getPersister().getPropertyTypes();
+		
+		Event event;
 
 		// Iterate through all the fields in the object
 		for (int index = 0; index < types.length; index++) {
+			
 			String fieldName = name[index];
-			if (!fieldName.equals("id")) {
-				if (states[index] == null ^ oldStates[index] == null) {
-					Event event = new Event();
-					event.setUserComment("no comment");
-					event.setConnectedUser(SessionManager.getInstance()
-							.getCurrentUser().getHumanName());
-					event.setDate(new Date());
-					event.setProperty(fieldName);
-					if(states[index]==null)
-						event.setDescription("Initialisation de la valeur");
-					else
-						event.setDescription("suppression de la valeur");
-					event.setNewValue(states[index]==null ? "":states[index].toString());
-					event.setOldValue(oldStates[index]==null ? "":oldStates[index].toString());
-					event.setDescription("");
-					event.setTitle("Modification paramètres");
-					createEvent(event);					
-				} else if (states[index] != null && oldStates[index] != null) {
-					Class interfaces[] = states[index].getClass().getInterfaces();
-					for (int index2 = 0; index2 < interfaces.length; index2++) {
-						if (!interfaces[index2].getName().equals("java.util.Collection")) {
-							// FIXME : Gérer les exceptions
-							index2 = interfaces.length;
-						} else if (interfaces[index2].getName().equals("fr.umlv.ir3.emagine.base.BaseEntity")) {
-							// FIXME : Récurrence pour les objets
-							index2 = interfaces.length;
-						} else {
-							Event event = new Event();
-							event.setUserComment("no comment");
-							event.setConnectedUser(SessionManager.getInstance()
-									.getCurrentUser().getHumanName());
-							event.setDate(new Date());
-							event.setProperty(fieldName);
-							if(states[index]==null)
-								event.setDescription("Initialisation de la valeur");
-							else
-								event.setDescription("suppression de la valeur");
-							event.setNewValue(states[index]==null ? "":states[index].toString());
-							event.setOldValue(oldStates[index]==null ? "":oldStates[index].toString());
-							event.setDescription("");
-							event.setTitle("Modification paramètres");
-							event.setDescription("Modification de la propriété");
-							event.setTitle("Modification paramètres");
-							event.setType((EventTypeEnum)
-									 ManagerManager.getInstance().getEmagineEnumManager()
-									 .find(EventTypeEnum.MOD_GENERAL,EventTypeEnum.class) );
-							
-							createEvent(event);
-							
-							index2 = interfaces.length;
-						}
-					}
-				}
+			
+			event = new Event();
+			event.setUserComment("no comment");
+			event.setConnectedUser(SessionManager.getInstance().getCurrentUser().getHumanName());
+			event.setDate(new Date());
+			event.setNewValue(states[index]==null ? "":states[index].toString());
+			event.setOldValue(oldStates[index]==null ? "":oldStates[index].toString());
+			event.setProperty(fieldName);
+			event.setTitle("Modification paramètres");
+			event.setDescription(states[index]==null ? "Initialisation de la valeur" : "Suppression de la valeur");
+
+			if(!event.getNewValue().equals(event.getOldValue()))
+					createEvent(event);
 			}
-		}
+	
 	}
 
 	/**
@@ -195,7 +149,7 @@ public class EMaginePostEventListener implements PostInsertEventListener,
 			log.error("Error when tracing event '"
 					+ eMagineEvent.getDescription() + "'", e);
 		}
-		session.close();
+		//session.close();
 	}
 
 }

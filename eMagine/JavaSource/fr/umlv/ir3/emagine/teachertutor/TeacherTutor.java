@@ -13,6 +13,7 @@ import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
 import fr.umlv.ir3.emagine.apprentice.Apprentice;
+import fr.umlv.ir3.emagine.firm.actor.FirmActor;
 import fr.umlv.ir3.emagine.util.Address;
 import fr.umlv.ir3.emagine.util.person.Person;
 
@@ -62,5 +63,34 @@ public class TeacherTutor extends Person {
 
 	protected void setApprentice(List<Apprentice> apprentice) {
 		this.apprentice = apprentice;
+	}
+
+	/**
+	 * @param id
+	 * @param version
+	 * @param modifications
+	 * @param events
+	 * @param addressPersonnal
+	 * @param birthdayDate
+	 * @param birthdayCity
+	 * @param birthdayCountry
+	 * @param birthdayDepartment
+	 * @param nationality
+	 * @param sex
+	 * @param lastName
+	 * @param firstName
+	 * @param email
+	 * @param phone
+	 * @param mobilePhone
+	 * @param fax
+	 * @param apprentice
+	 * @param addressProfessional constructor
+	 */
+	public TeacherTutor(FirmActor firmActor)
+	{
+	}
+
+	public TeacherTutor() {
+		super();
 	}
 }

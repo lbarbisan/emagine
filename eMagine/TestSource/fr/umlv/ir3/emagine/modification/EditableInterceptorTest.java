@@ -26,6 +26,7 @@ public class EditableInterceptorTest extends TestCase {
 	/*
 	 * Test method for 'fr.umlv.ir3.emagine.modification.ModificationInterceptor.onFlushDirty(Object, Serializable, Object[], Object[], String[], Type[])'
 	 */
+	@SuppressWarnings("unchecked")
 	public void testOnFlushDirtyObjectSerializableObjectArrayObjectArrayStringArrayTypeArray() throws EMagineException {
 		
 		EditableInterceptor editableInterceptor =  ManagerManager.getInstance().getEditableManager().getModificationInterceptor();

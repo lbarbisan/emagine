@@ -1,5 +1,6 @@
 package fr.umlv.ir3.emagine.firm.actor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.AccessType;
@@ -23,14 +24,40 @@ public class EngineerTutor extends FirmActor {
 
 	@OneToMany(	mappedBy = "engineerTutor")
 	@Cascade(CascadeType.SAVE_UPDATE)
-			private List<Apprentice> apprentice;
+	private List<Apprentice> apprentice = new ArrayList<Apprentice>();
 	
+	/**
+	 * @param id
+	 * @param version
+	 * @param modifications
+	 * @param events
+	 * @param addressPersonnal
+	 * @param birthdayDate
+	 * @param birthdayCity
+	 * @param birthdayCountry
+	 * @param birthdayDepartment
+	 * @param nationality
+	 * @param sex
+	 * @param lastName
+	 * @param firstName
+	 * @param email
+	 * @param phone
+	 * @param mobilePhone
+	 * @param fax
+	 * @param firm
+	 * @param addressProfessional
+	 * @param function constructor
+	 */
+	public EngineerTutor(FirmActor firmActor)
+	{
+		super(firmActor.getModifications(), firmActor.getEvents(), 
+				firmActor.getAddressPersonnal(), firmActor.getBirthdayDate(), firmActor.getBirthdayCity(), 
+				firmActor.getBirthdayCountry(), firmActor.getBirthdayDepartment(), firmActor.getNationality(),
+				firmActor.getSex(), firmActor.getLastName(), firmActor.getFirstName(), firmActor.getEmail(),
+				firmActor.getPhone(), firmActor.getMobilePhone(), firmActor.getFax(), firmActor.getFirm(),
+				firmActor.getAddressProfessional(), firmActor.getFunction());
+	}
 	public List<Apprentice> getApprentice() {
 		return apprentice;
 	}
-	
-	public void setApprentice(List<Apprentice> apprentice) {
-		this.apprentice = apprentice;
-	}
-	
 }

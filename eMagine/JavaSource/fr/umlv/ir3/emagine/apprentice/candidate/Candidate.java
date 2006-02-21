@@ -113,7 +113,7 @@ public class Candidate extends Person {
 	 * @param courseOption constructor
 	 */
 	public Candidate(List<Modification> modifications, List<Event> events, Address addressPersonnal, Date birthdayDate, String birthdayCity, CountryEnum birthdayCountry, DepartmentEnum birthdayDepartment, NationalityEnum nationality, SexEnum sex, String lastName, String firstName, String email, String phone, String mobilePhone, String fax, ContactEnum contactOriginIG2K, FormationCenter formationCenter, Room room, boolean otherFormation, boolean accepted, LevelEntryEnum entryLevel, ProfessionEnum professionMother, ProfessionEnum professionFather, CourseOptionEnum courseOption) {
-		super(null, null, modifications, events, addressPersonnal, birthdayDate,
+		super(modifications, events, addressPersonnal, birthdayDate,
 				birthdayCity, birthdayCountry, birthdayDepartment, nationality, sex,
 				lastName, firstName, email, phone, mobilePhone, fax);
 		this.contactOriginIG2K = contactOriginIG2K;
