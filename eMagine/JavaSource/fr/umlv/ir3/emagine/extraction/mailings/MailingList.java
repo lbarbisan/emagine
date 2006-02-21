@@ -20,16 +20,17 @@ import fr.umlv.ir3.emagine.util.person.Person;
  * @Persistance Terminé
  */
 @Entity(access = AccessType.FIELD)
-public class MailingList<ObjectType extends Person> extends EditableEntity{
+public class MailingList extends EditableEntity {
 
 	private static final long serialVersionUID = 7296169511769454784L;
 	
-	private String Title;
+	private String title;
 	private String comment;
 	/* Ici il n'y a pas besoin d'une liaison bi-driectionnelle */
 	@OneToMany(targetEntity = Person.class)
 	@Cascade(CascadeType.SAVE_UPDATE)
-	private List<ObjectType> persons;
+	
+	private List<Person> persons;
 	/**
 	 * @return Returns the comment.
 	 */
@@ -45,25 +46,25 @@ public class MailingList<ObjectType extends Person> extends EditableEntity{
 	/**
 	 * @return Returns the persons.
 	 */
-	public List<ObjectType> getPersons() {
+	public List<Person> getPersons() {
 		return persons;
 	}
 	/**
 	 * @param persons The persons to set.
 	 */
-	public void setPersons(List<ObjectType> persons) {
+	public void setPersons(List<Person> persons) {
 		this.persons = persons;
 	}
 	/**
 	 * @return Returns the title.
 	 */
 	public String getTitle() {
-		return Title;
+		return title;
 	}
 	/**
 	 * @param title The title to set.
 	 */
 	public void setTitle(String title) {
-		Title = title;
+		this.title = title;
 	}
 }

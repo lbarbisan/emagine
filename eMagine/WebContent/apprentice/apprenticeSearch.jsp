@@ -13,13 +13,7 @@
 			document.apprenticeSearchForm.action = "/eMagine/apprenticeExclude.do?action=exclude&from=search";
 			document.apprenticeSearchForm.submit();
 		}
-	}
-	function passApprentices() {
-		if(confirm("Souhaitez-vous réellement faire passer ces apprentis ?")) {
-			document.apprenticeSearchForm.action = "/eMagine/apprenticePass.do?action=pass&from=search";
-			document.apprenticeSearchForm.submit();
-		}
-	}
+	}	
 -->
 </script>
 

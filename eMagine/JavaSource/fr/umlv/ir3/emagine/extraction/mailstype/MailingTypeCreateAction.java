@@ -14,7 +14,6 @@ import org.apache.struts.upload.FormFile;
 
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.ManagerManager;
-import fr.umlv.ir3.emagine.util.UploadUtil;
 import fr.umlv.ir3.emagine.util.base.BaseAction;
 
 public class MailingTypeCreateAction extends BaseAction {

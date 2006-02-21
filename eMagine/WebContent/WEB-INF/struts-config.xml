@@ -38,6 +38,8 @@
 		<form-bean name="firmActorListForm" type="fr.umlv.ir3.emagine.firm.actor.FirmActorListForm" />
 		<form-bean name="mailingTypeModifyForm" type="fr.umlv.ir3.emagine.extraction.mailstype.MailingTypeModifyForm" />
 		<form-bean name="mailingTypeListForm" type="fr.umlv.ir3.emagine.extraction.mailstype.MailingTypeListForm" />
+		<form-bean name="mailingListModifyForm" type="fr.umlv.ir3.emagine.extraction.mailings.MailingListModifyForm" />
+		<form-bean name="mailingListListForm" type="fr.umlv.ir3.emagine.extraction.mailings.MailingListListForm" />
 	</form-beans>
 
 	<!-- ========== Action Mapping Definitions =============================== -->
@@ -85,8 +87,7 @@
 		<action path="/apprenticeVisuSchooling" forward="apprentice.apprenticeVisuSchooling" name="apprenticeModifyForm" scope="session" />
 		<action path="/apprenticeVisuEvent" forward="apprentice.apprenticeVisuEvent" name="apprenticeModifyForm" scope="session" />
 		<action path="/apprenticeVisuAbsence" forward="apprentice.apprenticeVisuAbsence" name="apprenticeModifyForm" scope="session" />
-		<action path="/apprenticeAbsenceDetail"
-			forward="apprentice.apprenticeAbsenceDetail" />
+		<action path="/apprenticeAbsenceDetail"	forward="apprentice.apprenticeAbsenceDetail" />
 		<action path="/apprenticeTutorAdd" forward="apprentice.apprenticeTutorAdd" />
 		<action path="/apprenticeOnglet" forward="apprentice.apprenticeOnglet" />
 		<action path="/apprenticeCompanyAdd" forward="apprentice.apprenticeCompanyAdd" />
@@ -195,7 +196,7 @@
 			<forward name="success" path="/companyVisuPost.do" redirect="true" />
 		</action>
 		<action path="/jobModify" type="fr.umlv.ir3.emagine.firm.JobModifyAction" name="jobModifyForm" input="company.postDetail" parameter="action" scope="session" validate="true">
-			<forward name="_default_target_" path="/companyVisuPost.do" redirect="true" />
+			<forward name="_default_target_" path="company.postDetail" redirect="true" />
 			<forward name="success" path="/companyVisuPost.do" redirect="true" />
 		</action>
 		<action path="/jobDelete" type="fr.umlv.ir3.emagine.firm.JobDeleteAction" parameter="action">
@@ -203,7 +204,6 @@
 		</action>
 
 		<!-- comapny actor -->
-		<action path="/actorApprenticeAdd" forward="company.actorApprenticeAdd" />
 		<action path="/actorEmailDo" forward="company.actorEmailDo" />
 		<action path="/actorEventDetail" forward="company.actorEventDetail" />
 		<action path="/actorEventExtract" forward="company.actorEventExtract" />
@@ -218,10 +218,6 @@
 			<forward name="_default_target_" path="company.actorCreate" />
 			<forward name="success" path="/companyVisuActor.do" redirect="true" />
 		</action>
-		<action path="/actorModify" type="fr.umlv.ir3.emagine.firm.actor.FirmActorModifyAction" name="firmActorModifyForm" input="company.actorVisuInfo" parameter="action" scope="session" validate="true">
-			<forward name="_default_target_" path="/companyVisuActor.do" redirect="true" />
-			<forward name="success" path="/companyVisuActor.do" redirect="true" />
-		</action>
 		<action path="/actorDelete" type="fr.umlv.ir3.emagine.firm.actor.FirmActorDeleteAction" parameter="action">
 			<forward name="_default_target_" path="/companyVisuActor.do" redirect="true" />
 		</action>
@@ -229,7 +225,12 @@
 			<forward name="_default_target_" path="company.actorVisuInfo" redirect="true" />
 			<forward name="success" path="/companyVisuActor.do" redirect="true" />
 		</action>
- 
+		<action path="/actorApprenticeAdd" type="fr.umlv.ir3.emagine.apprentice.ApprenticeSearchAction" name="apprenticeSearchForm" parameter="action" scope="session">
+			<forward name="_default_target_" path="company.actorApprenticeAdd" />
+			<forward name="success" path="/companyVisuActor.do" />
+		</action>
+		
+		
 		<!-- recruitment -->
 		<action path="/candidateSearch" type="fr.umlv.ir3.emagine.apprentice.candidate.CandidateSearchAction" name="candidateSearchForm" parameter="action" scope="session">
 			<forward name="_default_target_" path="recruitment.candidateSearch" />
@@ -291,8 +292,14 @@
 		<!-- mail -->
 		<action path="/emailDo" forward="mail.emailDo" />
 		<action path="/mailDo" forward="mail.mailDo" />
-		<action path="/mailingListVisu" forward="mail.mailingListVisu" />
 		<action path="/mailingListDetail" forward="mail.mailingListDetail" />
+		
+		<action path="/mailingListVisu" type="fr.umlv.ir3.emagine.extraction.mailings.MailingListListAction" name="mailingListListForm" scope="session">
+			<forward name="_default_target_" path="mail.mailingListVisu" />
+		</action>
+		<action path="/mailingListDelete" type="fr.umlv.ir3.emagine.extraction.mailings.MailingListDeleteAction" parameter="action">
+			<forward name="_default_target_" path="/mailingListVisu.do" redirect="true" />
+		</action>		
 
 		<action path="/mailingTypeVisu" type="fr.umlv.ir3.emagine.extraction.mailstype.MailingTypeListAction" name="mailingTypeListForm" scope="session">
 			<forward name="_default_target_" path="mail.mailTypeVisu" />

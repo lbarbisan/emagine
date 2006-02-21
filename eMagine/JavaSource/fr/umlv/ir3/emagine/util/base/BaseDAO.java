@@ -143,8 +143,7 @@ public class BaseDAO<EntityType extends BaseEntity> {
 	protected Class getEntityClass() {
 		if (EntityClass == null) {
 			// Retrouve le type du generic
-			ParameterizedType type = (ParameterizedType) this.getClass()
-					.getGenericSuperclass();
+			ParameterizedType type = (ParameterizedType) this.getClass().getGenericSuperclass();
 			EntityClass = (Class) (type.getActualTypeArguments()[0]);
 		}
 		return EntityClass;

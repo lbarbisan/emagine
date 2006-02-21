@@ -12,27 +12,26 @@ public interface MailingListManager extends EditableManager<MailingList, Mailing
 
 	//TODO : Use case « Ajouter un membre à une mailing-list »
 	@MustHaveRights("mailingList.update")
-	public abstract <PersonType extends Person> void addPerson(
-			MailingList<PersonType> mailingList, PersonType person);
+	public abstract void addPerson(
+			MailingList mailingList, Person person);
 
 	//TODO : Use case « Ajouter des membres à une mailing-list »
 	@MustHaveRights("mailingList.update")
-	public abstract <PersonType extends Person> void addPersons(
-			MailingList<PersonType> mailingList, Collection<PersonType> persons);
+	public abstract void addPersons(
+			MailingList mailingList, Collection<Person> persons);
 
 	//TODO : Use case « Supprimer un membre à une mailing-list »
 	@MustHaveRights("mailingList.update")
-	public abstract <PersonType extends Person> void removePerson(
-			MailingList<PersonType> mailingList, PersonType person);
+	public abstract void removePerson(
+			MailingList mailingList, Person person);
 
 	//	TODO : Use case « Supprimer un membre à une mailing-list »
 	@MustHaveRights("mailingList.update")
-	public abstract <PersonType extends Person> void removePersons(
-			MailingList<PersonType> mailingList, Collection<PersonType> persons);
+	public abstract void removePersons(
+			MailingList mailingList, Collection<Person> persons);
 
 	//TODO : Use case « Générer mailing »
 	public abstract void generateMailing(
-			MailingList<? extends Person> mailingList, String object,
-			String body) throws EMagineException;
+			MailingList mailingList, String object,String body) throws EMagineException;
 
 }

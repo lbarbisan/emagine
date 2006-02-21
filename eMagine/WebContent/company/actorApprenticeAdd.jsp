@@ -1,84 +1,109 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
+<%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic"%>
+
+<script type="text/javascript">
+<!--
+	function setAction(value) {
+		document.apprenticeSearchForm.action.value = value;
+	}
+
+	function addApprentices() {
+		if(confirm("Souhaitez-vous réellement exclure ces apprentis ?")) {
+			document.apprenticeSearchForm.action = "/eMagine/apprenticeExclude.do?action=exclude&from=search";
+			document.apprenticeSearchForm.submit();
+		}
+	}
+-->
+</script>
+
 <h2><bean:message key="actor.apprentice.add.title"/><html:link action="/actorVisuInfo"><img src="/eMagine/common/images/icones/retour.png" title="<bean:message key="button.title.return"/>"/></html:link></h2>
-<form name="results">
-	<br/>
+<br/>
+
+<html:form action="/apprenticeSearch" method="POST" focus="lastName">
 	<div align="center">
 		<div class="search">
 			<fieldset>
 				<div class="search_b1">
-					<p><label for="name"><bean:message key="criteria.search.name"/></label>
-						<input type="text" id="name" size="20" /> 
-					</p>
-					<p>
-						<label for="firstName"><bean:message key="criteria.search.firstName"/></label>
-						<input type="text" id="firstName" size="20" /> 
-					</p>
+				<p><label for="lastName"><bean:message key="criteria.search.name"/></label><html:text property="lastName" size="20" />  </p>
+				<p><label for="firstName"><bean:message key="criteria.search.firstName"/></label><html:text property="firstName" size="20" /> </p>
 				</div>
 				<div class="search_b2">
-				<p><label for="die"><bean:message key="criteria.search.die"/></label>
-					<select name="die">
-						<!-- à mettre en base -->
-						<option value="all" selected="selected"><bean:message key="select.all.feminin"/></option>
-						<option value="ir">IR</option>
-						<option value="mfpi">MFPI</option>
-						<option value="gmu">GMU</option>
-					</select>
-				<p>
-				<p>
-					<label for="year"><bean:message key="criteria.search.year"/></label>
-					<select name="year">
-						<!-- à mettre en base -->
-						<option value="all" selected="selected">Toutes</option>
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5</option>
-					</select>
-				</p>	
-			</div>
-		</fieldset>
+					<p>
+						<label for="courseOption"><bean:message key="criteria.search.die"/></label>
+						<html:select property="idCourseOption">
+							<!-- <logic:notEmpty name="apprenticeSearchForm" property="courseOptions">-->
+								<option value="" selected></option>
+								<html:optionsCollection property="courseOptions" value="id" label="name"/>		
+							<!--</logic:notEmpty>-->
+						</html:select>
+					</p>
+					<p>
+						<label for="year"><bean:message key="criteria.search.year"/></label>
+						<html:select property="idYear">
+							<!-- <logic:notEmpty name="apprenticeSearchForm" property="years">-->
+								<option value="" selected></option>
+								<html:optionsCollection property="years" value="id" label="name"/>		
+							<!--</logic:notEmpty>-->
+						</html:select>
+					</p>
+				</div>
+			</fieldset>
+		</div>
+		<br/>
+		<div class="buttons"><html:submit onclick="javascript:setAction('search');" titleKey="button.title.search"><bean:message key="form.search" /></html:submit></div>
 	</div>
-	<br/>
-	<div class="buttons"><input type="button" value="Rechercher"/></div>
-</div>
-<h3><bean:message key="title.results"/></h3>
-	<div align="center">
+	<h3><bean:message key="title.results"/></h3>
+	<div align=center>
 		<div id="statSearch">
 			<p>
-			<label for="result"><bean:message key="statSearch.results"/></label><input type="text" id="result" size="5" />&nbsp;&nbsp;&nbsp;
-			<label for="pageNb"><bean:message key="statSearch.numberByPage"/></label><input type="text" id="pageNb" size="5" /> 
+				<label for="result"><bean:message key="statSearch.results"/></label><html:text property="nbResults" size="5" disabled="true"/>&nbsp;&nbsp;&nbsp;
+				<label for="pageNb"><bean:message key="statSearch.numberByPage"/></label><html:text property="nbResults" size="5" disabled="true"/>
 			</p>
 		</div>
 		<table cellpadding="0" cellspacing="0">
-		<tr>
-			<th>&nbsp;</th>
-			<th><bean:message key="table.header.name"/></th>
-			<th><bean:message key="table.header.firstName"/></th>
-			<th><bean:message key="table.header.die"/></th>
-			<th><bean:message key="table.header.year"/></th>
-		</tr>
-		<tr>
-			<td><input type="radio" name="all_none" value="ON" /></td>
-			<td><html:link action="/apprenticeVisuAdress">Barbisan</html:link></td>
-			<td>Laurent</td>
-			<td>IR</td>
-			<td>3</td>
-		</tr>
-		<tr>
-			<td><input type="radio" name="all_none" value="ON" /></td>
-			<td><html:link action="/apprenticeVisuAdress">Ogier</html:link></td>
-			<td>Anthony</td>
-			<td>IR</td>
-			<td>3</td>
-		</tr>
-	</table>
-</div>
+			<tr>
+				<th>&nbsp;</th>
+				<th><bean:message key="table.header.name"/></th>
+				<th><bean:message key="table.header.firstName"/></th>
+				<th><bean:message key="table.header.die"/></th>
+				<th><bean:message key="table.header.year"/></th>
+			</tr>
+			<logic:notEmpty name="apprenticeSearchForm" property="results">
+				<logic:iterate id="apprentice" name="apprenticeSearchForm" property="results" type="fr.umlv.ir3.emagine.apprentice.Apprentice">
+					<tr>
+						<td><html:multibox property="currentSelectedIds" value="<%= apprentice.getId().toString() %>"/></td>
+						<td><html:link action="/apprenticeModify?action=show" paramId="id" paramName="apprentice" paramProperty="id"><bean:write name="apprentice" property="lastName"/>&nbsp;</html:link></td>
+						<td><bean:write name="apprentice" property="firstName"/>&nbsp;</td>
+						<td>
+							<logic:present name="apprentice" property="courseOption">
+								<bean:write name="apprentice" property="courseOption.name"/>
+							</logic:present>&nbsp;
+						</td>
+						<td>
+							<logic:present name="apprentice" property="year">
+								<bean:write name="apprentice" property="year.name"/>&nbsp;
+							</logic:present>&nbsp;
+						</td>
+					</tr>
+				</logic:iterate>
+			</logic:notEmpty>	
+
+			<logic:empty name="apprenticeSearchForm" property="results">
+				<tr><td colspan="8">Pas&nbsp;de&nbsp;r&eacute;sultats</td></tr>
+			</logic:empty>		
+		</table>
+	</div>
+	<!-- Les actions propres a la selection -->
 	<div id="actions">
-		<h2>&nbsp;</h2>	
 		<ul>
-			<li><a href="#"><img src="/eMagine/common/images/icones/ok.png" title="<bean:message key="button.title.ok"/>"/></a></li>
+			<li><a href="javascript:checkAll('apprenticeSearchForm','currentSelectedIds');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
+			<li><a href="javascript:checkNothing('apprenticeSearchForm','currentSelectedIds');"><bean:message key="all_none.none"/></a></li>
+		</ul>
+		<h2>&nbsp;</h2>
+		<ul>
+			<li><html:link href="javascript:addApprentices();"><html:img src="/eMagine/common/images/icones/ok.png" titleKey="button.title.ok" /></html:link></li>
 		</ul>
 	</div>
-</form>
+<html:hidden property="action" />
+</html:form>

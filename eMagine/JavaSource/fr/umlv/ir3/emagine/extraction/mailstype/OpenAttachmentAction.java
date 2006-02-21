@@ -1,8 +1,6 @@
 package fr.umlv.ir3.emagine.extraction.mailstype;
 
-import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
-import java.io.FileReader;
 import java.io.OutputStream;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,7 +11,6 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 import fr.umlv.ir3.emagine.util.ManagerManager;
-import fr.umlv.ir3.emagine.util.UploadUtil;
 import fr.umlv.ir3.emagine.util.base.BaseAction;
 
 public class OpenAttachmentAction extends BaseAction {

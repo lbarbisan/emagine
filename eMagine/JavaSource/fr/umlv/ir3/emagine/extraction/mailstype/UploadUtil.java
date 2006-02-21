@@ -1,4 +1,4 @@
-package fr.umlv.ir3.emagine.util;
+package fr.umlv.ir3.emagine.extraction.mailstype;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -6,13 +6,16 @@ import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+import fr.umlv.ir3.emagine.util.Bundles;
+
 public class UploadUtil {
 
-	private static final String uploadPath = "D:/test"; 
-	private static final String tmpExt = "tmp"; 
-	
 	public static File saveFileUpload(byte[] datas, String filename) throws IOException, NoSuchAlgorithmException {
-		File file = createUploadFile(uploadPath, filename, tmpExt, datas);
+		File file = createUploadFile(
+				Bundles.getConfigBundle().getString("upload.dirPath"),
+				filename,
+				Bundles.getConfigBundle().getString("upload.fileExt"),
+				datas);
 		
 		FileOutputStream out = new FileOutputStream(file);
 		out.write(datas);
@@ -23,7 +26,7 @@ public class UploadUtil {
 	}
 	
 	public static File getFileUploaded(String filename) throws NoSuchAlgorithmException, IOException {
-		return new File(createUploadDir(uploadPath), filename);
+		return new File(createUploadDir(Bundles.getConfigBundle().getString("upload.dirPath")), filename);
 	} 
 	
 	private static File createUploadFile(String dirPath, String filename, String ext, byte[] datas) throws NoSuchAlgorithmException, IOException {
