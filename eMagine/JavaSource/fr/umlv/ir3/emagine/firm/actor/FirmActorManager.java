@@ -5,5 +5,5 @@ import fr.umlv.ir3.emagine.util.base.EventableManager;
 
 @MustHaveRights("firmActor")
 public interface FirmActorManager extends EventableManager<FirmActor, FirmActorDAO> {
-
+	public boolean isEngineerTutor(FirmActor firmActor);
 }

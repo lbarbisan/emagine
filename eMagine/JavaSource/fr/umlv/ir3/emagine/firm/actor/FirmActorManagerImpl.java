@@ -11,4 +11,11 @@ public class FirmActorManagerImpl extends EventableManagerImpl<FirmActor, FirmAc
 		DAOManager instance = DAOManager.getInstance();
 		return instance.getFirmActorDAO();
 	}
+	/**
+	 *@see 
+	 */
+	public boolean isEngineerTutor(FirmActor firmActor)
+	{
+		return getDAO().isEngineerTutor(firmActor);
+	}
 }

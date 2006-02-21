@@ -26,6 +26,7 @@ public class EngineerTutor extends FirmActor {
 	@Cascade(CascadeType.SAVE_UPDATE)
 	private List<Apprentice> apprentice = new ArrayList<Apprentice>();
 	
+	protected EngineerTutor(){}
 	/**
 	 * @param id
 	 * @param version
