@@ -158,6 +158,7 @@ public class BaseDAO<EntityType extends BaseEntity> {
 	public List<EntityType> find(SearchParams searchParams) throws EMagineException {
 
 		boolean first = true;
+		String order=" " + getEntityClass().getSimpleName().toLowerCase() + ".id";
 		StringBuilder queryString = new StringBuilder();
 
 		queryString.append("From " ).append(getEntityClass().getSimpleName())
@@ -177,11 +178,15 @@ public class BaseDAO<EntityType extends BaseEntity> {
 				.append(field.replace(".", "_"))
 				.append(")");
 				if (first == true) {
+					order = field;
 					first = false;
 				}
 			}
 		}
 
+		//Order by
+		queryString.append(" order by " + order);
+		
 		Query query = HibernateUtils.getSession().createQuery(queryString.toString());
 		for (String field : searchParams.getFields()) {
 			log.trace("get value for '" + field + "' : '" + searchParams.getValue(field)+ "'");
