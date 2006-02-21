@@ -17,7 +17,7 @@ public class AbsenceManagerImpl extends EditableManagerImpl<Absence, AbsenceDAO>
 	/**
 	 * @see fr.umlv.ir3.emagine.apprentice.absence.AbsenceManager#find(java.util.Collection, fr.umlv.ir3.emagine.apprentice.absence.AbsenceSearchParams)
 	 */
-	public List<Absence> find(Collection<Apprentice> apprentices, AbsenceSearchParams absenceSearchParams) throws EMagineException {
+	public List<Absence> find(Collection<Apprentice> apprentices, AbsenceSearchParam absenceSearchParams) throws EMagineException {
 		return getDAO().find(apprentices, absenceSearchParams);
 	}
 	

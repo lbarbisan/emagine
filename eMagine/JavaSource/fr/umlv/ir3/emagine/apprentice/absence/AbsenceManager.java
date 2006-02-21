@@ -24,6 +24,6 @@ public interface AbsenceManager extends EditableManager<Absence, AbsenceDAO> {
 	 * @throws EMagineException if an SQLException occures
 	 */
 	public abstract List<Absence> find(Collection<Apprentice> apprentices,
-			AbsenceSearchParams absenceSearchParams) throws EMagineException;
+			AbsenceSearchParam absenceSearchParams) throws EMagineException;
 
 }

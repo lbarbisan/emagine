@@ -24,7 +24,7 @@ public class AbsenceDAO extends BaseDAO<Absence> {
 	 * @return the abscence list, if no elements are found return an empty list
 	 * @throws EMagineException if an SQLException occures
 	 */
-	public List<Absence> find(Collection<Apprentice> apprentices, AbsenceSearchParams absenceSearchParams) throws EMagineException {
+	public List<Absence> find(Collection<Apprentice> apprentices, AbsenceSearchParam absenceSearchParams) throws EMagineException {
 		
 		StringBuilder queryString = new StringBuilder();
 

@@ -18,7 +18,7 @@ import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.ManagerManager;
 import fr.umlv.ir3.emagine.util.base.BaseAction;
 
-public class ApprenticePassAction extends BaseAction {
+public class ApprenticeMovUpAction extends BaseAction {
 
 	/**
 	 * The user wants to pass a apprentice(s) in an upper year.

@@ -6,6 +6,7 @@ import java.util.Map;
 import fr.umlv.ir3.emagine.apprentice.ApprenticeManager;
 import fr.umlv.ir3.emagine.apprentice.ApprenticeManagerImpl;
 import fr.umlv.ir3.emagine.apprentice.absence.AbsenceManager;
+import fr.umlv.ir3.emagine.apprentice.absence.AbsenceManagerImpl;
 import fr.umlv.ir3.emagine.apprentice.candidate.CandidateManager;
 import fr.umlv.ir3.emagine.apprentice.candidate.CandidateManagerImpl;
 import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenterManager;
@@ -128,9 +129,7 @@ public class ManagerManager {
 		editableManager = new EditableManagerImpl();	// No rights on that manager
 		jobManager = addManager(new JobManagerImpl());
 		firmActorManager = addManager(new FirmActorManagerImpl());
-		
-		//FIXME: remetre la ligne commenttée
-		//absenceManager = SecurityProxyFactory.getProxy(new AbsenceManagerImpl());
+		absenceManager = addManager(new AbsenceManagerImpl());
 	}
 	
 	/**

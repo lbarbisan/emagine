@@ -19,6 +19,7 @@ import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
 import fr.umlv.ir3.emagine.apprentice.Apprentice;
+import fr.umlv.ir3.emagine.apprentice.JustificationEnum;
 import fr.umlv.ir3.emagine.modification.EditableEntity;
 
 /**
@@ -42,8 +43,11 @@ public class Absence extends EditableEntity {
 	@Basic(temporalType = TemporalType.TIMESTAMP)
 	@Column(nullable=false)
 	private Date endDate;
-	private boolean justification=false;
-	private String justificationComment;
+	@ManyToOne()
+	@Cascade(CascadeType.SAVE_UPDATE)
+	@JoinColumn(name = "justification_id") //FIXME : remetre le contrainte null, nullable = false)
+	private JustificationEnum justification;
+	private String comment;
 	
 	/**
 	 * Constructor reserved for hibernate
@@ -80,35 +84,6 @@ public class Absence extends EditableEntity {
 	}
 
 	/**
-	 * By default, this parameter is set to false
-	 * @return Returns the justification.
-	 */
-	public boolean isJustification() {
-		return justification;
-	}
-
-	/**
-	 * @param justification The justification to set.
-	 */
-	public void setJustification(boolean justification) {
-		this.justification = justification;
-	}
-
-	/**
-	 * @return Returns the justificationComment.
-	 */
-	public String getJustificationComment() {
-		return justificationComment;
-	}
-
-	/**
-	 * @param justificationComment The justificationComment to set.
-	 */
-	public void setJustificationComment(String justificationComment) {
-		this.justificationComment = justificationComment;
-	}
-
-	/**
 	 * @return Returns the startDate.
 	 */
 	public Date getStartDate() {
@@ -140,14 +115,14 @@ public class Absence extends EditableEntity {
 	 * @throws IllegalArgumentException, if the startDate is gretter than endDate
 	 */
 	
-	public Absence(boolean justification ,
-					String justificationComment,
+	public Absence(JustificationEnum justification ,
+					String comment,
 					Date startDate,
 					Date endDate)
 	{
 		super();
 		this.justification = justification;
-		this.justificationComment = justificationComment;
+		this.comment = comment;
 		if(startDate.after(endDate))
 		{
 			throw new IllegalArgumentException("startDate must be lower than endDate"); 
@@ -157,5 +132,33 @@ public class Absence extends EditableEntity {
 			this.startDate = startDate;
 			this.endDate = endDate;
 		}
+	}
+
+	/**
+	 * @return Returns the comment.
+	 */
+	public String getComment() {
+		return comment;
+	}
+
+	/**
+	 * @param comment The comment to set.
+	 */
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+
+	/**
+	 * @return Returns the justification.
+	 */
+	public JustificationEnum getJustification() {
+		return justification;
+	}
+
+	/**
+	 * @param justification The justification to set.
+	 */
+	public void setJustification(JustificationEnum justification) {
+		this.justification = justification;
 	}
 }
