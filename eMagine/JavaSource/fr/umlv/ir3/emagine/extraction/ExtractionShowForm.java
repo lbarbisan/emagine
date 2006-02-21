@@ -43,4 +43,9 @@ public interface ExtractionShowForm extends ExtractionConfig {
 	 */
 	public ExtractionGroup getRootGroup();
 	
+	/**
+	 * @return the current selected ids
+	 */
+	public String[] getCurrentSelectedIds();
+	
 }

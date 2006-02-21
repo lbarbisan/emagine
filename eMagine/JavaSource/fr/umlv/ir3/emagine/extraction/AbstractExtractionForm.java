@@ -1,5 +1,6 @@
 package fr.umlv.ir3.emagine.extraction;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -8,9 +9,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 
+import fr.umlv.ir3.emagine.util.base.Identifiable;
 import fr.umlv.ir3.emagine.util.search.SearchForm;
 
-public abstract class AbstractExtractionForm<O> extends ActionForm implements ExtractionForm<O> {
+public abstract class AbstractExtractionForm<I extends Identifiable> extends ActionForm implements ExtractionForm<I> {
 
 	private static final long serialVersionUID = -3336470878301794439L;
 
@@ -33,6 +35,11 @@ public abstract class AbstractExtractionForm<O> extends ActionForm implements Ex
 	 * All the entityProperties of the form
 	 *//*
 	private Collection<String> entityProperties;*/
+
+	/**
+	 * The current selected ids of the form
+	 */
+	private String[] currentSelectedIds;
 
 	/**
 	 * @return Returns the extractionType.
@@ -126,13 +133,34 @@ public abstract class AbstractExtractionForm<O> extends ActionForm implements Ex
 	}
 
 	/**
+	 * @return Returns the currentSelectedIds.
+	 */
+	public String[] getCurrentSelectedIds() {
+		return currentSelectedIds;
+	}
+
+	/**
+	 * @param currentSelectedIds The currentSelectedIds to set.
+	 */
+	public void setCurrentSelectedIds(String[] currentSelectedIds) {
+		this.currentSelectedIds = currentSelectedIds;
+	}
+
+	/**
 	 * By default, the object containing the list the user wants to extract is a SearchForm object. The default action is to extract the list from that object.
 	 * @see fr.umlv.ir3.emagine.extraction.ExtractionForm#getExtractionList(org.apache.struts.action.ActionMapping, org.apache.struts.action.ActionForm, javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
 	 */
 	@SuppressWarnings("unchecked")
-	public List<O> getExtractionList(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) {
-		SearchForm<O> searchForm = (SearchForm<O>)request.getSession().getAttribute(getExtractionObjectName());
-		return searchForm.getResults();
+	public List<I> getExtractionList(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) {
+		SearchForm<I> searchForm = (SearchForm<I>)request.getSession().getAttribute(getExtractionObjectName());
+		ArrayList<I> extractionList = new ArrayList<I>();
+		for (final I identifiable : searchForm.getResults()) {
+			for (final String id : currentSelectedIds) {
+				if (id.equals(identifiable.getId().toString())) {
+					extractionList.add(identifiable);
+				}
+			}
+		}
+		return extractionList;
 	}
-
 }

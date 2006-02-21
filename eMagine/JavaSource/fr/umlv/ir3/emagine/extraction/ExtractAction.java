@@ -1,8 +1,5 @@
 package fr.umlv.ir3.emagine.extraction;
 
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.List;
 
@@ -20,8 +17,9 @@ import fr.umlv.ir3.emagine.util.base.BaseAction;
 import fr.umlv.ir3.emagine.util.base.BaseDAO;
 import fr.umlv.ir3.emagine.util.base.BaseEntity;
 import fr.umlv.ir3.emagine.util.base.BaseManager;
+import fr.umlv.ir3.emagine.util.base.Identifiable;
 
-public abstract class ExtractAction<O, E extends BaseEntity, D extends BaseDAO<E>, M extends BaseManager<E, D>> extends BaseAction {
+public abstract class ExtractAction<I extends Identifiable, E extends BaseEntity, D extends BaseDAO<E>, M extends BaseManager<E, D>> extends BaseAction {
 	/**
 	 * Displays the config screen for the first time
 	 */
@@ -49,7 +47,7 @@ public abstract class ExtractAction<O, E extends BaseEntity, D extends BaseDAO<E
 	public ActionForward extract(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionMessages errors = new ActionMessages();
 
-		ExtractionForm<O> extractionForm = (ExtractionForm<O>)form;
+		ExtractionForm<I> extractionForm = (ExtractionForm<I>)form;
 		
 		try {
 			// Save the preferences if the user wants to
@@ -58,10 +56,10 @@ public abstract class ExtractAction<O, E extends BaseEntity, D extends BaseDAO<E
 			}
 			
 			// Retrieve from the session, the collection the user wants to extract
-			List<O> extractionList = extractionForm.getExtractionList(mapping, form, request, response);
+			List<I> extractionList = extractionForm.getExtractionList(mapping, form, request, response);
 			
 			// Create the extractable to pass to the manager for extraction
-			Extractable extractable = new ObjectListExtractable<O>(extractionList, Arrays.asList(extractionForm.getSelectedEntityProperties()));
+			Extractable extractable = new ObjectListExtractable<I>(extractionList, Arrays.asList(extractionForm.getSelectedEntityProperties()));
 			
 			// Set the response headers
 			response.setContentType(extractionForm.getExtractionType().mimeType());

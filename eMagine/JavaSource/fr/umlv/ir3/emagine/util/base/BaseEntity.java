@@ -16,7 +16,7 @@ import javax.persistence.Version;
  */
 @Entity(access = AccessType.FIELD)
 @Inheritance(strategy=InheritanceType.JOINED )
-public class BaseEntity implements Serializable {
+public class BaseEntity implements Serializable, Identifiable {
 	
 	private static final long serialVersionUID = 15466724567987L;
 	

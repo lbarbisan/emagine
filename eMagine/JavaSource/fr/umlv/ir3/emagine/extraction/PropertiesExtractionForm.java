@@ -77,13 +77,11 @@ public class PropertiesExtractionForm extends AbstractExtractionForm {
 			this.extractionEntityName = extractionEntityName;
 		}
 	}
-	
+
 	public String getExtractionTitleKey() {
 		return "extraction."+extractionEntityName+".title";
 	}
-	
 
-	
 	/**
 	 * @see fr.umlv.ir3.emagine.extraction.ExtractionShowForm#getExtractionGroups()
 	 */
@@ -97,7 +95,7 @@ public class PropertiesExtractionForm extends AbstractExtractionForm {
 			rootGroup = new PropertiesExtractionGroup("", extractionEntityName, "");
 		}
 	}
-	
+
 	/**
 	 * @see fr.umlv.ir3.emagine.extraction.ExtractionShowForm#getRootGroup()
 	 */
@@ -119,7 +117,7 @@ public class PropertiesExtractionForm extends AbstractExtractionForm {
 			return finishedIterator;
 		}
 	}
-	
+
 	public Iterator<GroupFinishedIterators> getExtractionGroupIterator() {
 		checkRootGroup();
 		// Create the first node : rootGroup
@@ -127,7 +125,7 @@ public class PropertiesExtractionForm extends AbstractExtractionForm {
 		final ArrayList<ExtractionGroup> rootGroupList = new ArrayList<ExtractionGroup>();
 		rootGroupList.add(rootGroup);
 		rootStack.push(rootGroupList.iterator());
-		
+
 		return new Iterator<GroupFinishedIterators>() {
 			final private Stack<Iterator<ExtractionGroup>> iterators = rootStack;
 			private LinkedList<Iterator<ExtractionGroup>> currentFinishedIterators = new LinkedList<Iterator<ExtractionGroup>>();
@@ -183,5 +181,4 @@ public class PropertiesExtractionForm extends AbstractExtractionForm {
 			}
 		};
 	}
-
 }

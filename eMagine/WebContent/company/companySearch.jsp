@@ -84,7 +84,7 @@
 		<h2>&nbsp;</h2>
 		<ul>
 			<li><html:link href="javascript:deleteCompanies();"><html:img src="/eMagine/common/images/icones/supprimer.png" titleKey="button.title.remove" /></html:link></li>
-			<li><html:link href="javascript:open_extract_win('firm')"><img src="/eMagine/common/images/icones/extraire.png" title="<bean:message key="button.title.extract"/>"/></html:link></li>
+			<li><html:link href="javascript:open_extract_win(document.companySearchForm, 'firm')"><img src="/eMagine/common/images/icones/extraire.png" title="<bean:message key="button.title.extract"/>"/></html:link></li>
 		</ul>
 	</div>	
 	
