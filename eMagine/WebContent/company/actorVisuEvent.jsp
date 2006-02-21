@@ -1,5 +1,7 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
+<%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic"%>
+<%@ taglib uri="/WEB-INF/tld/struts-layout.tld" prefix="layout"%>
 
 <div class="tabs">
 	<ul>
@@ -7,6 +9,12 @@
 		<span class="tab_clicked"><li><html:link action="/actorVisuEvent">Ev&eacute;nement</html:link></li></span>
 	</ul>
 </div>
+
+<script src="/eMagine/common/js/strutsLayout.js"></script>
+<script>
+	imgsrc="/eMagine/common/images/icones/";
+</script>
+
 <div class="tabs_div">
 <form name="results">
 <h2><bean:message key="event.search"/></h2>
@@ -18,7 +26,8 @@
 				<p>
 					<label for="initDate"><bean:message key="criteria.search.initDate"/></label>
 					<input type="text" id="initDate" size="15" />
-					<a href="#"><img src="/eMagine/common/images/icones/calendar.png" title="<bean:message key="button.title.calendar"/>"/></a>
+					<a href="#"><img src="/eMagine/common/images/icones/calendar.png" title="<bean:message key=""/>"/></a>
+					<layout:date key="button.title.calendar" styleClass="form_calendar" property="birth" startYear="1980" endYear="2030"/>
 				</p>
 				<p>
 					<label for="endDate"><bean:message key="criteria.search.endDate"/></label>

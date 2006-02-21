@@ -9,8 +9,8 @@
 	}
 
 	function addApprentices() {
-		if(confirm("Souhaitez-vous réellement exclure ces apprentis ?")) {
-			document.apprenticeSearchForm.action = "/eMagine/apprenticeExclude.do?action=exclude&from=search";
+		if(confirm("Souhaitez-vous réellement affecter cet apprenti ?")) {
+			document.apprenticeSearchForm.action = "/eMagine/addApprenticeToEngineer.do";
 			document.apprenticeSearchForm.submit();
 		}
 	}
@@ -20,7 +20,7 @@
 <h2><bean:message key="actor.apprentice.add.title"/><html:link action="/actorVisuInfo"><img src="/eMagine/common/images/icones/retour.png" title="<bean:message key="button.title.return"/>"/></html:link></h2>
 <br/>
 
-<html:form action="/apprenticeSearch" method="POST" focus="lastName">
+<html:form action="/actorApprenticeAdd" method="POST" focus="lastName">
 	<div align="center">
 		<div class="search">
 			<fieldset>
@@ -72,8 +72,8 @@
 			<logic:notEmpty name="apprenticeSearchForm" property="results">
 				<logic:iterate id="apprentice" name="apprenticeSearchForm" property="results" type="fr.umlv.ir3.emagine.apprentice.Apprentice">
 					<tr>
-						<td><html:multibox property="currentSelectedIds" value="<%= apprentice.getId().toString() %>"/></td>
-						<td><html:link action="/apprenticeModify?action=show" paramId="id" paramName="apprentice" paramProperty="id"><bean:write name="apprentice" property="lastName"/>&nbsp;</html:link></td>
+						<td><html:radio property="currentSelectedIds" value="<%= apprentice.getId().toString() %>"/></td>
+						<td><bean:write name="apprentice" property="lastName"/>&nbsp;</td>
 						<td><bean:write name="apprentice" property="firstName"/>&nbsp;</td>
 						<td>
 							<logic:present name="apprentice" property="courseOption">
