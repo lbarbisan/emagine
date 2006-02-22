@@ -232,7 +232,6 @@ public class InitDB {
 			// candidate.setSex(contact.getSex());
 			candidate.setSex((SexEnum) InitEnums.getEmagineEnum("Homme",
 					SexEnum.class));
-
 		}
 
 		DAOManager.commitTransaction();

@@ -32,14 +32,14 @@ public class ApprenticeExcludeAction extends BaseAction {
 		ActionMessages errors = new ActionMessages();
 		ApprenticeManager apprenticeManager = ManagerManager.getInstance().getApprenticeManager();
 		
-		// Delete the candidates
+		// Exclude the apprentices
 		DAOManager.beginTransaction();
 		String [] ids = request.getParameterValues("currentSelectedIds");
 		if(ids != null && ids.length > 0) {
 			for (String idApprentice : ids) {
 				try {					
 					Apprentice apprentice = apprenticeManager.retrieve(Long.parseLong(idApprentice));
-					apprenticeManager.delete(apprentice);
+					apprenticeManager.excludeApprentice(apprentice);
 				} catch (EMagineException exception) {
 					addEMagineExceptionError(errors, exception);
 				}

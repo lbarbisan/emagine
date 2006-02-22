@@ -18,7 +18,7 @@ import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.ManagerManager;
 import fr.umlv.ir3.emagine.util.base.BaseAction;
 
-public class ApprenticeMovUpAction extends BaseAction {
+public class ApprenticeMoveUpAction extends BaseAction {
 
 	/**
 	 * The user wants to pass a apprentice(s) in an upper year.
@@ -40,7 +40,7 @@ public class ApprenticeMovUpAction extends BaseAction {
 
 		try {
 			List <Apprentice> apprentices = apprenticeManager.find(apprenticeSearchForm);
-			//TODO apprenticeManager.pass();
+			apprenticeManager.moveUpApprentice(apprentices);
 		} catch (EMagineException exception) {
 			addEMagineExceptionError(errors, exception);
 		}		
