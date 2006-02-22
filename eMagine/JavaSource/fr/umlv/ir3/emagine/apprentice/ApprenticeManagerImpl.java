@@ -1,15 +1,17 @@
 package fr.umlv.ir3.emagine.apprentice;
 
+
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
-
 import org.hibernate.HibernateException;
-
 import fr.umlv.ir3.emagine.apprentice.absence.Absence;
 import fr.umlv.ir3.emagine.apprentice.candidate.Candidate;
 import fr.umlv.ir3.emagine.event.Event;
 import fr.umlv.ir3.emagine.firm.Firm;
 import fr.umlv.ir3.emagine.firm.actor.EngineerTutor;
+import fr.umlv.ir3.emagine.ressource.InitEnums;
 import fr.umlv.ir3.emagine.teachertutor.TeacherTutor;
 import fr.umlv.ir3.emagine.util.Bundles;
 import fr.umlv.ir3.emagine.util.DAOManager;
@@ -87,6 +89,8 @@ public class ApprenticeManagerImpl extends EventableManagerImpl<Apprentice, Appr
 			apprentice = DAOManager.getInstance().getApprenticeDAO().Integrate(candidate);
 			DefaultAddressEnum defaultAddressEnum= (DefaultAddressEnum) ManagerManager.getInstance().getEmagineEnumManager().find("Personnelle", DefaultAddressEnum.class);
 			apprentice.setDefaultAddress(defaultAddressEnum);
+			JustificationEnum justification = (JustificationEnum) InitEnums.getEmagineEnum("NJ", JustificationEnum.class);
+			addAbsence(apprentice, new Absence(justification ,"c'est pas bien...", new Date(), new Date()));
 			getDAO().update(apprentice);
 			DAOManager.commitTransaction();
 		} catch (HibernateException exception) {
