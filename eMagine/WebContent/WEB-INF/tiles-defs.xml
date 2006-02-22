@@ -35,8 +35,9 @@
 	</definition>
 	
 	<!-- Common -->
-	<definition name="common.extract" path="/common/extractionConfig.jsp">
-	</definition>
+	<definition name="common.extract" path="/common/extractionConfig.jsp"/>
+	<definition name="common.mailConfig" path="/common/mailConfig.jsp"/>
+	<definition name="common.mail" path="/common/mailResult.jsp"/>
 
 	<!-- Apprentice -->
 	<definition name="apprentice" extends="mainLayout">

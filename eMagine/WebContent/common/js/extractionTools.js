@@ -4,18 +4,18 @@
 //      GNU Public License: http://www.fsf.org/copyleft/gpl.html
 
 function open_extract_win(form, extractionEntityName) {
-	open_win(form, extractionEntityName, "extract.do?action=showConfig");
+	open_win(form, extractionEntityName, 'extract', "extract.do?action=showConfig");
 }
 
 function open_mail_win(form, extractionEntityName) {
-	open_win(form, extractionEntityName, "mail.do?action=showConfig");
+	open_win(form, extractionEntityName, 'mail', "mail.do?action=show");
 }
 
-function open_win(form, extractionEntityName, url) {
+function open_win(form, extractionEntityName, action, url) {
 	if (url.indexOf('?') == -1) glue = '?';
 	else glue = '&';
 	var now = new Date();
-	var name = "extract_windows_" + extractionEntityName;
+	var name = action + "_windows_" + extractionEntityName;
 	if (extractionEntityName != "") {
         url = url + glue + 'extractionEntityName=' + extractionEntityName;// + '&' + 'uniq=' + now.getTime();
     } else {
@@ -38,10 +38,15 @@ function open_win(form, extractionEntityName, url) {
         Height -= 75;
     }
     param = "toolbar=no,location=no,status=yes,scrollbars=yes,resizable=yes,width=" + Width + ",height=" + Height + ",left=0,top=0";
-    /*
-    eval("name = window.open(url, name, param)");
-    if (!eval("name.opener")) {
-        eval("name.opener = self");
-    }*/
+
+	try {
+		self.close(name);	//TODO : ne marche pas dans firefox...
+	}
+	catch (ex) {;}
+
+    window = window.open('_blank', name, param);
+    if (!window.opener) {
+        window = self;
+    }
     form.submit();
 }

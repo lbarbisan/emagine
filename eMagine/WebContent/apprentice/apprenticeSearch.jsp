@@ -105,7 +105,7 @@
 			<li><html:link href="javascript:excludeApprentices();"><html:img src="/eMagine/common/images/icones/virer.png" titleKey="button.title.exclude" /></html:link></li>
 			<li><html:link action="/apprenticeMailingListCreate"><img src="/eMagine/common/images/icones/creer_mailing_list.png" title="<bean:message key="button.title.mailingListCreate"/>"/></html:link></li>
 			<li><html:link action="/apprenticeEmailDo"><img src="/eMagine/common/images/icones/mailing.png" title="<bean:message key="button.title.email"/>"/></html:link></li>
-			<li><html:link action="javascript:open_mail_win(document.apprenticeSearchForm, 'apprentice')"><img src="/eMagine/common/images/icones/publipostage.png" title="<bean:message key="button.title.mailing"/>"/></html:link></li>
+			<li><html:link href="javascript:open_mail_win(document.apprenticeSearchForm, 'apprentice')"><img src="/eMagine/common/images/icones/publipostage.png" title="<bean:message key="button.title.mailing"/>"/></html:link></li>
 			<li><html:link href="javascript:open_extract_win(document.apprenticeSearchForm, 'apprentice')"><img src="/eMagine/common/images/icones/extraire.png" title="<bean:message key="button.title.extract"/>"/></html:link></li>
 		</ul>
 	</div>

@@ -85,39 +85,6 @@ public abstract class AbstractExtractionForm<I extends Identifiable> extends Act
 		this.saveConfig = saveConfig;
 	}
 
-	
-	/**
-	 * @see fr.umlv.ir3.emagine.extraction.ExtractionShowForm#getEntityProperties()
-	 *//*
-	public Collection<String> getEntityProperties() {
-		if (entityProperties != null) {
-			return entityProperties;
-		}
-		entityProperties = new ArrayList<String>();
-		for (Method m : this.getClass().getDeclaredMethods()) {
-			if (m.getAnnotation(NotAField.class) == null) {
-				// This method can be a field, if it begins with "get" or "is"
-				int prefixLength = -1;
-				if (m.getName().startsWith("get")) {
-					prefixLength = 3;
-				} else if (m.getName().startsWith("is")) {
-					prefixLength = 2;
-				}
-				if (prefixLength > 0) {
-					// This method represents a field. It must be added in the list
-					String fieldName = m.getName().substring(prefixLength, prefixLength + 1).toLowerCase() + m.getName().substring(prefixLength + 1);
-					if (BaseEntity.class.isAssignableFrom(m.getReturnType())) {
-						// This method returns a baseEntity : we will add all the entityProperties of the sub-entity
-						// TODO to be continued...
-					}
-					entityProperties.add(fieldName);
-				}
-			}
-		}
-		// TODO AbstractExtractionForm.getEntityProperties()
-		return null;
-	}*/
-
 	/**
 	 * @see fr.umlv.ir3.emagine.extraction.ExtractionShowForm#getSelectedEntityProperties()
 	 */

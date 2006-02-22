@@ -50,7 +50,7 @@ public class PropertiesExtractionForm extends AbstractExtractionForm {
 	 * @param group
 	 */
 	private void addRecursiveEntityProperties(ExtractionGroup group) {
-		for (String property : group.getProperties()) {
+		for (String property : group.getFullNameProperties()) {
 			entityProperties.add(property);
 		}
 		for (ExtractionGroup childGroup : group.getGroups()) {

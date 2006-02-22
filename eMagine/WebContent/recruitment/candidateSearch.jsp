@@ -117,8 +117,8 @@
 			<li><html:link href="javascript:deleteCandidates();"><html:img src="/eMagine/common/images/icones/virer.png" titleKey="button.title.exclude" /></html:link></li>
 			<li><html:link action="/candidateMailingListCreate"><img src="/eMagine/common/images/icones/creer_mailing_list.png" title="Cr&eacute;er une maling list"/></html:link></li>
 			<li><html:link action="/candidateEmailDo"><img src="/eMagine/common/images/icones/mailing.png" title="Effectuer un mailing"/></html:link></li>
-			<li><html:link action="/candidateMailDo"><img src="/eMagine/common/images/icones/publipostage.png" title="Effectuer un publipostage"/></html:link></li>
-			<li><html:link href="javascript:open_extract_win(candidateSearchForm, 'candidate')"><img src="/eMagine/common/images/icones/extraire.png" title="<bean:message key="button.title.extract"/>"/></html:link></li>
+			<li><html:link href="javascript:open_mail_win(document.candidateSearchForm, 'candidate')"><img src="/eMagine/common/images/icones/publipostage.png" title="<bean:message key="button.title.mailing"/>"/></html:link></li>
+			<li><html:link href="javascript:open_extract_win(document.candidateSearchForm, 'candidate')"><img src="/eMagine/common/images/icones/extraire.png" title="<bean:message key="button.title.extract"/>"/></html:link></li>
 		</ul>
 	</div>
 <html:hidden property="action" />	

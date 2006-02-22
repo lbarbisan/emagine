@@ -11,6 +11,7 @@ public class PropertiesExtractionGroup implements ExtractionGroup {
 	private String parentsPathName;
 	private Collection<ExtractionGroup> groups;
 	private Collection<String> properties;
+	private Collection<String> fullNameProperties;
 	public PropertiesExtractionGroup(String groupName, String groupType, String parentsPathName) {
 		this.groupName = groupName;
 		this.groupType = groupType;
@@ -31,6 +32,7 @@ public class PropertiesExtractionGroup implements ExtractionGroup {
 	private void parse() {
 		groups = new ArrayList<ExtractionGroup>();
 		properties = new ArrayList<String>();
+		fullNameProperties = new ArrayList<String>();
 		for (String property : Bundles.getExtractionBundle().getString("extraction."+groupType+".properties").split(",")) {
 			String groupSliced[] = property.split(":");
 			if (groupSliced.length > 1) {
@@ -40,6 +42,7 @@ public class PropertiesExtractionGroup implements ExtractionGroup {
 					// Retreive the groups of that group, and the properties of that group to add them to this groups and properties
 					PropertiesExtractionGroup group = new PropertiesExtractionGroup(groupName, "group."+groupSliced[1], getPath(parentsPathName));
 					properties.addAll(group.getProperties());
+					fullNameProperties.addAll(group.getFullNameProperties());
 					groups.addAll(group.getGroups());
 				} else {
 					PropertiesExtractionGroup group = new PropertiesExtractionGroup(groupSliced[0], "group."+groupSliced[1], getPath(parentsPathName)+groupName);
@@ -48,6 +51,7 @@ public class PropertiesExtractionGroup implements ExtractionGroup {
 			} else {
 				// we have a new property
 				properties.add(groupSliced[0]);
+				fullNameProperties.add(getFullNameProperty(groupSliced[0]));
 			}
 		}
 	}
@@ -63,5 +67,12 @@ public class PropertiesExtractionGroup implements ExtractionGroup {
 	}
 	private String getPath(String path) {
 		return "".equals(path)?"":path+".";
+	}
+	
+	public Collection<String> getFullNameProperties() {
+		if (fullNameProperties == null) {
+			parse();
+		}
+		return fullNameProperties;
 	}
 }

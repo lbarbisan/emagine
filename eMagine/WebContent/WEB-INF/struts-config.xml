@@ -43,6 +43,7 @@
 		<form-bean name="mailingTypeListForm" type="fr.umlv.ir3.emagine.extraction.mailstype.MailingTypeListForm" />
 		<form-bean name="mailingListModifyForm" type="fr.umlv.ir3.emagine.extraction.mailings.MailingListModifyForm" />
 		<form-bean name="mailingListListForm" type="fr.umlv.ir3.emagine.extraction.mailings.MailingListListForm" />
+		<form-bean name="mailForm" type="fr.umlv.ir3.emagine.extraction.mailings.MailForm" />
 	</form-beans>
 
 	<!-- ========== Action Mapping Definitions =============================== -->
@@ -67,6 +68,14 @@
 			parameter="action"
 			name="extractionForm">
 			<forward name="_default_target_" path="common.extract"/>
+		</action>
+
+		<action path="/mail"
+			type="fr.umlv.ir3.emagine.extraction.mailings.MailAction"
+			parameter="action"
+			name="mailForm">
+			<forward name="viewform" path="common.mailConfig"/>
+			<forward name="success" path="common.mail"/>
 		</action>
 
 		<!-- apprentice -->

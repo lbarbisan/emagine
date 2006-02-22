@@ -19,4 +19,8 @@ public interface ExtractionGroup {
 	 * @return the name of the group
 	 */
 	public String getGroupName();
+	/**
+	 * @return the properties with the full path (property name preceded by parents path)
+	 */
+	public Collection<String> getFullNameProperties();
 }
