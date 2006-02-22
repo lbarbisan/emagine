@@ -69,7 +69,6 @@ public class EMaginePostEventListener implements PostInsertEventListener,
 				EventableEntity eventableEntity = (EventableEntity) event
 						.getEntity();
 				Event eMagineEvent = new Event();
-				eMagineEvent = new Event();
 				eMagineEvent.setUserComment("no comment");
 				try {
 					eMagineEvent.setConnectedUser(SessionManager.getInstance().getCurrentUser().getHumanName());
