@@ -34,7 +34,6 @@ public class Absence extends EditableEntity {
 	private static final long serialVersionUID = -2760061716558049781L;
 	
 	@ManyToOne()
-	@Cascade(CascadeType.SAVE_UPDATE)
 	@JoinColumn(name = "apprentice_id") //FIXME : remetre le contrainte null, nullable = false)
 	private Apprentice apprentice;
 	@Basic(temporalType = TemporalType.TIMESTAMP) 

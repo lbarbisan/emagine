@@ -15,12 +15,15 @@ import java.util.ResourceBundle;
 
 import servletunit.HttpSessionSimulator;
 import servletunit.ServletContextSimulator;
+import fr.umlv.ir3.emagine.apprentice.Apprentice;
 import fr.umlv.ir3.emagine.apprentice.ApprenticeManager;
 import fr.umlv.ir3.emagine.apprentice.CountryEnum;
 import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
+import fr.umlv.ir3.emagine.apprentice.JustificationEnum;
 import fr.umlv.ir3.emagine.apprentice.LevelEntryEnum;
 import fr.umlv.ir3.emagine.apprentice.NationalityEnum;
 import fr.umlv.ir3.emagine.apprentice.SexEnum;
+import fr.umlv.ir3.emagine.apprentice.absence.Absence;
 import fr.umlv.ir3.emagine.apprentice.candidate.Candidate;
 import fr.umlv.ir3.emagine.apprentice.candidate.CandidateDAO;
 import fr.umlv.ir3.emagine.apprentice.candidate.ContactEnum;
@@ -51,6 +54,7 @@ import fr.umlv.ir3.emagine.util.Address;
 import fr.umlv.ir3.emagine.util.Bundles;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
+import fr.umlv.ir3.emagine.util.EmagineEnumDAO;
 import fr.umlv.ir3.emagine.util.ManagerManager;
 
 public class InitDB {
@@ -248,7 +252,14 @@ public class InitDB {
 
 		for (int index = start; index < end; index++) {
 			Candidate candidate = candidateDAO.findAll().get(index - start);
-			apprenticeManager.integrate(candidate);
+			Apprentice apprentice  = apprenticeManager.integrate(candidate);
+
+			EmagineEnumDAO emagineEnumDAO =  DAOManager.getInstance().getEmagineEnumDAO();
+			JustificationEnum justification = (JustificationEnum) emagineEnumDAO.find("NJ", JustificationEnum.class);	
+			
+			Absence absence =  new Absence(justification ,"c'est pas bien...", new Date(), new Date());
+			absence.setApprentice(apprentice);
+			apprentice.getAbsences().add(absence);
 		}
 
 		DAOManager.commitTransaction();

@@ -29,7 +29,7 @@ public class Apprentice extends Candidate {
 	private static final long serialVersionUID = 3998703814616710370L;
 
 	@OneToMany(mappedBy = "apprentice")
-	@Cascade(CascadeType.SAVE_UPDATE)
+	@Cascade({CascadeType.ALL, CascadeType.DELETE_ORPHAN})
 	private List<Absence> absences = new ArrayList<Absence>();
 	@ManyToOne()
 	@Cascade(CascadeType.SAVE_UPDATE)
