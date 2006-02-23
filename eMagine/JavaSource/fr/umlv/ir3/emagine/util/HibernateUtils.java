@@ -52,10 +52,10 @@ public class HibernateUtils {
         	Configuration cfg = new AnnotationConfiguration();
         	
         	cfg.configure(cfgHibernate)
-        	.addProperties(properties);
-        	//.setInterceptor(editableInterceptor);
+        	.addProperties(properties)
+        	.setInterceptor(editableInterceptor);
 
-        	//loadListeners(cfg);
+        	// loadListeners(cfg);
         	
         	sessionFactory = cfg.buildSessionFactory(); 
         	editableInterceptor.setSessionFactory(sessionFactory);        	
@@ -158,9 +158,7 @@ public class HibernateUtils {
         {
             if(tx!=null && !tx.wasCommitted() && !tx.wasRolledBack())
             {
-                tx.commit();
-                threadTransaction.set(null);
-//                closeSession();
+            	tx.commit();
             }
         }
         catch (HibernateException exception) {
@@ -177,16 +175,9 @@ public class HibernateUtils {
     {
     	log.trace("rollbackTransaction");
     	Transaction tx = threadTransaction.get();
-        try
+    	if(tx!=null && !tx.wasCommitted() && !tx.wasRolledBack())
         {
-        	if(tx!=null && !tx.wasCommitted() && !tx.wasRolledBack())
-            {
-                tx.rollback();
-            }
-        }
-        finally
-        {
-            closeSession();
+            tx.rollback();
         }
     }
     

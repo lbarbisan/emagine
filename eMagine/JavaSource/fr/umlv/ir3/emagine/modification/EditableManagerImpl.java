@@ -30,14 +30,18 @@ public class EditableManagerImpl<EntityType extends EditableEntity, EntityDAO ex
 		throws EMagineException {
 		DAOManager.beginTransaction();
 		log.debug("acceptAllModification for '" + entity.getCurrentModification() + "'");
-		HibernateUtils.getEditableInterceptor().addAcceptedModifications(entity.getCurrentModification());
-		try {
-			super.update(entity);
-			DAOManager.commitTransaction();
-			entity.getModifications().remove(entity.getCurrentModification());
-		} catch (EMagineException e) {
-			DAOManager.rollBackTransaction();
-			throw e;
+		if(entity.getCurrentModification()!=null)
+		{
+			HibernateUtils.getEditableInterceptor().addAcceptedModifications(entity.getCurrentModification());
+			try {
+				
+				super.update(entity);
+				DAOManager.commitTransaction();
+				entity.getModifications().remove(entity.getCurrentModification());
+			} catch (EMagineException e) {
+				DAOManager.rollBackTransaction();
+				throw e;
+			}
 		}
 	}
 
