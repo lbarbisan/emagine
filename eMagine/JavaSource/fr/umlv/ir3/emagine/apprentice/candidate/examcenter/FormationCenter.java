@@ -8,11 +8,10 @@ import java.util.Iterator;
 import java.util.List;
 
 import javax.persistence.AccessType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
@@ -40,7 +39,7 @@ public class FormationCenter extends EditableEntity {
 	@Cascade({CascadeType.ALL, CascadeType.DELETE_ORPHAN} )
 	private List<Candidate> candidates;
 	
-	@OneToOne()
+	@ManyToOne()
 	@Cascade({CascadeType.ALL, CascadeType.DELETE_ORPHAN})
 	@JoinColumn(name = "address_id")
 	private Address address;

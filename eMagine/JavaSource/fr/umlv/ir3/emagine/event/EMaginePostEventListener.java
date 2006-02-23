@@ -47,16 +47,23 @@ public class EMaginePostEventListener implements PostInsertEventListener,
 	 */
 	public void onPostInsert(PostInsertEvent event) {
 		if (event.getEntity() instanceof EventableEntity) {
-			EventableEntity eventableEntity = (EventableEntity) event
-					.getEntity();
+			EventableEntity eventableEntity = (EventableEntity) event.getEntity();
+			
 			Event eMagineEvent = new Event();
 
-			eMagineEvent.setDescription("Création de :"
-					+ eventableEntity.toString());
-			eMagineEvent.setDate(new Date());
-			eMagineEvent.setSource((BaseEntity) event.getEntity());
+			try {
+				eMagineEvent.setConnectedUser(SessionManager.getInstance().getCurrentUser().getHumanName());
+				eMagineEvent.setTitle("création");
+				eMagineEvent.setDescription("Création de :"+ eventableEntity.toString());
+				eMagineEvent.setUserComment("no comment");
+				eMagineEvent.setDate(new Date());
+			} catch (SecurityFilterNotInitializedException e) {	
+				//FIXME : Manage Exception
+				e.printStackTrace();
+			}
+			
 			((EventableEntity)event.getEntity()).getEvents().add(eMagineEvent);
-			eMagineEvent.setTitle("création");
+			//eMagineEvent.setSource((BaseEntity) event.getEntity());			
 		}
 	}
 
@@ -65,104 +72,100 @@ public class EMaginePostEventListener implements PostInsertEventListener,
 	 */
 	public void onPostDelete(PostDeleteEvent event) {
 		if (event.getEntity() instanceof EventableEntity) {
-			if (event.getEntity() instanceof EventableEntity) {
-				EventableEntity eventableEntity = (EventableEntity) event
-						.getEntity();
-				Event eMagineEvent = new Event();
-				eMagineEvent.setUserComment("no comment");
-				try {
-					eMagineEvent.setConnectedUser(SessionManager.getInstance().getCurrentUser().getHumanName());
-				} catch (SecurityFilterNotInitializedException e) {
-					// TODO SecurityFilterNotInitializedException.e Not Implemented
-					e.printStackTrace();
-				}
-				eMagineEvent.setDate(new Date());
-				eMagineEvent.setDescription("Suppression de :"
-						+ eventableEntity.toString());
-				eMagineEvent.setSource((BaseEntity) event.getEntity());
-				((EventableEntity)event.getEntity()).getEvents().add(eMagineEvent);
-				eMagineEvent.setDate(new Date());
-				eMagineEvent.setTitle("Suppression");
-			}
-		}
-	}
-
-	public void onPostUpdate(PostUpdateEvent event) {
-		if (event.getEntity() instanceof EventableEntity) {
-			EventableEntity eventableEntity = (EventableEntity) event
-					.getEntity();
+			EventableEntity eventableEntity = (EventableEntity) event.getEntity();
+			
 			Event eMagineEvent = new Event();
 
-			eMagineEvent.setDescription("Modification de :"
-					+ eventableEntity.toString());
-			eMagineEvent.setDate(new Date());
-			eMagineEvent.setSource((BaseEntity) event.getEntity());
-			((EventableEntity)event.getEntity()).getEvents().add(eMagineEvent);
-			eMagineEvent.setTitle("Modification");
-		}
-//		if (event.getEntity() instanceof EventableEntity) {
-//			try {
-//				logChanges(event);
-//			} catch (EMagineException e) {
-//				// FIXME : Remonter les exceptions
-//				e.printStackTrace();
-//			}
-//		}
-			
-	}
-
-	private void logChanges(PostUpdateEvent postUpdateEvent)
-			throws EMagineException {
-
-		// get an array of all fields in the class including those in
-		// superclasses if this is a subclass.
-		Object[] states = postUpdateEvent.getState();
-		Object[] oldStates = postUpdateEvent.getOldState();
-		String[] name = postUpdateEvent.getPersister().getPropertyNames();
-		Type[] types = postUpdateEvent.getPersister().getPropertyTypes();
-		
-		Event event;
-
-		// Iterate through all the fields in the object
-		for (int index = 0; index < types.length; index++) {
-			
-			String fieldName = name[index];
-			
-			event = new Event();
-			event.setUserComment("no comment");
-			event.setConnectedUser(SessionManager.getInstance().getCurrentUser().getHumanName());
-			event.setDate(new Date());
-			event.setNewValue(states[index]==null ? "":states[index].toString());
-			event.setOldValue(oldStates[index]==null ? "":oldStates[index].toString());
-			event.setProperty(fieldName);
-			event.setTitle("Modification paramètres");
-			event.setDescription(states[index]==null ? "Initialisation de la valeur" : "Suppression de la valeur");
-
-			if(!event.getNewValue().equals(event.getOldValue()))
-					createEvent(event);
+			try {
+				eMagineEvent.setConnectedUser(SessionManager.getInstance().getCurrentUser().getHumanName());
+				eMagineEvent.setTitle("création");
+				eMagineEvent.setDescription("Création de :"+ eventableEntity.toString());
+				eMagineEvent.setUserComment("no comment");
+				eMagineEvent.setDate(new Date());
+			} catch (SecurityFilterNotInitializedException e) {	
+				//FIXME : Manage Exception
+				e.printStackTrace();
 			}
-	
-	}
-
-	/**
-	 * Create an evenement
-	 * 
-	 * @param eventableEntity
-	 */
-	private void createEvent(Event eMagineEvent) {
-
-		Session session = HibernateUtils.getSessionFactory().openSession();
-		Transaction transaction = session.beginTransaction();
-		try {
-			session.save(eMagineEvent);
-			transaction.commit();
-		} catch (HibernateException e) {
-			// TODO : #46 - lbarbisan - Remonter et transmettre l'exeption en
-			// cas de problème
-			log.error("Error when tracing event '"
-					+ eMagineEvent.getDescription() + "'", e);
+			
+			((EventableEntity)event.getEntity()).getEvents().add(eMagineEvent);
+			eMagineEvent.setSource((BaseEntity) event.getEntity());
 		}
-		//session.close();
 	}
+		
+	public void onPostUpdate(PostUpdateEvent event) {
+		if (event.getEntity() instanceof EventableEntity) {
+			EventableEntity eventableEntity = (EventableEntity) event.getEntity();
+			
+			Event eMagineEvent = new Event();
+
+			try {
+				eMagineEvent.setConnectedUser(SessionManager.getInstance().getCurrentUser().getHumanName());
+				eMagineEvent.setTitle("Modification");
+				eMagineEvent.setDescription("Modification de :"+ eventableEntity.toString());
+				eMagineEvent.setUserComment("no comment");
+				eMagineEvent.setDate(new Date());
+			} catch (SecurityFilterNotInitializedException e) {	
+				//FIXME : Manage Exception
+				e.printStackTrace();
+			}
+			
+			((EventableEntity)event.getEntity()).getEvents().add(eMagineEvent);
+			eMagineEvent.setSource((BaseEntity) event.getEntity());
+		}
+	}
+
+//	private void logChanges(PostUpdateEvent postUpdateEvent)
+//			throws EMagineException {
+//
+//		// get an array of all fields in the class including those in
+//		// superclasses if this is a subclass.
+//		Object[] states = postUpdateEvent.getState();
+//		Object[] oldStates = postUpdateEvent.getOldState();
+//		String[] name = postUpdateEvent.getPersister().getPropertyNames();
+//		Type[] types = postUpdateEvent.getPersister().getPropertyTypes();
+//		
+//		Event event;
+//
+//		// Iterate through all the fields in the object
+//		for (int index = 0; index < types.length; index++) {
+//			
+//			String fieldName = name[index];
+//			
+//			event = new Event();
+//			event.setUserComment("no comment");
+//			event.setConnectedUser(SessionManager.getInstance().getCurrentUser().getHumanName());
+//			event.setDate(new Date());
+//			event.setNewValue(states[index]==null ? "":states[index].toString());
+//			event.setOldValue(oldStates[index]==null ? "":oldStates[index].toString());
+//			event.setProperty(fieldName);
+//			event.setTitle("Modification paramètres");
+//			event.setDescription(states[index]==null ? "Initialisation de la valeur" : "Suppression de la valeur");
+//
+//			if(!event.getNewValue().equals(event.getOldValue()))
+//					createEvent(event);
+//			}
+//	
+//	}
+
+//	/**
+//	 * Create an evenement
+//	 * 
+//	 * @param eventableEntity
+//	 */
+//	private void createEvent(Event eMagineEvent) {
+//
+//		Session session = HibernateUtils.getSessionFactory().openSession();
+//		Transaction transaction = session.beginTransaction();
+//		try {
+//			session.save(eMagineEvent);
+//			transaction.commit();
+//		} catch (HibernateException e) {
+//			// TODO : #46 - lbarbisan - Remonter et transmettre l'exeption en
+//			// cas de problème
+//			log.error("Error when tracing event '"
+//					+ eMagineEvent.getDescription() + "'", e);
+//		}
+//		//session.close();
+//	}
 
 }

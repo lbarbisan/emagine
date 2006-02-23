@@ -52,8 +52,8 @@ public class HibernateUtils {
         	Configuration cfg = new AnnotationConfiguration();
         	
         	cfg.configure(cfgHibernate)
-        	.addProperties(properties)
-        	.setInterceptor(editableInterceptor);
+        	.addProperties(properties);
+        	//.setInterceptor(editableInterceptor);
 
         	//loadListeners(cfg);
         	

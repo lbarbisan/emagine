@@ -26,10 +26,8 @@ public class MailingList extends EditableEntity {
 	
 	private String title;
 	private String comment;
-	/* Ici il n'y a pas besoin d'une liaison bi-driectionnelle */
-	@OneToMany(targetEntity = Person.class)
+	@OneToMany()
 	@Cascade(CascadeType.SAVE_UPDATE)
-	
 	private List<Person> persons;
 	/**
 	 * @return Returns the comment.

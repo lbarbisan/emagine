@@ -29,7 +29,6 @@ public class Event extends BaseEntity {
 	private static final long serialVersionUID = 4144109134646449620L;
 	
 	@ManyToOne()
-	@Cascade(CascadeType.SAVE_UPDATE)
     @JoinColumn(name="type_id")
 	private EventTypeEnum type;
 	@Basic(temporalType = TemporalType.TIMESTAMP)

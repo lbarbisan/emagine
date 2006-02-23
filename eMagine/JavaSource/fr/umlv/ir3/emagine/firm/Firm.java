@@ -10,7 +10,6 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
@@ -47,7 +46,7 @@ public class Firm extends EventableEntity {
 	@Cascade({CascadeType.ALL, CascadeType.DELETE_ORPHAN})
 	private List<FirmActor> firmActors = new ArrayList<FirmActor>();
 	
-	@OneToOne()
+	@ManyToOne()
 	@Cascade({CascadeType.ALL,  CascadeType.DELETE_ORPHAN})
 	@JoinColumn(name = "addresspersonnal_id")
 	@Column(unique = true)

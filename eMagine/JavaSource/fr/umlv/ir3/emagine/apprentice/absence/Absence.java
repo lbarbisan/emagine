@@ -35,7 +35,7 @@ public class Absence extends EditableEntity {
 	private Apprentice apprentice;
 	
 	@ManyToOne()
-	@Cascade({CascadeType.ALL,CascadeType.DELETE_ORPHAN})
+	@Cascade({CascadeType.SAVE_UPDATE})
 	@JoinColumn(name = "justification_id") //FIXME : remetre le contrainte null, nullable = false)
 	private JustificationEnum justification;
 	
