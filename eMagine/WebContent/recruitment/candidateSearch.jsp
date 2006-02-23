@@ -116,10 +116,10 @@
 		<h2>&nbsp;</h2>
 		<ul>
 			<li><html:link href="javascript:integrateCandidates();"><html:img src="/eMagine/common/images/icones/passage.png" titleKey="button.title.passage" /></html:link></li>
-			<li><html:link href="javascript:deleteCandidates();"><html:img src="/eMagine/common/images/icones/virer.png" titleKey="button.title.exclude" /></html:link></li>
 			<li><html:link action="/candidateMailingListCreate"><img src="/eMagine/common/images/icones/creer_mailing_list.png" title="Cr&eacute;er une maling list"/></html:link></li>
 			<li><html:link href="javascript:open_mailing_win(document.candidateSearchForm, 'candidate')"><img src="/eMagine/common/images/icones/mailing.png" title="<bean:message key="button.title.email"/>"/></html:link></li>
 			<li><html:link href="javascript:open_mail_win(document.candidateSearchForm, 'candidate')"><img src="/eMagine/common/images/icones/publipostage.png" title="<bean:message key="button.title.mailing"/>"/></html:link></li>
+			<li><html:link href="javascript:deleteCandidates();"><html:img src="/eMagine/common/images/icones/supprimer.png" titleKey="button.title.exclude" /></html:link></li>
 			<li><html:link href="javascript:open_extract_win(document.candidateSearchForm, 'candidate')"><img src="/eMagine/common/images/icones/extraire.png" title="<bean:message key="button.title.extract"/>"/></html:link></li>
 		</ul>
 	</div>

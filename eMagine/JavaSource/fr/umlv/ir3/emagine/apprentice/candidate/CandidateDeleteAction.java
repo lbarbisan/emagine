@@ -35,7 +35,7 @@ public class CandidateDeleteAction extends BaseAction {
 		// Delete the candidates
 		DAOManager.beginTransaction();
 		String [] ids = request.getParameterValues("currentSelectedIds");
-		System.out.println(ids.length);
+
 		if(ids != null && ids.length > 0) {
 			for (String idCandidate : ids) {
 				try {					

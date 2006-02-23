@@ -3,6 +3,7 @@
  */
 package fr.umlv.ir3.emagine.apprentice.candidate;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -30,22 +31,30 @@ public class CandidateIntegrateAction extends BaseAction {
 	 * @return an ActionForward instance describing where and how control should be forwarded, or null if the response has already been completed.
 	 * @throws Exception if an exception occurs
 	 */
-	public ActionForward delete(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionMessages errors = new ActionMessages();
 		CandidateManager candidateManager = ManagerManager.getInstance().getCandidateManager();
-		CandidateSearchForm candidateSearchForm = (CandidateSearchForm) form;
 		
 		// Integrate the candidates
-		//TODO Vérifier la méthode suivante car je ne suis pas sure...
 		DAOManager.beginTransaction();
+		String [] ids = request.getParameterValues("currentSelectedIds");
 
-		try {
-			List <Candidate> candidates = candidateManager.find(candidateSearchForm);
-			candidateManager.integrate(candidates);
-		} catch (EMagineException exception) {
-			addEMagineExceptionError(errors, exception);
-		}		
-        // Report back any errors, and exit if any
+		if(ids != null && ids.length > 0) {
+			List <Candidate> candidates = new LinkedList <Candidate> ();;
+
+			for (String idCandidate : ids) {
+				try {					
+					candidates.add(candidateManager.retrieve(Long.parseLong(idCandidate)));
+				} catch (EMagineException exception) {
+					addEMagineExceptionError(errors, exception);
+				}
+			}			
+
+			if(!candidates.isEmpty())
+				candidateManager.integrate(candidates);
+		}
+
+		// Report back any errors, and exit if any
 		return successIfNoErrors(mapping, request, errors);
 	}	
 }

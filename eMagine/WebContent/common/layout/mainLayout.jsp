@@ -15,6 +15,7 @@
 				alert("Cette fonctionnalité est en cours de développement");
 			}
 		-->
+
 		</script>
 	</head>
 	<body>
