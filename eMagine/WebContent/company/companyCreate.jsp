@@ -56,9 +56,8 @@
 			<p><label for="adress"><bean:message key="form.adress"/><font color="red">*</font>&nbsp;</label><html:text property="address" size="20" /></p>
 			<p><label for="postalCode"><bean:message key="form.postalCode"/><font color="red">*</font>&nbsp;</label><html:text property="postalCode" size="20" /></p>
 			<p><label for="city"><bean:message key="form.city"/><font color="red">*</font>&nbsp;</label><html:text property="city" size="20" /></p>
-			<p><label for="department"><bean:message key="form.department"/></label>
+			<p><label for="department"><bean:message key="form.department"/><font color="red">*</font>&nbsp;</label>
 				<html:select property="idDepartment">
-					<option value="" ></option>
 					<logic:notEmpty name="companyModifyForm" property="departments">
 						<html:optionsCollection property="departments" value="id" label="name"/>		
 					</logic:notEmpty>

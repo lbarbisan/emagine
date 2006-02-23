@@ -84,7 +84,7 @@ public class FirmModifyForm extends ActionForm {
 		ActionErrors errors = new ActionErrors();
 
 		if("create".equals(action) || "modify".equals(action)) {
-			if("".equals(name) || "".equals(address) || "".equals(postalCode) || "".equals(postalCode) || "".equals(city) || "".equals(web))
+			if("".equals(name) || "".equals(address) || "".equals(postalCode) || "".equals(postalCode) || "".equals(city) || "".equals(web) || "".equals(idDepartment))
 				errors.add("allRequiredFieldIsNotfillin", new ActionMessage("user.error.allRequiredFieldIsNotfillin"));
 		}			
 

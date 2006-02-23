@@ -156,7 +156,8 @@ public class FirmManagerImpl extends EventableManagerImpl<Firm, FirmDAO> impleme
  
 	public List <Firm> getFirmsLessParentFirms(Firm firm) throws EMagineException {
 		List <Firm> firms = ManagerManager.getInstance().getFirmManager().findAll();
-		firms.removeAll(firm.getMotherFirms());
+		firm.getMotherFirms(1, firms);
+		firms.remove(firm);
 		return firms;
 	}
 }

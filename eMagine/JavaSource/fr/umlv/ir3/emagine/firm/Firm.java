@@ -1,7 +1,6 @@
 package fr.umlv.ir3.emagine.firm;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 import javax.persistence.AccessType;
@@ -160,13 +159,23 @@ public class Firm extends EventableEntity {
 		this.firmActors = firmActors;
 	}
 	
-	public List<Firm> getMotherFirms() {
-		if(motherFirm == null)
-			return new LinkedList<Firm>();
-		else {
-			List <Firm> firms = motherFirm.getMotherFirms();
-			firms.add(motherFirm);
-			return firms;
+	public List <Firm> getMotherFirms(int level, List <Firm> firms) {
+		
+		if(motherFirm != null) {
+			if(level > 0)
+				return motherFirm.getMotherFirms(level-1, firms);
+			else
+				return getMotherFirms(firms);
+		} else {
+			return null;
 		}
+	}
+	
+	private List <Firm> getMotherFirms(List <Firm> firms) {
+		if (motherFirm != null && !firms.contains(motherFirm)) {
+			firms.remove(motherFirm);
+			return motherFirm.getMotherFirms(firms);
+		}
+		return firms;
 	}
 }
