@@ -52,11 +52,11 @@ public class EditableManagerImpl<EntityType extends EditableEntity, EntityDAO ex
 	 */
 	public void acceptFieldModification(EntityType entity, String name)
 			throws EMagineException {
-		// TODO acceptFieldModification
+		
 		DAOManager.beginTransaction();
-		//FieldModification field = entity.getCurrentModification()
-		//		.getFieldModification(name);
-		// entity.acceptFieldModification(field);
+		FieldModification field = entity.getCurrentModification().getFieldModification(name);
+		HibernateUtils.getEditableInterceptor().addAcceptedFieldModifications(field);
+		
 		try {
 			super.update(entity);
 			DAOManager.commitTransaction();

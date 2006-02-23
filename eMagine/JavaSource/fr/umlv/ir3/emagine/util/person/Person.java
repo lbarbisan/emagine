@@ -9,7 +9,6 @@ import java.util.List;
 
 import javax.persistence.AccessType;
 import javax.persistence.Basic;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -36,19 +35,13 @@ import fr.umlv.ir3.emagine.util.base.EventableEntity;
  *@Persitence 50 Reste enum
  */
 @Entity(access = AccessType.FIELD)
-@Table(uniqueConstraints = @UniqueConstraint(columnNames = {
-		"lastname",
-		"firstname",
-		"email"
-		}))
 public class Person extends EventableEntity {
 
 	private static final long serialVersionUID = 4072133161366106454L;
 		
-	@OneToOne()
+	@ManyToOne()
 	@Cascade(CascadeType.SAVE_UPDATE)
 	@JoinColumn(name = "addressPersonnal_id")
-	@Column(unique = true)
 	private Address addressPersonnal = new Address();
 
 	@Basic(temporalType = TemporalType.TIMESTAMP)

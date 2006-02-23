@@ -43,11 +43,11 @@ public class Apprentice extends Candidate {
 	@Cascade(CascadeType.SAVE_UPDATE)
 	@JoinColumn(name="firm_id")
 	private Firm firm;
-	@OneToOne()
+	@ManyToOne()
 	@Cascade(CascadeType.SAVE_UPDATE)
 	@JoinColumn(name = "addresspersonnal_id")
 	private Address addressProfessional = new Address();
-	@OneToOne()
+	@ManyToOne()
 	@Cascade(CascadeType.SAVE_UPDATE)
 	@JoinColumn(name = "addressacademic_id")
 	private Address addressAcademic = new Address();

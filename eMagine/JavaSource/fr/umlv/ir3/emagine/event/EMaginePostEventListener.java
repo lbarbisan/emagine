@@ -86,14 +86,14 @@ public class EMaginePostEventListener implements PostInsertEventListener,
 	}
 
 	public void onPostUpdate(PostUpdateEvent event) {
-		if (event.getEntity() instanceof EventableEntity) {
-			try {
-				logChanges(event);
-			} catch (EMagineException e) {
-				// FIXME : Remonter les exceptions
-				e.printStackTrace();
-			}
-		}
+//		if (event.getEntity() instanceof EventableEntity) {
+//			try {
+//				logChanges(event);
+//			} catch (EMagineException e) {
+//				// FIXME : Remonter les exceptions
+//				e.printStackTrace();
+//			}
+//		}
 			
 	}
 

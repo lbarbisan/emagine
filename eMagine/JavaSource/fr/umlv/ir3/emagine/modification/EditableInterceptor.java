@@ -232,7 +232,7 @@ public class EditableInterceptor extends EmptyInterceptor {
 			if (directWriteAllowed.get() == null) {
 				directWriteAllowed.set(true);
 			}
-			System.out.println("FindDirty");
+			
 			if (directWriteAllowed.get() == false) {
 				System.out.println("CreateModification");
 				// créer les demande de modifications
@@ -240,7 +240,6 @@ public class EditableInterceptor extends EmptyInterceptor {
 						previousState, propertyNames);
 			}
 			// Applique les modifications en attente
-			System.out.println("Apply");
 			applyModifications((EditableEntity) entity, currentState,
 					previousState, propertyNames);
 		}

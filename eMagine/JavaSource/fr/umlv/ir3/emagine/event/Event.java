@@ -3,8 +3,6 @@
  */
 package fr.umlv.ir3.emagine.event;
 
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
 
 import javax.persistence.AccessType;
