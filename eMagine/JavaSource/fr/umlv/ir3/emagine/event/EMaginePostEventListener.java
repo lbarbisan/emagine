@@ -88,6 +88,18 @@ public class EMaginePostEventListener implements PostInsertEventListener,
 	}
 
 	public void onPostUpdate(PostUpdateEvent event) {
+		if (event.getEntity() instanceof EventableEntity) {
+			EventableEntity eventableEntity = (EventableEntity) event
+					.getEntity();
+			Event eMagineEvent = new Event();
+
+			eMagineEvent.setDescription("Modification de :"
+					+ eventableEntity.toString());
+			eMagineEvent.setDate(new Date());
+			eMagineEvent.setSource((BaseEntity) event.getEntity());
+			((EventableEntity)event.getEntity()).getEvents().add(eMagineEvent);
+			eMagineEvent.setTitle("Modification");
+		}
 //		if (event.getEntity() instanceof EventableEntity) {
 //			try {
 //				logChanges(event);
