@@ -112,7 +112,6 @@
 			<ul>
 				<li><html:link action="/absenceCreate?action=show"><html:img src="/eMagine/common/images/icones/ajouter.png" titleKey="button.title.add" /></html:link></li>
 				<li><html:link href="javascript:deleteAbsences();"><html:img src="/eMagine/common/images/icones/supprimer.png" titleKey="button.title.remove" /></html:link></li>
-				<li><html:link href="javascript:resetForm();"><html:img src="/eMagine/common/images/icones/reinit.png" titleKey="button.title.reinitialize" /></html:link></li>
 			</ul>
 		</div>
 	</div>

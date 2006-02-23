@@ -25,6 +25,18 @@
 		document.apprenticeModifyForm.action = "/eMagine/" + action + ".do";
 		document.apprenticeModifyForm.submit();
 	}
+	
+	function excludeApprentice() {
+		if(confirm("Souhaitez-vous réellement exclure cet apprenti ?")) {
+			open("/eMagine/apprenticeExclude.do?action=execute&from=modify&currentSelectedIds=" + document.apprenticeModifyForm.elements['idApprenticeToModify'].value, "_self");
+		}
+	}
+	
+	function moveUpApprentice() {
+		if(confirm("Souhaitez-vous réellement faire passer cet apprenti en année supérieure ?")) {
+			open("/eMagine/apprenticeMoveUp.do?action=execute&from=modify&currentSelectedIds=" + document.apprenticeModifyForm.elements['idApprenticeToModify'].value, "_self");
+		}
+	}
 -->
 </script>
 <html:form action="/apprenticeModify" method="POST" focus="lastName">
@@ -126,6 +138,8 @@
 	<ul>
 		<li><html:link href="javascript:modifyApprentice();"><html:img src="/eMagine/common/images/icones/modif.png" titleKey="button.title.update" /></html:link></li>
 		<li><html:link href="javascript:resetForm();"><html:img src="/eMagine/common/images/icones/reinit.png" titleKey="button.title.reinitialize" /></html:link></li>
+		<li><html:link href="javascript:moveUpApprentice();"><html:img src="/eMagine/common/images/icones/passage.png" titleKey="button.title.passage" /></html:link></li>
+		<li><html:link href="javascript:excludeApprentice();"><html:img src="/eMagine/common/images/icones/virer.png" titleKey="button.title.exclude" /></html:link></li>
 	</ul>
 </div>
 </html:form>

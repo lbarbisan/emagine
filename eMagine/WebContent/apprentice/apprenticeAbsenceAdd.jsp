@@ -54,7 +54,6 @@
 		<ul>
 			<li><html:link href="javascript:create();"><html:img src="/eMagine/common/images/icones/ok.png" titleKey="button.title.ok" /></html:link></li>
 			<li><html:link href="javascript:resetForm();"><html:img src="/eMagine/common/images/icones/reinit.png" titleKey="button.title.reinitialize" /></html:link></li>
-			<li><html:link href="javascript:deleteAbsences();"><html:img src="/eMagine/common/images/icones/supprimer.png" titleKey="button.title.remove" /></html:link></li>
 		</ul>
 	</div>
 </html:form>

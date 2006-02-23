@@ -31,18 +31,15 @@
 		document.apprenticeModifyForm.submit();
 	}
 	
-	
-	function excludeApprentices() {
-		if(confirm("Souhaitez-vous réellement exclure ces apprentis ?")) {
-			document.apprenticeSearchForm.action = "/eMagine/apprenticeExclude.do?from=apprentice_search&";
-			document.apprenticeSearchForm.submit();
+	function excludeApprentice() {
+		if(confirm("Souhaitez-vous réellement exclure cet apprenti ?")) {
+			open("/eMagine/apprenticeExclude.do?action=execute&from=modify&currentSelectedIds=" + document.apprenticeModifyForm.elements['idApprenticeToModify'].value, "_self");
 		}
 	}
-
-	function moveUpApprentices() {
-		if(confirm("Souhaitez-vous réellement faire passer ces apprentis en année supérieure ?")) {
-			document.apprenticeSearchForm.action = "/eMagine/apprenticeMoveUp.do?from=apprentice_search&";
-			document.apprenticeSearchForm.submit();
+	
+	function moveUpApprentice() {
+		if(confirm("Souhaitez-vous réellement faire passer cet apprenti en année supérieure ?")) {
+			open("/eMagine/apprenticeMoveUp.do?action=execute&from=modify&currentSelectedIds=" + document.apprenticeModifyForm.elements['idApprenticeToModify'].value, "_self");
 		}
 	}
 -->
@@ -134,6 +131,8 @@
 	<ul>
 		<li><html:link href="javascript:modifyApprentice();"><html:img src="/eMagine/common/images/icones/modif.png" titleKey="button.title.update" /></html:link></li>
 		<li><html:link href="javascript:resetForm();"><html:img src="/eMagine/common/images/icones/reinit.png" titleKey="button.title.reinitialize" /></html:link></li>
+		<li><html:link href="javascript:moveUpApprentice();"><html:img src="/eMagine/common/images/icones/passage.png" titleKey="button.title.passage" /></html:link></li>
+		<li><html:link href="javascript:excludeApprentice();"><html:img src="/eMagine/common/images/icones/virer.png" titleKey="button.title.exclude" /></html:link></li>
 	</ul>
 </div>
 </html:form>
