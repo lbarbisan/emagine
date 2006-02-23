@@ -33,7 +33,7 @@
 <div class="tabs">
 <ul>
 	<span class="tab_clicked"><li><html:link action="/candidateVisuInfo">Informations&nbsp;g&eacute;n&eacute;rales&nbsp;</html:link></li></span>
-	<li><html:link action="/candidateVisuEvent">Ev&eacute;nement</html:link></li>
+	<li><html:link action="/eventSearch.do?action=show&from=candidate">Ev&eacute;nement</html:link></li>
 </ul>
 </div>
 <div class="tabs_div">

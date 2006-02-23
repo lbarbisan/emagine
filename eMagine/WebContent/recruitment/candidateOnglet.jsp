@@ -4,5 +4,5 @@
 	<li><html:link action="/candidateVisuInfo">Informations&nbsp;g&eacute;n&eacute;rales&nbsp;</html:link></li>
 </ul>
 <ul>
-	<li><html:link action="/candidateVisuEvent">Ev&eacute;nement</html:link></li>
+	<li><html:link action="/eventSearch.do?action=show&from=candidate">Ev&eacute;nement</html:link></li>
 </ul>
