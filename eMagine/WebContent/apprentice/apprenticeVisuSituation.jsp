@@ -76,16 +76,12 @@
 	<fieldset>
 		<legend><bean:message key="form.fieldset.company"/></legend>
 		<p>
-		
 		<label for="firmName"><bean:message key="form.name"/><font color="red">*</font>&nbsp;</label>
 			<html:select property="idFirm">
 				<logic:notEmpty name="apprenticeModifyForm" property="firms">
 					<html:optionsCollection property="firms" value="id" label="name"/>
 				</logic:notEmpty>
 			</html:select>
-			<!-- <div class="buttons">
-				<html:submit onclick="javascript:setAction('affectCompany');" titleKey="button.title.affect"><bean:message key="form.affect"/></html:submit>
-			</div> -->
 		</p>
 	</fieldset>
 	<br/>
@@ -94,7 +90,8 @@
 		<p><label for="engineTutor"><bean:message key="form.company.tutor"/><font color="red">*</font></label>
 			<html:select property="idEngineerTutor">
 				<logic:notEmpty name="apprenticeModifyForm" property="engineerTutors">
-					<html:optionsCollection property="engineerTutors" value="id" label="name"/>
+					<option value="" selected></option>
+					<html:optionsCollection property="engineerTutors" value="id" label="fullName"/>
 				</logic:notEmpty>
 			</html:select>
 		</p> 

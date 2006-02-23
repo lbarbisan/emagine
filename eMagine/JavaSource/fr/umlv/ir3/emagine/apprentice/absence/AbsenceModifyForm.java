@@ -20,6 +20,9 @@ public class AbsenceModifyForm extends SelectSearchForm<Absence>{
 
 	private String idJustification;
 	
+	/** nbDays of absence **/
+	private String nbDays;
+	
 	/** comment about the absence **/
 	private String comment;
 	
@@ -28,10 +31,29 @@ public class AbsenceModifyForm extends SelectSearchForm<Absence>{
 	
 	/** Decide if you must force the deleted of entity **/
 	private boolean deletionForced;
-	
-	/** end of absence **/
+
+	/** id of apprentice **/
 	private String idAbsenceToModify;
 	
+	/** id of apprentice **/
+	private String idApprenticeToModify;
+	
+
+	/**
+	 * @return Returns the idAbsenceToModify.
+	 */
+	public String getIdAbsenceToModify() {
+		return idAbsenceToModify;
+	}
+
+	/**
+	 * @param idAbsenceToModify The idAbsenceToModify to set.
+	 */
+	public void setIdAbsenceToModify(String idAbsenceToModify) {
+		this.idAbsenceToModify = idAbsenceToModify;
+	}
+
+	/**
 	/**
 	 * @see fr.umlv.ir3.emagine.util.search.SearchForm#reset()
 	 */
@@ -43,6 +65,8 @@ public class AbsenceModifyForm extends SelectSearchForm<Absence>{
 		comment="";
 		action="";
 		deletionForced=false;
+		idApprenticeToModify="";
+		idAbsenceToModify="";
 		super.reset();
 	}
 
@@ -145,17 +169,30 @@ public class AbsenceModifyForm extends SelectSearchForm<Absence>{
 	}
 
 	/**
-	 * @return Returns the idAbsenceToModify.
+	 * @return Returns the idApprenticeToModify.
 	 */
-	public String getIdAbsenceToModify() {
-		return idAbsenceToModify;
+	public String getIdApprenticeToModify() {
+		return idApprenticeToModify;
 	}
 
 	/**
-	 * @param idAbsenceToModify The idAbsenceToModify to set.
+	 * @param idApprenticeToModify The idApprenticeToModify to set.
 	 */
-	public void setIdAbsenceToModify(String idAbsenceToModify) {
-		this.idAbsenceToModify = idAbsenceToModify;
+	public void setIdApprenticeToModify(String idApprenticeToModify) {
+		this.idApprenticeToModify = idApprenticeToModify;
 	}
 
+	/**
+	 * @return Returns the nbDays.
+	 */
+	public String getNbDays() {
+		return nbDays;
+	}
+
+	/**
+	 * @param nbDays The nbDays to set.
+	 */
+	public void setNbDays(String nbDays) {
+		this.nbDays = nbDays;
+	}
 }

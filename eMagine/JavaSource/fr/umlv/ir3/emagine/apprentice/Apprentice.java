@@ -58,7 +58,7 @@ public class Apprentice extends Candidate {
 	@ManyToOne()
 	@Cascade(CascadeType.SAVE_UPDATE)
     @JoinColumn(name="year_id")
-	private YearEnum year;	
+	private YearEnum year;
 	@ManyToOne()
 	@Cascade(CascadeType.SAVE_UPDATE)
     @JoinColumn(name="group_id")

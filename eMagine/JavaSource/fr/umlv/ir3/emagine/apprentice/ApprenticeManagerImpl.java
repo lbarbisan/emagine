@@ -1,22 +1,20 @@
 package fr.umlv.ir3.emagine.apprentice;
 
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
+
 import org.hibernate.HibernateException;
+
 import fr.umlv.ir3.emagine.apprentice.absence.Absence;
 import fr.umlv.ir3.emagine.apprentice.candidate.Candidate;
 import fr.umlv.ir3.emagine.event.Event;
 import fr.umlv.ir3.emagine.firm.Firm;
 import fr.umlv.ir3.emagine.firm.actor.EngineerTutor;
-import fr.umlv.ir3.emagine.ressource.InitEnums;
 import fr.umlv.ir3.emagine.teachertutor.TeacherTutor;
 import fr.umlv.ir3.emagine.util.Bundles;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
-import fr.umlv.ir3.emagine.util.EmagineEnumDAO;
 import fr.umlv.ir3.emagine.util.EmagineEnumManager;
 import fr.umlv.ir3.emagine.util.ManagerManager;
 import fr.umlv.ir3.emagine.util.base.EventableManagerImpl;
@@ -24,6 +22,7 @@ import fr.umlv.ir3.emagine.util.base.EventableManagerImpl;
 public class ApprenticeManagerImpl extends EventableManagerImpl<Apprentice, ApprenticeDAO> implements ApprenticeManager {
 
 	/**
+	 * Exclude apprentice of the formation. Apprentices exist but they are excluded
 	 * @see fr.umlv.ir3.emagine.apprentice.ApprenticeManager#excludeApprentice(fr.umlv.ir3.emagine.apprentice.Apprentice)
 	 */
 	public void excludeApprentice(Apprentice apprentice) throws EMagineException {
@@ -39,6 +38,7 @@ public class ApprenticeManagerImpl extends EventableManagerImpl<Apprentice, Appr
 	}
 
 	/**
+	 * Move the apprentices in the next year.
 	 * @see fr.umlv.ir3.emagine.apprentice.ApprenticeManager#moveUpApprentice(java.util.Collection)
 	 */
 	public void moveUpApprentice(Collection<Apprentice> apprentices) throws EMagineException {
@@ -63,6 +63,7 @@ public class ApprenticeManagerImpl extends EventableManagerImpl<Apprentice, Appr
 	}
 
 	/**
+	 * Add absences to an apprentice 
 	 * @see fr.umlv.ir3.emagine.apprentice.ApprenticeManager#addAbsence(fr.umlv.ir3.emagine.apprentice.Apprentice, fr.umlv.ir3.emagine.apprentice.absence.Absence)
 	 */
 	public void addAbsence(Apprentice apprentice, Absence absence) throws EMagineException {
@@ -78,6 +79,10 @@ public class ApprenticeManagerImpl extends EventableManagerImpl<Apprentice, Appr
 		}
 	}
 	
+	/**
+	 * Integrate the candidate ro apprentice in the first year of sandwichcourse 
+	 * @see fr.umlv.ir3.emagine.apprentice.ApprenticeManager#integrate(fr.umlv.ir3.emagine.apprentice.candidate.Candidate)
+	 */
 	public Apprentice integrate(Candidate candidate) throws EMagineException
 	{	
 		DAOManager.beginTransaction();
@@ -88,7 +93,8 @@ public class ApprenticeManagerImpl extends EventableManagerImpl<Apprentice, Appr
 			DAOManager.commitTransaction();
 			DAOManager.beginTransaction();
 			apprentice = DAOManager.getInstance().getApprenticeDAO().Integrate(candidate);
-			DefaultAddressEnum defaultAddressEnum= (DefaultAddressEnum) ManagerManager.getInstance().getEmagineEnumManager().find("Personnelle", DefaultAddressEnum.class);
+			apprentice.setYear((YearEnum) ManagerManager.getInstance().getEmagineEnumManager().find("1", YearEnum.class));
+			DefaultAddressEnum defaultAddressEnum = (DefaultAddressEnum) ManagerManager.getInstance().getEmagineEnumManager().find("Personnelle", DefaultAddressEnum.class);
 			apprentice.setDefaultAddress(defaultAddressEnum);
 			getDAO().update(apprentice);
 			DAOManager.commitTransaction();
@@ -99,6 +105,7 @@ public class ApprenticeManagerImpl extends EventableManagerImpl<Apprentice, Appr
 	}
 
 	/**
+	 * Remove the absences of an apprentice
 	 * @see fr.umlv.ir3.emagine.apprentice.ApprenticeManager#removeAbsence(fr.umlv.ir3.emagine.apprentice.Apprentice, fr.umlv.ir3.emagine.apprentice.absence.Absence)
 	 */
 	public void removeAbsence(Apprentice apprentice, Absence absence) throws EMagineException {

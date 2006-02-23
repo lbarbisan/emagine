@@ -30,12 +30,12 @@ public class ApprenticeMoveUpAction extends BaseAction {
 	 * @return an ActionForward instance describing where and how control should be forwarded, or null if the response has already been completed.
 	 * @throws Exception if an exception occurs
 	 */
-	public ActionForward pass(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward moveUp(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionMessages errors = new ActionMessages();
 		ApprenticeManager apprenticeManager = ManagerManager.getInstance().getApprenticeManager();
 		ApprenticeSearchForm apprenticeSearchForm = (ApprenticeSearchForm) form;
 		
-		// Pass the apprentices
+		// move up the apprentices
 		DAOManager.beginTransaction();
 
 		try {

@@ -45,7 +45,7 @@
 		<div class="search">
 			<fieldset>
 				<div class="search_b1">
-					<p><label for="initDate"><layout:date key="criteria.search.initDate" styleClass="form_calendar" property="initDate" startYear="2006" endYear="2030"/></label></p>
+					<p><label for="initDate"><layout:date key="criteria.search.initDate" styleClass="form_calendar" property="startDate" startYear="2006" endYear="2030"/></label></p>
 					<p><label for="endDate"><layout:date key="criteria.search.endDate" styleClass="form_calendar" property="endDate" startYear="2006" endYear="2030"/></label></p>
 				</div>
 				<div class="search_b2">
@@ -53,6 +53,7 @@
 					<label for="justifications"><bean:message key="criteria.search.justification"/></label>
 					<html:select property="idJustification">
 						<logic:notEmpty name="absenceSearchForm" property="justifications">
+							<option value="" selected></option>
 							<html:optionsCollection property="justifications" value="id" label="name"/>
 						</logic:notEmpty>	
 					</html:select>
@@ -69,8 +70,8 @@
 			<p><label for="result"><bean:message key="statSearch.results"/></label><html:text property="nbResults" size="5" disabled="true"/>&nbsp;&nbsp;&nbsp;
 			<label for="pageNb"><bean:message key="statSearch.numberByPage"/></label><html:text property="nbResults" size="5" disabled="true"/></p>
 			</div>
-			<p align="center"><label for="total"><bean:message key="form.total"/></label>
-			<input type="text" id="total" size="20" /></p> 
+			<!--<p align="center"><label for="total"><bean:message key="form.total"/></label>
+			<input type="text" id="total" size="20" /></p> -->
 			<table cellpadding="0" cellspacing="0">
 				<tr>
 					<th>&nbsp;</th>
@@ -84,8 +85,7 @@
 					<logic:iterate id="absence" name="absenceSearchForm" property="results" type="fr.umlv.ir3.emagine.apprentice.absence.Absence">
 						<tr>
 							<td><html:multibox property="currentSelectedIds" value="<%= absence.getId().toString() %>" />&nbsp;</td>
-							<td><html:link action="/absenceModify?action=show" paramId="id" paramName="absence" paramProperty="id"><bean:write name="absence" property="name" />&nbsp;</html:link></td>
-							<td><bean:write name="absence" property="initDate"/>&nbsp;</td>
+							<td><html:link action="/absenceModify?action=show" paramId="id" paramName="absence" paramProperty="id"><bean:write name="absence" property="startDate"/>&nbsp;</html:link></td>
 							<td><bean:write name="absence" property="endDate"/>&nbsp;</td>
 							<td>
 								<logic:present name="absence" property="justification">
@@ -97,7 +97,7 @@
 					</logic:iterate>
 				</logic:notEmpty>	
 				<logic:empty name="absenceSearchForm" property="results">
-					<tr><td colspan="6">Pas de résultats</td></tr>
+					<tr><td colspan="5">Pas de résultats</td></tr>
 				</logic:empty>
 			</table>
 		</div>
@@ -108,7 +108,7 @@
 			</ul>
 			<h2>&nbsp;</h2>
 			<ul>
-				<li><html:link action="/absenceCreate"><html:img src="/eMagine/common/images/icones/ajouter.png" titleKey="button.title.add" /></html:link></li>
+				<li><html:link action="/absenceCreate?action=show"><html:img src="/eMagine/common/images/icones/ajouter.png" titleKey="button.title.add" /></html:link></li>
 			</ul>
 		</div>
 	</div>
@@ -117,7 +117,7 @@
 	<ul>
 		<li><html:link href="javascript:modifyAbsence();"><html:img src="/eMagine/common/images/icones/modif.png" titleKey="button.title.update" /></html:link></li>
 		<li><html:link href="javascript:resetForm();"><html:img src="/eMagine/common/images/icones/reinit.png" titleKey="button.title.reinitialize" /></html:link></li>
-		<li><html:link href="javascript:deleteAbsence);"><html:img src="/eMagine/common/images/icones/supprimer.png" titleKey="button.title.remove" /></html:link></li>
+		<li><html:link href="javascript:deleteAbsence();"><html:img src="/eMagine/common/images/icones/supprimer.png" titleKey="button.title.remove" /></html:link></li>
 		<li><html:link action="/apprenticeAbsenceExtract"><html:img src="/eMagine/common/images/icones/extraire.png" titleKey="button.title.extract"/></html:link></li>
 	</ul>
 </div>

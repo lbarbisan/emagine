@@ -253,7 +253,7 @@ public class InitDB {
 		for (int index = start; index < end; index++) {
 			Candidate candidate = candidateDAO.findAll().get(index - start);
 			Apprentice apprentice  = apprenticeManager.integrate(candidate);
-
+			
 			EmagineEnumDAO emagineEnumDAO =  DAOManager.getInstance().getEmagineEnumDAO();
 			JustificationEnum justification = (JustificationEnum) emagineEnumDAO.find("NJ", JustificationEnum.class);	
 			

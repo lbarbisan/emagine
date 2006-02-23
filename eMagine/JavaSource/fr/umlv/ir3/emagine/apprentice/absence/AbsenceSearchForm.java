@@ -3,8 +3,6 @@ package fr.umlv.ir3.emagine.apprentice.absence;
 import java.util.Collection;
 
 import fr.umlv.ir3.emagine.apprentice.JustificationEnum;
-import fr.umlv.ir3.emagine.apprentice.YearEnum;
-import fr.umlv.ir3.emagine.apprentice.candidate.CourseOptionEnum;
 import fr.umlv.ir3.emagine.util.IsASearchParam;
 import fr.umlv.ir3.emagine.util.search.SelectSearchForm;
 
@@ -14,7 +12,7 @@ public class AbsenceSearchForm extends SelectSearchForm<Absence> implements Abse
 
 	
 	//@IsASearchParam
-	private String initDate;
+	private String startDate;
 
 	//@IsASearchParam
 	private String endDate;
@@ -35,7 +33,7 @@ public class AbsenceSearchForm extends SelectSearchForm<Absence> implements Abse
 	 * @see fr.umlv.ir3.emagine.util.search.SearchForm#reset()
 	 */
 	public void reset() {
-		initDate="";
+		startDate="";
 		endDate="";
 		justifications=null;
 		idJustification="";
@@ -75,6 +73,7 @@ public class AbsenceSearchForm extends SelectSearchForm<Absence> implements Abse
 	/**
 	 * @return Returns the endDate.
 	 */
+	//@IsASearchParam(value = "absence.endDate.id", type = Long.class)
 	public String getEndDate() {
 		return endDate;
 	}
@@ -96,22 +95,9 @@ public class AbsenceSearchForm extends SelectSearchForm<Absence> implements Abse
 	/**
 	 * @param idJustification The idJustification to set.
 	 */
+	@IsASearchParam(value = "absence.justification.id", type = Long.class)
 	public void setIdJustification(String idJustification) {
 		this.idJustification = idJustification;
-	}
-
-	/**
-	 * @return Returns the initDate.
-	 */
-	public String getInitDate() {
-		return initDate;
-	}
-
-	/**
-	 * @param initDate The initDate to set.
-	 */
-	public void setInitDate(String initDate) {
-		this.initDate = initDate;
 	}
 
 	/**
@@ -127,4 +113,20 @@ public class AbsenceSearchForm extends SelectSearchForm<Absence> implements Abse
 	public void setJustifications(Collection<JustificationEnum> justifications) {
 		this.justifications = justifications;
 	}
+
+	/**
+	 * @return Returns the startDate.
+	 */
+	//@IsASearchParam(value = "absence.startDate.id", type = Long.class)
+	public String getStartDate() {
+		return startDate;
+	}
+
+	/**
+	 * @param startDate The startDate to set.
+	 */
+	public void setStartDate(String startDate) {
+		this.startDate = startDate;
+	}
+
 }
