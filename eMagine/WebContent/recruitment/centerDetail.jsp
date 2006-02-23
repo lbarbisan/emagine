@@ -65,10 +65,12 @@
 	</div>
 	<html:errors />
 	<div id="actions">
+		<logic:notEmpty name="formationCenterModifyForm" property="room">
 		<ul>
 			<li><a href="javascript:checkAll('formationCenterModifyForm','currentSelectedIds');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
 			<li><a href="javascript:checkNothing('formationCenterModifyForm','currentSelectedIds');"><bean:message key="all_none.none"/></a></li>
 		</ul>
+		</logic:notEmpty>	
 		<h2>&nbsp;</h2>
 		<ul>
 			<li><html:link href="javascript:modifyCenter();"><html:img src="/eMagine/common/images/icones/modif.png" titleKey="button.title.update" /></html:link></li>

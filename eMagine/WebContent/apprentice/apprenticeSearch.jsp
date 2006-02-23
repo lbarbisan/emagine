@@ -102,10 +102,12 @@
 	</div>
 	<!-- Les actions propres a la selection -->
 	<div id="actions">
+		<logic:notEmpty name="apprenticeSearchForm" property="results">
 		<ul>
 			<li><a href="javascript:checkAll('apprenticeSearchForm','currentSelectedIds');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
 			<li><a href="javascript:checkNothing('apprenticeSearchForm','currentSelectedIds');"><bean:message key="all_none.none"/></a></li>
 		</ul>
+		</logic:notEmpty>	
 		<h2>&nbsp;</h2>
 		<ul>
 			<li><html:link href="javascript:moveUpApprentices();"><html:img src="/eMagine/common/images/icones/passage.png" titleKey="button.title.passage" /></html:link></li>

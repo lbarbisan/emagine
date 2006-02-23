@@ -77,10 +77,12 @@
 		</table>
 	</div>
 	<div id="actions">
+		<logic:notEmpty name="companySearchForm" property="results">
 		<ul>
 			<li><a href="javascript:checkAll('companySearchForm','currentSelectedIds');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
 			<li><a href="javascript:checkNothing('companySearchForm','currentSelectedIds');"><bean:message key="all_none.none"/></a></li>
 		</ul>
+		</logic:notEmpty>	
 		<h2>&nbsp;</h2>
 		<ul>
 			<li><html:link href="javascript:deleteCompanies();"><html:img src="/eMagine/common/images/icones/supprimer.png" titleKey="button.title.remove" /></html:link></li>

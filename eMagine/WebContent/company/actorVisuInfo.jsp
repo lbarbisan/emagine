@@ -97,10 +97,12 @@
 <br/>
 
 <div id="actions">
+	<logic:notEmpty name="firmActorModifyForm" property="results">
 	<ul>
 		<li><a href="javascript:checkAll('currentSelectedIds','firmActorModifyForm');">Tous</a>&nbsp;&nbsp;/</li>
 		<li><a href="javascript:checkNothing('currentSelectedIds','firmActorModifyForm');">Aucun</a></li>
 	</ul>
+	</logic:notEmpty>	
 
 <br />
 <html:errors />	

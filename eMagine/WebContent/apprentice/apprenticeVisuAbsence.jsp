@@ -102,10 +102,12 @@
 			</table>
 		</div>
 		<div id="actions">
-			<ul>
-			<li><a href="javascript:checkAll('absenceSearchForm','currentSelectedIds');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
-			<li><a href="javascript:checkNothing('absenceSearchForm','currentSelectedIds');"><bean:message key="all_none.none"/></a></li>
-			</ul>
+			<logic:notEmpty name="absenceSearchForm" property="results">
+				<ul>
+					<li><a href="javascript:checkAll('absenceSearchForm','currentSelectedIds');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
+					<li><a href="javascript:checkNothing('absenceSearchForm','currentSelectedIds');"><bean:message key="all_none.none"/></a></li>
+				</ul>
+			</logic:notEmpty>	
 			<h2>&nbsp;</h2>
 			<ul>
 				<li><html:link action="/absenceCreate?action=show"><html:img src="/eMagine/common/images/icones/ajouter.png" titleKey="button.title.add" /></html:link></li>

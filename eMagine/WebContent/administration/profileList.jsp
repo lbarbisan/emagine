@@ -48,11 +48,13 @@
 	</div>
 	
 	<div id="actions">
+		<logic:notEmpty name="profileListForm" property="results">
 		<ul>
 			<li><a href="javascript:checkAll('profileListForm','currentSelectedIds');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
 			<li><a href="javascript:checkNothing('profileListForm','currentSelectedIds');"><bean:message key="all_none.none"/></a></li>
 		</ul>
 		<h2>&nbsp;</h2>
+		</logic:notEmpty>	
 		<ul>
 			<li><html:link href="javascript:deleteProfiles();"><html:img src="/eMagine/common/images/icones/supprimer.png" titleKey="button.title.remove" /></html:link></li>
 		</ul>	

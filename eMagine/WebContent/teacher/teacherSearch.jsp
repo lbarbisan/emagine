@@ -68,10 +68,12 @@
 	</div>	
 	<!-- Les actions propres a la selection -->
 	<div id="actions">
+		<logic:notEmpty name="teacherTutorSearchForm" property="results">
 		<ul>
 			<li><a href="javascript:checkAll('teacherTutorSearchForm','currentSelectedIds');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
 			<li><a href="javascript:checkNothing('teacherTutorSearchForm','currentSelectedIds');"><bean:message key="all_none.none"/></a></li>
 		</ul>
+		</logic:empty>
 		<h2>&nbsp;</h2>
 		<ul>
 			<li><html:link href="javascript:deleteTeachers();"><html:img src="/eMagine/common/images/icones/supprimer.png" titleKey="button.title.remove" /></html:link></li>

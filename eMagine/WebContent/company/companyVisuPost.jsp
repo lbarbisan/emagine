@@ -70,10 +70,12 @@
 	</div>
 	
 	<div id="actions">
+		<logic:notEmpty name="jobListForm" property="results">
 		<ul>
 			<li><a href="javascript:checkAll('jobListForm','currentSelectedIds');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
 			<li><a href="javascript:checkNothing('jobListForm','currentSelectedIds');"><bean:message key="all_none.none"/></a></li>
 		</ul>
+		</logic:notEmpty>	
 		<h2>&nbsp;</h2>
 		<ul>
 			<li><html:link action="/jobCreate?action=show"><img src="/eMagine/common/images/icones/ajouter.png" title="<bean:message key="button.title.add"/>"/></html:link></li>

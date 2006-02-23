@@ -50,10 +50,12 @@
 	</div>
 	
 	<div id="actions">
+		<logic:notEmpty name="mailingListListForm" property="results">
 		<ul>
 			<li><a href="javascript:checkAll('mailingListListForm','currentSelectedIds');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
 			<li><a href="javascript:checkNothing('mailingListListForm','currentSelectedIds');"><bean:message key="all_none.none"/></a></li>
 		</ul>
+		</logic:notEmpty>	
 		<h2>&nbsp;</h2>
 		<ul>
 			<li><html:link href="javascript:deleteMailingLists();"><html:img src="/eMagine/common/images/icones/supprimer.png" titleKey="button.title.remove" /></html:link></li>
