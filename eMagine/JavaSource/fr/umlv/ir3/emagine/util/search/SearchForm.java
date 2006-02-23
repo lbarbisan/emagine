@@ -12,7 +12,13 @@ import org.apache.struts.action.ActionForm;
 
 import fr.umlv.ir3.emagine.util.IsASearchParam;
 
-public abstract class SearchForm<BaseType> extends ActionForm implements SearchParams {
+/**
+ * 
+ * @author eMagine
+ *
+ * @param <T> the type of the object to search
+ */
+public abstract class SearchForm<T> extends ActionForm implements SearchParams {
 
 	private Log log = LogFactory.getLog(SearchForm.class);
 	
@@ -23,7 +29,7 @@ public abstract class SearchForm<BaseType> extends ActionForm implements SearchP
 	protected int indexPage;
 
 	/** List of Results **/
-	protected List<BaseType> results;
+	protected List<T> results;
 	
 	/** List of Fields to use **/
 	//protected Collection<String> fields;
@@ -51,16 +57,16 @@ public abstract class SearchForm<BaseType> extends ActionForm implements SearchP
 		this.nbResultsByPage = nbResultsByPage;
 	}
 	
-	public List<BaseType> getResults() {
+	public List<T> getResults() {
 		return results;
 	}
 
-	public List<BaseType> getPageResults() {
+	public List<T> getPageResults() {
 		int indexBegin = (indexPage - 1) * nbResultsByPage;
 		return results.subList(indexBegin, indexBegin + nbResultsByPage);
 	}
 
-	public void setResults(List<BaseType> results) {
+	public void setResults(List<T> results) {
 		this.results = results;
 	}
 

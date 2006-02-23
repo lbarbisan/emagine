@@ -11,13 +11,20 @@ function open_mail_win(form, extractionEntityName) {
 	open_win(form, extractionEntityName, 'mail', "mail.do?action=show");
 }
 
-function open_win(form, extractionEntityName, action, url) {
+function open_mailing_win(form, extractionEntityName) {
+	open_win(form, extractionEntityName, 'mailing', "mailing.do?action=show");
+}
+
+function open_win(form, extractionEntityName, action, url, extractionEntityNameParam) {
 	if (url.indexOf('?') == -1) glue = '?';
 	else glue = '&';
 	var now = new Date();
+	if (!extractionEntityNameParam) {
+		extractionEntityNameParam = 'extractionEntityName';
+	}
 	var name = action + "_windows_" + extractionEntityName;
 	if (extractionEntityName != "") {
-        url = url + glue + 'extractionEntityName=' + extractionEntityName;// + '&' + 'uniq=' + now.getTime();
+        url = url + glue + extractionEntityNameParam + '=' + extractionEntityName;// + '&' + 'uniq=' + now.getTime();
     } else {
         url = url + glue;// + 'uniq=' + now.getTime();
     }

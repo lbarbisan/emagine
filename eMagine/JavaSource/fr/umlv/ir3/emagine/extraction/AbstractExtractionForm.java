@@ -39,7 +39,7 @@ public abstract class AbstractExtractionForm<I extends Identifiable> extends Act
 	/**
 	 * The current selected ids of the form
 	 */
-	private String[] currentSelectedIds;
+	protected String[] currentSelectedIds;
 
 	/**
 	 * @return Returns the extractionType.

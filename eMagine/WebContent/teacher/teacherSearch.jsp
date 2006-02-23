@@ -76,7 +76,7 @@
 		<ul>
 			<li><html:link href="javascript:deleteTeachers();"><html:img src="/eMagine/common/images/icones/supprimer.png" titleKey="button.title.remove" /></html:link></li>
 			<li><html:link href="javascript:afaire()"><img src="/eMagine/common/images/icones/creer_mailing_list.png" title="<bean:message key="button.title.mailingListCreate"/>"/></html:link></li>
-			<li><html:link href="javascript:afaire()"><img src="/eMagine/common/images/icones/mailing.png" title="<bean:message key="button.title.email"/>"/></html:link></li>
+			<li><html:link href="javascript:open_mailing_win(document.teacherTutorSearchForm, 'teacherTutor')"><img src="/eMagine/common/images/icones/mailing.png" title="<bean:message key="button.title.email"/>"/></html:link></li>
 			<li><html:link href="javascript:open_mail_win(document.teacherTutorSearchForm, 'teacherTutor')"><img src="/eMagine/common/images/icones/publipostage.png" title="<bean:message key="button.title.mailing"/>"/></html:link></li>
 			<li><html:link href="javascript:open_extract_win(document.teacherTutorSearchForm, 'teacherTutor')"><img src="/eMagine/common/images/icones/extraire.png" title="<bean:message key="button.title.extract"/>"/></html:link></li>
 		</ul>

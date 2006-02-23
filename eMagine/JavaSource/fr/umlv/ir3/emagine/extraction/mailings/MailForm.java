@@ -8,9 +8,9 @@ import fr.umlv.ir3.emagine.extraction.mailstype.MailingType;
 public class MailForm extends PropertiesExtractionForm {
 	private static final long serialVersionUID = -5240024157544833994L;
 	
-	private Collection<MailingType> mailingTypes;
-	private String mailingTypeId;
-	private MailingType mailingType;
+	protected Collection<MailingType> mailingTypes;
+	protected String mailingTypeId;
+	protected MailingType mailingType;
 	
 	/**
 	 * @return Returns the mailingType.
@@ -48,5 +48,10 @@ public class MailForm extends PropertiesExtractionForm {
 	public void setMailingTypes(Collection<MailingType> mailingTypes) {
 		this.mailingTypes = mailingTypes;
 	}
+	
+	public String getExtractionTitleKey() {
+		return "mail."+extractionEntityName+".title";
+	}
+
 	
 }

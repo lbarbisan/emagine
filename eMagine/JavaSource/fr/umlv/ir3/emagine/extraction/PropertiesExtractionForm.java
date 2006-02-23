@@ -22,9 +22,9 @@ public class PropertiesExtractionForm extends AbstractExtractionForm {
 
 	private static final long serialVersionUID = -1457049539320560373L;
 
-	private String extractionEntityName;
-	private ExtractionGroup rootGroup;
-	private Collection<String> entityProperties;
+	protected String extractionEntityName;
+	protected ExtractionGroup rootGroup;
+	protected Collection<String> entityProperties;
 
 	/**
 	 * @see fr.umlv.ir3.emagine.extraction.ExtractionForm#getExtractionObjectName()

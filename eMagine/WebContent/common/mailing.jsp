@@ -7,12 +7,12 @@
 	<head>
 		<link rel="stylesheet" href="/eMagine/common/style/style1.css" type="text/css">
 		<script type="text/javascript" src="/eMagine/common/js/checkboxTools.js"></script>
-		<title><bean:message key="app.title" /> : <bean:message name="mailForm" property="extractionTitleKey" /></title>
+		<title><bean:message key="app.title" /> : <bean:message name="mailingForm" property="extractionTitleKey" /></title>
 		<script type="text/javascript">
 		<!--
-			function mail() {
-				document.mailForm.action.value = "mailResults";
-				document.mailForm.submit();
+			function mailing() {
+				document.mailingForm.action.value = "mailing";
+				document.mailingForm.submit();
 				return false;
 			}
 		-->
@@ -20,8 +20,8 @@
 	</head>
 	<body>
 	<div class="extract">
-		<h2><bean:message name="mailForm" property="extractionTitleKey" /></h2>
-		<html:form action="/mail" method="POST" focus="mailingTypeId">
+		<h2><bean:message name="mailingForm" property="extractionTitleKey" /></h2>
+		<html:form action="/mailing" method="POST" focus="mailingTypeId">
 			<div class="form">
 				<html:errors/>
 				<p>
@@ -34,8 +34,8 @@
 			<div id="actions">
 				<ul>
 					<li>
-						<html:link href="javascript:mail();">
-							<html:img src="/eMagine/common/images/icones/publipostage.png" titleKey="button.title.mailing" />
+						<html:link href="javascript:mailing();">
+							<html:img src="/eMagine/common/images/icones/mailing.png" titleKey="button.title.email" />
 						</html:link>
 					</li>
 				</ul>
