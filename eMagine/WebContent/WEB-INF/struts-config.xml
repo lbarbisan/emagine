@@ -44,6 +44,7 @@
 		<form-bean name="mailingListListForm" type="fr.umlv.ir3.emagine.extraction.mailings.MailingListListForm" />
 		<form-bean name="mailForm" type="fr.umlv.ir3.emagine.extraction.mailings.MailForm" />
 		<form-bean name="mailingForm" type="fr.umlv.ir3.emagine.extraction.mailings.MailingSearchForm" />
+		<form-bean name="eventSearchForm" type="fr.umlv.ir3.emagine.event.EventSearchForm" />
 	</form-beans>
 
 	<!-- ========== Action Mapping Definitions =============================== -->
@@ -103,7 +104,6 @@
 		<action path="/apprenticeVisuStatus" forward="apprentice.apprenticeVisuStatus" name="apprenticeModifyForm" scope="session" />
 		<action path="/apprenticeVisuSituation" forward="apprentice.apprenticeVisuSituation" name="apprenticeModifyForm" scope="session" />
 		<action path="/apprenticeVisuSchooling" forward="apprentice.apprenticeVisuSchooling" name="apprenticeModifyForm" scope="session" />
-		<action path="/apprenticeVisuEvent" forward="apprentice.apprenticeVisuEvent" name="apprenticeModifyForm" scope="session" />
 		<action path="/apprenticeVisuAbsence" type="fr.umlv.ir3.emagine.apprentice.absence.AbsenceSearchAction" name="absenceSearchForm" scope="session" parameter="action">
 			<forward name="_default_target_" path="apprentice.apprenticeVisuAbsence" />
 		</action>
@@ -149,8 +149,6 @@
 
 		<action path="/teacherApprenticeAdd"
 			forward="teacher.teacherApprenticeAdd" />
-		<action path="/teacherVisuEvent"
-			forward="teacher.teacherVisuEvent" />
 		<action path="/teacherEventDetail"
 			forward="teacher.teacherEventDetail" />
 		<action path="/teacherExtract" forward="teacher.teacherExtract" />
@@ -192,7 +190,6 @@
 		</action>
 		
 		<action path="/companyVisuInfo" forward="company.companyVisuInfo" name="companyModifyForm" scope="session" />
-		<action path="/companyVisuEvent" forward="company.companyVisuEvent" name="companyModifyForm" scope="session" />
 
 		<action path="/companyVisuActor" type="fr.umlv.ir3.emagine.firm.actor.FirmActorListAction" name="firmActorListForm" scope="session">
 			<forward name="_default_target_" path="company.companyVisuActor" />
@@ -214,6 +211,23 @@
 			<forward name="_default_target_" path="/companyVisuPost.do" redirect="true" />
 		</action>
 
+		<!--  event -->
+		<action path="/eventDelete" type="fr.umlv.ir3.emagine.event.EventDeleteAction" >
+			<forward name="success_from_firmActor" path="/eventSearch.do?action=search" redirect="true" />
+			<forward name="success_from_apprentice" path="/eventSearch.do?action=search" redirect="true" />
+			<forward name="success_from_firm" path="/eventSearch.do?action=search" redirect="true" />
+			<forward name="success_from_teacher" path="/eventSearch.do?action=search" redirect="true" />
+			<forward name="success_from_candidate" path="/eventSearch.do?action=search" redirect="true" />
+		</action>
+		<action path="/eventSearch" type="fr.umlv.ir3.emagine.event.EventSearchAction" name="eventSearchForm" parameter="action" scope="session">
+			<forward name="success_from_firmActor" path="company.actorVisuEvent" />
+			<forward name="success_from_apprentice" path="apprentice.apprenticeVisuEvent" />
+			<forward name="success_from_firm" path="company.companyVisuEvent" />
+			<forward name="success_from_teacher" path="teacher.teacherVisuEvent" />
+			<forward name="success_from_candidate" path="recruitment.candidateVisuEvent" />
+		</action>
+
+
 		<!-- comapny actor -->
 		<action path="/actorEmailDo" forward="company.actorEmailDo" />
 		<action path="/actorEventDetail" forward="company.actorEventDetail" />
@@ -222,9 +236,8 @@
 		<action path="/actorMailingListCreate" forward="company.actorMailingListCreate" />
 		<action path="/actorMailDo" forward="company.actorMailDo" />
 		<action path="/actorOnglet" forward="company.actorOnglet" />
-		<action path="/actorVisuEvent" forward="company.actorVisuEvent" />
 		<action path="/actorVisuInfo" forward="company.actorVisuInfo" />
-		
+				
 		<action path="/actorCreate" type="fr.umlv.ir3.emagine.firm.actor.FirmActorCreateAction" name="firmActorModifyForm" input="company.actorCreate" parameter="action" scope="session" validate="true">
 			<forward name="_default_target_" path="company.actorCreate" />
 			<forward name="success" path="/companyVisuActor.do" redirect="true" />
@@ -270,8 +283,6 @@
 		<action path="/candidateVisuInfo" forward="recruitment.candidateVisuInfo" scope="session"/>
 		<action path="/candidateOnglet"
 			forward="recruitment.candidateOnglet" />
-		<action path="/candidateVisuEvent"
-			forward="recruitment.candidateVisuEvent" />
 		<action path="/candidateEventDetail"
 			forward="recruitment.candidateEventDetail" />
 		<action path="/candidateExtract"

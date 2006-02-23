@@ -3,34 +3,22 @@
  */
 package fr.umlv.ir3.emagine.event;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.lang.reflect.InvocationTargetException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.beanutils.BeanUtils;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessages;
 
-import fr.umlv.ir3.emagine.apprentice.Apprentice;
-import fr.umlv.ir3.emagine.apprentice.ApprenticeManager;
-import fr.umlv.ir3.emagine.apprentice.ApprenticeModifyForm;
-import fr.umlv.ir3.emagine.apprentice.candidate.Candidate;
-import fr.umlv.ir3.emagine.apprentice.candidate.CandidateManager;
-import fr.umlv.ir3.emagine.apprentice.candidate.CandidateModifyForm;
-import fr.umlv.ir3.emagine.firm.Firm;
-import fr.umlv.ir3.emagine.firm.FirmManager;
-import fr.umlv.ir3.emagine.firm.FirmModifyForm;
-import fr.umlv.ir3.emagine.firm.actor.FirmActor;
-import fr.umlv.ir3.emagine.firm.actor.FirmActorManager;
-import fr.umlv.ir3.emagine.firm.actor.FirmActorModifyForm;
-import fr.umlv.ir3.emagine.teachertutor.TeacherTutor;
-import fr.umlv.ir3.emagine.teachertutor.TeacherTutorManager;
-import fr.umlv.ir3.emagine.teachertutor.TeacherTutorModifyForm;
+import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.ManagerManager;
 import fr.umlv.ir3.emagine.util.base.BaseAction;
+import fr.umlv.ir3.emagine.util.base.BaseDAO;
+import fr.umlv.ir3.emagine.util.base.BaseManager;
 import fr.umlv.ir3.emagine.util.base.EventableEntity;
 
 public class EventDeleteAction extends BaseAction {
@@ -47,59 +35,27 @@ public class EventDeleteAction extends BaseAction {
 	 */
 	public ActionForward delete(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionMessages errors = new ActionMessages();
-		
 		ManagerManager managerManager = ManagerManager.getInstance();
+
 		String parameter = request.getParameter("from");
 		String [] ids = request.getParameterValues("currentSelectedIds");
 
 		if(ids != null && ids.length > 0) {
 			if(parameter != null && !"".equals(parameter)) {
-				List <EventableEntity> eventsToRemove = new LinkedList <EventableEntity> ();
-
 				if("apprentice".equals(parameter)) {
-					ApprenticeManager manager = managerManager.getApprenticeManager();
-					Apprentice entity = manager.retrieve(
-							Long.parseLong(((ApprenticeModifyForm)request.getSession().getAttribute("apprenticeModifyForm")).getIdApprenticeToModify()));
-					for (String id : ids)
-							eventsToRemove.add(manager.retrieve(Long.parseLong(id)));						
-					entity.getEvents().removeAll(eventsToRemove);
-					manager.update(entity);
+					removeEvents(managerManager.getFirmActorManager(), request, ids, "apprenticeModifyForm", "idApprenticeToModify");
 				}
 				else if("firm".equals(parameter)) {
-					FirmManager manager = managerManager.getFirmManager();
-					Firm entity = managerManager.getFirmManager().retrieve(
-							Long.parseLong(((FirmModifyForm)request.getSession().getAttribute("companyModifyForm")).getIdFirmToModify()));
-					for (String id : ids)
-						eventsToRemove.add(manager.retrieve(Long.parseLong(id)));						
-					entity.getEvents().removeAll(eventsToRemove);
-					manager.update(entity);
+					removeEvents(managerManager.getFirmActorManager(), request, ids, "companyModifyForm", "idFirmToModify");
 				}
-				else if("teatcher".equals(parameter)) {
-					TeacherTutorManager manager = managerManager.getTeacherTutorManager();
-					TeacherTutor entity = managerManager.getTeacherTutorManager().retrieve(
-							Long.parseLong(((TeacherTutorModifyForm)request.getSession().getAttribute("teacherTutorModifyForm")).getIdTeacherTutorToModify()));
-					for (String id : ids)
-						eventsToRemove.add(manager.retrieve(Long.parseLong(id)));						
-					entity.getEvents().removeAll(eventsToRemove);
-					manager.update(entity);
+				else if("teacher".equals(parameter)) {
+					removeEvents(managerManager.getFirmActorManager(), request, ids, "teacherTutorModifyForm", "idTeacherTutorToModify");
 				}
 				else if("firmActor".equals(parameter)) {
-					FirmActorManager manager = managerManager.getFirmActorManager();
-					FirmActor entity = managerManager.getFirmActorManager().retrieve(
-							Long.parseLong(((FirmActorModifyForm)request.getSession().getAttribute("firmActorModifyForm")).getIdFirmActorToModify()));
-					for (String id : ids)
-						eventsToRemove.add(manager.retrieve(Long.parseLong(id)));						
-					entity.getEvents().removeAll(eventsToRemove);
-					manager.update(entity);
+					removeEvents(managerManager.getFirmActorManager(), request, ids, "firmActorModifyForm", "idFirmActorToModify");
 				}
 				else if("candidate".equals(parameter)) {
-					CandidateManager manager = managerManager.getCandidateManager();
-					Candidate entity = managerManager.getCandidateManager().retrieve(
-							Long.parseLong(((CandidateModifyForm)request.getSession().getAttribute("candidateModifyForm")).getIdCandidateToModify()));
-					for (String id : ids)
-						eventsToRemove.add(manager.retrieve(Long.parseLong(id)));						
-					entity.getEvents().removeAll(eventsToRemove);
-					manager.update(entity);
+					removeEvents(managerManager.getCandidateManager(), request, ids, "candidateModifyForm", "idCandidateToModify");
 				}
 			}
 		}
@@ -107,4 +63,14 @@ public class EventDeleteAction extends BaseAction {
         // Report back any errors, and exit if any
 		return successIfNoErrors(mapping, request, errors);
 	}	
+	
+	private <E extends EventableEntity, D extends BaseDAO<E>, M extends BaseManager<E, D>> void removeEvents(M manager, HttpServletRequest request, String[] ids, String formName, String property) throws NumberFormatException, EMagineException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
+		E entity = manager.retrieve(
+				Long.parseLong(
+						BeanUtils.getNestedProperty(
+								request.getSession().getAttribute(formName), property)));
+		for (String id : ids)
+			entity.getEvents().remove(manager.retrieve(Long.parseLong(id)));
+		manager.update(entity);
+	}
 }

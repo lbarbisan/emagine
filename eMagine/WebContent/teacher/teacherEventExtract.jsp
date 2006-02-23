@@ -1,7 +1,7 @@
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 
-<h2><bean:message key="event.extract.title"/><html:link action="/teacherVisuEvent"><img src="/eMagine/common/images/icones/retour.png" title="<bean:message key="button.title.return"/>"/></html:link></h2>
+<h2><bean:message key="event.extract.title"/><html:link action="/eventSearch.do?action=show&from=teacher"><img src="/eMagine/common/images/icones/retour.png" title="<bean:message key="button.title.return"/>"/></html:link></h2>
 <br/>
 <div class="form">
 	<p><label for="type"><bean:message key="form.type"/></label><input type="radio" name="type" value="csv" checked>csv<input type="radio" name="type" value="xls">xls</p>

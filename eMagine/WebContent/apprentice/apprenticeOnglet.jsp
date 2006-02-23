@@ -13,7 +13,7 @@
 	<li><html:link action="/apprenticeVisuSchooling">Scolarit&eacute;</html:link></li>
 </ul>
 <ul>
-	<li><html:link action="/apprenticeVisuEvent">Ev&eacute;nement</html:link></li>
+	<li><html:link action="/eventSearch.do?action=show&from=apprentice">Ev&eacute;nement</html:link></li>
 </ul>
 <ul>
 	<li><html:link action="/apprenticeVisuAbsence">Absence</html:link></li>

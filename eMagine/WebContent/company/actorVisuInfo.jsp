@@ -28,7 +28,7 @@
 <div class="tabs">
 	<ul>
 		<span class="tab_clicked"><li><html:link action="/actorVisuInfo">Informations&nbsp;g&eacute;n&eacute;rales&nbsp;</html:link></li></span>
-		<li><html:link action="/actorVisuEvent">Ev&eacute;nement</html:link></li>
+		<li><html:link action="/eventSearch.do?action=show&from=firmActor">Ev&eacute;nement</html:link></li>
 	</ul>
 </div>
 

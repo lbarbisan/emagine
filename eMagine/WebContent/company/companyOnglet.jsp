@@ -11,5 +11,5 @@
 	<li><html:link action="/companyVisuPost">Poste</html:link></li>
 </ul>
 <ul>
-	<li><html:link action="/companyVisuEvent">Ev&eacute;nement</html:link></li>
+	<li><html:link action="/eventSearch.do?action=show&from=firm">Ev&eacute;nement</html:link></li>
 </ul>
