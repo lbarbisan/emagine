@@ -57,8 +57,7 @@ public class HibernateUtils {
 
         	// loadListeners(cfg);
         	
-        	sessionFactory = cfg.buildSessionFactory(); 
-        	editableInterceptor.setSessionFactory(sessionFactory);        	
+        	sessionFactory = cfg.buildSessionFactory();         	
         } catch (Throwable ex) {
             log.error("Initial SessionFactory creation failed.", ex);
             throw new ExceptionInInitializerError(ex);
