@@ -240,7 +240,7 @@
 			<forward name="_default_target_" path="company.actorApprenticeAdd" />
 		</action>
 		<action path="/addApprenticeToEngineer" type="fr.umlv.ir3.emagine.firm.actor.AddApprenticeToEngineerAction" name="apprenticeSearchForm" scope="session">
-			<forward name="_default_target_" path="/actorModify?action=show" redirect="true" />
+			<forward name="_default_target_" path="/actorModify.do?action=show" redirect="true" />
 		</action>
 		
 		<!-- recruitment -->

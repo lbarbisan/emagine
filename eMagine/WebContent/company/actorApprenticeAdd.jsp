@@ -91,15 +91,11 @@
 
 			<logic:empty name="apprenticeSearchForm" property="results">
 				<tr><td colspan="8">Pas&nbsp;de&nbsp;r&eacute;sultats</td></tr>
-			</logic:empty>		
+			</logic:empty>
 		</table>
 	</div>
 	<!-- Les actions propres a la selection -->
 	<div id="actions">
-		<ul>
-			<li><a href="javascript:checkAll('apprenticeSearchForm','currentSelectedIds');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
-			<li><a href="javascript:checkNothing('apprenticeSearchForm','currentSelectedIds');"><bean:message key="all_none.none"/></a></li>
-		</ul>
 		<h2>&nbsp;</h2>
 		<ul>
 			<li><html:link href="javascript:addApprentices();"><html:img src="/eMagine/common/images/icones/ok.png" titleKey="button.title.ok" /></html:link></li>

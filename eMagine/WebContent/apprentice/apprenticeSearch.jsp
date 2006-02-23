@@ -10,13 +10,14 @@
 
 	function excludeApprentices() {
 		if(confirm("Souhaitez-vous réellement exclure ces apprentis ?")) {
-			document.apprenticeSearchForm.action = "/eMagine/apprenticeExclude.do?action=exclude&from=search";
+			document.apprenticeSearchForm.action = "/eMagine/apprenticeExclude.do?from=apprentice_search";
 			document.apprenticeSearchForm.submit();
 		}
 	}
+
 	function moveUpApprentices() {
-		if(confirm("Souhaitez-vous réellement faire passer ces apprentis en année supérieure?")) {
-			document.apprenticeSearchForm.action = "/eMagine/apprenticeMoveUp.do?action=moveUp&from=search";
+		if(confirm("Souhaitez-vous réellement faire passer ces apprentis en année supérieure ?")) {
+			document.apprenticeSearchForm.action = "/eMagine/apprenticeMoveUp.do?from=apprentice_search";
 			document.apprenticeSearchForm.submit();
 		}
 	}

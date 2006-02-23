@@ -11,6 +11,7 @@ import org.apache.struts.action.ActionMessage;
 
 import fr.umlv.ir3.emagine.apprentice.Apprentice;
 import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
+import fr.umlv.ir3.emagine.util.search.SelectSearchForm;
 
 
 /**
@@ -18,7 +19,7 @@ import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
  * @author jrenaudi
  *
  */
-public class FirmActorModifyForm extends ActionForm {
+public class FirmActorModifyForm extends SelectSearchForm {
 	
 	private static final long serialVersionUID = -2405706291327109100L;
 
@@ -65,9 +66,6 @@ public class FirmActorModifyForm extends ActionForm {
 	/** Identifier of selected department **/
 	private String idDepartment;
 
-	/** List of pupills **/
-	private Collection <Apprentice> pupilles;
-
 	/** Use to DispacthAction **/
 	private String action;
 
@@ -104,7 +102,6 @@ public class FirmActorModifyForm extends ActionForm {
 		idFunction = "";
 		departments = null;
 		idDepartment = "";
-		pupilles = null;
 		action = "";
 	}
 
@@ -302,20 +299,6 @@ public class FirmActorModifyForm extends ActionForm {
 	 */
 	public void setFunctions(Collection<FunctionEnum> functions) {
 		this.functions = functions;
-	}
-
-	/**
-	 * @return Returns the pupilles.
-	 */
-	public Collection<Apprentice> getPupilles() {
-		return pupilles;
-	}
-
-	/**
-	 * @param pupilles The pupilles to set.
-	 */
-	public void setPupilles(Collection<Apprentice> pupilles) {
-		this.pupilles = pupilles;
 	}
 
 	/**

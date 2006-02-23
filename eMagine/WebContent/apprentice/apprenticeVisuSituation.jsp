@@ -30,6 +30,21 @@
 		document.apprenticeModifyForm.action = "/eMagine/apprenticeTutorAdd.do";
 		document.apprenticeModifyForm.submit();
 	}
+	
+	
+	function excludeApprentices() {
+		if(confirm("Souhaitez-vous réellement exclure ces apprentis ?")) {
+			document.apprenticeSearchForm.action = "/eMagine/apprenticeExclude.do?from=apprentice_search&";
+			document.apprenticeSearchForm.submit();
+		}
+	}
+
+	function moveUpApprentices() {
+		if(confirm("Souhaitez-vous réellement faire passer ces apprentis en année supérieure ?")) {
+			document.apprenticeSearchForm.action = "/eMagine/apprenticeMoveUp.do?from=apprentice_search&";
+			document.apprenticeSearchForm.submit();
+		}
+	}
 -->
 </script>
 <html:form action="/apprenticeModify" method="POST" focus="courseOptions">

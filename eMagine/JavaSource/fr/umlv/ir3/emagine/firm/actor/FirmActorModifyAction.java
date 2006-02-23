@@ -34,6 +34,7 @@ public class FirmActorModifyAction extends BaseAction {
 	public ActionForward show(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionMessages errors = new ActionMessages();
 		ManagerManager managerManager = ManagerManager.getInstance();
+		FirmActorManager firmActorManager = managerManager.getFirmActorManager();
 		FirmActorModifyForm firmActorModifyForm = (FirmActorModifyForm) form;
 		
 		try {
@@ -71,15 +72,12 @@ public class FirmActorModifyAction extends BaseAction {
 				if(actor.getFunction() != null)
 					firmActorModifyForm.setIdFunction(Long.toString(actor.getFunction().getId()));
 
-				if(actor instanceof EngineerTutor)
-					firmActorModifyForm.setPupilles(((EngineerTutor)actor).getApprentice());
+				if(firmActorManager.isEngineerTutor(actor))
+					firmActorModifyForm.setResults((managerManager.getEngineerTutorManager().retrieve(actor.getId())).getApprentice());
 			}
 
 			firmActorModifyForm.setDepartments((List<DepartmentEnum>)managerManager.getEmagineEnumManager().findAll(DepartmentEnum.class));
-			System.out.println((List<DepartmentEnum>)managerManager.getEmagineEnumManager().findAll(DepartmentEnum.class));
-			
 			firmActorModifyForm.setFunctions((List<FunctionEnum>)managerManager.getEmagineEnumManager().findAll(FunctionEnum.class));
-			System.out.println((List<FunctionEnum>)managerManager.getEmagineEnumManager().findAll(FunctionEnum.class));
 			
 		} catch (EMagineException exception) {
 			addEMagineExceptionError(errors, exception);

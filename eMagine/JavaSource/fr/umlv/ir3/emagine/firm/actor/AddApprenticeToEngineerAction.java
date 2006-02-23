@@ -3,9 +3,6 @@
  */
 package fr.umlv.ir3.emagine.firm.actor;
 
-import java.util.LinkedList;
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -15,16 +12,12 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessages;
 
 import fr.umlv.ir3.emagine.apprentice.ApprenticeManager;
-import fr.umlv.ir3.emagine.apprentice.ApprenticeSearchForm;
-import fr.umlv.ir3.emagine.firm.Firm;
-import fr.umlv.ir3.emagine.firm.FirmManager;
-import fr.umlv.ir3.emagine.firm.FirmModifyForm;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.ManagerManager;
 import fr.umlv.ir3.emagine.util.base.BaseAction;
 
-public class AddApprenticeToEngineer extends BaseAction {
+public class AddApprenticeToEngineerAction extends BaseAction {
 
 	/**
 	 * The administrator wants to add a pupills.
@@ -39,6 +32,7 @@ public class AddApprenticeToEngineer extends BaseAction {
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionMessages errors = new ActionMessages();
 		FirmActorManager firmActorManager = ManagerManager.getInstance().getFirmActorManager();
+		EngineerTutorManager engineerTutorManager = ManagerManager.getInstance().getEngineerTutorManager();
 		ApprenticeManager apprenticeManager = ManagerManager.getInstance().getApprenticeManager();
 		
 		// Delete the firms
@@ -47,19 +41,21 @@ public class AddApprenticeToEngineer extends BaseAction {
 		FirmActorModifyForm actorForm = (FirmActorModifyForm) request.getSession().getAttribute("firmActorModifyForm"); 
 		
 		if(ids != null && ids.length > 0) {
+			EngineerTutor tutor;
 			FirmActor actor = firmActorManager.retrieve(Long.parseLong(actorForm.getIdFirmActorToModify()));
+
+			if(firmActorManager.isEngineerTutor(actor))
+				tutor = engineerTutorManager.retrieve(actor.getId());
+			else
+				tutor = engineerTutorManager.becomeEngineerTutor(actor);
+			
 			for (String id : ids) {
 				try {
-					actor.add(apprenticeManager.retrieve(Long.parseLong(id)));
+					engineerTutorManager.addApprentice(apprenticeManager.retrieve(Long.parseLong(id)), tutor);
 				} catch (EMagineException exception) {
 					addEMagineExceptionError(errors, exception);
 				}
 			}
-			
-			if(!firmActorsToRemove.isEmpty()) {
-				firmManager.removeFirmActors(firm , firmActorsToRemove);
-			}
-			
 		}
 
         // Report back any errors, and exit if any

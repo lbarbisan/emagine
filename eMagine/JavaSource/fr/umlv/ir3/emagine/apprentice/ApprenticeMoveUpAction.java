@@ -3,8 +3,6 @@
  */
 package fr.umlv.ir3.emagine.apprentice;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -21,7 +19,7 @@ import fr.umlv.ir3.emagine.util.base.BaseAction;
 public class ApprenticeMoveUpAction extends BaseAction {
 
 	/**
-	 * The user wants to pass a apprentice(s) in an upper year.
+	 * The user wants to pass several apprentice.
 	 * 
 	 * @param mapping The ActionMapping used to select this instance
 	 * @param form The optional ActionForm bean for this request (if any)
@@ -30,21 +28,30 @@ public class ApprenticeMoveUpAction extends BaseAction {
 	 * @return an ActionForward instance describing where and how control should be forwarded, or null if the response has already been completed.
 	 * @throws Exception if an exception occurs
 	 */
-	public ActionForward moveUp(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward pass(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionMessages errors = new ActionMessages();
+		ApprenticeSearchForm apprenticeSearchForm = (ApprenticeSearchForm)form;
+	
 		ApprenticeManager apprenticeManager = ManagerManager.getInstance().getApprenticeManager();
-		ApprenticeSearchForm apprenticeSearchForm = (ApprenticeSearchForm) form;
 		
-		// move up the apprentices
+		// Delete the firms
 		DAOManager.beginTransaction();
+		String [] ids = request.getParameterValues("currentSelectedIds");
 
-		try {
-			List <Apprentice> apprentices = apprenticeManager.find(apprenticeSearchForm);
-			apprenticeManager.moveUpApprentice(apprentices);
-		} catch (EMagineException exception) {
-			addEMagineExceptionError(errors, exception);
-		}		
+		if(ids != null && ids.length > 0) {
+			for (String id : ids) {
+				try {
+					Apprentice apprentice = apprenticeManager.retrieve(Long.parseLong(id));
+					
+					// TODO A faire passer
+					
+				} catch (EMagineException exception) {
+					addEMagineExceptionError(errors, exception);
+				}
+			}
+		}
+
         // Report back any errors, and exit if any
 		return successIfNoErrors(mapping, request, errors);
-	}	
+	}
 }

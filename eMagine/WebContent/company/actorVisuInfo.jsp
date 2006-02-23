@@ -73,8 +73,8 @@
 				<th><bean:message key="table.header.endDate"/></th>
 			</tr>
 			
-			<logic:notEmpty name="firmActorModifyForm" property="pupilles">
-				<logic:iterate id="pupille" name="firmActorModifyForm" property="pupilles" type="fr.umlv.ir3.emagine.apprentice.Apprentice">
+			<logic:notEmpty name="firmActorModifyForm" property="results">
+				<logic:iterate id="pupille" name="firmActorModifyForm" property="results" type="fr.umlv.ir3.emagine.apprentice.Apprentice">
 					<tr>
 						<td><html:multibox property="currentSelectedIds" value="<%= pupille.getId().toString() %>" />&nbsp;</td>
 						<td><html:link action="/actorModify?action=show" paramId="id" paramName="pupille" paramProperty="id"><bean:write name="pupille" property="lastname" />&nbsp;</html:link></td>
@@ -87,7 +87,7 @@
 				</logic:iterate>
 			</logic:notEmpty>	
 
-			<logic:empty name="firmActorModifyForm" property="pupilles">
+			<logic:empty name="firmActorModifyForm" property="results">
 				<tr><td colspan="8">Pas de pupille</td></tr>
 			</logic:empty>
 
