@@ -57,7 +57,8 @@ public class HibernateUtils {
 
         	loadListeners(cfg);
         	
-        	sessionFactory = cfg.buildSessionFactory();         	
+        	sessionFactory = cfg.buildSessionFactory(); 
+        	//editableInterceptor.setSessionFactory(sessionFactory);        	
         } catch (Throwable ex) {
             log.error("Initial SessionFactory creation failed.", ex);
             throw new ExceptionInInitializerError(ex);
@@ -70,10 +71,23 @@ public class HibernateUtils {
     	PostDeleteEventListener[] stackDelete = { new EMaginePostEventListener()};
     	PostUpdateEventListener[] stackUpdate = { new EMaginePostEventListener()};
     	PostInsertEventListener[] stackInsert = { new EMaginePostEventListener()};
-
+//    	
     	cfg.getEventListeners().setPostDeleteEventListeners(stackDelete);
     	cfg.getEventListeners().setPostUpdateEventListeners(stackUpdate);
     	cfg.getEventListeners().setPostInsertEventListeners(stackInsert);
+    	
+    	for(Object object: cfg.getEventListeners().getPostUpdateEventListeners())
+    	{
+    		System.err.println(object);
+    	}
+    	for(Object object: cfg.getEventListeners().getPostDeleteEventListeners())
+    	{
+    		System.err.println(object);
+    	}
+    	for(Object object: cfg.getEventListeners().getPostInsertEventListeners())
+    	{
+    		System.err.println(object);
+    	}
     }
     
     /**
@@ -144,7 +158,9 @@ public class HibernateUtils {
         {
             if(tx!=null && !tx.wasCommitted() && !tx.wasRolledBack())
             {
-            	tx.commit();
+                tx.commit();
+                threadTransaction.set(null);
+//                closeSession();
             }
         }
         catch (HibernateException exception) {
@@ -161,9 +177,16 @@ public class HibernateUtils {
     {
     	log.trace("rollbackTransaction");
     	Transaction tx = threadTransaction.get();
-    	if(tx!=null && !tx.wasCommitted() && !tx.wasRolledBack())
+        try
         {
-            tx.rollback();
+        	if(tx!=null && !tx.wasCommitted() && !tx.wasRolledBack())
+            {
+                tx.rollback();
+            }
+        }
+        finally
+        {
+            closeSession();
         }
     }
     

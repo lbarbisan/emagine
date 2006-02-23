@@ -11,6 +11,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.EmptyInterceptor;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.type.Type;
 
@@ -266,4 +267,5 @@ public class EditableInterceptor extends EmptyInterceptor {
 		log.debug(" directWriteAllowed set to " + directWriteAllow);
 		this.directWriteAllowed.set(directWriteAllow);
 	}
+	
 }
