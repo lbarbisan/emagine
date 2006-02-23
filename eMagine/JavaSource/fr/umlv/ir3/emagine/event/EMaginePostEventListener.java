@@ -22,6 +22,7 @@ import fr.umlv.ir3.emagine.security.SecurityFilterNotInitializedException;
 import fr.umlv.ir3.emagine.security.SessionManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.HibernateUtils;
+import fr.umlv.ir3.emagine.util.base.BaseEntity;
 import fr.umlv.ir3.emagine.util.base.EventableEntity;
 
 /**
@@ -53,10 +54,9 @@ public class EMaginePostEventListener implements PostInsertEventListener,
 			eMagineEvent.setDescription("Création de :"
 					+ eventableEntity.toString());
 			eMagineEvent.setDate(new Date());
-			// eMagineEvent.getSources().add((BaseEntity) event.getEntity());
+			eMagineEvent.setSource((BaseEntity) event.getEntity());
+			((EventableEntity)event.getEntity()).getEvents().add(eMagineEvent);
 			eMagineEvent.setTitle("création");
-
-			createEvent(eMagineEvent);
 		}
 	}
 
@@ -79,6 +79,8 @@ public class EMaginePostEventListener implements PostInsertEventListener,
 				eMagineEvent.setDate(new Date());
 				eMagineEvent.setDescription("Suppression de :"
 						+ eventableEntity.toString());
+				eMagineEvent.setSource((BaseEntity) event.getEntity());
+				((EventableEntity)event.getEntity()).getEvents().add(eMagineEvent);
 				eMagineEvent.setDate(new Date());
 				eMagineEvent.setTitle("Suppression");
 			}

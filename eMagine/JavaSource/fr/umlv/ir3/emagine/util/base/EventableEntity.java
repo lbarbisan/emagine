@@ -6,8 +6,7 @@ import java.util.List;
 
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.OrderBy;
+import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
@@ -25,9 +24,8 @@ public abstract class EventableEntity extends EditableEntity implements Serializ
 	
 	private static final long serialVersionUID = 15466724567987L;
 	
-    @ManyToMany()
-    @Cascade(CascadeType.SAVE_UPDATE)
-    @OrderBy("date")
+    @OneToMany(mappedBy = "source")
+    @Cascade({CascadeType.ALL, CascadeType.DELETE_ORPHAN})
     private List<Event> events = new ArrayList<Event>();
  
 	protected EventableEntity(List<Modification> modifications, List<Event> events) {
@@ -39,10 +37,4 @@ public abstract class EventableEntity extends EditableEntity implements Serializ
 	public List<Event> getEvents() {
 		return events;
 	}
-
-	public void setEvents(List<Event> events) {
-		this.events = events;
-	}
-
-
 }

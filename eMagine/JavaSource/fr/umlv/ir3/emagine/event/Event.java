@@ -10,6 +10,7 @@ import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.Cascade;
@@ -40,6 +41,10 @@ public class Event extends BaseEntity {
 	private String newValue;
 	private String property;
 	private String description;
+	
+	@ManyToOne()
+	@JoinColumn(name = "source_id")
+	private BaseEntity source;
 	
 	/**
 	 * @return Returns the comment.
@@ -149,5 +154,17 @@ public class Event extends BaseEntity {
 	 */
 	public void setProperty(String property) {
 		this.property = property;
+	}
+	/**
+	 * @return Returns the baseEntity.
+	 */
+	public BaseEntity getSource() {
+		return source;
+	}
+	/**
+	 * @param baseEntity The baseEntity to set.
+	 */
+	public void setSource(BaseEntity source) {
+		this.source = source;
 	}
 }
