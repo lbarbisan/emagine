@@ -5,13 +5,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 import javax.persistence.AccessType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
@@ -23,8 +20,6 @@ import fr.umlv.ir3.emagine.util.base.EventableEntity;
 * @persistence Terminé
 */
 @Entity(access = AccessType.FIELD)
-@Table(uniqueConstraints =@UniqueConstraint(columnNames={
-		"name"}))
 public class Firm extends EventableEntity {
 	
 	private static final long serialVersionUID = -4439188773689857587L;
@@ -49,7 +44,6 @@ public class Firm extends EventableEntity {
 	@ManyToOne()
 	@Cascade({CascadeType.ALL,  CascadeType.DELETE_ORPHAN})
 	@JoinColumn(name = "addresspersonnal_id")
-	@Column(unique = true)
 	private Address address;
 	
 	private String name;

@@ -24,7 +24,6 @@ public class ExtractionEntity extends BaseEntity {
 
 	@OneToMany(mappedBy = "extractionEntity")
 	@Cascade(CascadeType.SAVE_UPDATE)
-	@Column(unique = true)
 	private List<ExtractionProperty> properties = new ArrayList<ExtractionProperty>();
 	
 	private String name;
