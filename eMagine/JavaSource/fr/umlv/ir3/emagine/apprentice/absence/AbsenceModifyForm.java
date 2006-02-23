@@ -65,15 +65,14 @@ public class AbsenceModifyForm extends SelectSearchForm<Absence>{
 		ActionErrors errors = new ActionErrors();
 
 		if("create".equals(action) || "modify".equals(action)) {
-			if ("".equals(initDate) || "".equals(endDate)){
-				errors.add("allRequiredFieldIsNotfillin", new ActionMessage("absence.error.date.notnull"));
+			if ("".equals(initDate) || "".equals(endDate) || "".equals(idJustification)) {
+				errors.add("allRequiredFieldIsNotfillin", new ActionMessage("user.error.allRequiredFieldIsNotfillin"));
 			}else if((DateOperations.stringToDate(initDate)).after(DateOperations.stringToDate(endDate))){
 				errors.add("allRequiredFieldIsNotfillin", new ActionMessage("absence.error.date.conflict"));
 			}else if (!DateOperations.checkStringDate(initDate) || !DateOperations.checkStringDate(endDate)){
 				errors.add("allRequiredFieldIsNotfillin", new ActionMessage("absence.error.date.format"));
 			}
 		}
-
 		return errors;
 	}
 	/**
@@ -83,6 +82,7 @@ public class AbsenceModifyForm extends SelectSearchForm<Absence>{
 	public void reset() {
 		initDate="";
 		endDate="";
+		nbDays="";
 		justifications=null;
 		idJustification="";
 		comment="";

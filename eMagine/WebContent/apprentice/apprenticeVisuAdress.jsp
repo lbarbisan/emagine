@@ -126,6 +126,7 @@
 <html:errors />
 <html:hidden property="idApprenticeToModify" />
 <html:hidden property="action" />
+<html:hidden property="tab" />
 </html:form>
 <div align="right"><font color="red" size="1"><bean:message key="form.msg.obligation.star"/></font></div>
 </div>

@@ -83,6 +83,8 @@ public class ApprenticeModifyAction extends BaseAction {
 			 * Commons datas for the apprentice
 			 */		
 			
+			//apprenticeModifyForm.setTab();
+			
 			String idApprentice = request.getParameter("id");			
 			if(idApprentice != null && !"".equals(idApprentice)) {
 				Apprentice apprentice = managerManager.getApprenticeManager().retrieve(Long.parseLong(idApprentice));

@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
 
 import fr.umlv.ir3.emagine.apprentice.candidate.ContactEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.CourseOptionEnum;
@@ -17,6 +18,7 @@ import fr.umlv.ir3.emagine.apprentice.candidate.YearObtentionEnum;
 import fr.umlv.ir3.emagine.firm.Firm;
 import fr.umlv.ir3.emagine.firm.actor.EngineerTutor;
 import fr.umlv.ir3.emagine.teachertutor.TeacherTutor;
+import fr.umlv.ir3.emagine.util.DateOperations;
 
 public class ApprenticeModifyForm extends ActionForm {
 
@@ -325,35 +327,26 @@ public class ApprenticeModifyForm extends ActionForm {
 	private Collection <ContactEnum> contacts;
 	
 	/** Identifier of selected contact **/
-	private String idContact;
-	
+	private String idContact;	
 	
 	/** Use to action **/
 	private String action;
 
 	@Override
-	public ActionErrors validate(ActionMapping arg0, HttpServletRequest arg1) {
+	public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
 		ActionErrors errors = new ActionErrors();
 
-		/*if("create".equals(action) || "modify".equals(action)) {
-			if("".equals(initDate) || "".equals(endDate) || "".equals(idJustification)){
-				errors.add("allRequiredFieldIsNotfillin", new ActionMessage("user.error.allRequiredFieldIsNotfillin"));
-			}*/
-		//}
-
+		if("create".equals(action) || "modify".equals(action)) {
+			
+		}
 		return errors;
 	}
+
 
 	/**
 	 * Reset all informations contains in this form
 	 */
 	public void reset() {
-		initDate = ""; //TODO mettre la date du jour
-		endDate = ""; //TODO mettre la date du jour
-		nbDays = "";
-		justifications = null;
-		idJustification = "";
-		comment = "";
 		persAddress = "";
 		persCity = "";
 		idPersDepartment = "";
@@ -400,8 +393,7 @@ public class ApprenticeModifyForm extends ActionForm {
 		establishment2="";
 		idSchoolDepartment2="";
 		establishment3="";
-		idSchoolDepartment3="";		
-		idAbsenceToModify = "";
+		idSchoolDepartment3="";	
 		idApprenticeToModify = "";
 	}
 
