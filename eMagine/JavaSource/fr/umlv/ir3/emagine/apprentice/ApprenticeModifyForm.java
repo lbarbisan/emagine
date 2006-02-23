@@ -253,7 +253,26 @@ public class ApprenticeModifyForm extends ActionForm {
 	
 	/** Identifier of selected section **/
 	private String idSection3;
-		
+	
+	/** Identifier of selected department **/
+	private String idSchoolDepartment1;
+	
+	/** Identifier of selected department **/
+	private String idSchoolDepartment2;
+	
+	/** Identifier of selected department **/
+	private String idSchoolDepartment3;
+	
+	/** establishment of schooling **/
+	private String establishment1;
+	
+	/** establishment of schooling **/
+	private String establishment2;
+	
+	/** establishment of schooling **/
+	private String establishment3;
+	
+	
 	/*****************************************
 	 *
 	 * Part of the form for the status tab :
@@ -320,30 +339,19 @@ public class ApprenticeModifyForm extends ActionForm {
 			if("".equals(initDate) || "".equals(endDate) || "".equals(idJustification)){
 				errors.add("allRequiredFieldIsNotfillin", new ActionMessage("user.error.allRequiredFieldIsNotfillin"));
 			}*/
-			//else {
-			/* TODO if (!isValide(initDate) || !isValide(endDate) ){
-				errors.add("wrongDateFormat", new ActionMessage("candidate.error.wrongDateFormat"));
-				}
-			*/
-			//}
 		//}
 
 		return errors;
 	}
 
-/*	private boolean isValide(String date) {
-		//FIXME créer une méthode vérifiant le format
-	}
-*/
-
 	/**
 	 * Reset all informations contains in this form
 	 */
 	public void reset() {
-		initDate = ""; //TODO mettre la date du jour ?
-		endDate = ""; //TODO mettre la date du jour ?
+		initDate = ""; //TODO mettre la date du jour
+		endDate = ""; //TODO mettre la date du jour
 		nbDays = "";
-		//justifications = null;
+		justifications = null;
 		idJustification = "";
 		comment = "";
 		persAddress = "";
@@ -387,9 +395,12 @@ public class ApprenticeModifyForm extends ActionForm {
 		idFather="";
 		contacts=null;
 		idContact="";
-		
-		
-		
+		establishment1="";
+		idSchoolDepartment1="";
+		establishment2="";
+		idSchoolDepartment2="";
+		establishment3="";
+		idSchoolDepartment3="";		
 		idAbsenceToModify = "";
 		idApprenticeToModify = "";
 	}
@@ -1567,6 +1578,90 @@ public class ApprenticeModifyForm extends ActionForm {
 	 */
 	public void setIdSection3(String idSection3) {
 		this.idSection3 = idSection3;
+	}
+
+	/**
+	 * @return Returns the establishment1.
+	 */
+	public String getEstablishment1() {
+		return establishment1;
+	}
+
+	/**
+	 * @param establishment1 The establishment1 to set.
+	 */
+	public void setEstablishment1(String establishment1) {
+		this.establishment1 = establishment1;
+	}
+
+	/**
+	 * @return Returns the establishment2.
+	 */
+	public String getEstablishment2() {
+		return establishment2;
+	}
+
+	/**
+	 * @param establishment2 The establishment2 to set.
+	 */
+	public void setEstablishment2(String establishment2) {
+		this.establishment2 = establishment2;
+	}
+
+	/**
+	 * @return Returns the establishment3.
+	 */
+	public String getEstablishment3() {
+		return establishment3;
+	}
+
+	/**
+	 * @param establishment3 The establishment3 to set.
+	 */
+	public void setEstablishment3(String establishment3) {
+		this.establishment3 = establishment3;
+	}
+
+	/**
+	 * @return Returns the idSchoolDepartment1.
+	 */
+	public String getIdSchoolDepartment1() {
+		return idSchoolDepartment1;
+	}
+
+	/**
+	 * @param idSchoolDepartment1 The idSchoolDepartment1 to set.
+	 */
+	public void setIdSchoolDepartment1(String idSchoolDepartment1) {
+		this.idSchoolDepartment1 = idSchoolDepartment1;
+	}
+
+	/**
+	 * @return Returns the idSchoolDepartment2.
+	 */
+	public String getIdSchoolDepartment2() {
+		return idSchoolDepartment2;
+	}
+
+	/**
+	 * @param idSchoolDepartment2 The idSchoolDepartment2 to set.
+	 */
+	public void setIdSchoolDepartment2(String idSchoolDepartment2) {
+		this.idSchoolDepartment2 = idSchoolDepartment2;
+	}
+
+	/**
+	 * @return Returns the idSchoolDepartment3.
+	 */
+	public String getIdSchoolDepartment3() {
+		return idSchoolDepartment3;
+	}
+
+	/**
+	 * @param idSchoolDepartment3 The idSchoolDepartment3 to set.
+	 */
+	public void setIdSchoolDepartment3(String idSchoolDepartment3) {
+		this.idSchoolDepartment3 = idSchoolDepartment3;
 	}
 
 }

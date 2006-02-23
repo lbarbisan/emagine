@@ -47,6 +47,8 @@
 		</p>
 		<p><label for="comment"><bean:message key="form.comment"/></label><html:textarea property="comment"></html:textarea></p>
 	</div>
+	<html:errors/>
+	<html:hidden property="action"/>
 	<div id="actions">
 		<h2>&nbsp;</h2>
 		<ul>
@@ -55,7 +57,5 @@
 		<li><html:link href="javascript:deleteAbsence();"><html:img src="/eMagine/common/images/icones/supprimer.png" titleKey="button.title.remove" /></html:link></li>
 		</ul>
 	</div>
-<html:errors/>
-<html:hidden property="action"/>
 </html:form>
 <div align="right"><font color="red" size="1"><bean:message key="form.msg.obligation.star"/></font></div>

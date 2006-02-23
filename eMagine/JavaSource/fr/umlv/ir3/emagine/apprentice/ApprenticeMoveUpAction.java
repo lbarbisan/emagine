@@ -3,6 +3,9 @@
  */
 package fr.umlv.ir3.emagine.apprentice;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -28,27 +31,30 @@ public class ApprenticeMoveUpAction extends BaseAction {
 	 * @return an ActionForward instance describing where and how control should be forwarded, or null if the response has already been completed.
 	 * @throws Exception if an exception occurs
 	 */
-	public ActionForward pass(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionMessages errors = new ActionMessages();
 		ApprenticeSearchForm apprenticeSearchForm = (ApprenticeSearchForm)form;
 	
 		ApprenticeManager apprenticeManager = ManagerManager.getInstance().getApprenticeManager();
 		
-		// Delete the firms
+		// Move up the apprentices in the next year
 		DAOManager.beginTransaction();
 		String [] ids = request.getParameterValues("currentSelectedIds");
 
 		if(ids != null && ids.length > 0) {
+			List <Apprentice> apprenticeToMoveUp = new LinkedList <Apprentice> ();
 			for (String id : ids) {
 				try {
 					Apprentice apprentice = apprenticeManager.retrieve(Long.parseLong(id));
-					
-					// TODO A faire passer
+					apprenticeToMoveUp.add(apprentice);
 					
 				} catch (EMagineException exception) {
 					addEMagineExceptionError(errors, exception);
 				}
 			}
+			
+			if(!apprenticeToMoveUp.isEmpty())
+				apprenticeManager.moveUpApprentice(apprenticeToMoveUp);
 		}
 
         // Report back any errors, and exit if any

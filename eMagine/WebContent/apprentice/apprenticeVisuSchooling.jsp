@@ -43,6 +43,7 @@
 			<label for="levels"><bean:message key="form.level"/></label>
 			<html:select property="idLevel">
 				<logic:notEmpty name="apprenticeModifyForm" property="levels">
+					<option value="" selected></option>
 					<html:optionsCollection property="levels" value="id" label="name"/>	
 				</logic:notEmpty>
 			</html:select>
@@ -53,6 +54,7 @@
 			<p>
 				<label for="language1"><bean:message key="form.language1"/></label> 
 				<html:select property="idLanguage1">
+					<option value="" selected></option>
 					<logic:notEmpty name="apprenticeModifyForm" property="languages">
 						<html:optionsCollection property="languages" value="id" label="name"/>	
 					</logic:notEmpty>
@@ -61,6 +63,7 @@
 			<p>
 				<label for="language2"><bean:message key="form.language2"/></label>
 				<html:select property="idLanguage2">
+					<option value="" selected></option>
 					<logic:notEmpty name="apprenticeModifyForm" property="languages">
 						<html:optionsCollection property="languages" value="id" label="name"/> 	
 					</logic:notEmpty>
@@ -72,22 +75,16 @@
 			<legend><bean:message key="form.fieldset.marksExam"/></legend>
 			<p><label for="firstMarkExam">Psychotest&nbsp;</label><html:text property="firstMarkExam" size="5" /></p>	
 			<p><label for="secondMarkExam">Maths&nbsp;</label><html:text property="secondMarkExam" size="5" /></p>	
-			<p><label for="thirdMarkExam">Logique&nbsp;</label><html:text property="thirdMarkExam" size="5" /></p>		</fieldset>
+			<p><label for="thirdMarkExam">Logique&nbsp;</label><html:text property="thirdMarkExam" size="5" /></p>
+		</fieldset>
 		<br/>
 		<fieldset>
 			<legend><bean:message key="form.fieldset.obtainedDiplomas"/></legend>
 			<p>
-				<label for="year"><bean:message key="form.year"/></label>
-				<html:select property="idYearDiploma1">
-					<logic:notEmpty name="apprenticeModifyForm" property="obtentionYears">
-						<html:optionsCollection property="obtentionYears" value="id" label="name"/>	
-					</logic:notEmpty>
-				</html:select>
-			</p>
-			<p>
 				<label for="diploma"><bean:message key="form.lastDiploma"/></label>
 				<html:select property="idDiploma1">
 					<logic:notEmpty name="apprenticeModifyForm" property="diplomas">
+						<option value="" selected></option>
 						<html:optionsCollection property="diplomas" value="id" label="name"/>
 					</logic:notEmpty>	
 				</html:select>
@@ -96,23 +93,36 @@
 				<label for="section"><bean:message key="form.section"/></label>
 				<html:select property="idSection1">
 					<logic:notEmpty name="apprenticeModifyForm" property="sections">
+						<option value="" selected></option>
 						<html:optionsCollection property="sections" value="id" label="name"/>		
 					</logic:notEmpty>
 				</html:select>
 			</p>
-			<hr/>
 			<p>
 				<label for="year"><bean:message key="form.year"/></label>
 				<html:select property="idYearDiploma2">
 					<logic:notEmpty name="apprenticeModifyForm" property="obtentionYears">
+						<option value="" selected></option>
 						<html:optionsCollection property="obtentionYears" value="id" label="name"/>		
 					</logic:notEmpty>
 				</html:select>
 			</p>
 			<p>
+				<label for="department1"><bean:message key="form.department"/></label>
+				<html:select property="idSchoolDepartment1">
+					<logic:notEmpty name="apprenticeModifyForm" property="departments">
+						<option value="" selected></option>
+						<html:optionsCollection property="departments" value="id" label="name"/>	
+					</logic:notEmpty>
+				</html:select>
+			</p>
+			<p><label for="establishment1"><bean:message key="form.establishment"/></label><html:text property="establishment1" size="20" /></p>	
+			<hr/>
+			<p>
 				<label for="diploma"><bean:message key="form.lastDiploma"/></label>
 				<html:select property="idDiploma2">
 					<logic:notEmpty name="apprenticeModifyForm" property="diplomas">
+						<option value="" selected></option>
 						<html:optionsCollection property="diplomas" value="id" label="name"/>		
 					</logic:notEmpty>
 				</html:select>
@@ -121,23 +131,36 @@
 				<label for="section"><bean:message key="form.section"/></label>
 				<html:select property="idSection2">
 					<logic:notEmpty name="apprenticeModifyForm" property="sections">
+						<option value="" selected></option>
 						<html:optionsCollection property="sections" value="id" label="name"/>		
 					</logic:notEmpty>
 				</html:select>
 			</p>
-			<hr/>
 			<p>
 				<label for="year"><bean:message key="form.year"/></label>
 				<html:select property="idYearDiploma3">
 					<logic:notEmpty name="apprenticeModifyForm" property="obtentionYears">
+						<option value="" selected></option>
 						<html:optionsCollection property="obtentionYears" value="id" label="name"/>		
 					</logic:notEmpty>
 				</html:select>
 			</p>
 			<p>
+				<label for="department2"><bean:message key="form.department"/></label>
+				<html:select property="idSchoolDepartment2">
+					<logic:notEmpty name="apprenticeModifyForm" property="departments">
+						<option value="" selected></option>
+						<html:optionsCollection property="departments" value="id" label="name"/>	
+					</logic:notEmpty>
+				</html:select>
+			</p>
+			<p><label for="establishment2"><bean:message key="form.establishment"/></label><html:text property="establishment1" size="20" /></p>		
+			<hr/>
+			<p>
 				<label for="diploma"><bean:message key="form.lastDiploma"/></label>
 				<html:select property="idDiploma3">
 					<logic:notEmpty name="apprenticeModifyForm" property="diplomas">
+						<option value="" selected></option>
 						<html:optionsCollection property="diplomas" value="id" label="name"/>		
 					</logic:notEmpty>
 				</html:select>
@@ -146,79 +169,30 @@
 				<label for="section"><bean:message key="form.section"/></label>
 				<html:select property="idSection3">
 					<logic:notEmpty name="apprenticeModifyForm" property="sections">
+						<option value="" selected></option>
 						<html:optionsCollection property="sections" value="id" label="name"/>		
 					</logic:notEmpty>
 				</html:select>
 			</p>
-		</fieldset>
-		<br/>
-		<fieldset>
-			<legend><bean:message key="form.fieldset.scolarityPast"/></legend>
-			<p><label for="scolarityYear2"><bean:message key="form.year"/></label>
-				<select name="scolarityYear1">
-					<option value="" selected="selected">-- Ann&eacute;e --</option>	
-				</select></p>
-			<p><label for="class1"><bean:message key="form.class"/></label>
-				<select name="class1">
-					<option value="" selected="selected">-- Classe --</option>	
-				</select></p>
-			<p><label for="section1"><bean:message key="form.section"/></label>
-				<select name="section1">
-					<option value="" selected="selected">-- Section --</option>	
-				</select></p>
-			<p><label for="establishment1"><bean:message key="form.establishment"/></label><input type="text" id="establishment1" size="20" /></p>
-			<p><label for="postalCode1"><bean:message key="form.postalCode"/></label><input type="text" id="postalCode1" size="20" /></p>
-			<p><label for="city1"><bean:message key="form.city"/></label><input type="text" id="city1" size="20" /></p>
-			<p><label for="department1"><bean:message key="form.department"/></label>
-				<select name="department1">
-					<option value="93">93</option>
-					<option value="77">77</option>
-					<option value="78">78</option>
-				</select></p>
-			<h2>&nbsp;</h2>
-			<p><label for="scolarityYear2"><bean:message key="form.year"/></label>
-				<select name="scolarityYear2">
-					<option value="" selected="selected">-- Ann&eacute;e --</option>	
-				</select></p>
-			<p><label for="class2"><bean:message key="form.class"/></label>
-				<select name="class2">
-					<option value="" selected="selected">-- Classe --</option>	
-				</select></p>
-			<p><label for="section2"><bean:message key="form.section"/></label>
-				<select name="section2">
-					<option value="" selected="selected">-- Section --</option>	
-				</select></p>
-			<p><label for="establishment2"><bean:message key="form.establishment"/></label><input type="text" id="establishment2" size="20" /></p>
-			<p><label for="postalCode2"><bean:message key="form.postalCode"/></label><input type="text" id="postalCode2" size="20" /></p>
-			<p><label for="city2"><bean:message key="form.city"/></label><input type="text" id="city2" size="20" /></p>
-			<p><label for="department2"><bean:message key="form.department"/></label>
-				<select name="department2">
-					<option value="93">93</option>
-					<option value="77">77</option>
-					<option value="78">78</option>
-				</select></p>
-			<h2>&nbsp;</h2>
-			<p><label for="scolarityYear3"><bean:message key="form.year"/></label>
-				<select name="scolarityYear3">
-					<option value="" selected="selected">-- Ann&eacute;e --</option>	
-				</select></p>
-			<p><label for="class3"><bean:message key="form.class"/></label>
-				<select name="class3">
-					<option value="" selected="selected">-- Classe --</option>	
-				</select></p>
-			<p><label for="section3"><bean:message key="form.section"/></label>
-				<select name="section3">
-					<option value="" selected="selected">-- Section --</option>	
-				</select></p>
-			<p><label for="establishment3"><bean:message key="form.establishment"/></label><input type="text" id="establishment3" size="20" /></p>
-			<p><label for="postalCode3"><bean:message key="form.postalCode"/></label><input type="text" id="postalCode3" size="20" /></p>
-			<p><label for="city3"><bean:message key="form.city"/></label><input type="text" id="city3" size="20" /></p>
-			<p><label for="department3"><bean:message key="form.department"/></label>
-				<select name="department3">
-					<option value="93">93</option>
-					<option value="77">77</option>
-					<option value="78">78</option>
-				</select></p>
+			<p>
+				<label for="year"><bean:message key="form.year"/></label>
+				<html:select property="idYearDiploma3">
+					<logic:notEmpty name="apprenticeModifyForm" property="obtentionYears">
+						<option value="" selected></option>
+						<html:optionsCollection property="obtentionYears" value="id" label="name"/>		
+					</logic:notEmpty>
+				</html:select>
+			</p>
+			<p>
+				<label for="department3"><bean:message key="form.department"/></label>
+				<html:select property="idSchoolDepartment3">
+					<logic:notEmpty name="apprenticeModifyForm" property="departments">
+						<option value="" selected></option>
+						<html:optionsCollection property="departments" value="id" label="name"/>	
+					</logic:notEmpty>
+				</html:select>
+			</p>
+			<p><label for="establishment3"><bean:message key="form.establishment"/></label><html:text property="establishment1" size="20" /></p>		
 		</fieldset>
 		<br/>
 	</div>

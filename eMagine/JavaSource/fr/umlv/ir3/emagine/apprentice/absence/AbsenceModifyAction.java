@@ -3,10 +3,6 @@
  */
 package fr.umlv.ir3.emagine.apprentice.absence;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,11 +13,11 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessages;
 
+import fr.umlv.ir3.emagine.apprentice.Apprentice;
+import fr.umlv.ir3.emagine.apprentice.ApprenticeManager;
+import fr.umlv.ir3.emagine.apprentice.ApprenticeModifyForm;
 import fr.umlv.ir3.emagine.apprentice.JustificationEnum;
-import fr.umlv.ir3.emagine.apprentice.candidate.CourseOptionEnum;
-import fr.umlv.ir3.emagine.firm.Job;
-import fr.umlv.ir3.emagine.firm.JobManager;
-import fr.umlv.ir3.emagine.firm.JobModifyForm;
+import fr.umlv.ir3.emagine.util.DateOperations;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.EmagineEnumManager;
 import fr.umlv.ir3.emagine.util.ManagerManager;
@@ -49,7 +45,7 @@ public class AbsenceModifyAction extends BaseAction {
 			String id = request.getParameter("id");			
 			if(id != null && !"".equals(id)) {
 
-				// Retrieve the  to modify
+				// Retrieve the absence to modify
 				Absence absence = managerManager.getAbsenceManager().retrieve(Long.parseLong(id));
 
 				// Reset all form
@@ -59,10 +55,10 @@ public class AbsenceModifyAction extends BaseAction {
 				absenceModifyForm.setIdAbsenceToModify(absence.getId().toString());
 				
 				if(absence.getStartDate() != null) {
-					absenceModifyForm.setInitDate(dateToShow(absence.getStartDate()));		
+					absenceModifyForm.setInitDate(DateOperations.dateToShow(absence.getStartDate()));		
 				}
 				if(absence.getEndDate() != null) {
-					absenceModifyForm.setEndDate(dateToShow(absence.getEndDate()));		
+					absenceModifyForm.setEndDate(DateOperations.dateToShow(absence.getEndDate()));		
 				}
 				if(absence.getJustification() != null)
 					absenceModifyForm.setIdJustification(((Long)absence.getJustification().getId()).toString());
@@ -93,50 +89,29 @@ public class AbsenceModifyAction extends BaseAction {
 		ActionMessages errors = new ActionMessages();
 		ManagerManager managerManager = ManagerManager.getInstance();
 		AbsenceManager absenceManager = managerManager.getAbsenceManager();
+		ApprenticeManager apprenticeManager = managerManager.getApprenticeManager();
 		AbsenceModifyForm absenceModifyForm = (AbsenceModifyForm) form;
 		EmagineEnumManager emagineEnumManager = managerManager.getEmagineEnumManager();
 
-		// Update the job
+		// Update the absence
 		try {
 			Absence absence = absenceManager.retrieve(Long.parseLong(absenceModifyForm.getIdAbsenceToModify()));
+			Apprentice apprentice = apprenticeManager.retrieve(
+					Long.parseLong(
+							((ApprenticeModifyForm)request.getSession().getAttribute("apprenticeModifyForm")).getIdApprenticeToModify()));
 
 			// Set values
-			absence.setStartDate(stringToDate(absenceModifyForm.getInitDate()));
-			absence.setEndDate(stringToDate(absenceModifyForm.getEndDate()));
+			absence.setStartDate(DateOperations.stringToDate(absenceModifyForm.getInitDate()));
+			absence.setEndDate(DateOperations.stringToDate(absenceModifyForm.getEndDate()));
 			absence.setJustification((JustificationEnum) emagineEnumManager.retrieve(Long.parseLong(absenceModifyForm.getIdJustification()), JustificationEnum.class));
 			absence.setComment(absenceModifyForm.getComment());
 									
-			absenceManager.update(absence);
+			apprenticeManager.addAbsence(apprentice, absence);
 		} catch (EMagineException exception) {
 				addEMagineExceptionError(errors, exception);
 		}
 
         // Report back any errors, and exit if any
 		return successIfNoErrors(mapping, request, errors);
-	}
-	private Date stringToDate(String stringDate) {
-		Date date = null;
-		System.err.println(stringDate);
-		if (stringDate != "") {
-			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yy-MM-dd hh:mm:ss:SSS");
-			date = Calendar.getInstance().getTime();
-			try {
-				date = simpleDateFormat.parse(stringDate);
-				System.err.println(date);
-			} catch (ParseException e) {
-			}
-		}
-		return date;
-	}
-
-	private String dateToShow(Date date) {
-		System.out.println("date de date to show avant :"+date);
-		String stringDate = "";
-		if (date != null) {
-			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yy");
-			stringDate = simpleDateFormat.format(date);
-		}
-		System.err.println("date de date to show apres :"+date);
-		return stringDate;
 	}
 }

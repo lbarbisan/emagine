@@ -21,6 +21,7 @@ import fr.umlv.ir3.emagine.apprentice.ApprenticeModifyForm;
 import fr.umlv.ir3.emagine.apprentice.JustificationEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.Candidate;
 import fr.umlv.ir3.emagine.apprentice.candidate.CourseOptionEnum;
+import fr.umlv.ir3.emagine.util.DateOperations;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.ManagerManager;
 import fr.umlv.ir3.emagine.util.base.BaseAction;
@@ -76,15 +77,17 @@ public class AbsenceCreateAction extends BaseAction {
 			Apprentice apprentice = apprenticeManager.retrieve(Long.parseLong(((ApprenticeModifyForm) request.getSession().getAttribute("apprenticeModifyForm")).getIdApprenticeToModify()));
 			
 			// Set values
+
 			if(absenceModifyForm.getIdJustification() != null && !"".equals(absenceModifyForm.getIdJustification()))
 					absence.setJustification((JustificationEnum) managerManager.getEmagineEnumManager().retrieve(Long.parseLong(absenceModifyForm.getIdJustification()), JustificationEnum.class));
 
-			if(absenceModifyForm.getEndDate() != null && !"".equals(absenceModifyForm.getEndDate()))
-				absenceModifyForm.setInitDate(dateToShow(absence.getStartDate()));
+			if(absenceModifyForm.getInitDate() != null && !"".equals(absenceModifyForm.getInitDate()))
+				absence.setStartDate(DateOperations.stringToDate(absenceModifyForm.getInitDate()));
 
 			if(absenceModifyForm.getEndDate() != null && !"".equals(absenceModifyForm.getEndDate()))
-				absenceModifyForm.setEndDate(dateToShow(absence.getStartDate()));			
+				absence.setEndDate(DateOperations.stringToDate(absenceModifyForm.getEndDate()));			
 			
+			absence.setComment(absenceModifyForm.getComment());
 			absence.setApprentice(apprentice);
 			
 			// Create a apprentice
@@ -97,16 +100,5 @@ public class AbsenceCreateAction extends BaseAction {
 
         // Report back any errors, and exit if any
 		return successIfNoErrors(mapping, request, errors);
-	}
-
-	private String dateToShow(Date date) {
-		System.out.println("date de date to show avant :"+date);
-		String stringDate = "";
-		if (date != null) {
-			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yy");
-			stringDate = simpleDateFormat.format(date);
-		}
-		System.err.println("date de date to show apres :"+date);
-		return stringDate;
 	}
 }

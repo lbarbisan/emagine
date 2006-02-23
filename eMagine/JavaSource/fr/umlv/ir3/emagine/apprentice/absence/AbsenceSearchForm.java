@@ -2,7 +2,14 @@ package fr.umlv.ir3.emagine.apprentice.absence;
 
 import java.util.Collection;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts.action.ActionErrors;
+import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
+
 import fr.umlv.ir3.emagine.apprentice.JustificationEnum;
+import fr.umlv.ir3.emagine.util.DateOperations;
 import fr.umlv.ir3.emagine.util.IsASearchParam;
 import fr.umlv.ir3.emagine.util.search.SelectSearchForm;
 
@@ -28,6 +35,19 @@ public class AbsenceSearchForm extends SelectSearchForm<Absence> implements Abse
 	
 	/** Decide if you must force the deleted of entity **/
 	private boolean deletionForced;
+	
+	@Override
+	public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
+		ActionErrors errors = new ActionErrors();
+
+		if("search".equals(action)) {
+			if(DateOperations.checkStringDate(startDate) || DateOperations.checkStringDate(endDate)){
+				errors.add("allRequiredFieldIsNotfillin", new ActionMessage("absence.error.date.conflict"));
+			}
+		}
+
+		return errors;
+	}
 	
 	/**
 	 * @see fr.umlv.ir3.emagine.util.search.SearchForm#reset()
@@ -73,7 +93,7 @@ public class AbsenceSearchForm extends SelectSearchForm<Absence> implements Abse
 	/**
 	 * @return Returns the endDate.
 	 */
-	//@IsASearchParam(value = "absence.endDate.id", type = Long.class)
+	@IsASearchParam(value = "absence.endDate", type = Long.class)
 	public String getEndDate() {
 		return endDate;
 	}
@@ -117,7 +137,7 @@ public class AbsenceSearchForm extends SelectSearchForm<Absence> implements Abse
 	/**
 	 * @return Returns the startDate.
 	 */
-	//@IsASearchParam(value = "absence.startDate.id", type = Long.class)
+	@IsASearchParam(value = "absence.startDate", type = Long.class)
 	public String getStartDate() {
 		return startDate;
 	}

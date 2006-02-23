@@ -28,7 +28,7 @@ public class ApprenticeExcludeAction extends BaseAction {
 	 * @return an ActionForward instance describing where and how control should be forwarded, or null if the response has already been completed.
 	 * @throws Exception if an exception occurs
 	 */
-	public ActionForward pass(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionMessages errors = new ActionMessages();
 		ApprenticeSearchForm apprenticeSearchForm = (ApprenticeSearchForm)form;
 	
@@ -42,8 +42,7 @@ public class ApprenticeExcludeAction extends BaseAction {
 			for (String id : ids) {
 				try {
 					Apprentice apprentice = apprenticeManager.retrieve(Long.parseLong(id));
-					
-					// TODO A exclure
+					apprenticeManager.excludeApprentice(apprentice);
 					
 				} catch (EMagineException exception) {
 					addEMagineExceptionError(errors, exception);

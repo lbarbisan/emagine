@@ -2,7 +2,14 @@ package fr.umlv.ir3.emagine.apprentice.absence;
 
 import java.util.Collection;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts.action.ActionErrors;
+import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
+
 import fr.umlv.ir3.emagine.apprentice.JustificationEnum;
+import fr.umlv.ir3.emagine.util.DateOperations;
 import fr.umlv.ir3.emagine.util.search.SelectSearchForm;
 
 public class AbsenceModifyForm extends SelectSearchForm<Absence>{
@@ -52,7 +59,23 @@ public class AbsenceModifyForm extends SelectSearchForm<Absence>{
 	public void setIdAbsenceToModify(String idAbsenceToModify) {
 		this.idAbsenceToModify = idAbsenceToModify;
 	}
+	
+	@Override
+	public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
+		ActionErrors errors = new ActionErrors();
 
+		if("create".equals(action) || "modify".equals(action)) {
+			if ("".equals(initDate) || "".equals(endDate)){
+				errors.add("allRequiredFieldIsNotfillin", new ActionMessage("absence.error.date.notnull"));
+			}else if((DateOperations.stringToDate(initDate)).after(DateOperations.stringToDate(endDate))){
+				errors.add("allRequiredFieldIsNotfillin", new ActionMessage("absence.error.date.conflict"));
+			}else if (!DateOperations.checkStringDate(initDate) || !DateOperations.checkStringDate(endDate)){
+				errors.add("allRequiredFieldIsNotfillin", new ActionMessage("absence.error.date.format"));
+			}
+		}
+
+		return errors;
+	}
 	/**
 	/**
 	 * @see fr.umlv.ir3.emagine.util.search.SearchForm#reset()

@@ -45,8 +45,8 @@
 		<div class="search">
 			<fieldset>
 				<div class="search_b1">
-					<p><label for="initDate"><layout:date key="criteria.search.initDate" styleClass="form_calendar" property="startDate" startYear="2006" endYear="2030"/></label></p>
-					<p><label for="endDate"><layout:date key="criteria.search.endDate" styleClass="form_calendar" property="endDate" startYear="2006" endYear="2030"/></label></p>
+					<p><label for="initDate"><table><layout:date key="criteria.search.initDate" styleClass="form_calendar" property="startDate" startYear="2006" endYear="2030"/></label></p>
+					<p><label for="endDate"><table><layout:date key="criteria.search.endDate" styleClass="form_calendar" property="endDate" startYear="2006" endYear="2030"/></label></p>
 				</div>
 				<div class="search_b2">
 					<p>
@@ -111,17 +111,10 @@
 			<h2>&nbsp;</h2>
 			<ul>
 				<li><html:link action="/absenceCreate?action=show"><html:img src="/eMagine/common/images/icones/ajouter.png" titleKey="button.title.add" /></html:link></li>
+				<li><html:link href="javascript:deleteAbsences();"><html:img src="/eMagine/common/images/icones/supprimer.png" titleKey="button.title.remove" /></html:link></li>
+				<li><html:link href="javascript:resetForm();"><html:img src="/eMagine/common/images/icones/reinit.png" titleKey="button.title.reinitialize" /></html:link></li>
 			</ul>
 		</div>
 	</div>
-<div id="actions">
-	<h2>&nbsp;</h2>
-	<ul>
-		<li><html:link href="javascript:modifyAbsence();"><html:img src="/eMagine/common/images/icones/modif.png" titleKey="button.title.update" /></html:link></li>
-		<li><html:link href="javascript:resetForm();"><html:img src="/eMagine/common/images/icones/reinit.png" titleKey="button.title.reinitialize" /></html:link></li>
-		<li><html:link href="javascript:deleteAbsence();"><html:img src="/eMagine/common/images/icones/supprimer.png" titleKey="button.title.remove" /></html:link></li>
-		<li><html:link action="/apprenticeAbsenceExtract"><html:img src="/eMagine/common/images/icones/extraire.png" titleKey="button.title.extract"/></html:link></li>
-	</ul>
-</div>
 <html:hidden property="action" />
 </html:form>
