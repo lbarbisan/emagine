@@ -11,9 +11,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 import javax.persistence.TemporalType;
-import javax.persistence.UniqueConstraint;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
@@ -28,24 +26,26 @@ import fr.umlv.ir3.emagine.modification.EditableEntity;
  *
  */
 @Entity(access = AccessType.FIELD)
-@Table(uniqueConstraints={@UniqueConstraint(columnNames={"apprentice_id", "startDate", "endDate" })})
 public class Absence extends EditableEntity {
 	
 	private static final long serialVersionUID = -2760061716558049781L;
 	
 	@ManyToOne()
-	@JoinColumn(name = "apprentice_id") //FIXME : remetre le contrainte null, nullable = false)
+	@JoinColumn(name = "apprentice_id")
 	private Apprentice apprentice;
+	
+	@ManyToOne()
+	@Cascade({CascadeType.ALL,CascadeType.DELETE_ORPHAN})
+	@JoinColumn(name = "justification_id") //FIXME : remetre le contrainte null, nullable = false)
+	private JustificationEnum justification;
+	
 	@Basic(temporalType = TemporalType.TIMESTAMP) 
 	@Column(nullable=false)
 	private Date startDate;
 	@Basic(temporalType = TemporalType.TIMESTAMP)
 	@Column(nullable=false)
 	private Date endDate;
-	@ManyToOne()
-	@Cascade(CascadeType.SAVE_UPDATE)
-	@JoinColumn(name = "justification_id") //FIXME : remetre le contrainte null, nullable = false)
-	private JustificationEnum justification;
+	
 	private String comment;
 	
 	/**

@@ -26,6 +26,7 @@ public class Room extends EditableEntity {
 	
 	@OneToMany(	mappedBy = "room")
 	private List<Candidate> candidates = new ArrayList<Candidate>();
+	
 	@ManyToOne()
 	@JoinColumn(name="formationcenter_id")
 	private FormationCenter formationCenter;

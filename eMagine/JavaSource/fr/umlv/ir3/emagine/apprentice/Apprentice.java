@@ -8,7 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
@@ -32,7 +31,7 @@ public class Apprentice extends Candidate {
 	@Cascade({CascadeType.ALL, CascadeType.DELETE_ORPHAN})
 	private List<Absence> absences = new ArrayList<Absence>();
 	@ManyToOne()
-	@Cascade(CascadeType.SAVE_UPDATE)
+	@Cascade(CascadeType.SAVE_UPDATE)	
 	@JoinColumn(name="teachingtutor_id")
 	private TeacherTutor teacherTutor; 
 	@ManyToOne()

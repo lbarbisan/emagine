@@ -35,14 +35,16 @@ public class FormationCenter extends EditableEntity {
 	@OneToMany(mappedBy = "formationCenter")
 	@Cascade({CascadeType.ALL, CascadeType.DELETE_ORPHAN} )
 	private List<Room> rooms = new ArrayList<Room>();
+	
 	@OneToMany(mappedBy = "formationCenter")
 	@Cascade({CascadeType.ALL, CascadeType.DELETE_ORPHAN} )
 	private List<Candidate> candidates;
+	
 	@OneToOne()
 	@Cascade({CascadeType.ALL, CascadeType.DELETE_ORPHAN})
 	@JoinColumn(name = "address_id")
-	@Column(unique = true)
 	private Address address;
+	
 	private String name;
 	private String phone;
 	

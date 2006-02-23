@@ -36,7 +36,7 @@ public class TeacherTutorSearchForm extends SelectSearchForm<TeacherTutor> imple
 	/**
 	 * @return Returns the firstName.
 	 */
-	@IsASearchParam("TeacherTutor.firstName")
+	@IsASearchParam("teachertutor.firstName")
 	public String getFirstName() {
 		return firstName;
 	}
@@ -53,7 +53,7 @@ public class TeacherTutorSearchForm extends SelectSearchForm<TeacherTutor> imple
 	/**
 	 * @return Returns the lastName.
 	 */
-	@IsASearchParam("TeacherTutor.lastName")
+	@IsASearchParam("teachertutor.lastName")
 	public String getLastName() {
 		return lastName;
 	}

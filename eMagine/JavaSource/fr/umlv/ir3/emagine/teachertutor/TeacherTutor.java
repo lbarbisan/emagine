@@ -3,11 +3,10 @@ package fr.umlv.ir3.emagine.teachertutor;
 import java.util.List;
 
 import javax.persistence.AccessType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
@@ -28,13 +27,11 @@ public class TeacherTutor extends Person {
 
 	@OneToMany(mappedBy = "teacherTutor")
 	@Cascade(CascadeType.SAVE_UPDATE)
-	@Column(unique = true)
 	private List<Apprentice> apprentice;
 
-	@OneToOne()
-	@Cascade(CascadeType.SAVE_UPDATE)
+	@ManyToOne()
+	@Cascade({CascadeType.ALL, CascadeType.DELETE_ORPHAN})
 	@JoinColumn(name = "addressProfessional_id")
-	@Column(unique = true)
 	private Address addressProfessional = new Address();
 
 	/**
