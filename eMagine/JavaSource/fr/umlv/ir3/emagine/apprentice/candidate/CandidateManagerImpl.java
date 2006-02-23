@@ -6,6 +6,7 @@ import java.util.List;
 
 import fr.umlv.ir3.emagine.apprentice.Apprentice;
 import fr.umlv.ir3.emagine.apprentice.ApprenticeDAO;
+import fr.umlv.ir3.emagine.apprentice.YearEnum;
 import fr.umlv.ir3.emagine.modification.EditableManagerImpl;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
@@ -39,20 +40,24 @@ public class CandidateManagerImpl extends EditableManagerImpl<Candidate, Candida
 			DAOManager daoManager = DAOManager.getInstance();
 			ApprenticeDAO apprenticeDAO = daoManager.getApprenticeDAO();
 			CandidateDAO dao = getDAO();
+		
 			for (Candidate candidate : candidates) {
 				// Creates the new apprentice, based on the candidate
 				Apprentice apprentice = new Apprentice(candidate);	// FIXME : vérifier que les listes sont recrées pour le nouveau apprentice
 				apprenticeDAO.create(apprentice);
+
 				// Deletes the old candidate
 				dao.delete(candidate);
 
 				apprentices.add(apprentice);
 			}
+			
 			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {
 			DAOManager.rollBackTransaction();
 			throw exception;
 		}
+		
 		return apprentices;
 	}
 	

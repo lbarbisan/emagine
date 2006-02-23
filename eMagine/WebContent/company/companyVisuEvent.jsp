@@ -17,8 +17,8 @@
 	}
 	
 	function change(action) {
-		document.companyModifyForm.action = "/eMagine/" + action + ".do";
-		document.companyModifyForm.submit();
+		document.eventSearchForm.action = "/eMagine/" + action + ".do";
+		document.eventSearchForm.submit();
 	}
 -->
 </script>

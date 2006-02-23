@@ -101,7 +101,7 @@ public class FirmCreateAction extends BaseAction {
 			// Create a firm
 			firmManager.create(firm);
 
-			errors.add("confirm", new ActionMessage("firm.create.confirm"));
+			errors.add(ActionMessages.GLOBAL_MESSAGE, new ActionMessage("firm.create.confirm"));
 		} catch (EMagineException exception) {
 				addEMagineExceptionError(errors, exception);
 		}

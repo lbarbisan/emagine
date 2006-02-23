@@ -16,7 +16,7 @@
 		<logic:present role="user.retrieve,user.find">
 			<li><html:link action="/userSearch?action=show"><bean:message key="form.administration"/></html:link> | </li>
 		</logic:present>
-		<li><html:link href="javascript:afaire();"><bean:message key="form.help"/></html:link> | </li>
+		<li><html:link href="/eMagine/doc/documentation_utilisateur.pdf"><bean:message key="form.help"/></html:link> | </li>
 		<li><html:link href="javascript:disconnect();"><bean:message key="form.disconnect"/>&nbsp;[<%= fr.umlv.ir3.emagine.security.SessionManager.getInstance().getCurrentUser().getLogin() %>]</html:link></li>
 	</ul>
 </div>
