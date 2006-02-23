@@ -171,7 +171,7 @@ public class Firm extends EventableEntity {
 		if(motherFirm == null)
 			return new LinkedList<Firm>();
 		else {
-			List <Firm> firms = getMotherFirms();
+			List <Firm> firms = motherFirm.getMotherFirms();
 			firms.add(motherFirm);
 			return firms;
 		}
