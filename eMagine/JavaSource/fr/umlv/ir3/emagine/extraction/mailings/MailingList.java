@@ -7,7 +7,7 @@ import java.util.List;
 
 import javax.persistence.AccessType;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
@@ -26,7 +26,7 @@ public class MailingList extends EditableEntity {
 	
 	private String title;
 	private String comment;
-	@OneToMany()
+	@ManyToMany()
 	@Cascade(CascadeType.SAVE_UPDATE)
 	private List<Person> persons;
 	/**
