@@ -24,11 +24,13 @@ public class MailingList extends EditableEntity {
 
 	private static final long serialVersionUID = 7296169511769454784L;
 	
-	private String title;
-	private String comment;
 	@ManyToMany()
 	@Cascade(CascadeType.SAVE_UPDATE)
 	private List<Person> persons;
+	
+	private String title;
+	private String comment;
+	
 	/**
 	 * @return Returns the comment.
 	 */

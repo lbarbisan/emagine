@@ -9,10 +9,12 @@ import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.hibernate.Criteria;
 import org.hibernate.EntityMode;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.criterion.Order;
 import org.hibernate.metadata.ClassMetadata;
 
 import fr.umlv.ir3.emagine.util.EMagineException;
@@ -238,23 +240,25 @@ public class BaseDAO<EntityType extends BaseEntity> {
 	 * @return all collection of objects
 	 * @throws EMagineException throws if an SQLException occures
 	 */
+	@SuppressWarnings("unchecked")
 	public List<EntityType> findAll() throws EMagineException {
+			
+		//Debug
+		log.debug("findall() with '" + getEntityClass().getSimpleName() + "'");
 		
-		StringBuilder queryString = new StringBuilder().append("from ").append(getEntityClass().getSimpleName());
+		List<EntityType> foundResults  = 
+			HibernateUtils.getSession()
+						.createCriteria(getEntityClass())
+						.addOrder(Order.asc("id"))
+						.list();
 		
-		log.info("findall in " + Thread.currentThread().getName());
-		log.debug("findall() with '" + queryString + "'");
-		
-		List<EntityType> foundResults = (List<EntityType>) HibernateUtils
-				.getSession().createQuery(queryString.toString()).list();
 		if (foundResults.size() <= 0) {
 			return null;
 		}
 		
-		if(log.isDebugEnabled()==true)
-		{
-			for(EntityType entityType: foundResults)
-			{
+		//Debug
+		if(log.isDebugEnabled()==true){
+			for(EntityType entityType: foundResults){
 				logEntity("findAll", entityType);
 			}
 		}
