@@ -6,6 +6,7 @@ import java.util.List;
 import fr.umlv.ir3.emagine.firm.actor.FirmActor;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
+import fr.umlv.ir3.emagine.util.ManagerManager;
 import fr.umlv.ir3.emagine.util.base.EventableManagerImpl;
 
 public class FirmManagerImpl extends EventableManagerImpl<Firm, FirmDAO> implements FirmManager {
@@ -150,5 +151,12 @@ public class FirmManagerImpl extends EventableManagerImpl<Firm, FirmDAO> impleme
 	protected FirmDAO getDAO() {
 		DAOManager instance = DAOManager.getInstance();
 		return instance.getFirmDAO();
+	}
+	
+ 
+	public List <Firm> getFirmsLessParentFirms(Firm firm) throws EMagineException {
+		List <Firm> firms = ManagerManager.getInstance().getFirmManager().findAll();
+		firms.removeAll(firm.getMotherFirms());
+		return firms;
 	}
 }

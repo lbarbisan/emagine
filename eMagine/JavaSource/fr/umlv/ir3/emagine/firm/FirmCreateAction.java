@@ -31,12 +31,13 @@ public class FirmCreateAction extends BaseAction {
 	 */
 	public ActionForward show(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionMessages errors = new ActionMessages();
-		FirmModifyForm FirmModifyForm = (FirmModifyForm) form;
+		FirmModifyForm firmModifyForm = (FirmModifyForm) form;
 		
 		// Retrieve all profiles and set them in the form
 		try {
-			FirmModifyForm.reset();
-			FirmModifyForm.setDepartments((List <DepartmentEnum>)ManagerManager.getInstance().getEmagineEnumManager().findAll(DepartmentEnum.class));
+			firmModifyForm.reset();
+			firmModifyForm.setDepartments((List <DepartmentEnum>)ManagerManager.getInstance().getEmagineEnumManager().findAll(DepartmentEnum.class));
+			firmModifyForm.setParentFirms(ManagerManager.getInstance().getFirmManager().findAll());
 		} catch (EMagineException exception) {
 			addEMagineExceptionError(errors, exception);
 		}

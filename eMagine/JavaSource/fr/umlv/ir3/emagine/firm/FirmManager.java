@@ -80,5 +80,6 @@ public interface FirmManager extends EventableManager<Firm, FirmDAO> {
 	@MustHaveRights("firm.update")
 	public abstract void removeFirmActors(Firm firm,
 			Collection<FirmActor> actors) throws EMagineException;
-
+	
+	public List <Firm> getFirmsLessParentFirms(Firm firm) throws EMagineException;
 }

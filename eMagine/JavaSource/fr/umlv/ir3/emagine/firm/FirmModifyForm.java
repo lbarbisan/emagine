@@ -1,6 +1,7 @@
 package fr.umlv.ir3.emagine.firm;
 
 import java.util.Collection;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -57,7 +58,7 @@ public class FirmModifyForm extends ActionForm {
 	private String idParentFirm;
 
 	/** Identifier of selected firm parent **/
-	private String nameParentFirm;
+	private List<Firm> parentFirms;
 
 	/** List of child firms **/
 	private Collection <Firm> childFirms;
@@ -105,7 +106,7 @@ public class FirmModifyForm extends ActionForm {
 		email = "";
 		fax = "";
 		idParentFirm = "";
-		nameParentFirm = "";
+		parentFirms = null;
 		childFirms = null;
 		idDepartment = "";
 		departments = null;
@@ -353,16 +354,16 @@ public class FirmModifyForm extends ActionForm {
 	}
 
 	/**
-	 * @return Returns the nameParentFirm.
+	 * @return Returns the parentFirms.
 	 */
-	public String getNameParentFirm() {
-		return nameParentFirm;
+	public List<Firm> getParentFirms() {
+		return parentFirms;
 	}
 
 	/**
-	 * @param nameParentFirm The nameParentFirm to set.
+	 * @param parentFirms The parentFirms to set.
 	 */
-	public void setNameParentFirm(String nameParentFirm) {
-		this.nameParentFirm = nameParentFirm;
+	public void setParentFirms(List<Firm> nameParentFirm) {
+		this.parentFirms = nameParentFirm;
 	}
 }

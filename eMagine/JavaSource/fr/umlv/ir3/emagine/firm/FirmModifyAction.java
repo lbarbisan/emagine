@@ -56,12 +56,10 @@ public class FirmModifyAction extends BaseAction {
 				firmModifyForm.setWeb(firm.getWebSite());
 				firmModifyForm.setChildFirms(firm.getChildfirm());
 				firmModifyForm.setEvents(firm.getEvents());
-
+						
 				// Parent firm
-				if(firm.getMotherFirm() != null) {
+				if(firm.getMotherFirm() != null)
 					firmModifyForm.setIdParentFirm(Long.toString(firm.getMotherFirm().getId()));
-					firmModifyForm.setNameParentFirm(firm.getMotherFirm().getName());
-				}
 				
 				/*** Set address component ***/
 				if(firm.getAddress() != null) {
@@ -82,6 +80,8 @@ public class FirmModifyAction extends BaseAction {
 					// Country
 					firmModifyForm.setCountry("");
 				}
+
+				firmModifyForm.setParentFirms(ManagerManager.getInstance().getFirmManager().getFirmsLessParentFirms(firm));
 			}
 			
 			// Retrieve all departments and set them in the form

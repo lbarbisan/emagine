@@ -61,12 +61,14 @@
 	<fieldset>
 		<legend><bean:message key="form.fieldset.organisation"/></legend>
 		<p><label for="name"><bean:message key="form.name"/><font color="red">*</font>&nbsp;</label><html:text property="name" size="20" /></p>
-		<p><label for="branch"><bean:message key="form.branch"/></label>
-			<html:text property="nameParentFirm" size="20" readonly="true"/>
-			<html:link href="javascript:firmPopUp();"><img src="/eMagine/common/images/icones/visualiser_small.png" title="<bean:message key="button.title.visualize"/>"/></html:link>
-			<html:link href="javascript:setFirm('','');">x</html:link>
-		</p>
-		<html:hidden property="idParentFirm" />
+			<p><label for="idParentFirm"><bean:message key="form.branch"/></label>
+				<html:select property="idParentFirm">
+					<option value="" ></option>
+					<logic:notEmpty name="companyModifyForm" property="parentFirms">
+						<html:optionsCollection property="parentFirms" value="id" label="name"/>		
+					</logic:notEmpty>
+				</html:select>
+			</p>
 	</fieldset>
 	<br/>
 	<fieldset>
