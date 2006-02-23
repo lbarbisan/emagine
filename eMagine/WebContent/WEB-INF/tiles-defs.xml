@@ -39,6 +39,7 @@
 	<definition name="common.mailConfig" path="/common/mailConfig.jsp"/>
 	<definition name="common.mail" path="/common/mailResult.jsp"/>
 	<definition name="common.mailing" path="/common/mailing.jsp"/>
+	<definition name="common.mailingCreate" path="/common/mailingCreate.jsp"/>
 
 	<!-- Apprentice -->
 	<definition name="apprentice" extends="mainLayout">

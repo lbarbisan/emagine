@@ -12,7 +12,7 @@
 		<script type="text/javascript">
 		<!--
 			function mail() {
-				document.mailForm.action.value = "mail";
+				document.mailForm.action.value = "extract";
 				document.mailForm.submit();
 				return false;
 			}
@@ -24,19 +24,17 @@
 		<html:form action="/mail" method="POST">
 			<h2><bean:message name="mailForm" property="extractionTitleKey"/></h2>
 			<div class="form">
-				<html:errors/>
-
 				<p>
+					<html:errors/>
 				</p>
 			</div>
-			<div id="actions">
+			<div id="content">
 				<ul>
 					<li>
 						<html:link action="/openAttachment" paramId="id" paramName="mailForm" paramProperty="mailingType.id">
 							<bean:message key="mail.do.docFile"/><bean:write name="mailForm" property="mailingType.fileName"/>
 						</html:link>
 					</li>
-					<br/>
 					<li>
 						<html:link href="javascript:mail();">
 							<bean:message key="mail.do.dataFile"/>

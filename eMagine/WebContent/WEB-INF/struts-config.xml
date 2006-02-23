@@ -40,10 +40,11 @@
 		<form-bean name="firmActorListForm" type="fr.umlv.ir3.emagine.firm.actor.FirmActorListForm" />
 		<form-bean name="mailingTypeModifyForm" type="fr.umlv.ir3.emagine.extraction.mailstype.MailingTypeModifyForm" />
 		<form-bean name="mailingTypeListForm" type="fr.umlv.ir3.emagine.extraction.mailstype.MailingTypeListForm" />
-		<form-bean name="mailingListModifyForm" type="fr.umlv.ir3.emagine.extraction.mailings.MailingListModifyForm" />
+		<form-bean name="mailingListModifyForm" type="fr.umlv.ir3.emagine.extraction.mailings.MailingListCreationForm" />
 		<form-bean name="mailingListListForm" type="fr.umlv.ir3.emagine.extraction.mailings.MailingListListForm" />
 		<form-bean name="mailForm" type="fr.umlv.ir3.emagine.extraction.mailings.MailForm" />
 		<form-bean name="mailingForm" type="fr.umlv.ir3.emagine.extraction.mailings.MailingSearchForm" />
+		<form-bean name="mailingCreateForm" type="fr.umlv.ir3.emagine.extraction.mailings.MailingListCreationForm" />
 		<form-bean name="eventSearchForm" type="fr.umlv.ir3.emagine.event.EventSearchForm" />
 	</form-beans>
 
@@ -84,6 +85,13 @@
 			parameter="action"
 			name="mailingForm">
 			<forward name="_default_target_" path="common.mailing"/>
+		</action>
+
+		<action path="/mailingCreate"
+			type="fr.umlv.ir3.emagine.extraction.mailings.MailingListCreateAction"
+			parameter="action"
+			name="mailingCreateForm">
+			<forward name="_default_target_" path="common.mailingCreate"/>
 		</action>
 
 		<!-- apprentice -->

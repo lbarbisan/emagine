@@ -53,7 +53,7 @@ public class BaseDAO<EntityType extends BaseEntity> {
 	public void create(EntityType object) throws EMagineException {
 		try {
 			Session session = HibernateUtils.getSession();
-			log.info("create in " + Thread.currentThread().getName());
+			log.trace("create in " + Thread.currentThread().getName());
 			session.save(object);
 		} catch (HibernateException exception) {
 			throw new EMagineException("exception.baseDAO.create", exception);

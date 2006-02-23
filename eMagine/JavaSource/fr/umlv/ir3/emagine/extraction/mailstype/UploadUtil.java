@@ -25,8 +25,8 @@ public class UploadUtil {
 		return file;
 	}
 	
-	public static File getFileUploaded(String filename) throws NoSuchAlgorithmException, IOException {
-		return new File(createUploadDir(Bundles.getConfigBundle().getString("upload.dirPath")), filename);
+	public static File getFileUploaded(String filepath) throws NoSuchAlgorithmException, IOException {
+		return new File(createUploadDir(Bundles.getConfigBundle().getString("upload.dirPath")), filepath);
 	} 
 	
 	private static File createUploadFile(String dirPath, String filename, String ext, byte[] datas) throws NoSuchAlgorithmException, IOException {

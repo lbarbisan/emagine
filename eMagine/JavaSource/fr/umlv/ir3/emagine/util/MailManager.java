@@ -30,7 +30,7 @@ public class MailManager {
 	 * @param attachments
 	 * @throws EMagineException
 	 */
-	public static void  sendMail(String to, String subject, String body, Collection<String> attachments) throws EMagineException
+	public static void  sendMail(String to, String subject, String body, String... attachments) throws EMagineException
 	{
 		// Thanks to http://www.infini-fr.com/Sciences/Informatique/Langages/Imperatifs/Java/javamail.html
 		try {
@@ -88,10 +88,10 @@ public class MailManager {
 	 * @param to destination emails addresses
 	 * @param subject subject of the email
 	 * @param body
-	 * @param attachments
+	 * @param attachments table of table of 2 strings, containing [filename_to_display, file_path]
 	 * @throws EMagineException
 	 */
-	public static void sendMultiMailsBCC(Collection<String> to, String subject, String body, Collection<String> attachments) throws EMagineException
+	public static void sendMultiMailsBCC(Collection<String> to, String subject, String body, String[]... attachments) throws EMagineException
 	{
 		// Thanks to http://www.infini-fr.com/Sciences/Informatique/Langages/Imperatifs/Java/javamail.html
 		try {
@@ -121,14 +121,18 @@ public class MailManager {
 			mp.addBodyPart(mbp);
 			
 			if (attachments != null) {
-				for (String attachment : attachments) {
+				for (String[] attachment : attachments) {
 					// Adds an attachment
-					File file =  new File(attachment);
+					File file =  new File(attachment[0]);
 					MimeBodyPart mbpFile = new MimeBodyPart();
 					mbpFile.setText("Attachement " + file.getName());
 					FileDataSource fds = new FileDataSource(file);
 					mbpFile.setDataHandler(new DataHandler(fds));
-					mbpFile.setFileName(file.getName());
+					if (attachment.length > 1) {
+						mbpFile.setFileName(attachment[1]);
+					} else {
+						mbpFile.setFileName(attachment[0]);
+					}
 					mp.addBodyPart(mbpFile);
 				}
 			}

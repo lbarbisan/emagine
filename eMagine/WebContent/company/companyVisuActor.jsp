@@ -77,12 +77,12 @@
 		</logic:notEmpty>	
 		<h2>&nbsp; </h2>	
 		<ul>
+			<li><html:link action="/actorCreate?action=show"><html:img src="/eMagine/common/images/icones/ajouter.png" titleKey="button.title.add"/></html:link></li>
 			<li><html:link href="javascript:deletes();"><html:img src="/eMagine/common/images/icones/supprimer.png" titleKey="button.title.remove" /></html:link></li>
-			<li><html:link action="/actorMailingListCreate"><img src="/eMagine/common/images/icones/creer_mailing_list.png" title="<bean:message key="button.title.mailingListCreate"/>"/></html:link></li>
-			<li><html:link href="javascript:open_mailing_win(document.firmActorListForm, 'firmActor')"><img src="/eMagine/common/images/icones/mailing.png" title="<bean:message key="button.title.email"/>"/></html:link></li>
-			<li><html:link href="javascript:open_mail_win(document.firmActorListForm, 'firmActor')"><img src="/eMagine/common/images/icones/publipostage.png" title="<bean:message key="button.title.mailing"/>"/></html:link></li>
-			<li><html:link href="javascript:open_extract_win(document.firmActorListForm, 'firmActor')"><img src="/eMagine/common/images/icones/extraire.png" title="<bean:message key="button.title.extract"/>"/></html:link></li>
-			<li><html:link action="/actorCreate?action=show"><img src="/eMagine/common/images/icones/ajouter.png" title="<bean:message key="button.title.add"/>"/></html:link></li>
+			<li><html:link href="javascript:open_mailing_create_win(document.firmActorListForm, 'firmActor')"><html:img src="/eMagine/common/images/icones/creer_mailing_list.png" titleKey="button.title.email"/></html:link></li>
+			<li><html:link href="javascript:open_mailing_win(document.firmActorListForm, 'firmActor')"><html:img src="/eMagine/common/images/icones/mailing.png" titleKey="button.title.email"/></html:link></li>
+			<li><html:link href="javascript:open_mail_win(document.firmActorListForm, 'firmActor')"><html:img src="/eMagine/common/images/icones/publipostage.png" titleKey="button.title.mailing"/></html:link></li>
+			<li><html:link href="javascript:open_extract_win(document.firmActorListForm, 'firmActor')"><html:img src="/eMagine/common/images/icones/extraire.png" titleKey="button.title.extract"/></html:link></li>
 		</ul>
 	</div>
 </div>

@@ -13,6 +13,7 @@ import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
 
 import fr.umlv.ir3.emagine.extraction.mailstype.MailingType;
+import fr.umlv.ir3.emagine.extraction.mailstype.UploadUtil;
 import fr.umlv.ir3.emagine.util.Bundles;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.MailManager;
@@ -69,14 +70,15 @@ public class MailingAction extends BaseAction {
 		try {
 			// Retrieve the file of the selected MailType
 			final MailingType mailingType = ManagerManager.getInstance().getMailingTypeManager().retrieve(Long.parseLong(mailingSearchForm.getMailingTypeId()));
-			String attachedFile = Bundles.getConfigBundle().getString("upload.dirPath")+mailingType.getFilePath();
+			UploadUtil.getFileUploaded(mailingType.getFilePath());
+			String attachedFile = UploadUtil.getFileUploaded(mailingType.getFilePath()).getAbsolutePath();
 			// Construct the list of email
 			LinkedList<String> emails = new LinkedList<String>();
 			for(Person person : ((SearchForm<Person>)request.getSession().getAttribute(mailingSearchForm.getExtractionObjectName())).getResults()) {
 				emails.add(person.getEmail());
 			}
 			// Send the mail
-			MailManager.sendMultiMailsBCC(emails, mailingType.getTitle(), mailingType.getComment(), Collections.singletonList(attachedFile));
+			MailManager.sendMultiMailsBCC(emails, mailingType.getTitle(), mailingType.getComment(), new String[] {mailingType.getFileName(), attachedFile});
 		} catch (EMagineException e) {
 			// save the error
 			addEMagineExceptionError(errors, e);

@@ -25,7 +25,7 @@ public class PropertiesExtractAction extends ExtractAction {
 		final String managerClass = Bundles.getExtractionBundle().getString("extraction."+config.getExtractionEntityName()+".manager");
 		final BaseManager manager = ManagerManager.getInstance().getManager(managerClass);
 		if (manager == null) {
-			throw new EMagineException("exception.extraction.unknownConfigManager", "extraction."+config.getExtractionEntityName()+".manager", managerClass);
+			throw new EMagineException("exception.extraction.properties.unknownConfigManager", "extraction."+config.getExtractionEntityName()+".manager", managerClass);
 		}
 		return manager;
 	}

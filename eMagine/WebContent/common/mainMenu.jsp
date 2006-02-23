@@ -15,7 +15,11 @@
 		<logic:present role="candidate.retrieve,candidate.find">
 			<li><html:link action="/candidateSearch?action=show"><bean:message key="form.recruitment"/></html:link>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;</li>
 		</logic:present>
-		<li><html:link action="/statisticsVisu"><bean:message key="form.statistics"/></html:link>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;</li>
-		<li><html:link action="/mailingListVisu"><bean:message key="form.mail"/></html:link></li>
+		<logic:present role="statistic.retrieve,statistic.find">
+			<li><html:link action="/statisticsVisu"><bean:message key="form.statistics"/></html:link>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;</li>
+		</logic:present>
+		<logic:present role="mailingList.retrieve,mailingList.find">
+			<li><html:link action="/mailingListVisu"><bean:message key="form.mail"/></html:link></li>
+		</logic:present>
 	</ul>
  </div>

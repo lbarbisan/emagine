@@ -36,8 +36,15 @@
 				<logic:iterate id="mailingList" name="mailingListListForm" property="results" type="fr.umlv.ir3.emagine.extraction.mailings.MailingList">
 					<tr>
 						<td><html:multibox property="currentSelectedIds" value="<%= mailingList.getId().toString() %>" />&nbsp;</td>
-						<td><html:link action="/emailDo"><img src="/eMagine/common/images/icones/mailing_small.png" title="<bean:message key="button.title.mailing"/>"/></html:link><html:link action="/mailDo"><img src="/eMagine/common/images/icones/publipostage_small.png" title="<bean:message key="button.title.email"/>"/></html:link></td>
-						<td><bean:write name="mailingList" property="name" />&nbsp;</td>
+						<td>
+							<html:link action="/emailDo">
+								<html:img src="/eMagine/common/images/icones/publipostage_small.png" titleKey="button.title.mailing"/>
+							</html:link>
+							<html:link action="/mailDo">
+								<html:img src="/eMagine/common/images/icones/mailing_small.png" titleKey="button.title.email"/>
+							</html:link>
+						</td>
+						<td><bean:write name="mailingList" property="title" />&nbsp;</td>
 						<td><bean:write name="mailingList" property="comment" />&nbsp;</td>
 					</tr>
 				</logic:iterate>

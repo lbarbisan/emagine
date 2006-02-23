@@ -30,7 +30,7 @@ public class MailingListModifyAction extends BaseAction {
 	public ActionForward show(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionMessages errors = new ActionMessages();
 		MailingListManager mailingListManager = ManagerManager.getInstance().getMailingListManager();
-		MailingListModifyForm mailingListModifyForm = (MailingListModifyForm) form;
+		MailingListCreationForm mailingListModifyForm = (MailingListCreationForm) form;
 		
 		try {
 			// Retrieve the firm we want to see (if he exists) 
@@ -78,7 +78,7 @@ public class MailingListModifyAction extends BaseAction {
 	public ActionForward modify(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception  {
 		ActionMessages errors = new ActionMessages();
 		MailingListManager mailingListManager = ManagerManager.getInstance().getMailingListManager();
-		MailingListModifyForm mailingListModifyForm = (MailingListModifyForm) form;
+		MailingListCreationForm mailingListModifyForm = (MailingListCreationForm) form;
 
 		// Update the firm
 		try {

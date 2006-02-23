@@ -9,11 +9,11 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
 
+import fr.umlv.ir3.emagine.extraction.PropertiesExtractAction;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.ManagerManager;
-import fr.umlv.ir3.emagine.util.base.BaseAction;
 
-public class MailingListCreateAction extends BaseAction {
+public class MailingListCreateAction extends PropertiesExtractAction {
 
 	/**
 	 * The administrator wants to show a new create form.
@@ -27,10 +27,11 @@ public class MailingListCreateAction extends BaseAction {
 	 */
 	public ActionForward show(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionMessages errors = new ActionMessages();
-		MailingListModifyForm mailingListModifyForm = (MailingListModifyForm) form;
+		MailingListCreationForm mailingListModifyForm = (MailingListCreationForm) form;
 		
-		// Retrieve all profiles and set them in the form
-		mailingListModifyForm.reset();
+		// Erase the title and comment in case the form was in session (must not be in the session)
+		mailingListModifyForm.setTitle("");
+		mailingListModifyForm.setComment("");
 
 		// Report back any errors, and exit if any
 		return viewFormIfNoErrors(mapping, request, errors);
@@ -49,16 +50,17 @@ public class MailingListCreateAction extends BaseAction {
 	 */
 	public ActionForward create(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionMessages errors = new ActionMessages();
-		MailingListModifyForm mailingListModifyForm = (MailingListModifyForm) form;
+		MailingListCreationForm mailingListModifyForm = (MailingListCreationForm) form;
 		MailingListManager mailingListManager = ManagerManager.getInstance().getMailingListManager();
 		
 		try {
-			// Init firm
+			// Get the params entered by the user
+			
 			MailingList mailingList = new MailingList();
 			
 			mailingList.setComment(mailingListModifyForm.getComment());
 			mailingList.setTitle(mailingListModifyForm.getTitle());
-			mailingList.setPersons(mailingListModifyForm.getPersonns());
+			mailingList.setPersons(mailingListModifyForm.getExtractionList(mapping, form, request, response));
 
 			// Create a mailing type
 			mailingListManager.create(mailingList);
