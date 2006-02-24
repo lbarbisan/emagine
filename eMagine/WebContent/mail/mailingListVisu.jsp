@@ -59,8 +59,8 @@
 	<div id="actions">
 		<logic:notEmpty name="mailingListListForm" property="results">
 		<ul>
-			<li><a href="javascript:checkAll('mailingListListForm','currentSelectedIds');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
-			<li><a href="javascript:checkNothing('mailingListListForm','currentSelectedIds');"><bean:message key="all_none.none"/></a></li>
+			<li><a href="javascript:checkAll('currentSelectedIds','mailingListListForm');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
+			<li><a href="javascript:checkNothing('currentSelectedIds','mailingListListForm');"><bean:message key="all_none.none"/></a></li>
 		</ul>
 		</logic:notEmpty>	
 		<h2>&nbsp;</h2>
