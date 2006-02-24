@@ -103,14 +103,14 @@
 	<div id="actions">
 		<logic:notEmpty name="eventSearchForm" property="results">
 		<ul>
-			<li><a href="javascript:checkAll('results','all_none');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
-			<li><a href="javascript:checkNothing('results','all_none');"><bean:message key="all_none.none"/></a></li>
+			<li><a href="javascript:checkAll('eventSearchForm','currentSelectedIds');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
+			<li><a href="javascript:checkNothing('eventSearchForm','currentSelectedIds');"><bean:message key="all_none.none"/></a></li>
 		</ul>
 		</logic:notEmpty>	
 		<h2>&nbsp;</h2>
 		<ul>
 			<li><html:link href="javascript:deleteEvents();"><html:img src="/eMagine/common/images/icones/supprimer.png" titleKey="button.title.remove" /></html:link></li>
-			<li><html:link href="javascript:open_extract_win(document.eventSearchForm, 'firm')"><img src="/eMagine/common/images/icones/extraire.png" title="<bean:message key="button.title.extract"/>"/></html:link></li>
+			<li><html:link href="javascript:open_extract_win(document.eventSearchForm, 'event')"><img src="/eMagine/common/images/icones/extraire.png" title="<bean:message key="button.title.extract"/>"/></html:link></li>
 		</ul>
 	</div>	
 	

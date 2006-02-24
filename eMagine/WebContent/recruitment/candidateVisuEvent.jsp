@@ -103,7 +103,7 @@
 		<h2>&nbsp;</h2>
 		<ul>
 			<li><html:link href="javascript:deleteEvents();"><html:img src="/eMagine/common/images/icones/supprimer.png" titleKey="button.title.remove" /></html:link></li>
-			<li><html:link href="javascript:open_extract_win(document.eventSearchForm, 'firm')"><img src="/eMagine/common/images/icones/extraire.png" title="<bean:message key="button.title.extract"/>"/></html:link></li>
+			<li><html:link href="javascript:open_extract_win(document.eventSearchForm, 'event')"><img src="/eMagine/common/images/icones/extraire.png" title="<bean:message key="button.title.extract"/>"/></html:link></li>
 		</ul>
 	</div>	
 	

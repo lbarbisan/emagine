@@ -62,9 +62,13 @@ public abstract class ExtractAction<I extends Identifiable, E extends BaseEntity
 			Extractable extractable = new ObjectListExtractable<I>(extractionList, Arrays.asList(extractionForm.getSelectedEntityProperties()));
 			
 			// Set the response headers
-			response.setContentType(extractionForm.getExtractionType().mimeType());
+			final ExtractionType extractionType = extractionForm.getExtractionType();
+			if (extractionType == null) {
+				throw new EMagineException("exception.extraction.noExtractionType");
+			}
+			response.setContentType(extractionType.mimeType());
 			response.setHeader("Pragma", "no-cache");
-			response.setHeader("Content-Disposition", "attachment; filename=\""+extractionForm.getExtractionEntityName()+"."+extractionForm.getExtractionType().fileExtension()+"\"");
+			response.setHeader("Content-Disposition", "attachment; filename=\""+extractionForm.getExtractionEntityName()+"."+extractionType.fileExtension()+"\"");
 
 			// Extract
 //			final PrintWriter writer = response.getWriter();
