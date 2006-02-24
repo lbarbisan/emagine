@@ -117,6 +117,5 @@
 			<li><html:link href="javascript:open_extract_win(document.eventSearchForm, 'firm')"><img src="/eMagine/common/images/icones/extraire.png" title="<bean:message key="button.title.extract"/>"/></html:link></li>
 		</ul>
 	</div>	
-<html:hidden property="idApprenticeToModify"/>
-<html:hidden property="action" />
+	<html:hidden property="action" />
 </html:form>

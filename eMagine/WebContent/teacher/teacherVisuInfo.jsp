@@ -1,6 +1,7 @@
 <%@ taglib uri="/WEB-INF/tld/struts-html.tld" prefix="html"%>
 <%@ taglib uri="/WEB-INF/tld/struts-bean.tld" prefix="bean"%>
 <%@ taglib uri="/WEB-INF/tld/struts-logic.tld" prefix="logic"%>
+<%@ taglib uri="/WEB-INF/tld/struts-nested.tld" prefix="nested"%>
 
 <script type="text/javascript">
 <!--
@@ -68,7 +69,7 @@
 			<logic:notEmpty name="teacherTutorModifyForm" property="pupils">
 				<logic:iterate id="currentPupil" name="teacherTutorModifyForm" property="pupils">
 					<tr>
-						<td><html:multibox property="currentSelectedIds" value="<%= pupille.getId().toString() %>" />&nbsp;</td>
+						<td><nested:multibox property="currentSelectedIds" value="currentPupil.id" />&nbsp;</td>
 						<td><html:link action="/actorModify?action=show" paramId="id" paramName="pupille" paramProperty="id"><bean:write name="pupille" property="lastName" />&nbsp;</html:link></td>
 						<td><bean:write name="pupille" property="firstName" />&nbsp;</td>
 						<td><bean:write name="pupille" property="courseOption.name" />&nbsp;</td>

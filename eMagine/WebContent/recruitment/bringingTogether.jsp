@@ -28,7 +28,7 @@
 			</fieldset>
 		</div>
 		<br/>
-			<div class="buttons"><html:submit onclick="javascript:setAction('bringingTogether');" titleKey="button.title.bringingTogether"><bean:message key="button.title.bringingTogether" /></html:submit></div>
+			<div class="buttons"><html:submit onclick="javascript:submitForm(bringingTogetherForm, 'bringTogether.do', 'bringingTogether');" titleKey="button.title.bringingTogether"><bean:message key="button.title.bringingTogether" /></html:submit></div>
 	</div>
 	<br/>
 	<h3><bean:message key="title.results"/></h3>
@@ -64,7 +64,7 @@
 		</logic:notEmpty>	
 		<h2>&nbsp;</h2>	
 		<ul>
-			<li><html:link href="javascript:extractResults();"><html:img src="/eMagine/common/images/icones/extraire.png" titleKey="button.title.passage" /></html:link></li>
+			<li><html:link href="javascript:open_extract_win(document.bringingTogetherForm, 'bringTogether')"><html:img src="/eMagine/common/images/icones/extraire.png" titleKey="button.title.extract"/></html:link></li>
 		</ul>
 	</div>
 	<html:hidden property="action"/>
