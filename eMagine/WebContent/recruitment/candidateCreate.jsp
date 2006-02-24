@@ -28,7 +28,6 @@
 -->
 </script>
 <html:form action="/candidateCreate" method="POST" focus="lastName">
-<html:errors />
 <br/>
 	<fieldset>
 		<legend><bean:message key="form.fieldset.status"/></legend>
