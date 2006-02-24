@@ -155,8 +155,13 @@
 			<forward name="_default_target_" path="/teacherSearch.do?action=search" redirect="true" />
 		</action>
 
-		<action path="/teacherApprenticeAdd"
-			forward="teacher.teacherApprenticeAdd" />
+		<action path="/teacherApprenticeAdd" type="fr.umlv.ir3.emagine.apprentice.ApprenticeSearchAction" name="apprenticeSearchForm" parameter="action" scope="session">
+			<forward name="_default_target_" path="teacher.teacherApprenticeAdd" />
+		</action>
+		<action path="/addApprenticeToTeacher" type="fr.umlv.ir3.emagine.teachertutor.AddApprenticeToTeacherAction" name="apprenticeSearchForm" scope="session">
+			<forward name="_default_target_" path="/teacherVisuInfo.do?action=show" redirect="true" />
+		</action>
+			
 		<action path="/teacherEventDetail"
 			forward="teacher.teacherEventDetail" />
 		<action path="/teacherExtract" forward="teacher.teacherExtract" />
