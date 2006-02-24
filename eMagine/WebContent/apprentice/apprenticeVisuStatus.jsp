@@ -74,20 +74,22 @@
 					<label for="department"><bean:message key="form.department"/></label>
 					<html:select property="idDepartmentBirth">
 						<logic:notEmpty name="apprenticeModifyForm" property="departments">
+							<option value="" selected></option>
 							<html:optionsCollection property="departments" value="id" label="name"/>
 						</logic:notEmpty>		
 					</html:select>
 				</p>
 				<p>
 					<label for="country"><bean:message key="form.country"/></label>
-					<html:select property="idCountry">
+					<html:select property="idCountry">					
 						<logic:notEmpty name="apprenticeModifyForm" property="countries">
+							<option value="" selected></option>
 							<html:optionsCollection property="countries" value="id" label="name"/>
 						</logic:notEmpty>
 					</html:select>
 				</p>
 				<p>
-					<label for="nationality"><bean:message key="form.nationality"/></label>
+					<label for="nationality"><bean:message key="form.nationality"/><font color="red">*</font></label>
 					<html:select property="idNationality">
 						<logic:notEmpty name="apprenticeModifyForm" property="nationalities">
 							<html:optionsCollection property="nationalities" value="id" label="name"/>
@@ -102,6 +104,7 @@
 			<label for="father"><bean:message key="form.father"/></label>
 			<html:select property="idFather">
 				<logic:notEmpty name="apprenticeModifyForm" property="professions">
+					<option value="" selected></option>
 					<html:optionsCollection property="professions" value="id" label="name"/>
 				</logic:notEmpty>
 			</html:select>
@@ -110,6 +113,7 @@
 			<label for="mother"><bean:message key="form.mother"/></label>
 			<html:select property="idMother">
 				<logic:notEmpty name="apprenticeModifyForm" property="professions">
+					<option value="" selected></option>
 					<html:optionsCollection property="professions" value="id" label="name"/>
 				</logic:notEmpty>
 			</html:select>
@@ -121,6 +125,7 @@
 				<p><label for="contact"><bean:message key="form.contact"/></label>
 					<html:select property="idContact">
 						<logic:notEmpty name="apprenticeModifyForm" property="contacts">
+							<option value="" selected></option>
 							<html:optionsCollection property="contacts" value="id" label="name"/>
 						</logic:notEmpty>	
 					</html:select>
@@ -128,9 +133,10 @@
 			</fieldset>
 			<br/>
 		</div>
-<html:errors />
-<html:hidden property="idApprenticeToModify" />
-<html:hidden property="action" />
+	<html:errors />
+	<html:hidden property="idApprenticeToModify" />
+	<html:hidden property="action" />
+</html:form>
 <div align="right"><font color="red" size="1"><bean:message key="form.msg.obligation.star"/></font></div>
 </div>
 <div id="actions">
@@ -142,4 +148,3 @@
 		<li><html:link href="javascript:excludeApprentice();"><html:img src="/eMagine/common/images/icones/virer.png" titleKey="button.title.exclude" /></html:link></li>
 	</ul>
 </div>
-</html:form>

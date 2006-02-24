@@ -30,7 +30,13 @@ public class AbsenceSearchForm extends SelectSearchForm<Absence> implements Abse
 	//@IsASearchParam	
 	private String idJustification;
 	
-	/** Use to DispacthAction **/
+	/** Identifier of apprentice to modify **/
+	private String idApprenticeToModify;
+	
+	/** Identifier of absence to modify **/
+	private String idAbsenceToModify;
+	
+	/** Use to idApprentice **/
 	private String action;
 	
 	/** Decide if you must force the deleted of entity **/
@@ -108,6 +114,7 @@ public class AbsenceSearchForm extends SelectSearchForm<Absence> implements Abse
 	/**
 	 * @return Returns the idJustification.
 	 */
+	@IsASearchParam(value = "absence.justification.id", type = Long.class)
 	public String getIdJustification() {
 		return idJustification;
 	}
@@ -115,7 +122,7 @@ public class AbsenceSearchForm extends SelectSearchForm<Absence> implements Abse
 	/**
 	 * @param idJustification The idJustification to set.
 	 */
-	@IsASearchParam(value = "absence.justification.id", type = Long.class)
+	
 	public void setIdJustification(String idJustification) {
 		this.idJustification = idJustification;
 	}
@@ -147,6 +154,34 @@ public class AbsenceSearchForm extends SelectSearchForm<Absence> implements Abse
 	 */
 	public void setStartDate(String startDate) {
 		this.startDate = startDate;
+	}
+
+	/**
+	 * @return Returns the idAbsenceToModify.
+	 */
+	public String getIdAbsenceToModify() {
+		return idAbsenceToModify;
+	}
+
+	/**
+	 * @param idAbsenceToModify The idAbsenceToModify to set.
+	 */
+	public void setIdAbsenceToModify(String idAbsenceToModify) {
+		this.idAbsenceToModify = idAbsenceToModify;
+	}
+
+	/**
+	 * @return Returns the idApprenticeToModify.
+	 */
+	public String getIdApprenticeToModify() {
+		return idApprenticeToModify;
+	}
+
+	/**
+	 * @param idApprenticeToModify The idApprenticeToModify to set.
+	 */
+	public void setIdApprenticeToModify(String idApprenticeToModify) {
+		this.idApprenticeToModify = idApprenticeToModify;
 	}
 
 }

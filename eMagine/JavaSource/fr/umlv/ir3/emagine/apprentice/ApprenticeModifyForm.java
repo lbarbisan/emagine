@@ -18,48 +18,30 @@ import fr.umlv.ir3.emagine.apprentice.candidate.YearObtentionEnum;
 import fr.umlv.ir3.emagine.firm.Firm;
 import fr.umlv.ir3.emagine.firm.actor.EngineerTutor;
 import fr.umlv.ir3.emagine.teachertutor.TeacherTutor;
-import fr.umlv.ir3.emagine.util.DateOperations;
 
 public class ApprenticeModifyForm extends ActionForm {
 
 	private static final long serialVersionUID = -1120295787399332929L;
 	
-	/*****************************************
-	 *
-	 * Part of the form concerned by the absence tab :
-	 * 
-	******************************************/
+	/** Identifier of absence to modify **/
+	//private String idAbsenceToModify;
 	
-	/** Identifier of candidate to modify **/
-	private String idAbsenceToModify;
+	/** Identifier of aprentice to modify **/
+	private String idApprenticeToModify;
 	
-	/** absence initial date **/
-	private String initDate;
+	/** Use to action **/
+	private String action;
 	
-	/** absence end date **/
-	private String endDate;
+	/** selected table **/
+	private String tab;
 	
-	/** absence number of days **/
-	private String nbDays;
-	
-	/** List of all justifications **/
-	private Collection <JustificationEnum> justifications;
-	
-	/** Identifier of selected justification **/
-	private String idJustification;
-
-	/** absence comment **/
-	private String comment ;
-
 	/*****************************************
 	 *
 	 * Part of the form concerned by the adress tab :
 	 * 
 	******************************************/
 	
-	/** Identifier of candidate to modify **/
-	private String idApprenticeToModify;
-	
+
 	/** List of all of possibilities default adresses **/
 	private Collection <DefaultAddressEnum> defaultAddresses;
 	
@@ -329,15 +311,24 @@ public class ApprenticeModifyForm extends ActionForm {
 	/** Identifier of selected contact **/
 	private String idContact;	
 	
-	/** Use to action **/
-	private String action;
-
 	@Override
 	public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
 		ActionErrors errors = new ActionErrors();
 
 		if("create".equals(action) || "modify".equals(action)) {
-			
+			//situation
+			if ("".equals(idCourseOption) || "".equals(idYear) || "".equals(idGroup) || "".equals(idTeacherTutor) || "".equals(idFirm) || "".equals(idEngineerTutor)){
+				errors.add("allRequiredFieldIsNotfillin", new ActionMessage("user.error.allRequiredFieldIsNotfillin"));
+			}			
+			//TODO schooling !!
+			//status
+			if ("".equals(lastName) || "".equals(firstName) || "".equals(idNationality)){
+				
+			}
+			//address
+			if ("".equals(lastName) || "".equals(firstName) || "".equals(idNationality)){
+				
+			}
 		}
 		return errors;
 	}
@@ -395,6 +386,7 @@ public class ApprenticeModifyForm extends ActionForm {
 		establishment3="";
 		idSchoolDepartment3="";	
 		idApprenticeToModify = "";
+		tab="";
 	}
 
 	/**
@@ -509,19 +501,6 @@ public class ApprenticeModifyForm extends ActionForm {
 		this.action = action;
 	}
 
-	/**
-	 * @return Returns the comment.
-	 */
-	public String getComment() {
-		return comment;
-	}
-
-	/**
-	 * @param comment The comment to set.
-	 */
-	public void setComment(String comment) {
-		this.comment = comment;
-	}
 
 	/**
 	 * @return Returns the departments.
@@ -537,33 +516,20 @@ public class ApprenticeModifyForm extends ActionForm {
 		this.departments = departments;
 	}
 
-	/**
-	 * @return Returns the endDate.
-	 */
-	public String getEndDate() {
-		return endDate;
-	}
-
-	/**
-	 * @param endDate The endDate to set.
-	 */
-	public void setEndDate(String endDate) {
-		this.endDate = endDate;
-	}
 
 	/**
 	 * @return Returns the idAbsenceToModify.
 	 */
-	public String getIdAbsenceToModify() {
-		return idAbsenceToModify;
-	}
+	//public String getIdAbsenceToModify() {
+	//	return idAbsenceToModify;
+	//}
 
 	/**
 	 * @param idAbsenceToModify The idAbsenceToModify to set.
 	 */
-	public void setIdAbsenceToModify(String idAbsenceToModify) {
-		this.idAbsenceToModify = idAbsenceToModify;
-	}
+	//public void setIdAbsenceToModify(String idAbsenceToModify) {
+	//	this.idAbsenceToModify = idAbsenceToModify;
+	//}
 
 	/**
 	 * @return Returns the idAcaDepartment.
@@ -593,19 +559,6 @@ public class ApprenticeModifyForm extends ActionForm {
 		this.idApprenticeToModify = idApprenticeToModify;
 	}
 
-	/**
-	 * @return Returns the idJustification.
-	 */
-	public String getIdJustification() {
-		return idJustification;
-	}
-
-	/**
-	 * @param idJustification The idJustification to set.
-	 */
-	public void setIdJustification(String idJustification) {
-		this.idJustification = idJustification;
-	}
 
 	/**
 	 * @return Returns the idPersDepartment.
@@ -633,34 +586,6 @@ public class ApprenticeModifyForm extends ActionForm {
 	 */
 	public void setIdProfDepartment(String idProfDepartment) {
 		this.idProfDepartment = idProfDepartment;
-	}
-
-	/**
-	 * @return Returns the initDate.
-	 */
-	public String getInitDate() {
-		return initDate;
-	}
-
-	/**
-	 * @param initDate The initDate to set.
-	 */
-	public void setInitDate(String initDate) {
-		this.initDate = initDate;
-	}
-
-	/**
-	 * @return Returns the nbDays.
-	 */
-	public String getNbDays() {
-		return nbDays;
-	}
-
-	/**
-	 * @param nbDays The nbDays to set.
-	 */
-	public void setNbDays(String nbDays) {
-		this.nbDays = nbDays;
 	}
 
 	/**
@@ -1208,19 +1133,6 @@ public class ApprenticeModifyForm extends ActionForm {
 	public void setSexes(Collection<SexEnum> sexes) {
 		this.sexes = sexes;
 	}
-	/**
-	 * @return Returns the justifications.
-	 */
-	public Collection<JustificationEnum> getJustifications() {
-		return justifications;
-	}
-
-	/**
-	 * @param justifications The justifications to set.
-	 */
-	public void setJustifications(Collection<JustificationEnum> justifications) {
-		this.justifications = justifications;
-	}
 
 	/**
 	 * @return Returns the city.
@@ -1654,6 +1566,22 @@ public class ApprenticeModifyForm extends ActionForm {
 	 */
 	public void setIdSchoolDepartment3(String idSchoolDepartment3) {
 		this.idSchoolDepartment3 = idSchoolDepartment3;
+	}
+
+
+	/**
+	 * @return Returns the tab.
+	 */
+	public String getTab() {
+		return tab;
+	}
+
+
+	/**
+	 * @param tab The tab to set.
+	 */
+	public void setTab(String tab) {
+		this.tab = tab;
 	}
 
 }

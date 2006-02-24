@@ -6,6 +6,7 @@ package fr.umlv.ir3.emagine.apprentice;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -23,8 +24,11 @@ import fr.umlv.ir3.emagine.apprentice.candidate.DiplomaEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.ProfessionEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.SectionEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.YearObtentionEnum;
+import fr.umlv.ir3.emagine.firm.Firm;
 import fr.umlv.ir3.emagine.firm.FirmManager;
+import fr.umlv.ir3.emagine.firm.actor.EngineerTutor;
 import fr.umlv.ir3.emagine.firm.actor.EngineerTutorManager;
+import fr.umlv.ir3.emagine.teachertutor.TeacherTutor;
 import fr.umlv.ir3.emagine.teachertutor.TeacherTutorManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.EmagineEnumManager;
@@ -58,26 +62,6 @@ public class ApprenticeModifyAction extends BaseAction {
 		EmagineEnumManager emagineEnumManager = managerManager.getEmagineEnumManager();
 		
 		try {
-			
-			/**
-			 * Datas concerning the absences of an apprentice
-			 */
-			/*//Retrieve the absence we want to see (if it exists) 
-			String idAbsence = request.getParameter("id");			
-			if(idAbsence != null && !"".equals(idAbsence)) {
-				Absence absence = managerManager.getAbsenceManager().retrieve(Long.parseLong(idAbsence));
-				apprenticeModifyAbsenceForm.setIdAbsenceToModify(idAbsence);
-				apprenticeModifyAbsenceForm.setInitDate(dateToShow(absence.getStartDate()));
-				apprenticeModifyAbsenceForm.setEndDate(dateToShow(absence.getEndDate()));
-				apprenticeModifyAbsenceForm.setComment(absence.getJustificationComment());
-				//apprenticeModifyAbsenceForm.setIdJustification(absence.getJustification());
-				//apprenticeModifyAbsenceForm.setNbDays(absence.getNumberOfWorkedDays().toString());
-				
-				// Justification
-				if(absence.getJustificationComment() != null) {
-					//apprenticeModifyAbsenceForm.setIdJustification(Long.toString(absence.getJustification().getId()));
-				}
-			}*/
 			
 			/**
 			 * Commons datas for the apprentice
@@ -210,8 +194,41 @@ public class ApprenticeModifyAction extends BaseAction {
 				}
 				
 				/**
-				 * Datas concerning the Addresses of the apprentice
+				 * Datas concerning the Situation of the apprentice
 				 */
+				
+				if(apprentice.getCourseOption() != null) {
+					apprenticeModifyForm.setIdCourseOption(Long.toString(apprentice.getCourseOption().getId()));
+				}
+
+				if(apprentice.getYear() != null) {
+					apprenticeModifyForm.setIdYear(Long.toString(apprentice.getYear().getId()));
+				}
+				
+				if(apprentice.getGroup() != null) {
+					apprenticeModifyForm.setIdGroup(Long.toString(apprentice.getGroup().getId()));
+				}
+				
+				if(apprentice.getFirm() != null) {
+					apprenticeModifyForm.setIdFirm(Long.toString(apprentice.getFirm().getId()));
+				}
+
+				if(apprentice.getEngineerTutor() != null) {
+					apprenticeModifyForm.setIdEngineerTutor(Long.toString(apprentice.getEngineerTutor().getId()));
+				}
+				
+				if(apprentice.getTeacherTutor() != null) {
+					apprenticeModifyForm.setIdTeacherTutor(Long.toString(apprentice.getTeacherTutor().getId()));
+				}			
+				
+				/** schooling concerning tab **/
+								
+				/*if(apprentice.getLanguage1() != null) {
+					apprenticeModifyForm.setIdTeacherTutor(Long.toString(apprentice.getTeacherTutor().getId()));
+				}
+				if(apprentice.getLanguage2() != null) {
+					apprenticeModifyForm.setIdTeacherTutor(Long.toString(apprentice.getTeacherTutor().getId()));
+				}*/
 				
 				/** Commons lists : **/
 				

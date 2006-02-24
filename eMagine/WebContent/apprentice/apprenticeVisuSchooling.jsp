@@ -51,20 +51,10 @@
 <div class="form">
 		<br/>
 		<html:errors />
-		<p>
-			<label for="levels"><bean:message key="form.level"/></label>
-			<html:select property="idLevel">
-				<logic:notEmpty name="apprenticeModifyForm" property="levels">
-					<option value="" selected></option>
-					<html:optionsCollection property="levels" value="id" label="name"/>	
-				</logic:notEmpty>
-			</html:select>
-		</p>
-		<br/>
 		<fieldset>
 			<legend><bean:message key="form.fieldset.languages"/></legend>
 			<p>
-				<label for="language1"><bean:message key="form.language1"/></label> 
+				<label for="language1"><bean:message key="form.language1"/><font color="red">*</font></label> 
 				<html:select property="idLanguage1">
 					<option value="" selected></option>
 					<logic:notEmpty name="apprenticeModifyForm" property="languages">
@@ -73,7 +63,7 @@
 				</html:select>
 			</p>
 			<p>
-				<label for="language2"><bean:message key="form.language2"/></label>
+				<label for="language2"><bean:message key="form.language2"/><font color="red">*</font></label>
 				<html:select property="idLanguage2">
 					<option value="" selected></option>
 					<logic:notEmpty name="apprenticeModifyForm" property="languages">
@@ -92,6 +82,16 @@
 		<br/>
 		<fieldset>
 			<legend><bean:message key="form.fieldset.obtainedDiplomas"/></legend>
+			<p>
+				<label for="levels"><bean:message key="form.level"/><font color="red">*</font></label>
+				<html:select property="idLevel">
+					<logic:notEmpty name="apprenticeModifyForm" property="levels">
+						<option value="" selected></option>
+						<html:optionsCollection property="levels" value="id" label="name"/>	
+					</logic:notEmpty>
+				</html:select>
+			</p>
+			<hr/>			
 			<p>
 				<label for="diploma"><bean:message key="form.lastDiploma"/></label>
 				<html:select property="idDiploma1">
@@ -208,10 +208,12 @@
 		</fieldset>
 		<br/>
 	</div>
+	<html:errors />
+	<html:hidden property="action"/>
+	<html:hidden property="idApprenticeToModify"/>
 </html:form>
 <div align="right"><font color="red" size="1"><bean:message key="form.msg.obligation.star"/></font></div>
 </div>
-
 <div id="actions">
 	<h2>&nbsp;</h2>
 	<ul>

@@ -65,6 +65,7 @@
 			<label for="courseOptions"><bean:message key="form.die"/><font color="red">*</font></label>
 			<html:select property="idCourseOption">
 				<logic:notEmpty name="apprenticeModifyForm" property="courseOptions">
+					<option value="" selected></option>
 					<html:optionsCollection property="courseOptions" value="id" label="name"/>
 				</logic:notEmpty>
 			</html:select>
@@ -72,6 +73,7 @@
 		<p><label for="year"><bean:message key="form.year"/><font color="red">*</font></label>
 			<html:select property="idYear">
 				<logic:notEmpty name="apprenticeModifyForm" property="years">
+					<option value="" selected></option>
 					<html:optionsCollection property="years" value="id" label="name"/>
 				</logic:notEmpty>
 			</html:select>
@@ -79,6 +81,7 @@
 		<p><label for="group"><bean:message key="form.group"/><font color="red">*</font></label>
 			<html:select property="idGroup">
 				<logic:notEmpty name="apprenticeModifyForm" property="groups">
+					<option value="" selected></option>
 					<html:optionsCollection property="groups" value="id" label="name"/>
 				</logic:notEmpty>
 			</html:select>
@@ -91,6 +94,7 @@
 		<label for="firmName"><bean:message key="form.name"/><font color="red">*</font>&nbsp;</label>
 			<html:select property="idFirm">
 				<logic:notEmpty name="apprenticeModifyForm" property="firms">
+					<option value="" selected></option>
 					<html:optionsCollection property="firms" value="id" label="name"/>
 				</logic:notEmpty>
 			</html:select>
@@ -119,11 +123,12 @@
 			</div>-->
 		</p>
 	</fieldset> 
-<br/>           
-</div>
+	<br/>           
+	</div>
 <html:errors />
 <html:hidden property="idApprenticeToModify" />
 <html:hidden property="action" />
+</html:form>
 <div align="right"><font color="red" size="1"><bean:message key="form.msg.obligation.star"/></font></div>
 </div>
 <div id="actions">
@@ -135,4 +140,3 @@
 		<li><html:link href="javascript:excludeApprentice();"><html:img src="/eMagine/common/images/icones/virer.png" titleKey="button.title.exclude" /></html:link></li>
 	</ul>
 </div>
-</html:form>

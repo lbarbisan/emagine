@@ -93,13 +93,13 @@ public class AbsenceModifyAction extends BaseAction {
 		AbsenceModifyForm absenceModifyForm = (AbsenceModifyForm) form;
 		EmagineEnumManager emagineEnumManager = managerManager.getEmagineEnumManager();
 
+		
 		// Update the absence
 		try {
 			Absence absence = absenceManager.retrieve(Long.parseLong(absenceModifyForm.getIdAbsenceToModify()));
 			Apprentice apprentice = apprenticeManager.retrieve(
 					Long.parseLong(
 							((ApprenticeModifyForm)request.getSession().getAttribute("apprenticeModifyForm")).getIdApprenticeToModify()));
-
 			// Set values
 			absence.setStartDate(DateOperations.stringToDate(absenceModifyForm.getInitDate()));
 			absence.setEndDate(DateOperations.stringToDate(absenceModifyForm.getEndDate()));

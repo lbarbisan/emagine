@@ -124,7 +124,7 @@
 				<br/>
 		</div>
 <html:errors />
-<html:hidden property="idApprenticeToModify" />
+<html:hidden property="idApprenticeToModify"/>
 <html:hidden property="action" />
 <html:hidden property="tab" />
 </html:form>

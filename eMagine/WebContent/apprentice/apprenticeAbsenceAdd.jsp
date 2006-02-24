@@ -22,7 +22,7 @@
 		document.absenceModifyForm.reset();
 	}
 		
-	function deleteAbsences() {
+	function deleteAbsence() {
 		if(confirm("Souhaitez-vous réellement supprimer ces absences ?")) {
 			document.companySearchForm.action = "/eMagine/absenceDelete.do?action=delete&from=search";
 			document.companySearchForm.submit();
@@ -30,13 +30,12 @@
 	}
 -->
 </script>
-<h2><bean:message key="apprentice.absence.add.title"/><html:link action="/apprenticeVisuAbsence"><html:img src="/eMagine/common/images/icones/retour.png" titleKey="button.title.return"/></html:link></h2>
+<h2><bean:message key="apprentice.absence.add.title"/><html:link action="/apprenticeVisuAbsence?action=show"><html:img src="/eMagine/common/images/icones/retour.png" titleKey="button.title.return"/></html:link></h2>
 <br/>
 <html:form action="/absenceCreate">
 	<div class="form">
 		<p><layout:date key="form.initDate" styleClass="form_calendar" property="initDate" startYear="1994" endYear="2030" /></p>
 		<p><layout:date key="form.endDate" styleClass="form_calendar" property="endDate" startYear="1994" endYear="2030" /></p>
-		<p><label for="nbDays"><bean:message key="form.daysNumber"/><html:text property="nbDays" size="20" /></label></p>
 		<p>
 			<label for="justifications"><bean:message key="criteria.search.justification"/></label>
 			<html:select property="idJustification">

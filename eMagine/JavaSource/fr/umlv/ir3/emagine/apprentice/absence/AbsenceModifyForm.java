@@ -25,11 +25,9 @@ public class AbsenceModifyForm extends SelectSearchForm<Absence>{
 	/** List of all justifications **/
 	private Collection <JustificationEnum> justifications;
 
+	/** Identifier of selected justification **/
 	private String idJustification;
-	
-	/** nbDays of absence **/
-	private String nbDays;
-	
+
 	/** comment about the absence **/
 	private String comment;
 	
@@ -39,13 +37,12 @@ public class AbsenceModifyForm extends SelectSearchForm<Absence>{
 	/** Decide if you must force the deleted of entity **/
 	private boolean deletionForced;
 
-	/** id of apprentice **/
+	/** id of absence **/
 	private String idAbsenceToModify;
 	
 	/** id of apprentice **/
 	private String idApprenticeToModify;
 	
-
 	/**
 	 * @return Returns the idAbsenceToModify.
 	 */
@@ -82,7 +79,6 @@ public class AbsenceModifyForm extends SelectSearchForm<Absence>{
 	public void reset() {
 		initDate="";
 		endDate="";
-		nbDays="";
 		justifications=null;
 		idJustification="";
 		comment="";
@@ -205,17 +201,4 @@ public class AbsenceModifyForm extends SelectSearchForm<Absence>{
 		this.idApprenticeToModify = idApprenticeToModify;
 	}
 
-	/**
-	 * @return Returns the nbDays.
-	 */
-	public String getNbDays() {
-		return nbDays;
-	}
-
-	/**
-	 * @param nbDays The nbDays to set.
-	 */
-	public void setNbDays(String nbDays) {
-		this.nbDays = nbDays;
-	}
 }

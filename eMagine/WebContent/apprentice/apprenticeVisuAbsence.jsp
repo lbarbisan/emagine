@@ -24,6 +24,18 @@
 		document.absenceSearchForm.action = "/eMagine/" + action + ".do";
 		document.absenceSearchForm.submit();
 	}
+	
+	function excludeApprentice() {
+		if(confirm("Souhaitez-vous réellement exclure cet apprenti ?")) {
+			open("/eMagine/apprenticeExclude.do?action=execute&from=modify&currentSelectedIds=" + document.apprenticeModifyForm.elements['idApprenticeToModify'].value, "_self");
+		}
+	}
+	
+	function moveUpApprentice() {
+		if(confirm("Souhaitez-vous réellement faire passer cet apprenti en année supérieure ?")) {
+			open("/eMagine/apprenticeMoveUp.do?action=execute&from=modify&currentSelectedIds=" + document.apprenticeModifyForm.elements['idApprenticeToModify'].value, "_self");
+		}
+	}
 -->
 </script>
 <html:form action="/apprenticeVisuAbsence" method="POST" focus="">
@@ -45,8 +57,8 @@
 		<div class="search">
 			<fieldset>
 				<div class="search_b1">
-					<p><label for="initDate"><table><layout:date key="criteria.search.initDate" styleClass="form_calendar" property="startDate" startYear="2006" endYear="2030"/></label></p>
-					<p><label for="endDate"><table><layout:date key="criteria.search.endDate" styleClass="form_calendar" property="endDate" startYear="2006" endYear="2030"/></label></p>
+					<p><layout:date key="criteria.search.initDate" styleClass="form_calendar" property="startDate" startYear="2006" endYear="2030"/></p>
+					<p><layout:date key="criteria.search.endDate" styleClass="form_calendar" property="endDate" startYear="2006" endYear="2030"/></p>
 				</div>
 				<div class="search_b2">
 					<p>
@@ -107,13 +119,15 @@
 					<li><a href="javascript:checkAll('absenceSearchForm','currentSelectedIds');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
 					<li><a href="javascript:checkNothing('absenceSearchForm','currentSelectedIds');"><bean:message key="all_none.none"/></a></li>
 				</ul>
-			</logic:notEmpty>	
+			</logic:notEmpty>
 			<h2>&nbsp;</h2>
 			<ul>
 				<li><html:link action="/absenceCreate?action=show"><html:img src="/eMagine/common/images/icones/ajouter.png" titleKey="button.title.add" /></html:link></li>
 				<li><html:link href="javascript:deleteAbsences();"><html:img src="/eMagine/common/images/icones/supprimer.png" titleKey="button.title.remove" /></html:link></li>
+				<li><html:link href="javascript:resetForm();"><html:img src="/eMagine/common/images/icones/reinit.png" titleKey="button.title.reinitialize" /></html:link></li>
 			</ul>
 		</div>
 	</div>
+<html:hidden property="idApprenticeToModify"/>
 <html:hidden property="action" />
 </html:form>

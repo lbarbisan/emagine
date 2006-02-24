@@ -43,7 +43,7 @@ public class AbsenceDeleteAction extends BaseAction {
 		DAOManager.beginTransaction();
 		String [] ids = request.getParameterValues("currentSelectedIds");
 
-		
+		System.out.println("#################la je supprime  ###################");
 		if(ids != null && ids.length > 0) {
 			List <Absence> absencesToRemove = new LinkedList <Absence> ();
 			Apprentice apprentice = apprenticeManager.retrieve(

@@ -36,7 +36,6 @@
 	<div class="form">
 		<p><layout:date key="form.initDate" styleClass="form_calendar" property="initDate" startYear="1994" endYear="2030" /></p>
 		<p><layout:date key="form.endDate" styleClass="form_calendar" property="endDate" startYear="1994" endYear="2030" /></p>
-		<p><label for="nbDays"><bean:message key="form.daysNumber"/><html:text property="nbDays" size="20" /></label></p>
 		<p>
 			<label for="justifications"><bean:message key="criteria.search.justification"/></label>
 			<html:select property="idJustification">
@@ -57,5 +56,6 @@
 		<li><html:link href="javascript:deleteAbsence();"><html:img src="/eMagine/common/images/icones/supprimer.png" titleKey="button.title.remove" /></html:link></li>
 		</ul>
 	</div>
+<html:hidden property="idAbsenceToModify"/>	
 </html:form>
 <div align="right"><font color="red" size="1"><bean:message key="form.msg.obligation.star"/></font></div>

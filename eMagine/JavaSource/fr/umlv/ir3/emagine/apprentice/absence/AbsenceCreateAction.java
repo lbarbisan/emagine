@@ -97,7 +97,6 @@ public class AbsenceCreateAction extends BaseAction {
 		} catch (EMagineException exception) {
 				addEMagineExceptionError(errors, exception);
 		}
-
         // Report back any errors, and exit if any
 		return successIfNoErrors(mapping, request, errors);
 	}
