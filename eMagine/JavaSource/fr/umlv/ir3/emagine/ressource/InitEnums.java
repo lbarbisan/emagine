@@ -192,6 +192,8 @@ public class InitEnums {
 		emagineEnumDAO.create(enums);
 		enums = new YearEnum("5");
 		emagineEnumDAO.create(enums);
+		enums =  new YearEnum("Diplomé");
+		emagineEnumDAO.create(enums);
 	}
 
 	static final void initializeEnum(Class enumClass) throws EMagineException {

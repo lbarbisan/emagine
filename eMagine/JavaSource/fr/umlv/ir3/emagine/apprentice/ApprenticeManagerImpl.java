@@ -8,6 +8,7 @@ import org.hibernate.HibernateException;
 
 import fr.umlv.ir3.emagine.apprentice.absence.Absence;
 import fr.umlv.ir3.emagine.apprentice.candidate.Candidate;
+import fr.umlv.ir3.emagine.apprentice.candidate.CandidateDAO;
 import fr.umlv.ir3.emagine.event.Event;
 import fr.umlv.ir3.emagine.firm.Firm;
 import fr.umlv.ir3.emagine.firm.actor.EngineerTutor;
@@ -43,16 +44,16 @@ public class ApprenticeManagerImpl extends EventableManagerImpl<Apprentice, Appr
 	 */
 	public void moveUpApprentice(Collection<Apprentice> apprentices) throws EMagineException {
 		DAOManager.beginTransaction();
+		
 		try {
 			ApprenticeDAO dao = getDAO();
 			for (Apprentice apprentice : apprentices) {
-				// TODO : voir une meilleur implémentation que ce foreach
-				//Integer year = apprentice.getYear();
-				//apprentice.setYear(year + 1);
 				ManagerManager managerManager = ManagerManager.getInstance();
 				EmagineEnumManager emagineEnumManager = managerManager.getEmagineEnumManager();
 				YearEnum year = (YearEnum)emagineEnumManager.retrieve(apprentice.getYear().getId() + 1, YearEnum.class);
-				apprentice.setYear(year);
+				if (apprentice.getYear().getId() <= 5){
+					apprentice.setYear(year);
+				}				
 				dao.update(apprentice);
 			}
 			DAOManager.commitTransaction();
@@ -94,6 +95,7 @@ public class ApprenticeManagerImpl extends EventableManagerImpl<Apprentice, Appr
 			DAOManager.beginTransaction();
 			apprentice = DAOManager.getInstance().getApprenticeDAO().Integrate(candidate);
 			apprentice.setYear((YearEnum) ManagerManager.getInstance().getEmagineEnumManager().find("1", YearEnum.class));
+			apprentice.setAccepted(true);
 			DefaultAddressEnum defaultAddressEnum = (DefaultAddressEnum) ManagerManager.getInstance().getEmagineEnumManager().find("Personnelle", DefaultAddressEnum.class);
 			apprentice.setDefaultAddress(defaultAddressEnum);
 			getDAO().update(apprentice);
@@ -103,6 +105,7 @@ public class ApprenticeManagerImpl extends EventableManagerImpl<Apprentice, Appr
 		}
 		return apprentice;	
 	}
+	
 
 	/**
 	 * Remove the absences of an apprentice

@@ -14,6 +14,7 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessages;
 
+import fr.umlv.ir3.emagine.apprentice.ApprenticeManager;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.ManagerManager;
@@ -34,24 +35,20 @@ public class CandidateIntegrateAction extends BaseAction {
 	public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionMessages errors = new ActionMessages();
 		CandidateManager candidateManager = ManagerManager.getInstance().getCandidateManager();
+		ApprenticeManager apprenticeManager = ManagerManager.getInstance().getApprenticeManager();
 		
 		// Integrate the candidates
 		DAOManager.beginTransaction();
 		String [] ids = request.getParameterValues("currentSelectedIds");
 
 		if(ids != null && ids.length > 0) {
-			List <Candidate> candidates = new LinkedList <Candidate> ();;
-
 			for (String idCandidate : ids) {
 				try {					
-					candidates.add(candidateManager.retrieve(Long.parseLong(idCandidate)));
+					apprenticeManager.integrate(candidateManager.retrieve(Long.parseLong(idCandidate)));
 				} catch (EMagineException exception) {
 					addEMagineExceptionError(errors, exception);
 				}
 			}			
-
-			if(!candidates.isEmpty())
-				candidateManager.integrate(candidates);
 		}
 
 		// Report back any errors, and exit if any

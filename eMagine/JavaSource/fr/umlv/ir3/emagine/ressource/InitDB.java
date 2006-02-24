@@ -170,7 +170,7 @@ public class InitDB {
 
 	private static final void initializeCandidate(int start, int end)
 			throws EMagineException {
-
+		EmagineEnumDAO emagineEnumDAO =  DAOManager.getInstance().getEmagineEnumDAO();
 		CandidateDAO candidateDAO = DAOManager.getInstance().getCandidateDAO();
 		DAOManager.beginTransaction();
 
@@ -231,6 +231,7 @@ public class InitDB {
 			// candidate.setNationality(contact.getNationality());
 			// candidate.setOtherFormation()
 			candidate.setPhone("098098" + index);
+			candidate.setCourseOption((CourseOptionEnum) emagineEnumDAO.find(CourseOptionEnum.IR, CourseOptionEnum.class));
 			// candidate.setProfessionFather()
 			// candidate.setProfessionMother()
 			candidateDAO.create(candidate);
@@ -259,7 +260,7 @@ public class InitDB {
 			EmagineEnumDAO emagineEnumDAO =  DAOManager.getInstance().getEmagineEnumDAO();
 			JustificationEnum justification = (JustificationEnum) emagineEnumDAO.find("NJ", JustificationEnum.class);
 			
-			apprentice.setCourseOption((CourseOptionEnum) emagineEnumDAO.find(CourseOptionEnum.IR, CourseOptionEnum.class));
+		
 			apprentice.setGroup((GroupEnum) emagineEnumDAO.find(GroupEnum.G1A, GroupEnum.class));
 			
 			Absence absence =  new Absence(justification ,"c'est pas bien...", new Date(), new Date());

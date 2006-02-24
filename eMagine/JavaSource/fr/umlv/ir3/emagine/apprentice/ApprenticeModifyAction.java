@@ -310,14 +310,6 @@ public class ApprenticeModifyAction extends BaseAction {
 		
 		//Update the apprentice
 		try {
-			/*Absence absence = absenceManager.retrieve(Long.parseLong(candidateModifyForm.getIdAbsenceToModify()));
-			absence.setStartDate(stringToDate(candidateModifyForm.getInitDate()));
-			absence.setEndDate(stringToDate(candidateModifyForm.getEndDate()));
-			//TODO c'est calculé: comment faire ? absence.setNumber...(candidateModifyForm.getNbDays());
-			//TODO justification a repasser en enum et pas en boolean : il y a plus que 2 valeurs!!!
-			absence.setJustification(candidateModifyForm.getIdJustification());
-			absence.setJustificationComment(candidateModifyForm.getComment());*/
-			
 			
 			Apprentice apprentice = apprenticeManager.retrieve(Long.parseLong(apprenticeModifyForm.getIdApprenticeToModify()));
 			

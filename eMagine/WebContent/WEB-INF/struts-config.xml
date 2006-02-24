@@ -117,14 +117,14 @@
 		</action>
 		<action path="/absenceCreate" type="fr.umlv.ir3.emagine.apprentice.absence.AbsenceCreateAction" name="absenceModifyForm" input="apprentice.apprenticeAbsenceAdd" parameter="action" scope="session" validate="true">
 			<forward name="_default_target_" path="apprentice.apprenticeAbsenceAdd" />
-			<forward name="success" path="/apprenticeVisuAbsence.do" redirect="true" />
+			<forward name="success" path="/apprenticeVisuAbsence.do?action=show" redirect="true" />
 		</action>
 		<action path="/absenceModify" type="fr.umlv.ir3.emagine.apprentice.absence.AbsenceModifyAction" name="absenceModifyForm" input="apprentice.apprenticeAbsenceDetail" parameter="action" scope="session" validate="true">
 			<forward name="_default_target_" path="apprentice.apprenticeAbsenceDetail" redirect="true" />
-			<forward name="success" path="/apprenticeVisuAbsence.do" redirect="true" />
+			<forward name="success" path="/apprenticeVisuAbsence.do?action=search" redirect="true" />
 		</action>
 		<action path="/absenceDelete" type="fr.umlv.ir3.emagine.apprentice.absence.AbsenceDeleteAction" parameter="action">
-			<forward name="_default_target_" path="/apprenticeVisuAbsence.do" redirect="true" />
+			<forward name="_default_target_" path="/apprenticeVisuAbsence.do?action=search" redirect="true" />
 		</action>
 		<action path="/apprenticeTutorAdd" forward="apprentice.apprenticeTutorAdd" />
 		<action path="/apprenticeOnglet" forward="apprentice.apprenticeOnglet" />
