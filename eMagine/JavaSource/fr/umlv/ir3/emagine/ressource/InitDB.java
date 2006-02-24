@@ -37,6 +37,7 @@ import fr.umlv.ir3.emagine.extraction.ExtractionGroup;
 import fr.umlv.ir3.emagine.extraction.ExtractionProperty;
 import fr.umlv.ir3.emagine.firm.Firm;
 import fr.umlv.ir3.emagine.firm.FirmDAO;
+import fr.umlv.ir3.emagine.firm.Job;
 import fr.umlv.ir3.emagine.firm.actor.EngineerTutorManager;
 import fr.umlv.ir3.emagine.firm.actor.FirmActor;
 import fr.umlv.ir3.emagine.firm.actor.FirmActorDAO;
@@ -477,6 +478,10 @@ public class InitDB {
 				FirmActor firmActor2= createFrimActor(index*10+2);
 				FirmActor firmActor3 = createFrimActor(index*10+3);
 				
+				Job job1 = new Job();
+				Job job2 = new Job();
+				Job job3 = new Job();
+				
 				Firm firm = new Firm();
 				firm.setAddress(createAddress(index));
 				firm.setEmail("FirmMail@domain" + index + ".com");
@@ -487,6 +492,20 @@ public class InitDB {
 				firm.getFirmActors().add(firmActor);
 				firm.getFirmActors().add(firmActor2);
 				firm.getFirmActors().add(firmActor3);
+				
+				firm.getJobs().add(job1);
+				firm.getJobs().add(job2);
+				firm.getJobs().add(job3);
+	
+				job1.setNbPlace(100);
+				job1.setFirm(firm);
+				job1.setCursus((CourseOptionEnum) DAOManager.getInstance().getEmagineEnumDAO().find(index >1 ? CourseOptionEnum.IR : CourseOptionEnum.MFPI, CourseOptionEnum.class));
+				job2.setNbPlace(120);
+				job2.setFirm(firm);
+				job2.setCursus((CourseOptionEnum) DAOManager.getInstance().getEmagineEnumDAO().find(index >1 ? CourseOptionEnum.IR : CourseOptionEnum.MFPI, CourseOptionEnum.class));
+				job3.setNbPlace(230);
+				job3.setFirm(firm);
+				job3.setCursus((CourseOptionEnum) DAOManager.getInstance().getEmagineEnumDAO().find(index >1 ? CourseOptionEnum.IR : CourseOptionEnum.MFPI, CourseOptionEnum.class));
 				
 				firmActor.setFirm(firm);
 				firmActor2.setFirm(firm);

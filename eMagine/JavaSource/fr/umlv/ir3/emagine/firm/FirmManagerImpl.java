@@ -3,9 +3,15 @@ package fr.umlv.ir3.emagine.firm;
 import java.util.Collection;
 import java.util.List;
 
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Expression;
+
+import fr.umlv.ir3.emagine.firm.actor.EngineerTutor;
 import fr.umlv.ir3.emagine.firm.actor.FirmActor;
 import fr.umlv.ir3.emagine.util.DAOManager;
 import fr.umlv.ir3.emagine.util.EMagineException;
+import fr.umlv.ir3.emagine.util.HibernateUtils;
 import fr.umlv.ir3.emagine.util.ManagerManager;
 import fr.umlv.ir3.emagine.util.base.EventableManagerImpl;
 
@@ -159,5 +165,15 @@ public class FirmManagerImpl extends EventableManagerImpl<Firm, FirmDAO> impleme
 		firm.getMotherFirms(1, firms);
 		firms.remove(firm);
 		return firms;
+	}
+	
+	/**
+	 * Return th list of firm which has job for specified courseOption
+	 * @param id
+	 * @return
+	 */
+	public List<Firm> findFirmForCourseOptionId(long id)
+	{
+		return getDAO().findFirmForCourseOptionId(id);
 	}
 }
