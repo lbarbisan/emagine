@@ -41,7 +41,7 @@
 		</ul>
 	</div>
 
-<html:form action="/eventSearch" method="POST" focus="lastName">
+<html:form action="/eventSearch.do?action=search&from=apprentice" method="POST" focus="lastName">
 <div class="tabs_div">
 
 <h2><bean:message key="event.search"/></h2>
@@ -94,7 +94,7 @@
 						<td><html:multibox property="currentSelectedIds" value="<%= event.getId().toString() %>" />&nbsp;</td>
 						<td><bean:write name="event" property="date" />&nbsp;</td>
 						<td><bean:write name="event" property="title" />&nbsp;</td>
-						<td><bean:write name="event" property="comment" />&nbsp;</td>
+						<td><bean:write name="event" property="description" />&nbsp;</td>
 					</tr>
 				</logic:iterate>
 			</logic:notEmpty>	

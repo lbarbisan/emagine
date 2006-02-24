@@ -12,6 +12,7 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessages;
 
+import fr.umlv.ir3.emagine.firm.actor.FirmActor;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.ManagerManager;
 import fr.umlv.ir3.emagine.util.base.BaseDAO;
@@ -67,13 +68,13 @@ public class EventSearchAction extends SearchAction {
 		// Retrieve the searched users, and set them in the page 
 		try {
 			if("apprentice".equals(parameter)) {
-				eventSearchForm.setResults(searchEvents(managerManager.getFirmActorManager(), request, "apprenticeModifyForm", "idApprenticeToModify"));
+				eventSearchForm.setResults(searchEvents(managerManager.getApprenticeManager(), request, "apprenticeModifyForm", "idApprenticeToModify"));
 			}
 			else if("firm".equals(parameter)) {
-				eventSearchForm.setResults(searchEvents(managerManager.getFirmActorManager(), request, "companyModifyForm", "idFirmToModify"));
+				eventSearchForm.setResults(searchEvents(managerManager.getFirmManager(), request, "companyModifyForm", "idFirmToModify"));
 			}
 			else if("teacher".equals(parameter)) {
-				eventSearchForm.setResults(searchEvents(managerManager.getFirmActorManager(), request, "teacherTutorModifyForm", "idTeacherTutorToModify"));
+				eventSearchForm.setResults(searchEvents(managerManager.getTeacherTutorManager(), request, "teacherTutorModifyForm", "idTeacherTutorToModify"));
 			}
 			else if("firmActor".equals(parameter)) {
 				eventSearchForm.setResults(searchEvents(managerManager.getFirmActorManager(), request, "firmActorModifyForm", "idFirmActorToModify"));
@@ -93,6 +94,7 @@ public class EventSearchAction extends SearchAction {
 	
 	
 	private <E extends EventableEntity, D extends BaseDAO<E>, M extends BaseManager<E, D>> List<Event> searchEvents(M manager, HttpServletRequest request, String formName, String property) throws NumberFormatException, EMagineException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
+		System.err.println(Long.parseLong(BeanUtils.getNestedProperty(request.getSession().getAttribute(formName), property)));
 		E entity = manager.retrieve(
 				Long.parseLong(
 						BeanUtils.getNestedProperty(
