@@ -28,7 +28,7 @@
 			</fieldset>
 		</div>
 		<br/>
-			<div class="buttons"><html:submit onclick="javascript:submitForm(bringingTogetherForm, 'bringTogether.do', 'bringingTogether');" titleKey="button.title.bringingTogether"><bean:message key="button.title.bringingTogether" /></html:submit></div>
+			<div class="buttons"><html:submit onclick="javascript:submitForm(bringingTogetherForm, 'bringingTogether.do', 'bringingTogether');" titleKey="button.title.bringingTogether"><bean:message key="button.title.bringingTogether" /></html:submit></div>
 	</div>
 	<br/>
 	<h3><bean:message key="title.results"/></h3>
