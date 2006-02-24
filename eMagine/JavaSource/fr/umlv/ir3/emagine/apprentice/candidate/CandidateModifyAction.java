@@ -3,9 +3,6 @@
  */
 package fr.umlv.ir3.emagine.apprentice.candidate;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
