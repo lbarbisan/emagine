@@ -31,8 +31,7 @@ public class EngineerTutorManagerImpl extends EditableManagerImpl<EngineerTutor,
 		
 		try {
 			apprentice.setEngineerTutor(engineerTutor);
-			List<Apprentice> apprentice2 = engineerTutor.getApprentice();
-			apprentice2.add(apprentice);
+			engineerTutor.getApprentice().add(apprentice);
 			update(engineerTutor);
 			DAOManager.commitTransaction();
 		} catch (EMagineException exception) {
