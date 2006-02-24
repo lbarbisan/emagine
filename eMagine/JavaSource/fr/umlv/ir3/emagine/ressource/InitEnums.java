@@ -1,6 +1,7 @@
 package fr.umlv.ir3.emagine.ressource;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +32,12 @@ import fr.umlv.ir3.emagine.util.EmagineEnumDAO;
 
 public class InitEnums {
 
+	static final void createEnums(int start, int length) throws EMagineException
+	{
+		initializeEnum(CourseOptionEnum.class);
+		initializeEnum(EventTypeEnum.class);
+		initializeEnum(GroupEnum.class);
+	}
 	static final void createDefaultAddressEnum(int start, int length) throws EMagineException
 	{
 		EmagineEnumDAO emagineEnumDAO =  DAOManager.getInstance().getEmagineEnumDAO();
@@ -39,19 +46,6 @@ public class InitEnums {
 		enums =  new DefaultAddressEnum("Professionnelle");
 		emagineEnumDAO.create(enums);
 		enums =  new DefaultAddressEnum("Académique");
-		emagineEnumDAO.create(enums);
-	}
-	
-	static final void createGroupEnum(int start, int length) throws EMagineException
-	{
-		EmagineEnumDAO emagineEnumDAO =  DAOManager.getInstance().getEmagineEnumDAO();
-		GroupEnum enums =  new GroupEnum("1A");
-		emagineEnumDAO.create(enums);
-		enums =  new GroupEnum("1B");
-		emagineEnumDAO.create(enums);
-		enums =  new GroupEnum("2A");
-		emagineEnumDAO.create(enums);
-		enums =  new GroupEnum("2B");
 		emagineEnumDAO.create(enums);
 	}
 	
@@ -111,23 +105,6 @@ public class InitEnums {
 		}
 	}
 	
-	static final void createCourseOptionEnum(int start, int length) throws EMagineException
-	{
-		EmagineEnumDAO emagineEnumDAO =  DAOManager.getInstance().getEmagineEnumDAO();
-			
-			CourseOptionEnum enums =  new CourseOptionEnum("GEII");	
-			emagineEnumDAO.create(enums);
-			enums =  new CourseOptionEnum("MFPI");
-			emagineEnumDAO.create(enums);		
-			enums =  new CourseOptionEnum("IR");
-			emagineEnumDAO.create(enums);						
-			enums =  new CourseOptionEnum("GM");
-			emagineEnumDAO.create(enums);			
-			enums =  new CourseOptionEnum("EI");
-			emagineEnumDAO.create(enums);
-			enums =  new CourseOptionEnum("GMU");
-			emagineEnumDAO.create(enums);
-	}
 	
 	static final void createProfessionEnum(int start, int length) throws EMagineException
 	{
@@ -208,13 +185,13 @@ public class InitEnums {
 		emagineEnumDAO.create(enums);
 	}
 	
-	static final void createEventTypeEnum(int start, int length) throws EMagineException
+	static final void initializeEnum(Class enumClass) throws EMagineException
 	{
 		EmagineEnumDAO emagineEnumDAO =  DAOManager.getInstance().getEmagineEnumDAO();
 		
 		List<Field> fields = new ArrayList<Field>();
 		
-		for(Field field :EventTypeEnum.class.getFields())
+		for(Field field :enumClass.getFields())
 		{
 			int modifiers =  field.getModifiers();
 			if(Modifier.isFinal(modifiers) 
@@ -224,7 +201,21 @@ public class InitEnums {
 				fields.add(field);
 				try {
 					String value =  (String) field.get(null);
-					emagineEnumDAO.create(new EventTypeEnum(value));
+					Object[] objects = new Object[1];
+					objects[0] = value;
+						emagineEnumDAO.create((EmagineEnum) enumClass.getConstructors()[0].newInstance(objects));
+					} catch (SecurityException e) {
+						// TODO SecurityException.e Not Implemented
+						e.printStackTrace();
+					} catch (EMagineException e) {
+						// TODO EMagineException.e Not Implemented
+						e.printStackTrace();
+					} catch (InstantiationException e) {
+						// TODO InstantiationException.e Not Implemented
+						e.printStackTrace();
+					} catch (InvocationTargetException e) {
+						// TODO InvocationTargetException.e Not Implemented
+						e.printStackTrace();
 				} catch (IllegalArgumentException e) {
 					// TODO IllegalArgumentException.e Not Implemented
 					e.printStackTrace();

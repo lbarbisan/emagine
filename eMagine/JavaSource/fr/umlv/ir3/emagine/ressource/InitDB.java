@@ -19,6 +19,7 @@ import fr.umlv.ir3.emagine.apprentice.Apprentice;
 import fr.umlv.ir3.emagine.apprentice.ApprenticeManager;
 import fr.umlv.ir3.emagine.apprentice.CountryEnum;
 import fr.umlv.ir3.emagine.apprentice.DepartmentEnum;
+import fr.umlv.ir3.emagine.apprentice.GroupEnum;
 import fr.umlv.ir3.emagine.apprentice.JustificationEnum;
 import fr.umlv.ir3.emagine.apprentice.LevelEntryEnum;
 import fr.umlv.ir3.emagine.apprentice.NationalityEnum;
@@ -255,7 +256,10 @@ public class InitDB {
 			Apprentice apprentice  = apprenticeManager.integrate(candidate);
 			
 			EmagineEnumDAO emagineEnumDAO =  DAOManager.getInstance().getEmagineEnumDAO();
-			JustificationEnum justification = (JustificationEnum) emagineEnumDAO.find("NJ", JustificationEnum.class);	
+			JustificationEnum justification = (JustificationEnum) emagineEnumDAO.find("NJ", JustificationEnum.class);
+			
+			apprentice.setCourseOption((CourseOptionEnum) emagineEnumDAO.find(CourseOptionEnum.IR, CourseOptionEnum.class));
+			apprentice.setGroup((GroupEnum) emagineEnumDAO.find(GroupEnum.G1A, GroupEnum.class));
 			
 			Absence absence =  new Absence(justification ,"c'est pas bien...", new Date(), new Date());
 			absence.setApprentice(apprentice);

@@ -7,6 +7,13 @@ import fr.umlv.ir3.emagine.util.EmagineEnum;
 
 @Entity(access = AccessType.FIELD)
 public class CourseOptionEnum extends EmagineEnum {
+	
+	public static final String MFPI = "MFPI";	
+	public static final String IR   = "IR";						
+	public static final String GM	= "GM";			
+	public static final String EI	= "EI";
+	public static final String GMU	= "GMU";
+	
 	public CourseOptionEnum(){super();}
 	public CourseOptionEnum(String string) {
 		super(string);
