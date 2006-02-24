@@ -21,28 +21,35 @@
 	<body>
 	<div class="extract">
 		<h2><bean:message name="mailingForm" property="extractionTitleKey" /></h2>
-		<html:form action="/mailing" method="POST" focus="mailingTypeId">
-			<div class="form">
-				<html:errors/>
-				<p>
-					<label for="mailingTypeId"><bean:message key="form.type"/></label>
-					<html:select property="mailingTypeId">
-						<html:optionsCollection property="mailingTypes" label="title" value="id"/><bean:message key="form.mailingType"/>
-					</html:select>
-				</p>
-			</div>
-			<div id="actions">
-				<ul>
-					<li>
-						<html:link href="javascript:mailing();">
-							<html:img src="/eMagine/common/images/icones/mailing.png" titleKey="button.title.email" />
-						</html:link>
-					</li>
-				</ul>
-			</div>
-			<html:hidden property="extractionEntityName"/>
-			<input type="hidden" name="action"/>
-		</html:form>
+		
+		<logic:notEmpty name="mailingForm" property="mailingTypes">
+			<html:form action="/mailing" method="POST" focus="mailingTypeId">
+				<div class="form">
+					<html:errors/>
+					<p>
+						<label for="mailingTypeId"><bean:message key="form.type"/></label>
+						<html:select property="mailingTypeId">
+							<html:optionsCollection property="mailingTypes" label="title" value="id"/><bean:message key="form.mailingType"/>
+						</html:select>
+					</p>
+				</div>
+				<div id="actions">
+					<ul>
+						<li>
+							<html:link href="javascript:mailing();">
+								<html:img src="/eMagine/common/images/icones/mailing.png" titleKey="button.title.email" />
+							</html:link>
+						</li>
+					</ul>
+				</div>
+				<html:hidden property="extractionEntityName"/>
+				<input type="hidden" name="action"/>
+			</html:form>
+		</logic:notEmpty>
+		<logic:empty name="mailingForm" property="mailingTypes">
+			<bean:message key="mailingType.empty"/>
+		</logic:empty>
+
 		<br/>
 	</div>
 	</body>

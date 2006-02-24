@@ -11,6 +11,7 @@
 
 	function change(action) {
 		document.firmActorListForm.action = "/eMagine/" + action + ".do";
+		document.firmActorListForm.target = '';
 		document.firmActorListForm.submit();
 	}
 	
@@ -18,6 +19,7 @@
 	function deletes() {
 		if(confirm("Souhaitez-vous réellement supprimer ces acteurs ?")) {
 			document.firmActorListForm.action = "/eMagine/actorDelete.do?action=delete&from=search";
+			document.firmActorListForm.target = '';
 			document.firmActorListForm.submit();
 		}
 	}

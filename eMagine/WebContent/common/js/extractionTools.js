@@ -27,8 +27,8 @@ function open_win(form, extractionEntityName, action, url, extractionEntityNameP
 		extractionEntityNameParam = 'extractionEntityName';
 	}
 	// backup des action / target
-	var old_action = form.action;
-	var old_target = form.target;
+	//var old_action = form.action;
+	//var old_target = form.target;
 
 	var name = action + "_windows_" + extractionEntityName;
 	if (extractionEntityName != "") {
@@ -55,10 +55,10 @@ function open_win(form, extractionEntityName, action, url, extractionEntityNameP
     }
     param = "toolbar=no,location=no,status=yes,scrollbars=yes,resizable=yes,width=" + Width + ",height=" + Height + ",left=0,top=0";
 
-	try {
-		self.close(name);	//TODO : ne marche pas dans firefox...
-	}
-	catch (ex) {;}
+	//try {
+	//	self.close(name);	//TODO : ne marche pas dans firefox...
+	//}
+	//catch (ex) {;}
 
     window = window.open('_blank', name, param);
     if (!window.opener) {
@@ -72,9 +72,12 @@ function open_win(form, extractionEntityName, action, url, extractionEntityNameP
     //resetOldActionTarget(form, old_action, old_target);
 }
 
-function resetOldActionTarget(form, old_action, old_target) {
-    form.action = old_action;
-    form.target = old_target;
+function submitForm(form, url, action) {
+    form.action = url;
+    if (action) {
+	    form.action.value = action;
+	}
+    form.target = '';
 }
 
 // www.sean.co.uk

@@ -71,7 +71,7 @@
 			</fieldset>
 		</div>
 		<br/>
-		<div class="buttons"><html:submit onclick="javascript:setAction('search');" titleKey="button.title.search"><bean:message key="form.search" /></html:submit></div>
+		<div class="buttons"><html:submit onclick="javascript:submitForm(eventSearchForm, 'eventSearch.do', 'search');" titleKey="button.title.search"><bean:message key="form.search" /></html:submit></div>
 	</div>	
 	<br/>
 	<h3><bean:message key="title.results"/></h3>

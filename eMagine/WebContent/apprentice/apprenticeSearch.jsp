@@ -11,6 +11,7 @@
 	function excludeApprentices() {
 		if(confirm("Souhaitez-vous réellement exclure ces apprentis ?")) {
 			document.apprenticeSearchForm.action = "/eMagine/apprenticeExclude.do?from=apprentice_search";
+			document.apprenticeSearchForm.target = '';
 			document.apprenticeSearchForm.submit();
 		}
 	}
@@ -18,6 +19,7 @@
 	function moveUpApprentices() {
 		if(confirm("Souhaitez-vous réellement faire passer ces apprentis en année supérieure ?")) {
 			document.apprenticeSearchForm.action = "/eMagine/apprenticeMoveUp.do?from=apprentice_search";
+			document.apprenticeSearchForm.target = '';
 			document.apprenticeSearchForm.submit();
 		}
 	}
@@ -57,7 +59,7 @@
 			</fieldset>
 		</div>
 		<br/>
-		<div class="buttons"><html:submit onclick="javascript:setAction('search');" titleKey="button.title.search"><bean:message key="form.search" /></html:submit></div>
+		<div class="buttons"><html:submit onclick="javascript:submitForm(apprenticeSearchForm, 'apprenticeSearch.do', 'search');" titleKey="button.title.search"><bean:message key="form.search" /></html:submit></div>
 	</div>
 	<h3><bean:message key="title.results"/></h3>
 	<div align=center>

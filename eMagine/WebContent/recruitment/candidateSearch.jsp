@@ -11,12 +11,14 @@
 	function deleteCandidates() {
 		if(confirm("Souhaitez-vous réellement supprimer les candidats ?")) {
 			document.candidateSearchForm.action = "/eMagine/candidateDelete.do?action=delete&from=search";
+			document.candidateSearchForm.target = '';
 			document.candidateSearchForm.submit();
 		}
 	}
 	function integrateCandidates() {
 		if(confirm("Souhaitez-vous réellement faire passer les candidats en apprentis ?")) {
 			document.candidateSearchForm.action = "/eMagine/candidateIntegrate.do?action=integrate&from=search";
+			document.candidateSearchForm.target = '';
 			document.candidateSearchForm.submit();
 		}
 	}
@@ -124,5 +126,5 @@
 			<li><html:link href="javascript:open_extract_win(document.candidateSearchForm, 'candidate')"><html:img src="/eMagine/common/images/icones/extraire.png" titleKey="button.title.extract"/></html:link></li>
 		</ul>
 	</div>
-<html:hidden property="action" />	
+	<html:hidden property="action" />	
 </html:form>
