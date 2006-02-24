@@ -317,17 +317,16 @@ public class ApprenticeModifyForm extends ActionForm {
 
 		if("create".equals(action) || "modify".equals(action)) {
 			//situation
-			if ("".equals(idCourseOption) || "".equals(idYear) || "".equals(idGroup) || "".equals(idTeacherTutor) || "".equals(idFirm) || "".equals(idEngineerTutor)){
+			if ("situation".equals(tab) && ("".equals(idCourseOption) || "".equals(idYear) || "".equals(idGroup) || "".equals(idTeacherTutor) || "".equals(idFirm) || "".equals(idEngineerTutor))){
 				errors.add("allRequiredFieldIsNotfillin", new ActionMessage("user.error.allRequiredFieldIsNotfillin"));
 			}			
 			//TODO schooling !!
 			//status
-			if ("".equals(lastName) || "".equals(firstName) || "".equals(idNationality)){
+			if ("status".equals(tab) && ("".equals(lastName) || "".equals(firstName) || "".equals(idNationality))){
 				
 			}
 			//address
-			if ("".equals(persAddress) || "".equals(persCity) || "".equals(persEmail) || "".equals(persPostalCode)){
-				
+			if ("address".equals(tab) && ("".equals(persAddress) || "".equals(persCity) || "".equals(persEmail) || "".equals(persPostalCode))){	
 			}
 		}
 		return errors;
