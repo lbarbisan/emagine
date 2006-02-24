@@ -322,7 +322,8 @@ public class ApprenticeModifyAction extends BaseAction {
 			Apprentice apprentice = apprenticeManager.retrieve(Long.parseLong(apprenticeModifyForm.getIdApprenticeToModify()));
 			
 			/* Datas concerning the address tab*/
-			apprentice.setDefaultAddress((DefaultAddressEnum) emagineEnumManager.retrieve(Long.parseLong(apprenticeModifyForm.getIdDefaultAddress()), DefaultAddressEnum.class));
+			if(apprenticeModifyForm.getIdDefaultAddress() != null && !"".equals(apprenticeModifyForm.getIdDefaultAddress()))
+					apprentice.setDefaultAddress((DefaultAddressEnum) emagineEnumManager.retrieve(Long.parseLong(apprenticeModifyForm.getIdDefaultAddress()), DefaultAddressEnum.class));
 			
 			Address address1 = null;
 			if(	(apprenticeModifyForm.getPersAddress() != null && !"".equals(apprenticeModifyForm.getPersAddress()))
