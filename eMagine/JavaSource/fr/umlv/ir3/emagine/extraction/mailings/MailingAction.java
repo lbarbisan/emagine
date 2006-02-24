@@ -78,7 +78,7 @@ public class MailingAction extends BaseAction {
 				emails.add(person.getEmail());
 			}
 			// Send the mail
-			MailManager.sendMultiMailsBCC(emails, mailingType.getTitle(), mailingType.getComment(), new String[] {mailingType.getFileName(), attachedFile});
+			MailManager.sendMultiMailsBCC(emails, mailingType.getTitle(), mailingType.getComment(), new String[] {attachedFile, mailingType.getFileName()});
 		} catch (EMagineException e) {
 			// save the error
 			addEMagineExceptionError(errors, e);

@@ -96,7 +96,6 @@ public class MailManager {
 		// Thanks to http://www.infini-fr.com/Sciences/Informatique/Langages/Imperatifs/Java/javamail.html
 		try {
 			ResourceBundle config = Bundles.getConfigBundle();
-		
 			
 			// Target smtp server
 			Properties props = System.getProperties();
@@ -131,7 +130,7 @@ public class MailManager {
 					if (attachment.length > 1) {
 						mbpFile.setFileName(attachment[1]);
 					} else {
-						mbpFile.setFileName(attachment[0]);
+						mbpFile.setFileName(new File(attachment[0]).getName());
 					}
 					mp.addBodyPart(mbpFile);
 				}
