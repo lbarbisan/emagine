@@ -63,12 +63,11 @@ public class BringingTogetherAction extends SearchAction {
 		ManagerManager manager = ManagerManager.getInstance();
 
 		// Retrieve the searched candidate, and set them in the page
-		try {
-			bringingTogetherForm.setResults(manager.getFirmManager().find(bringingTogetherForm));
-		} catch (EMagineException exception) {
-			addEMagineExceptionError(errors, exception);
-		}
-
+		if(bringingTogetherForm.getIdCourseOption() != null && !"".equals(bringingTogetherForm.getIdCourseOption()))
+			bringingTogetherForm.setResults(manager.getFirmManager().findFirmForCourseOptionId(Long.parseLong(bringingTogetherForm.getIdCourseOption())));
+		else
+			bringingTogetherForm.setResults(manager.getFirmManager().findAll());
+		
         // Report back any errors, and exit if any
 		return successIfNoErrors(mapping, request, errors);
 	}

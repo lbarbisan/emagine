@@ -111,40 +111,40 @@ public class CandidateCreateAction extends BaseAction {
 		candidate.setOtherFormation(candidateForm.isFormation());
 		candidate.setMobilePhone(candidateForm.getPersMobile());
 		
-		if(candidateForm.getIdSex()!= null && "".equals(candidateForm.getIdSex()))
+		if(candidateForm.getIdSex()!= null && !"".equals(candidateForm.getIdSex()))
 			candidate.setSex((SexEnum) emagineEnumManager.retrieve(Long.parseLong(candidateForm.getIdSex()), SexEnum.class));
 
-		if(candidateForm.getIdCountry()!= null && "".equals(candidateForm.getIdCountry()))
+		if(candidateForm.getIdCountry()!= null && !"".equals(candidateForm.getIdCountry()))
 			candidate.setBirthdayCountry((CountryEnum) emagineEnumManager.retrieve(Long.parseLong(candidateForm.getIdCountry()), CountryEnum.class));
 		
-		if(candidateForm.getIdNationality()!= null && "".equals(candidateForm.getIdNationality()))
+		if(candidateForm.getIdNationality()!= null && !"".equals(candidateForm.getIdNationality()))
 			candidate.setNationality((NationalityEnum) emagineEnumManager.retrieve(Long.parseLong(candidateForm.getIdNationality()), NationalityEnum.class));
 		
-		if(candidateForm.getIdDepartment()!= null && "".equals(candidateForm.getIdDepartment()))
+		if(candidateForm.getIdDepartment()!= null && !"".equals(candidateForm.getIdDepartment()))
 			candidate.setBirthdayDepartment((DepartmentEnum) emagineEnumManager.retrieve(Long.parseLong(candidateForm.getIdDepartment()), DepartmentEnum.class));
 		
-		if(candidateForm.getIdCourseOption()!= null && "".equals(candidateForm.getIdCourseOption()))
+		if(candidateForm.getIdCourseOption()!= null && !"".equals(candidateForm.getIdCourseOption()))
 			candidate.setCourseOption((CourseOptionEnum) emagineEnumManager.retrieve(Long.parseLong(candidateForm.getIdCourseOption()), CourseOptionEnum.class));
 		
-		if(candidateForm.getIdMother()!= null && "".equals(candidateForm.getIdMother()))
+		if(candidateForm.getIdMother()!= null && !"".equals(candidateForm.getIdMother()))
 			candidate.setProfessionMother((ProfessionEnum) emagineEnumManager.retrieve(Long.parseLong(candidateForm.getIdMother()), ProfessionEnum.class));
 		
-		if(candidateForm.getIdFather()!= null && "".equals(candidateForm.getIdFather()))
+		if(candidateForm.getIdFather()!= null && !"".equals(candidateForm.getIdFather()))
 			candidate.setProfessionFather((ProfessionEnum) emagineEnumManager.retrieve(Long.parseLong(candidateForm.getIdFather()), ProfessionEnum.class));
 		
-		if(candidateForm.getIdCenter()!= null && "".equals(candidateForm.getIdCenter()))
+		if(candidateForm.getIdCenter()!= null && !"".equals(candidateForm.getIdCenter()))
 			candidate.setFormationCenter(centerManager.retrieve(Long.parseLong(candidateForm.getIdCenter())));
 		
-		if(candidateForm.getIdContact()!= null && "".equals(candidateForm.getIdContact()))
+		if(candidateForm.getIdContact()!= null && !"".equals(candidateForm.getIdContact()))
 			candidate.setContactOriginIG2K((ContactEnum) emagineEnumManager.retrieve(Long.parseLong(candidateForm.getIdContact()), ContactEnum.class));
 		
-		if(candidateForm.getIdDiploma()!= null && "".equals(candidateForm.getIdDiploma()))
+		if(candidateForm.getIdDiploma()!= null && !"".equals(candidateForm.getIdDiploma()))
 			candidate.setLastDiploma((DiplomaEnum) emagineEnumManager.retrieve(Long.parseLong(candidateForm.getIdDiploma()), DiplomaEnum.class));
 		
-		if(candidateForm.getIdSection()!= null && "".equals(candidateForm.getIdSection()))
+		if(candidateForm.getIdSection()!= null && !"".equals(candidateForm.getIdSection()))
 			candidate.setLastSection((SectionEnum) emagineEnumManager.retrieve(Long.parseLong(candidateForm.getIdSection()), SectionEnum.class));
 		
-		if(candidateForm.getIdLevel()!= null && "".equals(candidateForm.getIdLevel()))
+		if(candidateForm.getIdLevel()!= null && !"".equals(candidateForm.getIdLevel()))
 			candidate.setEntryLevel((LevelEntryEnum) emagineEnumManager.retrieve(Long.parseLong(candidateForm.getIdLevel()), LevelEntryEnum.class));
 
 		

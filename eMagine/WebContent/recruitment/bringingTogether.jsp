@@ -34,8 +34,8 @@
 	<h3><bean:message key="title.results"/></h3>
 	<div align=center>
 		<div id="statSearch">
-			<p><label for="result"><bean:message key="statSearch.results"/></label><input type="text" id="result" size="5"/>&nbsp;&nbsp;&nbsp;
-			<label for="pageNb"><bean:message key="statSearch.numberByPage"/></label><input type="text" id="pageNb" size="5" /></p>
+			<p><label for="result"><bean:message key="statSearch.results"/></label><input type="text" id="result" size="5" disabled="disabled"/>&nbsp;&nbsp;&nbsp;
+			<label for="pageNb"><bean:message key="statSearch.numberByPage"/></label><input type="text" id="pageNb" size="5" disabled="disabled"/></p>
 		</div>
 		<table cellpadding="0" cellspacing="0">
 			<tr>
@@ -58,7 +58,7 @@
 	<div id="actions">
 		<logic:notEmpty name="bringingTogetherForm" property="results">
 		<ul>
-			<li><a href="javascript:checkAll('bringinigTogetherForm','currentSelectedIds');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
+			<li><a href="javascript:checkAll('bringingTogetherForm','currentSelectedIds');"><bean:message key="all_none.all"/></a>&nbsp;&nbsp;/</li>
 			<li><a href="javascript:checkNothing('bringingTogetherForm','currentSelectedIds');"><bean:message key="all_none.none"/></a></li>
 		</ul>
 		</logic:notEmpty>	
