@@ -119,7 +119,6 @@
 		<ul>
 			<li><html:link href="javascript:integrateCandidates();"><html:img src="/eMagine/common/images/icones/passage.png" titleKey="button.title.passage" /></html:link></li>
 			<li><html:link href="javascript:deleteCandidates();"><html:img src="/eMagine/common/images/icones/supprimer.png" titleKey="button.title.exclude" /></html:link></li>
-
 			<li><html:link href="javascript:open_mailing_create_win(document.candidateSearchForm, 'candidate')"><html:img src="/eMagine/common/images/icones/creer_mailing_list.png" titleKey="button.title.email"/></html:link></li>
 			<li><html:link href="javascript:open_mailing_win(document.candidateSearchForm, 'candidate')"><html:img src="/eMagine/common/images/icones/mailing.png" titleKey="button.title.email"/></html:link></li>
 			<li><html:link href="javascript:open_mail_win(document.candidateSearchForm, 'candidate')"><html:img src="/eMagine/common/images/icones/publipostage.png" titleKey="button.title.mailing"/></html:link></li>
