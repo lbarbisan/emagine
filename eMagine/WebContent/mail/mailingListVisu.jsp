@@ -11,6 +11,7 @@
 	function deleteMailingLists() {
 		if(confirm("Souhaitez-vous réellement supprimer ses listes de mailing ?")) {
 			document.mailingListListForm.action = "/eMagine/mailingTypeDelete.do?action=delete&from=list";
+			document.mailingListListForm.target = '';
 			document.mailingListListForm.submit();
 		}
 	}
