@@ -129,7 +129,7 @@ public class FirmModifyAction extends BaseAction {
 				address.setStreet(firmModifyForm.getAddress());
 				address.setDepartment(firmModifyForm.getIdDepartment() != null && !"".equals(firmModifyForm.getIdDepartment()) ? (DepartmentEnum) ManagerManager.getInstance().getEmagineEnumManager().retrieve(Long.parseLong(firmModifyForm.getIdDepartment()),DepartmentEnum.class) : null);
 			}
-			
+
 			firm.setAddress(address);
 			firm.setMotherFirm(firmModifyForm.getIdParentFirm() != null && !"".equals(firmModifyForm.getIdParentFirm()) ? firmManager.retrieve(Long.parseLong(firmModifyForm.getIdParentFirm())) : null);
 			firm.setName(firmModifyForm.getName());

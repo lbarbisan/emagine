@@ -162,6 +162,7 @@ public class CandidateCreateAction extends BaseAction {
 			address.setDepartment(candidateForm.getIdDepartment() != null && !"".equals(candidateForm.getIdDepartment())
 				? (DepartmentEnum) ManagerManager.getInstance().getEmagineEnumManager().retrieve(Long.parseLong(candidateForm.getIdDepartment()),DepartmentEnum.class) : null);
 		}
+		candidate.setAddressPersonnal(address);
 
 		// Create a candidate
 		try {

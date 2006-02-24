@@ -258,7 +258,8 @@ public class CandidateModifyAction extends BaseAction {
 				address.setDepartment(candidateModifyForm.getIdDepartment() != null && !"".equals(candidateModifyForm.getIdDepartment())
 						? (DepartmentEnum) ManagerManager.getInstance().getEmagineEnumManager().retrieve(Long.parseLong(candidateModifyForm.getIdDepartment()),DepartmentEnum.class) : null);
 			}
-
+			candidate.setAddressPersonnal(address);
+			
 			candidateManager.update(candidate);
 			
 		} catch (EMagineException exception) {
