@@ -82,4 +82,11 @@ public interface FirmManager extends EventableManager<Firm, FirmDAO> {
 			Collection<FirmActor> actors) throws EMagineException;
 	
 	public List <Firm> getFirmsLessParentFirms(Firm firm) throws EMagineException;
+	
+	/**
+	 * Find all firm which have job width specified id
+	 * @param id
+	 * @return
+	 */
+	public List<Firm> findFirmForCourseOptionId(long id);
 }
