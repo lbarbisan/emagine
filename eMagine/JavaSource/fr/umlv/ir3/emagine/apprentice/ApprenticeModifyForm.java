@@ -326,7 +326,7 @@ public class ApprenticeModifyForm extends ActionForm {
 				
 			}
 			//address
-			if ("".equals(lastName) || "".equals(firstName) || "".equals(idNationality)){
+			if ("".equals(persAddress) || "".equals(persCity) || "".equals(persEmail) || "".equals(persPostalCode)){
 				
 			}
 		}

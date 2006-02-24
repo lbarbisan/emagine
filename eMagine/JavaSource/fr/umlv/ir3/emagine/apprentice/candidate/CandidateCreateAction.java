@@ -21,6 +21,7 @@ import fr.umlv.ir3.emagine.apprentice.NationalityEnum;
 import fr.umlv.ir3.emagine.apprentice.SexEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenterManager;
 import fr.umlv.ir3.emagine.util.Address;
+import fr.umlv.ir3.emagine.util.DateOperations;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.EmagineEnumManager;
 import fr.umlv.ir3.emagine.util.ManagerManager;
@@ -101,7 +102,7 @@ public class CandidateCreateAction extends BaseAction {
 		Candidate candidate = new Candidate();
 		candidate.setFirstName(candidateForm.getFirstName());
 		candidate.setLastName(candidateForm.getLastName());
-		candidate.setBirthdayDate(stringToDate(candidateForm.getBirth()));	
+		candidate.setBirthdayDate(DateOperations.stringToDate(candidateForm.getBirth()));	
 		candidate.setBirthdayCity(candidateForm.getCity());
 		candidate.setEmail(candidateForm.getPersEmail());
 		candidate.setFax(candidateForm.getPersFax());
@@ -172,18 +173,5 @@ public class CandidateCreateAction extends BaseAction {
 
         // Report back any errors, and exit if any
 		return successIfNoErrors(mapping, request, errors);
-	}
-
-	private Date stringToDate(String stringDate) {
-		Date date = null;
-
-		if (stringDate != "") {
-			try {
-				SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yy-MM-dd hh:mm:ss:nn");
-				date = simpleDateFormat.parse(stringDate);
-			} catch (ParseException e) {
-			}
-		}
-		return date;
 	}
 }

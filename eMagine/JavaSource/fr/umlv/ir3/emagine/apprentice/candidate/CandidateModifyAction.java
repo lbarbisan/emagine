@@ -23,6 +23,7 @@ import fr.umlv.ir3.emagine.apprentice.NationalityEnum;
 import fr.umlv.ir3.emagine.apprentice.SexEnum;
 import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenterManager;
 import fr.umlv.ir3.emagine.util.Address;
+import fr.umlv.ir3.emagine.util.DateOperations;
 import fr.umlv.ir3.emagine.util.EMagineException;
 import fr.umlv.ir3.emagine.util.EmagineEnumManager;
 import fr.umlv.ir3.emagine.util.ManagerManager;
@@ -69,7 +70,7 @@ public class CandidateModifyAction extends BaseAction {
 				}
 				// Birthday
 				if(candidate.getBirthdayDate() != null) {
-					candidateModifyForm.setBirth(dateToShow(candidate.getBirthdayDate()));		
+					candidateModifyForm.setBirth(DateOperations.dateToShow(candidate.getBirthdayDate()));		
 				}
 				//department of birth
 				if(candidate.getBirthdayDepartment() != null) {
@@ -202,7 +203,7 @@ public class CandidateModifyAction extends BaseAction {
 
 			candidate.setFirstName(candidateModifyForm.getFirstName());
 			candidate.setLastName(candidateModifyForm.getLastName());
-			candidate.setBirthdayDate(stringToDate(candidateModifyForm.getBirth()));	
+			candidate.setBirthdayDate(DateOperations.stringToDate(candidateModifyForm.getBirth()));	
 			candidate.setBirthdayCity(candidateModifyForm.getCity());
 			candidate.setMobilePhone(candidateModifyForm.getPersMobile());
 			candidate.setEmail(candidateModifyForm.getPersEmail());
@@ -268,29 +269,5 @@ public class CandidateModifyAction extends BaseAction {
 		}
         // Report back any errors, and exit if any
 		return successIfNoErrors(mapping, request, errors);
-	}
-	
-	private Date stringToDate(String stringDate) {
-		Date date = null;
-
-		if (stringDate != "") {
-			try {
-				SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yy-MM-dd hh:mm:ss:SSS");
-				date = simpleDateFormat.parse(stringDate);
-			} catch (ParseException e) {
-			}
-		}
-		return date;
-	}
-
-	private String dateToShow(Date date) {
-		String stringDate = "";
-
-		if (date != null) {
-			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yy");
-			stringDate = simpleDateFormat.format(date);
-		}
-
-		return stringDate;
 	}
 }
