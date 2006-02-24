@@ -51,6 +51,10 @@
 				</logic:iterate>	   	
 			</logic:notEmpty>
 		</p>
+	</fieldset>
+	<br/>
+	<fieldset>
+		<legend><bean:message key="form.fieldset.birth"/></legend>		
 		<p><layout:date key="form.birth" styleClass="form_calendar" property="birth" startYear="1980" endYear="2030"/></p>
 		<p><label for="city"><bean:message key="form.city"/></label><html:text property="city" size="20" /></p>
 		<p>
@@ -66,7 +70,7 @@
 			</html:select>
 		</p>
 		<p>
-			<label for="nationality"><bean:message key="form.nationality"/></label>
+			<label for="nationality"><bean:message key="form.nationality"/><font color="red">*</font></label>
 			<html:select property="idNationality">
 				<html:optionsCollection property="nationalities" value="id" label="name"/>		
 			</html:select>
