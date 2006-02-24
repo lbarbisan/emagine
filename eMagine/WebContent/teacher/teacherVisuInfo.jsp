@@ -59,22 +59,20 @@
 	<div align=center>
 		<table cellpadding="0" cellspacing="0">
 			<tr>
+				<th>&nbsp;</th>
 				<th><bean:message key="table.header.name"/></th>
 				<th><bean:message key="table.header.firstName"/></th>
 				<th><bean:message key="table.header.class"/></th>
 				<th><bean:message key="table.header.group"/></th>
-				<th><bean:message key="table.header.initDate"/></th>
-				<th><bean:message key="table.header.endDate"/></th>
 			</tr>
 			<logic:notEmpty name="teacherTutorModifyForm" property="pupils">
 				<logic:iterate id="currentPupil" name="teacherTutorModifyForm" property="pupils">
 					<tr>
-						<td><bean:write name="currentPupil" property="lastName" />&nbsp;</td>
-						<td><bean:write name="currentPupil" property="firstName" />&nbsp;</td>
-						<td><bean:write name="currentPupil" property="class" />&nbsp;</td>
-						<td><bean:write name="currentPupil" property="group" />&nbsp;</td>
-						<td><bean:write name="currentPupil" property="initDate" />&nbsp;</td>
-						<td><bean:write name="currentPupil" property="endDate" />&nbsp;</td>
+						<td><html:multibox property="currentSelectedIds" value="<%= pupille.getId().toString() %>" />&nbsp;</td>
+						<td><html:link action="/actorModify?action=show" paramId="id" paramName="pupille" paramProperty="id"><bean:write name="pupille" property="lastname" />&nbsp;</html:link></td>
+						<td><bean:write name="pupille" property="firstname" />&nbsp;</td>
+						<td><bean:write name="pupille" property="courseOption.name" />&nbsp;</td>
+						<td><bean:write name="pupille" property="group.name" />&nbsp;</td>
 					</tr>
 				</logic:iterate>
 			</logic:notEmpty>	
