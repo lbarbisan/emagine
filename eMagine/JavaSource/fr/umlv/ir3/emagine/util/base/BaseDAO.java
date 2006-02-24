@@ -252,10 +252,6 @@ public class BaseDAO<EntityType extends BaseEntity> {
 						.addOrder(Order.asc("id"))
 						.list();
 		
-		if (foundResults.size() <= 0) {
-			return null;
-		}
-		
 		//Debug
 		if(log.isDebugEnabled()==true){
 			for(EntityType entityType: foundResults){
@@ -263,7 +259,9 @@ public class BaseDAO<EntityType extends BaseEntity> {
 			}
 		}
 		
+		
 		return foundResults;
+	
 	}
 	
 	private void logEntity(String method, EntityType newEntity)
@@ -283,5 +281,4 @@ public class BaseDAO<EntityType extends BaseEntity> {
 			}
 		}
 	}
-
 }
