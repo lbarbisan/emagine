@@ -69,8 +69,6 @@
 				<th><bean:message key="table.header.firstName"/></th>
 				<th><bean:message key="table.header.class"/></th>
 				<th><bean:message key="table.header.group"/></th>
-				<th><bean:message key="table.header.initDate"/></th>
-				<th><bean:message key="table.header.endDate"/></th>
 			</tr>
 			
 			<logic:notEmpty name="firmActorModifyForm" property="results">
@@ -79,10 +77,8 @@
 						<td><html:multibox property="currentSelectedIds" value="<%= pupille.getId().toString() %>" />&nbsp;</td>
 						<td><html:link action="/actorModify?action=show" paramId="id" paramName="pupille" paramProperty="id"><bean:write name="pupille" property="lastname" />&nbsp;</html:link></td>
 						<td><bean:write name="pupille" property="firstname" />&nbsp;</td>
-						<td><bean:write name="pupille" property="firstname" />&nbsp;</td>
-						<td><bean:write name="pupille" property="firstname" />&nbsp;</td>
-						<td><bean:write name="pupille" property="firstname" />&nbsp;</td>
-						<td><bean:write name="pupille" property="firstname" />&nbsp;</td>
+						<td><bean:write name="pupille" property="courseOption.name" />&nbsp;</td>
+						<td><bean:write name="pupille" property="group.name" />&nbsp;</td>
 					</tr>
 				</logic:iterate>
 			</logic:notEmpty>	
