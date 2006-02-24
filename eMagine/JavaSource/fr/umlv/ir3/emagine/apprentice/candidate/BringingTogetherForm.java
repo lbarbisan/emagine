@@ -2,12 +2,11 @@ package fr.umlv.ir3.emagine.apprentice.candidate;
 
 import java.util.Collection;
 
-import fr.umlv.ir3.emagine.apprentice.candidate.examcenter.FormationCenter;
-import fr.umlv.ir3.emagine.user.profile.Profile;
+import fr.umlv.ir3.emagine.firm.Firm;
 import fr.umlv.ir3.emagine.util.IsASearchParam;
 import fr.umlv.ir3.emagine.util.search.SelectSearchForm;
 
-public class BringingTogetherForm extends SelectSearchForm<Candidate> implements BringingTogetherParam {
+public class BringingTogetherForm extends SelectSearchForm<Firm> implements BringingTogetherParam {
 	
 	private static final long serialVersionUID = -2405706291327109100L;
 
@@ -51,7 +50,6 @@ public class BringingTogetherForm extends SelectSearchForm<Candidate> implements
 		return courseOptions;
 	}
 
-
 	/**
 	 * @param courseOptions The courseOptions to set.
 	 */
@@ -62,7 +60,7 @@ public class BringingTogetherForm extends SelectSearchForm<Candidate> implements
 	/**
 	 * @return Returns the idOptionCourse.
 	 */
-	@IsASearchParam("candidate.courseOption.id")
+	@IsASearchParam(value="firm.jobs.cursus.id",type=Long.class)
 	public String getIdCourseOption() {
 		return idCourseOption;
 	}
@@ -73,5 +71,4 @@ public class BringingTogetherForm extends SelectSearchForm<Candidate> implements
 	public void setIdCourseOption(String idCourseOption) {
 		this.idCourseOption = idCourseOption;
 	}
-
 }
