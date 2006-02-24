@@ -46,7 +46,7 @@
 				<logic:iterate id="firm" name="bringingTogetherForm" property="results" type="fr.umlv.ir3.emagine.firm.Firm">
 					<tr>
 						<td><html:multibox property="currentSelectedIds" value="<%= firm.getId().toString() %>"/></td>
-						<td><html:link action="/companyOnglet?action=show" paramId="id" paramName="firm" paramProperty="id"><bean:write name="firm" property="name"/>&nbsp;</html:link></td>
+						<td><bean:write name="firm" property="name"/>&nbsp;</td>
 				</logic:iterate>
 			</logic:notEmpty>	
 
