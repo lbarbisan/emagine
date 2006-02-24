@@ -34,7 +34,7 @@
 		<legend><bean:message key="form.fieldset.status"/></legend>
 			<p><label for="lastName"><bean:message key="form.name"/><font color="red">*</font></label><html:text property="lastName" size="20" /></p>
 			<p><label for="firstName"><bean:message key="form.firstName"/><font color="red">*</font></label><html:text property="firstName" size="20" /></p>
-			<p><label for="sex"><bean:message key="radio.sex"/></label>
+			<p><label for="sex"><bean:message key="radio.sex"/></label><font color="red">*</font>
 				<logic:notEmpty name="candidateModifyForm" property="sexes">
 					<logic:iterate id="sex" name="candidateModifyForm" property="sexes" type="fr.umlv.ir3.emagine.apprentice.SexEnum">
 						<html:radio property="idSex" value="id" idName="sex"/> 
@@ -42,22 +42,22 @@
 					</logic:iterate>	   	
 				</logic:notEmpty>
 			</p>
-			<p><layout:date key="form.birth" styleClass="form_calendar" property="birth" startYear="1980" endYear="2030"/></p>
+			<p><layout:date key="form.birth" styleClass="form_calendar" property="birth" startYear="1980" endYear="2030"/><font color="red">*</font></p>
 			<p><label for="city"><bean:message key="form.city"/></label><html:text property="city" size="20" /></p>
 			<p>
-				<label for="department"><bean:message key="form.department"/></label>
+				<label for="department"><bean:message key="form.department"/><font color="red">*</font></label>
 				<html:select property="idDepartment">
 					<html:optionsCollection property="departments" value="id" label="name"/>		
 				</html:select>
 			</p>
 			<p>
-				<label for="country"><bean:message key="form.country"/></label>
+				<label for="country"><bean:message key="form.country"/><font color="red">*</font></label>
 				<html:select property="idCountry">
 					<html:optionsCollection property="countries" value="id" label="name"/>		
 				</html:select>
 			</p>
 			<p>
-				<label for="nationality"><bean:message key="form.nationality"/></label>
+				<label for="nationality"><bean:message key="form.nationality"/><font color="red">*</font></label>
 				<html:select property="idNationality">
 					<html:optionsCollection property="nationalities" value="id" label="name"/>		
 				</html:select>
@@ -86,12 +86,14 @@
 		<p>
 			<label for="courseOptions"><bean:message key="form.die"/></label>
 			<html:select property="idCourseOption">
+				<option value=""></option>
 				<html:optionsCollection property="courseOptions" value="id" label="name"/>		
 			</html:select>
 		</p>
 		<p>
 			<label for="level"><bean:message key="form.level"/></label>
 			<html:select property="idLevel">
+				<option value=""></option>
 				<html:optionsCollection property="levels" value="id" label="name"/>		
 			</html:select>
 		</p>
@@ -99,18 +101,21 @@
 		<p>
 			<label for="diploma"><bean:message key="form.lastDiploma"/></label>
 			<html:select property="idDiploma">
+				<option value=""></option>
 				<html:optionsCollection property="diplomas" value="id" label="name"/>		
 			</html:select>
 		</p>
 		<p>
 			<label for="section"><bean:message key="form.section"/></label>
 			<html:select property="idSection">
+				<option value=""></option>
 				<html:optionsCollection property="sections" value="id" label="name"/>		
 			</html:select>
 		</p>
 		<p>
 			<label for="center"><bean:message key="form.center"/></label>
 			<html:select property="idCenter">
+				<option value=""></option>
 				<html:optionsCollection property="centers" value="id" label="name"/>		
 			</html:select>
 		</p>
@@ -133,6 +138,7 @@
 		<p>
 			<label for="contact"><bean:message key="form.contact"/></label>
 			<html:select property="idContact">
+				<option value=""></option>
 				<html:optionsCollection property="contacts" value="id" label="name"/>		
 			</html:select>
 		</p>
@@ -143,12 +149,14 @@
 		<p>
 			<label for="father"><bean:message key="form.father"/></label>
 			<html:select property="idFather">
+				<option value=""></option>
 				<html:optionsCollection property="professions" value="id" label="name"/>		
 			</html:select>
 		</p>
 		<p>
 			<label for="mother"><bean:message key="form.mother"/></label>
 			<html:select property="idMother">
+				<option value=""></option>
 				<html:optionsCollection property="professions" value="id" label="name"/>		
 			</html:select>
 		</p>
